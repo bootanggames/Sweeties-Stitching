@@ -121,3 +121,36 @@ public class GameEvent<T1, T2,T3>
         Event = null;
     }
 }
+
+public class GameFunc<T, result>
+{
+    private event Func<T, result> Event;
+    public void RegisterEvent(Func<T, result> method)
+    {
+        if (method == null)
+            return;
+
+        Event += method;
+    }
+
+    public void UnregisterEvent(Func<T, result> method)
+    {
+        Event -= method;
+    }
+
+    public void UnRegisterAll()
+    {
+        Event = null;
+    }
+
+    public result Raise(T param)
+    {
+        if (Event != null)
+        {
+            // NOTE: Only last subscriber’s return is given
+            return Event.Invoke(param);
+        }
+        return default;
+    }
+}
+

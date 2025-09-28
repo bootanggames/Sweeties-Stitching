@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Obi", "Obi.csproj", "{ADB82EAC-8EBB-71FB-7C05-35CBF3200CB3}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp", "Assembly-CSharp.csproj", "{F83DACE1-0729-8E5A-85C1-CA81AD011443}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Obi", "Obi.csproj", "{ADB82EAC-8EBB-71FB-7C05-35CBF3200CB3}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Obi.Editor", "Obi.Editor.csproj", "{D5AAA799-95E1-22B1-3B01-FC15E58FE0D2}"
 EndProject
@@ -31,14 +31,14 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{ADB82EAC-8EBB-71FB-7C05-35CBF3200CB3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{ADB82EAC-8EBB-71FB-7C05-35CBF3200CB3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{ADB82EAC-8EBB-71FB-7C05-35CBF3200CB3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{ADB82EAC-8EBB-71FB-7C05-35CBF3200CB3}.Release|Any CPU.Build.0 = Release|Any CPU
 		{F83DACE1-0729-8E5A-85C1-CA81AD011443}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{F83DACE1-0729-8E5A-85C1-CA81AD011443}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F83DACE1-0729-8E5A-85C1-CA81AD011443}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F83DACE1-0729-8E5A-85C1-CA81AD011443}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ADB82EAC-8EBB-71FB-7C05-35CBF3200CB3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ADB82EAC-8EBB-71FB-7C05-35CBF3200CB3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ADB82EAC-8EBB-71FB-7C05-35CBF3200CB3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ADB82EAC-8EBB-71FB-7C05-35CBF3200CB3}.Release|Any CPU.Build.0 = Release|Any CPU
 		{D5AAA799-95E1-22B1-3B01-FC15E58FE0D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{D5AAA799-95E1-22B1-3B01-FC15E58FE0D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D5AAA799-95E1-22B1-3B01-FC15E58FE0D2}.Release|Any CPU.ActiveCfg = Release|Any CPU

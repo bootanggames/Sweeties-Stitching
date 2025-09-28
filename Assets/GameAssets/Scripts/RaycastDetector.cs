@@ -122,7 +122,7 @@ public class RaycastDetector : MonoBehaviour, IRaycastDetector
                     Vector3 pos = hit.point;
                     pos.z = -1;
                     needle.transform.position = pos;
-                    MoveEndPoint();
+                    //MoveEndPoint();
                     if (!isInTrigger)
                         GameEvents.SewingThreadSplineEvents.onAppSplineStitchPoints.RaiseEvent(pos);
                     else

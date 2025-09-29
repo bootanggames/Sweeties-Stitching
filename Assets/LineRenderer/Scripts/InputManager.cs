@@ -2,39 +2,57 @@ using UnityEngine;
 
 public class InputManager : MonoBehaviour
 {
-    [SerializeField] float sensitivity;
-    [SerializeField] float moveXRange;
-    [SerializeField] float minYRange;
-    [SerializeField] float maxYRange;
-    [SerializeField] Vector2 currentPosition;
-    bool pressed = false;
+    [SerializeField] Vector3 firstTouch;
+    [SerializeField] Vector3 dragTouchValue;
+    bool drag = false;
+    float moveX = 0;
+    float moveY = 0;
+    [SerializeField] Vector2 moveLimit;
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0) && !pressed)
-        {
-            pressed = true;
-        }
+        
         GetInput();
     }
     void GetInput()
     {
-        if (Input.GetMouseButton(0) && pressed)
+        if (Input.GetMouseButtonDown(0) && !drag)
         {
-            float xVal = Input.GetAxis("Mouse X");
-            float yVal = Input.GetAxis("Mouse Y");
-            if(xVal != 0 || yVal != 0)
-            {
-                currentPosition += new Vector2(xVal, yVal) * sensitivity;
+            drag = true;
+            firstTouch = CalculateCurrentPosition();
+            dragTouchValue = CalculateCurrentPosition();
+        }
+        else if (Input.GetMouseButton(0) && drag)
+        {
+            dragTouchValue = CalculateCurrentPosition();
+            moveX = dragTouchValue.x - firstTouch.x;
+            moveX *= moveLimit.x / (float)Screen.width;
 
-                currentPosition.x = Mathf.Clamp(currentPosition.x, -moveXRange, moveXRange);
-                currentPosition.y = Mathf.Clamp(currentPosition.y, minYRange, maxYRange);
+            moveY = dragTouchValue.y - firstTouch.y;
+            moveY *= moveLimit.y / (float)Screen.height;
 
-                Vector3 newPosition = GameEvents.NeedleEvents.OnGettingCurrentPositionFromFixedStart.Raise(currentPosition);
-                GameEvents.NeedleEvents.OnNeedleMovement.RaiseEvent(newPosition);
-                GameEvents.ThreadEvents.onAddingPositionToRope.RaiseEvent(newPosition);
-
-            }
+            GameEvents.NeedleEvents.OnNeedleMovement.RaiseEvent(new Vector2(moveX, moveY));
 
         }
+        else if(Input.GetMouseButtonUp(0) && drag)
+        {
+            moveX = 0;
+            moveY = 0;
+            drag = false;
+        }
+
+    }
+
+    Vector3 CalculateCurrentPosition()
+    {
+        Vector3 position;
+        float screenWidth = Screen.width;
+        float screenHeight = Screen.height;
+        float requiredWidth = screenWidth / 2;
+        float requiredHeight = screenHeight / 2;
+        float moveXRange = Input.mousePosition.x - requiredWidth;
+        float moveYRange = Input.mousePosition.y - requiredHeight;
+        position = new Vector3(moveXRange, moveYRange, Input.mousePosition.z);
+
+        return position;
     }
 }

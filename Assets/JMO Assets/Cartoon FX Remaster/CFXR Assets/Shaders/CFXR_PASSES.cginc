@@ -1,21 +1,12 @@
 //--------------------------------------------------------------------------------------------------------------------------------
 // Cartoon FX
-// (c) 2012-2025 Jean Moreno
+// (c) 2012-2020 Jean Moreno
 //--------------------------------------------------------------------------------------------------------------------------------
 
 
 //--------------------------------------------------------------------------------------------------------------------------------
 // UBERSHADER
 //--------------------------------------------------------------------------------------------------------------------------------
-
-// Old variant keywords converted to uniform branching
-#define _CFXR_HDR_BOOST (_HdrMultiply > 0)
-#define _CFXR_SINGLE_CHANNEL (_SingleChannel > 0)
-#define _CFXR_DISSOLVE_ALONG_UV_X (_UseDissolveOffsetUV > 0)
-#define _CFXR_UV2_DISTORTION (_UseUV2Distortion > 0)
-#define _CFXR_UV_DISTORTION_ADD (_UVDistortionAdd > 0)
-#define _CFXR_OVERLAYBLEND_A (_CFXR_OVERLAYBLEND == 2)
-#define _CFXR_OVERLAYBLEND_RGB (_CFXR_OVERLAYBLEND == 1)
 
 #if defined(CFXR_UBERSHADER)
 
@@ -54,12 +45,6 @@
 		CBUFFER_START(UnityPerMaterial)
 
 		float4 _OverlayTex_Scroll;
-
-		half _SingleChannel;
-		half _UseDissolveOffsetUV;
-		half _UseUV2Distortion;
-		half _UVDistortionAdd;
-		half _CFXR_OVERLAYBLEND;
 
 		half _BumpScale;
 
@@ -324,9 +309,17 @@
 			// UV Distortion
 
 		#if _CFXR_UV_DISTORTION
-			float2 distortionUvSource = _CFXR_UV2_DISTORTION ? i.custom1.xy : i.uv_random.xy;
-			float2 uvDistortion = tex2D(_DistortTex, distortionUvSource.xy * _DistortScrolling.zw + i.uv_random.zw + frac(_DistortScrolling.xy * _Time.yy)).rg;
-			uvDistortion = _CFXR_UV_DISTORTION_ADD ? i.uv_random.xy + (uvDistortion * 2.0 - 1.0) * _Distort : lerp(i.uv_random.xy, uvDistortion, _Distort);
+			#if _CFXR_UV2_DISTORTION
+				float2 uvDistortion = tex2D(_DistortTex, i.custom1.xy * _DistortScrolling.zw + i.uv_random.zw + frac(_DistortScrolling.xy * _Time.yy)).rg;
+			#else
+				float2 uvDistortion = tex2D(_DistortTex, i.uv_random.xy * _DistortScrolling.zw + i.uv_random.zw + frac(_DistortScrolling.xy * _Time.yy)).rg;
+			#endif
+
+			#if _CFXR_UV_DISTORTION_ADD
+				uvDistortion = i.uv_random.xy + (uvDistortion * 2.0 - 1.0) * _Distort;
+			#else
+				uvDistortion = lerp(i.uv_random.xy, uvDistortion, _Distort);
+			#endif
 
 			if (_FadeAlongU > 0)
 			{
@@ -341,14 +334,19 @@
 			// ================================================================
 			// Color & Alpha
 
+		#if _CFXR_SINGLE_CHANNEL
+			half4 mainTex = half4(1, 1, 1, tex2D(_MainTex, main_uv.xy).r);
+		#else
 			half4 mainTex = tex2D(_MainTex, main_uv.xy);
-			if (_CFXR_SINGLE_CHANNEL) mainTex = half4(1, 1, 1, mainTex.r);
+		#endif
 
 		#ifdef _FLIPBOOK_BLENDING
-			half4 mainTex2 = tex2D(_MainTex, i.uv_random.zw);
-			if (_CFXR_SINGLE_CHANNEL) mainTex2 = mainTex2.r;
-
-			mainTex = lerp(mainTex, mainTex2, i.custom1.y);
+			#if _CFXR_SINGLE_CHANNEL
+				half4 mainTex2 = tex2D(_MainTex, i.uv_random.zw).r;
+			#else
+				half4 mainTex2 = tex2D(_MainTex, i.uv_random.zw);
+			#endif
+				mainTex = lerp(mainTex, mainTex2, i.custom1.y);
 		#endif
 
 		#if _CFXR_OVERLAYTEX_1X
@@ -366,9 +364,13 @@
 		#endif
 
 		#if _CFXR_OVERLAYTEX_1X || _CFXR_OVERLAYTEX_2X
-			if (_CFXR_OVERLAYBLEND_A)        mainTex.a *= overlay.r;
-			else if (_CFXR_OVERLAYBLEND_RGB) mainTex.rgb *= overlay.rgb;
-			else                             mainTex.rgba *= overlay.rgba;
+			#if _CFXR_OVERLAYBLEND_A
+			mainTex.a *= overlay.r;
+			#elif _CFXR_OVERLAYBLEND_RGB
+			mainTex.rgb *= overlay.rgb;
+			#else
+			mainTex.rgba *= overlay.rgba;
+			#endif
 		#endif
 
 			/*
@@ -392,13 +394,12 @@
 			particleColor.rgb += i.secondColor.rgb * secondColorMap;
 		#endif
 
-			if (_CFXR_HDR_BOOST)
-			{
-				#ifdef UNITY_COLORSPACE_GAMMA
-					_HdrMultiply = LinearToGammaSpaceApprox(_HdrMultiply);
-				#endif
-				particleColor.rgb *= _HdrMultiply * GLOBAL_HDR_MULTIPLIER;
-			}
+		#if _CFXR_HDR_BOOST
+			#ifdef UNITY_COLORSPACE_GAMMA
+				_HdrMultiply = LinearToGammaSpaceApprox(_HdrMultiply);
+			#endif
+			particleColor.rgb *= _HdrMultiply * GLOBAL_HDR_MULTIPLIER;
+		#endif
 
 			/*
 		#if !defined(PASS_SHADOW_CASTER)
@@ -514,12 +515,12 @@
 			// Dissolve
 
 		#if _CFXR_DISSOLVE
-			float2 dissolveUvs = _CFXR_DISSOLVE_ALONG_UV_X ? i.uv_random.xy * _DissolveTex_ST.xy + _DissolveTex_ST.zw + frac(_Time.yy * _DissolveScroll.xy) : i.uv_random.xy;
-			half dissolveTex = tex2D(_DissolveTex, dissolveUvs.xy).r;
-			if (_CFXR_DISSOLVE_ALONG_UV_X)
-			{
-				dissolveTex = i.uv_random.x + (dissolveTex * 2.0 - 1.0) * i.custom1.z;
-			}
+			#if _CFXR_DISSOLVE_ALONG_UV_X
+				half dissolveOffset = tex2D(_DissolveTex, i.uv_random.xy * _DissolveTex_ST.xy + _DissolveTex_ST.zw + frac(_Time.yy * _DissolveScroll.xy)).r * 2.0 - 1.0;
+				half dissolveTex = i.uv_random.x + dissolveOffset * i.custom1.z;
+			#else
+				half dissolveTex = tex2D(_DissolveTex, i.uv_random.xy).r;
+			#endif
 			dissolveTex = _InvertDissolveTex <= 0 ? 1 - dissolveTex : dissolveTex;
 			half dissolveTime = i.custom1.x;
 			half doubleDissolveWidth = 0;
@@ -703,13 +704,12 @@
 				half4 mainTex = half4(1, 1, 1, glow);
 				//--------------------------------
 
-				if (_CFXR_HDR_BOOST)
-				{
-					#ifdef UNITY_COLORSPACE_GAMMA
-						_HdrMultiply = LinearToGammaSpaceApprox(_HdrMultiply);
-					#endif
-					mainTex.rgb *= _HdrMultiply * GLOBAL_HDR_MULTIPLIER;
-				}
+			#if _CFXR_HDR_BOOST
+				#ifdef UNITY_COLORSPACE_GAMMA
+					_HdrMultiply = LinearToGammaSpaceApprox(_HdrMultiply);
+				#endif
+				mainTex.rgb *= _HdrMultiply * GLOBAL_HDR_MULTIPLIER;
+			#endif
 
 				half3 particleColor = mainTex.rgb * i.color.rgb;
 				half particleAlpha = mainTex.a * i.color.a;
@@ -895,8 +895,6 @@
 			// --------------------------------
 
 			CBUFFER_START(UnityPerMaterial)
-
-			half _SingleChannel;
 
 			float4 _MainTex_ST;
 
@@ -1113,8 +1111,11 @@
 				#define TEX2D_MAIN_TEXCOORD(sampler) tex2D(sampler, i.uvRing_uvCartesian.xy)
 			#endif
 
+				#if _CFXR_SINGLE_CHANNEL
+				half4 mainTex = half4(1, 1, 1, TEX2D_MAIN_TEXCOORD(_MainTex).r);
+				#else
 				half4 mainTex = TEX2D_MAIN_TEXCOORD(_MainTex);
-				if (_CFXR_SINGLE_CHANNEL) mainTex = half4(1, 1, 1, mainTex.r);
+				#endif
 
 				mainTex *= ring;
 
@@ -1123,13 +1124,12 @@
 				half3 particleColor = mainTex.rgb * i.color.rgb;
 				half particleAlpha = mainTex.a * i.color.a;
 
-				if (_CFXR_HDR_BOOST)
-				{
-					#ifdef UNITY_COLORSPACE_GAMMA
+			#if _CFXR_HDR_BOOST
+				#ifdef UNITY_COLORSPACE_GAMMA
 					_HdrMultiply = LinearToGammaSpaceApprox(_HdrMultiply);
-					#endif
-					particleColor.rgb *= _HdrMultiply * GLOBAL_HDR_MULTIPLIER;
-				}
+				#endif
+				particleColor.rgb *= _HdrMultiply * GLOBAL_HDR_MULTIPLIER;
+			#endif
 
 				// ================================================================
 				// Dissolve

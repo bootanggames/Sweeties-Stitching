@@ -16,6 +16,8 @@ public class NeedleDetector : MonoBehaviour
         SewPoint sewPoint = colliders[0].GetComponent<SewPoint>();
         if (sewPoint.IsSelected()) return;
         sewPoint.Selected();
+
+        //CreateLineAndApplyPullForceOnConnection -- call this function here
     }
 
     private void OnDrawGizmos()
@@ -25,6 +27,5 @@ public class NeedleDetector : MonoBehaviour
         Gizmos.color = Color.black;
         Gizmos.DrawWireSphere(needleTransform.position, detectionRadius);
     }
-
 
 }

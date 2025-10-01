@@ -5,7 +5,6 @@ using UnityEngine.Splines;
 
 public class ThreadManager : MonoBehaviour,IThreadManager
 {
-    [SerializeField] GameObject lineObj;
     [SerializeField] LineRenderer lineRenderer;
 
     [SerializeField] Vector3 currentRopeStartPosition;
@@ -19,10 +18,20 @@ public class ThreadManager : MonoBehaviour,IThreadManager
     [SerializeField] private Transform threadParent;
     int attachTouched;
     List<Transform> attachedTransforms = new List<Transform>();
+
+    LineRenderer instantiatedLine;
+   
     private void OnEnable()
     {
+        if(instantiatedLine == null)
+        {
+            instantiatedLine = Instantiate(lineRenderer, this.transform.position, Quaternion.identity);
+            instantiatedLine.transform.SetParent(this.transform);
+            instantiatedLine.transform.position = Vector3.zero;
+        }
+
         RegisterService();
-        lineRenderer.positionCount = threadMaxLength;
+        instantiatedLine.positionCount = threadMaxLength;
 
     }
     private void OnDisable()
@@ -32,8 +41,8 @@ public class ThreadManager : MonoBehaviour,IThreadManager
  
     public void AddFirstPositionOnMouseDown(Vector2 headPos)
     {
-        lineRenderer.SetPosition(0, headPos);
-        currentRopeStartPosition = lineRenderer.GetPosition(0);
+        instantiatedLine.SetPosition(0, headPos);
+        currentRopeStartPosition = instantiatedLine.GetPosition(0);
     }
 
   
@@ -47,9 +56,9 @@ public class ThreadManager : MonoBehaviour,IThreadManager
         if (direction.magnitude > threadLength)
             targetRopePosition = currentRopeStartPosition + direction.normalized * threadLength;
 
-        lineRenderer.SetPosition(0, targetRopePosition);
+        instantiatedLine.SetPosition(0, targetRopePosition);
 
-        MoveThread(lineRenderer, false);
+        MoveThread(instantiatedLine, false);
 
         prevMouseDragPosition = mousePos;
     }
@@ -78,6 +87,10 @@ public class ThreadManager : MonoBehaviour,IThreadManager
         }
     }
    
+    void CreateLineAndApplyPullForceOnConnection()
+    {
+        //GetAttachedPointsToCreateLink --call this function
+    }
     public void RegisterService()
     {
         ServiceLocator.RegisterService<IThreadManager>(this);

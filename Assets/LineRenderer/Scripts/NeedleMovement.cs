@@ -18,22 +18,26 @@ public class NeedleMovement : MonoBehaviour,INeedleMovement
     {
         ServiceLocator.RegisterService<INeedleMovement>(this);
         GameEvents.NeedleEvents.OnNeedleMovement.RegisterEvent(MoveNeedle);
-        GameEvents.NeedleEvents.OnGettingCurrentPositionFromFixedStart.RegisterEvent(GetCurrentPositionFromStartPoint);
+        GameEvents.NeedleEvents.OnFetchingLastNeedlePosition.RegisterEvent(GetLastPosition);
     }
 
     public void UnRegisterService()
     {
         ServiceLocator.UnRegisterService<INeedleMovement>(this);
         GameEvents.NeedleEvents.OnNeedleMovement.UnregisterEvent(MoveNeedle);
-        GameEvents.NeedleEvents.OnGettingCurrentPositionFromFixedStart.UnregisterEvent(GetCurrentPositionFromStartPoint);
+        GameEvents.NeedleEvents.OnFetchingLastNeedlePosition.UnregisterEvent(GetLastPosition);
     }
-    public Vector3 GetCurrentPositionFromStartPoint(Vector3 pos)
-    {
-        pos.z = 0;
-        return (startPoint.position + pos);
-    }
+
     public void MoveNeedle(Vector3 pos)
     {
         needle.position = pos;
+        GameEvents.ThreadEvents.onAddingPositionToRope.RaiseEvent(pos);
+    }
+
+  
+
+    public Vector3 GetLastPosition()
+    {
+        return needle.position;
     }
 }

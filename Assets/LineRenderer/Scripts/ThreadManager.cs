@@ -11,14 +11,13 @@ public class ThreadManager : MonoBehaviour,IThreadManager
     {
         RegisterService();
     }
-
     private void OnDisable()
     {
         UnRegisterService();
     }
     public void AddPositionToLine(Vector3 pos)
     {
-        lineRenderer.positionCount++;
+        lineRenderer.positionCount = 49;
         lineRenderer.SetPosition((lineRenderer.positionCount - 1), pos);
         lastPosition = pos;
         Debug.LogError(" " + pos);

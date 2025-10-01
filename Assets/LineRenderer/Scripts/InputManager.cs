@@ -2,44 +2,57 @@ using UnityEngine;
 
 public class InputManager : MonoBehaviour
 {
-    [SerializeField] Vector3 firstTouch;
-    [SerializeField] Vector3 dragTouchValue;
+    Vector3 firstTouch;
+    Vector3 dragTouchValue;
     bool drag = false;
+
     float moveX = 0;
     float moveY = 0;
+
     [SerializeField] Vector2 moveLimit;
+    Vector2 lastNeedlePos;   
+
     private void Update()
     {
-        
         GetInput();
     }
+
     void GetInput()
     {
         if (Input.GetMouseButtonDown(0) && !drag)
         {
             drag = true;
+
             firstTouch = CalculateCurrentPosition();
-            dragTouchValue = CalculateCurrentPosition();
         }
         else if (Input.GetMouseButton(0) && drag)
         {
             dragTouchValue = CalculateCurrentPosition();
-            moveX = dragTouchValue.x - firstTouch.x;
-            moveX *= moveLimit.x / (float)Screen.width;
+            float reference = Mathf.Min(Screen.width, Screen.height);
 
-            moveY = dragTouchValue.y - firstTouch.y;
-            moveY *= moveLimit.y / (float)Screen.height;
+            float normalizedX = (dragTouchValue.x - firstTouch.x) / reference;
+            float normalizedY = (dragTouchValue.y - firstTouch.y) / reference;
+
+            moveX = lastNeedlePos.x + normalizedX * moveLimit.x; 
+            moveY = lastNeedlePos.y + normalizedY * moveLimit.y;
+
+            moveX = Mathf.Clamp(moveX, -moveLimit.x, moveLimit.x);
+            moveY = Mathf.Clamp(moveY, -moveLimit.y, moveLimit.y);
 
             GameEvents.NeedleEvents.OnNeedleMovement.RaiseEvent(new Vector2(moveX, moveY));
-
         }
-        else if(Input.GetMouseButtonUp(0) && drag)
+        else if (Input.GetMouseButtonUp(0) && drag)
         {
-            moveX = 0;
-            moveY = 0;
             drag = false;
-        }
 
+            // store last position when dragging stops
+            lastNeedlePos = new Vector2(moveX, moveY);
+        }
+        else if (!drag)
+        {
+            // keep needle at last position when idle
+            GameEvents.NeedleEvents.OnNeedleMovement.RaiseEvent(lastNeedlePos);
+        }
     }
 
     Vector3 CalculateCurrentPosition()

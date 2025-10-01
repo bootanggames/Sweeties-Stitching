@@ -8,7 +8,6 @@ public class NeedleMovement : MonoBehaviour,INeedleMovement
     private void OnEnable()
     {
         RegisterService();
-        GameEvents.ThreadEvents.onInitialiseRope.RaiseEvent(needle.position);
     }
     private void OnDisable()
     {
@@ -18,14 +17,16 @@ public class NeedleMovement : MonoBehaviour,INeedleMovement
     {
         ServiceLocator.RegisterService<INeedleMovement>(this);
         GameEvents.NeedleEvents.OnNeedleMovement.RegisterEvent(MoveNeedle);
-        GameEvents.NeedleEvents.OnFetchingLastNeedlePosition.RegisterEvent(GetLastPosition);
+        GameEvents.NeedleEvents.OnFetchingNeedlePosition.RegisterEvent(GetPosition);
+        GameEvents.NeedleEvents.onGettingNeedleTransform.RegisterEvent(GetNeedle);
     }
 
     public void UnRegisterService()
     {
         ServiceLocator.UnRegisterService<INeedleMovement>(this);
         GameEvents.NeedleEvents.OnNeedleMovement.UnregisterEvent(MoveNeedle);
-        GameEvents.NeedleEvents.OnFetchingLastNeedlePosition.UnregisterEvent(GetLastPosition);
+        GameEvents.NeedleEvents.OnFetchingNeedlePosition.UnregisterEvent(GetPosition);
+        GameEvents.NeedleEvents.onGettingNeedleTransform.UnregisterEvent(GetNeedle);
     }
 
     public void MoveNeedle(Vector3 pos)
@@ -34,10 +35,13 @@ public class NeedleMovement : MonoBehaviour,INeedleMovement
         GameEvents.ThreadEvents.onAddingPositionToRope.RaiseEvent(pos);
     }
 
-  
-
-    public Vector3 GetLastPosition()
+    public Vector3 GetPosition()
     {
         return needle.position;
+    }
+
+    Transform GetNeedle()
+    {
+        return needle;
     }
 }

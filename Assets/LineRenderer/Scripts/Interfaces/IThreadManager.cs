@@ -2,6 +2,7 @@ using UnityEngine;
 
 public interface IThreadManager : IGameService
 {
-    public void InitializeRope(Vector3 needlePos);
-    public void AddPositionToLine(Vector3 pos);
+    void AddPositionToLineOnDrag(Vector2 pos);
+    void AddFirstPositionOnMouseDown(Vector2 headPos);
+    void MoveThread(LineRenderer thread, bool isPrevThread);
 }

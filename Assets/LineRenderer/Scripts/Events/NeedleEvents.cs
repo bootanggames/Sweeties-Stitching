@@ -1,11 +1,12 @@
 using UnityEngine;
 
-public partial class GameEvents
+public static partial class GameEvents
 {
-    public class NeedleEvents
+    public static class NeedleEvents
     {
-        public readonly static GameEvent<Vector3> OnNeedleMovement = new();
-        public readonly static GameFunc<Vector3> OnFetchingLastNeedlePosition = new();
+        public static readonly GameEvent<Vector3> OnNeedleMovement = new();
+        public static readonly GameFunc<Vector3> OnFetchingNeedlePosition = new();
+        public static readonly GameFunc<Transform> onGettingNeedleTransform = new();
     }
 }
 

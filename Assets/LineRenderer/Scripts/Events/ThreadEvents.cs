@@ -1,11 +1,11 @@
 using UnityEngine;
 
-public partial class GameEvents
+public static partial class GameEvents
 {
-    public class ThreadEvents
+    public static class ThreadEvents
     {
-        public readonly static GameEvent<Vector3> onInitialiseRope = new();
-        public readonly static GameEvent<Vector3> onAddingPositionToRope = new();
+        public static readonly GameEvent<Vector2> onInitialiseRope = new();
+        public static readonly GameEvent<Vector2> onAddingPositionToRope = new();
 
     }
 }

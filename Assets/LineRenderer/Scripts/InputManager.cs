@@ -10,7 +10,7 @@ public class InputManager : MonoBehaviour
     float moveY = 0;
 
     [SerializeField] Vector2 moveLimit;
-    Vector2 lastNeedlePos;   
+    [SerializeField]Vector2 lastNeedlePos;   
 
     private void Update()
     {
@@ -22,8 +22,9 @@ public class InputManager : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && !drag)
         {
             drag = true;
-
             firstTouch = CalculateCurrentPosition();
+            GameEvents.ThreadEvents.onInitialiseRope.RaiseEvent(lastNeedlePos);
+          
         }
         else if (Input.GetMouseButton(0) && drag)
         {
@@ -40,18 +41,18 @@ public class InputManager : MonoBehaviour
             moveY = Mathf.Clamp(moveY, -moveLimit.y, moveLimit.y);
 
             GameEvents.NeedleEvents.OnNeedleMovement.RaiseEvent(new Vector2(moveX, moveY));
+            GameEvents.ThreadEvents.onInitialiseRope.RaiseEvent(new Vector3(moveX, moveY, 0));
+
         }
         else if (Input.GetMouseButtonUp(0) && drag)
         {
             drag = false;
-
-            // store last position when dragging stops
             lastNeedlePos = new Vector2(moveX, moveY);
         }
         else if (!drag)
         {
-            // keep needle at last position when idle
             GameEvents.NeedleEvents.OnNeedleMovement.RaiseEvent(lastNeedlePos);
+            GameEvents.ThreadEvents.onInitialiseRope.RaiseEvent(lastNeedlePos);
         }
     }
 

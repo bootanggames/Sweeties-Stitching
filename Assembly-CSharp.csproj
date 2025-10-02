@@ -86,12 +86,14 @@
     <Compile Include="Assets\DOTween\Modules\DOTweenModuleUI.cs" />
     <Compile Include="Assets\Obi\Samples\Common\SampleResources\Scripts\ObjectDragger.cs" />
     <Compile Include="Assets\Obi\Samples\RopeAndRod\SampleResources\Scripts\RopeNet.cs" />
+    <Compile Include="Assets\LineRenderer\Scripts\Interfaces\IPointConnectionHandler.cs" />
     <Compile Include="Assets\LinerendererApproach\SewingThreadSpline.cs" />
     <Compile Include="Assets\Obi\Samples\RopeAndRod\SampleResources\Scripts\RopeBetweenTwoPoints.cs" />
     <Compile Include="Assets\LineRenderer\Scripts\Interfaces\IThreadManager.cs" />
     <Compile Include="Assets\LineRenderer\Scripts\InputManager.cs" />
     <Compile Include="Assets\GameAssets\Scripts\Cloth\IClothHandler.cs" />
     <Compile Include="Assets\Obi\Samples\Common\SampleResources\Scripts\ActorBlinker.cs" />
+    <Compile Include="Assets\LineRenderer\Scripts\Events\PointConnectionHandlerEvents.cs" />
     <Compile Include="Assets\GameAssets\Scripts\RaycastDetector.cs" />
     <Compile Include="Assets\LineRenderer\Scripts\Events\NeedleEvents.cs" />
     <Compile Include="Assets\JMO Assets\Cartoon FX (legacy)\Demo\Assets\CFX_Demo_RandomDir.cs" />
@@ -155,6 +157,7 @@
     <Compile Include="Assets\LineRenderer\Scripts\PointConnectorHandler.cs" />
     <Compile Include="Assets\DOTween\Modules\DOTweenModuleSprite.cs" />
     <Compile Include="Assets\Obi\Samples\RopeAndRod\SampleResources\Scripts\PinholeRatchet.cs" />
+    <Compile Include="Assets\LineRenderer\Scripts\ObjectInfo.cs" />
     <Compile Include="Assets\LineRenderer\Scripts\SerializableClasses\Connections.cs" />
     <Compile Include="Assets\JMO Assets\Cartoon FX (legacy)\Scripts\CFX_AutoDestructShuriken.cs" />
     <Compile Include="Assets\LineRenderer\Scripts\Interfaces\INeedleMovement.cs" />
@@ -761,6 +764,18 @@
     </Reference>
     <Reference Include="Mono.Cecil">
       <HintPath>Library\PackageCache\com.unity.nuget.mono-cecil@d6f9955a5d5f\Mono.Cecil.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEditor.iOS.Extensions.Xcode">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\6000.1.10f1\Editor\Data\PlaybackEngines\iOSSupport\UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEditor.iOS.Extensions.Common">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\6000.1.10f1\Editor\Data\PlaybackEngines\iOSSupport\UnityEditor.iOS.Extensions.Common.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEditor.Apple.Extensions.Common">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\6000.1.10f1\Editor\Data\PlaybackEngines\iOSSupport\UnityEditor.Apple.Extensions.Common.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.Android.Types">

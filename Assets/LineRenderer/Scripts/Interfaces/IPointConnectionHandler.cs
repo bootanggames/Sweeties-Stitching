@@ -1,0 +1,16 @@
+using System.Collections.Generic;
+using UnityEngine;
+
+public interface IPointConnectionHandler : IGameService
+{
+     List<SewPoint> points {  get; }
+     List<Connections> connections { get; }
+     float pullDuration {  get;}
+     float minDistance { get;}
+
+    void GetAttachedPointsToCreateLink(SewPoint point, LineRenderer line);
+    void CreateLinkBetweenPoints(SewPoint point1, SewPoint point2, LineRenderer line);
+    void PullConnectors(LineRenderer line);
+    void ManageConnetions(Connections c, LineRenderer line);
+    void ApplyPullForce(Transform p1, Transform p2, LineRenderer line);
+}

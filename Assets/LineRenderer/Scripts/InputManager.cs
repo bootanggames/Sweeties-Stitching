@@ -1,10 +1,11 @@
 using UnityEngine;
+using static UnityEditor.PlayerSettings;
 
 public class InputManager : MonoBehaviour
 {
     Vector3 firstTouch;
     Vector3 dragTouchValue;
-    bool drag = false;
+    [SerializeField]bool drag = false;
 
     float moveX = 0;
     float moveY = 0;
@@ -39,21 +40,20 @@ public class InputManager : MonoBehaviour
 
             moveX = Mathf.Clamp(moveX, -moveLimit.x, moveLimit.x);
             moveY = Mathf.Clamp(moveY, -moveLimit.y, moveLimit.y);
-
-            GameEvents.NeedleEvents.OnNeedleMovement.RaiseEvent(new Vector2(moveX, moveY));
-            GameEvents.ThreadEvents.onInitialiseRope.RaiseEvent(new Vector3(moveX, moveY, 0));
-
+            //GameEvents.ThreadEvents.onInitialiseRope.RaiseEvent(new Vector3(moveX, moveY, 0));
+            GameEvents.ThreadEvents.onAddingPositionToRope.RaiseEvent(new Vector2(moveX, moveY));
         }
         else if (Input.GetMouseButtonUp(0) && drag)
         {
             drag = false;
             lastNeedlePos = new Vector2(moveX, moveY);
+            GameEvents.PointConnectionHandlerEvents.onStopTweens.RaiseEvent();
         }
-        else if (!drag)
-        {
-            GameEvents.NeedleEvents.OnNeedleMovement.RaiseEvent(lastNeedlePos);
-            GameEvents.ThreadEvents.onInitialiseRope.RaiseEvent(lastNeedlePos);
-        }
+        //else if (!drag)
+        //{
+        //    //GameEvents.NeedleEvents.OnNeedleMovement.RaiseEvent(lastNeedlePos);
+        //    //GameEvents.ThreadEvents.onInitialiseRope.RaiseEvent(lastNeedlePos);
+        //}
     }
 
     Vector3 CalculateCurrentPosition()

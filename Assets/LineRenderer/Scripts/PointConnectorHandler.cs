@@ -1,14 +1,17 @@
 ﻿using DG.Tweening;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
 {
     public List<SewPoint> points {  get; private set; }
-    public List<Connections> connections {  get; private set; }
+    [field: SerializeField]public List<Connections> connections {  get; private set; }
     [field: SerializeField] public float pullDuration {  get; private set; }
     [field: SerializeField] public float minDistance {  get; private set; }
-
+    [SerializeField]float tolerance = 0.05f;
+    [SerializeField] LineRenderer linePrefab;
+    [SerializeField] float zVal = -0.25f;
     private void OnEnable()
     {
         points = new List<SewPoint>();
@@ -23,99 +26,124 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
     {
        ServiceLocator.RegisterService<IPointConnectionHandler>(this);
         GameEvents.PointConnectionHandlerEvents.onFetchingPoints.RegisterEvent(GetAttachedPointsToCreateLink);
+        GameEvents.PointConnectionHandlerEvents.onStopTweens.RegisterEvent(EndTweens);
     }
 
     public void UnRegisterService()
     {
         ServiceLocator.UnRegisterService<IPointConnectionHandler>(this);
         GameEvents.PointConnectionHandlerEvents.onFetchingPoints.UnregisterEvent(GetAttachedPointsToCreateLink);
+        GameEvents.PointConnectionHandlerEvents.onStopTweens.UnregisterEvent(EndTweens);
     }
-    public void GetAttachedPointsToCreateLink(SewPoint point, LineRenderer _line)
+    public void GetAttachedPointsToCreateLink(List<Transform> point)
     {
-        points.Add(point);
-        if (points.Count % 2 != 0)
+        if (point.Count < 2)
             return;
-
-        CreateLinkBetweenPoints(points[points.Count - 2], points[points.Count - 1], _line);
-    }
-
-    public void CreateLinkBetweenPoints(SewPoint point1, SewPoint point2, LineRenderer _line)
-    {
-        Connections connection = new Connections(point1.transform, point2.transform);
-        connections.Add(connection);
-
-        PullConnectors( _line);
-    }
-
-
-    public void PullConnectors(LineRenderer _line)
-    {
-        foreach(Connections c in connections)
+        foreach (Transform t in point)
         {
-            ManageConnetions(c, _line);
+            if(!points.Contains(t.GetComponent<SewPoint>()))
+                points.Add(t.GetComponent<SewPoint>());
+        }
+        CreateLinkBetweenPoints(points[points.Count - 2], points[points.Count - 1]);
+    }
+    public void CreateLinkBetweenPoints(SewPoint point1, SewPoint point2)
+    {
+        Connections connection = new Connections(point1.transform, point2.transform, linePrefab, zVal);
+        Connections existing = null;
+
+        if (!connections.Contains(connection))
+            connections.Add(connection);
+
+        if (existing == null)
+            ManageConnetions(connection);
+        else
+        {
+            if (!existing.isLocked)
+                ManageConnetions(existing); 
         }
     }
 
-    public void ManageConnetions(Connections c, LineRenderer _line)
+
+    public void ManageConnetions(Connections c)
     {
-        ApplyPullForce(c.point1, c.point2, _line);
+        ApplyPullForce(c.point1, c.point2);
     }
     Tween tween1;
     Tween tween2;
-    public void ApplyPullForce(Transform p1, Transform p2, LineRenderer _line)
+    public void ApplyPullForce(Transform p1, Transform p2)
     {
-        if (_line == null) return;
         if (p1 == null || p2 == null) return;
+        if (p1.parent == null || p2.parent == null) return;
         if (p1.parent == p2.parent) return;
 
-        Vector3 midpoint = (p1.position + p2.position) / 2f;
-        float dist = Vector3.Distance(p1.position, p2.position);
-        if (tween1 != null && tween1.IsActive())
-            tween1.Kill();
-
-        if (tween2 != null && tween2.IsActive())
-            tween2.Kill();
-        if (dist <= minDistance) return;
+        EndTweens();
 
         Transform parent1 = p1.parent;
         Transform parent2 = p2.parent;
 
-        Vector3 dir1 = (midpoint - parent1.position).normalized;
-        Vector3 dir2 = (midpoint - parent2.position).normalized;
+        Vector3 childPos1 = p1.position;
+        Vector3 childPos2 = p2.position;
 
-        float moveAmount = dist / 2f;
+        Vector3 parentMid = (parent1.position + parent2.position) * 0.5f;
+
+        float dist = Vector3.Distance(childPos1, childPos2);
         float tweenDuration = pullDuration;
 
-        Vector3 targetPos1 = parent1.position + dir1 * moveAmount;
-        Vector3 targetPos2 = parent2.position + dir2 * moveAmount;
-
-        float equalY = (targetPos1.y + targetPos2.y) / 2f; 
-        targetPos1.y = equalY;
-        targetPos2.y = equalY;
-
-      
-      
-        Sequence seq = DOTween.Sequence();
-        seq.Join(parent1.DOMove(targetPos1, tweenDuration).SetEase(Ease.InOutSine));
-        ObjectInfo parentInfo = parent1.GetComponent<ObjectInfo>();
-        seq.Join(parent1.DORotate(parentInfo.originalRotation, tweenDuration).SetEase(Ease.InOutSine));
-        tween1 = seq;
-
-
-        Sequence seq2 = DOTween.Sequence();
-        seq2.Join(parent2.DOMove(targetPos2, tweenDuration).SetEase(Ease.InOutSine));
-        ObjectInfo parent2Info = parent2.GetComponent<ObjectInfo>();
-
-        seq2.Join(parent2.DORotate(parent2Info.originalRotation, tweenDuration).SetEase(Ease.InOutSine));
-        tween2 = seq2;
-
-        DOTween.To(() => 0f, _ =>
+        if (dist <= (minDistance + tolerance))
         {
-            if (_line != null)
-            {
-                _line.SetPosition(0, p1.position);
-                _line.SetPosition(1, p2.position);
-            }
-        }, 1f, tweenDuration).SetEase(Ease.Linear);
+            Vector3 dir = (childPos1 - childPos2).normalized;
+            Vector3 midpoint = (childPos1 + childPos2) * 0.5f;
+
+            Vector3 desiredChild1 = midpoint + dir * (minDistance * 0.5f);
+            Vector3 desiredChild2 = midpoint - dir * (minDistance * 0.5f);
+
+            float equalY = (desiredChild1.y + desiredChild2.y) * 0.5f;
+            desiredChild1.y = equalY;
+            desiredChild2.y = equalY;
+
+            Vector3 targetParent1 = parent1.position + (desiredChild1 - childPos1);
+            Vector3 targetParent2 = parent2.position + (desiredChild2 - childPos2);
+
+            parent1.position = targetParent1;
+            parent2.position = targetParent2;
+
+            Sequence restoreSeq = DOTween.Sequence();
+            var info1 = parent1.GetComponent<ObjectInfo>();
+            var info2 = parent2.GetComponent<ObjectInfo>();
+            if (info1) restoreSeq.Join(parent1.DORotate(info1.originalRotation, tweenDuration).SetEase(Ease.InOutSine));
+            if (info2) restoreSeq.Join(parent2.DORotate(info2.originalRotation, tweenDuration).SetEase(Ease.InOutSine));
+            tween1 = restoreSeq;
+            return;
+        }
+
+        Vector3 dirPull = (childPos1 - childPos2).normalized;
+        Vector3 desiredChildPos1 = parentMid + dirPull * (minDistance * 0.5f);
+        Vector3 desiredChildPos2 = parentMid - dirPull * (minDistance * 0.5f);
+
+        float equalPullY = (desiredChildPos1.y + desiredChildPos2.y) * 0.5f;
+        desiredChildPos1.y = equalPullY;
+        desiredChildPos2.y = equalPullY;
+
+        Vector3 targetParentPos1 = parent1.position + (desiredChildPos1 - childPos1);
+        Vector3 targetParentPos2 = parent2.position + (desiredChildPos2 - childPos2);
+
+        Sequence pullSeq = DOTween.Sequence();
+        pullSeq.Join(parent1.DOMove(targetParentPos1, tweenDuration).SetEase(Ease.InOutSine));
+        pullSeq.Join(parent2.DOMove(targetParentPos2, tweenDuration).SetEase(Ease.InOutSine));
+        tween1 = pullSeq;
+    }
+    void EndTweens()
+    {
+        if (tween1 != null && tween1.IsActive())
+        {
+            tween1.Kill();
+            tween1 = null;
+        }
+
+        if (tween2 != null && tween2.IsActive())
+        {
+            tween2.Kill();
+            tween2 = null;
+        }
     }
 }

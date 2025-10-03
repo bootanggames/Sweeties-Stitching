@@ -23,9 +23,9 @@ public class SewPoint : MonoBehaviour, ISewPoint
         GameEvents.SewPointEvents.onPointSelectedStatus.RegisterEvent(IsSelected);
     }
 
-    public void Selected()
+    public void Selected(bool val)
     {
-        selected = true;
+        selected = val;
     }
 
     public void UnRegisterService()

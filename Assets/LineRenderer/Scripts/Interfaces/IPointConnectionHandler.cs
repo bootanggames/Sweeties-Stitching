@@ -8,9 +8,8 @@ public interface IPointConnectionHandler : IGameService
      float pullDuration {  get;}
      float minDistance { get;}
 
-    void GetAttachedPointsToCreateLink(SewPoint point, LineRenderer line);
-    void CreateLinkBetweenPoints(SewPoint point1, SewPoint point2, LineRenderer line);
-    void PullConnectors(LineRenderer line);
-    void ManageConnetions(Connections c, LineRenderer line);
-    void ApplyPullForce(Transform p1, Transform p2, LineRenderer line);
+    void GetAttachedPointsToCreateLink(List<Transform> point);
+    void CreateLinkBetweenPoints(SewPoint point1, SewPoint point2);
+    void ManageConnetions(Connections c);
+    void ApplyPullForce(Transform p1, Transform p2);
 }

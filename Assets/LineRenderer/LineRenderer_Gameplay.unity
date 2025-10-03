@@ -544,6 +544,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 154715b10629c084baaf5239012194bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  drag: 0
   moveLimit: {x: 4, y: 12}
   lastNeedlePos: {x: 0, y: 0}
 --- !u!1 &764609720
@@ -1008,8 +1009,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4878be58fa3be6f49b9e81882fe97e46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <pullDuration>k__BackingField: 1.5
-  <minDistance>k__BackingField: 0.05
+  <connections>k__BackingField: []
+  <pullDuration>k__BackingField: 0.15
+  <minDistance>k__BackingField: 0.25
+  tolerance: 0.05
+  linePrefab: {fileID: 7377872058111036791, guid: 9b87cbba0ae87414faacff166a8bcaad, type: 3}
+  zVal: -0.25
 --- !u!1 &1605238020
 GameObject:
   m_ObjectHideFlags: 0
@@ -1234,6 +1239,9 @@ MonoBehaviour:
   detectedPointsCount: 0
   instantiatedLine: {fileID: 0}
   pointsLinkParent: {fileID: 1578754646}
+  prevLine: {fileID: 0}
+  lastConnectedPoint: {fileID: 0}
+  zVal: -0.25
 --- !u!1 &1936735062
 GameObject:
   m_ObjectHideFlags: 0

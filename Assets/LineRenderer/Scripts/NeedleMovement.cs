@@ -32,7 +32,7 @@ public class NeedleMovement : MonoBehaviour,INeedleMovement
     public void MoveNeedle(Vector3 pos)
     {
         needle.position = pos;
-        GameEvents.ThreadEvents.onAddingPositionToRope.RaiseEvent(pos);
+        //GameEvents.ThreadEvents.onAddingPositionToRope.RaiseEvent(pos);
     }
 
     public Vector3 GetPosition()

@@ -15,8 +15,9 @@ public class NeedleDetector : MonoBehaviour
         if (colliders.Length <= 0) return;
         SewPoint sewPoint = colliders[0].GetComponent<SewPoint>();
         if (sewPoint.IsSelected()) return;
-        sewPoint.Selected();
+        sewPoint.Selected(true);
         sewPoint.GetComponent<MeshRenderer>().enabled = false;
+        sewPoint.name = "sew"+ sewPoint.name;
         GameEvents.ThreadEvents.onCreatingConnection.RaiseEvent(sewPoint);
     }
 

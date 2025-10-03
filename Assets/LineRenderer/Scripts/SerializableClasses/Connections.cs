@@ -9,18 +9,29 @@ public class Connections
     public Transform point2;
     public bool isLocked;
     public LineRenderer line;
+    public bool isMerged = false;
+    public Transform originalParentPoint2;
+    public float originalDistance;
     public Connections(Transform p1, Transform p2, LineRenderer prefab, float zVal)
     {
         this.point1 = p1; this.point2 = p2;
         isLocked = false;
-        line = GameObject.Instantiate(prefab);
+        
+        this.line = GameObject.Instantiate(prefab);
         Vector3 pos1 = p1.position; pos1.z = zVal;
         Vector3 pos2 = p2.position; pos2.z = zVal;
-        line.positionCount = 2;
-        line.SetPosition(0, pos1);
-        line.SetPosition(1, pos2);
+        this.line.positionCount = 2;
+        this.line.SetPosition(0, pos1);
+        this.line.SetPosition(1, pos2);
+        originalDistance = Vector3.Distance(p1.position, p2.position);
     }
-
+    public void DestroyPreviousLine()
+    {
+        if(this.line != null)
+        {
+            GameObject.Destroy(this.line.gameObject);
+        }
+    }
     public bool AlreadyHaveConnection(Connections other)
     {
         if (other == null) return false;

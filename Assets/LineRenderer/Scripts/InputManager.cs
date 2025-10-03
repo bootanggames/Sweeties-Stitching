@@ -1,5 +1,4 @@
 using UnityEngine;
-using static UnityEditor.PlayerSettings;
 
 public class InputManager : MonoBehaviour
 {
@@ -40,7 +39,6 @@ public class InputManager : MonoBehaviour
 
             moveX = Mathf.Clamp(moveX, -moveLimit.x, moveLimit.x);
             moveY = Mathf.Clamp(moveY, -moveLimit.y, moveLimit.y);
-            //GameEvents.ThreadEvents.onInitialiseRope.RaiseEvent(new Vector3(moveX, moveY, 0));
             GameEvents.ThreadEvents.onAddingPositionToRope.RaiseEvent(new Vector2(moveX, moveY));
         }
         else if (Input.GetMouseButtonUp(0) && drag)
@@ -49,11 +47,7 @@ public class InputManager : MonoBehaviour
             lastNeedlePos = new Vector2(moveX, moveY);
             GameEvents.PointConnectionHandlerEvents.onStopTweens.RaiseEvent();
         }
-        //else if (!drag)
-        //{
-        //    //GameEvents.NeedleEvents.OnNeedleMovement.RaiseEvent(lastNeedlePos);
-        //    //GameEvents.ThreadEvents.onInitialiseRope.RaiseEvent(lastNeedlePos);
-        //}
+     
     }
 
     Vector3 CalculateCurrentPosition()

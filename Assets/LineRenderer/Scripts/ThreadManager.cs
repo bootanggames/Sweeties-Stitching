@@ -25,13 +25,17 @@ public class ThreadManager : MonoBehaviour,IThreadManager
     [SerializeField] LineRenderer prevLine;
     [SerializeField] Transform lastConnectedPoint;
     [SerializeField] float zVal;
+    [SerializeField] Transform startPoint;
     private void OnEnable()
     {
         InstantiateMainThread();
         RegisterService();
 
     }
-
+    void ClearDetectedPointsList()
+    {
+        detectedPoints.Clear();
+    }
     void InstantiateMainThread()
     {
         instantiatedLine = Instantiate(lineRenderer, threadParent.position, Quaternion.identity);
@@ -39,6 +43,10 @@ public class ThreadManager : MonoBehaviour,IThreadManager
         instantiatedLine.transform.position = Vector3.zero;
 
         instantiatedLine.positionCount = threadMaxLength;
+        //for(int i = 0; i < instantiatedLine.positionCount; i++)
+        //{
+        //    instantiatedLine.SetPosition(i, startPoint.position);
+        //}
     }
     private void OnDisable()
     {
@@ -59,7 +67,6 @@ public class ThreadManager : MonoBehaviour,IThreadManager
             currentRopeStartPosition = headPos;
             instantiatedLine.SetPosition(0, headPos);
         }
-
     }
 
     public void AddPositionToLineOnDrag(Vector2 mousePos)
@@ -93,12 +100,14 @@ public class ThreadManager : MonoBehaviour,IThreadManager
             MoveThread(instantiatedLine, false);
 
         prevMouseDragPosition = mousePos;
+
     }
 
 
     public void MoveThread(LineRenderer thread, bool isPrevThread)
     {
         GameEvents.NeedleEvents.OnNeedleMovement.RaiseEvent(thread.GetPosition(0));
+        GameEvents.PointConnectionHandlerEvents.onFetchingPoints.RaiseEvent(detectedPoints);
 
         for (int i = 1; i < thread.positionCount; i++)
         {
@@ -119,7 +128,7 @@ public class ThreadManager : MonoBehaviour,IThreadManager
         if (!isPrevThread && lastConnectedPoint != null)
         {
             Vector3 lastPos = lastConnectedPoint.position;
-            lastPos.z = 0;
+            lastPos.z = -0.3f;
             thread.SetPosition(thread.positionCount - 1, lastPos);
 
             for (int i = thread.positionCount - 2; i >= 0; i--)
@@ -154,25 +163,12 @@ public class ThreadManager : MonoBehaviour,IThreadManager
             {
                 Destroy(threadParent.GetChild(i).gameObject);
             }
-            link = Instantiate(lineRenderer, pointsLinkParent.position, Quaternion.identity);
-            link.transform.name = "Link";
-            link.positionCount = 2;
-            link.transform.SetParent(pointsLinkParent);
-            link.transform.position = Vector3.zero;
-            Vector3 linkPos1 = detectedPoints[detectedPoints.Count - 2].position;
-            linkPos1.z = zVal;
-            link.SetPosition(0, linkPos1);
-            Vector3 linkPos2 = detectedPoints[detectedPoints.Count - 1].position;
-            linkPos2.z = zVal;
-            link.SetPosition(1, linkPos2);
-            UpdateLink();
             InstantiateMainThread();
-          
         }
-      
-        lastConnectedPoint = point.transform;
 
+        lastConnectedPoint = point.transform;
         AddFirstPositionOnMouseDown(pos);
+
         for (int i = 0; i < instantiatedLine.positionCount; i++)
             instantiatedLine.SetPosition(i, pos);
     }
@@ -184,7 +180,7 @@ public class ThreadManager : MonoBehaviour,IThreadManager
 
         Transform p1 = detectedPoints[detectedPoints.Count - 2];
         Transform p2 = detectedPoints[detectedPoints.Count - 1];
-        GameEvents.PointConnectionHandlerEvents.onFetchingPoints.RaiseEvent(detectedPoints);
+
 
         if (link != null)
         {
@@ -203,6 +199,7 @@ public class ThreadManager : MonoBehaviour,IThreadManager
         GameEvents.ThreadEvents.onAddingPositionToRope.RegisterEvent(AddPositionToLineOnDrag);
         GameEvents.ThreadEvents.onCreatingConnection.RegisterEvent(CreateLineAndApplyPullForceOnConnection);
         GameEvents.ThreadEvents.onUpdateLinkMovement.RegisterEvent(UpdateLink);
+        GameEvents.ThreadEvents.onEmptyList_DetectingPoints.RegisterEvent(ClearDetectedPointsList);
 
     }
 
@@ -213,6 +210,7 @@ public class ThreadManager : MonoBehaviour,IThreadManager
         GameEvents.ThreadEvents.onAddingPositionToRope.UnregisterEvent(AddPositionToLineOnDrag);
         GameEvents.ThreadEvents.onCreatingConnection.UnregisterEvent(CreateLineAndApplyPullForceOnConnection);
         GameEvents.ThreadEvents.onUpdateLinkMovement.UnregisterEvent(UpdateLink);
+        GameEvents.ThreadEvents.onEmptyList_DetectingPoints.UnregisterEvent(ClearDetectedPointsList);
 
     }
 

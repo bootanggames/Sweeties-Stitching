@@ -23,6 +23,7 @@ public class Connections
         this.line.positionCount = 2;
         this.line.SetPosition(0, pos1);
         this.line.SetPosition(1, pos2);
+        this.line.name = "link";
         originalDistance = Vector3.Distance(p1.position, p2.position);
     }
     public void DestroyPreviousLine()

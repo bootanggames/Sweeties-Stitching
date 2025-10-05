@@ -1,6 +1,7 @@
 ﻿using DG.Tweening;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Threading;
 using Unity.Splines.Examples;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -93,12 +94,19 @@ public class ThreadManager : MonoBehaviour,IThreadManager
         }
 
         instantiatedLine.SetPosition(0, targetRopePosition);
-
+        GameEvents.NeedleEvents.OnNeedleMovement.RaiseEvent(instantiatedLine.GetPosition(0));
+        GameEvents.PointConnectionHandlerEvents.onFetchingPoints.RaiseEvent(detectedPoints);
         if (prevLine)
+        {
             MoveThread(prevLine, true);
+        }
         else
+        {
+           
             MoveThread(instantiatedLine, false);
 
+        }
+     
         prevMouseDragPosition = mousePos;
 
     }
@@ -106,8 +114,7 @@ public class ThreadManager : MonoBehaviour,IThreadManager
 
     public void MoveThread(LineRenderer thread, bool isPrevThread)
     {
-        GameEvents.NeedleEvents.OnNeedleMovement.RaiseEvent(thread.GetPosition(0));
-        GameEvents.PointConnectionHandlerEvents.onFetchingPoints.RaiseEvent(detectedPoints);
+      
 
         for (int i = 1; i < thread.positionCount; i++)
         {
@@ -157,16 +164,21 @@ public class ThreadManager : MonoBehaviour,IThreadManager
 
         pos = point.transform.position;
         pos.z = zVal;
-        if (detectedPointsCount > 1)
+    
+        if (detectedPointsCount % 2 == 0)
         {
             for (int i = 0; i < threadParent.childCount; i++)
             {
                 Destroy(threadParent.GetChild(i).gameObject);
             }
-            InstantiateMainThread();
         }
+        instantiatedLine.SetPosition(0, pos);
+        prevLine = instantiatedLine;
 
+        prevLine.name = "Previous Line";
         lastConnectedPoint = point.transform;
+        InstantiateMainThread();
+
         AddFirstPositionOnMouseDown(pos);
 
         for (int i = 0; i < instantiatedLine.positionCount; i++)

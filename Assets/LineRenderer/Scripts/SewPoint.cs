@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class SewPoint : MonoBehaviour, ISewPoint
@@ -11,6 +12,9 @@ public class SewPoint : MonoBehaviour, ISewPoint
         UnRegisterService();
     }
     public bool selected {  get; private set; }
+
+    [field: SerializeField]public List<Transform> stitchEffect_ThreadPoints {  get; private set; }
+
     public bool IsSelected()
     {
         return selected;

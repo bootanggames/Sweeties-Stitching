@@ -87,37 +87,45 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
     Tween tween1;
     Tween tween2;
 
+    //parent1--body
+    //parent2--arm
+    //points are child
+    //get parent reference only to check if moveable
+    //attract point 1 to point 2 not parent1 to parent2
     public void ApplyForces(Transform p1, Transform p2)
     {
         if (p1 == null || p2 == null) return;
-        if (p1.parent == null || p2.parent == null) return;
-        if (p1.parent == p2.parent) return;
+        //if (p1.parent == null || p2.parent == null) return;
+        //if (p1.parent == p2.parent) return;
         EndTweens();
 
-        Transform parent1 = p1.parent;
-        Transform parent2 = p2.parent;
-        var info1 = parent1.GetComponent<ObjectInfo>();
-        var info2 = parent2.GetComponent<ObjectInfo>();
+        //Transform parent1 = p1.parent;
+        //Transform parent2 = p2.parent;
+        var info1 = p1.GetComponent<ObjectInfo>();
+        var info2 = p2.GetComponent<ObjectInfo>();
 
-        float dist = Vector3.Distance(parent1.position, parent2.position);
+        float dist = Vector3.Distance(p1.position, p2.position);
         float tweenDuration = pullDuration;
         Sequence pullSeq = DOTween.Sequence();
+        Debug.LogError(" " + info1.moveable);
         if (info1.moveable)
         {
-            pullSeq.Join(parent1.DOMove(info1.targetPosition, tweenDuration).SetEase(Ease.InOutSine));
-            pullSeq.Join(parent1.DORotate(info1.originalRotation, tweenDuration).SetEase(Ease.InOutSine));
+            Debug.LogError(" " + p2.transform.position);
+
+            pullSeq.Join(p1.DOMove(p2.transform.position, tweenDuration).SetEase(Ease.InOutSine));
+            pullSeq.Join(p1.DORotate(info1.originalRotation, tweenDuration).SetEase(Ease.InOutSine));
         }
         if (info2.moveable)
         {
-            pullSeq.Join(parent2.DOMove(info2.targetPosition, tweenDuration).SetEase(Ease.InOutSine));
-            pullSeq.Join(parent2.DORotate(info2.originalRotation, tweenDuration).SetEase(Ease.InOutSine));
+            pullSeq.Join(p2.DOMove(p1.transform.position, tweenDuration).SetEase(Ease.InOutSine));
+            pullSeq.Join(p2.DORotate(info2.originalRotation, tweenDuration).SetEase(Ease.InOutSine));
         }
 
         pullSeq.OnUpdate(() => {
             foreach (var connection in connections)
             {
-                if (connection.point1.parent == parent1 || connection.point2.parent == parent2 ||
-                    connection.point1.parent == parent2 || connection.point2.parent == parent1)
+                if (connection.point1 == p1 || connection.point2 == p2 ||
+                    connection.point1 == p1 || connection.point2 == p2)
                 {
                     connection.UpdateLine(zVal);
                 }
@@ -128,8 +136,8 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
             {
                 foreach (var connection in connections)
                 {
-                    if (connection.point1.parent == parent1 || connection.point2.parent == parent2 ||
-                        connection.point1.parent == parent2 || connection.point2.parent == parent1)
+                    if (connection.point1 == p1 || connection.point2 == p2 ||
+                     connection.point1 == p1 || connection.point2 == p2)
                     {
                         connection.isLocked = true;
                         break;
@@ -139,106 +147,7 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
         });
         tween1 = pullSeq;
     }
-    public void ApplyPullForce(Transform p1, Transform p2)
-    {
-        if (p1 == null || p2 == null) return;
-        if (p1.parent == null || p2.parent == null) return;
-        if (p1.parent == p2.parent) return;
-
-        EndTweens();
-
-        Transform parent1 = p1.parent;
-        Transform parent2 = p2.parent;
-        var info1 = parent1.GetComponent<ObjectInfo>();
-        var info2 = parent2.GetComponent<ObjectInfo>();
-
-        Vector3 childPos1 = p1.position;
-        Vector3 childPos2 = p2.position;
-
-        Vector3 parentMid = (parent1.position + parent2.position) * 0.5f;
-
-        float dist = Vector3.Distance(parent1.position, parent2.position);
-        float tweenDuration = pullDuration;
-   
-        //float safeDistance = 0;
-
-        //foreach (var connection in connections)
-        //{
-        //    if (connection.point1.parent == parent1 || connection.point2.parent == parent2 ||
-        //        connection.point1.parent == parent2 || connection.point2.parent == parent1)
-        //    {
-        //        safeDistance = connection.originalDistance + tolerance;
-        //        break;
-        //    }
-        //}
-        Debug.LogError(" " + dist);
-
-        if (dist <= (minDistance+tolerance))
-        {
-
-            //Vector3 dir = (childPos1 - childPos2).normalized;
-            //Vector3 midpoint = (childPos1 + childPos2) * 0.5f;
-
-            //Vector3 desiredChild1 = midpoint + dir * (safeDistance * 0.5f);
-            //Vector3 desiredChild2 = midpoint - dir * (safeDistance * 0.5f);
-
-            //float equalY = (desiredChild1.y + desiredChild2.y) * 0.5f;
-            //desiredChild1.y = equalY;
-            //desiredChild2.y = equalY;
-
-            //Vector3 targetParent1 = parent1.position + (desiredChild1 - childPos1);
-            //Vector3 targetParent2 = parent2.position + (desiredChild2 - childPos2);
-            //targetParent1.z = info1.zVal;
-            //targetParent2.z = info2.zVal;
-            if (info1.moveable) parent1.position = info1.targetPosition;
-            if (info2.moveable) parent2.position = info2.targetPosition;
-
-            Sequence restoreSeq = DOTween.Sequence();
     
-            if (info1) restoreSeq.Join(parent1.DORotate(info1.originalRotation, tweenDuration).SetEase(Ease.InOutSine));
-            if (info2) restoreSeq.Join(parent2.DORotate(info2.originalRotation, tweenDuration).SetEase(Ease.InOutSine)).OnComplete(() =>
-            {
-            });
-            tween1 = restoreSeq;
-            foreach (var connection in connections)
-            {
-                if (connection.point1.parent == parent1 || connection.point2.parent == parent2 ||
-                    connection.point1.parent == parent2 || connection.point2.parent == parent1)
-                {
-                    connection.isLocked = true;
-                    break;
-                }
-            }
-            GameEvents.ThreadEvents.onEmptyList_DetectingPoints.RaiseEvent();
-            return;
-        }
-
-        //Vector3 dirPull = (childPos1 - childPos2).normalized;
-        //Vector3 desiredChildPos1 = parentMid + dirPull * (safeDistance * 0.5f);
-        //Vector3 desiredChildPos2 = parentMid - dirPull * (safeDistance * 0.5f);
-
-        //float equalPullY = (desiredChildPos1.y + desiredChildPos2.y) * 0.5f;
-        //desiredChildPos1.y = equalPullY;
-        //desiredChildPos2.y = equalPullY;
-        //Vector3 targetParentPos1 = parent1.position + (desiredChildPos1 - childPos1);
-        //Vector3 targetParentPos2 = parent2.position + (desiredChildPos2 - childPos2);
-        //targetParentPos1.z = info1.zVal; targetParentPos2.z = info2.zVal;
-        Sequence pullSeq = DOTween.Sequence();
-        if(info1.moveable) pullSeq.Join(parent1.DOMove(info1.targetPosition, tweenDuration).SetEase(Ease.InOutSine));
-        if(info2.moveable) pullSeq.Join(parent2.DOMove(info2.targetPosition, tweenDuration).SetEase(Ease.InOutSine));
-        pullSeq.OnUpdate(() => {
-            foreach (var connection in connections)
-            {
-                if (connection.point1.parent == parent1 || connection.point2.parent == parent2 ||
-                    connection.point1.parent == parent2 || connection.point2.parent == parent1)
-                {
-                    connection.UpdateLine(zVal);
-                }
-            }
-        });
-        tween1 = pullSeq;
-
-    }
     void EndTweens()
     {
         if (tween1 != null && tween1.IsActive())
@@ -259,7 +168,7 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
     {
         foreach (Connections c in _connectPoints)
         {
-            ApplyPullForce(c.point1, c.point2);
+            //ApplyPullForce(c.point1, c.point2);
         }
     }
 }

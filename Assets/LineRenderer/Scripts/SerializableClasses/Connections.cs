@@ -1,5 +1,6 @@
 using Obi;
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 [Serializable]
@@ -9,14 +10,42 @@ public class Connections
     public Transform point2;
     public bool isLocked;
     public LineRenderer line;
+    public List<LineRenderer> links;
     public bool isMerged = false;
     public Transform originalParentPoint2;
     public float originalDistance;
+    int startIndex = 0;
+    int endIndex = 0;
     public Connections(Transform p1, Transform p2, LineRenderer prefab, float zVal)
     {
         this.point1 = p1; this.point2 = p2;
         isLocked = false;
-        
+        //SewPoint sp_P1 = p1.GetComponent<SewPoint>();
+        //SewPoint sp_P2 = p2.GetComponent<SewPoint>();
+        //List<Vector3> startPos = new List<Vector3>();
+        //List<Vector3> endPos = new List<Vector3>();
+        //for (int i = 0; i < sp_P1.stitchEffect_ThreadPoints.Count; i++)
+        //{
+        //    Vector3 p1_pos = sp_P1.stitchEffect_ThreadPoints[i].position;
+        //    if (!startPos.Contains(p1_pos))
+        //        startPos.Add(p1_pos);
+        //}
+        //for (int i = 0; i < sp_P2.stitchEffect_ThreadPoints.Count; i++)
+        //{
+        //    Vector3 p2_pos = sp_P2.stitchEffect_ThreadPoints[i].position;
+        //    if (!endPos.Contains(p2_pos))
+        //        endPos.Add(p2_pos);
+        //}
+        //LineRenderer l = GameObject.Instantiate(prefab);
+        //l.positionCount = 2;
+        //if(startIndex < startPos.Count)
+        //    l.SetPosition(0, startPos[startIndex]);
+        //if(endIndex < endPos.Count)
+        //    l.SetPosition(1, endPos[endIndex]);
+        //startIndex++;
+        //endIndex++;
+        //if(!links.Contains(l))
+        //    links.Add(l);
         this.line = GameObject.Instantiate(prefab);
         Vector3 pos1 = p1.position; pos1.z = zVal;
         Vector3 pos2 = p2.position; pos2.z = zVal;

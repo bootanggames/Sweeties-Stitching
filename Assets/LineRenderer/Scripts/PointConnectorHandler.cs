@@ -102,8 +102,17 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
         float dist = Vector3.Distance(parent1.position, parent2.position);
         float tweenDuration = pullDuration;
         Sequence pullSeq = DOTween.Sequence();
-        if (info1.moveable) pullSeq.Join(parent1.DOMove(info1.targetPosition, tweenDuration).SetEase(Ease.InOutSine));
-        if (info2.moveable) pullSeq.Join(parent2.DOMove(info2.targetPosition, tweenDuration).SetEase(Ease.InOutSine));
+        if (info1.moveable)
+        {
+            pullSeq.Join(parent1.DOMove(info1.targetPosition, tweenDuration).SetEase(Ease.InOutSine));
+            pullSeq.Join(parent1.DORotate(info1.originalRotation, tweenDuration).SetEase(Ease.InOutSine));
+        }
+        if (info2.moveable)
+        {
+            pullSeq.Join(parent2.DOMove(info2.targetPosition, tweenDuration).SetEase(Ease.InOutSine));
+            pullSeq.Join(parent2.DORotate(info2.originalRotation, tweenDuration).SetEase(Ease.InOutSine));
+        }
+
         pullSeq.OnUpdate(() => {
             foreach (var connection in connections)
             {
@@ -113,20 +122,10 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
                     connection.UpdateLine(zVal);
                 }
             }
-            //Debug.LogError(" " + dist);
+            Debug.LogError(" " + dist);
 
             if (dist < minDistance)
             {
-                if (info1.moveable) parent1.position = info1.targetPosition;
-                if (info2.moveable) parent2.position = info2.targetPosition;
-
-                Sequence restoreSeq = DOTween.Sequence();
-
-                if (info1) restoreSeq.Join(parent1.DORotate(info1.originalRotation, tweenDuration).SetEase(Ease.InOutSine));
-                if (info2) restoreSeq.Join(parent2.DORotate(info2.originalRotation, tweenDuration).SetEase(Ease.InOutSine)).OnComplete(() =>
-                {
-                });
-                tween1 = restoreSeq;
                 foreach (var connection in connections)
                 {
                     if (connection.point1.parent == parent1 || connection.point2.parent == parent2 ||
@@ -136,7 +135,6 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
                         break;
                     }
                 }
-                //GameEvents.ThreadEvents.onEmptyList_DetectingPoints.RaiseEvent();
             }
         });
         tween1 = pullSeq;

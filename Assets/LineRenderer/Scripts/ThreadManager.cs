@@ -114,8 +114,6 @@ public class ThreadManager : MonoBehaviour,IThreadManager
 
     public void MoveThread(LineRenderer thread, bool isPrevThread)
     {
-      
-
         for (int i = 1; i < thread.positionCount; i++)
         {
             Vector3 prevThreadPoint = thread.GetPosition(i - 1);
@@ -163,7 +161,7 @@ public class ThreadManager : MonoBehaviour,IThreadManager
         Vector3 pos=Vector3.zero;
 
         pos = point.transform.position;
-        pos.z = zVal;
+        pos.z = point.zVal;
     
         if (detectedPointsCount % 2 == 0)
         {
@@ -178,39 +176,38 @@ public class ThreadManager : MonoBehaviour,IThreadManager
         prevLine.name = "Previous Line";
         lastConnectedPoint = point.transform;
         InstantiateMainThread();
-
         AddFirstPositionOnMouseDown(pos);
 
         for (int i = 0; i < instantiatedLine.positionCount; i++)
             instantiatedLine.SetPosition(i, pos);
     }
 
-    void UpdateLink()
-    {
-        if (detectedPoints.Count < 2 || link == null)
-            return;
+    //void UpdateLink()
+    //{
+    //    if (detectedPoints.Count < 2 || link == null)
+    //        return;
 
-        Transform p1 = detectedPoints[detectedPoints.Count - 2];
-        Transform p2 = detectedPoints[detectedPoints.Count - 1];
+    //    Transform p1 = detectedPoints[detectedPoints.Count - 2];
+    //    Transform p2 = detectedPoints[detectedPoints.Count - 1];
 
 
-        if (link != null)
-        {
-            Vector3 p1_pos = p1.position;
-            p1_pos.z = zVal;
-            link.SetPosition(0, p1_pos);
-            Vector3 p2_pos = p2.position;
-            p2_pos.z = zVal;
-            link.SetPosition(1, p2_pos);
-        }
-    }
+    //    if (link != null)
+    //    {
+    //        Vector3 p1_pos = p1.position;
+    //        p1_pos.z = zVal;
+    //        link.SetPosition(0, p1_pos);
+    //        Vector3 p2_pos = p2.position;
+    //        p2_pos.z = zVal;
+    //        link.SetPosition(1, p2_pos);
+    //    }
+    //}
     public void RegisterService()
     {
         ServiceLocator.RegisterService<IThreadManager>(this);
         GameEvents.ThreadEvents.onInitialiseRope.RegisterEvent(AddFirstPositionOnMouseDown);
         GameEvents.ThreadEvents.onAddingPositionToRope.RegisterEvent(AddPositionToLineOnDrag);
         GameEvents.ThreadEvents.onCreatingConnection.RegisterEvent(CreateLineAndApplyPullForceOnConnection);
-        GameEvents.ThreadEvents.onUpdateLinkMovement.RegisterEvent(UpdateLink);
+        //GameEvents.ThreadEvents.onUpdateLinkMovement.RegisterEvent(UpdateLink);
         GameEvents.ThreadEvents.onEmptyList_DetectingPoints.RegisterEvent(ClearDetectedPointsList);
 
     }
@@ -221,7 +218,7 @@ public class ThreadManager : MonoBehaviour,IThreadManager
         GameEvents.ThreadEvents.onInitialiseRope.UnregisterEvent(AddFirstPositionOnMouseDown);
         GameEvents.ThreadEvents.onAddingPositionToRope.UnregisterEvent(AddPositionToLineOnDrag);
         GameEvents.ThreadEvents.onCreatingConnection.UnregisterEvent(CreateLineAndApplyPullForceOnConnection);
-        GameEvents.ThreadEvents.onUpdateLinkMovement.UnregisterEvent(UpdateLink);
+        //GameEvents.ThreadEvents.onUpdateLinkMovement.UnregisterEvent(UpdateLink);
         GameEvents.ThreadEvents.onEmptyList_DetectingPoints.UnregisterEvent(ClearDetectedPointsList);
 
     }

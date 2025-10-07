@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class SewPoint : MonoBehaviour, ISewPoint
 {
+    public float zVal;
     private void OnEnable()
     {
         RegisterService();

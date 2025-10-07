@@ -10,8 +10,12 @@ public class InputManager : MonoBehaviour
     float moveY = 0;
 
     [SerializeField] Vector2 moveLimit;
-    [SerializeField]Vector2 lastNeedlePos;   
-
+    [SerializeField]Vector2 lastNeedlePos;
+    [SerializeField] Transform startPoint;
+    private void Start()
+    {
+        lastNeedlePos = startPoint.position;
+    }
     private void Update()
     {
         GetInput();

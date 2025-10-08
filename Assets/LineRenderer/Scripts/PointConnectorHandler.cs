@@ -12,10 +12,13 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
 
     [field: SerializeField] public float maxPullDuration {  get; private set; }
 
-    [SerializeField]float tolerance = 0.05f;
+    [SerializeField] float tolerance = 0.05f;
     [SerializeField] LineRenderer linePrefab;
     [SerializeField] float zVal = -0.25f;
     [SerializeField] float rotationSpeed;
+    [SerializeField] float pullForce;
+    [SerializeField] bool dynamicStitch;
+
     private void OnEnable()
     {
         points = new List<SewPoint>();
@@ -104,7 +107,6 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
         ApplyForces(c.point1, c.point2);
     }
     Tween tween1;
-   
     public void ApplyForces(Transform p1, Transform p2)
     {
         if (p1 == null || p2 == null) return;
@@ -114,9 +116,13 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
         var info2 = p2.GetComponent<ObjectInfo>();
         if (info1 == null || info2 == null)
         {
-            //info1 = p1.parent.parent.GetComponent<ObjectInfo>();
-            //info2 = p2.parent.parent.GetComponent<ObjectInfo>();
-            return;
+            if (dynamicStitch)
+            {
+                info1 = p1.parent.parent.GetComponent<ObjectInfo>();
+                info2 = p2.parent.parent.GetComponent<ObjectInfo>();
+            }
+            else
+                return;
         }
         EndTweens();
         bool move1 = info1.moveable;
@@ -126,42 +132,99 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
         Sequence pullSeq = DOTween.Sequence();
         if(move1 && move2)
         {
-            Vector3 midPoint = (p1.position + p2.position) / 2;
-            pullSeq.Join(p1.DOMove(midPoint, tweenDuration).SetEase(Ease.InOutSine));
-            pullSeq.Join(p1.DORotate(info1.originalRotation, tweenDuration));
+            if (dynamicStitch)
+            {
+                int count = Mathf.Min(info1.connectPoints.Count, info2.connectPoints.Count);
+                Vector3 avgMid = Vector3.zero;
 
-            pullSeq.Join(p2.DOMove(midPoint, tweenDuration).SetEase(Ease.InOutSine));
-            pullSeq.Join(p2.DORotate(info2.originalRotation, tweenDuration));
+                for (int i = 0; i < count; i++)
+                {
+                    avgMid += (info1.connectPoints[i].transform.position + info2.connectPoints[i].transform.position) * 0.5f;
+                }
+                avgMid /= count;
+
+                pullSeq.Join(info1.transform.DOMove(Vector3.Lerp(info1.transform.position, avgMid, pullForce), tweenDuration).SetEase(Ease.InOutSine));
+                pullSeq.Join(info2.transform.DOMove(Vector3.Lerp(info2.transform.position, avgMid, pullForce), tweenDuration).SetEase(Ease.InOutSine));
+            }
+            else
+            {
+                Vector3 midPoint = (p1.position + p2.position) / 2;
+                pullSeq.Join(p1.DOMove(midPoint, tweenDuration).SetEase(Ease.InOutSine));
+                pullSeq.Join(p1.DORotate(info1.originalRotation, tweenDuration));
+
+                pullSeq.Join(p2.DOMove(midPoint, tweenDuration).SetEase(Ease.InOutSine));
+                pullSeq.Join(p2.DORotate(info2.originalRotation, tweenDuration));
+            }
+          
         }
         else if(move1 && !move2)
         {
-            //Transform topParent = p1.parent.parent;
-            //Vector3 midPointForParent1 = Vector3.zero;
+            if (dynamicStitch)
+            {
+                Vector3 avrOffset = Vector3.zero;
+                for (int i = 0; i < info1.connectPoints.Count; i++)
+                {
+                    Vector3 offset = info2.connectPoints[i].transform.position - info1.connectPoints[i].transform.position;
+                    avrOffset += offset;
+                }
+                avrOffset /= info1.connectPoints.Count;
+                Vector3 targetPos = info1.transform.position + avrOffset * pullForce;
 
-            //foreach (SewPoint s in info1.connectPoints)
-            //    midPointForParent1 += s.transform.position;
+                pullSeq.Join(info1.transform.DOMove(targetPos, tweenDuration).SetEase(Ease.InOutSine));
+                Vector3 lookDir = info2.transform.position - info1.transform.position;
 
-            //Vector3 midPointParent1 = midPointForParent1 / info1.connectPoints.Count;
+                Quaternion targetRot = Quaternion.LookRotation(lookDir, Vector3.up);
 
-            //Vector3 dCubeAttach = (p1.position - topParent.position).normalized;
-            //Vector3 dAttach0Attach1U = (midPointParent1 - p1.position);
-            //Vector3 dAttach0Attach1 = dAttach0Attach1U.normalized;
+                Vector3 euler = targetRot.eulerAngles;
+                euler.x = 0f;
+                euler.y = 0f;
 
-            //pullSeq.Join(p1.parent.DOMove(midPointParent1, tweenDuration).SetEase(Ease.InOutSine));
+                pullSeq.Join(
+                    info1.transform.DORotate(euler, tweenDuration, RotateMode.Fast)
+                    .SetEase(Ease.InOutSine)
+                );
+            }
+            else
+            {
+                pullSeq.Join(p1.DOMove(p2.transform.position, tweenDuration).SetEase(Ease.InOutSine));
+                pullSeq.Join(p1.DORotate(info1.originalRotation, tweenDuration).SetEase(Ease.InOutSine));
+            }
 
-            //float angleFactor = Vector3.Angle(dCubeAttach, dAttach0Attach1) / 180;
-            //float rotationSpeed = angleFactor * -Mathf.Sign(Vector3.Dot(dCubeAttach, dAttach0Attach1));
-
-            //pullSeq.Join(p1.parent.DORotate(Vector3.forward, tweenDuration).SetEase(Ease.InOutSine));
-
-            pullSeq.Join(p1.DOMove(p2.transform.position, tweenDuration).SetEase(Ease.InOutSine));
-            pullSeq.Join(p1.DORotate(info1.originalRotation, tweenDuration).SetEase(Ease.InOutSine));
             //Debug.LogError(" apply force "+ midPointParent1);
         }
         else if(!move1 && move2)
         {
-            pullSeq.Join(p2.DOMove(p1.transform.position, tweenDuration).SetEase(Ease.InOutSine));
-            pullSeq.Join(p2.DORotate(info2.originalRotation, tweenDuration).SetEase(Ease.InOutSine));
+            if (dynamicStitch)
+            {
+                Vector3 avrOffset = Vector3.zero;
+                for (int i = 0; i < info2.connectPoints.Count; i++)
+                {
+                    Vector3 offset = info1.connectPoints[i].transform.position - info2.connectPoints[i].transform.position;
+                    avrOffset += offset;
+                }
+                avrOffset /= info2.connectPoints.Count;
+                Vector3 targetPos = info2.transform.position + avrOffset * pullForce;
+
+                pullSeq.Join(info2.transform.DOMove(targetPos, tweenDuration).SetEase(Ease.InOutSine));
+                Vector3 lookDir = info1.transform.position - info2.transform.position;
+
+                Quaternion targetRot = Quaternion.LookRotation(lookDir, Vector3.up);
+
+                Vector3 euler = targetRot.eulerAngles;
+                euler.x = 0f;
+                euler.y = 0f;
+
+                pullSeq.Join(
+                    info1.transform.DORotate(euler, tweenDuration, RotateMode.Fast)
+                    .SetEase(Ease.InOutSine)
+                );
+            }
+            else
+            {
+                pullSeq.Join(p2.DOMove(p1.transform.position, tweenDuration).SetEase(Ease.InOutSine));
+                pullSeq.Join(p2.DORotate(info2.originalRotation, tweenDuration).SetEase(Ease.InOutSine));
+            }
+
 
         }
         else

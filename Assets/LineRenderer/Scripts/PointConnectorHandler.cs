@@ -5,19 +5,22 @@ using UnityEngine;
 
 public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
 {
-    [field: SerializeField] public List<SewPoint> points {  get; private set; }
-    [field: SerializeField]public List<Connections> connections {  get; private set; }
-    [field: SerializeField] public float pullDuration {  get; private set; }
-    [field: SerializeField] public float minDistance {  get; private set; }
-
-    [field: SerializeField] public float maxPullDuration {  get; private set; }
+    [field: SerializeField] public List<SewPoint> points { get; private set; }
+    [field: SerializeField] public List<Connections> connections { get; private set; }
+    [field: SerializeField] public float pullDuration { get; private set; }
+    [field: SerializeField] public float minDistance { get; private set; }
+    [field: SerializeField] public float maxPullDuration { get; private set; }
+    [field: SerializeField] public float minPullDuration { get; private set; }
+    [field: SerializeField] public int minThreadStitchCount { get; private set; }
+    [field: SerializeField] public int maxThreadStitchCount { get; private set; }
+    [field: SerializeField] public int threadStitchCount { get; private set; }
+    [field: SerializeField] public bool dynamicStitch { get; private set; }
 
     [SerializeField] float tolerance = 0.05f;
     [SerializeField] LineRenderer linePrefab;
     [SerializeField] float zVal = -0.25f;
     [SerializeField] float rotationSpeed;
     [SerializeField] float pullForce;
-    [SerializeField] bool dynamicStitch;
 
     private void OnEnable()
     {
@@ -31,11 +34,12 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
     }
     public void RegisterService()
     {
-       ServiceLocator.RegisterService<IPointConnectionHandler>(this);
+        ServiceLocator.RegisterService<IPointConnectionHandler>(this);
         GameEvents.PointConnectionHandlerEvents.onFetchingPoints.RegisterEvent(GetAttachedPointsToCreateLink);
         GameEvents.PointConnectionHandlerEvents.onStopTweens.RegisterEvent(EndTweens);
         GameEvents.PointConnectionHandlerEvents.onUpdatingPullSpeed.RegisterEvent(SetPullSpeed);
-        GameEvents.PointConnectionHandlerEvents.onGettingMaxSpeed.RegisterEvent(SetMaxPullSpeed);
+        GameEvents.PointConnectionHandlerEvents.onUpdatingStitchCount.RegisterEvent(SetStitchCount);
+        GameEvents.PointConnectionHandlerEvents.onSettingPlushieLevel2.RegisterEvent(ActivateDynamicStitch);
     }
 
     public void UnRegisterService()
@@ -44,16 +48,20 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
         GameEvents.PointConnectionHandlerEvents.onFetchingPoints.UnregisterEvent(GetAttachedPointsToCreateLink);
         GameEvents.PointConnectionHandlerEvents.onStopTweens.UnregisterEvent(EndTweens);
         GameEvents.PointConnectionHandlerEvents.onUpdatingPullSpeed.UnregisterEvent(SetPullSpeed);
-        GameEvents.PointConnectionHandlerEvents.onGettingMaxSpeed.UnregisterEvent(SetMaxPullSpeed);
-
+        GameEvents.PointConnectionHandlerEvents.onUpdatingStitchCount.UnregisterEvent(SetStitchCount);
+        GameEvents.PointConnectionHandlerEvents.onSettingPlushieLevel2.UnregisterEvent(ActivateDynamicStitch);
     }
-    float SetMaxPullSpeed()
+    void ActivateDynamicStitch(bool val)
     {
-        return maxPullDuration;
+        dynamicStitch = val;
     }
     void SetPullSpeed(float speed)
     {
         pullDuration = speed;
+    }
+    void SetStitchCount(int count)
+    {
+        threadStitchCount = count;
     }
     public void GetAttachedPointsToCreateLink(List<Transform> point)
     {
@@ -61,12 +69,12 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
 
         if (point.Count % 2 != 0)
         {
-            NewConnection(point[point.Count - 2].transform, point[point.Count - 1].transform, false, false);
+            NewConnection(point[point.Count - 2].transform, point[point.Count - 1].transform, false, false, 0);
             return;
         }
         foreach (Transform t in point)
         {
-            if(!points.Contains(t.GetComponent<SewPoint>()))
+            if (!points.Contains(t.GetComponent<SewPoint>()))
                 points.Add(t.GetComponent<SewPoint>());
         }
         CreateLinkBetweenPoints(points[points.Count - 2], points[points.Count - 1]);
@@ -84,18 +92,25 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
                 ManageConnetions(existingConnection);
             return;
         }
-
-        NewConnection(point1.transform, point2.transform, true, false);
+        if (dynamicStitch)
+            NewConnection(point1.transform, point2.transform, true, false, threadStitchCount);
+        else
+        {
+            if (threadStitchCount == 1)
+                NewConnection(point1.transform, point2.transform, true, false, threadStitchCount);
+            else
+                NewConnection(point1.transform, point2.transform, true, true, threadStitchCount);
+        }
     }
 
-    void NewConnection(Transform p1, Transform p2, bool applyPullForce, bool multiple)
+    void NewConnection(Transform p1, Transform p2, bool applyPullForce, bool multiple, int stitchCount)
     {
         if (connections.Exists(c =>
         (c.point1 == p1 && c.point2 == p2) ||
         (c.point1 == p2 && c.point2 == p1)))
             return;
 
-        Connections connection = new Connections(p1, p2, linePrefab, zVal, multiple);
+        Connections connection = new Connections(p1, p2, linePrefab, zVal, multiple, stitchCount);
         connections.Add(connection);
         if (applyPullForce)
             ManageConnetions(connection);
@@ -110,10 +125,15 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
     public void ApplyForces(Transform p1, Transform p2)
     {
         if (p1 == null || p2 == null) return;
-        if (p1.parent == p2.parent) return;
+        if (p1.parent != null && p2.parent != null)
+        {
+            if (p1.parent == p2.parent) return;
+        }
 
+        if ((p1.parent == p2) || (p2.parent == p1)) return;
         var info1 = p1.GetComponent<ObjectInfo>();
         var info2 = p2.GetComponent<ObjectInfo>();
+
         if (info1 == null || info2 == null)
         {
             if (dynamicStitch)
@@ -124,6 +144,7 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
             else
                 return;
         }
+
         EndTweens();
         bool move1 = info1.moveable;
         bool move2 = info2.moveable;
@@ -154,6 +175,7 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
 
                 pullSeq.Join(p2.DOMove(midPoint, tweenDuration).SetEase(Ease.InOutSine));
                 pullSeq.Join(p2.DORotate(info2.originalRotation, tweenDuration));
+
             }
           
         }
@@ -168,10 +190,18 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
                     avrOffset += offset;
                 }
                 avrOffset /= info1.connectPoints.Count;
-                Vector3 targetPos = info1.transform.position + avrOffset * pullForce;
 
-                pullSeq.Join(info1.transform.DOMove(targetPos, tweenDuration).SetEase(Ease.InOutSine));
-                Vector3 lookDir = info2.transform.position - info1.transform.position;
+                Transform moveAbleTransform = null;
+                if (info1.head)
+                    moveAbleTransform = info1.transform.parent;
+                else
+                    moveAbleTransform = info1.transform;
+
+                Vector3 targetPos = moveAbleTransform.position + avrOffset * pullForce;
+
+              
+                pullSeq.Join(moveAbleTransform.DOMove(targetPos, tweenDuration).SetEase(Ease.InOutSine));
+                Vector3 lookDir = moveAbleTransform.position - info1.transform.position;
 
                 Quaternion targetRot = Quaternion.LookRotation(lookDir, Vector3.up);
 
@@ -180,7 +210,7 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
                 euler.y = 0f;
 
                 pullSeq.Join(
-                    info1.transform.DORotate(euler, tweenDuration, RotateMode.Fast)
+                    moveAbleTransform.DORotate(euler, tweenDuration, RotateMode.Fast)
                     .SetEase(Ease.InOutSine)
                 );
             }
@@ -203,10 +233,16 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
                     avrOffset += offset;
                 }
                 avrOffset /= info2.connectPoints.Count;
-                Vector3 targetPos = info2.transform.position + avrOffset * pullForce;
+                Transform moveAbleTransform = null;
+                if (info2.head)
+                    moveAbleTransform = info2.transform.parent;
+                else
+                    moveAbleTransform = info2.transform;
 
-                pullSeq.Join(info2.transform.DOMove(targetPos, tweenDuration).SetEase(Ease.InOutSine));
-                Vector3 lookDir = info1.transform.position - info2.transform.position;
+                Vector3 targetPos = moveAbleTransform.position + avrOffset * pullForce;
+
+                pullSeq.Join(moveAbleTransform.DOMove(targetPos, tweenDuration).SetEase(Ease.InOutSine));
+                Vector3 lookDir = info1.transform.position - moveAbleTransform.position;
 
                 Quaternion targetRot = Quaternion.LookRotation(lookDir, Vector3.up);
 
@@ -215,7 +251,7 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
                 euler.y = 0f;
 
                 pullSeq.Join(
-                    info1.transform.DORotate(euler, tweenDuration, RotateMode.Fast)
+                   moveAbleTransform.DORotate(euler, tweenDuration, RotateMode.Fast)
                     .SetEase(Ease.InOutSine)
                 );
             }

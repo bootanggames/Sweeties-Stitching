@@ -556,6 +556,10 @@
       <HintPath>C:\Program Files\Unity\Hub\Editor\6000.1.10f1\Editor\Data\PlaybackEngines\AndroidPlayer\UnityEditor.Android.Extensions.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="UnityEditor.iOS.Extensions">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\6000.1.10f1\Editor\Data\PlaybackEngines\iOSSupport\UnityEditor.iOS.Extensions.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Unity.VisualScripting.YamlDotNet">
       <HintPath>Library\PackageCache\com.unity.visualscripting@6279e2b7c485\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll</HintPath>
       <Private>False</Private>
@@ -610,6 +614,18 @@
     </Reference>
     <Reference Include="Mono.Cecil">
       <HintPath>Library\PackageCache\com.unity.nuget.mono-cecil@d6f9955a5d5f\Mono.Cecil.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEditor.iOS.Extensions.Xcode">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\6000.1.10f1\Editor\Data\PlaybackEngines\iOSSupport\UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEditor.iOS.Extensions.Common">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\6000.1.10f1\Editor\Data\PlaybackEngines\iOSSupport\UnityEditor.iOS.Extensions.Common.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEditor.Apple.Extensions.Common">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\6000.1.10f1\Editor\Data\PlaybackEngines\iOSSupport\UnityEditor.Apple.Extensions.Common.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.Android.Types">
@@ -1386,17 +1402,9 @@
       <Project>{C7A27AA5-F3FE-FA9B-4AEC-F392D4617517}</Project>
       <Name>MoreMountains.NiceVibrations.Rumble</Name>
     </ProjectReference>
-    <ProjectReference Include="Obi.csproj">
-      <Project>{ADB82EAC-8EBB-71FB-7C05-35CBF3200CB3}</Project>
-      <Name>Obi</Name>
-    </ProjectReference>
     <ProjectReference Include="MoreMountains.Feedbacks.MMTools.csproj">
       <Project>{CE4DACE2-C783-732B-7438-7B64ABCE40C6}</Project>
       <Name>MoreMountains.Feedbacks.MMTools</Name>
-    </ProjectReference>
-    <ProjectReference Include="Obi.Editor.csproj">
-      <Project>{D5AAA799-95E1-22B1-3B01-FC15E58FE0D2}</Project>
-      <Name>Obi.Editor</Name>
     </ProjectReference>
     <ProjectReference Include="MoreMountains.Tools.Feedbacks.csproj">
       <Project>{A7AF3B61-45DC-1710-2736-3F25BD05AA02}</Project>
@@ -1433,10 +1441,6 @@
     <ProjectReference Include="MoreMountains.Tools.Editor.csproj">
       <Project>{AA0C1641-0E9F-656D-7F81-CCF8EFD925DA}</Project>
       <Name>MoreMountains.Tools.Editor</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.Splines.Examples.csproj">
-      <Project>{93584D9A-4CF6-9814-D3BA-70BBF6B500AF}</Project>
-      <Name>Unity.Splines.Examples</Name>
     </ProjectReference>
     <ProjectReference Include="MoreMountains.NiceVibrations.csproj">
       <Project>{1A89E183-61ED-3B20-725D-23AF5D449D86}</Project>

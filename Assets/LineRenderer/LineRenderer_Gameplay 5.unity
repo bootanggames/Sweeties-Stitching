@@ -8948,7 +8948,8 @@ MonoBehaviour:
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 79459efec17a4d00a321bdcc27bbc385, type: 2}
-  m_fontSharedMaterials: []
+  m_fontSharedMaterials:
+  - {fileID: 2100000, guid: 79459efec17a4d00a321bdcc27bbc385, type: 2}
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
@@ -9179,10 +9180,17 @@ MonoBehaviour:
   <connections>k__BackingField: []
   <pullDuration>k__BackingField: 0.2
   <minDistance>k__BackingField: 1
+  <maxPullDuration>k__BackingField: 0
+  <minPullDuration>k__BackingField: 0
+  <minThreadStitchCount>k__BackingField: 0
+  <maxThreadStitchCount>k__BackingField: 0
+  <threadStitchCount>k__BackingField: 0
   tolerance: 0.05
   linePrefab: {fileID: 7377872058111036791, guid: 9b87cbba0ae87414faacff166a8bcaad, type: 3}
   zVal: -0.1
   rotationSpeed: 0
+  pullForce: 0
+  dynamicStitch: 0
 --- !u!1 &1605238020
 GameObject:
   m_ObjectHideFlags: 0
@@ -10212,6 +10220,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af06d00eab8912540824cc03c9d75bd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <freeForm>k__BackingField: 0
   lineRenderer: {fileID: 7377872058111036791, guid: 9b87cbba0ae87414faacff166a8bcaad, type: 3}
   currentRopeStartPosition: {x: 0, y: 0, z: 0}
   minDistanceBetweenSewPoints: 0.04

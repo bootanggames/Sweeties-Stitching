@@ -1,14 +1,13 @@
 ﻿using DG.Tweening;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Threading;
-using Unity.Splines.Examples;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Splines;
 
-public class ThreadManager : MonoBehaviour,IThreadManager
+public class ThreadManager : MonoBehaviour, IThreadManager
 {
+    public bool threadInput { get; private set; }
+    [field: SerializeField] public bool freeForm { get; private set; }
+
     [SerializeField] LineRenderer lineRenderer;
 
     [SerializeField] Vector3 currentRopeStartPosition;
@@ -29,9 +28,45 @@ public class ThreadManager : MonoBehaviour,IThreadManager
     [SerializeField] Transform startPoint;
     private void OnEnable()
     {
+        threadInput = true;
         InstantiateMainThread(true);
         RegisterService();
 
+    }
+    private void OnDisable()
+    {
+        UnRegisterService();
+    }
+    public void RegisterService()
+    {
+        ServiceLocator.RegisterService<IThreadManager>(this);
+        GameEvents.ThreadEvents.onInitialiseRope.RegisterEvent(AddFirstPositionOnMouseDown);
+        GameEvents.ThreadEvents.onAddingPositionToRope.RegisterEvent(AddPositionToLineOnDrag);
+        GameEvents.ThreadEvents.onCreatingConnection.RegisterEvent(CreateLineAndApplyPullForceOnConnection);
+        GameEvents.ThreadEvents.onEmptyList_DetectingPoints.RegisterEvent(ClearDetectedPointsList);
+        GameEvents.ThreadEvents.setThreadInput.RegisterEvent(SetThreadInputBool);
+        GameEvents.ThreadEvents.onSetFreeformMovementValue.RegisterEvent(SetFreeformThreadMovement);
+
+    }
+
+    public void UnRegisterService()
+    {
+        ServiceLocator.UnRegisterService<IThreadManager>(this);
+        GameEvents.ThreadEvents.onInitialiseRope.UnregisterEvent(AddFirstPositionOnMouseDown);
+        GameEvents.ThreadEvents.onAddingPositionToRope.UnregisterEvent(AddPositionToLineOnDrag);
+        GameEvents.ThreadEvents.onCreatingConnection.UnregisterEvent(CreateLineAndApplyPullForceOnConnection);
+        GameEvents.ThreadEvents.onEmptyList_DetectingPoints.UnregisterEvent(ClearDetectedPointsList);
+        GameEvents.ThreadEvents.setThreadInput.UnregisterEvent(SetThreadInputBool);
+        GameEvents.ThreadEvents.onSetFreeformMovementValue.UnregisterEvent(SetFreeformThreadMovement);
+
+    }
+    void SetFreeformThreadMovement(bool value)
+    {
+        freeForm = value;
+    }
+    void SetThreadInputBool(bool value)
+    {
+        threadInput = value;
     }
     void ClearDetectedPointsList()
     {
@@ -52,19 +87,20 @@ public class ThreadManager : MonoBehaviour,IThreadManager
         }
      
     }
-    private void OnDisable()
-    {
-        UnRegisterService();
-    }
+
 
     public void AddFirstPositionOnMouseDown(Vector2 headPos)
     {
+        if (!threadInput) return;
         if (instantiatedLine == null) return;
 
         if (lastConnectedPoint != null)
         {
             currentRopeStartPosition = lastConnectedPoint.position;
+            if (freeForm)
+                currentRopeStartPosition.z = zVal;
             instantiatedLine.SetPosition(0, currentRopeStartPosition);
+
         }
         else
         {
@@ -75,11 +111,12 @@ public class ThreadManager : MonoBehaviour,IThreadManager
 
     public void AddPositionToLineOnDrag(Vector2 mousePos)
     {
+        if (!threadInput) return;
         if (instantiatedLine == null) return;
 
-        Vector3 targetRopePosition;
+        Vector3 targetRopePosition = Vector3.zero;
 
-        if (lastConnectedPoint != null)
+        if (lastConnectedPoint != null && !freeForm)
         {
             currentRopeStartPosition = lastConnectedPoint.position;
 
@@ -101,15 +138,15 @@ public class ThreadManager : MonoBehaviour,IThreadManager
         GameEvents.PointConnectionHandlerEvents.onFetchingPoints.RaiseEvent(detectedPoints);
         if (prevLine)
             MoveThread(prevLine, true);
-        else
-            MoveThread(instantiatedLine, false);
-     
+        MoveThread(instantiatedLine, false);
+
         prevMouseDragPosition = mousePos;
 
     }
 
     public void MoveThread(LineRenderer thread, bool isPrevThread)
     {
+        if (!threadInput) return;
         for (int i = 1; i < thread.positionCount; i++)
         {
             Vector3 prevThreadPoint = thread.GetPosition(i - 1);
@@ -118,15 +155,15 @@ public class ThreadManager : MonoBehaviour,IThreadManager
 
             float minDistance = isPrevThread ? 0f : minDistanceBetweenSewPoints;
             float lerpSpeed = isPrevThread ? 0.3f : 1.0f;
-
+            if (freeForm)
+                lerpSpeed = 1.0f;
             Vector3 targetPos = prevThreadPoint + direction.normalized * minDistance;
             Vector3 lerpPosition = Vector3.Lerp(currentPoint, targetPos, lerpSpeed);
             lerpPosition.z = zVal;
-
             thread.SetPosition(i, lerpPosition);
         }
 
-        if (!isPrevThread && lastConnectedPoint != null)
+        if (!isPrevThread && lastConnectedPoint != null && !freeForm)
         {
             Vector3 lastPos = lastConnectedPoint.position;
             lastPos.z = zVal;
@@ -140,15 +177,14 @@ public class ThreadManager : MonoBehaviour,IThreadManager
 
                 float minDistance = minDistanceBetweenSewPoints;
                 Vector3 targetPos = nextPoint + direction.normalized * minDistance;
-                Vector3 lerpPosition = Vector3.Lerp(currentPoint, targetPos, 1.0f);
+                float smoothFactor = 1.0f;
+                Vector3 lerpPosition = Vector3.Lerp(currentPoint, targetPos, smoothFactor);
                 lerpPosition.z = zVal;
-
                 thread.SetPosition(i, lerpPosition);
             }
         }
     }
-    LineRenderer link = null;
-    float tweenDuration = 1.5f;
+
     void CreateLineAndApplyPullForceOnConnection(SewPoint point)
     {
         detectedPoints.Add(point.transform);
@@ -163,7 +199,6 @@ public class ThreadManager : MonoBehaviour,IThreadManager
                 Destroy(threadParent.GetChild(i).gameObject);
             }
         }
-        Debug.LogError(" " + pos);
         if(detectedPoints.Count > 1)
             pos = detectedPoints[detectedPoints.Count - 2].position;
         else
@@ -179,27 +214,5 @@ public class ThreadManager : MonoBehaviour,IThreadManager
         for (int i = 0; i < instantiatedLine.positionCount; i++)
             instantiatedLine.SetPosition(i, point.transform.position);
     }
-
-   
-    public void RegisterService()
-    {
-        ServiceLocator.RegisterService<IThreadManager>(this);
-        GameEvents.ThreadEvents.onInitialiseRope.RegisterEvent(AddFirstPositionOnMouseDown);
-        GameEvents.ThreadEvents.onAddingPositionToRope.RegisterEvent(AddPositionToLineOnDrag);
-        GameEvents.ThreadEvents.onCreatingConnection.RegisterEvent(CreateLineAndApplyPullForceOnConnection);
-        GameEvents.ThreadEvents.onEmptyList_DetectingPoints.RegisterEvent(ClearDetectedPointsList);
-
-    }
-
-    public void UnRegisterService()
-    {
-        ServiceLocator.UnRegisterService<IThreadManager>(this);
-        GameEvents.ThreadEvents.onInitialiseRope.UnregisterEvent(AddFirstPositionOnMouseDown);
-        GameEvents.ThreadEvents.onAddingPositionToRope.UnregisterEvent(AddPositionToLineOnDrag);
-        GameEvents.ThreadEvents.onCreatingConnection.UnregisterEvent(CreateLineAndApplyPullForceOnConnection);
-        GameEvents.ThreadEvents.onEmptyList_DetectingPoints.UnregisterEvent(ClearDetectedPointsList);
-
-    }
-
 
 }

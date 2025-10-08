@@ -7,7 +7,12 @@ public interface IPointConnectionHandler : IGameService
      List<Connections> connections { get; }
      float pullDuration {  get;}
      float maxPullDuration {  get; }
+     float minPullDuration {  get; }
     float minDistance { get;}
+    int minThreadStitchCount { get; }
+    int maxThreadStitchCount { get; }
+    int threadStitchCount { get; }
+    bool dynamicStitch {  get; }
 
     void GetAttachedPointsToCreateLink(List<Transform> point);
     void CreateLinkBetweenPoints(SewPoint point1, SewPoint point2);

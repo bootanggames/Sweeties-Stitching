@@ -9,6 +9,7 @@ public class ObjectInfo : MonoBehaviour
     public bool IsStitched { get; private set; }
     public List<SewPoint> connectPoints;
     public List<PointPairContainer> pointPair;
+    public bool head;
     public void MarkStitched()
     {
         IsStitched = true;

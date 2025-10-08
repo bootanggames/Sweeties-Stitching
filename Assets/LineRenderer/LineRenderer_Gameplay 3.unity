@@ -603,6 +603,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a7839ffb25bf444e8d2ba8ecb82e218, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  zVal: 0
   <stitchEffect_ThreadPoints>k__BackingField:
   - {fileID: 1824810254}
   - {fileID: 371535286}
@@ -914,6 +915,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a7839ffb25bf444e8d2ba8ecb82e218, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  zVal: 0
   <stitchEffect_ThreadPoints>k__BackingField:
   - {fileID: 786240316}
   - {fileID: 206564477}
@@ -1503,9 +1505,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   originalRotation: {x: 0, y: 0, z: 0}
-  targetPosition: {x: -0.438, y: 1.587, z: 0}
-  zVal: 0
   moveable: 1
+  shouldBeChild: 0
+  connectPoints: []
+  pointPair: []
 --- !u!212 &279961129
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1787,9 +1790,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   originalRotation: {x: 0, y: 0, z: 0}
-  targetPosition: {x: 0.031, y: 3.179, z: -0.35}
-  zVal: -0.35
   moveable: 1
+  shouldBeChild: 0
+  connectPoints: []
+  pointPair: []
 --- !u!1 &334260251
 GameObject:
   m_ObjectHideFlags: 0
@@ -1840,6 +1844,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a7839ffb25bf444e8d2ba8ecb82e218, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  zVal: 0
   <stitchEffect_ThreadPoints>k__BackingField:
   - {fileID: 186492159}
   - {fileID: 288834788}
@@ -2076,6 +2081,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a7839ffb25bf444e8d2ba8ecb82e218, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  zVal: 0
   <stitchEffect_ThreadPoints>k__BackingField:
   - {fileID: 1504850175}
   - {fileID: 1509438456}
@@ -2204,6 +2210,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a7839ffb25bf444e8d2ba8ecb82e218, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  zVal: 0
   <stitchEffect_ThreadPoints>k__BackingField:
   - {fileID: 462223065}
   - {fileID: 1422521360}
@@ -2619,6 +2626,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a7839ffb25bf444e8d2ba8ecb82e218, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  zVal: 0
   <stitchEffect_ThreadPoints>k__BackingField: []
 --- !u!1 &653693505
 GameObject:
@@ -2778,6 +2786,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a7839ffb25bf444e8d2ba8ecb82e218, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  zVal: 0
   <stitchEffect_ThreadPoints>k__BackingField:
   - {fileID: 1148733025}
   - {fileID: 56115456}
@@ -2903,6 +2912,7 @@ MonoBehaviour:
   drag: 0
   moveLimit: {x: 4, y: 12}
   lastNeedlePos: {x: 0, y: 0}
+  startPoint: {fileID: 0}
 --- !u!1 &694580439
 GameObject:
   m_ObjectHideFlags: 0
@@ -3042,9 +3052,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   originalRotation: {x: 0, y: 0, z: 0}
-  targetPosition: {x: 0.513, y: 1.577, z: 0}
-  zVal: 0
   moveable: 1
+  shouldBeChild: 0
+  connectPoints: []
+  pointPair: []
 --- !u!212 &721814070
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4087,6 +4098,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a7839ffb25bf444e8d2ba8ecb82e218, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  zVal: 0
   <stitchEffect_ThreadPoints>k__BackingField:
   - {fileID: 694580440}
   - {fileID: 199571058}
@@ -4198,9 +4210,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   originalRotation: {x: 0, y: 0, z: 0}
-  targetPosition: {x: 0, y: 0, z: 0}
-  zVal: -0.15
   moveable: 0
+  shouldBeChild: 0
+  connectPoints: []
+  pointPair: []
 --- !u!1 &1148733024
 GameObject:
   m_ObjectHideFlags: 0
@@ -4644,9 +4657,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   originalRotation: {x: -90, y: 0, z: 0}
-  targetPosition: {x: 0, y: 0, z: 0}
-  zVal: -0.25
   moveable: 0
+  shouldBeChild: 0
+  connectPoints: []
+  pointPair: []
 --- !u!1 &1308295838
 GameObject:
   m_ObjectHideFlags: 0
@@ -4697,6 +4711,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a7839ffb25bf444e8d2ba8ecb82e218, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  zVal: 0
   <stitchEffect_ThreadPoints>k__BackingField:
   - {fileID: 87548126}
   - {fileID: 42731404}
@@ -5700,7 +5715,8 @@ MonoBehaviour:
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 79459efec17a4d00a321bdcc27bbc385, type: 2}
-  m_fontSharedMaterials: []
+  m_fontSharedMaterials:
+  - {fileID: 2100000, guid: 79459efec17a4d00a321bdcc27bbc385, type: 2}
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
@@ -5896,6 +5912,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a7839ffb25bf444e8d2ba8ecb82e218, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  zVal: 0
   <stitchEffect_ThreadPoints>k__BackingField: []
 --- !u!1 &1578754645
 GameObject:
@@ -5945,9 +5962,17 @@ MonoBehaviour:
   <connections>k__BackingField: []
   <pullDuration>k__BackingField: 0.2
   <minDistance>k__BackingField: 1
+  <maxPullDuration>k__BackingField: 0
+  <minPullDuration>k__BackingField: 0
+  <minThreadStitchCount>k__BackingField: 0
+  <maxThreadStitchCount>k__BackingField: 0
+  <threadStitchCount>k__BackingField: 0
   tolerance: 0.05
   linePrefab: {fileID: 7377872058111036791, guid: 9b87cbba0ae87414faacff166a8bcaad, type: 3}
   zVal: -0.35
+  rotationSpeed: 0
+  pullForce: 0
+  dynamicStitch: 0
 --- !u!1 &1605238020
 GameObject:
   m_ObjectHideFlags: 0
@@ -6241,9 +6266,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   originalRotation: {x: 0, y: 0, z: 0}
-  targetPosition: {x: 0.793, y: 2.401, z: 0}
-  zVal: 0
   moveable: 1
+  shouldBeChild: 0
+  connectPoints: []
+  pointPair: []
 --- !u!212 &1701312224
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6346,9 +6372,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   originalRotation: {x: 0, y: 0, z: 0}
-  targetPosition: {x: -0.716, y: 2.384, z: 0}
-  zVal: 0
   moveable: 1
+  shouldBeChild: 0
+  connectPoints: []
+  pointPair: []
 --- !u!212 &1728137856
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6545,9 +6572,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   originalRotation: {x: -90, y: -90, z: 90}
-  targetPosition: {x: 0, y: 0, z: 0}
-  zVal: -0.25
   moveable: 0
+  shouldBeChild: 0
+  connectPoints: []
+  pointPair: []
 --- !u!1 &1824743371
 GameObject:
   m_ObjectHideFlags: 0
@@ -6598,6 +6626,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a7839ffb25bf444e8d2ba8ecb82e218, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  zVal: 0
   <stitchEffect_ThreadPoints>k__BackingField:
   - {fileID: 1427639747}
   - {fileID: 872138712}
@@ -6828,6 +6857,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af06d00eab8912540824cc03c9d75bd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <freeForm>k__BackingField: 0
   lineRenderer: {fileID: 7377872058111036791, guid: 9b87cbba0ae87414faacff166a8bcaad, type: 3}
   currentRopeStartPosition: {x: 0, y: 0, z: 0}
   minDistanceBetweenSewPoints: 0.04
@@ -7070,6 +7100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a7839ffb25bf444e8d2ba8ecb82e218, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  zVal: 0
   <stitchEffect_ThreadPoints>k__BackingField: []
 --- !u!1 &1970516906
 GameObject:
@@ -7362,6 +7393,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a7839ffb25bf444e8d2ba8ecb82e218, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  zVal: 0
   <stitchEffect_ThreadPoints>k__BackingField: []
 --- !u!1 &2124236975
 GameObject:
@@ -7413,6 +7445,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a7839ffb25bf444e8d2ba8ecb82e218, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  zVal: 0
   <stitchEffect_ThreadPoints>k__BackingField:
   - {fileID: 1158769974}
   - {fileID: 1620651165}

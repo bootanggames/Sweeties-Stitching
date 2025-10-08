@@ -1,4 +1,3 @@
-using Obi;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,12 +13,14 @@ public class Connections
     int startIndex = 0;
     int endIndex = 0;
     public bool multipleLine = false;
-    public Connections(Transform p1, Transform p2, LineRenderer prefab, float zVal, bool multiple)
+    int count = 0;
+    public Connections(Transform p1, Transform p2, LineRenderer prefab, float zVal, bool multiple, int stitchCount)
     {
         this.point1 = p1;
         this.point2 = p2;
         isLocked = false;
         multipleLine = multiple;
+
         if (multiple)
         {
             SewPoint sp_P1 = p1.GetComponent<SewPoint>();
@@ -32,8 +33,10 @@ public class Connections
             }
 
             links = new List<LineRenderer>();
-
-            int count = Mathf.Min(sp_P1.stitchEffect_ThreadPoints.Count, sp_P2.stitchEffect_ThreadPoints.Count);
+            count = stitchCount;
+            Debug.LogError(" " + count);
+            if (count <= 0) return;
+            //int count = Mathf.Min(sp_P1.stitchEffect_ThreadPoints.Count, sp_P2.stitchEffect_ThreadPoints.Count);
 
             for (int i = 0; i < count; i++)
             {
@@ -56,8 +59,6 @@ public class Connections
                 if(!links.Contains(l) )
                     links.Add(l);
             }
-
-            ////this.line = links.Count > 0 ? links[0] : GameObject.Instantiate(prefab);
         }
         else
         {

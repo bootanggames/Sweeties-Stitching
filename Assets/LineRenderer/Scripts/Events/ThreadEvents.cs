@@ -9,6 +9,8 @@ public static partial class GameEvents
         public static readonly GameEvent<SewPoint> onCreatingConnection = new();
         public static readonly GameEvent onUpdateLinkMovement = new();
         public static readonly GameEvent onEmptyList_DetectingPoints = new();
+        public static readonly GameEvent<bool> setThreadInput = new();
+        public static readonly GameEvent<bool> onSetFreeformMovementValue = new();
 
     }
 }

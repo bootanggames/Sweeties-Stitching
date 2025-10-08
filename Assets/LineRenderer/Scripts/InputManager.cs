@@ -50,8 +50,10 @@ public class InputManager : MonoBehaviour
             drag = false;
             lastNeedlePos = new Vector2(moveX, moveY);
             GameEvents.PointConnectionHandlerEvents.onStopTweens.RaiseEvent();
+            GameEvents.ThreadEvents.setThreadInput.RaiseEvent(true);
+
         }
-     
+
     }
 
     Vector3 CalculateCurrentPosition()

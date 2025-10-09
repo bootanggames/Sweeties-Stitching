@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class ThreadManager : MonoBehaviour, IThreadManager
 {
-    public bool threadInput { get; private set; }
+    [field: SerializeField] public bool threadInput { get; private set; }
     [field: SerializeField] public bool freeForm { get; private set; }
 
     [SerializeField] LineRenderer lineRenderer;
@@ -28,10 +28,9 @@ public class ThreadManager : MonoBehaviour, IThreadManager
     [SerializeField] Transform startPoint;
     private void OnEnable()
     {
-        threadInput = true;
         InstantiateMainThread(true);
         RegisterService();
-
+       
     }
     private void OnDisable()
     {
@@ -88,9 +87,10 @@ public class ThreadManager : MonoBehaviour, IThreadManager
      
     }
 
-
+  
     public void AddFirstPositionOnMouseDown(Vector2 headPos)
     {
+
         if (!threadInput) return;
         if (instantiatedLine == null) return;
 

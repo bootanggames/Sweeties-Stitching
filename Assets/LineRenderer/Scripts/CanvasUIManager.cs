@@ -7,8 +7,9 @@ public class CanvasUIManager : MonoBehaviour, ICanvasUIManager
 {
     [field: SerializeField] public Slider pullSpeedSlider {  get; private set; }
     [field: SerializeField] public Slider threadCountControlSlider {  get; private set; }
-
     [field: SerializeField] public Slider detectionRadiusSlider { get; private set; }
+    [field: SerializeField] public GameObject completeStitchedPlushie {  get; private set; }
+    [field: SerializeField] public GameObject gameCompletePanel { get; private set; }
 
     private void OnEnable()
     {
@@ -110,5 +111,10 @@ public class CanvasUIManager : MonoBehaviour, ICanvasUIManager
     {
         LevelsHandler.instance.SetPref(0);
         GameHandler.instance.Retry();
+    }
+    public void TapToStart()
+    {
+        GameEvents.ThreadEvents.setThreadInput.RaiseEvent(true);
+        GameHandler.instance.SwitchGameState(GameStates.Gamestart);
     }
 }

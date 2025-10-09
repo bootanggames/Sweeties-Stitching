@@ -6,4 +6,6 @@ public interface ICanvasUIManager:IGameService
      Slider pullSpeedSlider { get; }
      Slider threadCountControlSlider {  get; }
      Slider detectionRadiusSlider {  get; }
+    GameObject completeStitchedPlushie { get; }
+    GameObject gameCompletePanel { get; }
 }

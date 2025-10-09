@@ -43,7 +43,7 @@ public class NeedleDetector : MonoBehaviour, INeedleDetector
         SoundManager.instance.ResetAudioSource();
 
         AudioSource _source = SoundManager.instance.audioSource;
-        AudioClip _clip = SoundManager.instance.audioClips.coinCollection;
+        AudioClip _clip = SoundManager.instance.audioClips.sewing;
         SoundManager.instance.PlaySound(_source, _clip, false, false, 1, false);
     }
     private void OnDrawGizmos()

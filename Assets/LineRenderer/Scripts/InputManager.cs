@@ -18,9 +18,11 @@ public class InputManager : MonoBehaviour
     }
     private void Update()
     {
+        var gameHandler = ServiceLocator.GetService<IGameHandler>();
+        if (gameHandler == null) return;
+        if (!gameHandler.gameStates.Equals(GameStates.Gamestart)) return;
         GetInput();
     }
-
     void GetInput()
     {
         if (Input.GetMouseButtonDown(0) && !drag)

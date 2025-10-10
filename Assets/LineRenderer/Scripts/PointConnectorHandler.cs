@@ -189,8 +189,8 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
                 }
                 avgMid /= count;
 
-                pullSeq.Join(info1.transform.DOMove(Vector3.Lerp(info1.transform.position, avgMid, pullForce), tweenDuration).SetEase(Ease.InOutSine));
-                pullSeq.Join(info2.transform.DOMove(Vector3.Lerp(info2.transform.position, avgMid, pullForce), tweenDuration).SetEase(Ease.InOutSine));
+                pullSeq.Join(info1.transform.DOMove(Vector3.Lerp(info1.transform.position, avgMid, info1.pullForce), tweenDuration).SetEase(Ease.InOutSine));
+                pullSeq.Join(info2.transform.DOMove(Vector3.Lerp(info2.transform.position, avgMid, info2.pullForce), tweenDuration).SetEase(Ease.InOutSine));
             }
             else
             {
@@ -222,7 +222,7 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
                 else
                     moveAbleTransform = info1.transform;
 
-                Vector3 targetPos = moveAbleTransform.position + avrOffset * pullForce;
+                Vector3 targetPos = moveAbleTransform.position + avrOffset * info1.pullForce;
 
               
                 pullSeq.Join(moveAbleTransform.DOMove(targetPos, tweenDuration).SetEase(Ease.InOutSine));
@@ -231,8 +231,8 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
                 Quaternion targetRot = Quaternion.LookRotation(lookDir, Vector3.up);
 
                 Vector3 euler = targetRot.eulerAngles;
-                euler.x = 0f;
-                euler.y = 0f;
+                //euler.x = 0f;
+                //euler.y = 0f;
 
                 pullSeq.Join(
                     moveAbleTransform.DORotate(euler, tweenDuration, RotateMode.Fast)
@@ -264,7 +264,7 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
                 else
                     moveAbleTransform = info2.transform;
 
-                Vector3 targetPos = moveAbleTransform.position + avrOffset * pullForce;
+                Vector3 targetPos = moveAbleTransform.position + avrOffset * info2.pullForce;
 
                 pullSeq.Join(moveAbleTransform.DOMove(targetPos, tweenDuration).SetEase(Ease.InOutSine));
                 Vector3 lookDir = info1.transform.position - moveAbleTransform.position;

@@ -1,4 +1,4 @@
-﻿using Cinemachine;
+﻿using Unity.Cinemachine;
 using MoreMountains.Tools;
 using System;
 using System.Collections;
@@ -15,7 +15,7 @@ namespace MoreMountains.Tools
     public class MMGyroCam
     {
         /// the bound cinemachine camera
-        public CinemachineVirtualCamera Cam;
+        public CinemachineCamera Cam;
         /// the transform this camera should rotate around
         public Transform RotationCenter;
         /// the minimum rotation to apply to this camera (in degrees)

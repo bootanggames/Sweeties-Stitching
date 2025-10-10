@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
-using Cinemachine;
+using Unity.Cinemachine;
 using MoreMountains.Feedbacks;
 
 namespace MoreMountains.FeedbacksForThirdParty
@@ -11,7 +11,7 @@ namespace MoreMountains.FeedbacksForThirdParty
     /// This class will allow you to trigger zooms on your cinemachine camera by sending MMCameraZoomEvents from any other class
     /// </summary>
     [AddComponentMenu("More Mountains/Feedbacks/Shakers/Cinemachine/MMCinemachineZoom")]
-    [RequireComponent(typeof(Cinemachine.CinemachineVirtualCamera))]
+    [RequireComponent(typeof(Unity.Cinemachine.CinemachineVirtualCamera))]
     public class MMCinemachineZoom : MonoBehaviour
     {
         public int Channel = 0;
@@ -34,7 +34,7 @@ namespace MoreMountains.FeedbacksForThirdParty
         /// an inspector button to test the zoom in play mode
         public bool TestZoomButton;
 
-        protected Cinemachine.CinemachineVirtualCamera _virtualCamera;
+        protected Unity.Cinemachine.CinemachineVirtualCamera _virtualCamera;
         protected float _initialFieldOfView;
         protected MMCameraZoomModes _mode;
         protected bool _zooming = false;
@@ -52,7 +52,7 @@ namespace MoreMountains.FeedbacksForThirdParty
         /// </summary>
         protected virtual void Awake()
         {
-            _virtualCamera = this.gameObject.GetComponent<Cinemachine.CinemachineVirtualCamera>();
+            _virtualCamera = this.gameObject.GetComponent<Unity.Cinemachine.CinemachineVirtualCamera>();
             _initialFieldOfView = _virtualCamera.m_Lens.FieldOfView;
         }	
         

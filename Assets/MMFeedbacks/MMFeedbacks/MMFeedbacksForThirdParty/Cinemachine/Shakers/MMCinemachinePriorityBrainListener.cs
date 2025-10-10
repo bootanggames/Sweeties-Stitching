@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Cinemachine;
+using Unity.Cinemachine;
 using MoreMountains.Feedbacks;
 
 namespace MoreMountains.FeedbacksForThirdParty
@@ -44,10 +44,10 @@ namespace MoreMountains.FeedbacksForThirdParty
                 }
                 else
                 {
-                    _initialDefinition = _brain.m_DefaultBlend;
+                    _initialDefinition = _brain.DefaultBlend;
                 }
-                _brain.m_DefaultBlend = blendDefinition;
-                _coroutine = StartCoroutine(ResetBlendDefinition(blendDefinition.m_Time));                
+                _brain.DefaultBlend = blendDefinition;
+                _coroutine = StartCoroutine(ResetBlendDefinition(blendDefinition.Time));                
             }
         }
 
@@ -62,7 +62,7 @@ namespace MoreMountains.FeedbacksForThirdParty
             {
                 yield return null;
             }
-            _brain.m_DefaultBlend = _initialDefinition;
+            _brain.DefaultBlend = _initialDefinition;
             _coroutine = null;
         }
 

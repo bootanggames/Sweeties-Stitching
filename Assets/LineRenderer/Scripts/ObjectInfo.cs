@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 public class ObjectInfo : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class ObjectInfo : MonoBehaviour
     public List<SewPoint> connectPoints;
     public List<PointPairContainer> pointPair;
     public bool head;
+    public float pullForce;
     public void MarkStitched()
     {
         IsStitched = true;

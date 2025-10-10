@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using MoreMountains.Feedbacks;
-using Cinemachine;
+using Unity.Cinemachine;
 
 namespace MoreMountains.FeedbacksForThirdParty
 {
@@ -17,13 +17,13 @@ namespace MoreMountains.FeedbacksForThirdParty
         #endif
 
         [Header("Cinemachine Impulse")]
-        [CinemachineImpulseDefinitionProperty]
+        //[CinemachineImpulseDefinitionProperty]
         public CinemachineImpulseDefinition m_ImpulseDefinition;
         public Vector3 Velocity;
 
 
         /// the duration of this feedback is the duration of the impulse
-        public override float FeedbackDuration { get { return m_ImpulseDefinition.m_TimeEnvelope.Duration; } }
+        public override float FeedbackDuration { get { return m_ImpulseDefinition.TimeEnvelope.Duration; } }
 
         protected override void CustomPlayFeedback(Vector3 position, float attenuation = 1.0f)
         {

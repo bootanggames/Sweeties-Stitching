@@ -1,7 +1,6 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using Cinemachine;
+using Unity.Cinemachine;
 using MoreMountains.Feedbacks;
 
 namespace MoreMountains.FeedbacksForThirdParty
@@ -10,7 +9,7 @@ namespace MoreMountains.FeedbacksForThirdParty
     /// Add this component to your Cinemachine Virtual Camera to have it shake when calling its ShakeCamera methods.
     /// </summary>
     [AddComponentMenu("More Mountains/Feedbacks/Shakers/Cinemachine/MMCinemachineCameraShaker")]
-    [RequireComponent(typeof(CinemachineVirtualCamera))]
+    [RequireComponent(typeof(CinemachineCamera))]
     public class MMCinemachineCameraShaker : MonoBehaviour
     {
         [Header("Settings")]
@@ -40,8 +39,8 @@ namespace MoreMountains.FeedbacksForThirdParty
         protected Vector3 _initialPosition;
         protected Quaternion _initialRotation;
 
-        protected Cinemachine.CinemachineBasicMultiChannelPerlin _perlin;
-        protected Cinemachine.CinemachineVirtualCamera _virtualCamera;
+        protected Unity.Cinemachine.CinemachineBasicMultiChannelPerlin _perlin;
+        protected Unity.Cinemachine.CinemachineCamera _virtualCamera;
 
         protected float _targetAmplitude;
         protected float _targetFrequency;
@@ -53,8 +52,8 @@ namespace MoreMountains.FeedbacksForThirdParty
         /// </summary>
         protected virtual void Awake()
         {
-            _virtualCamera = this.gameObject.GetComponent<CinemachineVirtualCamera>();
-            _perlin = _virtualCamera.GetCinemachineComponent<Cinemachine.CinemachineBasicMultiChannelPerlin>();
+            _virtualCamera = this.gameObject.GetComponent<CinemachineCamera>();
+            //_perlin = _virtualCamera.GetCinemachineComponent<Cinemachine.CinemachineBasicMultiChannelPerlin>();
         }
 
         /// <summary>
@@ -64,8 +63,8 @@ namespace MoreMountains.FeedbacksForThirdParty
         {
             if (_perlin != null)
             {
-                IdleAmplitude = _perlin.m_AmplitudeGain;
-                IdleFrequency = _perlin.m_FrequencyGain;
+                IdleAmplitude = _perlin.AmplitudeGain;
+                IdleFrequency = _perlin.FrequencyGain;
             }            
 
             _targetAmplitude = IdleAmplitude;
@@ -76,8 +75,8 @@ namespace MoreMountains.FeedbacksForThirdParty
         {
             if (_perlin != null)
             {
-                _perlin.m_AmplitudeGain = _targetAmplitude;
-                _perlin.m_FrequencyGain = Mathf.Lerp(_perlin.m_FrequencyGain, _targetFrequency, Time.deltaTime * LerpSpeed);
+                _perlin.AmplitudeGain = _targetAmplitude;
+                _perlin.FrequencyGain = Mathf.Lerp(_perlin.FrequencyGain, _targetFrequency, Time.deltaTime * LerpSpeed);
             }
         }
 

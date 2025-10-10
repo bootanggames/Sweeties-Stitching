@@ -16,14 +16,14 @@ public class LevelsHandler : Singleton<LevelsHandler>, ILevelHandler
         base.SingletonOnDestroy();
         UnRegisterService();
     }
-    private void Start()
-    {
-        if(levelIndex == 1)
-            GameEvents.PointConnectionHandlerEvents.onSettingPlushieLevel2.RaiseEvent(true);
-        else
-            GameEvents.PointConnectionHandlerEvents.onSettingPlushieLevel2.RaiseEvent(false);
+    //private void Start()
+    //{
+    //    if(levelIndex == 1)
+    //        GameEvents.PointConnectionHandlerEvents.onSettingPlushieLevel2.RaiseEvent(true);
+    //    else
+    //        GameEvents.PointConnectionHandlerEvents.onSettingPlushieLevel2.RaiseEvent(false);
 
-    }
+    //}
     public void RegisterService()
     {
         ServiceLocator.RegisterService<ILevelHandler>(this);

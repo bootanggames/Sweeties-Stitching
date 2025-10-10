@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Cinemachine;
+using Unity.Cinemachine;
 using MoreMountains.Feedbacks;
 
 namespace MoreMountains.FeedbacksForThirdParty
@@ -10,7 +10,7 @@ namespace MoreMountains.FeedbacksForThirdParty
     /// Add this to a Cinemachine virtual camera and it'll let you control its near and far clipping planes
     /// </summary>
     [AddComponentMenu("More Mountains/Feedbacks/Shakers/Cinemachine/MMCinemachineClippingPlanesShaker")]
-    [RequireComponent(typeof(CinemachineVirtualCamera))]
+    [RequireComponent(typeof(CinemachineCamera))]
     public class MMCinemachineClippingPlanesShaker : MMShaker
     {
         [Header("Clipping Planes")]
@@ -33,7 +33,7 @@ namespace MoreMountains.FeedbacksForThirdParty
         /// the value to remap the curve's 1 to        
         public float RemapFarOne = 1000f;
 
-        protected CinemachineVirtualCamera _targetCamera;
+        protected CinemachineCamera _targetCamera;
         protected float _initialNear;
         protected float _initialFar;
 
@@ -54,7 +54,7 @@ namespace MoreMountains.FeedbacksForThirdParty
         protected override void Initialization()
         {
             base.Initialization();
-            _targetCamera = this.gameObject.GetComponent<CinemachineVirtualCamera>();
+            _targetCamera = this.gameObject.GetComponent<CinemachineCamera>();
         }
 
         /// <summary>
@@ -71,9 +71,9 @@ namespace MoreMountains.FeedbacksForThirdParty
         protected override void Shake()
         {
             float newNear = ShakeFloat(ShakeNear, RemapNearZero, RemapNearOne, RelativeClippingPlanes, _initialNear);
-            _targetCamera.m_Lens.NearClipPlane = newNear;
+            _targetCamera.Lens.NearClipPlane = newNear;
             float newFar = ShakeFloat(ShakeFar, RemapFarZero, RemapFarOne, RelativeClippingPlanes, _initialFar);
-            _targetCamera.m_Lens.FarClipPlane = newFar;
+            _targetCamera.Lens.FarClipPlane = newFar;
         }
 
         /// <summary>
@@ -81,8 +81,8 @@ namespace MoreMountains.FeedbacksForThirdParty
         /// </summary>
         protected override void GrabInitialValues()
         {
-            _initialNear = _targetCamera.m_Lens.NearClipPlane;
-            _initialFar = _targetCamera.m_Lens.FarClipPlane;
+            _initialNear = _targetCamera.Lens.NearClipPlane;
+            _initialFar = _targetCamera.Lens.FarClipPlane;
         }
 
         /// <summary>
@@ -135,8 +135,8 @@ namespace MoreMountains.FeedbacksForThirdParty
         protected override void ResetTargetValues()
         {
             base.ResetTargetValues();
-            _targetCamera.m_Lens.NearClipPlane = _initialNear;
-            _targetCamera.m_Lens.FarClipPlane = _initialFar;
+            _targetCamera.Lens.NearClipPlane = _initialNear;
+            _targetCamera.Lens.FarClipPlane = _initialFar;
         }
 
         /// <summary>

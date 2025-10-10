@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Cinemachine;
+using Unity.Cinemachine;
 using MoreMountains.Feedbacks;
 
 namespace MoreMountains.FeedbacksForThirdParty
@@ -10,7 +10,7 @@ namespace MoreMountains.FeedbacksForThirdParty
     /// Add this to a Cinemachine virtual camera and it'll let you control its field of view over time, can be piloted by a MMFeedbackCameraFieldOfView
     /// </summary>
     [AddComponentMenu("More Mountains/Feedbacks/Shakers/Cinemachine/MMCinemachineFieldOfViewShaker")]
-    [RequireComponent(typeof(CinemachineVirtualCamera))]
+    [RequireComponent(typeof(CinemachineCamera))]
     public class MMCinemachineFieldOfViewShaker : MMShaker
     {
         [Header("Field of View")]
@@ -25,7 +25,7 @@ namespace MoreMountains.FeedbacksForThirdParty
         [Range(0f, 179f)]
         public float RemapFieldOfViewOne = 120f;
 
-        protected CinemachineVirtualCamera _targetCamera;
+        protected CinemachineCamera _targetCamera;
         protected float _initialFieldOfView;
         protected float _originalShakeDuration;
         protected bool _originalRelativeFieldOfView;
@@ -39,7 +39,7 @@ namespace MoreMountains.FeedbacksForThirdParty
         protected override void Initialization()
         {
             base.Initialization();
-            _targetCamera = this.gameObject.GetComponent<CinemachineVirtualCamera>();
+            _targetCamera = this.gameObject.GetComponent<CinemachineCamera>();
         }
 
         /// <summary>
@@ -56,7 +56,7 @@ namespace MoreMountains.FeedbacksForThirdParty
         protected override void Shake()
         {
             float newFieldOfView = ShakeFloat(ShakeFieldOfView, RemapFieldOfViewZero, RemapFieldOfViewOne, RelativeFieldOfView, _initialFieldOfView);
-            _targetCamera.m_Lens.FieldOfView = newFieldOfView;
+            _targetCamera.Lens.FieldOfView = newFieldOfView;
         }
 
         /// <summary>
@@ -64,7 +64,7 @@ namespace MoreMountains.FeedbacksForThirdParty
         /// </summary>
         protected override void GrabInitialValues()
         {
-            _initialFieldOfView = _targetCamera.m_Lens.FieldOfView;
+            _initialFieldOfView = _targetCamera.Lens.FieldOfView;
         }
 
         /// <summary>
@@ -111,7 +111,7 @@ namespace MoreMountains.FeedbacksForThirdParty
         protected override void ResetTargetValues()
         {
             base.ResetTargetValues();
-            _targetCamera.m_Lens.FieldOfView = _initialFieldOfView;
+            _targetCamera.Lens.FieldOfView = _initialFieldOfView;
         }
 
         /// <summary>

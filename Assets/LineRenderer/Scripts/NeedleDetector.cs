@@ -8,6 +8,7 @@ public class NeedleDetector : MonoBehaviour, INeedleDetector
     [field: SerializeField] public float detectionRadius {  get; private set; }
     [field: SerializeField] public float minDetectionRadius { get; private set; }
     [field: SerializeField] public float maxDetectionRadius { get; private set; }
+    [field: SerializeField] public bool detect { get; set; }
 
     private void OnEnable()
     {
@@ -27,6 +28,7 @@ public class NeedleDetector : MonoBehaviour, INeedleDetector
     }
     void DetectPoints()
     {
+        if (!detect) return;
         Collider[] colliders = Physics.OverlapSphere(needleTransform.position, detectionRadius, detectLayer);
         if (colliders.Length <= 0) return;
         SewPoint sewPoint = colliders[0].GetComponent<SewPoint>();

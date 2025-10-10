@@ -1,0 +1,2 @@
+C:\Users\DELL\Desktop\GitHub_Repo\Stitching-Demo\Library\Bee\Android\Prj\IL2CPP\Gradle\unityLibrary\src\main\cpp\CMakeLists.txt
+C:\Users\DELL\Desktop\GitHub_Repo\Stitching-Demo\Library\Bee\Android\Prj\IL2CPP\Gradle\unityLibrary\src\main\cpp\GameActivity\CMakeLists.txt

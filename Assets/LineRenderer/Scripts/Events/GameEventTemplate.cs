@@ -121,6 +121,35 @@ public class GameEvent<T1, T2,T3>
         Event = null;
     }
 }
+public class GameEvent<T1, T2, T3, T4, T5>
+{
+    public event Action<T1, T2, T3, T4, T5> Event;
+    public void RegisterEvent(Action<T1, T2, T3, T4, T5> eventAction)
+    {
+        if (eventAction != null)
+        {
+            Event += eventAction;
+        }
+    }
+
+    public void UnregisterEvent(Action<T1, T2, T3, T4, T5> eventAction)
+    {
+        if (eventAction != null)
+        {
+            Event -= eventAction;
+        }
+    }
+
+    public void RaiseEvent(T1 param1, T2 param2, T3 param3, T4 param4, T5 param5)
+    {
+        Event?.Invoke(param1, param2, param3, param4, param5);
+    }
+
+    public void UnRegisterAll()
+    {
+        Event = null;
+    }
+}
 public class GameEvent<T1, T2, T3, T4, T5, T6>
 {
     public event Action<T1, T2, T3, T4, T5, T6> Event;

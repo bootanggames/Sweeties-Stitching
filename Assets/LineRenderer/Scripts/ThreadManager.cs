@@ -100,7 +100,6 @@ public class ThreadManager : MonoBehaviour, IThreadManager
             if (freeForm)
                 currentRopeStartPosition.z = zVal;
             instantiatedLine.SetPosition(0, currentRopeStartPosition);
-
         }
         else
         {

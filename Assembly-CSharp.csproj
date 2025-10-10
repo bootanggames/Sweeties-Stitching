@@ -77,6 +77,7 @@
     <Compile Include="Assets\LineRenderer\Scripts\Interfaces\IPointConnectionHandler.cs" />
     <Compile Include="Assets\LineRenderer\Scripts\Interfaces\ILevelHandler.cs" />
     <Compile Include="Assets\LineRenderer\Scripts\Interfaces\IThreadManager.cs" />
+    <Compile Include="Assets\LineRenderer\Scripts\DoTweenAnimationHandler.cs" />
     <Compile Include="Assets\LineRenderer\Scripts\InputManager.cs" />
     <Compile Include="Assets\LineRenderer\Scripts\SerializableClasses\PointPairContainer.cs" />
     <Compile Include="Assets\LineRenderer\Scripts\SoundManager.cs" />
@@ -110,6 +111,7 @@
     <Compile Include="Assets\DOTween\Modules\DOTweenModuleEPOOutline.cs" />
     <Compile Include="Assets\MasterMagicFX\Scripts\Miscs\MSelfDestroy.cs" />
     <Compile Include="Assets\LineRenderer\Scripts\GameCompleteHandler.cs" />
+    <Compile Include="Assets\LineRenderer\Scripts\Events\DoTweenAnimationHandlerEvents.cs" />
     <Compile Include="Assets\LineRenderer\Scripts\Events\SoundManagerEvents.cs" />
     <Compile Include="Assets\LineRenderer\Scripts\Level_Metadata.cs" />
     <Compile Include="Assets\LineRenderer\Scripts\Enums\GameStates.cs" />
@@ -121,6 +123,7 @@
     <Compile Include="Assets\LineRenderer\Scripts\CanvasUIManager.cs" />
     <Compile Include="Assets\LineRenderer\Scripts\Interfaces\ICanvasUIManager.cs" />
     <Compile Include="Assets\LineRenderer\Scripts\PointConnectorHandler.cs" />
+    <Compile Include="Assets\LineRenderer\Scripts\Animate.cs" />
     <Compile Include="Assets\DOTween\Modules\DOTweenModuleSprite.cs" />
     <Compile Include="Assets\LineRenderer\Scripts\ObjectInfo.cs" />
     <Compile Include="Assets\LineRenderer\Scripts\SerializableClasses\Connections.cs" />
@@ -658,18 +661,6 @@
     </Reference>
     <Reference Include="Mono.Cecil">
       <HintPath>Library\PackageCache\com.unity.nuget.mono-cecil@d6f9955a5d5f\Mono.Cecil.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="UnityEditor.iOS.Extensions.Xcode">
-      <HintPath>C:\Program Files\Unity\Hub\Editor\6000.1.10f1\Editor\Data\PlaybackEngines\iOSSupport\UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="UnityEditor.iOS.Extensions.Common">
-      <HintPath>C:\Program Files\Unity\Hub\Editor\6000.1.10f1\Editor\Data\PlaybackEngines\iOSSupport\UnityEditor.iOS.Extensions.Common.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="UnityEditor.Apple.Extensions.Common">
-      <HintPath>C:\Program Files\Unity\Hub\Editor\6000.1.10f1\Editor\Data\PlaybackEngines\iOSSupport\UnityEditor.Apple.Extensions.Common.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.Android.Types">

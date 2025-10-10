@@ -70,6 +70,11 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
         if (point.Count % 2 != 0)
         {
             NewConnection(point[point.Count - 2].transform, point[point.Count - 1].transform, false, false, 0);
+            var needleDetecto = ServiceLocator.GetService<INeedleDetector>();
+            if (needleDetecto != null)
+            {
+                needleDetecto.detect = true;
+            }
             return;
         }
         foreach (Transform t in point)
@@ -109,13 +114,33 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
         (c.point1 == p1 && c.point2 == p2) ||
         (c.point1 == p2 && c.point2 == p1)))
             return;
-
         Connections connection = new Connections(p1, p2, linePrefab, zVal, multiple, stitchCount);
         connections.Add(connection);
         if (applyPullForce)
             ManageConnetions(connection);
         else
             connection.isLocked = true;
+
+        var needleDetecto = ServiceLocator.GetService<INeedleDetector>();
+        if(needleDetecto != null)
+        {
+            needleDetecto.detect = false;
+        }
+    }
+
+    void IncrementConnections(Level_Metadata currentLevel)
+    {
+        currentLevel.noOfCorrectLinks++;
+        if (currentLevel.noOfCorrectLinks == currentLevel.totalCorrectLinks)
+        {
+            GameEvents.GameCompleteEvents.onGameWin.RaiseEvent();
+            Invoke("CallGameWinPanel", 1.5f);
+        }
+    }
+    void CallGameWinPanel()
+    {
+        GameEvents.GameCompleteEvents.onGameComplete.RaiseEvent();
+        CancelInvoke("CallGameWinPanel");
     }
     public void ManageConnetions(Connections c)
     {
@@ -296,6 +321,47 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
 
                     }
 
+                }
+            }
+        });
+        pullSeq.OnComplete(() =>
+        {
+            var needleDetecto = ServiceLocator.GetService<INeedleDetector>();
+            if (needleDetecto != null)
+            {
+                needleDetecto.detect = true;
+            }
+            Level_Metadata currentLevel = LevelsHandler.instance.levels[LevelsHandler.instance.levelIndex].GetComponent<Level_Metadata>();
+
+            if (currentLevel)
+            {
+                SewPoint sp1 = p1.GetComponent<SewPoint>();
+                SewPoint sp2 = p2.GetComponent<SewPoint>();
+
+                if (p1.parent == p2.parent) return;
+                if (sp1.connected || sp2.connected) return;
+                if (dynamicStitch)
+                {
+                    if (p1.parent.parent.parent == p2.parent.parent.parent) return;
+                }
+
+                if (sp1.attachmentId.Equals(sp2.attachmentId))
+                {
+                    sp1.connected = true;
+                    sp2.connected = true;
+                    IncrementConnections(currentLevel);
+                }
+                else
+                {
+                    if (sp1.alternativeAttachments.Length > 0)
+                    {
+                        if (sp1.alternativeAttachments.Contains(sp2.attachmentId))
+                        {
+                            sp1.connected = true;
+                            sp2.connected = true;
+                            IncrementConnections(currentLevel);
+                        }
+                    }
                 }
             }
         });

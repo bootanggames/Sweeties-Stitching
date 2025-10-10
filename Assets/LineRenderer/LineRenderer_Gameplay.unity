@@ -304,8 +304,8 @@ Transform:
   m_GameObject: {fileID: 25616930}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.59, y: 1.46, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalPosition: {x: -1.93, y: 1.67, z: 0}
+  m_LocalScale: {x: 0.35, y: 0.35, z: 0.35}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1363519327}
@@ -323,6 +323,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zVal: -0.3
+  attachmentId: 4
+  alternativeAttachments: 050000001300000012000000
+  connected: 0
   <stitchEffect_ThreadPoints>k__BackingField: []
 --- !u!135 &25616933
 SphereCollider:
@@ -1406,8 +1409,6 @@ MonoBehaviour:
   connectPoints:
   - {fileID: 776723390}
   - {fileID: 2144423071}
-  - {fileID: 1090691584}
-  - {fileID: 312318299}
   pointPair: []
   head: 0
 --- !u!212 &79404753
@@ -1510,6 +1511,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.5
+  confettiEffect:
+  - {fileID: 2069424327}
+  - {fileID: 855033188}
 --- !u!1 &85089327
 GameObject:
   m_ObjectHideFlags: 0
@@ -1741,6 +1745,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zVal: -0.3
+  attachmentId: 0
+  alternativeAttachments: 
+  connected: 0
   <stitchEffect_ThreadPoints>k__BackingField: []
 --- !u!135 &109348160
 SphereCollider:
@@ -1890,6 +1897,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zVal: -0.1
+  attachmentId: 6
+  alternativeAttachments: 
+  connected: 0
   <stitchEffect_ThreadPoints>k__BackingField:
   - {fileID: 1108946190}
   - {fileID: 488417786}
@@ -2020,6 +2030,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zVal: -0.3
+  attachmentId: 7
+  alternativeAttachments: 06000000
+  connected: 0
   <stitchEffect_ThreadPoints>k__BackingField: []
 --- !u!135 &136971840
 SphereCollider:
@@ -2330,6 +2343,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zVal: -0.3
+  attachmentId: 14
+  alternativeAttachments: 0f000000
+  connected: 0
   <stitchEffect_ThreadPoints>k__BackingField: []
 --- !u!135 &151139677
 SphereCollider:
@@ -3190,6 +3206,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zVal: -0.1
+  attachmentId: 2
+  alternativeAttachments: 
+  connected: 0
   <stitchEffect_ThreadPoints>k__BackingField:
   - {fileID: 1824810254}
   - {fileID: 371535286}
@@ -3530,6 +3549,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zVal: -0.1
+  attachmentId: 1
+  alternativeAttachments: 
+  connected: 0
   <stitchEffect_ThreadPoints>k__BackingField:
   - {fileID: 786240316}
   - {fileID: 691679942}
@@ -4125,6 +4147,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zVal: -0.3
+  attachmentId: 1
+  alternativeAttachments: 0200000003000000
+  connected: 0
   <stitchEffect_ThreadPoints>k__BackingField: []
 --- !u!135 &223528933
 SphereCollider:
@@ -4356,6 +4381,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zVal: -0.3
+  attachmentId: 14
+  alternativeAttachments: 0f000000
+  connected: 0
   <stitchEffect_ThreadPoints>k__BackingField: []
 --- !u!135 &228802459
 SphereCollider:
@@ -4879,6 +4907,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zVal: -0.3
+  attachmentId: 6
+  alternativeAttachments: 07000000
+  connected: 0
   <stitchEffect_ThreadPoints>k__BackingField: []
 --- !u!135 &273431401
 SphereCollider:
@@ -5623,6 +5654,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zVal: -0.3
+  attachmentId: 0
+  alternativeAttachments: 
+  connected: 0
   <stitchEffect_ThreadPoints>k__BackingField: []
 --- !u!135 &312318300
 SphereCollider:
@@ -5972,6 +6006,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zVal: -0.1
+  attachmentId: 5
+  alternativeAttachments: 
+  connected: 0
   <stitchEffect_ThreadPoints>k__BackingField:
   - {fileID: 186492159}
   - {fileID: 288834788}
@@ -6228,6 +6265,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zVal: -0.3
+  attachmentId: 13
+  alternativeAttachments: 0c000000
+  connected: 0
   <stitchEffect_ThreadPoints>k__BackingField: []
 --- !u!135 &337825978
 SphereCollider:
@@ -6357,7 +6397,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdc877ac9626c6b4999856cfbbe442c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalCorrectLinks: 0
+  totalCorrectLinks: 19
   noOfCorrectLinks: 0
 --- !u!1 &348034590
 GameObject:
@@ -6515,6 +6555,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zVal: -0.3
+  attachmentId: 6
+  alternativeAttachments: 07000000
+  connected: 0
   <stitchEffect_ThreadPoints>k__BackingField: []
 --- !u!135 &354228884
 SphereCollider:
@@ -6983,6 +7026,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zVal: -0.1
+  attachmentId: 5
+  alternativeAttachments: 
+  connected: 0
   <stitchEffect_ThreadPoints>k__BackingField:
   - {fileID: 1504850175}
   - {fileID: 1509438456}
@@ -7349,6 +7395,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zVal: -0.3
+  attachmentId: 1
+  alternativeAttachments: 0200000003000000
+  connected: 0
   <stitchEffect_ThreadPoints>k__BackingField: []
 --- !u!135 &386921003
 SphereCollider:
@@ -7722,6 +7771,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zVal: -0.1
+  attachmentId: 3
+  alternativeAttachments: 
+  connected: 0
   <stitchEffect_ThreadPoints>k__BackingField:
   - {fileID: 462223065}
   - {fileID: 1422521360}
@@ -7871,17 +7923,18 @@ MonoBehaviour:
   moveable: 0
   shouldBeChild: 0
   connectPoints:
-  - {fileID: 2010447775}
   - {fileID: 551292557}
-  - {fileID: 1493207833}
   - {fileID: 1114955662}
   pointPair:
   - point1: {fileID: 551292556}
     point2: {fileID: 386921001}
+    linked: 0
   - point1: {fileID: 2010447774}
     point2: {fileID: 608285792}
+    linked: 0
   - point1: {fileID: 1493207832}
     point2: {fileID: 1526407055}
+    linked: 0
   head: 0
 --- !u!1 &425028753
 GameObject:
@@ -8080,6 +8133,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zVal: -0.3
+  attachmentId: 16
+  alternativeAttachments: 11000000
+  connected: 0
   <stitchEffect_ThreadPoints>k__BackingField: []
 --- !u!135 &432733092
 SphereCollider:
@@ -8212,6 +8268,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zVal: -0.1
+  attachmentId: 4
+  alternativeAttachments: 
+  connected: 0
   <stitchEffect_ThreadPoints>k__BackingField:
   - {fileID: 1299539085}
   - {fileID: 1194027655}
@@ -8324,7 +8383,7 @@ GameObject:
   - component: {fileID: 444890058}
   - component: {fileID: 444890057}
   m_Layer: 0
-  m_Name: EarRight
+  m_Name: EarLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8363,8 +8422,6 @@ MonoBehaviour:
   shouldBeChild: 1
   connectPoints:
   - {fileID: 354228883}
-  - {fileID: 607189626}
-  - {fileID: 1012754977}
   - {fileID: 136971839}
   pointPair: []
   head: 0
@@ -8829,6 +8886,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zVal: -0.3
+  attachmentId: 11
+  alternativeAttachments: 0a000000
+  connected: 0
   <stitchEffect_ThreadPoints>k__BackingField: []
 --- !u!135 &463026082
 SphereCollider:
@@ -8923,7 +8983,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &466796727
 Transform:
   m_ObjectHideFlags: 0
@@ -8933,7 +8993,7 @@ Transform:
   m_GameObject: {fileID: 466796726}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.9799999, y: 1.7300004, z: 0}
+  m_LocalPosition: {x: 1.35, y: 1.2, z: 0}
   m_LocalScale: {x: 0.35, y: 0.35, z: 0.35}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -8952,6 +9012,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zVal: -0.3
+  attachmentId: 19
+  alternativeAttachments: 040000001200000005000000
+  connected: 0
   <stitchEffect_ThreadPoints>k__BackingField: []
 --- !u!135 &466796729
 SphereCollider:
@@ -8997,7 +9060,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: f6f43e43b73651441a6fa3294093763e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -9280,7 +9343,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -323, y: -13.199951}
+  m_AnchoredPosition: {x: -323, y: -13.200195}
   m_SizeDelta: {x: 302.9469, y: 81.7565}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &473298002
@@ -9889,6 +9952,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zVal: -0.3
+  attachmentId: 0
+  alternativeAttachments: 
+  connected: 0
   <stitchEffect_ThreadPoints>k__BackingField: []
 --- !u!135 &530154797
 SphereCollider:
@@ -10156,6 +10222,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zVal: -0.3
+  attachmentId: 8
+  alternativeAttachments: 09000000
+  connected: 0
   <stitchEffect_ThreadPoints>k__BackingField: []
 --- !u!135 &551292558
 SphereCollider:
@@ -11198,6 +11267,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zVal: -0.3
+  attachmentId: 0
+  alternativeAttachments: 
+  connected: 0
   <stitchEffect_ThreadPoints>k__BackingField: []
 --- !u!135 &607189627
 SphereCollider:
@@ -11458,6 +11530,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zVal: -0.3
+  attachmentId: 2
+  alternativeAttachments: 0100000003000000
+  connected: 0
   <stitchEffect_ThreadPoints>k__BackingField: []
 --- !u!135 &608285794
 SphereCollider:
@@ -12016,6 +12091,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zVal: -0.3
+  attachmentId: 0
+  alternativeAttachments: 
+  connected: 0
   <stitchEffect_ThreadPoints>k__BackingField: []
 --- !u!135 &639319521
 SphereCollider:
@@ -12392,6 +12470,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zVal: -0.1
+  attachmentId: 3
+  alternativeAttachments: 
+  connected: 0
   <stitchEffect_ThreadPoints>k__BackingField:
   - {fileID: 1148733025}
   - {fileID: 56115456}
@@ -12737,6 +12818,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zVal: -0.1
+  attachmentId: 6
+  alternativeAttachments: 
+  connected: 0
   <stitchEffect_ThreadPoints>k__BackingField:
   - {fileID: 1249375902}
   - {fileID: 1817704890}
@@ -12793,6 +12877,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zVal: -0.3
+  attachmentId: 13
+  alternativeAttachments: 0c000000
+  connected: 0
   <stitchEffect_ThreadPoints>k__BackingField: []
 --- !u!135 &678614139
 SphereCollider:
@@ -12916,6 +13003,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zVal: -0.3
+  attachmentId: 0
+  alternativeAttachments: 
+  connected: 0
   <stitchEffect_ThreadPoints>k__BackingField: []
 --- !u!135 &678796005
 SphereCollider:
@@ -14221,6 +14311,7 @@ Transform:
   - {fileID: 1792339827}
   - {fileID: 660634033}
   - {fileID: 82298232}
+  - {fileID: 1984523075}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &776723388
@@ -14252,8 +14343,8 @@ Transform:
   m_GameObject: {fileID: 776723388}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.43, y: 1.69, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalPosition: {x: -1.213, y: 1.976, z: 0}
+  m_LocalScale: {x: 0.35, y: 0.35, z: 0.35}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1357043838}
@@ -14271,6 +14362,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zVal: -0.3
+  attachmentId: 5
+  alternativeAttachments: 040000001200000013000000
+  connected: 0
   <stitchEffect_ThreadPoints>k__BackingField: []
 --- !u!135 &776723391
 SphereCollider:
@@ -14400,7 +14494,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdc877ac9626c6b4999856cfbbe442c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalCorrectLinks: 0
+  totalCorrectLinks: 9
   noOfCorrectLinks: 0
 --- !u!1 &786240315
 GameObject:
@@ -14808,6 +14902,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zVal: -0.3
+  attachmentId: 0
+  alternativeAttachments: 
+  connected: 0
   <stitchEffect_ThreadPoints>k__BackingField: []
 --- !u!135 &809667788
 SphereCollider:
@@ -15198,7 +15295,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 16, y: -13.199951}
+  m_AnchoredPosition: {x: 16, y: -13.200195}
   m_SizeDelta: {x: 156.6893, y: 81.7565}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &824462030
@@ -15480,6 +15577,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zVal: -0.3
+  attachmentId: 0
+  alternativeAttachments: 
+  connected: 0
   <stitchEffect_ThreadPoints>k__BackingField: []
 --- !u!135 &826939936
 SphereCollider:
@@ -15948,6 +16048,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zVal: -0.3
+  attachmentId: 0
+  alternativeAttachments: 
+  connected: 0
   <stitchEffect_ThreadPoints>k__BackingField: []
 --- !u!135 &846661663
 SphereCollider:
@@ -16023,6 +16126,88 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 846661660}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1001 &855033187
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 775817854216231134, guid: ed962e35f7fa6f34f8d27aa6d19ea293, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 775817854216231134, guid: ed962e35f7fa6f34f8d27aa6d19ea293, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 775817854216231134, guid: ed962e35f7fa6f34f8d27aa6d19ea293, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 775817854216231134, guid: ed962e35f7fa6f34f8d27aa6d19ea293, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 775817854216231134, guid: ed962e35f7fa6f34f8d27aa6d19ea293, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.72
+      objectReference: {fileID: 0}
+    - target: {fileID: 775817854216231134, guid: ed962e35f7fa6f34f8d27aa6d19ea293, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.22
+      objectReference: {fileID: 0}
+    - target: {fileID: 775817854216231134, guid: ed962e35f7fa6f34f8d27aa6d19ea293, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 775817854216231134, guid: ed962e35f7fa6f34f8d27aa6d19ea293, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 775817854216231134, guid: ed962e35f7fa6f34f8d27aa6d19ea293, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 775817854216231134, guid: ed962e35f7fa6f34f8d27aa6d19ea293, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 775817854216231134, guid: ed962e35f7fa6f34f8d27aa6d19ea293, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 775817854216231134, guid: ed962e35f7fa6f34f8d27aa6d19ea293, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 775817854216231134, guid: ed962e35f7fa6f34f8d27aa6d19ea293, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 775817854216231134, guid: ed962e35f7fa6f34f8d27aa6d19ea293, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5700784828077083704, guid: ed962e35f7fa6f34f8d27aa6d19ea293, type: 3}
+      propertyPath: m_Name
+      value: Confetti_directional_multicolor (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5700784828077083704, guid: ed962e35f7fa6f34f8d27aa6d19ea293, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ed962e35f7fa6f34f8d27aa6d19ea293, type: 3}
+--- !u!198 &855033188 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 9169966119468206341, guid: ed962e35f7fa6f34f8d27aa6d19ea293, type: 3}
+  m_PrefabInstance: {fileID: 855033187}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &856883941
 GameObject:
   m_ObjectHideFlags: 0
@@ -16071,6 +16256,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zVal: -0.3
+  attachmentId: 2
+  alternativeAttachments: 0100000003000000
+  connected: 0
   <stitchEffect_ThreadPoints>k__BackingField: []
 --- !u!135 &856883944
 SphereCollider:
@@ -16194,6 +16382,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zVal: -0.3
+  attachmentId: 0
+  alternativeAttachments: 
+  connected: 0
   <stitchEffect_ThreadPoints>k__BackingField: []
 --- !u!135 &862999055
 SphereCollider:
@@ -16643,6 +16834,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zVal: -0.3
+  attachmentId: 10
+  alternativeAttachments: 0b000000
+  connected: 0
   <stitchEffect_ThreadPoints>k__BackingField: []
 --- !u!135 &900480155
 SphereCollider:
@@ -17145,6 +17339,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zVal: 0
+  attachmentId: 9
+  alternativeAttachments: 
+  connected: 0
   <stitchEffect_ThreadPoints>k__BackingField:
   - {fileID: 1349246227}
   - {fileID: 1136077041}
@@ -17246,7 +17443,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &975575333
 Transform:
   m_ObjectHideFlags: 0
@@ -17256,7 +17453,7 @@ Transform:
   m_GameObject: {fileID: 975575332}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.35, y: 1.73, z: 0}
+  m_LocalPosition: {x: -1.42, y: 1.11, z: 0}
   m_LocalScale: {x: 0.35, y: 0.35, z: 0.35}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -17275,6 +17472,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zVal: -0.3
+  attachmentId: 18
+  alternativeAttachments: 050000001300000004000000
+  connected: 0
   <stitchEffect_ThreadPoints>k__BackingField: []
 --- !u!135 &975575335
 SphereCollider:
@@ -17320,7 +17520,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: f6f43e43b73651441a6fa3294093763e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -17581,6 +17781,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zVal: -0.3
+  attachmentId: 0
+  alternativeAttachments: 
+  connected: 0
   <stitchEffect_ThreadPoints>k__BackingField: []
 --- !u!135 &1012754978
 SphereCollider:
@@ -18176,6 +18379,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zVal: -0.3
+  attachmentId: 0
+  alternativeAttachments: 
+  connected: 0
   <stitchEffect_ThreadPoints>k__BackingField: []
 --- !u!135 &1072027913
 SphereCollider:
@@ -18444,15 +18650,16 @@ MonoBehaviour:
   connectPoints:
   - {fileID: 466796728}
   - {fileID: 1971465573}
-  - {fileID: 639319520}
-  - {fileID: 1555219136}
   pointPair:
   - point1: {fileID: 1971465572}
     point2: {fileID: 386921001}
+    linked: 0
   - point1: {fileID: 466796727}
     point2: {fileID: 608285792}
+    linked: 0
   - point1: {fileID: 639319519}
     point2: {fileID: 1526407055}
+    linked: 0
   head: 0
 --- !u!1 &1090691582
 GameObject:
@@ -18502,6 +18709,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zVal: -0.3
+  attachmentId: 0
+  alternativeAttachments: 
+  connected: 0
   <stitchEffect_ThreadPoints>k__BackingField: []
 --- !u!135 &1090691585
 SphereCollider:
@@ -18707,6 +18917,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zVal: -0.1
+  attachmentId: 1
+  alternativeAttachments: 
+  connected: 0
   <stitchEffect_ThreadPoints>k__BackingField:
   - {fileID: 694580440}
   - {fileID: 1646647832}
@@ -18870,7 +19083,7 @@ Transform:
   m_GameObject: {fileID: 1114955660}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.12, y: 3.95, z: 0}
+  m_LocalPosition: {x: 1.34, y: 3.92, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -18889,6 +19102,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zVal: -0.3
+  attachmentId: 9
+  alternativeAttachments: 08000000
+  connected: 0
   <stitchEffect_ThreadPoints>k__BackingField: []
 --- !u!135 &1114955663
 SphereCollider:
@@ -19552,6 +19768,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zVal: -0.3
+  attachmentId: 0
+  alternativeAttachments: 
+  connected: 0
   <stitchEffect_ThreadPoints>k__BackingField: []
 --- !u!135 &1140511356
 SphereCollider:
@@ -19675,6 +19894,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zVal: -0.3
+  attachmentId: 12
+  alternativeAttachments: 0d000000
+  connected: 0
   <stitchEffect_ThreadPoints>k__BackingField: []
 --- !u!135 &1141580148
 SphereCollider:
@@ -20877,6 +21099,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zVal: -0.3
+  attachmentId: 0
+  alternativeAttachments: 
+  connected: 0
   <stitchEffect_ThreadPoints>k__BackingField: []
 --- !u!135 &1190896317
 SphereCollider:
@@ -21108,6 +21333,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zVal: -0.3
+  attachmentId: 10
+  alternativeAttachments: 0b000000
+  connected: 0
   <stitchEffect_ThreadPoints>k__BackingField: []
 --- !u!135 &1197941886
 SphereCollider:
@@ -21473,6 +21701,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zVal: 0
+  attachmentId: 8
+  alternativeAttachments: 
+  connected: 0
   <stitchEffect_ThreadPoints>k__BackingField:
   - {fileID: 583864481}
   - {fileID: 348034591}
@@ -21711,6 +21942,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zVal: -0.3
+  attachmentId: 15
+  alternativeAttachments: 0e000000
+  connected: 0
   <stitchEffect_ThreadPoints>k__BackingField: []
 --- !u!135 &1237640283
 SphereCollider:
@@ -21977,17 +22211,18 @@ MonoBehaviour:
   moveable: 0
   shouldBeChild: 0
   connectPoints:
-  - {fileID: 2140222304}
   - {fileID: 273431400}
-  - {fileID: 1575320387}
   - {fileID: 1517212775}
   pointPair:
   - point1: {fileID: 273431399}
     point2: {fileID: 386921001}
+    linked: 0
   - point1: {fileID: 2140222303}
     point2: {fileID: 608285792}
+    linked: 0
   - point1: {fileID: 1575320386}
     point2: {fileID: 1526407055}
+    linked: 0
   head: 0
 --- !u!1 &1249375901
 GameObject:
@@ -22145,6 +22380,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zVal: -0.3
+  attachmentId: 17
+  alternativeAttachments: 10000000
+  connected: 0
   <stitchEffect_ThreadPoints>k__BackingField: []
 --- !u!135 &1258633265
 SphereCollider:
@@ -22295,7 +22533,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: edda6687d3110f244ba2939e6b01a173, type: 3}
   m_Color: {r: 0.9245283, g: 0.9245283, b: 0.9245283, a: 1}
   m_FlipX: 0
@@ -23095,6 +23333,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zVal: -0.1
+  attachmentId: 4
+  alternativeAttachments: 
+  connected: 0
   <stitchEffect_ThreadPoints>k__BackingField:
   - {fileID: 87548126}
   - {fileID: 42731404}
@@ -23247,6 +23488,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zVal: -0.1
+  attachmentId: 7
+  alternativeAttachments: 
+  connected: 0
   <stitchEffect_ThreadPoints>k__BackingField:
   - {fileID: 762480512}
   - {fileID: 571507435}
@@ -24602,6 +24846,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zVal: -0.3
+  attachmentId: 0
+  alternativeAttachments: 
+  connected: 0
   <stitchEffect_ThreadPoints>k__BackingField: []
 --- !u!135 &1454023278
 SphereCollider:
@@ -25147,6 +25394,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zVal: -0.3
+  attachmentId: 0
+  alternativeAttachments: 
+  connected: 0
   <stitchEffect_ThreadPoints>k__BackingField: []
 --- !u!135 &1493207834
 SphereCollider:
@@ -25685,7 +25935,7 @@ Transform:
   m_GameObject: {fileID: 1517212773}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.89, y: 4.01, z: 0}
+  m_LocalPosition: {x: -1.19, y: 3.93, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -25704,6 +25954,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zVal: -0.3
+  attachmentId: 7
+  alternativeAttachments: 06000000
+  connected: 0
   <stitchEffect_ThreadPoints>k__BackingField: []
 --- !u!135 &1517212776
 SphereCollider:
@@ -25827,6 +26080,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zVal: -0.3
+  attachmentId: 3
+  alternativeAttachments: 0100000002000000
+  connected: 0
   <stitchEffect_ThreadPoints>k__BackingField: []
 --- !u!135 &1526407057
 SphereCollider:
@@ -26166,8 +26422,6 @@ MonoBehaviour:
   connectPoints:
   - {fileID: 2030403417}
   - {fileID: 1578461344}
-  - {fileID: 678796004}
-  - {fileID: 1072027912}
   pointPair: []
   head: 0
 --- !u!212 &1531723434
@@ -26273,6 +26527,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zVal: -0.3
+  attachmentId: 0
+  alternativeAttachments: 
+  connected: 0
   <stitchEffect_ThreadPoints>k__BackingField: []
 --- !u!135 &1542508483
 SphereCollider:
@@ -26504,6 +26761,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zVal: -0.3
+  attachmentId: 0
+  alternativeAttachments: 
+  connected: 0
   <stitchEffect_ThreadPoints>k__BackingField: []
 --- !u!135 &1555219137
 SphereCollider:
@@ -26663,6 +26923,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zVal: -0.3
+  attachmentId: 0
+  alternativeAttachments: 
+  connected: 0
   <stitchEffect_ThreadPoints>k__BackingField: []
 --- !u!135 &1575320388
 SphereCollider:
@@ -26757,7 +27020,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1578461343
 Transform:
   m_ObjectHideFlags: 0
@@ -26767,8 +27030,8 @@ Transform:
   m_GameObject: {fileID: 1578461342}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.19, y: 1.99, z: 0}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
+  m_LocalPosition: {x: -1.216, y: 1.489, z: 0}
+  m_LocalScale: {x: 0.35, y: 0.35, z: 0.35}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1609174323}
@@ -26786,6 +27049,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zVal: -0.3
+  attachmentId: 18
+  alternativeAttachments: 050000001300000004000000
+  connected: 0
   <stitchEffect_ThreadPoints>k__BackingField: []
 --- !u!135 &1578461345
 SphereCollider:
@@ -26831,7 +27097,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: f6f43e43b73651441a6fa3294093763e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -26919,7 +27185,7 @@ MonoBehaviour:
   linePrefab: {fileID: 7377872058111036791, guid: 9b87cbba0ae87414faacff166a8bcaad, type: 3}
   zVal: -0.1
   rotationSpeed: 0
-  pullForce: 0.5
+  pullForce: 0.8
 --- !u!1 &1581271483
 GameObject:
   m_ObjectHideFlags: 0
@@ -27430,15 +27696,16 @@ MonoBehaviour:
   connectPoints:
   - {fileID: 975575334}
   - {fileID: 25616932}
-  - {fileID: 862999054}
-  - {fileID: 846661662}
   pointPair:
   - point1: {fileID: 25616931}
     point2: {fileID: 386921001}
+    linked: 0
   - point1: {fileID: 975575333}
     point2: {fileID: 608285792}
+    linked: 0
   - point1: {fileID: 862999053}
     point2: {fileID: 1526407055}
+    linked: 0
   head: 0
 --- !u!1 &1620859187
 GameObject:
@@ -27955,6 +28222,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zVal: -0.3
+  attachmentId: 15
+  alternativeAttachments: 0e000000
+  connected: 0
   <stitchEffect_ThreadPoints>k__BackingField: []
 --- !u!135 &1655691612
 SphereCollider:
@@ -28067,7 +28337,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -670, y: -13.199951}
+  m_AnchoredPosition: {x: -670, y: -13.200195}
   m_SizeDelta: {x: 302.9469, y: 81.7565}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1685346017
@@ -28267,6 +28537,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zVal: -0.1
+  attachmentId: 7
+  alternativeAttachments: 
+  connected: 0
   <stitchEffect_ThreadPoints>k__BackingField:
   - {fileID: 1551832680}
   - {fileID: 1326962466}
@@ -28510,10 +28783,13 @@ MonoBehaviour:
   pointPair:
   - point1: {fileID: 223528931}
     point2: {fileID: 386921001}
+    linked: 0
   - point1: {fileID: 856883942}
     point2: {fileID: 608285792}
+    linked: 0
   - point1: {fileID: 2094940843}
     point2: {fileID: 1526407055}
+    linked: 0
   head: 1
 --- !u!1 &1728137854
 GameObject:
@@ -29492,6 +29768,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zVal: -0.3
+  attachmentId: 16
+  alternativeAttachments: 11000000
+  connected: 0
   <stitchEffect_ThreadPoints>k__BackingField: []
 --- !u!135 &1820921652
 SphereCollider:
@@ -29624,6 +29903,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zVal: -0.1
+  attachmentId: 2
+  alternativeAttachments: 
+  connected: 0
   <stitchEffect_ThreadPoints>k__BackingField:
   - {fileID: 1427639747}
   - {fileID: 872138712}
@@ -30108,6 +30390,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zVal: -0.3
+  attachmentId: 12
+  alternativeAttachments: 0d000000
+  connected: 0
   <stitchEffect_ThreadPoints>k__BackingField: []
 --- !u!135 &1847134260
 SphereCollider:
@@ -30231,6 +30516,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zVal: -0.3
+  attachmentId: 17
+  alternativeAttachments: 10000000
+  connected: 0
   <stitchEffect_ThreadPoints>k__BackingField: []
 --- !u!135 &1851410847
 SphereCollider:
@@ -30318,6 +30606,7 @@ GameObject:
   - component: {fileID: 1862154628}
   - component: {fileID: 1862154627}
   - component: {fileID: 1862154626}
+  - component: {fileID: 1862154629}
   m_Layer: 5
   m_Name: Start Button
   m_TagString: Untagged
@@ -30451,6 +30740,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1862154624}
   m_CullTransparentMesh: 1
+--- !u!114 &1862154629
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1862154624}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87efc1f827fb11543b0b673a0ccc96da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0.5
+  targetScale: 1.2
+  orignalScale: 1
+  ease: 1
 --- !u!1 &1867880145
 GameObject:
   m_ObjectHideFlags: 0
@@ -31385,8 +31690,8 @@ Transform:
   m_GameObject: {fileID: 1971465571}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.68, y: 1.46, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalPosition: {x: 1.95, y: 1.75, z: 0}
+  m_LocalScale: {x: 0.35, y: 0.35, z: 0.35}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1064285792}
@@ -31404,6 +31709,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zVal: -0.3
+  attachmentId: 5
+  alternativeAttachments: 040000001200000013000000
+  connected: 0
   <stitchEffect_ThreadPoints>k__BackingField: []
 --- !u!135 &1971465574
 SphereCollider:
@@ -31695,6 +32003,50 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1984166052}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1984523074
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1984523075}
+  - component: {fileID: 1984523076}
+  m_Layer: 0
+  m_Name: DOTweensHandler
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1984523075
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1984523074}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 764609721}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1984523076
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1984523074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24e935aa0065e60408620cc003b2f6a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1988934990
 GameObject:
   m_ObjectHideFlags: 0
@@ -31707,7 +32059,7 @@ GameObject:
   - component: {fileID: 1988934993}
   - component: {fileID: 1988934992}
   m_Layer: 0
-  m_Name: EarLeft
+  m_Name: EarRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31746,8 +32098,6 @@ MonoBehaviour:
   shouldBeChild: 1
   connectPoints:
   - {fileID: 2128583228}
-  - {fileID: 2141766050}
-  - {fileID: 1454023277}
   - {fileID: 2015260561}
   pointPair: []
   head: 0
@@ -31858,6 +32208,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zVal: -0.1
+  attachmentId: 9
+  alternativeAttachments: 
+  connected: 0
   <stitchEffect_ThreadPoints>k__BackingField:
   - {fileID: 169567737}
   - {fileID: 1607318900}
@@ -32011,6 +32364,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zVal: -0.3
+  attachmentId: 0
+  alternativeAttachments: 
+  connected: 0
   <stitchEffect_ThreadPoints>k__BackingField: []
 --- !u!135 &2010447776
 SphereCollider:
@@ -32134,6 +32490,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zVal: -0.3
+  attachmentId: 9
+  alternativeAttachments: 08000000
+  connected: 0
   <stitchEffect_ThreadPoints>k__BackingField: []
 --- !u!135 &2015260562
 SphereCollider:
@@ -32400,8 +32759,8 @@ Transform:
   m_GameObject: {fileID: 2030403415}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.41, y: 1.69, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalPosition: {x: -1.688, y: 1.929, z: 0}
+  m_LocalScale: {x: 0.35, y: 0.35, z: 0.35}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1609174323}
@@ -32419,6 +32778,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zVal: -0.3
+  attachmentId: 4
+  alternativeAttachments: 050000001300000012000000
+  connected: 0
   <stitchEffect_ThreadPoints>k__BackingField: []
 --- !u!135 &2030403418
 SphereCollider:
@@ -32730,6 +33092,7 @@ MonoBehaviour:
   <detectionRadius>k__BackingField: 0.08
   <minDetectionRadius>k__BackingField: 0.01
   <maxDetectionRadius>k__BackingField: 1
+  <detect>k__BackingField: 1
 --- !u!1 &2057992249
 GameObject:
   m_ObjectHideFlags: 0
@@ -32778,6 +33141,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zVal: -0.3
+  attachmentId: 0
+  alternativeAttachments: 
+  connected: 0
   <stitchEffect_ThreadPoints>k__BackingField: []
 --- !u!135 &2057992253
 SphereCollider:
@@ -32961,6 +33327,88 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2060690803}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1001 &2069424326
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 775817854216231134, guid: ed962e35f7fa6f34f8d27aa6d19ea293, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 775817854216231134, guid: ed962e35f7fa6f34f8d27aa6d19ea293, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 775817854216231134, guid: ed962e35f7fa6f34f8d27aa6d19ea293, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 775817854216231134, guid: ed962e35f7fa6f34f8d27aa6d19ea293, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 775817854216231134, guid: ed962e35f7fa6f34f8d27aa6d19ea293, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 775817854216231134, guid: ed962e35f7fa6f34f8d27aa6d19ea293, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.22
+      objectReference: {fileID: 0}
+    - target: {fileID: 775817854216231134, guid: ed962e35f7fa6f34f8d27aa6d19ea293, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 775817854216231134, guid: ed962e35f7fa6f34f8d27aa6d19ea293, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 775817854216231134, guid: ed962e35f7fa6f34f8d27aa6d19ea293, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 775817854216231134, guid: ed962e35f7fa6f34f8d27aa6d19ea293, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 775817854216231134, guid: ed962e35f7fa6f34f8d27aa6d19ea293, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 775817854216231134, guid: ed962e35f7fa6f34f8d27aa6d19ea293, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 775817854216231134, guid: ed962e35f7fa6f34f8d27aa6d19ea293, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 775817854216231134, guid: ed962e35f7fa6f34f8d27aa6d19ea293, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5700784828077083704, guid: ed962e35f7fa6f34f8d27aa6d19ea293, type: 3}
+      propertyPath: m_Name
+      value: Confetti_directional_multicolor
+      objectReference: {fileID: 0}
+    - target: {fileID: 5700784828077083704, guid: ed962e35f7fa6f34f8d27aa6d19ea293, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ed962e35f7fa6f34f8d27aa6d19ea293, type: 3}
+--- !u!198 &2069424327 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 9169966119468206341, guid: ed962e35f7fa6f34f8d27aa6d19ea293, type: 3}
+  m_PrefabInstance: {fileID: 2069424326}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2081543662
 GameObject:
   m_ObjectHideFlags: 0
@@ -33117,6 +33565,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zVal: -0.3
+  attachmentId: 3
+  alternativeAttachments: 0100000002000000
+  connected: 0
   <stitchEffect_ThreadPoints>k__BackingField: []
 --- !u!135 &2094940845
 SphereCollider:
@@ -33240,6 +33691,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zVal: -0.3
+  attachmentId: 11
+  alternativeAttachments: 0a000000
+  connected: 0
   <stitchEffect_ThreadPoints>k__BackingField: []
 --- !u!135 &2098071763
 SphereCollider:
@@ -33459,6 +33913,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zVal: -0.1
+  attachmentId: 8
+  alternativeAttachments: 
+  connected: 0
   <stitchEffect_ThreadPoints>k__BackingField:
   - {fileID: 1189536545}
   - {fileID: 745169994}
@@ -33828,6 +34285,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zVal: -0.3
+  attachmentId: 8
+  alternativeAttachments: 09000000
+  connected: 0
   <stitchEffect_ThreadPoints>k__BackingField: []
 --- !u!135 &2128583229
 SphereCollider:
@@ -34146,6 +34606,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zVal: -0.3
+  attachmentId: 0
+  alternativeAttachments: 
+  connected: 0
   <stitchEffect_ThreadPoints>k__BackingField: []
 --- !u!135 &2140222305
 SphereCollider:
@@ -34269,6 +34732,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zVal: -0.3
+  attachmentId: 0
+  alternativeAttachments: 
+  connected: 0
   <stitchEffect_ThreadPoints>k__BackingField: []
 --- !u!135 &2141766051
 SphereCollider:
@@ -34363,7 +34829,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2144423070
 Transform:
   m_ObjectHideFlags: 0
@@ -34373,8 +34839,8 @@ Transform:
   m_GameObject: {fileID: 2144423069}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.19, y: 1.99, z: 0}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
+  m_LocalPosition: {x: -1.683, y: 1.482, z: 0}
+  m_LocalScale: {x: 0.35, y: 0.35, z: 0.35}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1357043838}
@@ -34392,6 +34858,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zVal: -0.3
+  attachmentId: 19
+  alternativeAttachments: 040000001200000005000000
+  connected: 0
   <stitchEffect_ThreadPoints>k__BackingField: []
 --- !u!135 &2144423072
 SphereCollider:
@@ -34437,7 +34906,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: f6f43e43b73651441a6fa3294093763e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -34482,3 +34951,5 @@ SceneRoots:
   - {fileID: 785214948}
   - {fileID: 345569178}
   - {fileID: 1867880146}
+  - {fileID: 2069424326}
+  - {fileID: 855033187}

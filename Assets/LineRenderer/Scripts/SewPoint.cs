@@ -4,6 +4,9 @@ using UnityEngine;
 public class SewPoint : MonoBehaviour, ISewPoint
 {
     public float zVal;
+    public int attachmentId;
+    public int[] alternativeAttachments;
+    public bool connected = false;
     private void OnEnable()
     {
         RegisterService();

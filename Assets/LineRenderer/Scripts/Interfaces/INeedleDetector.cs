@@ -2,8 +2,8 @@ using UnityEngine;
 
 public interface INeedleDetector : IGameService
 {
-     float detectionRadius { get; }
-     float minDetectionRadius { get; }
-     float maxDetectionRadius { get; }
-
+    float detectionRadius { get; }
+    float minDetectionRadius { get; }
+    float maxDetectionRadius { get; }
+    bool detect { get; set; }
 }

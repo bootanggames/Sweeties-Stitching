@@ -1,0 +1,10 @@
+# ninja log v5
+97	8430	7817352469051222	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	10a56b5d40ba098b
+75	8454	7817352468871734	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	4c79b1e413e1c222
+19	8851	7817352470048980	GameActivity/CMakeFiles/game.dir/UGAConfiguration.cpp.o	a379a76fd66acbeb
+152	8859	7817352470208860	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	67fce595f8279af4
+2	8900	7817352472653477	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	82cb2165cf18de08
+133	9710	7817352482291165	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	e95423c3da91c76f
+117	9858	7817352482406272	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	7d547b776ff87ece
+59	10176	7817352487626046	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	fe55e7a21209c81
+10177	11355	7817352497153640	C:/Users/DELL/Desktop/GitHub_Repo/Stitching-Demo/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/2f6l8693/obj/arm64-v8a/libgame.so	8299fafd11a11362

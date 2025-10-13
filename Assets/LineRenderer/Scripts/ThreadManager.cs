@@ -8,6 +8,8 @@ public class ThreadManager : MonoBehaviour, IThreadManager
     [field: SerializeField] public bool threadInput { get; private set; }
     [field: SerializeField] public bool freeForm { get; private set; }
 
+    [field: SerializeField] public List<Transform> detectedPoints {  get; private set; }
+
     [SerializeField] LineRenderer lineRenderer;
 
     [SerializeField] Vector3 currentRopeStartPosition;
@@ -17,7 +19,6 @@ public class ThreadManager : MonoBehaviour, IThreadManager
     [SerializeField] int threadMaxLength;
 
     [SerializeField] private Transform threadParent;
-    [SerializeField] List<Transform> detectedPoints = new List<Transform>();
     [SerializeField] int detectedPointsCount = 0;
 
     [SerializeField]LineRenderer instantiatedLine;

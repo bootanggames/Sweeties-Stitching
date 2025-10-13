@@ -7,6 +7,7 @@ public class SewPoint : MonoBehaviour, ISewPoint
     public int attachmentId;
     public int[] alternativeAttachments;
     public bool connected = false;
+    public SequenceType sequenceType;
     private void OnEnable()
     {
         RegisterService();

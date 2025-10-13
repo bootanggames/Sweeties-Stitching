@@ -67,21 +67,31 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
     {
         if (point.Count <= 1) return;
 
+
         if (point.Count % 2 != 0)
         {
-            NewConnection(point[point.Count - 2].transform, point[point.Count - 1].transform, false, false, 0);
-            var needleDetecto = ServiceLocator.GetService<INeedleDetector>();
-            if (needleDetecto != null)
-            {
-                needleDetecto.detect = true;
-            }
-            return;
+            //NewConnection(point[point.Count - 2].transform, point[point.Count - 1].transform, false, false, 0);
+            //var needleDetecto = ServiceLocator.GetService<INeedleDetector>();
+            //if (needleDetecto != null)
+            //{
+            //    needleDetecto.detect = true;
+            //}
+
+            //return;
         }
         foreach (Transform t in point)
         {
             if (!points.Contains(t.GetComponent<SewPoint>()))
                 points.Add(t.GetComponent<SewPoint>());
+
+
         }
+        SewPoint sp1 = points[points.Count - 2];
+        SewPoint sp2 = points[points.Count - 1];
+        ObjectInfo o_info1 = sp1.transform.parent.parent.GetComponent<ObjectInfo>();
+        ObjectInfo o_info2 = sp2.transform.parent.parent.GetComponent<ObjectInfo>();
+        CheckIfLastConnectionUpdated(sp1, sp2, points[points.Count - 2].transform, points[points.Count - 1].transform, o_info1, o_info2);
+
         CreateLinkBetweenPoints(points[points.Count - 2], points[points.Count - 1]);
     }
     public void CreateLinkBetweenPoints(SewPoint point1, SewPoint point2)
@@ -95,7 +105,10 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
         {
             if (!existingConnection.isLocked)
                 ManageConnetions(existingConnection);
-            return;
+
+            //Debug.LogError("existingConnection " + existingConnection.point1.name + " " + existingConnection.point2.name);
+
+            //return;
         }
         if (dynamicStitch)
             NewConnection(point1.transform, point2.transform, true, false, threadStitchCount);
@@ -116,6 +129,7 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
             return;
         Connections connection = new Connections(p1, p2, linePrefab, zVal, multiple, stitchCount);
         connections.Add(connection);
+        //Debug.LogError("connect "+applyPullForce);
         if (applyPullForce)
             ManageConnetions(connection);
         else
@@ -136,7 +150,10 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
     Tween tween1;
     public void ApplyForces(Transform p1, Transform p2)
     {
+        //Debug.LogError("not null "+ p1.name+" "+p2.name);
+
         if (p1 == null || p2 == null) return;
+
         if (p1.parent != null && p2.parent != null)
         {
             if (p1.parent == p2.parent)
@@ -146,13 +163,16 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
                 {
                     needleDetecto.detect = true;
                 }
+                //Debug.LogError("same parents ");
+
                 return;
             }
         }
+        //Debug.LogError(" parent not equal");
 
         if ((p1.parent == p2) || (p2.parent == p1))
         {
-            Debug.LogError("p1 parent equla to p2 "+ (p1.parent == p2)+" "+ (p2.parent == p1));
+            //Debug.LogError("p1 parent equla to p2 "+ (p1.parent == p2)+" "+ (p2.parent == p1));
             var needleDetecto = ServiceLocator.GetService<INeedleDetector>();
             if (needleDetecto != null)
             {
@@ -169,6 +189,8 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
             {
                 info1 = p1.parent.parent.GetComponent<ObjectInfo>();
                 info2 = p2.parent.parent.GetComponent<ObjectInfo>();
+                //Debug.LogError(" infos not null");
+
             }
             else
                 return;
@@ -233,13 +255,12 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
                 Vector3 lookDir = moveAbleTransform.position - info1.transform.position;
 
                 Quaternion targetRot = Quaternion.LookRotation(lookDir, Vector3.up);
-
                 Vector3 euler = targetRot.eulerAngles;
-                //euler.x = 0f;
-                //euler.y = 0f;
+                euler.x = 0f;
+                euler.y = 0f;
 
                 pullSeq.Join(
-                    moveAbleTransform.DORotate(euler, tweenDuration, RotateMode.Fast)
+                    moveAbleTransform.DORotate(info1.originalRotation, tweenDuration, RotateMode.Fast)
                     .SetEase(Ease.InOutSine)
                 );
             }
@@ -280,7 +301,7 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
                 euler.y = 0f;
 
                 pullSeq.Join(
-                   moveAbleTransform.DORotate(euler, tweenDuration, RotateMode.Fast)
+                   moveAbleTransform.DORotate(info2.originalRotation, tweenDuration, RotateMode.Fast)
                     .SetEase(Ease.InOutSine)
                 );
             }
@@ -316,12 +337,12 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
                     if (info1.shouldBeChild)
                     {
                         info1.transform.SetParent(info2.transform);
-                        info1.transform.localEulerAngles = Vector3.zero;
+                        //info1.transform.localEulerAngles = Vector3.zero;
                     }
                     else if (info2.shouldBeChild)
                     {
                         info2.transform.SetParent(info1.transform);
-                        info2.transform.localEulerAngles = Vector3.zero;
+                        //info2.transform.localEulerAngles = Vector3.zero;
 
                     }
 
@@ -330,60 +351,68 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
         });
         pullSeq.OnComplete(() =>
         {
-            var needleDetecto = ServiceLocator.GetService<INeedleDetector>();
-            if (needleDetecto != null)
-            {
-                needleDetecto.detect = true;
-            }
-
+            Invoke("EnableDetection", 0.1f);
             SewPoint sp1 = p1.GetComponent<SewPoint>();
             SewPoint sp2 = p2.GetComponent<SewPoint>();
 
-            if (p1.parent == p2.parent) return;
-            if (sp1.connected || sp2.connected) return;
-            if (dynamicStitch)
-            {
-                if (p1.parent.parent.parent == p2.parent.parent.parent) return;
-            }
-
-            if (sp1.attachmentId.Equals(sp2.attachmentId))
-            {
-                IncrementLinksPerPart(sp1, sp2, info1, info2);
-
-            }
-            else if ((sp2.attachmentId.Equals(sp1.attachmentId)))
-            {
-                IncrementLinksPerPart(sp1, sp2, info1, info2);
-
-            }
-            else if (sp1.alternativeAttachments.Length > 0)
-            {
-
-                if (sp1.alternativeAttachments.Contains(sp2.attachmentId))
-                {
-                    IncrementLinksPerPart(sp1, sp2, info1, info2);
-
-                }
-            }
-            else if (sp2.alternativeAttachments.Length > 0)
-            {
-                if (sp2.alternativeAttachments.Contains(sp1.attachmentId))
-                {
-                    IncrementLinksPerPart(sp1, sp2, info1, info2);
-                }
-            }
+            CheckIfLastConnectionUpdated(sp1, sp2, p1, p2, info1, info2);
         });
         tween1 = pullSeq;
     }
+    void CheckIfLastConnectionUpdated(SewPoint sp1, SewPoint sp2, Transform p1, Transform p2, ObjectInfo info1, ObjectInfo info2)
+    {
+        
+        if (p1.parent == p2.parent) return;
+        if (sp1.connected || sp2.connected) return;
+        if (dynamicStitch)
+            if (p1.parent.parent.parent == p2.parent.parent.parent) return;
+        if (sp1.attachmentId.Equals(sp2.attachmentId))
+            IncrementLinksPerPart(sp1, sp2, info1, info2);
+        else if ((sp2.attachmentId.Equals(sp1.attachmentId)))
+            IncrementLinksPerPart(sp1, sp2, info1, info2);
+        else if (sp1.alternativeAttachments.Length > 0)
+        {
 
+            if (sp1.alternativeAttachments.Contains(sp2.attachmentId))
+                IncrementLinksPerPart(sp1, sp2, info1, info2);
+        }
+        else if (sp2.alternativeAttachments.Length > 0)
+        {
+            if (sp2.alternativeAttachments.Contains(sp1.attachmentId))
+                IncrementLinksPerPart(sp1, sp2, info1, info2);
+        }
+        var needleDetecto = ServiceLocator.GetService<INeedleDetector>();
+        if (needleDetecto != null)
+        {
+            needleDetecto.detect = true;
+        }
+        Debug.LogError(" checked ");
+    }
+    void EnableDetection()
+    {
+        var needleDetecto = ServiceLocator.GetService<INeedleDetector>();
+        if (needleDetecto != null)
+        {
+            needleDetecto.detect = true;
+        }
+        CancelInvoke("EnableDetection");
+    }
     void IncrementLinksPerPart(SewPoint s1, SewPoint s2 , ObjectInfo o1, ObjectInfo o2)
     {
         s1.connected = true;
         s2.connected = true;
         o1.noOfConnections++;
         o2.noOfConnections++;
-        if (o1.noOfConnections.Equals(o1.totalConnections)) o1.MarkStitched();
-        if (o2.noOfConnections.Equals(o2.totalConnections)) o2.MarkStitched();
+        if (o1.noOfConnections.Equals(o1.totalConnections))
+        {
+            o1.moveable = false;
+            o1.MarkStitched();
+        }
+        if (o2.noOfConnections.Equals(o2.totalConnections)) 
+        {
+            o2.moveable = false;
+            o2.MarkStitched(); 
+        }
         if (o1.noOfConnections.Equals(o1.totalConnections))
         {
             Level_Metadata currentLevel = LevelsHandler.instance.levels[LevelsHandler.instance.levelIndex].GetComponent<Level_Metadata>();

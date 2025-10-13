@@ -116,5 +116,6 @@ public class CanvasUIManager : MonoBehaviour, ICanvasUIManager
     {
         GameEvents.ThreadEvents.setThreadInput.RaiseEvent(true);
         GameHandler.instance.SwitchGameState(GameStates.Gamestart);
+
     }
 }

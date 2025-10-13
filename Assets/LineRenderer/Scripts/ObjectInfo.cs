@@ -9,7 +9,7 @@ public class ObjectInfo : MonoBehaviour
     public Vector3 originalRotation;
     public bool moveable = false;
     public bool shouldBeChild = false;
-    public bool IsStitched { get; private set; }
+    [field: SerializeField]public bool IsStitched { get; private set; }
     public List<SewPoint> connectPoints;
     public bool head;
     public float pullForce;

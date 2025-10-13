@@ -128,20 +128,7 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
         }
     }
 
-    void IncrementConnections(Level_Metadata currentLevel)
-    {
-        currentLevel.noOfCorrectLinks++;
-        if (currentLevel.noOfCorrectLinks == currentLevel.totalCorrectLinks)
-        {
-            GameEvents.GameCompleteEvents.onGameWin.RaiseEvent();
-            Invoke("CallGameWinPanel", 1.5f);
-        }
-    }
-    void CallGameWinPanel()
-    {
-        GameEvents.GameCompleteEvents.onGameComplete.RaiseEvent();
-        CancelInvoke("CallGameWinPanel");
-    }
+   
     public void ManageConnetions(Connections c)
     {
         ApplyForces(c.point1, c.point2);
@@ -152,10 +139,27 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
         if (p1 == null || p2 == null) return;
         if (p1.parent != null && p2.parent != null)
         {
-            if (p1.parent == p2.parent) return;
+            if (p1.parent == p2.parent)
+            {
+                var needleDetecto = ServiceLocator.GetService<INeedleDetector>();
+                if (needleDetecto != null)
+                {
+                    needleDetecto.detect = true;
+                }
+                return;
+            }
         }
 
-        if ((p1.parent == p2) || (p2.parent == p1)) return;
+        if ((p1.parent == p2) || (p2.parent == p1))
+        {
+            Debug.LogError("p1 parent equla to p2 "+ (p1.parent == p2)+" "+ (p2.parent == p1));
+            var needleDetecto = ServiceLocator.GetService<INeedleDetector>();
+            if (needleDetecto != null)
+            {
+                needleDetecto.detect = true;
+            }
+            return;
+        }
         var info1 = p1.GetComponent<ObjectInfo>();
         var info2 = p2.GetComponent<ObjectInfo>();
 
@@ -331,41 +335,61 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
             {
                 needleDetecto.detect = true;
             }
-            Level_Metadata currentLevel = LevelsHandler.instance.levels[LevelsHandler.instance.levelIndex].GetComponent<Level_Metadata>();
 
-            if (currentLevel)
+            SewPoint sp1 = p1.GetComponent<SewPoint>();
+            SewPoint sp2 = p2.GetComponent<SewPoint>();
+
+            if (p1.parent == p2.parent) return;
+            if (sp1.connected || sp2.connected) return;
+            if (dynamicStitch)
             {
-                SewPoint sp1 = p1.GetComponent<SewPoint>();
-                SewPoint sp2 = p2.GetComponent<SewPoint>();
+                if (p1.parent.parent.parent == p2.parent.parent.parent) return;
+            }
 
-                if (p1.parent == p2.parent) return;
-                if (sp1.connected || sp2.connected) return;
-                if (dynamicStitch)
-                {
-                    if (p1.parent.parent.parent == p2.parent.parent.parent) return;
-                }
+            if (sp1.attachmentId.Equals(sp2.attachmentId))
+            {
+                IncrementLinksPerPart(sp1, sp2, info1, info2);
 
-                if (sp1.attachmentId.Equals(sp2.attachmentId))
+            }
+            else if ((sp2.attachmentId.Equals(sp1.attachmentId)))
+            {
+                IncrementLinksPerPart(sp1, sp2, info1, info2);
+
+            }
+            else if (sp1.alternativeAttachments.Length > 0)
+            {
+
+                if (sp1.alternativeAttachments.Contains(sp2.attachmentId))
                 {
-                    sp1.connected = true;
-                    sp2.connected = true;
-                    IncrementConnections(currentLevel);
+                    IncrementLinksPerPart(sp1, sp2, info1, info2);
+
                 }
-                else
+            }
+            else if (sp2.alternativeAttachments.Length > 0)
+            {
+                if (sp2.alternativeAttachments.Contains(sp1.attachmentId))
                 {
-                    if (sp1.alternativeAttachments.Length > 0)
-                    {
-                        if (sp1.alternativeAttachments.Contains(sp2.attachmentId))
-                        {
-                            sp1.connected = true;
-                            sp2.connected = true;
-                            IncrementConnections(currentLevel);
-                        }
-                    }
+                    IncrementLinksPerPart(sp1, sp2, info1, info2);
                 }
             }
         });
         tween1 = pullSeq;
+    }
+
+    void IncrementLinksPerPart(SewPoint s1, SewPoint s2 , ObjectInfo o1, ObjectInfo o2)
+    {
+        s1.connected = true;
+        s2.connected = true;
+        o1.noOfConnections++;
+        o2.noOfConnections++;
+        if (o1.noOfConnections.Equals(o1.totalConnections)) o1.MarkStitched();
+        if (o2.noOfConnections.Equals(o2.totalConnections)) o2.MarkStitched();
+        if (o1.noOfConnections.Equals(o1.totalConnections))
+        {
+            Level_Metadata currentLevel = LevelsHandler.instance.levels[LevelsHandler.instance.levelIndex].GetComponent<Level_Metadata>();
+            if(currentLevel)
+                currentLevel.UpdateLevelProgress();
+        }
     }
     bool IsRelatedConnection(Connections conn, Transform a, Transform b)
     {

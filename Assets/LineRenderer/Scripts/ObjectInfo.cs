@@ -1,17 +1,21 @@
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Rendering.Universal;
 
 public class ObjectInfo : MonoBehaviour
 {
+    public PlushieActiveStitchPart partType;
+
+    public PartConnectedTo partConnectedTo;
     public Vector3 originalRotation;
     public bool moveable = false;
     public bool shouldBeChild = false;
     public bool IsStitched { get; private set; }
     public List<SewPoint> connectPoints;
-    public List<PointPairContainer> pointPair;
     public bool head;
     public float pullForce;
+    public int totalConnections;
+    public int noOfConnections;
+    public Transform targetCameraPoint;
     public void MarkStitched()
     {
         IsStitched = true;

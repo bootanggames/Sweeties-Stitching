@@ -28,7 +28,7 @@ public class ThreadManager : MonoBehaviour, IThreadManager
     [SerializeField] Transform startPoint;
     private void OnEnable()
     {
-        InstantiateMainThread(true);
+        //InstantiateMainThread(true);
         RegisterService();
        
     }
@@ -39,6 +39,7 @@ public class ThreadManager : MonoBehaviour, IThreadManager
     public void RegisterService()
     {
         ServiceLocator.RegisterService<IThreadManager>(this);
+        GameEvents.ThreadEvents.onInstantiatingThread.RegisterEvent(InstantiateMainThread);
         GameEvents.ThreadEvents.onInitialiseRope.RegisterEvent(AddFirstPositionOnMouseDown);
         GameEvents.ThreadEvents.onAddingPositionToRope.RegisterEvent(AddPositionToLineOnDrag);
         GameEvents.ThreadEvents.onCreatingConnection.RegisterEvent(CreateLineAndApplyPullForceOnConnection);
@@ -57,6 +58,7 @@ public class ThreadManager : MonoBehaviour, IThreadManager
         GameEvents.ThreadEvents.onEmptyList_DetectingPoints.UnregisterEvent(ClearDetectedPointsList);
         GameEvents.ThreadEvents.setThreadInput.UnregisterEvent(SetThreadInputBool);
         GameEvents.ThreadEvents.onSetFreeformMovementValue.UnregisterEvent(SetFreeformThreadMovement);
+        GameEvents.ThreadEvents.onInstantiatingThread.UnregisterEvent(InstantiateMainThread);
 
     }
     void SetFreeformThreadMovement(bool value)
@@ -71,7 +73,7 @@ public class ThreadManager : MonoBehaviour, IThreadManager
     {
         detectedPoints.Clear();
     }
-    void InstantiateMainThread(bool start)
+    void InstantiateMainThread(bool start, Vector2 startPos)
     {
         instantiatedLine = Instantiate(lineRenderer, threadParent.position, Quaternion.identity);
         instantiatedLine.transform.SetParent(threadParent);
@@ -81,7 +83,7 @@ public class ThreadManager : MonoBehaviour, IThreadManager
         {
             for (int i = 0; i < instantiatedLine.positionCount; i++)
             {
-                instantiatedLine.SetPosition(i, startPoint.position);
+                instantiatedLine.SetPosition(i, startPos);
             }
         }
      
@@ -92,8 +94,11 @@ public class ThreadManager : MonoBehaviour, IThreadManager
     {
 
         if (!threadInput) return;
-        if (instantiatedLine == null) return;
-
+        if (instantiatedLine == null)
+        {
+            InstantiateMainThread(true, headPos);
+            return;
+        }
         if (lastConnectedPoint != null)
         {
             currentRopeStartPosition = lastConnectedPoint.position;
@@ -106,6 +111,8 @@ public class ThreadManager : MonoBehaviour, IThreadManager
             currentRopeStartPosition = headPos;
             instantiatedLine.SetPosition(0, headPos);
         }
+        GameEvents.NeedleEvents.OnNeedleMovement.RaiseEvent(instantiatedLine.GetPosition(0));
+
     }
 
     public void AddPositionToLineOnDrag(Vector2 mousePos)
@@ -207,7 +214,7 @@ public class ThreadManager : MonoBehaviour, IThreadManager
         prevLine = instantiatedLine;
         prevLine.name = "Previous Line";
         lastConnectedPoint = point.transform;
-        InstantiateMainThread(false);
+        InstantiateMainThread(false, Vector2.zero);
 
         AddFirstPositionOnMouseDown(point.transform.position);
         for (int i = 0; i < instantiatedLine.positionCount; i++)

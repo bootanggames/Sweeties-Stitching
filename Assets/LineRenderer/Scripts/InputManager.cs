@@ -15,7 +15,11 @@ public class InputManager : MonoBehaviour
     [SerializeField] float needleOffset;
     private void Start()
     {
-        lastNeedlePos = startPoint.position;
+        //lastNeedlePos = startPoint.position;
+        //--ammendments
+        //give current touch position at start
+     
+
     }
     private void Update()
     {
@@ -29,9 +33,9 @@ public class InputManager : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && !drag)
         {
             drag = true;
-            //firstTouch = CalculateCurrentPosition();
-            //GameEvents.ThreadEvents.onInitialiseRope.RaiseEvent(lastNeedlePos);
-          
+            firstTouch = CalculateCurrentPosition();
+            GameEvents.ThreadEvents.onInitialiseRope.RaiseEvent(firstTouch);
+
         }
         else if (Input.GetMouseButton(0) && drag)
         {

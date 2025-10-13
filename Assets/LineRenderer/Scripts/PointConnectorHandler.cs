@@ -138,7 +138,7 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
         var needleDetecto = ServiceLocator.GetService<INeedleDetector>();
         if(needleDetecto != null)
         {
-            needleDetecto.detect = false;
+            //needleDetecto.detect = false;
         }
     }
 
@@ -386,7 +386,7 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
         {
             needleDetecto.detect = true;
         }
-        Debug.LogError(" checked ");
+        //Debug.LogError(" checked ");
     }
     void EnableDetection()
     {

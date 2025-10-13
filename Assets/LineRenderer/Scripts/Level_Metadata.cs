@@ -21,9 +21,13 @@ public class Level_Metadata : MonoBehaviour
     [SerializeField] Transform levelCompleteView;
     private void Start()
     {
-        NextPartActivation(true);
+        //Invoke("StartLevel", 2.0f);
     }
-
+    public void StartLevel() 
+    {
+        NextPartActivation(true);
+        //CancelInvoke("StartLevel");
+    }
     void NextPartActivation(bool start)
     {
         var needleDetecto = ServiceLocator.GetService<INeedleDetector>();
@@ -151,6 +155,7 @@ public class Level_Metadata : MonoBehaviour
                 ObjectInfo o = head.joints[0].GetComponent<ObjectInfo>();
                 cam.Target.TrackingTarget = o.targetCameraPoint;
                 cam.Target.LookAtTarget = o.targetCameraPoint;
+                cam.Lens.OrthographicSize = 0.5f;
                 break;
             case PlushieActiveStitchPart.righteye:
                 plushieActivePartToStitch = PlushieActiveStitchPart.righteye;

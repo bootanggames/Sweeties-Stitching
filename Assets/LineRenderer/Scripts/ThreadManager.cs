@@ -29,9 +29,10 @@ public class ThreadManager : MonoBehaviour, IThreadManager
     [SerializeField] Transform startPoint;
     private void OnEnable()
     {
-        //InstantiateMainThread(true);
         RegisterService();
-       
+
+        //InstantiateMainThread(true, startPoint.position);
+
     }
     private void OnDisable()
     {
@@ -86,8 +87,9 @@ public class ThreadManager : MonoBehaviour, IThreadManager
             {
                 instantiatedLine.SetPosition(i, startPos);
             }
+            GameEvents.NeedleEvents.OnNeedleMovement.RaiseEvent(instantiatedLine.GetPosition(0));
         }
-     
+
     }
 
   
@@ -112,7 +114,7 @@ public class ThreadManager : MonoBehaviour, IThreadManager
             currentRopeStartPosition = headPos;
             instantiatedLine.SetPosition(0, headPos);
         }
-        GameEvents.NeedleEvents.OnNeedleMovement.RaiseEvent(instantiatedLine.GetPosition(0));
+        //GameEvents.NeedleEvents.OnNeedleMovement.RaiseEvent(instantiatedLine.GetPosition(0));
 
     }
 

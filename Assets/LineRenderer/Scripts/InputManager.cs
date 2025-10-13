@@ -13,14 +13,7 @@ public class InputManager : MonoBehaviour
     [SerializeField]Vector2 lastNeedlePos;
     [SerializeField] Transform startPoint;
     [SerializeField] float needleOffset;
-    private void Start()
-    {
-        //lastNeedlePos = startPoint.position;
-        //--ammendments
-        //give current touch position at start
-     
-
-    }
+    
     private void Update()
     {
         var gameHandler = ServiceLocator.GetService<IGameHandler>();
@@ -34,6 +27,7 @@ public class InputManager : MonoBehaviour
         {
             drag = true;
             firstTouch = CalculateCurrentPosition();
+            firstTouch = startPoint.position;
             GameEvents.ThreadEvents.onInitialiseRope.RaiseEvent(firstTouch);
 
         }
@@ -42,24 +36,24 @@ public class InputManager : MonoBehaviour
           
             dragTouchValue = CalculateCurrentPosition();
 
-            //float reference = Mathf.Min(Screen.width, Screen.height);
+            float reference = Mathf.Min(Screen.width, Screen.height);
 
-            //float normalizedX = (dragTouchValue.x - firstTouch.x) / reference;
-            //float normalizedY = (dragTouchValue.y - firstTouch.y) / reference;
+            float normalizedX = (dragTouchValue.x - firstTouch.x) / reference;
+            float normalizedY = (dragTouchValue.y - firstTouch.y) / reference;
 
-            //moveX = lastNeedlePos.x + normalizedX * moveLimit.x; 
-            //moveY = lastNeedlePos.y + normalizedY * moveLimit.y;
+            moveX = lastNeedlePos.x + normalizedX * moveLimit.x;
+            moveY = lastNeedlePos.y + normalizedY * moveLimit.y;
 
-            //moveX = Mathf.Clamp(moveX, -moveLimit.x, moveLimit.x);
-            //moveY = Mathf.Clamp(moveY, -moveLimit.y, moveLimit.y);
+            moveX = Mathf.Clamp(moveX, -moveLimit.x, moveLimit.x);
+            moveY = Mathf.Clamp(moveY, -moveLimit.y, moveLimit.y);
 
-            Vector2 newPos = new Vector2 (dragTouchValue.x, (dragTouchValue.y + needleOffset));//---ADDED NEW LINE  
-            GameEvents.ThreadEvents.onAddingPositionToRope.RaiseEvent(newPos);
+            //Vector2 newPos = new Vector2 (dragTouchValue.x, (dragTouchValue.y + needleOffset));//---ADDED NEW LINE  
+            GameEvents.ThreadEvents.onAddingPositionToRope.RaiseEvent(new Vector2(moveX, moveY));
         }
         else if (Input.GetMouseButtonUp(0) && drag)
         {
             drag = false;
-            //lastNeedlePos = new Vector2(moveX, moveY);
+            lastNeedlePos = new Vector2(moveX, moveY);
             GameEvents.PointConnectionHandlerEvents.onStopTweens.RaiseEvent();
             GameEvents.ThreadEvents.setThreadInput.RaiseEvent(true);
 
@@ -70,14 +64,14 @@ public class InputManager : MonoBehaviour
     Vector3 CalculateCurrentPosition()
     {
         Vector3 position;
-        //float screenWidth = Screen.width;
-        //float screenHeight = Screen.height;
-        //float requiredWidth = screenWidth / 2;
-        //float requiredHeight = screenHeight / 2;
-        //float moveXRange = Input.mousePosition.x - requiredWidth;
-        //float moveYRange = Input.mousePosition.y - requiredHeight;
-        //position = new Vector3(moveXRange, moveYRange, Input.mousePosition.z);
-        position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        float screenWidth = Screen.width;
+        float screenHeight = Screen.height;
+        float requiredWidth = screenWidth / 2;
+        float requiredHeight = screenHeight / 2;
+        float moveXRange = Input.mousePosition.x - requiredWidth;
+        float moveYRange = Input.mousePosition.y - requiredHeight;
+        position = new Vector3(moveXRange, moveYRange, Input.mousePosition.z);
+        //position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         return position;
     }
 }

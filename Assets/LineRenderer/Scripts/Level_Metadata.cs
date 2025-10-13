@@ -18,7 +18,7 @@ public class Level_Metadata : MonoBehaviour
     public CinemachineCamera cam;
     private void Start()
     {
-        NextPartActivation();
+        //NextPartActivation();
     }
 
     void NextPartActivation()

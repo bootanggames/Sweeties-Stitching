@@ -28,7 +28,7 @@ public class ThreadManager : MonoBehaviour, IThreadManager
     [SerializeField] Transform startPoint;
     private void OnEnable()
     {
-        //InstantiateMainThread(true);
+        InstantiateMainThread(true, startPoint.position);
         RegisterService();
        
     }
@@ -96,7 +96,7 @@ public class ThreadManager : MonoBehaviour, IThreadManager
         if (!threadInput) return;
         if (instantiatedLine == null)
         {
-            InstantiateMainThread(true, headPos);
+            //InstantiateMainThread(true, headPos);
             return;
         }
         if (lastConnectedPoint != null)

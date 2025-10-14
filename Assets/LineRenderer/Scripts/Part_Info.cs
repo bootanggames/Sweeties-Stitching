@@ -1,0 +1,19 @@
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Part_Info : MonoBehaviour
+{
+    public  List<GameObject> joints;
+
+    public void EnableJoint(PlushieActiveStitchPart partType)
+    {
+        foreach(GameObject g in joints)
+        {
+            ObjectInfo o_Info = g.GetComponent<ObjectInfo>();
+            if (o_Info.partType.Equals(partType))
+            {
+                g.SetActive(true);
+            } 
+        } 
+    }
+}

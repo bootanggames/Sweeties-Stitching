@@ -10,7 +10,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{97C02045-7E8D-9367-EC15-488B3220CB74}</ProjectGuid>
+    <ProjectGuid>{F83DACE1-0729-8E5A-85C1-CA81AD011443}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -20,7 +20,7 @@
   </PropertyGroup>
   <PropertyGroup>
     <NoWarn>0169;USG0001</NoWarn>
-    <DefineConstants>UNITY_6000_1_10;UNITY_6000_1;UNITY_6000;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_2_OR_NEWER;UNITY_2017_3_OR_NEWER;UNITY_2017_4_OR_NEWER;UNITY_2018_1_OR_NEWER;UNITY_2018_2_OR_NEWER;UNITY_2018_3_OR_NEWER;UNITY_2018_4_OR_NEWER;UNITY_2019_1_OR_NEWER;UNITY_2019_2_OR_NEWER;UNITY_2019_3_OR_NEWER;UNITY_2019_4_OR_NEWER;UNITY_2020_1_OR_NEWER;UNITY_2020_2_OR_NEWER;UNITY_2020_3_OR_NEWER;UNITY_2021_1_OR_NEWER;UNITY_2021_2_OR_NEWER;UNITY_2021_3_OR_NEWER;UNITY_2022_1_OR_NEWER;UNITY_2022_2_OR_NEWER;UNITY_2022_3_OR_NEWER;UNITY_2023_1_OR_NEWER;UNITY_2023_2_OR_NEWER;UNITY_2023_3_OR_NEWER;UNITY_6000_0_OR_NEWER;UNITY_6000_1_OR_NEWER;UNITY_INCLUDE_TESTS;ENABLE_AR;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_EVENT_QUEUE;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_TEXTURE_STREAMING;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_VR;ENABLE_WEBCAM;ENABLE_UNITYWEBREQUEST;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_NATIVE_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_EDITOR_GAME_SERVICES;ENABLE_UNITY_GAME_SERVICES_ANALYTICS_SUPPORT;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_HUB_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_GENERATE_NATIVE_PLUGINS_FOR_ASSEMBLIES_API;ENABLE_DIRECTOR_AUDIO;ENABLE_DIRECTOR_TEXTURE;ENABLE_MANAGED_JOBS;ENABLE_MANAGED_TRANSFORM_JOBS;ENABLE_MANAGED_ANIMATION_JOBS;ENABLE_MANAGED_AUDIO_JOBS;ENABLE_ENGINE_CODE_STRIPPING;ENABLE_ONSCREEN_KEYBOARD;ENABLE_MANAGED_UNITYTLS;INCLUDE_DYNAMIC_GI;ENABLE_SCRIPTING_GC_WBARRIERS;PLATFORM_SUPPORTS_MONO;ENABLE_MARSHALLING_TESTS;ENABLE_VIDEO;ENABLE_NAVIGATION_OFFMESHLINK_TO_NAVMESHLINK;ENABLE_ACCELERATOR_CLIENT_DEBUGGING;ENABLE_ACCESSIBILITY;TEXTCORE_1_0_OR_NEWER;EDITOR_ONLY_NAVMESH_BUILDER_DEPRECATED;PLATFORM_ANDROID;UNITY_ANDROID;UNITY_ANDROID_API;ENABLE_EGL;ENABLE_NETWORK;ENABLE_RUNTIME_GI;ENABLE_CRUNCH_TEXTURE_COMPRESSION;UNITY_CAN_SHOW_SPLASH_SCREEN;UNITY_HAS_GOOGLEVR;UNITY_HAS_TANGO;ENABLE_SPATIALTRACKING;ENABLE_ETC_COMPRESSION;PLATFORM_EXTENDS_VULKAN_DEVICE;PLATFORM_HAS_MULTIPLE_SWAPCHAINS;UNITY_ANDROID_SUPPORTS_SHADOWFILES;PLATFORM_UPDATES_TIME_OUTSIDE_OF_PLAYER_LOOP;PLATFORM_EXTENDS_VULKAN_PIPELINE_CACHE;PLATFORM_SUPPORTS_SPLIT_GRAPHICS_JOBS;PLATFORM_HAS_ADDITIONAL_API_CHECKS;PLATFORM_HAS_GRAPHICS_JOBS_SUPPORT_CHECK_OVERRIDE;PLATFORM_HAS_BUGGY_MSAA_RESOLVE;ENABLE_UNITYADS_RUNTIME;UNITY_UNITYADS_API;ENABLE_MONO;NET_STANDARD_2_0;NET_STANDARD;NET_STANDARD_2_1;NETSTANDARD;NETSTANDARD2_1;ENABLE_PROFILER;DEBUG;TRACE;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;ENABLE_UNITY_COLLECTIONS_CHECKS;ENABLE_BURST_AOT;UNITY_TEAM_LICENSE;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_DIRECTOR;ENABLE_LOCALIZATION;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_TILEMAP;ENABLE_TIMELINE;ENABLE_INPUT_SYSTEM;ENABLE_LEGACY_INPUT_MANAGER;TEXTCORE_FONT_ENGINE_1_5_OR_NEWER;TEXTCORE_TEXT_ENGINE_1_5_OR_NEWER;CSHARP_7_OR_LATER;CSHARP_7_3_OR_NEWER</DefineConstants>
+    <DefineConstants>UNITY_6000_1_10;UNITY_6000_1;UNITY_6000;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_2_OR_NEWER;UNITY_2017_3_OR_NEWER;UNITY_2017_4_OR_NEWER;UNITY_2018_1_OR_NEWER;UNITY_2018_2_OR_NEWER;UNITY_2018_3_OR_NEWER;UNITY_2018_4_OR_NEWER;UNITY_2019_1_OR_NEWER;UNITY_2019_2_OR_NEWER;UNITY_2019_3_OR_NEWER;UNITY_2019_4_OR_NEWER;UNITY_2020_1_OR_NEWER;UNITY_2020_2_OR_NEWER;UNITY_2020_3_OR_NEWER;UNITY_2021_1_OR_NEWER;UNITY_2021_2_OR_NEWER;UNITY_2021_3_OR_NEWER;UNITY_2022_1_OR_NEWER;UNITY_2022_2_OR_NEWER;UNITY_2022_3_OR_NEWER;UNITY_2023_1_OR_NEWER;UNITY_2023_2_OR_NEWER;UNITY_2023_3_OR_NEWER;UNITY_6000_0_OR_NEWER;UNITY_6000_1_OR_NEWER;UNITY_INCLUDE_TESTS;ENABLE_AR;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_EVENT_QUEUE;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_TEXTURE_STREAMING;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_VR;ENABLE_WEBCAM;ENABLE_UNITYWEBREQUEST;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_NATIVE_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_EDITOR_GAME_SERVICES;ENABLE_UNITY_GAME_SERVICES_ANALYTICS_SUPPORT;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_HUB_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_GENERATE_NATIVE_PLUGINS_FOR_ASSEMBLIES_API;ENABLE_DIRECTOR_AUDIO;ENABLE_DIRECTOR_TEXTURE;ENABLE_MANAGED_JOBS;ENABLE_MANAGED_TRANSFORM_JOBS;ENABLE_MANAGED_ANIMATION_JOBS;ENABLE_MANAGED_AUDIO_JOBS;ENABLE_ENGINE_CODE_STRIPPING;ENABLE_ONSCREEN_KEYBOARD;ENABLE_MANAGED_UNITYTLS;INCLUDE_DYNAMIC_GI;ENABLE_SCRIPTING_GC_WBARRIERS;PLATFORM_SUPPORTS_MONO;ENABLE_MARSHALLING_TESTS;ENABLE_VIDEO;ENABLE_NAVIGATION_OFFMESHLINK_TO_NAVMESHLINK;ENABLE_ACCELERATOR_CLIENT_DEBUGGING;ENABLE_ACCESSIBILITY;TEXTCORE_1_0_OR_NEWER;EDITOR_ONLY_NAVMESH_BUILDER_DEPRECATED;PLATFORM_ANDROID;UNITY_ANDROID;UNITY_ANDROID_API;ENABLE_EGL;ENABLE_NETWORK;ENABLE_RUNTIME_GI;ENABLE_CRUNCH_TEXTURE_COMPRESSION;UNITY_CAN_SHOW_SPLASH_SCREEN;UNITY_HAS_GOOGLEVR;UNITY_HAS_TANGO;ENABLE_SPATIALTRACKING;ENABLE_ETC_COMPRESSION;PLATFORM_EXTENDS_VULKAN_DEVICE;PLATFORM_HAS_MULTIPLE_SWAPCHAINS;UNITY_ANDROID_SUPPORTS_SHADOWFILES;PLATFORM_UPDATES_TIME_OUTSIDE_OF_PLAYER_LOOP;PLATFORM_EXTENDS_VULKAN_PIPELINE_CACHE;PLATFORM_SUPPORTS_SPLIT_GRAPHICS_JOBS;PLATFORM_HAS_ADDITIONAL_API_CHECKS;PLATFORM_HAS_GRAPHICS_JOBS_SUPPORT_CHECK_OVERRIDE;PLATFORM_HAS_BUGGY_MSAA_RESOLVE;ENABLE_UNITYADS_RUNTIME;UNITY_UNITYADS_API;ENABLE_MONO;NET_STANDARD_2_0;NET_STANDARD;NET_STANDARD_2_1;NETSTANDARD;NETSTANDARD2_1;ENABLE_PROFILER;DEBUG;TRACE;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;ENABLE_UNITY_COLLECTIONS_CHECKS;ENABLE_BURST_AOT;UNITY_TEAM_LICENSE;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_DIRECTOR;ENABLE_LOCALIZATION;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_TILEMAP;ENABLE_TIMELINE;ENABLE_INPUT_SYSTEM;ENABLE_LEGACY_INPUT_MANAGER;TEXTCORE_FONT_ENGINE_1_5_OR_NEWER;TEXTCORE_TEXT_ENGINE_1_5_OR_NEWER;DOTWEEN;MOREMOUNTAINS_FEEDBACKS;MOREMOUNTAINS_NICEVIBRATIONS;MOREMOUNTAINS_NICEVIBRATIONS_RUMBLE;MOREMOUNTAINS_TOOLS;CSHARP_7_OR_LATER;CSHARP_7_3_OR_NEWER</DefineConstants>
     <AllowUnsafeBlocks>False</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -61,176 +61,135 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\6000.1.10f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.UIToolkit.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Obi\Samples\Common\SampleResources\Scripts\ColorFromPhase.cs" />
-    <Compile Include="Assets\Obi\Samples\RopeAndRod\SampleResources\Scripts\VineClimbController.cs" />
-    <Compile Include="Assets\Obi\Samples\RopeAndRod\SampleResources\Scripts\Wrappable.cs" />
-    <Compile Include="Assets\Obi\Samples\RopeAndRod\SampleResources\Scripts\CableCarController.cs" />
-    <Compile Include="Assets\Obi\Samples\Common\SampleResources\Scripts\SlowmoToggler.cs" />
-    <Compile Include="Assets\Obi\Samples\Common\SampleResources\Scripts\DebugParticleFrames.cs" />
-    <Compile Include="Assets\Obi\Samples\RopeAndRod\SampleResources\Scripts\SpiralCurve.cs" />
-    <Compile Include="Assets\Obi\Samples\Common\SampleResources\Scripts\WorldSpaceGravity.cs" />
-    <Compile Include="Assets\GameAssets\Scripts\PointInfo.cs" />
-    <Compile Include="Assets\GameAssets\Scripts\PointTrigger.cs" />
-    <Compile Include="Assets\Obi\Samples\Common\SampleResources\Scripts\AddRandomVelocity.cs" />
-    <Compile Include="Assets\Obi\Samples\RopeAndRod\SampleResources\Scripts\HighlightCollidingRopes.cs" />
-    <Compile Include="Assets\Obi\Samples\RopeAndRod\SampleResources\Scripts\CharacterControl2D.cs" />
-    <Compile Include="Assets\Obi\Samples\Common\SampleResources\Scripts\ActorActorCollisionDetector.cs" />
-    <Compile Include="Assets\Obi\Samples\Common\SampleResources\Scripts\ObjectDragger.cs" />
-    <Compile Include="Assets\Obi\Samples\RopeAndRod\SampleResources\Scripts\RopeNet.cs" />
-    <Compile Include="Assets\Obi\Samples\RopeAndRod\SampleResources\Scripts\RopeBetweenTwoPoints.cs" />
-    <Compile Include="Assets\Obi\Samples\Common\SampleResources\Scripts\ActorBlinker.cs" />
-    <Compile Include="Assets\GameAssets\Scripts\RaycastDetector.cs" />
-    <Compile Include="Assets\GameAssets\Scripts\Services\ServiceLocator.cs" />
-    <Compile Include="Assets\Obi\Samples\RopeAndRod\SampleResources\Scripts\RatchetController.cs" />
-    <Compile Include="Assets\Obi\Samples\RopeAndRod\SampleResources\Scripts\HosePump.cs" />
-    <Compile Include="Assets\Obi\Samples\RopeAndRod\SampleResources\Scripts\RopeSweepCut.cs" />
-    <Compile Include="Assets\Obi\Samples\Common\SampleResources\Scripts\CharacterController\SampleCharacterController.cs" />
-    <Compile Include="Assets\Obi\Samples\Common\SampleResources\Scripts\MoveAndRotate.cs" />
-    <Compile Include="Assets\Obi\Samples\RopeAndRod\SampleResources\Scripts\RopeTenser.cs" />
-    <Compile Include="Assets\Obi\Samples\RopeAndRod\SampleResources\Scripts\WrapRopePlayerController.cs" />
-    <Compile Include="Assets\Obi\Samples\RopeAndRod\SampleResources\Scripts\RenderLineBetweenTransforms.cs" />
-    <Compile Include="Assets\GameAssets\Scripts\DummyRopeHandler.cs" />
-    <Compile Include="Assets\Obi\Samples\Common\SampleResources\Scripts\LookAroundCamera.cs" />
-    <Compile Include="Assets\Obi\Samples\Common\SampleResources\Scripts\ColliderHighlighter.cs" />
-    <Compile Include="Assets\Obi\Samples\Common\SampleResources\Scripts\ObjectLimit.cs" />
-    <Compile Include="Assets\Obi\Samples\Common\SampleResources\Scripts\ObiParticleCounter.cs" />
-    <Compile Include="Assets\Obi\Samples\RopeAndRod\SampleResources\Scripts\RopeTensionColorizer.cs" />
-    <Compile Include="Assets\Obi\Samples\Common\SampleResources\Scripts\RigidbodyMaxAngularVel.cs" />
-    <Compile Include="Assets\Obi\Samples\RopeAndRod\SampleResources\Scripts\TangledPegSlot.cs" />
-    <Compile Include="Assets\Obi\Samples\Common\SampleResources\Scripts\Blinker.cs" />
-    <Compile Include="Assets\GameAssets\Scripts\LineInterface\ILineHandler.cs" />
+    <Compile Include="Assets\LineRenderer\Scripts\Events\ThreadEvents.cs" />
+    <Compile Include="Assets\LineRenderer\Scripts\Enums\PlushieActiveStitchPart.cs" />
+    <Compile Include="Assets\LineRenderer\Scripts\GameHandler.cs" />
+    <Compile Include="Assets\MMFeedbacks\MMFeedbacks\Demos\MMFeedbacksDemo\Scripts\DemoGhost.cs" />
+    <Compile Include="Assets\LineRenderer\Scripts\Events\GameEventTemplate.cs" />
+    <Compile Include="Assets\MasterMagicFX\Scripts\Miscs\MUtils.cs" />
+    <Compile Include="Assets\DOTween\Modules\DOTweenModuleUnityVersion.cs" />
+    <Compile Include="Assets\LineRenderer\Scripts\Events\SewPointEvents.cs" />
+    <Compile Include="Assets\JMO Assets\Cartoon FX (legacy)\Scripts\CFX_LightFlicker.cs" />
+    <Compile Include="Assets\LineRenderer\Scripts\Singleton\Singleton.cs" />
+    <Compile Include="Assets\MasterMagicFX\Scripts\Miscs\LaserShooter.cs" />
+    <Compile Include="Assets\DOTween\Modules\DOTweenModulePhysics2D.cs" />
+    <Compile Include="Assets\LineRenderer\Scripts\Events\GameCompleteEvents.cs" />
+    <Compile Include="Assets\DOTween\Modules\DOTweenModuleUI.cs" />
+    <Compile Include="Assets\LineRenderer\Scripts\Interfaces\IPointConnectionHandler.cs" />
+    <Compile Include="Assets\LineRenderer\Scripts\Interfaces\ILevelHandler.cs" />
+    <Compile Include="Assets\LineRenderer\Scripts\Interfaces\IThreadManager.cs" />
+    <Compile Include="Assets\LineRenderer\Scripts\DoTweenAnimationHandler.cs" />
+    <Compile Include="Assets\LineRenderer\Scripts\InputManager.cs" />
+    <Compile Include="Assets\LineRenderer\Scripts\SerializableClasses\PointPairContainer.cs" />
+    <Compile Include="Assets\LineRenderer\Scripts\SoundManager.cs" />
+    <Compile Include="Assets\LineRenderer\Scripts\Events\PointConnectionHandlerEvents.cs" />
+    <Compile Include="Assets\MMFeedbacks\MMFeedbacks\Demos\MMFeedbacksDemo\Scripts\DemoBall.cs" />
+    <Compile Include="Assets\LineRenderer\Scripts\Events\NeedleEvents.cs" />
+    <Compile Include="Assets\JMO Assets\Cartoon FX (legacy)\Demo\Assets\CFX_Demo_RandomDir.cs" />
+    <Compile Include="Assets\LineRenderer\Scripts\SewPoint.cs" />
+    <Compile Include="Assets\LineRenderer\Scripts\Enums\SequenceType.cs" />
+    <Compile Include="Assets\LineRenderer\Scripts\Interfaces\ISewPoint.cs" />
+    <Compile Include="Assets\LineRenderer\Scripts\Interfaces\IGameHandler.cs" />
+    <Compile Include="Assets\MasterMagicFX\Scripts\Miscs\BillBoardParticle.cs" />
+    <Compile Include="Assets\MasterMagicFX\Scripts\Miscs\ParticleMappingController.cs" />
+    <Compile Include="Assets\JMO Assets\Cartoon FX (legacy)\Demo\Assets\CFX_Demo_RotateCamera.cs" />
+    <Compile Include="Assets\LineRenderer\Scripts\SerializableClasses\LevelDivision.cs" />
+    <Compile Include="Assets\LineRenderer\Scripts\HepticManager.cs" />
+    <Compile Include="Assets\LineRenderer\Scripts\NeedleMovement.cs" />
+    <Compile Include="Assets\JMO Assets\Cartoon FX (legacy)\Scripts\CFX_AutoRotate.cs" />
+    <Compile Include="Assets\MasterMagicFX\Scripts\Miscs\MEffectExample.cs" />
+    <Compile Include="Assets\JMO Assets\Cartoon FX (legacy)\Demo\Assets\CFX_Demo_RandomDirectionTranslate.cs" />
+    <Compile Include="Assets\MasterMagicFX\Scripts\Miscs\BulletShooter.cs" />
+    <Compile Include="Assets\LineRenderer\Scripts\LevelsHandler.cs" />
+    <Compile Include="Assets\MMFeedbacks\MMFeedbacks\Demos\MMFeedbacksDemo\Scripts\DemoButton.cs" />
+    <Compile Include="Assets\LineRenderer\Scripts\Scriptables\SoundScriptable.cs" />
     <Compile Include="Assets\TutorialInfo\Scripts\Readme.cs" />
-    <Compile Include="Assets\Obi\Samples\Common\SampleResources\Scripts\ColorRandomizer.cs" />
-    <Compile Include="Assets\Obi\Samples\Common\SampleResources\Scripts\ObiActorTeleport.cs" />
-    <Compile Include="Assets\Obi\Samples\Common\SampleResources\Scripts\FPSDisplay.cs" />
-    <Compile Include="Assets\Obi\Samples\RopeAndRod\SampleResources\Scripts\CraneController.cs" />
-    <Compile Include="Assets\Obi\Samples\RopeAndRod\SampleResources\Scripts\ExtendableGrapplingHook.cs" />
-    <Compile Include="Assets\Obi\Samples\Common\SampleResources\Scripts\ActorSpawner.cs" />
-    <Compile Include="Assets\Obi\Samples\Common\SampleResources\Scripts\ExtrapolationCamera.cs" />
-    <Compile Include="Assets\GameAssets\Scripts\LineHandler.cs" />
-    <Compile Include="Assets\GameAssets\Scripts\Services\IGameService.cs" />
-    <Compile Include="Assets\Obi\Samples\Common\SampleResources\Scripts\CharacterController\ObiCharacter.cs" />
-    <Compile Include="Assets\Obi\Samples\RopeAndRod\SampleResources\Scripts\SnakeController.cs" />
-    <Compile Include="Assets\Obi\Samples\RopeAndRod\SampleResources\Scripts\TangledPeg.cs" />
-    <Compile Include="Assets\GameAssets\Scripts\RopePuller.cs" />
-    <Compile Include="Assets\Obi\Samples\Common\SampleResources\Scripts\ColorFromVelocity.cs" />
-    <Compile Include="Assets\Obi\Samples\Common\SampleResources\Scripts\ActorCOMTransform.cs" />
-    <Compile Include="Assets\GameAssets\Scripts\GameEvent\GameEvents.cs" />
-    <Compile Include="Assets\Obi\Samples\RopeAndRod\SampleResources\Scripts\TangledRopesGameController.cs" />
-    <Compile Include="Assets\Obi\Samples\Common\SampleResources\Scripts\CollisionEventHandler.cs" />
-    <Compile Include="Assets\Obi\Samples\RopeAndRod\SampleResources\Scripts\GrapplingHook.cs" />
-    <Compile Include="Assets\Obi\Samples\RopeAndRod\SampleResources\Scripts\WrapRopeGameController.cs" />
-    <Compile Include="Assets\Obi\Samples\RopeAndRod\SampleResources\Scripts\PinholeRatchet.cs" />
-    <Compile Include="Assets\Obi\Samples\RopeAndRod\SampleResources\Scripts\CursorController.cs" />
-    <Compile Include="Assets\GameAssets\Scripts\GameEvent\GameEventTemplate.cs" />
+    <Compile Include="Assets\MasterMagicFX\Scripts\Miscs\MMagicExample.cs" />
+    <Compile Include="Assets\LineRenderer\Scripts\NeedleDetector.cs" />
+    <Compile Include="Assets\LineRenderer\Scripts\Interfaces\INeedleDetector.cs" />
+    <Compile Include="Assets\LineRenderer\Scripts\ThreadManager.cs" />
+    <Compile Include="Assets\LineRenderer\Scripts\Services\IGameService.cs" />
+    <Compile Include="Assets\LineRenderer\Scripts\Interfaces\ISoundManager.cs" />
+    <Compile Include="Assets\MasterMagicFX\Scripts\Miscs\SubEmitterByTime.cs" />
+    <Compile Include="Assets\DOTween\Modules\DOTweenModuleEPOOutline.cs" />
+    <Compile Include="Assets\MasterMagicFX\Scripts\Miscs\MSelfDestroy.cs" />
+    <Compile Include="Assets\LineRenderer\Scripts\GameCompleteHandler.cs" />
+    <Compile Include="Assets\LineRenderer\Scripts\Events\DoTweenAnimationHandlerEvents.cs" />
+    <Compile Include="Assets\LineRenderer\Scripts\Events\SoundManagerEvents.cs" />
+    <Compile Include="Assets\LineRenderer\Scripts\Level_Metadata.cs" />
+    <Compile Include="Assets\LineRenderer\Scripts\Enums\GameStates.cs" />
+    <Compile Include="Assets\DOTween\Modules\DOTweenModuleAudio.cs" />
+    <Compile Include="Assets\JMO Assets\Cartoon FX (legacy)\Scripts\CFX_LightIntensityFade.cs" />
+    <Compile Include="Assets\LineRenderer\Scripts\Part_Info.cs" />
+    <Compile Include="Assets\LineRenderer\Scripts\Events\NeedleDetectorEvents.cs" />
+    <Compile Include="Assets\JMO Assets\Cartoon FX (legacy)\Demo\Assets\CFX_Demo_New.cs" />
+    <Compile Include="Assets\DOTween\Modules\DOTweenModulePhysics.cs" />
+    <Compile Include="Assets\LineRenderer\Scripts\CanvasUIManager.cs" />
+    <Compile Include="Assets\LineRenderer\Scripts\Interfaces\ICanvasUIManager.cs" />
+    <Compile Include="Assets\LineRenderer\Scripts\PointConnectorHandler.cs" />
+    <Compile Include="Assets\LineRenderer\Scripts\Animate.cs" />
+    <Compile Include="Assets\DOTween\Modules\DOTweenModuleSprite.cs" />
+    <Compile Include="Assets\LineRenderer\Scripts\Enums\PartConnectedTo.cs" />
+    <Compile Include="Assets\LineRenderer\Scripts\ObjectInfo.cs" />
+    <Compile Include="Assets\LineRenderer\Scripts\SerializableClasses\Connections.cs" />
+    <Compile Include="Assets\JMO Assets\Cartoon FX (legacy)\Scripts\CFX_AutoDestructShuriken.cs" />
+    <Compile Include="Assets\LineRenderer\Scripts\Interfaces\INeedleMovement.cs" />
+    <Compile Include="Assets\DOTween\Modules\DOTweenModuleUtils.cs" />
+    <Compile Include="Assets\JMO Assets\Cartoon FX (legacy)\Demo\Assets\CFX_Demo_Translate.cs" />
+    <Compile Include="Assets\MasterMagicFX\Scripts\Miscs\MLaser.cs" />
+    <Compile Include="Assets\LineRenderer\Scripts\Services\ServiceLocator.cs" />
+    <Compile Include="Assets\JMO Assets\Cartoon FX (legacy)\Demo\Assets\CFX_AutoStopLoopedEffect.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\Obi\Resources\Compute\PathFrame.cginc" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
-    <None Include="Assets\Obi\Resources\Compute\BoxShapeQuery.compute" />
-    <None Include="Assets\Obi\Resources\Compute\DensityConstraints.compute" />
-    <None Include="Assets\Obi\Resources\Compute\SoftbodyRendering.compute" />
-    <None Include="Assets\Obi\Resources\Compute\Matrix.cginc" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
-    <None Include="Assets\Obi\Resources\Compute\NormalCompression.cginc" />
+    <None Include="Assets\JMO Assets\Cartoon FX (legacy)\Shaders\CFX3 Multiply Color.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile-2-Pass.shader" />
-    <None Include="Assets\Obi\Resources\Compute\Scan.compute" />
-    <None Include="Assets\Obi\Resources\Compute\PathSmoothing.compute" />
-    <None Include="Assets\Obi\Resources\Compute\Optimization.cginc" />
+    <None Include="Assets\JMO Assets\Cartoon FX Remaster\CFXR Assets\Shaders\CFXR Particle Glow.shader" />
+    <None Include="Assets\JMO Assets\Cartoon FX Remaster\CFXR Assets\Shaders\CFXR Particle Ubershader.shader" />
+    <None Include="Assets\JMO Assets\Cartoon FX Remaster\CFXR Assets\Shaders\CFXR_SETTINGS.cginc" />
+    <None Include="Assets\DOTween\DOTween.XML" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
-    <None Include="Assets\Obi\Resources\Compute\EdgeMeshShape.compute" />
-    <None Include="Assets\Obi\Resources\Compute\Bounds.cginc" />
-    <None Include="Assets\Obi\Resources\Compute\FluidFoamCollisions.compute" />
-    <None Include="Assets\Obi\Resources\Compute\MathUtils.cginc" />
-    <None Include="Assets\Obi\Resources\Compute\BendConstraints.compute" />
-    <None Include="Assets\Obi\Resources\Compute\PinholeConstraints.compute" />
-    <None Include="Assets\Obi\Resources\Compute\InstancedParticleRendering.compute" />
-    <None Include="Assets\Obi\Resources\Compute\CollisionMaterial.cginc" />
-    <None Include="Assets\Obi\Resources\Compute\DistanceFieldShape.compute" />
-    <None Include="Assets\Obi\Resources\Compute\FluidFoamDensity.compute" />
-    <None Include="Assets\Obi\Resources\Compute\FluidKernels.cginc" />
+    <None Include="Assets\JMO Assets\Cartoon FX (legacy)\CartoonFX Free.txt" />
+    <None Include="Assets\MMFeedbacks\NiceVibrations\OlderVersions\v2.0.1\NiceVibrations-v-2-0-1-readme.txt" />
+    <None Include="Assets\JMO Assets\Cartoon FX Remaster\CFXR Assets\Shaders\CFXR.cginc" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Mobile.cginc" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF SSD.shader" />
-    <None Include="Assets\Obi\Resources\Compute\DeformableTriangles.compute" />
-    <None Include="Assets\Obi\Resources\Compute\RopeChainRendering.compute" />
-    <None Include="Assets\Obi\Resources\Compute\FluidMeshChunks.compute" />
-    <None Include="Assets\Obi\Resources\ObiMaterials\DistanceFields\DistanceFieldSlice.shader" />
-    <None Include="Assets\Obi\Resources\Compute\GridUtils.cginc" />
-    <None Include="Assets\Obi\Resources\Compute\Integration.cginc" />
-    <None Include="Assets\Obi\Resources\Compute\Rigidbody.cginc" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />
-    <None Include="Assets\Obi\Resources\Compute\TriangleMeshShape.compute" />
-    <None Include="Assets\Obi\Resources\Compute\ParticleMeshBuilding.compute" />
-    <None Include="Assets\Obi\Resources\Compute\SurfacePoint.cginc" />
-    <None Include="Assets\Obi\Resources\Compute\Quaternion.cginc" />
-    <None Include="Assets\Obi\Resources\Compute\BendTwistConstraints.compute" />
-    <None Include="Assets\Obi\Resources\Compute\ClothRendering.compute" />
-    <None Include="Assets\Obi\Resources\ObiMaterials\BuiltInStandardBackfaces\StandardVertexColors.shader" />
-    <None Include="Assets\Obi\Resources\Compute\Phases.cginc" />
+    <None Include="Assets\MMFeedbacks\NiceVibrations\ThirdParty\Newtonsoft\NewtonsoftJsonLicense.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\SDFFunctions.hlsl" />
-    <None Include="Assets\Obi\Resources\Compute\PinConstraints.compute" />
-    <None Include="Assets\Obi\Resources\Compute\SolverParameters.cginc" />
-    <None Include="Assets\Obi\Resources\Compute\FluidSurfaceMeshBuilding.compute" />
-    <None Include="Assets\Obi\Resources\Compute\ParticleCollisionConstraints.compute" />
+    <None Include="Assets\MMFeedbacks\readme.txt" />
+    <None Include="Assets\Lana Studio\Hyper Casual FX\Demo\Readme.txt" />
+    <None Include="Assets\MMFeedbacks\license.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface.shader" />
-    <None Include="Assets\Obi\Resources\ObiMaterials\Common\ObiEllipsoids.cginc" />
-    <None Include="Assets\Obi\Resources\Compute\ShapeMatchingConstraints.compute" />
-    <None Include="Assets\Obi\Resources\Compute\ContactHandling.cginc" />
-    <None Include="Assets\Obi\Resources\Compute\ParticleGrid.compute" />
+    <None Include="Assets\MMFeedbacks\NiceVibrations\Common\Plugins\Android\AndroidManifest.xml" />
     <None Include="Assets\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
-    <None Include="Assets\Obi\Resources\Compute\DistanceConstraints.compute" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
-    <None Include="Assets\Obi\Resources\Compute\RopeMeshRendering.compute" />
+    <None Include="Assets\JMO Assets\Cartoon FX Remaster\Readme Cartoon FX Remaster FREE.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF.shader" />
-    <None Include="Assets\Obi\Resources\Compute\FluidFoam.compute" />
-    <None Include="Assets\Obi\Resources\Compute\AerodynamicConstraints.compute" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile SSD.shader" />
+    <None Include="Assets\MMFeedbacks\NiceVibrations\OlderVersions\v1.7\NiceVibrations-v-1-7-readme.txt" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
-    <None Include="Assets\Obi\Resources\Compute\Simplex.cginc" />
-    <None Include="Assets\Obi\Resources\Compute\StretchShearConstraints.compute" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Properties.cginc" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
-    <None Include="Assets\Obi\Resources\Compute\RopeLineRendering.compute" />
-    <None Include="Assets\Obi\Resources\Compute\HeightfieldShape.compute" />
-    <None Include="Assets\Obi\Resources\Compute\AtomicDeltas.cginc" />
-    <None Include="Assets\Obi\Resources\Compute\ChainConstraints.compute" />
-    <None Include="Assets\Obi\Resources\Compute\QueryDefinitions.cginc" />
+    <None Include="Assets\JMO Assets\Cartoon FX Remaster\CFXR Prefabs\Texts\_Make your own text effect.txt" />
+    <None Include="Assets\JMO Assets\Cartoon FX Remaster\CFXR Assets\Shaders\CFXR_PASSES.cginc" />
+    <None Include="Assets\MMFeedbacks\NiceVibrations\ThirdParty\Newtonsoft\Newtonsoft.Json.dll" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
-    <None Include="Assets\Obi\Resources\Compute\SphereShapeQuery.compute" />
-    <None Include="Assets\Obi\Resources\Compute\SkinConstraints.compute" />
-    <None Include="Assets\Obi\Resources\Compute\DistanceFunctions.cginc" />
-    <None Include="Assets\Obi\Resources\Compute\SphereShape.compute" />
-    <None Include="Assets\Obi\Resources\Compute\InterlockedUtils.cginc" />
-    <None Include="Assets\Obi\Resources\Compute\SpatialQueries.compute" />
-    <None Include="Assets\Obi\Resources\Compute\SortParticleData.compute" />
-    <None Include="Assets\Obi\Resources\ObiMaterials\Common\ObiEllipsoidsHDRP.cginc" />
-    <None Include="Assets\Obi\Resources\Compute\FluidChunkDefs.cginc" />
+    <None Include="Assets\MMFeedbacks\NiceVibrations\readme.txt" />
+    <None Include="Assets\DOTween\DOTween.dll" />
+    <None Include="Assets\MMFeedbacks\NiceVibrations\license.txt" />
+    <None Include="Assets\JMO Assets\Cartoon FX (legacy)\Shaders\CFXM_MobileParticleAdd_Alpha8.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
-    <None Include="Assets\Obi\Resources\Compute\RayShapeQuery.compute" />
-    <None Include="Assets\Obi\Resources\Compute\TetherConstraints.compute" />
-    <None Include="Assets\Obi\Resources\Compute\ColliderFrictionConstraints.compute" />
-    <None Include="Assets\Obi\Resources\Compute\RopeExtrudedRendering.compute" />
-    <None Include="Assets\Obi\Resources\Compute\InertialFrame.cginc" />
-    <None Include="Assets\Obi\CHANGELOG_rope.txt" />
-    <None Include="Assets\Obi\Resources\Compute\BoxShape.compute" />
-    <None Include="Assets\Obi\Resources\ObiMaterials\Common\Instanced\Compute\ProceduralInstancing.cginc" />
-    <None Include="Assets\Obi\Resources\Compute\StitchConstraints.compute" />
-    <None Include="Assets\Obi\Resources\Compute\CapsuleShape.compute" />
-    <None Include="Assets\Obi\Resources\Compute\ParticleFrictionConstraints.compute" />
+    <None Include="Assets\JMO Assets\Cartoon FX Remaster\CFXR Assets\Shaders\CFXR Particle Procedural Ring.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader" />
-    <None Include="Assets\Obi\Resources\Compute\BoundsReduction.compute" />
+    <None Include="Assets\JMO Assets\Cartoon FX Remaster\CFXR Assets\Shaders\CFXR_URP.cginc" />
     <None Include="Assets\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
-    <None Include="Assets\Obi\Resources\Compute\Transform.cginc" />
-    <None Include="Assets\Obi\Resources\Compute\BitonicSort.compute" />
-    <None Include="Assets\Obi\Resources\Compute\VolumeConstraints.compute" />
-    <None Include="Assets\Obi\Resources\Compute\ColliderDefinitions.cginc" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile.shader" />
-    <None Include="Assets\Obi\Resources\ObiMaterials\Common\ObiUtils.cginc" />
-    <None Include="Assets\Obi\Resources\Compute\Solver.compute" />
+    <None Include="Assets\DOTween\readme.txt" />
+    <None Include="Assets\JMO Assets\Cartoon FX Remaster\CFXR Assets\Shaders\CFXR Particle Distortion.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Sprite.shader" />
-    <None Include="Assets\Obi\Resources\Compute\ColliderGrid.compute" />
-    <None Include="Assets\Obi\Resources\Compute\ColliderCollisionConstraints.compute" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
@@ -697,20 +656,16 @@
       <HintPath>Library\PackageCache\com.unity.visualscripting@6279e2b7c485\Runtime\VisualScripting.Flow\Dependencies\NCalc\Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>Assets\MMFeedbacks\NiceVibrations\ThirdParty\Newtonsoft\Newtonsoft.Json.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DOTween">
+      <HintPath>Assets\DOTween\DOTween.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Mono.Cecil">
       <HintPath>Library\PackageCache\com.unity.nuget.mono-cecil@d6f9955a5d5f\Mono.Cecil.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="UnityEditor.iOS.Extensions.Xcode">
-      <HintPath>C:\Program Files\Unity\Hub\Editor\6000.1.10f1\Editor\Data\PlaybackEngines\iOSSupport\UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="UnityEditor.iOS.Extensions.Common">
-      <HintPath>C:\Program Files\Unity\Hub\Editor\6000.1.10f1\Editor\Data\PlaybackEngines\iOSSupport\UnityEditor.iOS.Extensions.Common.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="UnityEditor.Apple.Extensions.Common">
-      <HintPath>C:\Program Files\Unity\Hub\Editor\6000.1.10f1\Editor\Data\PlaybackEngines\iOSSupport\UnityEditor.Apple.Extensions.Common.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.Android.Types">
@@ -1245,6 +1200,10 @@
       <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Shaders.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Unity.Cinemachine.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.Cinemachine.Editor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Unity.RenderPipelines.Core.Runtime.Shared">
       <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.Core.Runtime.Shared.dll</HintPath>
       <Private>False</Private>
@@ -1281,12 +1240,20 @@
       <HintPath>Library\ScriptAssemblies\Unity.Multiplayer.Center.Editor.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Unity.Splines">
+      <HintPath>Library\ScriptAssemblies\Unity.Splines.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Unity.Mathematics.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.Mathematics.Editor.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.RenderPipelines.GPUDriven.Runtime">
       <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.GPUDriven.Runtime.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.Cinemachine">
+      <HintPath>Library\ScriptAssemblies\Unity.Cinemachine.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.Bindings.OpenImageIO.Editor">
@@ -1315,6 +1282,10 @@
     </Reference>
     <Reference Include="Unity.RenderPipelines.Universal.Config.Runtime">
       <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Config.Runtime.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.Splines.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.Splines.Editor.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.RenderPipelines.Universal.Editor">
@@ -1373,6 +1344,10 @@
       <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.Core.Editor.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Unity.Settings.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.Settings.Editor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Unity.RenderPipelines.Universal.Runtime">
       <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Runtime.dll</HintPath>
       <Private>False</Private>
@@ -1389,12 +1364,12 @@
       <HintPath>Library\ScriptAssemblies\Unity.Recorder.Editor.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Unity.Burst.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.Burst.Editor.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.Burst.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.Burst.Editor.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.Burst">
@@ -1427,13 +1402,93 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="Obi.csproj">
-      <Project>{D7236A80-9206-054E-20F1-741A7AB69A87}</Project>
-      <Name>Obi</Name>
+    <ProjectReference Include="MoreMountains.Feedbacks.Editor.csproj">
+      <Project>{C973DEA7-207C-DDEC-138F-E1D1D6BC57B0}</Project>
+      <Name>MoreMountains.Feedbacks.Editor</Name>
     </ProjectReference>
-    <ProjectReference Include="Obi.Editor.csproj">
-      <Project>{347834EC-8D77-58B2-8C5A-ADD016C63867}</Project>
-      <Name>Obi.Editor</Name>
+    <ProjectReference Include="MoreMountains.Tools.csproj">
+      <Project>{4D4EFCC4-EC48-DEEB-6E48-BE0CB3FA3B78}</Project>
+      <Name>MoreMountains.Tools</Name>
+    </ProjectReference>
+    <ProjectReference Include="MoreMountains.Tools.Cinemachine.csproj">
+      <Project>{8CE92EF9-B526-7568-A967-BADD9538C818}</Project>
+      <Name>MoreMountains.Tools.Cinemachine</Name>
+    </ProjectReference>
+    <ProjectReference Include="MoreMountains.Feedbacks.csproj">
+      <Project>{44B33757-5F7D-F4EC-855B-4759B200FBBF}</Project>
+      <Name>MoreMountains.Feedbacks</Name>
+    </ProjectReference>
+    <ProjectReference Include="MoreMountains.Tools.Feedbacks.Editor.csproj">
+      <Project>{9D6526C4-CDD1-77C1-857D-E02743230EA1}</Project>
+      <Name>MoreMountains.Tools.Feedbacks.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="CFXRDemo.csproj">
+      <Project>{4B826E49-814E-E54A-AA2E-B17297071A76}</Project>
+      <Name>CFXRDemo</Name>
+    </ProjectReference>
+    <ProjectReference Include="MoreMountains.NiceVibrations.Rumble.csproj">
+      <Project>{C7A27AA5-F3FE-FA9B-4AEC-F392D4617517}</Project>
+      <Name>MoreMountains.NiceVibrations.Rumble</Name>
+    </ProjectReference>
+    <ProjectReference Include="MoreMountains.Feedbacks.MMTools.csproj">
+      <Project>{CE4DACE2-C783-732B-7438-7B64ABCE40C6}</Project>
+      <Name>MoreMountains.Feedbacks.MMTools</Name>
+    </ProjectReference>
+    <ProjectReference Include="MoreMountains.Tools.Feedbacks.csproj">
+      <Project>{A7AF3B61-45DC-1710-2736-3F25BD05AA02}</Project>
+      <Name>MoreMountains.Tools.Feedbacks</Name>
+    </ProjectReference>
+    <ProjectReference Include="MoreMountains.NiceVibrations.Rumble.Editor.csproj">
+      <Project>{F183C28E-80E2-4AB0-3E2E-E9E4CF6A28EE}</Project>
+      <Name>MoreMountains.NiceVibrations.Rumble.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="CFXR.WelcomeScreen.csproj">
+      <Project>{DC18BCB9-BA99-6369-2275-30CCA80316EE}</Project>
+      <Name>CFXR.WelcomeScreen</Name>
+    </ProjectReference>
+    <ProjectReference Include="CFXREditor.csproj">
+      <Project>{2F96F12C-9492-7F53-CE0D-9B2DDAEAE7C5}</Project>
+      <Name>CFXREditor</Name>
+    </ProjectReference>
+    <ProjectReference Include="CFXRRuntime.csproj">
+      <Project>{90FF025C-33FE-9EA7-1447-7E7DDBE126B7}</Project>
+      <Name>CFXRRuntime</Name>
+    </ProjectReference>
+    <ProjectReference Include="KinoBloom.Runtime.csproj">
+      <Project>{D123EBB5-E021-20C2-E927-2F1651FECBF7}</Project>
+      <Name>KinoBloom.Runtime</Name>
+    </ProjectReference>
+    <ProjectReference Include="MoreMountains.NiceVibrations.Haptics.csproj">
+      <Project>{EB71EE6C-4DF6-F52C-6F15-994AD8DF67BA}</Project>
+      <Name>MoreMountains.NiceVibrations.Haptics</Name>
+    </ProjectReference>
+    <ProjectReference Include="ToonyColorsPro.Demo.Editor.csproj">
+      <Project>{9262575D-6741-BF9E-BE20-E53023749AF7}</Project>
+      <Name>ToonyColorsPro.Demo.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="MoreMountains.Tools.Editor.csproj">
+      <Project>{AA0C1641-0E9F-656D-7F81-CCF8EFD925DA}</Project>
+      <Name>MoreMountains.Tools.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="MoreMountains.NiceVibrations.csproj">
+      <Project>{1A89E183-61ED-3B20-725D-23AF5D449D86}</Project>
+      <Name>MoreMountains.NiceVibrations</Name>
+    </ProjectReference>
+    <ProjectReference Include="MoreMountains.NiceVibrations.Editor.csproj">
+      <Project>{C5E43032-CEAD-1F2D-7EDF-81775886D837}</Project>
+      <Name>MoreMountains.NiceVibrations.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="MoreMountains.Feedbacks.Cinemachine.csproj">
+      <Project>{7FB2B213-F031-8246-D0D7-6205610691E4}</Project>
+      <Name>MoreMountains.Feedbacks.Cinemachine</Name>
+    </ProjectReference>
+    <ProjectReference Include="MoreMountains.NiceVibrations.Demos.csproj">
+      <Project>{AAAFB48D-F7C7-6ACE-69ED-5B0FEA40A76B}</Project>
+      <Name>MoreMountains.NiceVibrations.Demos</Name>
+    </ProjectReference>
+    <ProjectReference Include="MoreMountains.Feedbacks.URP.csproj">
+      <Project>{E83EECF4-9A25-4223-24EC-A1975FA25EC0}</Project>
+      <Name>MoreMountains.Feedbacks.URP</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

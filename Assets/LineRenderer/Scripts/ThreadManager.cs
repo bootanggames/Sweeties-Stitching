@@ -48,6 +48,7 @@ public class ThreadManager : MonoBehaviour, IThreadManager
         GameEvents.ThreadEvents.onEmptyList_DetectingPoints.RegisterEvent(ClearDetectedPointsList);
         GameEvents.ThreadEvents.setThreadInput.RegisterEvent(SetThreadInputBool);
         GameEvents.ThreadEvents.onSetFreeformMovementValue.RegisterEvent(SetFreeformThreadMovement);
+        GameEvents.ThreadEvents.onResetThreadInput.RegisterEvent(ResetThread);
 
     }
 
@@ -61,6 +62,7 @@ public class ThreadManager : MonoBehaviour, IThreadManager
         GameEvents.ThreadEvents.setThreadInput.UnregisterEvent(SetThreadInputBool);
         GameEvents.ThreadEvents.onSetFreeformMovementValue.UnregisterEvent(SetFreeformThreadMovement);
         GameEvents.ThreadEvents.onInstantiatingThread.UnregisterEvent(InstantiateMainThread);
+        GameEvents.ThreadEvents.onResetThreadInput.UnregisterEvent(ResetThread);
 
     }
     void SetFreeformThreadMovement(bool value)
@@ -87,12 +89,10 @@ public class ThreadManager : MonoBehaviour, IThreadManager
             {
                 instantiatedLine.SetPosition(i, startPos);
             }
-            GameEvents.NeedleEvents.OnNeedleMovement.RaiseEvent(instantiatedLine.GetPosition(0));
+            //GameEvents.NeedleEvents.OnNeedleMovement.RaiseEvent(instantiatedLine.GetPosition(0));
         }
 
     }
-
-  
     public void AddFirstPositionOnMouseDown(Vector2 headPos)
     {
 
@@ -100,6 +100,7 @@ public class ThreadManager : MonoBehaviour, IThreadManager
         if (instantiatedLine == null)
         {
             InstantiateMainThread(true, headPos);
+            GameEvents.NeedleEvents.onNeedleActiveStatusUpdate.RaiseEvent(true);
             return;
         }
         if (lastConnectedPoint != null)
@@ -114,7 +115,7 @@ public class ThreadManager : MonoBehaviour, IThreadManager
             currentRopeStartPosition = headPos;
             instantiatedLine.SetPosition(0, headPos);
         }
-        //GameEvents.NeedleEvents.OnNeedleMovement.RaiseEvent(instantiatedLine.GetPosition(0));
+        GameEvents.NeedleEvents.OnNeedleMovement.RaiseEvent(instantiatedLine.GetPosition(0));
 
     }
 
@@ -122,7 +123,6 @@ public class ThreadManager : MonoBehaviour, IThreadManager
     {
         if (!threadInput) return;
         if (instantiatedLine == null) return;
-
         Vector3 targetRopePosition = Vector3.zero;
 
         if (lastConnectedPoint != null && !freeForm)
@@ -224,4 +224,15 @@ public class ThreadManager : MonoBehaviour, IThreadManager
             instantiatedLine.SetPosition(i, point.transform.position);
     }
 
+    void ResetThread()
+    {
+        Destroy(instantiatedLine.gameObject);
+        if(prevLine)
+            Destroy(prevLine.gameObject);
+        lastConnectedPoint = null;
+        prevLine = null;
+        detectedPointsCount = 0;
+        detectedPoints.Clear();
+        GameEvents.NeedleEvents.onNeedleActiveStatusUpdate.RaiseEvent(false);
+    }
 }

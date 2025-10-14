@@ -5,11 +5,15 @@ public class LevelsHandler : Singleton<LevelsHandler>, ILevelHandler
 {
     [field:SerializeField] public List<GameObject> levels {  get; private set; }
     [field: SerializeField] public int levelIndex { get; private set; }
+
+    public Level_Metadata currentLevelMeta { get; private set; }
+
     public override void SingletonAwake()
     {
         base.SingletonAwake();
         RegisterService();
         SetNextLevel();
+        currentLevelMeta = LevelsHandler.instance.levels[LevelsHandler.instance.levelIndex].GetComponent<Level_Metadata>();
     }
     public override void SingletonOnDestroy()
     {
@@ -46,4 +50,5 @@ public class LevelsHandler : Singleton<LevelsHandler>, ILevelHandler
         }
         levels[levelIndex].SetActive(true);
     }
+   
 }

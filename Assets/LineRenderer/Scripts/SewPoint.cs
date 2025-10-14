@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class SewPoint : MonoBehaviour, ISewPoint
@@ -8,8 +9,10 @@ public class SewPoint : MonoBehaviour, ISewPoint
     public int[] alternativeAttachments;
     public bool connected = false;
     public SequenceType sequenceType;
+    [SerializeField] TextMeshPro textObj;
     private void OnEnable()
     {
+        textObj = GetComponentInChildren<TextMeshPro>();
         RegisterService();
     }
     private void OnDisable()
@@ -42,5 +45,10 @@ public class SewPoint : MonoBehaviour, ISewPoint
         ServiceLocator.UnRegisterService<ISewPoint>(this);
         GameEvents.SewPointEvents.onSelected.UnregisterEvent(Selected);
         GameEvents.SewPointEvents.onPointSelectedStatus.UnregisterEvent(IsSelected);
+    }
+    public void ChangeTextColor(Color c)
+    {
+        if(textObj)
+            textObj.color = c;
     }
 }

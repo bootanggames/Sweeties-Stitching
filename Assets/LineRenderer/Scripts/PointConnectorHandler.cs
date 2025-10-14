@@ -336,12 +336,12 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
                     connection.isLocked = true;
                     if (info1.shouldBeChild)
                     {
-                        info1.transform.SetParent(info2.transform);
+                        //info1.transform.SetParent(info2.transform);
                         //info1.transform.localEulerAngles = Vector3.zero;
                     }
                     else if (info2.shouldBeChild)
                     {
-                        info2.transform.SetParent(info1.transform);
+                        //info2.transform.SetParent(info1.transform);
                         //info2.transform.localEulerAngles = Vector3.zero;
 
                     }
@@ -351,7 +351,7 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
         });
         pullSeq.OnComplete(() =>
         {
-            Invoke("EnableDetection", 0.1f);
+            //Invoke("EnableDetection", 0.1f);
             SewPoint sp1 = p1.GetComponent<SewPoint>();
             SewPoint sp2 = p2.GetComponent<SewPoint>();
 
@@ -403,36 +403,46 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
         s2.connected = true;
         o1.noOfConnections++;
         o2.noOfConnections++;
-        if (o1.noOfConnections.Equals(o1.totalConnections))
-        {
-            o1.moveable = false;
-            o1.MarkStitched();
-        }
-        if (o2.noOfConnections.Equals(o2.totalConnections)) 
+     
+        if (o1.noOfConnections.Equals(o1.totalConnections) && o2.noOfConnections.Equals(o2.totalConnections))
         {
             o2.moveable = false;
-            o2.MarkStitched(); 
-        }
-        if (o1.noOfConnections.Equals(o1.totalConnections))
-        {
-            Level_Metadata currentLevel = LevelsHandler.instance.levels[LevelsHandler.instance.levelIndex].GetComponent<Level_Metadata>();
-            if(currentLevel)
-                currentLevel.UpdateLevelProgress();
+            o1.moveable = false;
+            o2.MarkStitched();
+            o1.MarkStitched();
+            Invoke("UpdateProgress", 3);
         }
     }
-    bool IsRelatedConnection(Connections conn, Transform a, Transform b)
+    void UpdateProgress()
     {
+        SewPoint sp = null;
 
-        if (conn.point1 == a || conn.point2 == a || conn.point1 == b || conn.point2 == b)
-            return true;
+        IThreadManager threadManager = ServiceLocator.GetService<IThreadManager>();
+        if (threadManager != null)
+        {
+            sp = threadManager.detectedPoints[threadManager.detectedPoints.Count - 1].GetComponent<SewPoint>();
+            sp.name = sp.sequenceType.ToString();
+            GameEvents.ThreadEvents.onResetThreadInput.RaiseEvent();
+            if (LevelsHandler.instance.currentLevelMeta)
+                LevelsHandler.instance.currentLevelMeta.UpdateLevelProgress(sp.sequenceType);
 
-        Transform aRoot = a.parent != null ? a.parent : a;
-        Transform bRoot = b.parent != null ? b.parent : b;
-        Transform c1Root = conn.point1.parent != null ? conn.point1.parent : conn.point1;
-        Transform c2Root = conn.point2.parent != null ? conn.point2.parent : conn.point2;
-
-        return c1Root == aRoot || c1Root == bRoot || c2Root == aRoot || c2Root == bRoot;
+        }
+      
+        CancelInvoke("UpdateProgress");
     }
+    //bool IsRelatedConnection(Connections conn, Transform a, Transform b)
+    //{
+
+    //    if (conn.point1 == a || conn.point2 == a || conn.point1 == b || conn.point2 == b)
+    //        return true;
+
+    //    Transform aRoot = a.parent != null ? a.parent : a;
+    //    Transform bRoot = b.parent != null ? b.parent : b;
+    //    Transform c1Root = conn.point1.parent != null ? conn.point1.parent : conn.point1;
+    //    Transform c2Root = conn.point2.parent != null ? conn.point2.parent : conn.point2;
+
+    //    return c1Root == aRoot || c1Root == bRoot || c2Root == aRoot || c2Root == bRoot;
+    //}
 
     void EndTweens()
     {

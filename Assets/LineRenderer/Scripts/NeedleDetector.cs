@@ -38,6 +38,8 @@ public class NeedleDetector : MonoBehaviour, INeedleDetector
         sewPoint.GetComponent<Collider>().enabled = false;
         sewPoint.name = "sew"+ sewPoint.name;
         PlaySound();
+        sewPoint.ChangeTextColor(Color.green);
+        GameEvents.EffectHandlerEvents.onSelectionEffect.RaiseEvent(sewPoint.transform);
         GameEvents.ThreadEvents.onCreatingConnection.RaiseEvent(sewPoint);
     }
     void PlaySound()

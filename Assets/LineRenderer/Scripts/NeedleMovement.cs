@@ -19,6 +19,7 @@ public class NeedleMovement : MonoBehaviour,INeedleMovement
         GameEvents.NeedleEvents.OnNeedleMovement.RegisterEvent(MoveNeedle);
         GameEvents.NeedleEvents.OnFetchingNeedlePosition.RegisterEvent(GetPosition);
         GameEvents.NeedleEvents.onGettingNeedleTransform.RegisterEvent(GetNeedle);
+        GameEvents.NeedleEvents.onNeedleActiveStatusUpdate.RegisterEvent(HandleNeedleActiveStatus);
     }
 
     public void UnRegisterService()
@@ -27,6 +28,8 @@ public class NeedleMovement : MonoBehaviour,INeedleMovement
         GameEvents.NeedleEvents.OnNeedleMovement.UnregisterEvent(MoveNeedle);
         GameEvents.NeedleEvents.OnFetchingNeedlePosition.UnregisterEvent(GetPosition);
         GameEvents.NeedleEvents.onGettingNeedleTransform.UnregisterEvent(GetNeedle);
+        GameEvents.NeedleEvents.onNeedleActiveStatusUpdate.UnregisterEvent(HandleNeedleActiveStatus);
+
     }
 
     public void MoveNeedle(Vector3 pos)
@@ -38,9 +41,14 @@ public class NeedleMovement : MonoBehaviour,INeedleMovement
     {
         return needle.position;
     }
-
+    
     Transform GetNeedle()
     {
         return needle;
+    }
+
+    public void HandleNeedleActiveStatus(bool active)
+    {
+        needle.gameObject.SetActive(active);
     }
 }

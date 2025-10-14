@@ -68,10 +68,12 @@
     <Compile Include="Assets\LineRenderer\Scripts\Events\GameEventTemplate.cs" />
     <Compile Include="Assets\MasterMagicFX\Scripts\Miscs\MUtils.cs" />
     <Compile Include="Assets\DOTween\Modules\DOTweenModuleUnityVersion.cs" />
+    <Compile Include="Assets\LineRenderer\Scripts\EffectsHandler.cs" />
     <Compile Include="Assets\LineRenderer\Scripts\Events\SewPointEvents.cs" />
     <Compile Include="Assets\JMO Assets\Cartoon FX (legacy)\Scripts\CFX_LightFlicker.cs" />
     <Compile Include="Assets\LineRenderer\Scripts\Singleton\Singleton.cs" />
     <Compile Include="Assets\MasterMagicFX\Scripts\Miscs\LaserShooter.cs" />
+    <Compile Include="Assets\LineRenderer\Scripts\Events\CameraManagerEvents.cs" />
     <Compile Include="Assets\DOTween\Modules\DOTweenModulePhysics2D.cs" />
     <Compile Include="Assets\LineRenderer\Scripts\Events\GameCompleteEvents.cs" />
     <Compile Include="Assets\DOTween\Modules\DOTweenModuleUI.cs" />
@@ -84,6 +86,7 @@
     <Compile Include="Assets\LineRenderer\Scripts\SoundManager.cs" />
     <Compile Include="Assets\LineRenderer\Scripts\Events\PointConnectionHandlerEvents.cs" />
     <Compile Include="Assets\MMFeedbacks\MMFeedbacks\Demos\MMFeedbacksDemo\Scripts\DemoBall.cs" />
+    <Compile Include="Assets\LineRenderer\Scripts\Interfaces\ICameraManager.cs" />
     <Compile Include="Assets\LineRenderer\Scripts\Events\NeedleEvents.cs" />
     <Compile Include="Assets\JMO Assets\Cartoon FX (legacy)\Demo\Assets\CFX_Demo_RandomDir.cs" />
     <Compile Include="Assets\LineRenderer\Scripts\SewPoint.cs" />
@@ -104,6 +107,7 @@
     <Compile Include="Assets\MMFeedbacks\MMFeedbacks\Demos\MMFeedbacksDemo\Scripts\DemoButton.cs" />
     <Compile Include="Assets\LineRenderer\Scripts\Scriptables\SoundScriptable.cs" />
     <Compile Include="Assets\TutorialInfo\Scripts\Readme.cs" />
+    <Compile Include="Assets\LineRenderer\Scripts\Events\EffectHandlerEvents.cs" />
     <Compile Include="Assets\MasterMagicFX\Scripts\Miscs\MMagicExample.cs" />
     <Compile Include="Assets\LineRenderer\Scripts\NeedleDetector.cs" />
     <Compile Include="Assets\LineRenderer\Scripts\Interfaces\INeedleDetector.cs" />
@@ -122,6 +126,7 @@
     <Compile Include="Assets\JMO Assets\Cartoon FX (legacy)\Scripts\CFX_LightIntensityFade.cs" />
     <Compile Include="Assets\LineRenderer\Scripts\Part_Info.cs" />
     <Compile Include="Assets\LineRenderer\Scripts\Events\NeedleDetectorEvents.cs" />
+    <Compile Include="Assets\LineRenderer\Scripts\CameraManager.cs" />
     <Compile Include="Assets\JMO Assets\Cartoon FX (legacy)\Demo\Assets\CFX_Demo_New.cs" />
     <Compile Include="Assets\DOTween\Modules\DOTweenModulePhysics.cs" />
     <Compile Include="Assets\LineRenderer\Scripts\CanvasUIManager.cs" />
@@ -666,6 +671,18 @@
     </Reference>
     <Reference Include="Mono.Cecil">
       <HintPath>Library\PackageCache\com.unity.nuget.mono-cecil@d6f9955a5d5f\Mono.Cecil.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEditor.iOS.Extensions.Xcode">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\6000.1.10f1\Editor\Data\PlaybackEngines\iOSSupport\UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEditor.iOS.Extensions.Common">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\6000.1.10f1\Editor\Data\PlaybackEngines\iOSSupport\UnityEditor.iOS.Extensions.Common.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEditor.Apple.Extensions.Common">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\6000.1.10f1\Editor\Data\PlaybackEngines\iOSSupport\UnityEditor.Apple.Extensions.Common.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.Android.Types">

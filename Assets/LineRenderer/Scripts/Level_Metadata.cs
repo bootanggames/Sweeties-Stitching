@@ -19,16 +19,12 @@ public class Level_Metadata : MonoBehaviour
     [SerializeField] LevelDivision levelDivision;
     [SerializeField] SequenceType sequenceType;
     [SerializeField] Transform levelCompleteView;
-    private void Start()
-    {
-        //Invoke("StartLevel", 2.0f);
-    }
+  
     public void StartLevel() 
     {
-        NextPartActivation(true);
-        //CancelInvoke("StartLevel");
+        NextPartActivation(true, SequenceType.none);
     }
-    void NextPartActivation(bool start)
+    void NextPartActivation(bool start, SequenceType sequence)
     {
         var needleDetecto = ServiceLocator.GetService<INeedleDetector>();
         if (needleDetecto != null)
@@ -36,32 +32,18 @@ public class Level_Metadata : MonoBehaviour
             needleDetecto.detect = false;
         }
         Part_Info p1_Info = head.GetComponent<Part_Info>();
-        DisablePartsOfPartInfoType(p1_Info);
         Part_Info p2_Info = immoveablePart.GetComponent<Part_Info>();
-        DisablePartsOfPartInfoType(p2_Info);
-        foreach (GameObject g in levelParts)
-        {
-            ObjectInfo objectInfo = g.GetComponent<ObjectInfo>();
-            if(!objectInfo.IsStitched)
-                g.SetActive(false);
-        }
+      
         ObjectInfo o_info = null;
         if (!start)
         {
             if (partIndex == 1)
             {
-                SewPoint sp = null;
-                IThreadManager threadManager = ServiceLocator.GetService<IThreadManager>();
-                if (threadManager != null)
-                {
-                    sp = threadManager.detectedPoints[threadManager.detectedPoints.Count - 1].GetComponent<SewPoint>();
-                    //Debug.LogError(" "+sp.sequenceType.ToString());
-                    sp.name = sp.sequenceType.ToString();
-                    if (sp.sequenceType.Equals(SequenceType.left))
-                        sequenceType = SequenceType.left;
-                    else
-                        sequenceType = SequenceType.right;
-                }
+
+                if (sequence.Equals(SequenceType.left))
+                    sequenceType = SequenceType.left;
+                else
+                    sequenceType = SequenceType.right;
             }
             if (sequenceType.Equals(SequenceType.left))
             {
@@ -77,7 +59,7 @@ public class Level_Metadata : MonoBehaviour
         }
         else
         {
-            p1_Info.joints[0].SetActive(true);
+            //p1_Info.joints[0].SetActive(true);
             o_info = p2_Info.joints[partIndex].GetComponent<ObjectInfo>();
         }
         if (o_info.partConnectedTo.Equals(PartConnectedTo.body))
@@ -86,7 +68,7 @@ public class Level_Metadata : MonoBehaviour
             p1_Info.EnableJoint(o_info.partType);
         o_info.gameObject.SetActive(true);
         CameraFocus(o_info.partType);
-        Invoke("EnableDetection", 2.5f);
+        Invoke("EnableDetection", 0.15f);
         partIndex++;
     }
     void EnableDetection()
@@ -100,19 +82,19 @@ public class Level_Metadata : MonoBehaviour
     }
     void DisablePartsOfPartInfoType(Part_Info p_Info)
     {
-        foreach (GameObject p in p_Info.joints)
-        {
-            ObjectInfo objectInfo = p.GetComponentInChildren<ObjectInfo>();
-            if (objectInfo)
-            {
-                objectInfo.gameObject.SetActive(true);
-                if (!objectInfo.IsStitched)
-                    p.SetActive(false);
-            }
+        //foreach (GameObject p in p_Info.joints)
+        //{
+        //    ObjectInfo objectInfo = p.GetComponentInChildren<ObjectInfo>();
+        //    if (objectInfo)
+        //    {
+        //        objectInfo.gameObject.SetActive(true);
+        //        if (!objectInfo.IsStitched)
+        //            p.SetActive(false);
+        //    }
       
-        }
+        //}
     }
-    public void UpdateLevelProgress()
+    public void UpdateLevelProgress(SequenceType sequence)
     {
         noOfStitchedPart++;
         if (noOfStitchedPart.Equals(totalStitchedPart))
@@ -125,14 +107,17 @@ public class Level_Metadata : MonoBehaviour
             {
                 p.SetActive(true);
             }
-            cam.Target.TrackingTarget = levelCompleteView;
-            cam.Target.LookAtTarget = levelCompleteView;
-            cam.Lens.OrthographicSize = 3;
+            var cameraManager = ServiceLocator.GetService<ICameraManager>();
+            if (cameraManager != null)
+            {
+                GameEvents.CameraManagerEvents.onAddingCamera.RaiseEvent(cameraManager.gameCompleteCamera);
+            }
             Invoke("WinEffect", 2.0f);
         }
         else
         {
-            NextPartActivation(false);
+          
+            NextPartActivation(false, sequence);
         }
     }
     void WinEffect()
@@ -146,65 +131,61 @@ public class Level_Metadata : MonoBehaviour
         GameEvents.GameCompleteEvents.onGameComplete.RaiseEvent();
         CancelInvoke("CallGameWinPanel");
     }
+  
     void CameraFocus(PlushieActiveStitchPart currentActivePart)
     {
-        switch(currentActivePart)
+        var cameraManager = ServiceLocator.GetService<ICameraManager>();
+        if (cameraManager != null)
         {
-            case PlushieActiveStitchPart.neck:
-                plushieActivePartToStitch = PlushieActiveStitchPart.neck;
-                ObjectInfo o = head.joints[0].GetComponent<ObjectInfo>();
-                cam.Target.TrackingTarget = o.targetCameraPoint;
-                cam.Target.LookAtTarget = o.targetCameraPoint;
-                cam.Lens.OrthographicSize = 0.5f;
-                break;
-            case PlushieActiveStitchPart.righteye:
-                plushieActivePartToStitch = PlushieActiveStitchPart.righteye;
-                ObjectInfo o_eyeRight = levelParts[6].GetComponent<ObjectInfo>();
-                cam.Target.TrackingTarget = o_eyeRight.targetCameraPoint;
-                cam.Target.LookAtTarget = o_eyeRight.targetCameraPoint;
-                break;
-            case PlushieActiveStitchPart.lefteye:
-                plushieActivePartToStitch = PlushieActiveStitchPart.lefteye;
-                ObjectInfo o_eyeLeft = levelParts[5].GetComponent<ObjectInfo>();
-                cam.Target.TrackingTarget = o_eyeLeft.targetCameraPoint;
-                cam.Target.LookAtTarget = o_eyeLeft.targetCameraPoint;
-                break;
-            case PlushieActiveStitchPart.rightear:
-                plushieActivePartToStitch = PlushieActiveStitchPart.rightear;
-                ObjectInfo o_earRight = levelParts[7].GetComponent<ObjectInfo>();
-                cam.Target.TrackingTarget = o_earRight.targetCameraPoint;
-                cam.Target.LookAtTarget = o_earRight.targetCameraPoint;
-                break;
-            case PlushieActiveStitchPart.leftear:
-                plushieActivePartToStitch = PlushieActiveStitchPart.leftear;
-                ObjectInfo o_earLeft= levelParts[8].GetComponent<ObjectInfo>();
-                cam.Target.TrackingTarget = o_earLeft.targetCameraPoint;
-                cam.Target.LookAtTarget = o_earLeft.targetCameraPoint;
-                break;
-            case PlushieActiveStitchPart.rightarm:
-                plushieActivePartToStitch = PlushieActiveStitchPart.rightarm;
-                ObjectInfo o_armRight = levelParts[2].GetComponent<ObjectInfo>();
-                cam.Target.TrackingTarget = o_armRight.targetCameraPoint;
-                cam.Target.LookAtTarget = o_armRight.targetCameraPoint;
-                break;
-            case PlushieActiveStitchPart.leftarm:
-                plushieActivePartToStitch = PlushieActiveStitchPart.leftarm;
-                ObjectInfo o_armLeft = levelParts[1].GetComponent<ObjectInfo>();
-                cam.Target.TrackingTarget = o_armLeft.targetCameraPoint;
-                cam.Target.LookAtTarget = o_armLeft.targetCameraPoint;
-                break;
-            case PlushieActiveStitchPart.rightleg:
-                plushieActivePartToStitch = PlushieActiveStitchPart.rightleg;
-                ObjectInfo o_rightLeg = levelParts[3].GetComponent<ObjectInfo>();
-                cam.Target.TrackingTarget = o_rightLeg.targetCameraPoint;
-                cam.Target.LookAtTarget = o_rightLeg.targetCameraPoint;
-                break;
-            case PlushieActiveStitchPart.leftleg:
-                plushieActivePartToStitch = PlushieActiveStitchPart.leftleg;
-                ObjectInfo o_leftLeg = levelParts[4].GetComponent<ObjectInfo>();
-                cam.Target.TrackingTarget = o_leftLeg.targetCameraPoint;
-                cam.Target.LookAtTarget = o_leftLeg.targetCameraPoint;
-                break;
+            switch (currentActivePart)
+            {
+                case PlushieActiveStitchPart.neck:
+                    plushieActivePartToStitch = PlushieActiveStitchPart.neck;
+                    GameEvents.CameraManagerEvents.onAddingCamera.RaiseEvent(cameraManager.neckCamera);
+
+                    break;
+                case PlushieActiveStitchPart.righteye:
+                    plushieActivePartToStitch = PlushieActiveStitchPart.righteye;
+                    GameEvents.CameraManagerEvents.onAddingCamera.RaiseEvent(cameraManager.rightEyeCamera);
+
+                    break;
+                case PlushieActiveStitchPart.lefteye:
+                    plushieActivePartToStitch = PlushieActiveStitchPart.lefteye;
+                    GameEvents.CameraManagerEvents.onAddingCamera.RaiseEvent(cameraManager.leftEyeCamera);
+
+                    break;
+                case PlushieActiveStitchPart.rightear:
+                    plushieActivePartToStitch = PlushieActiveStitchPart.rightear;
+                    GameEvents.CameraManagerEvents.onAddingCamera.RaiseEvent(cameraManager.rightEarCamera);
+
+                    break;
+                case PlushieActiveStitchPart.leftear:
+                    plushieActivePartToStitch = PlushieActiveStitchPart.leftear;
+                    GameEvents.CameraManagerEvents.onAddingCamera.RaiseEvent(cameraManager.leftEarCamera);
+
+                    break;
+                case PlushieActiveStitchPart.rightarm:
+                    plushieActivePartToStitch = PlushieActiveStitchPart.rightarm;
+                    GameEvents.CameraManagerEvents.onAddingCamera.RaiseEvent(cameraManager.rightArmCamera);
+
+                    break;
+                case PlushieActiveStitchPart.leftarm:
+                    plushieActivePartToStitch = PlushieActiveStitchPart.leftarm;
+                    GameEvents.CameraManagerEvents.onAddingCamera.RaiseEvent(cameraManager.leftArmCamera);
+
+                    break;
+                case PlushieActiveStitchPart.rightleg:
+                    plushieActivePartToStitch = PlushieActiveStitchPart.rightleg;
+                    GameEvents.CameraManagerEvents.onAddingCamera.RaiseEvent(cameraManager.rightLegCamera);
+
+                    break;
+                case PlushieActiveStitchPart.leftleg:
+                    plushieActivePartToStitch = PlushieActiveStitchPart.leftleg;
+                    GameEvents.CameraManagerEvents.onAddingCamera.RaiseEvent(cameraManager.leftLegCamera);
+
+                    break;
+            }
         }
+       
     }
 }

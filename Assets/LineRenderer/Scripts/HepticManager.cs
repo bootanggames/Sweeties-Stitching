@@ -15,6 +15,7 @@ public class HepticManager : Singleton<HepticManager>
 
     public void HapticEffect()
     {
-        MMVibrationManager.Haptic(HapticTypes.HeavyImpact);
+        MMVibrationManager.Haptic(HapticTypes.Success);
+        MMVibrationManager.Vibrate();
     }
 }

@@ -12,6 +12,7 @@ public static partial class GameEvents
         public static readonly GameEvent onEmptyList_DetectingPoints = new();
         public static readonly GameEvent<bool> setThreadInput = new();
         public static readonly GameEvent<bool> onSetFreeformMovementValue = new();
+        public static readonly GameEvent onResetThreadInput = new();
 
     }
 }

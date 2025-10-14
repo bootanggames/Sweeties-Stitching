@@ -1,5 +1,0 @@
-E:/GithubProjects/Stitching-Demo/.utmp/RelWithDebInfo/1p1q2a2y/armeabi-v7a/CMakeFiles/edit_cache.dir
-E:/GithubProjects/Stitching-Demo/.utmp/RelWithDebInfo/1p1q2a2y/armeabi-v7a/CMakeFiles/rebuild_cache.dir
-E:/GithubProjects/Stitching-Demo/.utmp/RelWithDebInfo/1p1q2a2y/armeabi-v7a/GameActivity/CMakeFiles/game.dir
-E:/GithubProjects/Stitching-Demo/.utmp/RelWithDebInfo/1p1q2a2y/armeabi-v7a/GameActivity/CMakeFiles/edit_cache.dir
-E:/GithubProjects/Stitching-Demo/.utmp/RelWithDebInfo/1p1q2a2y/armeabi-v7a/GameActivity/CMakeFiles/rebuild_cache.dir

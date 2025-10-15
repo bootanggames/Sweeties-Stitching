@@ -12,10 +12,11 @@ public class HepticManager : Singleton<HepticManager>
     {
         base.SingletonOnDestroy();
     }
-
-    public void HapticEffect()
+    
+public void HapticEffect()
     {
         MMVibrationManager.Haptic(HapticTypes.Success);
         MMVibrationManager.Vibrate();
+        MMVibrationManager.Haptic(HapticTypes.Success, false, true, this);
     }
 }

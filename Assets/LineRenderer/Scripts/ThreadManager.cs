@@ -13,7 +13,7 @@ public class ThreadManager : MonoBehaviour, IThreadManager
     [SerializeField] LineRenderer lineRenderer;
 
     [SerializeField] Vector3 currentRopeStartPosition;
-    Vector2 prevMouseDragPosition;
+    Vector3 prevMouseDragPosition;
 
     [SerializeField] float minDistanceBetweenSewPoints;
     [SerializeField] int threadMaxLength;
@@ -27,6 +27,7 @@ public class ThreadManager : MonoBehaviour, IThreadManager
     [SerializeField] Transform lastConnectedPoint;
     [SerializeField] float zVal;
     [SerializeField] Transform startPoint;
+    [SerializeField] Vector3 direction;
     private void OnEnable()
     {
         RegisterService();
@@ -142,8 +143,15 @@ public class ThreadManager : MonoBehaviour, IThreadManager
             targetRopePosition = new Vector3(mousePos.x, mousePos.y, zVal);
         }
 
-        instantiatedLine.SetPosition(0, targetRopePosition);
-        GameEvents.NeedleEvents.OnNeedleMovement.RaiseEvent(instantiatedLine.GetPosition(0));
+        GameEvents.NeedleEvents.OnNeedleMovement.RaiseEvent(targetRopePosition);
+        Vector3 needlePos = GameEvents.NeedleEvents.OnFetchingNeedlePosition.RaiseEvent();
+        needlePos.z = zVal;
+        instantiatedLine.SetPosition(0, needlePos);
+
+        //direction = (targetRopePosition - prevMouseDragPosition).normalized;
+        //float distance = Vector3.Distance(targetRopePosition, prevMouseDragPosition);
+        //GameEvents.NeedleEvents.onNeedleRotation.RaiseEvent(distance, direction);
+
         GameEvents.PointConnectionHandlerEvents.onFetchingPoints.RaiseEvent(detectedPoints);
         if (prevLine)
             MoveThread(prevLine, true);
@@ -226,13 +234,15 @@ public class ThreadManager : MonoBehaviour, IThreadManager
 
     void ResetThread()
     {
-        Destroy(instantiatedLine.gameObject);
+        if(instantiatedLine)
+            Destroy(instantiatedLine.gameObject);
         if(prevLine)
             Destroy(prevLine.gameObject);
         lastConnectedPoint = null;
         prevLine = null;
         detectedPointsCount = 0;
         detectedPoints.Clear();
+        prevMouseDragPosition = Vector3.zero;
         GameEvents.NeedleEvents.onNeedleActiveStatusUpdate.RaiseEvent(false);
     }
 }

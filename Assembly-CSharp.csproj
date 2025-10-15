@@ -72,8 +72,8 @@
     <Compile Include="Assets\LineRenderer\Scripts\Events\SewPointEvents.cs" />
     <Compile Include="Assets\JMO Assets\Cartoon FX (legacy)\Scripts\CFX_LightFlicker.cs" />
     <Compile Include="Assets\LineRenderer\Scripts\Singleton\Singleton.cs" />
-    <Compile Include="Assets\MasterMagicFX\Scripts\Miscs\LaserShooter.cs" />
     <Compile Include="Assets\LineRenderer\Scripts\Events\CameraManagerEvents.cs" />
+    <Compile Include="Assets\MasterMagicFX\Scripts\Miscs\LaserShooter.cs" />
     <Compile Include="Assets\DOTween\Modules\DOTweenModulePhysics2D.cs" />
     <Compile Include="Assets\LineRenderer\Scripts\Events\GameCompleteEvents.cs" />
     <Compile Include="Assets\DOTween\Modules\DOTweenModuleUI.cs" />
@@ -138,6 +138,7 @@
     <Compile Include="Assets\LineRenderer\Scripts\ObjectInfo.cs" />
     <Compile Include="Assets\LineRenderer\Scripts\SerializableClasses\Connections.cs" />
     <Compile Include="Assets\JMO Assets\Cartoon FX (legacy)\Scripts\CFX_AutoDestructShuriken.cs" />
+    <Compile Include="Assets\Test_NeedleInput.cs" />
     <Compile Include="Assets\LineRenderer\Scripts\Interfaces\INeedleMovement.cs" />
     <Compile Include="Assets\DOTween\Modules\DOTweenModuleUtils.cs" />
     <Compile Include="Assets\JMO Assets\Cartoon FX (legacy)\Demo\Assets\CFX_Demo_Translate.cs" />

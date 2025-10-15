@@ -5,7 +5,7 @@ public class HepticManager : Singleton<HepticManager>
 {
     public override void SingletonAwake()
     {
-        MMVibrationManager.SetHapticsActive(true);
+        //MMVibrationManager.SetHapticsActive(true);
         base.SingletonAwake();
     }
 
@@ -16,6 +16,7 @@ public class HepticManager : Singleton<HepticManager>
 
     public void HapticEffect()
     {
+        MMVibrationManager.SetHapticsActive(true);
         MMVibrationManager.Haptic(HapticTypes.Success, false, true, this);
     }
 }

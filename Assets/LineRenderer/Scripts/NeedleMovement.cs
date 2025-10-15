@@ -4,7 +4,9 @@ public class NeedleMovement : MonoBehaviour,INeedleMovement
 {
     [SerializeField] Transform startPoint;
     [SerializeField] Transform needle;
-
+    [SerializeField] float needleRotationSpeed;
+    [SerializeField] float angleOffset;
+    [SerializeField] float minRotationThreshold;
     private void OnEnable()
     {
         RegisterService();
@@ -20,6 +22,7 @@ public class NeedleMovement : MonoBehaviour,INeedleMovement
         GameEvents.NeedleEvents.OnFetchingNeedlePosition.RegisterEvent(GetPosition);
         GameEvents.NeedleEvents.onGettingNeedleTransform.RegisterEvent(GetNeedle);
         GameEvents.NeedleEvents.onNeedleActiveStatusUpdate.RegisterEvent(HandleNeedleActiveStatus);
+        GameEvents.NeedleEvents.onNeedleRotation.RegisterEvent(NeedleRotation);
     }
 
     public void UnRegisterService()
@@ -29,6 +32,7 @@ public class NeedleMovement : MonoBehaviour,INeedleMovement
         GameEvents.NeedleEvents.OnFetchingNeedlePosition.UnregisterEvent(GetPosition);
         GameEvents.NeedleEvents.onGettingNeedleTransform.UnregisterEvent(GetNeedle);
         GameEvents.NeedleEvents.onNeedleActiveStatusUpdate.UnregisterEvent(HandleNeedleActiveStatus);
+        GameEvents.NeedleEvents.onNeedleRotation.UnregisterEvent(NeedleRotation);
 
     }
 
@@ -50,5 +54,19 @@ public class NeedleMovement : MonoBehaviour,INeedleMovement
     public void HandleNeedleActiveStatus(bool active)
     {
         needle.gameObject.SetActive(active);
+    }
+    void NeedleRotation(float magnitude, Vector3 _direction)
+    {
+        if (magnitude > minRotationThreshold)
+        {
+            float angle = Mathf.Atan2(_direction.y, _direction.x) * Mathf.Rad2Deg;
+            Quaternion targetRotation = Quaternion.Euler(0, 0, angle - angleOffset); 
+            needle.transform.rotation = Quaternion.RotateTowards(
+                needle.transform.rotation,
+                targetRotation,
+                needleRotationSpeed * Time.deltaTime
+            );
+        }
+
     }
 }

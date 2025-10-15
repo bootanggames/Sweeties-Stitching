@@ -1,4 +1,5 @@
 ﻿using DG.Tweening;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -67,24 +68,10 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
     {
         if (point.Count <= 1) return;
 
-
-        if (point.Count % 2 != 0)
-        {
-            //NewConnection(point[point.Count - 2].transform, point[point.Count - 1].transform, false, false, 0);
-            //var needleDetecto = ServiceLocator.GetService<INeedleDetector>();
-            //if (needleDetecto != null)
-            //{
-            //    needleDetecto.detect = true;
-            //}
-
-            //return;
-        }
         foreach (Transform t in point)
         {
             if (!points.Contains(t.GetComponent<SewPoint>()))
                 points.Add(t.GetComponent<SewPoint>());
-
-
         }
         SewPoint sp1 = points[points.Count - 2];
         SewPoint sp2 = points[points.Count - 1];
@@ -135,11 +122,6 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
         else
             connection.isLocked = true;
 
-        var needleDetecto = ServiceLocator.GetService<INeedleDetector>();
-        if(needleDetecto != null)
-        {
-            //needleDetecto.detect = false;
-        }
     }
 
    
@@ -158,13 +140,13 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
         {
             if (p1.parent == p2.parent)
             {
-                var needleDetecto = ServiceLocator.GetService<INeedleDetector>();
-                if (needleDetecto != null)
-                {
-                    needleDetecto.detect = true;
-                }
-                //Debug.LogError("same parents ");
 
+                //var needleDetecto = ServiceLocator.GetService<INeedleDetector>();
+                //if (needleDetecto != null)
+                //{
+                //    needleDetecto.detect = true;
+                //}
+                //Debug.LogError("same parents ");
                 return;
             }
         }
@@ -189,7 +171,6 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
             {
                 info1 = p1.parent.parent.GetComponent<ObjectInfo>();
                 info2 = p2.parent.parent.GetComponent<ObjectInfo>();
-                //Debug.LogError(" infos not null");
 
             }
             else
@@ -199,7 +180,6 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
         EndTweens();
         bool move1 = info1.moveable;
         bool move2 = info2.moveable;
-        float dist = Vector3.Distance(p1.position, p2.position);
         float tweenDuration = pullDuration;
         Sequence pullSeq = DOTween.Sequence();
         if(move1 && move2)
@@ -250,14 +230,14 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
 
                 Vector3 targetPos = moveAbleTransform.position + avrOffset * info1.pullForce;
 
-              
-                pullSeq.Join(moveAbleTransform.DOMove(targetPos, tweenDuration).SetEase(Ease.InOutSine));
-                Vector3 lookDir = moveAbleTransform.position - info1.transform.position;
 
-                Quaternion targetRot = Quaternion.LookRotation(lookDir, Vector3.up);
-                Vector3 euler = targetRot.eulerAngles;
-                euler.x = 0f;
-                euler.y = 0f;
+                pullSeq.Join(moveAbleTransform.DOMove(targetPos, tweenDuration).SetEase(Ease.InOutSine));
+                //Vector3 lookDir = moveAbleTransform.position - info1.transform.position;
+
+                //Quaternion targetRot = Quaternion.LookRotation(lookDir, Vector3.up);
+                //Vector3 euler = targetRot.eulerAngles;
+                //euler.x = 0f;
+                //euler.y = 0f;
 
                 pullSeq.Join(
                     moveAbleTransform.DORotate(info1.originalRotation, tweenDuration, RotateMode.Fast)
@@ -290,15 +270,14 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
                     moveAbleTransform = info2.transform;
 
                 Vector3 targetPos = moveAbleTransform.position + avrOffset * info2.pullForce;
-
                 pullSeq.Join(moveAbleTransform.DOMove(targetPos, tweenDuration).SetEase(Ease.InOutSine));
-                Vector3 lookDir = info1.transform.position - moveAbleTransform.position;
+                //Vector3 lookDir = info1.transform.position - moveAbleTransform.position;
 
-                Quaternion targetRot = Quaternion.LookRotation(lookDir, Vector3.up);
+                //Quaternion targetRot = Quaternion.LookRotation(lookDir, Vector3.up);
 
-                Vector3 euler = targetRot.eulerAngles;
-                euler.x = 0f;
-                euler.y = 0f;
+                //Vector3 euler = targetRot.eulerAngles;
+                //euler.x = 0f;
+                //euler.y = 0f;
 
                 pullSeq.Join(
                    moveAbleTransform.DORotate(info2.originalRotation, tweenDuration, RotateMode.Fast)
@@ -311,50 +290,34 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
                 pullSeq.Join(p2.DORotate(info2.originalRotation, tweenDuration).SetEase(Ease.InOutSine));
             }
 
-
         }
         else
         {
-
+            
         }
       
         pullSeq.OnUpdate(() => {
 
             foreach (var connection in connections)
             {
-                //if (!IsRelatedConnection(connection, p1, p2))
-                //    continue;
+             
                 if(connection.multipleLine)
                     connection.UpdateLine(zVal, true);
                 else
                     connection.UpdateLine(zVal, false);
 
                 float currentDist = Vector3.Distance(connection.point1.position, connection.point2.position);
-
                 if (!connection.isLocked && currentDist < minDistance)
                 {
                     connection.isLocked = true;
-                    if (info1.shouldBeChild)
-                    {
-                        //info1.transform.SetParent(info2.transform);
-                        //info1.transform.localEulerAngles = Vector3.zero;
-                    }
-                    else if (info2.shouldBeChild)
-                    {
-                        //info2.transform.SetParent(info1.transform);
-                        //info2.transform.localEulerAngles = Vector3.zero;
-
-                    }
 
                 }
             }
         });
         pullSeq.OnComplete(() =>
         {
-            //Invoke("EnableDetection", 0.1f);
             SewPoint sp1 = p1.GetComponent<SewPoint>();
             SewPoint sp2 = p2.GetComponent<SewPoint>();
-
             CheckIfLastConnectionUpdated(sp1, sp2, p1, p2, info1, info2);
         });
         tween1 = pullSeq;
@@ -366,20 +329,19 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
         if (sp1.connected || sp2.connected) return;
         if (dynamicStitch)
             if (p1.parent.parent.parent == p2.parent.parent.parent) return;
-        if (sp1.attachmentId.Equals(sp2.attachmentId))
-            IncrementLinksPerPart(sp1, sp2, info1, info2);
-        else if ((sp2.attachmentId.Equals(sp1.attachmentId)))
-            IncrementLinksPerPart(sp1, sp2, info1, info2);
+
+
+        if (sp1.attachmentId.Equals(sp2.attachmentId) || (sp2.attachmentId.Equals(sp1.attachmentId)))
+            StartCoroutine( IncrementLinksPerPart(sp1, sp2, info1, info2));
         else if (sp1.alternativeAttachments.Length > 0)
         {
-
             if (sp1.alternativeAttachments.Contains(sp2.attachmentId))
-                IncrementLinksPerPart(sp1, sp2, info1, info2);
+                StartCoroutine(IncrementLinksPerPart(sp1, sp2, info1, info2));
         }
         else if (sp2.alternativeAttachments.Length > 0)
         {
             if (sp2.alternativeAttachments.Contains(sp1.attachmentId))
-                IncrementLinksPerPart(sp1, sp2, info1, info2);
+                StartCoroutine(IncrementLinksPerPart(sp1, sp2, info1, info2));
         }
         var needleDetecto = ServiceLocator.GetService<INeedleDetector>();
         if (needleDetecto != null)
@@ -397,52 +359,25 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
         }
         CancelInvoke("EnableDetection");
     }
-    void IncrementLinksPerPart(SewPoint s1, SewPoint s2 , ObjectInfo o1, ObjectInfo o2)
+    IEnumerator IncrementLinksPerPart(SewPoint s1, SewPoint s2 , ObjectInfo o1, ObjectInfo o2)
     {
         s1.connected = true;
         s2.connected = true;
         o1.noOfConnections++;
         o2.noOfConnections++;
-     
+        yield return new WaitForSeconds(1);
         if (o1.noOfConnections.Equals(o1.totalConnections) && o2.noOfConnections.Equals(o2.totalConnections))
         {
             o2.moveable = false;
             o1.moveable = false;
             o2.MarkStitched();
             o1.MarkStitched();
-            Invoke("UpdateProgress", 3);
+            StopCoroutine(IncrementLinksPerPart(s1, s2, o1, o2));
+
+            //Invoke("UpdateProgress", 3);
         }
+
     }
-    void UpdateProgress()
-    {
-        SewPoint sp = null;
-
-        IThreadManager threadManager = ServiceLocator.GetService<IThreadManager>();
-        if (threadManager != null)
-        {
-            sp = threadManager.detectedPoints[threadManager.detectedPoints.Count - 1].GetComponent<SewPoint>();
-            sp.name = sp.sequenceType.ToString();
-            GameEvents.ThreadEvents.onResetThreadInput.RaiseEvent();
-            if (LevelsHandler.instance.currentLevelMeta)
-                LevelsHandler.instance.currentLevelMeta.UpdateLevelProgress(sp.sequenceType);
-
-        }
-      
-        CancelInvoke("UpdateProgress");
-    }
-    //bool IsRelatedConnection(Connections conn, Transform a, Transform b)
-    //{
-
-    //    if (conn.point1 == a || conn.point2 == a || conn.point1 == b || conn.point2 == b)
-    //        return true;
-
-    //    Transform aRoot = a.parent != null ? a.parent : a;
-    //    Transform bRoot = b.parent != null ? b.parent : b;
-    //    Transform c1Root = conn.point1.parent != null ? conn.point1.parent : conn.point1;
-    //    Transform c2Root = conn.point2.parent != null ? conn.point2.parent : conn.point2;
-
-    //    return c1Root == aRoot || c1Root == bRoot || c2Root == aRoot || c2Root == bRoot;
-    //}
 
     void EndTweens()
     {

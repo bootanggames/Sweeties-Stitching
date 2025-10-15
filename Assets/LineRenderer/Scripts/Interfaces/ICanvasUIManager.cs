@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,4 +9,9 @@ public interface ICanvasUIManager:IGameService
      Slider detectionRadiusSlider {  get; }
     GameObject completeStitchedPlushie { get; }
     GameObject gameCompletePanel { get; }
+    TextMeshProUGUI stitchCountText {  get; }
+    TextMeshProUGUI stitchProgress {  get; }
+    void TapToStart();
+    void UpdateStitchCount(int totalStitch, int completedStitch);
+    void UpdatePlushieStitchProgress(int totalParts, int completedParts);
 }

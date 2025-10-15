@@ -1,3 +1,4 @@
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -10,6 +11,8 @@ public class CanvasUIManager : MonoBehaviour, ICanvasUIManager
     [field: SerializeField] public Slider detectionRadiusSlider { get; private set; }
     [field: SerializeField] public GameObject completeStitchedPlushie {  get; private set; }
     [field: SerializeField] public GameObject gameCompletePanel { get; private set; }
+    [field: SerializeField] public TextMeshProUGUI stitchCountText {  get; private set; }
+    [field: SerializeField] public TextMeshProUGUI stitchProgress {  get; private set; }
 
     private void OnEnable()
     {
@@ -121,5 +124,21 @@ public class CanvasUIManager : MonoBehaviour, ICanvasUIManager
         {
             levelhandler.levels[levelhandler.levelIndex].GetComponent<Level_Metadata>().StartLevel();
         }
+    }
+
+    public void UpdateStitchCount(int totalStitch, int completedStitch)
+    {
+        stitchCountText.text = completedStitch + " OF " + totalStitch;
+    }
+
+    public void UpdatePlushieStitchProgress(int totalParts, int completedParts)
+    {
+        float percent = 0;
+        if (totalParts == 0)
+            percent = 0;
+        else
+            percent = ((float)completedParts / totalParts) * 100;
+        stitchProgress.text = Mathf.FloorToInt(percent).ToString() + "% DONE ";
+
     }
 }

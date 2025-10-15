@@ -48,6 +48,7 @@ public class InputManager : MonoBehaviour
             //moveY = Mathf.Clamp(moveY, -moveLimit.y, moveLimit.y);
             Vector2 newPos = new Vector2(dragTouchValue.x, (dragTouchValue.y + needleOffset));//---ADDED NEW LINE  
             GameEvents.ThreadEvents.onAddingPositionToRope.RaiseEvent(newPos);
+
             //GameEvents.ThreadEvents.onAddingPositionToRope.RaiseEvent(new Vector2(moveX, moveY));
         }
         else if (Input.GetMouseButtonUp(0) && drag)

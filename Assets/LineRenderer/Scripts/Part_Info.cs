@@ -12,7 +12,10 @@ public class Part_Info : MonoBehaviour
             ObjectInfo o_Info = g.GetComponent<ObjectInfo>();
             if (o_Info.partType.Equals(partType))
             {
-                g.SetActive(true);
+               foreach(SewPoint s in o_Info.connectPoints)
+                {
+                    s.GetComponent<Collider>().enabled = true;
+                }
             } 
         } 
     }

@@ -13,7 +13,7 @@ public class LevelsHandler : Singleton<LevelsHandler>, ILevelHandler
         base.SingletonAwake();
         RegisterService();
         SetNextLevel();
-        currentLevelMeta = LevelsHandler.instance.levels[LevelsHandler.instance.levelIndex].GetComponent<Level_Metadata>();
+        currentLevelMeta = levels[levelIndex].GetComponent<Level_Metadata>();
     }
     public override void SingletonOnDestroy()
     {

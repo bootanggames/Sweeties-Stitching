@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using Unity.Cinemachine;
 using UnityEngine;
@@ -15,13 +16,33 @@ public class Level_Metadata : MonoBehaviour
     public int totalStitchedPart;
     public int noOfStitchedPart;
 
-    public CinemachineCamera cam;
     [SerializeField] LevelDivision levelDivision;
     [SerializeField] SequenceType sequenceType;
-    [SerializeField] Transform levelCompleteView;
-  
+
+    void EnableDisableSewPoints(List<SewPoint> points, bool val)
+    {
+        foreach (SewPoint s in points)
+        {
+            s.GetComponent<Collider>().enabled = val;
+        }
+    }
+    void GetAllPartsObjects(List<GameObject> parts)
+    {
+        foreach (GameObject g in parts)
+        {
+            ObjectInfo o = g.GetComponent<ObjectInfo>();
+            EnableDisableSewPoints(o.connectPoints, false);
+        }
+    }
+    void HandlerPointsEnableDisable()
+    {
+        GetAllPartsObjects(levelParts);
+        GetAllPartsObjects(head.joints);
+        GetAllPartsObjects(immoveablePart.GetComponent<Part_Info>().joints);
+    }
     public void StartLevel() 
     {
+        HandlerPointsEnableDisable();
         NextPartActivation(true, SequenceType.none);
     }
     void NextPartActivation(bool start, SequenceType sequence)
@@ -31,15 +52,13 @@ public class Level_Metadata : MonoBehaviour
         {
             needleDetecto.detect = false;
         }
-        Part_Info p1_Info = head.GetComponent<Part_Info>();
+
         Part_Info p2_Info = immoveablePart.GetComponent<Part_Info>();
-      
         ObjectInfo o_info = null;
         if (!start)
         {
             if (partIndex == 1)
             {
-
                 if (sequence.Equals(SequenceType.left))
                     sequenceType = SequenceType.left;
                 else
@@ -49,27 +68,53 @@ public class Level_Metadata : MonoBehaviour
             {
                 if (levelDivision.leftSideIndex >= levelDivision.leftSide.Count) return;
                 o_info = levelDivision.leftSide[levelDivision.leftSideIndex].GetComponent<ObjectInfo>();
+                EnableDisableSewPoints(o_info.connectPoints, true);
+                if (o_info.partConnectedTo.Equals(PartConnectedTo.body))
+                    p2_Info.EnableJoint(o_info.partType);
+                if (o_info.partConnectedTo.Equals(PartConnectedTo.head))
+                    head.EnableJoint(o_info.partType);
                 levelDivision.leftSideIndex++;
             }
             else
             {
                 o_info = levelDivision.rightSide[levelDivision.rightSideIndex].GetComponent<ObjectInfo>();
+                EnableDisableSewPoints(o_info.connectPoints, true);
+                if (o_info.partConnectedTo.Equals(PartConnectedTo.body))
+                    p2_Info.EnableJoint(o_info.partType);
+                if (o_info.partConnectedTo.Equals(PartConnectedTo.head))
+                    head.EnableJoint(o_info.partType);
                 levelDivision.rightSideIndex++;
             }
         }
         else
         {
-            //p1_Info.joints[0].SetActive(true);
             o_info = p2_Info.joints[partIndex].GetComponent<ObjectInfo>();
+            EnableDisableSewPoints(o_info.connectPoints, true);
+            EnableDisableSewPoints(head.joints[partIndex].GetComponent<ObjectInfo>().connectPoints, true);
         }
-        if (o_info.partConnectedTo.Equals(PartConnectedTo.body))
-            p2_Info.EnableJoint(o_info.partType);
-        if (o_info.partConnectedTo.Equals(PartConnectedTo.head))
-            p1_Info.EnableJoint(o_info.partType);
-        o_info.gameObject.SetActive(true);
-        CameraFocus(o_info.partType);
+        float percent = 0;
+        if (totalStitchedPart == 0)
+            percent = 0;
+        else
+            percent = ((float)noOfStitchedPart / totalStitchedPart) * 100;
+        if(Mathf.FloorToInt(percent) == 55)
+        {
+            StartCoroutine(CheckProgress(o_info));
+        }
+        else 
+            CameraFocus(o_info.partType);
         Invoke("EnableDetection", 0.15f);
         partIndex++;
+    }
+
+    IEnumerator CheckProgress(ObjectInfo o_info)
+    {
+        var cameraManager = ServiceLocator.GetService<ICameraManager>();
+        if (cameraManager != null)
+            GameEvents.CameraManagerEvents.onAddingCamera.RaiseEvent(cameraManager.gameHalfProgressCamera);
+        yield return new WaitForSeconds(2);
+        CameraFocus(o_info.partType);
+        StopCoroutine(CheckProgress(o_info));
     }
     void EnableDetection()
     {
@@ -80,23 +125,14 @@ public class Level_Metadata : MonoBehaviour
         }
         CancelInvoke("EnableDetection");
     }
-    void DisablePartsOfPartInfoType(Part_Info p_Info)
-    {
-        //foreach (GameObject p in p_Info.joints)
-        //{
-        //    ObjectInfo objectInfo = p.GetComponentInChildren<ObjectInfo>();
-        //    if (objectInfo)
-        //    {
-        //        objectInfo.gameObject.SetActive(true);
-        //        if (!objectInfo.IsStitched)
-        //            p.SetActive(false);
-        //    }
-      
-        //}
-    }
+ 
     public void UpdateLevelProgress(SequenceType sequence)
     {
         noOfStitchedPart++;
+        var canvasManager = ServiceLocator.GetService<ICanvasUIManager>();
+        if (canvasManager != null)
+            canvasManager.UpdatePlushieStitchProgress(totalStitchedPart, noOfStitchedPart);
+        
         if (noOfStitchedPart.Equals(totalStitchedPart))
         {
             foreach (GameObject g in levelParts)
@@ -132,6 +168,13 @@ public class Level_Metadata : MonoBehaviour
         CancelInvoke("CallGameWinPanel");
     }
   
+    public void UpdateAllStitchesOfPlushie()
+    {
+        var canvasManager = ServiceLocator.GetService<ICanvasUIManager>();
+        if (canvasManager != null)
+            canvasManager.UpdateStitchCount(totalCorrectLinks, noOfCorrectLinks);
+
+    }
     void CameraFocus(PlushieActiveStitchPart currentActivePart)
     {
         var cameraManager = ServiceLocator.GetService<ICameraManager>();
@@ -142,7 +185,6 @@ public class Level_Metadata : MonoBehaviour
                 case PlushieActiveStitchPart.neck:
                     plushieActivePartToStitch = PlushieActiveStitchPart.neck;
                     GameEvents.CameraManagerEvents.onAddingCamera.RaiseEvent(cameraManager.neckCamera);
-
                     break;
                 case PlushieActiveStitchPart.righteye:
                     plushieActivePartToStitch = PlushieActiveStitchPart.righteye;

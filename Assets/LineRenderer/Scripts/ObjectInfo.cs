@@ -32,13 +32,13 @@ public class ObjectInfo : MonoBehaviour
             completeStitchTextObj.SetActive(true);
         }
         Invoke("EnableConffetti", 0.2f);
-        Invoke("DisableWellDoneText", 3);
     }
     void EnableConffetti()
     {
         if (completeConfetti == null) return;
         if (completeConfetti.Length == 0) return;
-        completeConfetti[confettiIndex].SetActive(true);
+        if(confettiIndex < completeConfetti.Length) 
+            completeConfetti[confettiIndex].SetActive(true);
         confettiIndex++;
         CancelInvoke("EnableConffetti");
 
@@ -46,12 +46,39 @@ public class ObjectInfo : MonoBehaviour
         {
             Invoke("EnableConffetti", 0.15f);
         }
-       
+        else
+        {
+            Invoke("UpdateProgress",1);
+        }
+    }
+
+    void UpdateProgress()
+    {
+        DisableWellDoneText();
+
+        SewPoint sp = null;
+
+        IThreadManager threadManager = ServiceLocator.GetService<IThreadManager>();
+        if (threadManager != null)
+        {
+            if (threadManager.detectedPoints != null && threadManager.detectedPoints.Count > 0)
+            {
+                sp = threadManager.detectedPoints[threadManager.detectedPoints.Count - 1].GetComponent<SewPoint>();
+                sp.name = sp.sequenceType.ToString();
+                GameEvents.ThreadEvents.onResetThreadInput.RaiseEvent();
+                if (LevelsHandler.instance.currentLevelMeta)
+                    LevelsHandler.instance.currentLevelMeta.UpdateLevelProgress(sp.sequenceType);
+            }
+        }
+        CancelInvoke("UpdateProgress");
     }
     public void DisableWellDoneText()
     {
         if (completeStitchTextObj)
+        {
             completeStitchTextObj.SetActive(false);
+            Destroy(completeStitchTextObj);
+        }
         CancelInvoke("DisableWellDoneText");
     }
 

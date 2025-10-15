@@ -38,7 +38,8 @@ public class ObjectInfo : MonoBehaviour
     {
         if (completeConfetti == null) return;
         if (completeConfetti.Length == 0) return;
-        completeConfetti[confettiIndex].SetActive(true);
+        if(confettiIndex < completeConfetti.Length)
+            completeConfetti[confettiIndex].SetActive(true);
         confettiIndex++;
         CancelInvoke("EnableConffetti");
 

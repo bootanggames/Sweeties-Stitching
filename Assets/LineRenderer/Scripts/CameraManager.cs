@@ -21,6 +21,7 @@ public class CameraManager : MonoBehaviour, ICameraManager
     [field: SerializeField] public CinemachineVirtualCameraBase leftLegCamera  { get; private set; }
     [field: SerializeField] public CinemachineVirtualCameraBase leftArmCamera { get; private set; }
     [field: SerializeField] public CinemachineVirtualCameraBase gameCompleteCamera { get; private set; }
+    [field: SerializeField] public CinemachineVirtualCameraBase gameHalfProgressZoomOutCamera { get; private set; }
 
     private void OnEnable()
     {

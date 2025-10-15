@@ -18,5 +18,6 @@ public interface ICameraManager : IGameService
     CinemachineVirtualCameraBase leftLegCamera { get; }
     CinemachineVirtualCameraBase leftArmCamera { get; }
     CinemachineVirtualCameraBase gameCompleteCamera { get; }
+    CinemachineVirtualCameraBase gameHalfProgressZoomOutCamera { get; }
 
 }

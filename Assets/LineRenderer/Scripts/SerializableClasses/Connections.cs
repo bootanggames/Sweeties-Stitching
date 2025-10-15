@@ -69,6 +69,11 @@ public class Connections
             this.line.SetPosition(0, pos1);
             this.line.SetPosition(1, pos2);
             this.line.name = "link";
+
+            LevelsHandler.instance.currentLevelMeta.noOfCorrectLinks++;
+            var canvasManager = ServiceLocator.GetService<ICanvasUIManager>();
+            if (canvasManager != null)
+                canvasManager.UpdateStitchCount(LevelsHandler.instance.currentLevelMeta.totalCorrectLinks, LevelsHandler.instance.currentLevelMeta.noOfCorrectLinks);
         }
 
 

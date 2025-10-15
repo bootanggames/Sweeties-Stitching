@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using Unity.Cinemachine;
 using UnityEngine;
@@ -20,8 +21,30 @@ public class Level_Metadata : MonoBehaviour
     [SerializeField] SequenceType sequenceType;
     [SerializeField] Transform levelCompleteView;
   
+    void EnableDisableSewPoints(List<SewPoint> sewPoints, bool val)
+    {
+        foreach (SewPoint s in sewPoints)
+        {
+            s.GetComponent<Collider>().enabled = val;
+        }
+    }
+    void DisablePartPoints(List<GameObject> partObj)
+    {
+        foreach (GameObject g in partObj)
+        {
+            ObjectInfo o = g.GetComponent<ObjectInfo>();
+            EnableDisableSewPoints(o.connectPoints, false);
+        }
+    }
+    void DisableAllPointObject()
+    {
+        DisablePartPoints(levelParts);
+        DisablePartPoints(head.joints);
+        DisablePartPoints(immoveablePart.GetComponent<Part_Info>().joints);
+    }
     public void StartLevel() 
     {
+        DisableAllPointObject();
         NextPartActivation(true, SequenceType.none);
     }
     void NextPartActivation(bool start, SequenceType sequence)
@@ -31,7 +54,6 @@ public class Level_Metadata : MonoBehaviour
         {
             needleDetecto.detect = false;
         }
-        Part_Info p1_Info = head.GetComponent<Part_Info>();
         Part_Info p2_Info = immoveablePart.GetComponent<Part_Info>();
       
         ObjectInfo o_info = null;
@@ -49,27 +71,54 @@ public class Level_Metadata : MonoBehaviour
             {
                 if (levelDivision.leftSideIndex >= levelDivision.leftSide.Count) return;
                 o_info = levelDivision.leftSide[levelDivision.leftSideIndex].GetComponent<ObjectInfo>();
+                EnableDisableSewPoints(o_info.connectPoints, true);
+
+                if (o_info.partConnectedTo.Equals(PartConnectedTo.body))
+                    p2_Info.EnableJoint(o_info.partType, true);
+                if (o_info.partConnectedTo.Equals(PartConnectedTo.head))
+                    head.EnableJoint(o_info.partType, true);
                 levelDivision.leftSideIndex++;
             }
             else
             {
                 o_info = levelDivision.rightSide[levelDivision.rightSideIndex].GetComponent<ObjectInfo>();
+                EnableDisableSewPoints(o_info.connectPoints, true);
+
+                if (o_info.partConnectedTo.Equals(PartConnectedTo.body))
+                    p2_Info.EnableJoint(o_info.partType, true);
+                if (o_info.partConnectedTo.Equals(PartConnectedTo.head))
+                    head.EnableJoint(o_info.partType, true);
                 levelDivision.rightSideIndex++;
             }
         }
         else
         {
-            //p1_Info.joints[0].SetActive(true);
             o_info = p2_Info.joints[partIndex].GetComponent<ObjectInfo>();
+            EnableDisableSewPoints(o_info.connectPoints, true);
+            EnableDisableSewPoints(head.joints[partIndex].GetComponent<ObjectInfo>().connectPoints, true);
         }
-        if (o_info.partConnectedTo.Equals(PartConnectedTo.body))
-            p2_Info.EnableJoint(o_info.partType);
-        if (o_info.partConnectedTo.Equals(PartConnectedTo.head))
-            p1_Info.EnableJoint(o_info.partType);
-        o_info.gameObject.SetActive(true);
-        CameraFocus(o_info.partType);
+        float percent = 0;
+
+        if (noOfStitchedPart == 0)
+            percent = 0;
+        else
+            percent = ((float)noOfStitchedPart / totalStitchedPart) * 100;
+        if(Mathf.FloorToInt( percent) == 55)
+            StartCoroutine(ZoomOutCameraToShowProgress(o_info));
+        else
+            CameraFocus(o_info.partType);
         Invoke("EnableDetection", 0.15f);
         partIndex++;
+    }
+    IEnumerator ZoomOutCameraToShowProgress(ObjectInfo o_info)
+    {
+        var cameraManager = ServiceLocator.GetService<ICameraManager>();
+        if (cameraManager != null)
+            GameEvents.CameraManagerEvents.onAddingCamera.RaiseEvent(cameraManager.gameHalfProgressZoomOutCamera);
+
+        yield return new WaitForSeconds(2);
+        CameraFocus(o_info.partType);
+
     }
     void EnableDetection()
     {
@@ -80,23 +129,14 @@ public class Level_Metadata : MonoBehaviour
         }
         CancelInvoke("EnableDetection");
     }
-    void DisablePartsOfPartInfoType(Part_Info p_Info)
-    {
-        //foreach (GameObject p in p_Info.joints)
-        //{
-        //    ObjectInfo objectInfo = p.GetComponentInChildren<ObjectInfo>();
-        //    if (objectInfo)
-        //    {
-        //        objectInfo.gameObject.SetActive(true);
-        //        if (!objectInfo.IsStitched)
-        //            p.SetActive(false);
-        //    }
-      
-        //}
-    }
+    
     public void UpdateLevelProgress(SequenceType sequence)
     {
         noOfStitchedPart++;
+        var canvasManager = ServiceLocator.GetService<ICanvasUIManager>();
+        if(canvasManager != null)
+            canvasManager.UpdateStitchProgress(totalStitchedPart, noOfStitchedPart);
+
         if (noOfStitchedPart.Equals(totalStitchedPart))
         {
             foreach (GameObject g in levelParts)

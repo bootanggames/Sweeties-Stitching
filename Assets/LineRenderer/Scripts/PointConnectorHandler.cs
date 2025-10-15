@@ -1,4 +1,5 @@
 ﻿using DG.Tweening;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -67,18 +68,6 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
     {
         if (point.Count <= 1) return;
 
-
-        if (point.Count % 2 != 0)
-        {
-            //NewConnection(point[point.Count - 2].transform, point[point.Count - 1].transform, false, false, 0);
-            //var needleDetecto = ServiceLocator.GetService<INeedleDetector>();
-            //if (needleDetecto != null)
-            //{
-            //    needleDetecto.detect = true;
-            //}
-
-            //return;
-        }
         foreach (Transform t in point)
         {
             if (!points.Contains(t.GetComponent<SewPoint>()))
@@ -334,17 +323,6 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
                 if (!connection.isLocked && currentDist < minDistance)
                 {
                     connection.isLocked = true;
-                    if (info1.shouldBeChild)
-                    {
-                        //info1.transform.SetParent(info2.transform);
-                        //info1.transform.localEulerAngles = Vector3.zero;
-                    }
-                    else if (info2.shouldBeChild)
-                    {
-                        //info2.transform.SetParent(info1.transform);
-                        //info2.transform.localEulerAngles = Vector3.zero;
-
-                    }
 
                 }
             }
@@ -366,20 +344,17 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
         if (sp1.connected || sp2.connected) return;
         if (dynamicStitch)
             if (p1.parent.parent.parent == p2.parent.parent.parent) return;
-        if (sp1.attachmentId.Equals(sp2.attachmentId))
-            IncrementLinksPerPart(sp1, sp2, info1, info2);
-        else if ((sp2.attachmentId.Equals(sp1.attachmentId)))
-            IncrementLinksPerPart(sp1, sp2, info1, info2);
+        if (sp1.attachmentId.Equals(sp2.attachmentId) || ((sp2.attachmentId.Equals(sp1.attachmentId))))
+            StartCoroutine(IncrementLinksPerPart(sp1, sp2, info1, info2));
         else if (sp1.alternativeAttachments.Length > 0)
         {
-
             if (sp1.alternativeAttachments.Contains(sp2.attachmentId))
-                IncrementLinksPerPart(sp1, sp2, info1, info2);
+                StartCoroutine(IncrementLinksPerPart(sp1, sp2, info1, info2));
         }
         else if (sp2.alternativeAttachments.Length > 0)
         {
             if (sp2.alternativeAttachments.Contains(sp1.attachmentId))
-                IncrementLinksPerPart(sp1, sp2, info1, info2);
+                StartCoroutine(IncrementLinksPerPart(sp1, sp2, info1, info2));
         }
         var needleDetecto = ServiceLocator.GetService<INeedleDetector>();
         if (needleDetecto != null)
@@ -397,13 +372,13 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
         }
         CancelInvoke("EnableDetection");
     }
-    void IncrementLinksPerPart(SewPoint s1, SewPoint s2 , ObjectInfo o1, ObjectInfo o2)
+    IEnumerator IncrementLinksPerPart(SewPoint s1, SewPoint s2 , ObjectInfo o1, ObjectInfo o2)
     {
         s1.connected = true;
         s2.connected = true;
         o1.noOfConnections++;
         o2.noOfConnections++;
-     
+        yield return new WaitForSeconds(2);
         if (o1.noOfConnections.Equals(o1.totalConnections) && o2.noOfConnections.Equals(o2.totalConnections))
         {
             o2.moveable = false;
@@ -420,11 +395,14 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
         IThreadManager threadManager = ServiceLocator.GetService<IThreadManager>();
         if (threadManager != null)
         {
-            sp = threadManager.detectedPoints[threadManager.detectedPoints.Count - 1].GetComponent<SewPoint>();
-            sp.name = sp.sequenceType.ToString();
-            GameEvents.ThreadEvents.onResetThreadInput.RaiseEvent();
-            if (LevelsHandler.instance.currentLevelMeta)
-                LevelsHandler.instance.currentLevelMeta.UpdateLevelProgress(sp.sequenceType);
+            if(threadManager.detectedPoints != null && threadManager.detectedPoints.Count > 0)
+            {
+                sp = threadManager.detectedPoints[threadManager.detectedPoints.Count - 1].GetComponent<SewPoint>();
+                sp.name = sp.sequenceType.ToString();
+                GameEvents.ThreadEvents.onResetThreadInput.RaiseEvent();
+                if (LevelsHandler.instance.currentLevelMeta)
+                    LevelsHandler.instance.currentLevelMeta.UpdateLevelProgress(sp.sequenceType);
+            }
 
         }
       

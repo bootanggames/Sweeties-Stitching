@@ -6,7 +6,10 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/LineRenderer/LineRenderer_Gameplay.unity
+    path: Assets/LineRenderer/HomeScreen.unity
+    guid: ea6375a5c490f4c44a00a98d1086ecf1
+  - enabled: 1
+    path: Assets/LineRenderer/Gameplay.unity
     guid: 0443b9ce16db2694cb84bd2e76b12915
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}

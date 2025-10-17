@@ -30,6 +30,7 @@ public class CanvasUIManager : MonoBehaviour, ICanvasUIManager
     }
     void UpdateSliderMinMaxValue()
     {
+        if (pullSpeedSlider == null) return;
         var pullSpeedHandler = ServiceLocator.GetService<IPointConnectionHandler>();
 
         if (pullSpeedHandler != null)
@@ -48,6 +49,8 @@ public class CanvasUIManager : MonoBehaviour, ICanvasUIManager
 
     void UpdateThreadMinMaxCount()
     {
+        if (threadCountControlSlider == null) return;
+
         var threadStitchCountHandler = ServiceLocator.GetService<IPointConnectionHandler>();
         if(threadStitchCountHandler != null)
         {
@@ -60,6 +63,8 @@ public class CanvasUIManager : MonoBehaviour, ICanvasUIManager
  
     void UpdateDetectionRadiusMinMaxValue()
     {
+        if (detectionRadiusSlider == null) return;
+
         var needleDetector = ServiceLocator.GetService<INeedleDetector>();
         if (needleDetector != null)
         {

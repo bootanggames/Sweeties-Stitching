@@ -1,14 +1,13 @@
 ﻿using DG.Tweening;
 using System.Collections.Generic;
-using System.Drawing;
 using UnityEngine;
 
 public class ThreadManager : MonoBehaviour, IThreadManager
 {
     [field: SerializeField] public bool threadInput { get; private set; }
     [field: SerializeField] public bool freeForm { get; private set; }
-
     [field: SerializeField] public List<Transform> detectedPoints {  get; private set; }
+    [field: SerializeField] public List<Color> threadColor { get; private set; }
 
     [SerializeField] LineRenderer lineRenderer;
 
@@ -28,6 +27,7 @@ public class ThreadManager : MonoBehaviour, IThreadManager
     [SerializeField] float zVal;
     [SerializeField] Transform startPoint;
     [SerializeField] Vector3 direction;
+    [field: SerializeField] public int threadIndex { get; private set; }
     private void OnEnable()
     {
         RegisterService();
@@ -78,12 +78,33 @@ public class ThreadManager : MonoBehaviour, IThreadManager
     {
         detectedPoints.Clear();
     }
+
+    public void SetSpoolId(int id)
+    {
+        threadIndex = id;
+    }
+    public void SetThreadColor(int id)
+    {
+        SetSpoolId(id);
+        if (instantiatedLine != null)
+        {
+            instantiatedLine.startColor = threadColor[id];
+            instantiatedLine.endColor = threadColor[id];
+        }
+        if(prevLine != null)
+        {
+            prevLine.startColor = threadColor[id];
+            prevLine.endColor = threadColor[id];
+        }
+    }
     void InstantiateMainThread(bool start, Vector2 startPos)
     {
         instantiatedLine = Instantiate(lineRenderer, threadParent.position, Quaternion.identity);
         instantiatedLine.transform.SetParent(threadParent);
         instantiatedLine.transform.position = Vector3.zero;
         instantiatedLine.positionCount = threadMaxLength;
+        instantiatedLine.startColor = threadColor[threadIndex];
+        instantiatedLine.endColor = threadColor[threadIndex];
         if (start)
         {
             for (int i = 0; i < instantiatedLine.positionCount; i++)
@@ -96,7 +117,6 @@ public class ThreadManager : MonoBehaviour, IThreadManager
     }
     public void AddFirstPositionOnMouseDown(Vector2 headPos)
     {
-
         if (!threadInput) return;
         if (instantiatedLine == null)
         {
@@ -147,9 +167,8 @@ public class ThreadManager : MonoBehaviour, IThreadManager
         Vector3 needlePos = GameEvents.NeedleEvents.OnFetchingNeedlePosition.RaiseEvent();
         needlePos.z = zVal;
         instantiatedLine.SetPosition(0, needlePos);
-
-        
         GameEvents.PointConnectionHandlerEvents.onFetchingPoints.RaiseEvent(detectedPoints);
+
         if (prevLine)
             MoveThread(prevLine, true);
         MoveThread(instantiatedLine, false);
@@ -167,7 +186,7 @@ public class ThreadManager : MonoBehaviour, IThreadManager
             Vector3 currentPoint = thread.GetPosition(i);
             Vector3 direction = currentPoint - prevThreadPoint;
 
-            float minDistance = isPrevThread ? 0f : minDistanceBetweenSewPoints;
+            float minDistance = isPrevThread ? 0.001f : minDistanceBetweenSewPoints;
             float lerpSpeed = isPrevThread ? 0.3f : 1.0f;
             if (freeForm)
                 lerpSpeed = 1.0f;

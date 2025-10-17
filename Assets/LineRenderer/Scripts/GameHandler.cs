@@ -14,6 +14,11 @@ public class GameHandler : Singleton<GameHandler>, IGameHandler
         base.SingletonOnDestroy();
         UnRegisterService();
     }
+
+    public void Home(string sceneName)
+    {
+        SceneManager.LoadScene(sceneName);
+    }
     public void Retry()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
@@ -35,6 +40,9 @@ public class GameHandler : Singleton<GameHandler>, IGameHandler
                 break;
             case GameStates.Gamefail:
                 gameStates = GameStates.Gamefail;
+                break;
+            case GameStates.ThreadSpoolBuyScreen:
+                gameStates = GameStates.ThreadSpoolBuyScreen;
                 break;
         }
     }

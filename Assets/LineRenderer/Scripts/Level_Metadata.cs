@@ -19,11 +19,16 @@ public class Level_Metadata : MonoBehaviour
     [SerializeField] LevelDivision levelDivision;
     [SerializeField] SequenceType sequenceType;
 
+    private void Start()
+    {
+        HandlerPointsEnableDisable();
+    }
     void EnableDisableSewPoints(List<SewPoint> points, bool val)
     {
         foreach (SewPoint s in points)
         {
-            s.GetComponent<Collider>().enabled = val;
+            //s.GetComponent<Collider>().enabled = val;
+            s.gameObject.SetActive(val);
         }
     }
     void GetAllPartsObjects(List<GameObject> parts)
@@ -42,7 +47,7 @@ public class Level_Metadata : MonoBehaviour
     }
     public void StartLevel() 
     {
-        HandlerPointsEnableDisable();
+        //HandlerPointsEnableDisable();
         NextPartActivation(true, SequenceType.none);
     }
     void NextPartActivation(bool start, SequenceType sequence)
@@ -70,9 +75,9 @@ public class Level_Metadata : MonoBehaviour
                 o_info = levelDivision.leftSide[levelDivision.leftSideIndex].GetComponent<ObjectInfo>();
                 EnableDisableSewPoints(o_info.connectPoints, true);
                 if (o_info.partConnectedTo.Equals(PartConnectedTo.body))
-                    p2_Info.EnableJoint(o_info.partType);
+                    p2_Info.EnableJoint(o_info.partType,true);
                 if (o_info.partConnectedTo.Equals(PartConnectedTo.head))
-                    head.EnableJoint(o_info.partType);
+                    head.EnableJoint(o_info.partType,true);
                 levelDivision.leftSideIndex++;
             }
             else
@@ -80,9 +85,9 @@ public class Level_Metadata : MonoBehaviour
                 o_info = levelDivision.rightSide[levelDivision.rightSideIndex].GetComponent<ObjectInfo>();
                 EnableDisableSewPoints(o_info.connectPoints, true);
                 if (o_info.partConnectedTo.Equals(PartConnectedTo.body))
-                    p2_Info.EnableJoint(o_info.partType);
+                    p2_Info.EnableJoint(o_info.partType, true);
                 if (o_info.partConnectedTo.Equals(PartConnectedTo.head))
-                    head.EnableJoint(o_info.partType);
+                    head.EnableJoint(o_info.partType, true);
                 levelDivision.rightSideIndex++;
             }
         }

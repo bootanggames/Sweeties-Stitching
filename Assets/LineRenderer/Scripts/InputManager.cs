@@ -1,4 +1,7 @@
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class InputManager : MonoBehaviour
 {
@@ -15,17 +18,25 @@ public class InputManager : MonoBehaviour
     [SerializeField] float needleOffset;
     Vector3 prevDragPos;
     [SerializeField] Vector3 direction;
+    [SerializeField] GraphicRaycaster canvasGraphicRaycaster;
+    [SerializeField] EventSystem eventSystem;
     private void Update()
     {
         var gameHandler = ServiceLocator.GetService<IGameHandler>();
         if (gameHandler == null) return;
         if (!gameHandler.gameStates.Equals(GameStates.Gamestart)) return;
+        else
+            if (IsPointerOverUIElement()) return;
+
+
+
         GetInput();
     }
     void GetInput()
     {
         if (Input.GetMouseButtonDown(0) && !drag)
         {
+
             drag = true;
             firstTouch = CalculateCurrentPosition();
             //firstTouch = startPoint.position;//--for start position
@@ -34,7 +45,7 @@ public class InputManager : MonoBehaviour
         }
         else if (Input.GetMouseButton(0) && drag)
         {
-          
+
             dragTouchValue = CalculateCurrentPosition();
 
             //float reference = Mathf.Min(Screen.width, Screen.height);
@@ -68,7 +79,16 @@ public class InputManager : MonoBehaviour
         }
 
     }
+    public bool IsPointerOverUIElement()
+    {
+        PointerEventData pointerData = new PointerEventData(eventSystem);
+        pointerData.position = Input.mousePosition;
 
+        List<RaycastResult> results = new List<RaycastResult>();
+        canvasGraphicRaycaster.Raycast(pointerData, results);
+
+        return results.Count > 0;
+    }
     Vector3 CalculateCurrentPosition()
     {
         Vector3 position;
@@ -79,7 +99,7 @@ public class InputManager : MonoBehaviour
         //float moveXRange = Input.mousePosition.x - requiredWidth;
         //float moveYRange = Input.mousePosition.y - requiredHeight;
         //position = new Vector3(moveXRange, moveYRange, Input.mousePosition.z);
-        position = Camera.main.ScreenToWorldPoint(Input.mousePosition); //--ADDED
-        return position;
+        position = Input.mousePosition; //--ADDED
+        return Camera.main.ScreenToWorldPoint(position);
     }
 }

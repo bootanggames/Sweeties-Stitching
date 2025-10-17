@@ -145,16 +145,8 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
         }
         //Debug.LogError(" parent not equal");
 
-        if ((p1.parent == p2) || (p2.parent == p1))
-        {
-            //Debug.LogError("p1 parent equla to p2 "+ (p1.parent == p2)+" "+ (p2.parent == p1));
-            var needleDetecto = ServiceLocator.GetService<INeedleDetector>();
-            if (needleDetecto != null)
-            {
-                needleDetecto.detect = true;
-            }
-            return;
-        }
+        if ((p1.parent == p2) || (p2.parent == p1)) return;
+
         var info1 = p1.GetComponent<ObjectInfo>();
         var info2 = p2.GetComponent<ObjectInfo>();
 
@@ -225,13 +217,7 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
 
 
                 pullSeq.Join(moveAbleTransform.DOMove(targetPos, tweenDuration).SetEase(Ease.InOutSine));
-                //Vector3 lookDir = moveAbleTransform.position - info1.transform.position;
-
-                //Quaternion targetRot = Quaternion.LookRotation(lookDir, Vector3.up);
-                //Vector3 euler = targetRot.eulerAngles;
-                //euler.x = 0f;
-                //euler.y = 0f;
-
+                
                 pullSeq.Join(
                     moveAbleTransform.DORotate(info1.originalRotation, tweenDuration, RotateMode.Fast)
                     .SetEase(Ease.InOutSine)
@@ -264,14 +250,7 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
 
                 Vector3 targetPos = moveAbleTransform.position + avrOffset * info2.pullForce;
                 pullSeq.Join(moveAbleTransform.DOMove(targetPos, tweenDuration).SetEase(Ease.InOutSine));
-                //Vector3 lookDir = info1.transform.position - moveAbleTransform.position;
-
-                //Quaternion targetRot = Quaternion.LookRotation(lookDir, Vector3.up);
-
-                //Vector3 euler = targetRot.eulerAngles;
-                //euler.x = 0f;
-                //euler.y = 0f;
-
+                
                 pullSeq.Join(
                    moveAbleTransform.DORotate(info2.originalRotation, tweenDuration, RotateMode.Fast)
                     .SetEase(Ease.InOutSine)
@@ -326,36 +305,38 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
 
         if (sp1.attachmentId.Equals(sp2.attachmentId) || (sp2.attachmentId.Equals(sp1.attachmentId)))
             StartCoroutine( IncrementLinksPerPart(sp1, sp2, info1, info2));
-        else if (sp1.alternativeAttachments.Length > 0)
-        {
-            if (sp1.alternativeAttachments.Contains(sp2.attachmentId))
-                StartCoroutine(IncrementLinksPerPart(sp1, sp2, info1, info2));
-        }
-        else if (sp2.alternativeAttachments.Length > 0)
-        {
-            if (sp2.alternativeAttachments.Contains(sp1.attachmentId))
-                StartCoroutine(IncrementLinksPerPart(sp1, sp2, info1, info2));
-        }
-        var needleDetecto = ServiceLocator.GetService<INeedleDetector>();
-        if (needleDetecto != null)
-        {
-            needleDetecto.detect = true;
-        }
+        //else if (sp1.alternativeAttachments.Length > 0)
+        //{
+        //    if (sp1.alternativeAttachments.Contains(sp2.attachmentId))
+        //        StartCoroutine(IncrementLinksPerPart(sp1, sp2, info1, info2));
+        //}
+        //else if (sp2.alternativeAttachments.Length > 0)
+        //{
+        //    if (sp2.alternativeAttachments.Contains(sp1.attachmentId))
+        //        StartCoroutine(IncrementLinksPerPart(sp1, sp2, info1, info2));
+        //}
+        //var needleDetecto = ServiceLocator.GetService<INeedleDetector>();
+        //if (needleDetecto != null)
+        //{
+        //    needleDetecto.detect = true;
+        //}
         //Debug.LogError(" checked ");
     }
-    void EnableDetection()
-    {
-        var needleDetecto = ServiceLocator.GetService<INeedleDetector>();
-        if (needleDetecto != null)
-        {
-            needleDetecto.detect = true;
-        }
-        CancelInvoke("EnableDetection");
-    }
+    //void EnableDetection()
+    //{
+    //    var needleDetecto = ServiceLocator.GetService<INeedleDetector>();
+    //    if (needleDetecto != null)
+    //    {
+    //        needleDetecto.detect = true;
+    //    }
+    //    CancelInvoke("EnableDetection");
+    //}
     IEnumerator IncrementLinksPerPart(SewPoint s1, SewPoint s2 , ObjectInfo o1, ObjectInfo o2)
     {
         s1.connected = true;
         s2.connected = true;
+        s1.name = "connected 1";
+        s2.name = "connected 2";
         o1.noOfConnections++;
         o2.noOfConnections++;
         yield return new WaitForSeconds(1);

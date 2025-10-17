@@ -69,7 +69,13 @@ public class Connections
             this.line.SetPosition(0, pos1);
             this.line.SetPosition(1, pos2);
             this.line.name = "link";
-
+        
+            var threadManager = ServiceLocator.GetService<IThreadManager>();
+            if(threadManager != null)
+            {
+                this.line.startColor = threadManager.threadColor[threadManager.threadIndex];
+                this.line.endColor = threadManager.threadColor[threadManager.threadIndex];
+            }
             LevelsHandler.instance.currentLevelMeta.noOfCorrectLinks++;
             var canvasManager = ServiceLocator.GetService<ICanvasUIManager>();
             if (canvasManager != null)

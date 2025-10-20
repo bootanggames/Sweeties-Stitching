@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public interface INeedleDetector : IGameService
@@ -6,4 +7,7 @@ public interface INeedleDetector : IGameService
     float minDetectionRadius { get; }
     float maxDetectionRadius { get; }
     bool detect { get; set; }
+    List<SewPoint> pointsDetected {  get; }
+    void UndoLastConnectedPoint();
+    SewPoint GetDetectedPoint(int index);
 }

@@ -7,12 +7,12 @@ public class ThreadManager : MonoBehaviour, IThreadManager
     [field: SerializeField] public bool threadInput { get; private set; }
     [field: SerializeField] public bool freeForm { get; private set; }
     [field: SerializeField] public List<Transform> detectedPoints {  get; private set; }
-    [field: SerializeField] public List<Color> threadColor { get; private set; }
+    //[field: SerializeField] public List<Color> threadColor { get; private set; }
 
     [SerializeField] LineRenderer lineRenderer;
 
     [SerializeField] Vector3 currentRopeStartPosition;
-    Vector3 prevMouseDragPosition;
+    public Vector3 prevMouseDragPosition { get; private set; }
 
     [SerializeField] float minDistanceBetweenSewPoints;
     [SerializeField] int threadMaxLength;
@@ -20,14 +20,16 @@ public class ThreadManager : MonoBehaviour, IThreadManager
     [SerializeField] private Transform threadParent;
     [SerializeField] int detectedPointsCount = 0;
 
-    [SerializeField]LineRenderer instantiatedLine;
+    [field: SerializeField] public LineRenderer instantiatedLine {  get; private set; }
     [SerializeField] Transform pointsLinkParent;
-    [SerializeField] LineRenderer prevLine;
-    [SerializeField] Transform lastConnectedPoint;
+    public Transform lastConnectedPoint { get; private set; }
     [SerializeField] float zVal;
     [SerializeField] Transform startPoint;
     [SerializeField] Vector3 direction;
     [field: SerializeField] public int threadIndex { get; private set; }
+
+    [field: SerializeField] public LineRenderer prevLine { get; set; }
+
     private void OnEnable()
     {
         RegisterService();
@@ -66,6 +68,10 @@ public class ThreadManager : MonoBehaviour, IThreadManager
         GameEvents.ThreadEvents.onResetThreadInput.UnregisterEvent(ResetThread);
 
     }
+    public void SetLastConnectedPosition(Transform t)
+    {
+        lastConnectedPoint = t;
+    }
     void SetFreeformThreadMovement(bool value)
     {
         freeForm = value;
@@ -88,13 +94,13 @@ public class ThreadManager : MonoBehaviour, IThreadManager
         SetSpoolId(id);
         if (instantiatedLine != null)
         {
-            instantiatedLine.startColor = threadColor[id];
-            instantiatedLine.endColor = threadColor[id];
+            //instantiatedLine.material.color = threadColor[id];
+            //instantiatedLine.endColor = threadColor[id];
         }
         if(prevLine != null)
         {
-            prevLine.startColor = threadColor[id];
-            prevLine.endColor = threadColor[id];
+            //prevLine.material.color = threadColor[id];
+            //prevLine.endColor = threadColor[id];
         }
     }
     void InstantiateMainThread(bool start, Vector2 startPos)
@@ -103,15 +109,14 @@ public class ThreadManager : MonoBehaviour, IThreadManager
         instantiatedLine.transform.SetParent(threadParent);
         instantiatedLine.transform.position = Vector3.zero;
         instantiatedLine.positionCount = threadMaxLength;
-        instantiatedLine.startColor = threadColor[threadIndex];
-        instantiatedLine.endColor = threadColor[threadIndex];
+        //instantiatedLine.material.color = threadColor[threadIndex];
+        //instantiatedLine.endColor = threadColor[threadIndex];
         if (start)
         {
             for (int i = 0; i < instantiatedLine.positionCount; i++)
             {
                 instantiatedLine.SetPosition(i, startPos);
             }
-            //GameEvents.NeedleEvents.OnNeedleMovement.RaiseEvent(instantiatedLine.GetPosition(0));
         }
 
     }
@@ -260,5 +265,92 @@ public class ThreadManager : MonoBehaviour, IThreadManager
         detectedPoints.Clear();
         prevMouseDragPosition = Vector3.zero;
         GameEvents.NeedleEvents.onNeedleActiveStatusUpdate.RaiseEvent(false);
+    }
+    public void UndoThread()
+    {
+        var pointDetector = ServiceLocator.GetService<INeedleDetector>();
+        if (pointDetector != null)
+        {
+            pointDetector.UndoLastConnectedPoint();
+            pointDetector.detect = true;
+        }
+        if (prevLine)
+            Destroy(prevLine.gameObject);
+
+        if (detectedPoints.Count > 0)
+            detectedPoints.Remove(detectedPoints[(detectedPoints.Count - 1)]);
+        if (detectedPoints.Count > 0)
+            SetLastConnectedPosition(detectedPoints[(detectedPoints.Count - 1)].transform);
+        else
+            SetLastConnectedPosition(null);
+    
+        var connectHandler = ServiceLocator.GetService<IPointConnectionHandler>();
+        if(connectHandler != null)
+        {
+            if (connectHandler.connections.Count > 0)
+            {
+                Connections c = null;
+                c = connectHandler.connections[connectHandler.connections.Count - 1];
+                connectHandler.connections.Remove(c);
+                Transform moveableTransform = null;
+                ObjectInfo o_Info1 = null;
+                ObjectInfo o_Info2 = null;
+                o_Info1 = c.point1.parent.parent.GetComponent<ObjectInfo>();
+                o_Info2 = c.point2.parent.parent.GetComponent<ObjectInfo>();
+                SewPoint s1 = c.point1.GetComponent<SewPoint>();
+                SewPoint s2 = c.point2.GetComponent<SewPoint>();
+                if (s1.attachmentId.Equals(s2.attachmentId))
+                {
+                    if (o_Info1.noOfConnections > 0)
+                        o_Info1.noOfConnections--;
+                    if (o_Info2.noOfConnections > 0)
+                        o_Info2.noOfConnections--;
+                }
+          
+                if (o_Info1.moveable)
+                {
+                    if (o_Info1.head)
+                        moveableTransform = o_Info1.transform.parent;
+                    else
+                        moveableTransform = o_Info1.transform;
+                    if(o_Info1.movedPositions.Count > 0)
+                    {
+                        moveableTransform.position = o_Info1.movedPositions[o_Info1.movedPositions.Count - 1];
+                        //moveableTransform.DOMove(o_Info1.movedPositions[o_Info1.movedPositions.Count - 1], 0.25f).SetEase(Ease.InOutSine);
+                        o_Info1.movedPositions.Remove(o_Info1.movedPositions[o_Info1.movedPositions.Count - 1]);
+                    if(o_Info2.movedPositions.Count > 0)
+                            o_Info2.movedPositions.Remove(o_Info2.movedPositions[o_Info2.movedPositions.Count - 1]);
+
+                    }
+
+                }
+                else if(o_Info2.moveable)
+                {
+                    if (o_Info2.head)
+                        moveableTransform = o_Info2.transform.parent;
+                    else
+                        moveableTransform = o_Info2.transform;
+
+                    if(o_Info2.movedPositions.Count > 0)
+                    {
+                        moveableTransform.position = o_Info2.movedPositions[o_Info2.movedPositions.Count - 1];
+                        //moveableTransform.DOMove(o_Info2.movedPositions[o_Info2.movedPositions.Count - 1], 0.25f).SetEase(Ease.InOutSine);
+                    if(o_Info1.movedPositions.Count > 0)
+                            o_Info1.movedPositions.Remove(o_Info1.movedPositions[o_Info1.movedPositions.Count - 1]);
+                        o_Info2.movedPositions.Remove(o_Info2.movedPositions[o_Info2.movedPositions.Count - 1]);
+                    }
+                        
+                }
+
+                Destroy(c.line.gameObject);
+            }
+            connectHandler.UpdateConnections();
+            if (connectHandler.points.Count > 0)
+                connectHandler.points.Remove(connectHandler.points[connectHandler.points.Count - 1]);
+        }
+        if (lastConnectedPoint)
+            instantiatedLine.SetPosition((instantiatedLine.positionCount - 1), lastConnectedPoint.position);
+
+
     }
 }

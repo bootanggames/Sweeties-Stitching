@@ -10,8 +10,10 @@ public class SewPoint : MonoBehaviour, ISewPoint
     public bool connected = false;
     public SequenceType sequenceType;
     [SerializeField] TextMeshPro textObj;
+    [HideInInspector]public MeshRenderer pointMesh;
     private void OnEnable()
     {
+        pointMesh = GetComponent<MeshRenderer>();
         textObj = GetComponentInChildren<TextMeshPro>();
         RegisterService();
     }

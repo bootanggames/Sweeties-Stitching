@@ -22,7 +22,8 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
     [SerializeField] float zVal = -0.25f;
     [SerializeField] float rotationSpeed;
     [SerializeField] float pullForce;
-
+    [SerializeField] Material correctPointMaterial;
+    [SerializeField] Material wrongPointMaterial;
     private void OnEnable()
     {
         points = new List<SewPoint>();
@@ -78,7 +79,6 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
         ObjectInfo o_info1 = sp1.transform.parent.parent.GetComponent<ObjectInfo>();
         ObjectInfo o_info2 = sp2.transform.parent.parent.GetComponent<ObjectInfo>();
         CheckIfLastConnectionUpdated(sp1, sp2, points[points.Count - 2].transform, points[points.Count - 1].transform, o_info1, o_info2);
-
         CreateLinkBetweenPoints(points[points.Count - 2], points[points.Count - 1]);
     }
     public void CreateLinkBetweenPoints(SewPoint point1, SewPoint point2)
@@ -213,11 +213,12 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
                 else
                     moveAbleTransform = info1.transform;
 
+                info1.movedPositions.Add(moveAbleTransform.position);
+                info2.movedPositions.Add(moveAbleTransform.position);
                 Vector3 targetPos = moveAbleTransform.position + avrOffset * info1.pullForce;
 
-
                 pullSeq.Join(moveAbleTransform.DOMove(targetPos, tweenDuration).SetEase(Ease.InOutSine));
-                
+               
                 pullSeq.Join(
                     moveAbleTransform.DORotate(info1.originalRotation, tweenDuration, RotateMode.Fast)
                     .SetEase(Ease.InOutSine)
@@ -247,10 +248,11 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
                     moveAbleTransform = info2.transform.parent;
                 else
                     moveAbleTransform = info2.transform;
-
+                info1.movedPositions.Add(moveAbleTransform.position);
+                info2.movedPositions.Add(moveAbleTransform.position);
                 Vector3 targetPos = moveAbleTransform.position + avrOffset * info2.pullForce;
                 pullSeq.Join(moveAbleTransform.DOMove(targetPos, tweenDuration).SetEase(Ease.InOutSine));
-                
+     
                 pullSeq.Join(
                    moveAbleTransform.DORotate(info2.originalRotation, tweenDuration, RotateMode.Fast)
                     .SetEase(Ease.InOutSine)
@@ -296,41 +298,39 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
     }
     void CheckIfLastConnectionUpdated(SewPoint sp1, SewPoint sp2, Transform p1, Transform p2, ObjectInfo info1, ObjectInfo info2)
     {
-        
-        if (p1.parent == p2.parent) return;
+
+        if (p1.parent == p2.parent)
+        {
+            sp2.pointMesh.enabled = true;
+            sp2.pointMesh.material = wrongPointMaterial;
+            return;
+        }
         if (sp1.connected || sp2.connected) return;
         if (dynamicStitch)
-            if (p1.parent.parent.parent == p2.parent.parent.parent) return;
-
+            if (p1.parent.parent.parent == p2.parent.parent.parent)
+            {
+                sp2.pointMesh.enabled = true;
+                sp2.pointMesh.material = wrongPointMaterial;
+                return;
+            }
+      
 
         if (sp1.attachmentId.Equals(sp2.attachmentId) || (sp2.attachmentId.Equals(sp1.attachmentId)))
-            StartCoroutine( IncrementLinksPerPart(sp1, sp2, info1, info2));
-        //else if (sp1.alternativeAttachments.Length > 0)
-        //{
-        //    if (sp1.alternativeAttachments.Contains(sp2.attachmentId))
-        //        StartCoroutine(IncrementLinksPerPart(sp1, sp2, info1, info2));
-        //}
-        //else if (sp2.alternativeAttachments.Length > 0)
-        //{
-        //    if (sp2.alternativeAttachments.Contains(sp1.attachmentId))
-        //        StartCoroutine(IncrementLinksPerPart(sp1, sp2, info1, info2));
-        //}
-        //var needleDetecto = ServiceLocator.GetService<INeedleDetector>();
-        //if (needleDetecto != null)
-        //{
-        //    needleDetecto.detect = true;
-        //}
+        {
+            sp1.pointMesh.material = correctPointMaterial;
+            sp2.pointMesh.material = correctPointMaterial;
+            sp2.pointMesh.enabled = false;
+            sp1.pointMesh.enabled = false;
+            StartCoroutine(IncrementLinksPerPart(sp1, sp2, info1, info2));
+        }
+        else
+        {
+            sp2.pointMesh.enabled = true;
+            sp2.pointMesh.material = wrongPointMaterial;
+        }
         //Debug.LogError(" checked ");
     }
-    //void EnableDetection()
-    //{
-    //    var needleDetecto = ServiceLocator.GetService<INeedleDetector>();
-    //    if (needleDetecto != null)
-    //    {
-    //        needleDetecto.detect = true;
-    //    }
-    //    CancelInvoke("EnableDetection");
-    //}
+
     IEnumerator IncrementLinksPerPart(SewPoint s1, SewPoint s2 , ObjectInfo o1, ObjectInfo o2)
     {
         s1.connected = true;
@@ -361,6 +361,14 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
             tween1 = null;
         }
        
+    }
+    public void UpdateConnections()
+    {
+        if (connections.Count == 0) return;
+        for(int i = 0; i < connections.Count; i++)
+        {
+            connections[i].UpdateLine(zVal, false);
+        }
     }
    
 }

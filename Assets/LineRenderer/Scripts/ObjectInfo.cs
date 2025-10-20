@@ -22,6 +22,7 @@ public class ObjectInfo : MonoBehaviour
     [SerializeField] string text;
     [SerializeField] List<GameObject> confettiObj;
     [SerializeField] int confettiIndex = 0;
+    public List<Vector3> movedPositions;
     public void MarkStitched()
     {
         IsStitched = true;

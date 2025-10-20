@@ -1,4 +1,5 @@
 using MoreMountains.NiceVibrations;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class NeedleDetector : MonoBehaviour, INeedleDetector
@@ -9,6 +10,7 @@ public class NeedleDetector : MonoBehaviour, INeedleDetector
     [field: SerializeField] public float minDetectionRadius { get; private set; }
     [field: SerializeField] public float maxDetectionRadius { get; private set; }
     [field: SerializeField] public bool detect { get; set; }
+    [field: SerializeField] public List<SewPoint> pointsDetected {  get; private set; }
 
     private void OnEnable()
     {
@@ -34,14 +36,15 @@ public class NeedleDetector : MonoBehaviour, INeedleDetector
         SewPoint sewPoint = colliders[0].GetComponent<SewPoint>();
         if (sewPoint.IsSelected()) return;
         sewPoint.Selected(true);
-        sewPoint.GetComponent<MeshRenderer>().enabled = false;
+        sewPoint.pointMesh.enabled = false;
         sewPoint.GetComponent<Collider>().enabled = false;
-        sewPoint.name = "sew"+ sewPoint.name;
+        sewPoint.name = sewPoint.transform.parent.name+"_sew_"+ sewPoint.name;
         PlaySound();
         sewPoint.ChangeTextColor(Color.green);
         GameEvents.EffectHandlerEvents.onSelectionEffect.RaiseEvent(sewPoint.transform);
         GameEvents.ThreadEvents.onCreatingConnection.RaiseEvent(sewPoint);
-       
+        if (!pointsDetected.Contains(sewPoint))
+            pointsDetected.Add(sewPoint);
     }
     void PlaySound()
     {
@@ -71,5 +74,23 @@ public class NeedleDetector : MonoBehaviour, INeedleDetector
         ServiceLocator.UnRegisterService<INeedleDetector>(this);
         GameEvents.NeedleDetectorEvents.onSetRadiusValue.UnregisterEvent(SetRadiusValue);
 
+    }
+    public void UndoLastConnectedPoint()
+    {
+        if (pointsDetected.Count == 0) return;
+
+        detect = false;
+        SewPoint s = null;
+        s = pointsDetected[pointsDetected.Count - 1];
+        s.GetComponent<Collider>().enabled = true;
+        s.pointMesh.enabled = true;
+        s.connected = false;
+        s.Selected(false);
+        s.ChangeTextColor(Color.white);
+        pointsDetected.Remove(s);
+    }
+    public SewPoint GetDetectedPoint(int index)
+    {
+        return pointsDetected[index];
     }
 }

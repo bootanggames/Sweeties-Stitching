@@ -51,6 +51,8 @@ public class GameCompleteHandler : MonoBehaviour, IGameService
     void GameComplete()
     {
         GameEvents.ThreadEvents.setThreadInput.RaiseEvent(false);
+        var coinsHandler = ServiceLocator.GetService<ICoinsHandler>();
+ 
         var canvasHandler = ServiceLocator.GetService<ICanvasUIManager>();
         if(canvasHandler != null)
         {
@@ -59,7 +61,11 @@ public class GameCompleteHandler : MonoBehaviour, IGameService
             RectTransform rt =  canvasHandler.completeStitchedPlushie.GetComponent<RectTransform>();
             rt.DOScale(1, speed).SetEase(Ease.Linear).OnComplete(() =>
             {
-
+                if (coinsHandler != null)
+                {
+                    coinsHandler.CreateCoinsObjects();
+                    StartCoroutine(coinsHandler.MoveCoins());
+                }
             });
         }
         GameHandler.instance.SwitchGameState(GameStates.Gamecomplete);

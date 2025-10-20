@@ -10,8 +10,6 @@ public class Connections
     public bool isLocked;
     public LineRenderer line;
     public List<LineRenderer> links;
-    int startIndex = 0;
-    int endIndex = 0;
     public bool multipleLine = false;
     int count = 0;
     public Connections(Transform p1, Transform p2, LineRenderer prefab, float zVal, bool multiple, int stitchCount)
@@ -68,21 +66,18 @@ public class Connections
             this.line.positionCount = 2;
             this.line.SetPosition(0, pos1);
             this.line.SetPosition(1, pos2);
-            this.line.name = "link";
-        
+
             var threadManager = ServiceLocator.GetService<IThreadManager>();
             if(threadManager != null)
             {
-                this.line.startColor = threadManager.threadColor[threadManager.threadIndex];
-                this.line.endColor = threadManager.threadColor[threadManager.threadIndex];
+                //this.line.material.color = threadManager.threadColor[threadManager.threadIndex];
+                //this.line.endColor = threadManager.threadColor[threadManager.threadIndex];
             }
             LevelsHandler.instance.currentLevelMeta.noOfCorrectLinks++;
             var canvasManager = ServiceLocator.GetService<ICanvasUIManager>();
             if (canvasManager != null)
                 canvasManager.UpdateStitchCount(LevelsHandler.instance.currentLevelMeta.totalCorrectLinks, LevelsHandler.instance.currentLevelMeta.noOfCorrectLinks);
         }
-
-
     }
     public void DestroyPreviousLine()
     {

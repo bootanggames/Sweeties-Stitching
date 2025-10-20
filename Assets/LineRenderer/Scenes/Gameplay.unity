@@ -202,6 +202,142 @@ MonoBehaviour:
   <gameCompletePanel>k__BackingField: {fileID: 1793497471}
   <stitchCountText>k__BackingField: {fileID: 1926589866}
   <stitchProgress>k__BackingField: {fileID: 164523661}
+--- !u!1 &12340139
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 12340140}
+  - component: {fileID: 12340142}
+  - component: {fileID: 12340141}
+  m_Layer: 5
+  m_Name: Text (TMP)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &12340140
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 12340139}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1170460113}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 79.9729, y: 0}
+  m_SizeDelta: {x: -159.95, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &12340141
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 12340139}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: 0
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4278214265
+  m_fontColor: {r: 0.47450984, g: 0.36862746, b: 0, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 100
+  m_fontSizeBase: 100
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 17
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
+  m_textAlignment: 65535
+  m_characterSpacing: -4
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_TextWrappingMode: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 0
+  m_ActiveFontFeatures: 6e72656b
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_EmojiFallbackSupport: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &12340142
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 12340139}
+  m_CullTransparentMesh: 1
 --- !u!1 &16139095
 GameObject:
   m_ObjectHideFlags: 0
@@ -824,6 +960,7 @@ MonoBehaviour:
   connected: 0
   sequenceType: 2
   textObj: {fileID: 0}
+  pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
 --- !u!135 &25616933
 SphereCollider:
@@ -2124,6 +2261,7 @@ MonoBehaviour:
   connected: 0
   sequenceType: 2
   textObj: {fileID: 0}
+  pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
 --- !u!135 &109348160
 SphereCollider:
@@ -2225,7 +2363,7 @@ Transform:
   m_GameObject: {fileID: 120125927}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: -0, z: -4.776388}
+  m_LocalPosition: {x: -0, y: -0.5, z: -4.776388}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2521,6 +2659,7 @@ MonoBehaviour:
   connected: 0
   sequenceType: 2
   textObj: {fileID: 0}
+  pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
 --- !u!135 &136971840
 SphereCollider:
@@ -3068,6 +3207,7 @@ MonoBehaviour:
   connected: 0
   sequenceType: 1
   textObj: {fileID: 0}
+  pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
 --- !u!135 &151139677
 SphereCollider:
@@ -3481,11 +3621,11 @@ Transform:
   m_GameObject: {fileID: 167002757}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 12}
-  m_LocalScale: {x: 4, y: 4, z: 4}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 1867880146}
+  m_Father: {fileID: 418202497}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &167002759
 SpriteRenderer:
@@ -3530,7 +3670,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -10
   m_Sprite: {fileID: 21300000, guid: 177272139b134fb4295507d2fad715b6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -3896,7 +4036,7 @@ Transform:
   m_GameObject: {fileID: 205147748}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: -0, z: -4.776388}
+  m_LocalPosition: {x: -0, y: -0.5, z: -4.776388}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4175,6 +4315,7 @@ MonoBehaviour:
   connected: 0
   sequenceType: 2
   textObj: {fileID: 0}
+  pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
 --- !u!135 &223528933
 SphereCollider:
@@ -4304,6 +4445,7 @@ MonoBehaviour:
   connected: 0
   sequenceType: 1
   textObj: {fileID: 0}
+  pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
 --- !u!135 &228802459
 SphereCollider:
@@ -4818,115 +4960,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!1 &270338631
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 270338635}
-  - component: {fileID: 270338634}
-  - component: {fileID: 270338633}
-  - component: {fileID: 270338632}
-  m_Layer: 0
-  m_Name: BG
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!65 &270338632
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 270338631}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!23 &270338633
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 270338631}
-  m_Enabled: 0
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RayTracingAccelStructBuildFlagsOverride: 0
-  m_RayTracingAccelStructBuildFlags: 1
-  m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 92a2f75d76f93ca4e83c40dc5ce303d2, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
---- !u!33 &270338634
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 270338631}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!4 &270338635
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 270338631}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 1}
-  m_LocalScale: {x: 500, y: 500, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1269092110}
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &273431398
 GameObject:
   m_ObjectHideFlags: 0
@@ -4981,6 +5014,7 @@ MonoBehaviour:
   connected: 0
   sequenceType: 2
   textObj: {fileID: 0}
+  pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
 --- !u!135 &273431401
 SphereCollider:
@@ -5072,7 +5106,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &280228470
 Transform:
   m_ObjectHideFlags: 0
@@ -5082,7 +5116,7 @@ Transform:
   m_GameObject: {fileID: 280228469}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 11.56, y: -1.07, z: 7.19}
+  m_LocalPosition: {x: 11.56, y: -1.07, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -5978,6 +6012,7 @@ MonoBehaviour:
   connected: 0
   sequenceType: 1
   textObj: {fileID: 0}
+  pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
 --- !u!135 &312318300
 SphereCollider:
@@ -6090,7 +6125,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 46, y: -300}
+  m_AnchoredPosition: {x: 46.000122, y: -546}
   m_SizeDelta: {x: 450, y: 450}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &334309694
@@ -6165,31 +6200,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 334309696}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2129525609}
-        m_TargetAssemblyTypeName: Thread_SpoolContainer, Assembly-CSharp
-        m_MethodName: SetGameState
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: ThreadStore
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 1396831282}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &334309696
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6282,6 +6293,7 @@ MonoBehaviour:
   connected: 0
   sequenceType: 1
   textObj: {fileID: 0}
+  pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
 --- !u!135 &337825978
 SphereCollider:
@@ -6368,7 +6380,7 @@ GameObject:
   - component: {fileID: 345569178}
   - component: {fileID: 345569179}
   m_Layer: 0
-  m_Name: Plushie_2
+  m_Name: Plushie_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6598,7 +6610,7 @@ Transform:
   m_GameObject: {fileID: 352350667}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.0000021234155, y: -0.0000022649765, z: -4.776388}
+  m_LocalPosition: {x: 0, y: -0.5, z: -4.776388}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6658,6 +6670,7 @@ MonoBehaviour:
   connected: 0
   sequenceType: 2
   textObj: {fileID: 0}
+  pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
 --- !u!135 &354228884
 SphereCollider:
@@ -7281,6 +7294,7 @@ MonoBehaviour:
   connected: 0
   sequenceType: 2
   textObj: {fileID: 0}
+  pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
 --- !u!135 &386921003
 SphereCollider:
@@ -7392,7 +7406,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 14, y: -609}
+  m_AnchoredPosition: {x: 14, y: -725}
   m_SizeDelta: {x: 849.9624, y: 352.712}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &387718254
@@ -7682,6 +7696,40 @@ RectTransform:
   m_AnchoredPosition: {x: 2.39, y: 6.321}
   m_SizeDelta: {x: 3.712, y: 1.203}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &418202496
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 418202497}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &418202497
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 418202496}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.88, z: 0}
+  m_LocalScale: {x: 1.3, y: 1.3, z: 1.3}
+  m_ConstrainProportionsScale: 1
+  m_Children:
+  - {fileID: 1384744067}
+  - {fileID: 1034827577}
+  - {fileID: 167002758}
+  m_Father: {fileID: 1867880146}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &422923793
 GameObject:
   m_ObjectHideFlags: 0
@@ -7843,6 +7891,7 @@ MonoBehaviour:
   connected: 0
   sequenceType: 2
   textObj: {fileID: 0}
+  pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
 --- !u!135 &432733092
 SphereCollider:
@@ -8129,6 +8178,7 @@ MonoBehaviour:
   connected: 0
   sequenceType: 2
   textObj: {fileID: 0}
+  pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
 --- !u!135 &463026082
 SphereCollider:
@@ -8434,6 +8484,7 @@ MonoBehaviour:
   connected: 0
   sequenceType: 1
   textObj: {fileID: 0}
+  pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
 --- !u!135 &466796729
 SphereCollider:
@@ -8814,6 +8865,7 @@ MonoBehaviour:
   connected: 0
   sequenceType: 2
   textObj: {fileID: 0}
+  pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
 --- !u!135 &510351665
 SphereCollider:
@@ -9329,6 +9381,7 @@ MonoBehaviour:
   connected: 0
   sequenceType: 2
   textObj: {fileID: 0}
+  pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
 --- !u!135 &530154797
 SphereCollider:
@@ -9778,6 +9831,7 @@ MonoBehaviour:
   connected: 0
   sequenceType: 1
   textObj: {fileID: 0}
+  pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
 --- !u!135 &551292558
 SphereCollider:
@@ -10336,6 +10390,7 @@ MonoBehaviour:
   connected: 0
   sequenceType: 2
   textObj: {fileID: 0}
+  pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
 --- !u!135 &581904133
 SphereCollider:
@@ -10716,6 +10771,7 @@ MonoBehaviour:
   connected: 0
   sequenceType: 2
   textObj: {fileID: 0}
+  pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
 --- !u!135 &607189627
 SphereCollider:
@@ -11023,6 +11079,7 @@ MonoBehaviour:
   connected: 0
   sequenceType: 2
   textObj: {fileID: 0}
+  pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
 --- !u!135 &608285794
 SphereCollider:
@@ -11448,7 +11505,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 46, y: 38}
+  m_AnchoredPosition: {x: 46.000122, y: -208}
   m_SizeDelta: {x: 450, y: 450}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &623346532
@@ -11807,6 +11864,7 @@ MonoBehaviour:
   connected: 0
   sequenceType: 1
   textObj: {fileID: 0}
+  pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
 --- !u!135 &639319521
 SphereCollider:
@@ -11977,7 +12035,7 @@ MonoBehaviour:
   moveLimit: {x: 4, y: 12}
   lastNeedlePos: {x: 0, y: 0}
   startPoint: {fileID: 8756288}
-  needleOffset: 0.125
+  needleOffset: 0.15
   direction: {x: 0, y: 0, z: 0}
   canvasGraphicRaycaster: {fileID: 1149618481}
   eventSystem: {fileID: 140645628}
@@ -12035,6 +12093,7 @@ MonoBehaviour:
   connected: 0
   sequenceType: 1
   textObj: {fileID: 0}
+  pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
 --- !u!135 &678614139
 SphereCollider:
@@ -12164,6 +12223,7 @@ MonoBehaviour:
   connected: 0
   sequenceType: 2
   textObj: {fileID: 0}
+  pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
 --- !u!135 &678796005
 SphereCollider:
@@ -12801,7 +12861,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -5
   m_Sprite: {fileID: 21300000, guid: bbdfd7d158066324c872c2c86bad69c3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -12822,8 +12882,8 @@ Transform:
   m_GameObject: {fileID: 710149427}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -12.59, y: -2.49, z: 7}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -5.69, y: -0.05, z: 0.27}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1867880146}
@@ -12917,6 +12977,7 @@ MonoBehaviour:
   connected: 0
   sequenceType: 1
   textObj: {fileID: 0}
+  pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
 --- !u!135 &732024247
 SphereCollider:
@@ -13046,6 +13107,7 @@ MonoBehaviour:
   connected: 0
   sequenceType: 1
   textObj: {fileID: 0}
+  pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
 --- !u!135 &744840387
 SphereCollider:
@@ -13121,6 +13183,169 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 744840384}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &753519908
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 753519909}
+  - component: {fileID: 753519913}
+  - component: {fileID: 753519912}
+  - component: {fileID: 753519911}
+  - component: {fileID: 753519910}
+  m_Layer: 5
+  m_Name: Undo
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &753519909
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 753519908}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1422895530}
+  m_Father: {fileID: 1149618484}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -620, y: -19}
+  m_SizeDelta: {x: 200, y: 200}
+  m_Pivot: {x: 1, y: 1}
+--- !u!114 &753519910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 753519908}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 2
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 549553676}
+          m_TargetAssemblyTypeName: SoundManager, Assembly-CSharp
+          m_MethodName: ButtonClick
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &753519911
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 753519908}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 753519912}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1838365396}
+        m_TargetAssemblyTypeName: ThreadManager, Assembly-CSharp
+        m_MethodName: UndoThread
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &753519912
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 753519908}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 1a3d766705e8fce41bcaa2921051a083, type: 3}
+  m_Type: 1
+  m_PreserveAspect: 1
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 0.5
+--- !u!222 &753519913
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 753519908}
+  m_CullTransparentMesh: 1
 --- !u!1 &762994094
 GameObject:
   m_ObjectHideFlags: 0
@@ -13340,6 +13565,9 @@ Transform:
   - {fileID: 636282301}
   - {fileID: 24999083}
   - {fileID: 2129525608}
+  - {fileID: 1426938595}
+  - {fileID: 979290071}
+  - {fileID: 870899205}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &776723388
@@ -13396,6 +13624,7 @@ MonoBehaviour:
   connected: 0
   sequenceType: 1
   textObj: {fileID: 0}
+  pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
 --- !u!135 &776723391
 SphereCollider:
@@ -14104,6 +14333,7 @@ MonoBehaviour:
   connected: 0
   sequenceType: 1
   textObj: {fileID: 0}
+  pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
 --- !u!135 &809667788
 SphereCollider:
@@ -14243,8 +14473,8 @@ Transform:
   m_GameObject: {fileID: 814784182}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.031, y: 1.804, z: -0.1}
-  m_LocalScale: {x: 0.9, y: 0.9, z: 0.9}
+  m_LocalPosition: {x: -0.031, y: 1.755, z: -0.1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 2043785586}
@@ -14265,10 +14495,11 @@ MonoBehaviour:
   detectLayer:
     serializedVersion: 2
     m_Bits: 128
-  <detectionRadius>k__BackingField: 0.011
+  <detectionRadius>k__BackingField: 0.015
   <minDetectionRadius>k__BackingField: 0.001
   <maxDetectionRadius>k__BackingField: 1
   <detect>k__BackingField: 1
+  <pointsDetected>k__BackingField: []
 --- !u!135 &814784185
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -14709,7 +14940,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -44, y: 0}
+  m_AnchoredPosition: {x: -44.000122, y: 0}
   m_SizeDelta: {x: 450, y: 450}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &824462030
@@ -14889,6 +15120,7 @@ MonoBehaviour:
   connected: 0
   sequenceType: 2
   textObj: {fileID: 0}
+  pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
 --- !u!135 &826939936
 SphereCollider:
@@ -15084,6 +15316,7 @@ MonoBehaviour:
   connected: 0
   sequenceType: 2
   textObj: {fileID: 0}
+  pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
 --- !u!135 &846661663
 SphereCollider:
@@ -15213,6 +15446,7 @@ MonoBehaviour:
   connected: 0
   sequenceType: 2
   textObj: {fileID: 0}
+  pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
 --- !u!135 &856883944
 SphereCollider:
@@ -15518,6 +15752,7 @@ MonoBehaviour:
   connected: 0
   sequenceType: 2
   textObj: {fileID: 0}
+  pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
 --- !u!135 &862246269
 SphereCollider:
@@ -15647,6 +15882,7 @@ MonoBehaviour:
   connected: 0
   sequenceType: 2
   textObj: {fileID: 0}
+  pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
 --- !u!135 &862999055
 SphereCollider:
@@ -15844,6 +16080,60 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &870899204
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 870899205}
+  - component: {fileID: 870899206}
+  m_Layer: 0
+  m_Name: CoinsHandler
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &870899205
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 870899204}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 764609721}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &870899206
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 870899204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a834fa0f90a92947bb7d96bdafcec03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coinsTextBox: {fileID: 12340141}
+  totalCoins: 0
+  coinPrefab: {fileID: 2892916225644379319, guid: ba76c683c1681064bb2872e62328f9f4, type: 3}
+  totalCoinsCloneCount: 30
+  coinsObjList: []
+  coinsUiParent: {fileID: 1149618484}
+  xPos: 617
+  yPos: 487
+  targetPointToMove: {fileID: 6167345425118291698}
+  coinMoveSpeed: 0.5
 --- !u!1 &896695318
 GameObject:
   m_ObjectHideFlags: 0
@@ -15929,6 +16219,7 @@ MonoBehaviour:
   connected: 0
   sequenceType: 2
   textObj: {fileID: 0}
+  pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
 --- !u!135 &900480155
 SphereCollider:
@@ -16343,7 +16634,7 @@ Transform:
   m_GameObject: {fileID: 961739749}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.053362124, y: 1.3964877, z: -4.776388}
+  m_LocalPosition: {x: -0.05336, y: 0.89649, z: -4.776388}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -16435,6 +16726,7 @@ MonoBehaviour:
   connected: 0
   sequenceType: 2
   textObj: {fileID: 0}
+  pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
 --- !u!135 &975575335
 SphereCollider:
@@ -16510,6 +16802,37 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 975575332}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &979290070
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 979290071}
+  m_Layer: 0
+  m_Name: PlushiesStoreHandler
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &979290071
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 979290070}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 764609721}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &989427932
 GameObject:
   m_ObjectHideFlags: 0
@@ -16964,6 +17287,7 @@ MonoBehaviour:
   connected: 0
   sequenceType: 2
   textObj: {fileID: 0}
+  pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
 --- !u!135 &1012754978
 SphereCollider:
@@ -17093,6 +17417,7 @@ MonoBehaviour:
   connected: 0
   sequenceType: 1
   textObj: {fileID: 0}
+  pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
 --- !u!135 &1012798149
 SphereCollider:
@@ -17451,7 +17776,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 46, y: -640}
+  m_AnchoredPosition: {x: 46.000122, y: -886}
   m_SizeDelta: {x: 450, y: 450}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &1022661603
@@ -17591,11 +17916,11 @@ Transform:
   m_GameObject: {fileID: 1034827576}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 12}
-  m_LocalScale: {x: 4, y: 4, z: 4}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 1867880146}
+  m_Father: {fileID: 418202497}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1034827578
 SpriteRenderer:
@@ -17640,7 +17965,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -10
   m_Sprite: {fileID: 21300000, guid: 26fb71a64fb4de94e90b836e7ac53969, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -17992,6 +18317,7 @@ MonoBehaviour:
   connected: 0
   sequenceType: 2
   textObj: {fileID: 0}
+  pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
 --- !u!135 &1072027913
 SphereCollider:
@@ -18121,6 +18447,7 @@ MonoBehaviour:
   connected: 0
   sequenceType: 1
   textObj: {fileID: 0}
+  pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
 --- !u!135 &1072849251
 SphereCollider:
@@ -18703,6 +19030,7 @@ MonoBehaviour:
   connected: 0
   sequenceType: 1
   textObj: {fileID: 0}
+  pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
 --- !u!135 &1090691585
 SphereCollider:
@@ -18832,6 +19160,7 @@ MonoBehaviour:
   connected: 0
   sequenceType: 1
   textObj: {fileID: 0}
+  pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
 --- !u!135 &1106767154
 SphereCollider:
@@ -19036,6 +19365,7 @@ MonoBehaviour:
   connected: 0
   sequenceType: 1
   textObj: {fileID: 0}
+  pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
 --- !u!135 &1114955663
 SphereCollider:
@@ -19341,6 +19671,7 @@ MonoBehaviour:
   connected: 0
   sequenceType: 1
   textObj: {fileID: 0}
+  pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
 --- !u!135 &1140511356
 SphereCollider:
@@ -19470,6 +19801,7 @@ MonoBehaviour:
   connected: 0
   sequenceType: 1
   textObj: {fileID: 0}
+  pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
 --- !u!135 &1141580148
 SphereCollider:
@@ -19640,11 +19972,13 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 824462029}
-  - {fileID: 149753300}
+  - {fileID: 1170460113}
   - {fileID: 623346531}
   - {fileID: 334309693}
   - {fileID: 1022661602}
+  - {fileID: 149753300}
+  - {fileID: 824462029}
+  - {fileID: 753519909}
   - {fileID: 1862154625}
   - {fileID: 425028754}
   - {fileID: 1732852698}
@@ -19792,6 +20126,83 @@ Transform:
   - {fileID: 1114955661}
   m_Father: {fileID: 422923794}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1170460112
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1170460113}
+  - component: {fileID: 1170460115}
+  - component: {fileID: 1170460114}
+  m_Layer: 5
+  m_Name: Coins
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1170460113
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1170460112}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 12340140}
+  - {fileID: 6167345425118291698}
+  m_Father: {fileID: 1149618484}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -32, y: -32}
+  m_SizeDelta: {x: 563.7322, y: 176}
+  m_Pivot: {x: 1, y: 1}
+--- !u!114 &1170460114
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1170460112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.80392164, g: 0.67058825, b: 0.0627451, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 1a3d766705e8fce41bcaa2921051a083, type: 3}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 0.5
+--- !u!222 &1170460115
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1170460112}
+  m_CullTransparentMesh: 1
 --- !u!1 &1172602245
 GameObject:
   m_ObjectHideFlags: 0
@@ -20022,6 +20433,7 @@ MonoBehaviour:
   connected: 0
   sequenceType: 1
   textObj: {fileID: 0}
+  pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
 --- !u!135 &1190896317
 SphereCollider:
@@ -20151,6 +20563,7 @@ MonoBehaviour:
   connected: 0
   sequenceType: 2
   textObj: {fileID: 0}
+  pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
 --- !u!135 &1197941886
 SphereCollider:
@@ -20531,6 +20944,7 @@ MonoBehaviour:
   connected: 0
   sequenceType: 1
   textObj: {fileID: 0}
+  pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
 --- !u!135 &1237640283
 SphereCollider:
@@ -20940,6 +21354,7 @@ MonoBehaviour:
   connected: 0
   sequenceType: 2
   textObj: {fileID: 0}
+  pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
 --- !u!135 &1258633265
 SphereCollider:
@@ -21291,12 +21706,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1269092109}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.02}
-  m_LocalScale: {x: 0.0043496913, y: 0.0073101, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 270338635}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1269092111
 SpriteRenderer:
@@ -21341,7 +21756,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -1
+  m_SortingOrder: -5
   m_Sprite: {fileID: 21300000, guid: edda6687d3110f244ba2939e6b01a173, type: 3}
   m_Color: {r: 0.9245283, g: 0.9245283, b: 0.9245283, a: 1}
   m_FlipX: 0
@@ -21687,6 +22102,7 @@ MonoBehaviour:
   connected: 0
   sequenceType: 1
   textObj: {fileID: 0}
+  pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
 --- !u!135 &1286393256
 SphereCollider:
@@ -22062,6 +22478,7 @@ MonoBehaviour:
   connected: 0
   sequenceType: 1
   textObj: {fileID: 0}
+  pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
 --- !u!135 &1363262638
 SphereCollider:
@@ -22273,11 +22690,11 @@ Transform:
   m_GameObject: {fileID: 1384744066}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 12}
-  m_LocalScale: {x: 4, y: 4, z: 4}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 1867880146}
+  m_Father: {fileID: 418202497}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1384744068
 SpriteRenderer:
@@ -22322,7 +22739,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -10
   m_Sprite: {fileID: 21300000, guid: 9a6bbc831994d4f4abc283632070165a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -22817,6 +23234,7 @@ MonoBehaviour:
   connected: 0
   sequenceType: 1
   textObj: {fileID: 0}
+  pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
 --- !u!135 &1411926406
 SphereCollider:
@@ -22922,6 +23340,174 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1531723432}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1422895529
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1422895530}
+  - component: {fileID: 1422895532}
+  - component: {fileID: 1422895531}
+  m_Layer: 5
+  m_Name: Text (TMP)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1422895530
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1422895529}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 753519909}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1422895531
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1422895529}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: undo
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: 79459efec17a4d00a321bdcc27bbc385, type: 2}
+  m_fontSharedMaterials:
+  - {fileID: 2100000, guid: 79459efec17a4d00a321bdcc27bbc385, type: 2}
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4281479730
+  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 50
+  m_fontSizeBase: 50
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 17
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_TextWrappingMode: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 0
+  m_ActiveFontFeatures: 6e72656b
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_EmojiFallbackSupport: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &1422895532
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1422895529}
+  m_CullTransparentMesh: 1
+--- !u!1 &1426938594
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1426938595}
+  m_Layer: 0
+  m_Name: ButtonsStoreHandler
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1426938595
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1426938594}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 764609721}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1435242422
 GameObject:
@@ -23465,6 +24051,7 @@ MonoBehaviour:
   connected: 0
   sequenceType: 2
   textObj: {fileID: 0}
+  pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
 --- !u!135 &1451163556
 SphereCollider:
@@ -23594,6 +24181,7 @@ MonoBehaviour:
   connected: 0
   sequenceType: 1
   textObj: {fileID: 0}
+  pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
 --- !u!135 &1454023278
 SphereCollider:
@@ -24049,6 +24637,7 @@ MonoBehaviour:
   connected: 0
   sequenceType: 1
   textObj: {fileID: 0}
+  pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
 --- !u!135 &1493207834
 SphereCollider:
@@ -24300,6 +24889,7 @@ MonoBehaviour:
   connected: 0
   sequenceType: 2
   textObj: {fileID: 0}
+  pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
 --- !u!135 &1517212776
 SphereCollider:
@@ -24605,6 +25195,7 @@ MonoBehaviour:
   connected: 0
   sequenceType: 2
   textObj: {fileID: 0}
+  pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
 --- !u!135 &1526407057
 SphereCollider:
@@ -25068,6 +25659,7 @@ MonoBehaviour:
   connected: 0
   sequenceType: 2
   textObj: {fileID: 0}
+  pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
 --- !u!135 &1542508483
 SphereCollider:
@@ -25197,6 +25789,7 @@ MonoBehaviour:
   connected: 0
   sequenceType: 1
   textObj: {fileID: 0}
+  pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
 --- !u!135 &1555219137
 SphereCollider:
@@ -25326,6 +25919,7 @@ MonoBehaviour:
   connected: 0
   sequenceType: 2
   textObj: {fileID: 0}
+  pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
 --- !u!135 &1555684857
 SphereCollider:
@@ -25824,6 +26418,7 @@ MonoBehaviour:
   connected: 0
   sequenceType: 2
   textObj: {fileID: 0}
+  pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
 --- !u!135 &1575320388
 SphereCollider:
@@ -26129,6 +26724,7 @@ MonoBehaviour:
   connected: 0
   sequenceType: 2
   textObj: {fileID: 0}
+  pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
 --- !u!135 &1578461345
 SphereCollider:
@@ -26263,6 +26859,8 @@ MonoBehaviour:
   zVal: -0.1
   rotationSpeed: 0
   pullForce: 0.8
+  correctPointMaterial: {fileID: 2100000, guid: f6f43e43b73651441a6fa3294093763e, type: 2}
+  wrongPointMaterial: {fileID: 2100000, guid: 4616913e2c0ff5e48944fdd4195515fa, type: 2}
 --- !u!1 &1579197748
 GameObject:
   m_ObjectHideFlags: 0
@@ -27379,6 +27977,7 @@ MonoBehaviour:
   connected: 0
   sequenceType: 1
   textObj: {fileID: 0}
+  pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
 --- !u!135 &1655691612
 SphereCollider:
@@ -29374,6 +29973,7 @@ MonoBehaviour:
   connected: 0
   sequenceType: 2
   textObj: {fileID: 0}
+  pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
 --- !u!135 &1820921652
 SphereCollider:
@@ -29848,26 +30448,19 @@ MonoBehaviour:
   <threadInput>k__BackingField: 0
   <freeForm>k__BackingField: 0
   <detectedPoints>k__BackingField: []
-  <threadColor>k__BackingField:
-  - {r: 1, g: 1, b: 1, a: 1}
-  - {r: 1, g: 0, b: 0, a: 1}
-  - {r: 0.29411766, g: 0.94509804, b: 0, a: 1}
-  - {r: 1, g: 0, b: 0.98039216, a: 1}
-  - {r: 0, g: 0.17254902, b: 1, a: 1}
   lineRenderer: {fileID: 7377872058111036791, guid: 9b87cbba0ae87414faacff166a8bcaad, type: 3}
   currentRopeStartPosition: {x: 0, y: 0, z: 0}
   minDistanceBetweenSewPoints: 0.015
   threadMaxLength: 35
   threadParent: {fileID: 1838365395}
   detectedPointsCount: 0
-  instantiatedLine: {fileID: 0}
+  <instantiatedLine>k__BackingField: {fileID: 0}
   pointsLinkParent: {fileID: 1578754646}
-  prevLine: {fileID: 0}
-  lastConnectedPoint: {fileID: 0}
   zVal: -0.01
   startPoint: {fileID: 8756288}
   direction: {x: 0, y: 0, z: 0}
   <threadIndex>k__BackingField: 0
+  <prevLine>k__BackingField: {fileID: 0}
 --- !u!1 &1847134257
 GameObject:
   m_ObjectHideFlags: 0
@@ -29922,6 +30515,7 @@ MonoBehaviour:
   connected: 0
   sequenceType: 1
   textObj: {fileID: 0}
+  pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
 --- !u!135 &1847134260
 SphereCollider:
@@ -30051,6 +30645,7 @@ MonoBehaviour:
   connected: 0
   sequenceType: 2
   textObj: {fileID: 0}
+  pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
 --- !u!135 &1851410847
 SphereCollider:
@@ -30349,9 +30944,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
-  - {fileID: 1384744067}
-  - {fileID: 1034827577}
-  - {fileID: 167002758}
+  - {fileID: 418202497}
   - {fileID: 710149429}
   - {fileID: 2129356733}
   - {fileID: 280228470}
@@ -30763,6 +31356,7 @@ MonoBehaviour:
   connected: 0
   sequenceType: 2
   textObj: {fileID: 0}
+  pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
 --- !u!135 &1906892705
 SphereCollider:
@@ -32026,6 +32620,7 @@ MonoBehaviour:
   connected: 0
   sequenceType: 1
   textObj: {fileID: 0}
+  pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
 --- !u!135 &1971465574
 SphereCollider:
@@ -32748,6 +33343,7 @@ MonoBehaviour:
   connected: 0
   sequenceType: 1
   textObj: {fileID: 0}
+  pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
 --- !u!135 &2010447776
 SphereCollider:
@@ -33053,6 +33649,7 @@ MonoBehaviour:
   connected: 0
   sequenceType: 1
   textObj: {fileID: 0}
+  pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
 --- !u!135 &2015260562
 SphereCollider:
@@ -33389,6 +33986,7 @@ MonoBehaviour:
   connected: 0
   sequenceType: 1
   textObj: {fileID: 0}
+  pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
 --- !u!135 &2019491278
 SphereCollider:
@@ -33584,6 +34182,7 @@ MonoBehaviour:
   connected: 0
   sequenceType: 2
   textObj: {fileID: 0}
+  pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
 --- !u!135 &2030403418
 SphereCollider:
@@ -33777,6 +34376,7 @@ MonoBehaviour:
   connected: 0
   sequenceType: 1
   textObj: {fileID: 0}
+  pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
 --- !u!135 &2035282545
 SphereCollider:
@@ -34109,7 +34709,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -2.5809, z: 0}
-  m_LocalScale: {x: 0.0214645, y: 0.0214645, z: 0.0214645}
+  m_LocalScale: {x: 0.027, y: 0.027, z: 0.027}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 233079225}
@@ -34363,6 +34963,7 @@ MonoBehaviour:
   connected: 0
   sequenceType: 1
   textObj: {fileID: 0}
+  pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
 --- !u!135 &2057992253
 SphereCollider:
@@ -34668,6 +35269,7 @@ MonoBehaviour:
   connected: 0
   sequenceType: 2
   textObj: {fileID: 0}
+  pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
 --- !u!135 &2094940845
 SphereCollider:
@@ -34797,6 +35399,7 @@ MonoBehaviour:
   connected: 0
   sequenceType: 2
   textObj: {fileID: 0}
+  pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
 --- !u!135 &2098071763
 SphereCollider:
@@ -36054,6 +36657,7 @@ MonoBehaviour:
   connected: 0
   sequenceType: 1
   textObj: {fileID: 0}
+  pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
 --- !u!135 &2128583229
 SphereCollider:
@@ -36145,7 +36749,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2129356733
 Transform:
   m_ObjectHideFlags: 0
@@ -36155,7 +36759,7 @@ Transform:
   m_GameObject: {fileID: 2129356732}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.58, y: 1.84, z: 11.7}
+  m_LocalPosition: {x: 1.58, y: 1.84, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -36507,6 +37111,7 @@ MonoBehaviour:
   connected: 0
   sequenceType: 2
   textObj: {fileID: 0}
+  pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
 --- !u!135 &2140222305
 SphereCollider:
@@ -36636,6 +37241,7 @@ MonoBehaviour:
   connected: 0
   sequenceType: 1
   textObj: {fileID: 0}
+  pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
 --- !u!135 &2141766051
 SphereCollider:
@@ -36941,6 +37547,7 @@ MonoBehaviour:
   connected: 0
   sequenceType: 1
   textObj: {fileID: 0}
+  pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
 --- !u!135 &2144423072
 SphereCollider:
@@ -37192,6 +37799,81 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!222 &1361490241768698367
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3446467323397636559}
+  m_CullTransparentMesh: 1
+--- !u!1 &3446467323397636559
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6167345425118291698}
+  - component: {fileID: 1361490241768698367}
+  - component: {fileID: 6507477736643756916}
+  m_Layer: 5
+  m_Name: Coin
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &6167345425118291698
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3446467323397636559}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1170460113}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0.5}
+  m_AnchorMax: {x: 0, y: 0.5}
+  m_AnchoredPosition: {x: 101.91254, y: 0}
+  m_SizeDelta: {x: 180.1749, y: 164}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &6507477736643756916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3446467323397636559}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.72156864, g: 0.35686275, b: 0, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: aef37d33237cb164eb2af392472323c3, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -37199,7 +37881,7 @@ SceneRoots:
   - {fileID: 961739753}
   - {fileID: 203844589}
   - {fileID: 764609721}
-  - {fileID: 270338635}
+  - {fileID: 1269092110}
   - {fileID: 1149618484}
   - {fileID: 140645629}
   - {fileID: 8756288}

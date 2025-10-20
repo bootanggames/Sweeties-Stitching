@@ -18,4 +18,5 @@ public interface IPointConnectionHandler : IGameService
     void CreateLinkBetweenPoints(SewPoint point1, SewPoint point2);
     void ManageConnetions(Connections c);
     void ApplyForces(Transform p1, Transform p2);
+    void UpdateConnections();
 }

@@ -12,7 +12,9 @@ public class LevelsHandler : Singleton<LevelsHandler>, ILevelHandler
     {
         base.SingletonAwake();
         RegisterService();
-        SetNextLevel();
+        levelIndex = PlayerPrefs.GetInt("Level");
+
+        SetLevel();
         currentLevelMeta = levels[levelIndex].GetComponent<Level_Metadata>();
     }
     public override void SingletonOnDestroy()
@@ -20,14 +22,7 @@ public class LevelsHandler : Singleton<LevelsHandler>, ILevelHandler
         base.SingletonOnDestroy();
         UnRegisterService();
     }
-    //private void Start()
-    //{
-    //    if(levelIndex == 1)
-    //        GameEvents.PointConnectionHandlerEvents.onSettingPlushieLevel2.RaiseEvent(true);
-    //    else
-    //        GameEvents.PointConnectionHandlerEvents.onSettingPlushieLevel2.RaiseEvent(false);
-
-    //}
+ 
     public void RegisterService()
     {
         ServiceLocator.RegisterService<ILevelHandler>(this);
@@ -41,9 +36,33 @@ public class LevelsHandler : Singleton<LevelsHandler>, ILevelHandler
     {
         PlayerPrefs.SetInt("Level", val);
     }
-    public void SetNextLevel()
+    public void NextPlushie()
     {
+        var coinHandler = ServiceLocator.GetService<ICoinsHandler>();
+        if(coinHandler != null)
+            coinHandler.ResetCoinList();
+        var connectionHandler = ServiceLocator.GetService<IPointConnectionHandler>();
+        if (connectionHandler != null) connectionHandler.DeleteAllThreadLinks();
+     
         levelIndex = PlayerPrefs.GetInt("Level");
+        levelIndex++;
+
+        if (levelIndex >= levels.Count)
+            levelIndex = 0;
+
+       currentLevelMeta = levels[levelIndex].GetComponent<Level_Metadata>();
+
+        var canvasHandler = ServiceLocator.GetService<ICanvasUIManager>();
+        if (canvasHandler != null)
+        {
+            canvasHandler.tapToStartButton.SetActive(true);
+            canvasHandler.stitchCountText.text = currentLevelMeta.noOfCorrectLinks + " OF " + currentLevelMeta.totalCorrectLinks;
+        }
+        
+        SetLevel();
+    }
+    public void SetLevel()
+    {
         foreach(GameObject g in levels)
         {
             g.SetActive(false);

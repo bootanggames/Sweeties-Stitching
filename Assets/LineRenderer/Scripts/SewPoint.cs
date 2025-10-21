@@ -6,7 +6,7 @@ public class SewPoint : MonoBehaviour, ISewPoint
 {
     public float zVal;
     public int attachmentId;
-    public int[] alternativeAttachments;
+    //public int[] alternativeAttachments;
     public bool connected = false;
     public SequenceType sequenceType;
     [SerializeField] TextMeshPro textObj;

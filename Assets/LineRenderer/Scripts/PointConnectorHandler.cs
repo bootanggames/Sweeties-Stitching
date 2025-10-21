@@ -123,8 +123,6 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
             connection.isLocked = true;
 
     }
-
-   
     public void ManageConnetions(Connections c)
     {
         ApplyForces(c.point1, c.point2);
@@ -305,7 +303,8 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
             sp2.pointMesh.material = wrongPointMaterial;
             return;
         }
-        if (sp1.connected || sp2.connected) return;
+
+        if (sp1.connected && sp2.connected) return;
         if (dynamicStitch)
             if (p1.parent.parent.parent == p2.parent.parent.parent)
             {
@@ -313,7 +312,6 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
                 sp2.pointMesh.material = wrongPointMaterial;
                 return;
             }
-      
 
         if (sp1.attachmentId.Equals(sp2.attachmentId) || (sp2.attachmentId.Equals(sp1.attachmentId)))
         {
@@ -371,4 +369,13 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
         }
     }
    
+    public void DeleteAllThreadLinks()
+    {
+        if (connections.Count == 0) return;
+        for (int i = 0; i < connections.Count; i++)
+        {
+            Destroy(connections[i].line.gameObject);
+        }
+        connections.Clear();
+    }
 }

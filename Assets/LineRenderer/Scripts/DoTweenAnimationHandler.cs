@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class DoTweenAnimationHandler : MonoBehaviour
 {
+    
     private void OnEnable()
     {
         GameEvents.DoTweenAnimationHandlerEvents.onScaleAnimation.RegisterEvent(ScaleInOut);
@@ -24,8 +25,11 @@ public class DoTweenAnimationHandler : MonoBehaviour
         });
     }
 
-    void MoveToTarget(Transform obj, Transform target, float moveSpeed, Ease ease)
+    Tween MoveToTarget(Transform obj, Transform target, float moveSpeed, Ease ease)
     {
-        obj.DOMove(target.position, moveSpeed).SetEase(ease).OnComplete(() => { });
+        Tween moveTween = null;
+        moveTween = obj.DOMove(target.position, moveSpeed).SetEase(ease);
+        return moveTween;
     }
+
 }

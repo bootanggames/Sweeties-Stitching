@@ -78,4 +78,15 @@ public class InputManager : MonoBehaviour
         position = Input.mousePosition;
         return Camera.main.ScreenToWorldPoint(position);
     }
+
+    public void UpdateNeedleOffset()
+    {
+        var canvasHandler = ServiceLocator.GetService<ICanvasUIManager>();
+        if (canvasHandler != null)
+        {
+            if (canvasHandler.needleOffset == null) return;
+
+            needleOffset = canvasHandler.needleOffset.value;
+        }
+    }
 }

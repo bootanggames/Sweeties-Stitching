@@ -1,3 +1,4 @@
+using System;
 using Unity.Cinemachine;
 using UnityEngine;
 
@@ -52,5 +53,10 @@ public class CameraManager : MonoBehaviour, ICameraManager
     {
         ServiceLocator.UnRegisterService<ICameraManager>(this);
         GameEvents.CameraManagerEvents.onAddingCamera.UnregisterEvent(AddCamera);
+    }
+
+    public void RepositionCamera(Transform camera, Transform pos)
+    {
+        camera.localPosition = pos.localPosition;
     }
 }

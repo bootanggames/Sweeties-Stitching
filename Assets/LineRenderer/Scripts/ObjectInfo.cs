@@ -16,16 +16,18 @@ public class ObjectInfo : MonoBehaviour
     public float pullForce;
     public int totalConnections;
     public int noOfConnections;
-    public Transform targetCameraPoint;
 
     [SerializeField] GameObject completeStitchTextObj;
     [SerializeField] string text;
     [SerializeField] List<GameObject> confettiObj;
     [SerializeField] int confettiIndex = 0;
     public List<Vector3> movedPositions;
+    [SerializeField] GameObject cotton;
     public void MarkStitched()
     {
         IsStitched = true;
+        if(cotton)
+            cotton.SetActive(false);
         PlaySound();
         if (completeStitchTextObj)
         {

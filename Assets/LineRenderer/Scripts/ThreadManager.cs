@@ -268,27 +268,27 @@ public class ThreadManager : MonoBehaviour, IThreadManager
     }
     public void UndoThread()
     {
-        var pointDetector = ServiceLocator.GetService<INeedleDetector>();
-        if (pointDetector != null)
-        {
-            pointDetector.UndoLastConnectedPoint();
-            pointDetector.detect = true;
-        }
-        if (prevLine)
-            Destroy(prevLine.gameObject);
-
-        if (detectedPoints.Count > 0)
-            detectedPoints.Remove(detectedPoints[(detectedPoints.Count - 1)]);
-        if (detectedPoints.Count > 0)
-            SetLastConnectedPosition(detectedPoints[(detectedPoints.Count - 1)].transform);
-        else
-            SetLastConnectedPosition(null);
-    
         var connectHandler = ServiceLocator.GetService<IPointConnectionHandler>();
         if(connectHandler != null)
         {
             if (connectHandler.connections.Count > 0)
             {
+                var pointDetector = ServiceLocator.GetService<INeedleDetector>();
+                if (pointDetector != null)
+                {
+                    pointDetector.UndoLastConnectedPoint();
+                    pointDetector.detect = true;
+                }
+                if (prevLine)
+                    Destroy(prevLine.gameObject);
+
+                if (detectedPoints.Count > 0)
+                    detectedPoints.Remove(detectedPoints[(detectedPoints.Count - 1)]);
+                if (detectedPoints.Count > 0)
+                    SetLastConnectedPosition(detectedPoints[(detectedPoints.Count - 1)].transform);
+                else
+                    SetLastConnectedPosition(null);
+
                 Connections c = null;
                 c = connectHandler.connections[connectHandler.connections.Count - 1];
                 connectHandler.connections.Remove(c);

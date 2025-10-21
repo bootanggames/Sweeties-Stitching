@@ -270,6 +270,37 @@ public class GameFunc<T1,T2, result>
         return default;
     }
 }
+public class GameFunc<T1, T2,T3,T4, result>
+{
+    private event Func<T1, T2,T3,T4, result> Event;
+    public void RegisterEvent(Func<T1, T2,T3,T4, result> method)
+    {
+        if (method == null)
+            return;
+
+        Event += method;
+    }
+
+    public void UnregisterEvent(Func<T1, T2,T3,T4, result> method)
+    {
+        Event -= method;
+    }
+
+    public void UnRegisterAll()
+    {
+        Event = null;
+    }
+
+    public result Raise(T1 param1, T2 Param2,T3 Param3, T4 Param4)
+    {
+        if (Event != null)
+        {
+            // NOTE: Only last subscriber’s return is given
+            return Event.Invoke(param1, Param2, Param3, Param4);
+        }
+        return default;
+    }
+}
 public class GameFunc<result>
 {
     private event Func<result> Event;

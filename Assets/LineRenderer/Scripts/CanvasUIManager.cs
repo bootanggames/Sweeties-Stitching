@@ -13,6 +13,8 @@ public class CanvasUIManager : MonoBehaviour, ICanvasUIManager
     [field: SerializeField] public GameObject gameCompletePanel { get; private set; }
     [field: SerializeField] public TextMeshProUGUI stitchCountText {  get; private set; }
     [field: SerializeField] public TextMeshProUGUI stitchProgress {  get; private set; }
+    [field: SerializeField] public Slider needleOffset { get; private set; }
+    [field: SerializeField] public GameObject tapToStartButton { get; private set; }
 
     private void OnEnable()
     {

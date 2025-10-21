@@ -15,10 +15,15 @@ public class CoinsHandler : MonoBehaviour,ICoinsHandler
     [SerializeField] float xPos, yPos;
     [SerializeField] Transform targetPointToMove;
     [SerializeField] float coinMoveSpeed;
+    Tween coinMoveTween = null;
+
     private void Start()
     {
+        totalCoins = PlayerPrefs.GetInt("Coins");
+        UpdateCoins(totalCoins);
         if (totalCoins == 0)
             SaveCoins(10);
+
     }
     private void OnEnable()
     {
@@ -34,12 +39,13 @@ public class CoinsHandler : MonoBehaviour,ICoinsHandler
     }
     public void SaveCoins(int amount)
     {
-        PlayerPrefs.SetInt("Coins", amount);
-        UpdateCoins(amount);
+        totalCoins = PlayerPrefs.GetInt("Coins");
+        int total = totalCoins + amount;
+        PlayerPrefs.SetInt("Coins", total);
+        UpdateCoins(total);
     }
     public void UpdateCoins(int amount)
     {
-        totalCoins = PlayerPrefs.GetInt("Coins");
         coinsTextBox.text = amount.ToString();
     }
     public void CreateCoinsObjects()
@@ -57,13 +63,29 @@ public class CoinsHandler : MonoBehaviour,ICoinsHandler
     }
     public IEnumerator MoveCoins()
     {
-
+        coinMoveTween.Kill();
+        coinMoveTween = null;
         for (int i = 0; i < coinsObjList.Count; i++)
         {
             yield return new WaitForSeconds(0.015f);
-            GameEvents.DoTweenAnimationHandlerEvents.onMoveToTargetAnimation.RaiseEvent(coinsObjList[i].transform, targetPointToMove, coinMoveSpeed, Ease.InOutBack);
+        
+            coinMoveTween = GameEvents.DoTweenAnimationHandlerEvents.onMoveToTargetAnimation.Raise(coinsObjList[i].transform, targetPointToMove, coinMoveSpeed, Ease.InOutBack);
+            coinMoveTween.OnComplete(() =>
+            {
+                SaveCoins(1);
+            });
         }
+  
         StopCoroutine(MoveCoins());
+    }
+
+    public void ResetCoinList()
+    {
+        foreach(GameObject c in coinsObjList)
+        {
+            Destroy(c);
+        }
+        coinsObjList.Clear();
     }
     public void RegisterService()
     {

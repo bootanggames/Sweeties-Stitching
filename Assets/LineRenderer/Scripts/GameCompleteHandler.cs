@@ -1,12 +1,14 @@
 using DG.Tweening;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameCompleteHandler : MonoBehaviour, IGameService
 {
     [SerializeField] float speed;
     [SerializeField] List<GameObject> confettiEffect;
     [SerializeField] Transform[] effectPosition;
+    [SerializeField] Image plushieOfCurrentLevel;
     private void OnEnable()
     {
         RegisterService();
@@ -51,6 +53,8 @@ public class GameCompleteHandler : MonoBehaviour, IGameService
     void GameComplete()
     {
         GameEvents.ThreadEvents.setThreadInput.RaiseEvent(false);
+
+        plushieOfCurrentLevel.sprite = LevelsHandler.instance.currentLevelMeta.plushieSprite;
         var coinsHandler = ServiceLocator.GetService<ICoinsHandler>();
  
         var canvasHandler = ServiceLocator.GetService<ICanvasUIManager>();

@@ -7,8 +7,10 @@ public interface ICanvasUIManager:IGameService
      Slider pullSpeedSlider { get; }
      Slider threadCountControlSlider {  get; }
      Slider detectionRadiusSlider {  get; }
+     Slider needleOffset {  get; }
     GameObject completeStitchedPlushie { get; }
     GameObject gameCompletePanel { get; }
+    GameObject tapToStartButton { get; }
     TextMeshProUGUI stitchCountText {  get; }
     TextMeshProUGUI stitchProgress {  get; }
     void TapToStart();

@@ -19,9 +19,40 @@ public class Level_Metadata : MonoBehaviour
     [SerializeField] LevelDivision levelDivision;
     [SerializeField] SequenceType sequenceType;
 
+    [SerializeField] Transform neckCamera;
+    [SerializeField] Transform leftEyeCamera;
+    [SerializeField] Transform leftEarCamera;
+    [SerializeField] Transform rightEarCamera;
+    [SerializeField] Transform rightEyeCamera;
+    [SerializeField] Transform rightArmCamera;
+    [SerializeField] Transform rightLegCamera;
+    [SerializeField] Transform leftLegCamera;
+    [SerializeField] Transform leftArmCamera;
+    [SerializeField] Transform gameCompleteCamera;
+    [SerializeField] Transform gameHalfProgressCamera;
+
+    public Sprite plushieSprite;
     private void Start()
     {
         HandlerPointsEnableDisable();
+        RepositionCameras();
+    }
+
+    void RepositionCameras()
+    {
+        var cameraHandler = ServiceLocator.GetService<ICameraManager>();
+        if(cameraHandler != null )
+        {
+            cameraHandler.RepositionCamera(cameraHandler.neckCamera.transform, neckCamera);
+            cameraHandler.RepositionCamera(cameraHandler.leftEyeCamera.transform, leftEyeCamera);
+            cameraHandler.RepositionCamera(cameraHandler.leftEarCamera.transform, leftEarCamera);
+            cameraHandler.RepositionCamera(cameraHandler.rightEarCamera.transform, rightEarCamera);
+            cameraHandler.RepositionCamera(cameraHandler.rightEyeCamera.transform, rightEyeCamera);
+            cameraHandler.RepositionCamera(cameraHandler.rightArmCamera.transform, rightArmCamera);
+            cameraHandler.RepositionCamera(cameraHandler.rightLegCamera.transform, rightLegCamera);
+            cameraHandler.RepositionCamera(cameraHandler.leftLegCamera.transform, leftLegCamera);
+            cameraHandler.RepositionCamera(cameraHandler.leftArmCamera.transform, leftArmCamera);
+        }
     }
     void EnableDisableSewPoints(List<SewPoint> points, bool val)
     {

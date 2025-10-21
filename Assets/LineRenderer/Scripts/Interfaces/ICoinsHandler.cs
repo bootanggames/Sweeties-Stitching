@@ -8,4 +8,5 @@ public interface ICoinsHandler : IGameService
     void UpdateCoins(int amount);
     void CreateCoinsObjects();
     IEnumerator MoveCoins();
+    void ResetCoinList();
 }

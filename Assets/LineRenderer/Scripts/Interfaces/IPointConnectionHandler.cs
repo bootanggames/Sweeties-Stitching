@@ -19,4 +19,5 @@ public interface IPointConnectionHandler : IGameService
     void ManageConnetions(Connections c);
     void ApplyForces(Transform p1, Transform p2);
     void UpdateConnections();
+    void DeleteAllThreadLinks();
 }

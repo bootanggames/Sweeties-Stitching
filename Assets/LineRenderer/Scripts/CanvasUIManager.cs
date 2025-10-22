@@ -15,6 +15,7 @@ public class CanvasUIManager : MonoBehaviour, ICanvasUIManager
     [field: SerializeField] public TextMeshProUGUI stitchProgress {  get; private set; }
     [field: SerializeField] public Slider needleOffset { get; private set; }
     [field: SerializeField] public GameObject tapToStartButton { get; private set; }
+    [field: SerializeField] public TextMeshProUGUI offsetValue { get; private set; }
 
     private void OnEnable()
     {

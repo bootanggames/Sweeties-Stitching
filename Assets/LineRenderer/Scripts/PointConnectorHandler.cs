@@ -1,6 +1,7 @@
 ﻿using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using UnityEngine;
 
@@ -16,14 +17,15 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
     [field: SerializeField] public int maxThreadStitchCount { get; private set; }
     [field: SerializeField] public int threadStitchCount { get; private set; }
     [field: SerializeField] public bool dynamicStitch { get; private set; }
+    [field: SerializeField] public Material correctPointMaterial { get; private set; }
+    [field: SerializeField] public Material wrongPointMaterial { get; private set; }
 
     [SerializeField] float tolerance = 0.05f;
     [SerializeField] LineRenderer linePrefab;
     [SerializeField] float zVal = -0.25f;
     [SerializeField] float rotationSpeed;
     [SerializeField] float pullForce;
-    [SerializeField] Material correctPointMaterial;
-    [SerializeField] Material wrongPointMaterial;
+
     private void OnEnable()
     {
         points = new List<SewPoint>();
@@ -68,7 +70,6 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
     public void GetAttachedPointsToCreateLink(List<Transform> point)
     {
         if (point.Count <= 1) return;
-
         foreach (Transform t in point)
         {
             if (!points.Contains(t.GetComponent<SewPoint>()))
@@ -116,7 +117,7 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
             return;
         Connections connection = new Connections(p1, p2, linePrefab, zVal, multiple, stitchCount);
         connections.Add(connection);
-        //Debug.LogError("connect "+applyPullForce);
+
         if (applyPullForce)
             ManageConnetions(connection);
         else
@@ -125,6 +126,8 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
     }
     public void ManageConnetions(Connections c)
     {
+        if (points.Count % 2 != 0) return;
+
         ApplyForces(c.point1, c.point2);
     }
     Tween tween1;
@@ -319,6 +322,8 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
             sp2.pointMesh.material = correctPointMaterial;
             sp2.pointMesh.enabled = false;
             sp1.pointMesh.enabled = false;
+       
+
             StartCoroutine(IncrementLinksPerPart(sp1, sp2, info1, info2));
         }
         else
@@ -344,6 +349,11 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
             o1.moveable = false;
             o2.MarkStitched();
             o1.MarkStitched();
+           
+            points.Clear();
+            var pointDetector = ServiceLocator.GetService<INeedleDetector>();
+            if (pointDetector != null)
+                pointDetector.pointsDetected.Clear();
             StopCoroutine(IncrementLinksPerPart(s1, s2, o1, o2));
 
             //Invoke("UpdateProgress", 3);

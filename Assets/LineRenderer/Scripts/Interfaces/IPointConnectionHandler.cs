@@ -13,7 +13,8 @@ public interface IPointConnectionHandler : IGameService
     int maxThreadStitchCount { get; }
     int threadStitchCount { get; }
     bool dynamicStitch {  get; }
-
+     Material correctPointMaterial {  get; }
+     Material wrongPointMaterial {  get; }
     void GetAttachedPointsToCreateLink(List<Transform> point);
     void CreateLinkBetweenPoints(SewPoint point1, SewPoint point2);
     void ManageConnetions(Connections c);

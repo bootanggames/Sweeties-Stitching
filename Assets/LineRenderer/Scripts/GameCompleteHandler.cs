@@ -49,6 +49,15 @@ public class GameCompleteHandler : MonoBehaviour, IGameService
             effect.SetActive(true);
             if (effect.GetComponent<ParticleSystem>()) effect.GetComponent<ParticleSystem>().Play();
         }
+        var pointHandler = ServiceLocator.GetService<IPointConnectionHandler>();
+        if (pointHandler != null)
+        {
+            foreach (Connections c in pointHandler.connections)
+            {
+                Destroy(c.line.gameObject);
+            }
+            pointHandler.connections.Clear();
+        }
     }
     void GameComplete()
     {

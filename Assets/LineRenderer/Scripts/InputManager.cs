@@ -17,6 +17,15 @@ public class InputManager : MonoBehaviour
     [SerializeField] Vector3 direction;
     [SerializeField] GraphicRaycaster canvasGraphicRaycaster;
     [SerializeField] EventSystem eventSystem;
+    private void Start()
+    {
+        Input.multiTouchEnabled = false;
+
+        needleOffset = PlayerPrefs.GetFloat("NeedleOffset");
+        if (needleOffset == 0)
+            needleOffset = 0.15f;
+        UpdateOffsetOnStart();
+    }
     private void Update()
     {
         var gameHandler = ServiceLocator.GetService<IGameHandler>();
@@ -86,7 +95,20 @@ public class InputManager : MonoBehaviour
         {
             if (canvasHandler.needleOffset == null) return;
 
-            needleOffset = canvasHandler.needleOffset.value;
+            needleOffset = Mathf.Round(canvasHandler.needleOffset.value * 100f) / 100f;
+            PlayerPrefs.SetFloat("NeedleOffset", needleOffset);
+            canvasHandler.offsetValue.text = needleOffset.ToString();
+        }
+    }
+
+    void UpdateOffsetOnStart()
+    {
+        var canvasHandler = ServiceLocator.GetService<ICanvasUIManager>();
+        if (canvasHandler != null)
+        {
+            canvasHandler.needleOffset.value = needleOffset;
+            canvasHandler.offsetValue.text = needleOffset.ToString();
+
         }
     }
 }

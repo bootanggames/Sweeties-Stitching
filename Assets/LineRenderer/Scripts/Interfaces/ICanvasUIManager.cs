@@ -13,6 +13,7 @@ public interface ICanvasUIManager:IGameService
     GameObject tapToStartButton { get; }
     TextMeshProUGUI stitchCountText {  get; }
     TextMeshProUGUI stitchProgress {  get; }
+    TextMeshProUGUI offsetValue {  get; }
     void TapToStart();
     void UpdateStitchCount(int totalStitch, int completedStitch);
     void UpdatePlushieStitchProgress(int totalParts, int completedParts);

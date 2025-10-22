@@ -1,5 +1,6 @@
 ﻿using DG.Tweening;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 
 public class ThreadManager : MonoBehaviour, IThreadManager
@@ -127,6 +128,7 @@ public class ThreadManager : MonoBehaviour, IThreadManager
         {
             InstantiateMainThread(true, headPos);
             GameEvents.NeedleEvents.onNeedleActiveStatusUpdate.RaiseEvent(true);
+            Debug.LogError(" null ");
             return;
         }
         if (lastConnectedPoint != null)
@@ -134,14 +136,14 @@ public class ThreadManager : MonoBehaviour, IThreadManager
             currentRopeStartPosition = lastConnectedPoint.position;
             if (freeForm)
                 currentRopeStartPosition.z = zVal;
-            instantiatedLine.SetPosition(0, currentRopeStartPosition);
+            //instantiatedLine.SetPosition(0, currentRopeStartPosition);
         }
         else
         {
             currentRopeStartPosition = headPos;
-            instantiatedLine.SetPosition(0, headPos);
+            //instantiatedLine.SetPosition(0, headPos);
         }
-        GameEvents.NeedleEvents.OnNeedleMovement.RaiseEvent(instantiatedLine.GetPosition(0));
+        //GameEvents.NeedleEvents.OnNeedleMovement.RaiseEvent(instantiatedLine.GetPosition(0));
 
     }
 
@@ -172,7 +174,6 @@ public class ThreadManager : MonoBehaviour, IThreadManager
         Vector3 needlePos = GameEvents.NeedleEvents.OnFetchingNeedlePosition.RaiseEvent();
         needlePos.z = zVal;
         instantiatedLine.SetPosition(0, needlePos);
-        GameEvents.PointConnectionHandlerEvents.onFetchingPoints.RaiseEvent(detectedPoints);
 
         if (prevLine)
             MoveThread(prevLine, true);
@@ -251,6 +252,9 @@ public class ThreadManager : MonoBehaviour, IThreadManager
         AddFirstPositionOnMouseDown(point.transform.position);
         for (int i = 0; i < instantiatedLine.positionCount; i++)
             instantiatedLine.SetPosition(i, point.transform.position);
+
+        GameEvents.PointConnectionHandlerEvents.onFetchingPoints.RaiseEvent(detectedPoints);
+
     }
 
     void ResetThread()
@@ -268,27 +272,34 @@ public class ThreadManager : MonoBehaviour, IThreadManager
     }
     public void UndoThread()
     {
-        var connectHandler = ServiceLocator.GetService<IPointConnectionHandler>();
-        if(connectHandler != null)
+        var pointDetector = ServiceLocator.GetService<INeedleDetector>();
+        if (pointDetector != null)
         {
+            pointDetector.UndoLastConnectedPoint();
+            pointDetector.detect = true;
+        }
+        if (prevLine)
+            Destroy(prevLine.gameObject);
+
+        if (detectedPoints.Count > 0)
+        {
+            detectedPoints.Remove(detectedPoints[(detectedPoints.Count - 1)]);
+            if ((detectedPoints.Count - 1) >= 0)
+                SetLastConnectedPosition(detectedPoints[(detectedPoints.Count - 1)].transform);
+            else
+                SetLastConnectedPosition(null);
+        }
+        else
+            SetLastConnectedPosition(null);
+
+        var connectHandler = ServiceLocator.GetService<IPointConnectionHandler>();
+     
+        if (connectHandler != null)
+        {
+            if (connectHandler.points.Count > 0)
+                connectHandler.points.Remove(connectHandler.points[connectHandler.points.Count - 1]);
             if (connectHandler.connections.Count > 0)
             {
-                var pointDetector = ServiceLocator.GetService<INeedleDetector>();
-                if (pointDetector != null)
-                {
-                    pointDetector.UndoLastConnectedPoint();
-                    pointDetector.detect = true;
-                }
-                if (prevLine)
-                    Destroy(prevLine.gameObject);
-
-                if (detectedPoints.Count > 0)
-                    detectedPoints.Remove(detectedPoints[(detectedPoints.Count - 1)]);
-                if (detectedPoints.Count > 0)
-                    SetLastConnectedPosition(detectedPoints[(detectedPoints.Count - 1)].transform);
-                else
-                    SetLastConnectedPosition(null);
-
                 Connections c = null;
                 c = connectHandler.connections[connectHandler.connections.Count - 1];
                 connectHandler.connections.Remove(c);
@@ -299,58 +310,83 @@ public class ThreadManager : MonoBehaviour, IThreadManager
                 o_Info2 = c.point2.parent.parent.GetComponent<ObjectInfo>();
                 SewPoint s1 = c.point1.GetComponent<SewPoint>();
                 SewPoint s2 = c.point2.GetComponent<SewPoint>();
+                s1.pointMesh.material = connectHandler.correctPointMaterial;
+                s2.pointMesh.material = connectHandler.correctPointMaterial;
+
                 if (s1.attachmentId.Equals(s2.attachmentId))
                 {
                     if (o_Info1.noOfConnections > 0)
                         o_Info1.noOfConnections--;
                     if (o_Info2.noOfConnections > 0)
                         o_Info2.noOfConnections--;
-                }
-          
-                if (o_Info1.moveable)
-                {
-                    if (o_Info1.head)
-                        moveableTransform = o_Info1.transform.parent;
-                    else
-                        moveableTransform = o_Info1.transform;
-                    if(o_Info1.movedPositions.Count > 0)
+
+                    if (o_Info1.moveable)
                     {
-                        moveableTransform.position = o_Info1.movedPositions[o_Info1.movedPositions.Count - 1];
-                        //moveableTransform.DOMove(o_Info1.movedPositions[o_Info1.movedPositions.Count - 1], 0.25f).SetEase(Ease.InOutSine);
-                        o_Info1.movedPositions.Remove(o_Info1.movedPositions[o_Info1.movedPositions.Count - 1]);
-                    if(o_Info2.movedPositions.Count > 0)
-                            o_Info2.movedPositions.Remove(o_Info2.movedPositions[o_Info2.movedPositions.Count - 1]);
+                        if (o_Info1.head)
+                            moveableTransform = o_Info1.transform.parent;
+                        else
+                            moveableTransform = o_Info1.transform;
+                        if (o_Info1.movedPositions.Count > 0)
+                        {
+                            //moveableTransform.position = o_Info1.movedPositions[o_Info1.movedPositions.Count - 1];
+                            moveableTransform.DOMove(o_Info1.movedPositions[o_Info1.movedPositions.Count - 1], 0.25f).SetEase(Ease.InOutSine).OnUpdate(() =>
+                            {
+                                instantiatedLine.SetPosition((instantiatedLine.positionCount - 1), lastConnectedPoint.position);
+                                connectHandler.UpdateConnections();
 
-                    }
+                            }).OnComplete(() =>
+                            {
 
-                }
-                else if(o_Info2.moveable)
-                {
-                    if (o_Info2.head)
-                        moveableTransform = o_Info2.transform.parent;
-                    else
-                        moveableTransform = o_Info2.transform;
-
-                    if(o_Info2.movedPositions.Count > 0)
-                    {
-                        moveableTransform.position = o_Info2.movedPositions[o_Info2.movedPositions.Count - 1];
-                        //moveableTransform.DOMove(o_Info2.movedPositions[o_Info2.movedPositions.Count - 1], 0.25f).SetEase(Ease.InOutSine);
-                    if(o_Info1.movedPositions.Count > 0)
+                                moveableTransform.DOPause();
+                            });
                             o_Info1.movedPositions.Remove(o_Info1.movedPositions[o_Info1.movedPositions.Count - 1]);
-                        o_Info2.movedPositions.Remove(o_Info2.movedPositions[o_Info2.movedPositions.Count - 1]);
+                            if (o_Info2.movedPositions.Count > 0)
+                                o_Info2.movedPositions.Remove(o_Info2.movedPositions[o_Info2.movedPositions.Count - 1]);
+
+                        }
+
                     }
-                        
+                    else if (o_Info2.moveable)
+                    {
+                        if (o_Info2.head)
+                            moveableTransform = o_Info2.transform.parent;
+                        else
+                            moveableTransform = o_Info2.transform;
+
+                        if (o_Info2.movedPositions.Count > 0)
+                        {
+                            //moveableTransform.position = o_Info2.movedPositions[o_Info2.movedPositions.Count - 1];
+                            moveableTransform.DOMove(o_Info2.movedPositions[o_Info2.movedPositions.Count - 1], 0.25f).SetEase(Ease.InOutSine).OnUpdate(() =>
+                            {
+                                instantiatedLine.SetPosition((instantiatedLine.positionCount - 1), lastConnectedPoint.position);
+                                connectHandler.UpdateConnections();
+
+                            }).OnComplete(() =>
+                            {
+
+                                moveableTransform.DOPause();
+                            });
+                            if (o_Info1.movedPositions.Count > 0)
+                                o_Info1.movedPositions.Remove(o_Info1.movedPositions[o_Info1.movedPositions.Count - 1]);
+                            o_Info2.movedPositions.Remove(o_Info2.movedPositions[o_Info2.movedPositions.Count - 1]);
+                        }
+
+                    }
                 }
+                else
+                {
+                    connectHandler.UpdateConnections();
+                    instantiatedLine.SetPosition((instantiatedLine.positionCount - 1), lastConnectedPoint.position);
+                }
+
+
 
                 Destroy(c.line.gameObject);
             }
-            connectHandler.UpdateConnections();
-            if (connectHandler.points.Count > 0)
-                connectHandler.points.Remove(connectHandler.points[connectHandler.points.Count - 1]);
+            else
+                connectHandler.points.Clear();
+
         }
-        if (lastConnectedPoint)
-            instantiatedLine.SetPosition((instantiatedLine.positionCount - 1), lastConnectedPoint.position);
-
-
+    
     }
 }

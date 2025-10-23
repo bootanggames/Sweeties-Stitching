@@ -282,8 +282,12 @@ public class ThreadManager : MonoBehaviour, IThreadManager
             {
                 if (connectHandler.connections.Count == 0)
                 {
-                    SewPoint s = pointDetector.pointsDetected[pointDetector.pointsDetected.Count - 1];
-                    s.pointMesh.material = connectHandler.originalMaterial;
+                    if(pointDetector.pointsDetected.Count > 0)
+                    {
+                        SewPoint s = pointDetector.pointsDetected[pointDetector.pointsDetected.Count - 1];
+                        s.pointMesh.material = connectHandler.originalMaterial;
+                    }
+                
                 }
                 pointDetector.UndoLastConnectedPoint();
                 pointDetector.detect = false;
@@ -319,7 +323,8 @@ public class ThreadManager : MonoBehaviour, IThreadManager
                 o_Info2 = c.point2.parent.parent.GetComponent<ObjectInfo>();
                 SewPoint s1 = c.point1.GetComponent<SewPoint>();
                 SewPoint s2 = c.point2.GetComponent<SewPoint>();
-
+                if (LevelsHandler.instance.currentLevelMeta.noOfCorrectLinks > 0)
+                    LevelsHandler.instance.currentLevelMeta.noOfCorrectLinks--;
                 if (s1.attachmentId.Equals(s2.attachmentId))
                 {
                     s1.connected = false;
@@ -328,9 +333,7 @@ public class ThreadManager : MonoBehaviour, IThreadManager
                         o_Info1.noOfConnections--;
                     if (o_Info2.noOfConnections > 0)
                         o_Info2.noOfConnections--;
-                    if(LevelsHandler.instance.currentLevelMeta.noOfCorrectLinks > 0)
-                        LevelsHandler.instance.currentLevelMeta.noOfCorrectLinks--;
-
+                
                     LevelsHandler.instance.currentLevelMeta.UpdateAllStitchesOfPlushie();
                     if (o_Info1.moveable)
                     {

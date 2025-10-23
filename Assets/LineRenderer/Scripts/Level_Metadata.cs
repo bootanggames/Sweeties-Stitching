@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class Level_Metadata : MonoBehaviour
 {
+    public int levelReward = 0;
     public int totalCorrectLinks;
     public int noOfCorrectLinks;
     public PlushieActiveStitchPart plushieActivePartToStitch;

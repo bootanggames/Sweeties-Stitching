@@ -16,14 +16,14 @@ public class CoinsHandler : MonoBehaviour,ICoinsHandler
     [SerializeField] Transform targetPointToMove;
     [SerializeField] float coinMoveSpeed;
     Tween coinMoveTween = null;
-
+    [SerializeField] TextMeshProUGUI coinsEarned;
+    int coinsRewarded = 0;
     private void Start()
     {
         totalCoins = PlayerPrefs.GetInt("Coins");
         UpdateCoins(totalCoins);
         if (totalCoins == 0)
             SaveCoins(10);
-
     }
     private void OnEnable()
     {
@@ -59,7 +59,8 @@ public class CoinsHandler : MonoBehaviour,ICoinsHandler
             float y = Random.Range(-yPos, yPos);
             g.GetComponent<RectTransform>().anchoredPosition = new Vector2(x, y);
         }
-
+        coinsRewarded = LevelsHandler.instance.currentLevelMeta.levelReward;
+        coinsEarned.text = coinsRewarded.ToString();
     }
     public IEnumerator MoveCoins()
     {

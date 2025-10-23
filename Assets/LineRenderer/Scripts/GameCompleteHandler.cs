@@ -1,5 +1,6 @@
 using DG.Tweening;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,6 +10,8 @@ public class GameCompleteHandler : MonoBehaviour, IGameService
     [SerializeField] List<GameObject> confettiEffect;
     [SerializeField] Transform[] effectPosition;
     [SerializeField] Image plushieOfCurrentLevel;
+
+    [SerializeField] TextMeshProUGUI levelProgress;
     private void OnEnable()
     {
         RegisterService();
@@ -56,8 +59,12 @@ public class GameCompleteHandler : MonoBehaviour, IGameService
         GameEvents.ThreadEvents.setThreadInput.RaiseEvent(false);
 
         plushieOfCurrentLevel.sprite = LevelsHandler.instance.currentLevelMeta.plushieSprite;
+        var plushieInventory = ServiceLocator.GetService<IPlushieStoreHandler>();
+        if (plushieInventory != null)
+            plushieInventory.GetPlushieCountUI();
+
+        levelProgress.text = (LevelsHandler.instance.levelIndex + 1) + "/3 Till Level 5";
         var coinsHandler = ServiceLocator.GetService<ICoinsHandler>();
- 
         var canvasHandler = ServiceLocator.GetService<ICanvasUIManager>();
         if(canvasHandler != null)
         {

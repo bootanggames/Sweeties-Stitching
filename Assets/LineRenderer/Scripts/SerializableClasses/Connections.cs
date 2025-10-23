@@ -66,13 +66,6 @@ public class Connections
             this.line.positionCount = 2;
             this.line.SetPosition(0, pos1);
             this.line.SetPosition(1, pos2);
-
-            var threadManager = ServiceLocator.GetService<IThreadManager>();
-            if(threadManager != null)
-            {
-                //this.line.material.color = threadManager.threadColor[threadManager.threadIndex];
-                //this.line.endColor = threadManager.threadColor[threadManager.threadIndex];
-            }
             LevelsHandler.instance.currentLevelMeta.noOfCorrectLinks++;
             var canvasManager = ServiceLocator.GetService<ICanvasUIManager>();
             if (canvasManager != null)
@@ -144,4 +137,6 @@ public class Connections
         }
       
     }
+
+    
 }

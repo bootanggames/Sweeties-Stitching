@@ -29,29 +29,29 @@ public class ObjectInfo : MonoBehaviour
     [SerializeField] Transform pointParent;
     [SerializeField] Transform firstPoint;
     [SerializeField] float pointsXDistance;
-    [SerializeField] float pointsYDistance;
+    [SerializeField] float maxHeightOffset;
     Vector3 prevPos;
     [SerializeField] List<Vector3> positions = new List<Vector3>();
     [SerializeField] List<SewPoint> generatedPoints;
-    [SerializeField] bool changeLastPointHeight;
-    int index = 1;
-    [SerializeField]Vector3 pos;
+    [SerializeField] bool dontChangeY;
     //private void Start()
     //{
     //    SpawnPoints();
-        
+
     //}
     void UpdateNewPoint(Vector3 pos , Transform point)
     {
         positions.Add(pos);
         generatedPoints.Add(point.GetComponent<SewPoint>());
         point.name = "Point " + generatedPoints.Count;
+        SewPoint s = point.GetComponent<SewPoint>();
+        s.ChangeText(generatedPoints.Count.ToString());
     }
     void SpawnPoints()
     {
         if (firstPoint == null) return;
-        int totalCount = totalConnections;
-        int midIndex = totalConnections / 2;
+        float startY = firstPoint.transform.localPosition.y;
+        float startX = firstPoint.transform.localPosition.x;
         if (prevPos.Equals(Vector3.zero))
         {
             prevPos = firstPoint.transform.localPosition;
@@ -66,22 +66,21 @@ public class ObjectInfo : MonoBehaviour
             p.transform.SetParent(pointParent);
             p.transform.localPosition = Vector3.zero;
 
-            if (index > 0 && index <= (midIndex - 1))
-            {
-                //if(prevPos.y < 0)
-                    nextPointPos = new Vector3(prevPos.x + pointsXDistance, prevPos.y - pointsYDistance, prevPos.z);
-                //else
-                //    nextPointPos = new Vector3(prevPos.x + pointsXDistance, prevPos.y + pointsYDistance, prevPos.z);
-            }
-            else if(index > midIndex)
-            {
-                //if (prevPos.y < 0)
-                    nextPointPos = new Vector3(prevPos.x + pointsXDistance, prevPos.y + pointsYDistance, prevPos.z);
-                //else
-                //    nextPointPos = new Vector3(prevPos.x + pointsXDistance, prevPos.y - pointsYDistance, prevPos.z);
-            }
+            float newX = prevPos.x + pointsXDistance;
+          
+            float endX = startX + pointsXDistance * (totalConnections - 1);
+            float endY = prevPos.y;
+            float t = Mathf.InverseLerp(startX, endX, newX);
+            float baseHeight = Mathf.Lerp(startY, endY, t);
+            float arcHeight = (1 - Mathf.Pow((2 * t) - 1, 2)) * maxHeightOffset;
+            float curveY = 0;
+            if (dontChangeY)
+                 curveY = startY + arcHeight;
             else
-                nextPointPos = new Vector3(prevPos.x + pointsXDistance, prevPos.y, prevPos.z);
+                curveY = baseHeight + arcHeight;
+
+            nextPointPos = new Vector3(newX, curveY, prevPos.z);
+
 
             if (positions.Count > 0)
             {
@@ -89,7 +88,6 @@ public class ObjectInfo : MonoBehaviour
                 {
                     UpdateNewPoint(nextPointPos, p.transform);
                     p.transform.localPosition = nextPointPos;
-                    index++;
                 }
                 else
                     return;
@@ -98,7 +96,6 @@ public class ObjectInfo : MonoBehaviour
             {
                 UpdateNewPoint(nextPointPos, p.transform);
                 p.transform.localPosition = nextPointPos;
-                index++;
             }
 
             prevPos = nextPointPos;
@@ -158,10 +155,16 @@ public class ObjectInfo : MonoBehaviour
                 GameEvents.ThreadEvents.onResetThreadInput.RaiseEvent();
                 if (LevelsHandler.instance.currentLevelMeta)
                     LevelsHandler.instance.currentLevelMeta.UpdateLevelProgress(sp.sequenceType);
-                var threadHandler = ServiceLocator.GetService<IThreadManager>();
-                if (threadHandler != null)
-                    threadHandler.detectedPoints.Clear();
-
+             
+                var pointHandler = ServiceLocator.GetService<IPointConnectionHandler>();
+                if (pointHandler != null)
+                {
+                    foreach (Connections c in pointHandler.connections)
+                    {
+                        Destroy(c.line.gameObject);
+                    }
+                    pointHandler.connections.Clear();
+                }
             }
         }
         CancelInvoke("UpdateProgress");

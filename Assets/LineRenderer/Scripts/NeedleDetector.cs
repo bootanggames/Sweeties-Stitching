@@ -35,14 +35,53 @@ public class NeedleDetector : MonoBehaviour, INeedleDetector
         if (colliders.Length <= 0) return;
         SewPoint sewPoint = colliders[0].GetComponent<SewPoint>();
         if (sewPoint.IsSelected()) return;
+        if (sewPoint.connected) return;
         sewPoint.Selected(true);
-        sewPoint.pointMesh.enabled = false;
+
         sewPoint.GetComponent<Collider>().enabled = false;
         sewPoint.name = sewPoint.transform.parent.name+"_sew_"+ sewPoint.name;
         PlaySound();
         sewPoint.ChangeTextColor(Color.green);
         GameEvents.EffectHandlerEvents.onSelectionEffect.RaiseEvent(sewPoint.transform);
         GameEvents.ThreadEvents.onCreatingConnection.RaiseEvent(sewPoint);
+     
+
+        var pointsHandler = ServiceLocator.GetService<IPointConnectionHandler>();
+        if (pointsHandler != null)
+        {
+            if(pointsDetected.Count > 0)
+            {
+                SewPoint lastDetected = pointsDetected[pointsDetected.Count - 1];
+                if (lastDetected.transform.parent.parent.parent == sewPoint.transform.parent.parent.parent)
+                {
+                    if (!lastDetected.connected)
+                    {
+                        sewPoint.pointMesh.material = pointsHandler.wrongPointMaterial;
+                        lastDetected.pointMesh.material = pointsHandler.wrongPointMaterial;
+                    }
+                    else
+                    {
+                        if(!sewPoint.connected)
+                            sewPoint.pointMesh.material = pointsHandler.startToDetectMaterial;
+                    }
+                }
+                else
+                {
+                    if (!sewPoint.connected)
+                        sewPoint.pointMesh.material = pointsHandler.startToDetectMaterial;
+                    if(lastDetected.selected && !lastDetected.connected)
+                    {
+                        lastDetected.pointMesh.material = pointsHandler.wrongPointMaterial;
+                        sewPoint.pointMesh.material = pointsHandler.wrongPointMaterial;
+                    }
+                }
+            }
+            else
+            {
+                if (!sewPoint.connected)
+                    sewPoint.pointMesh.material = pointsHandler.startToDetectMaterial;
+            }
+        }
         if (!pointsDetected.Contains(sewPoint))
             pointsDetected.Add(sewPoint);
     }

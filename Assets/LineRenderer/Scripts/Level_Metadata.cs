@@ -36,6 +36,7 @@ public class Level_Metadata : MonoBehaviour
     {
         HandlerPointsEnableDisable();
         RepositionCameras();
+        UpdateAllStitchesOfPlushie();
     }
 
     void RepositionCameras()
@@ -128,16 +129,19 @@ public class Level_Metadata : MonoBehaviour
             EnableDisableSewPoints(o_info.connectPoints, true);
             EnableDisableSewPoints(head.joints[partIndex].GetComponent<ObjectInfo>().connectPoints, true);
         }
-        float percent = 0;
-        if (totalStitchedPart == 0)
-            percent = 0;
-        else
-            percent = ((float)noOfStitchedPart / totalStitchedPart) * 100;
-        if(Mathf.FloorToInt(percent) == 55)
-        {
-            StartCoroutine(CheckProgress(o_info));
-        }
-        else 
+
+        //------for half progress camera enable-------
+
+        //float percent = 0;
+        //if (totalStitchedPart == 0)
+        //    percent = 0;
+        //else
+        //    percent = ((float)noOfStitchedPart / totalStitchedPart) * 100;
+        //if(Mathf.FloorToInt(percent) == 55)
+        //{
+        //    StartCoroutine(CheckProgress(o_info));
+        //}
+        //else 
             CameraFocus(o_info.partType);
         Invoke("EnableDetection", 0.15f);
         partIndex++;

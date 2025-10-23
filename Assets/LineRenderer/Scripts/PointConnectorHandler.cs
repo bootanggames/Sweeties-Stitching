@@ -19,6 +19,8 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
     [field: SerializeField] public bool dynamicStitch { get; private set; }
     [field: SerializeField] public Material correctPointMaterial { get; private set; }
     [field: SerializeField] public Material wrongPointMaterial { get; private set; }
+    [field: SerializeField] public Material originalMaterial { get; private set; }
+    [field: SerializeField] public Material startToDetectMaterial { get; private set; }
 
     [SerializeField] float tolerance = 0.05f;
     [SerializeField] LineRenderer linePrefab;
@@ -126,15 +128,14 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
     }
     public void ManageConnetions(Connections c)
     {
-        if (points.Count % 2 != 0) return;
-
-        ApplyForces(c.point1, c.point2);
+        SewPoint sp1 = c.point1.GetComponent<SewPoint>();
+        SewPoint sp2 = c.point2.GetComponent<SewPoint>();
+        if(sp1.attachmentId.Equals(sp2.attachmentId))
+            ApplyForces(c.point1, c.point2);
     }
     Tween tween1;
     public void ApplyForces(Transform p1, Transform p2)
     {
-        //Debug.LogError("not null "+ p1.name+" "+p2.name);
-
         if (p1 == null || p2 == null) return;
 
         if (p1.parent != null && p2.parent != null)
@@ -144,7 +145,6 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
                 return;
             }
         }
-        //Debug.LogError(" parent not equal");
 
         if ((p1.parent == p2) || (p2.parent == p1)) return;
 
@@ -157,12 +157,14 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
             {
                 info1 = p1.parent.parent.GetComponent<ObjectInfo>();
                 info2 = p2.parent.parent.GetComponent<ObjectInfo>();
-
+                if (p1.parent.parent.parent == p2.parent.parent.parent)
+                {
+                    return;
+                }
             }
             else
                 return;
         }
-
         EndTweens();
         bool move1 = info1.moveable;
         bool move2 = info2.moveable;
@@ -231,7 +233,6 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
                 pullSeq.Join(p1.DORotate(info1.originalRotation, tweenDuration).SetEase(Ease.InOutSine));
             }
 
-            //Debug.LogError(" apply force "+ midPointParent1);
         }
         else if(!move1 && move2)
         {
@@ -302,8 +303,8 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
 
         if (p1.parent == p2.parent)
         {
-            sp2.pointMesh.enabled = true;
-            sp2.pointMesh.material = wrongPointMaterial;
+            if (!sp1.connected) sp1.pointMesh.material = wrongPointMaterial;
+            if (!sp2.connected) sp2.pointMesh.material = wrongPointMaterial;
             return;
         }
 
@@ -311,35 +312,24 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
         if (dynamicStitch)
             if (p1.parent.parent.parent == p2.parent.parent.parent)
             {
-                sp2.pointMesh.enabled = true;
-                sp2.pointMesh.material = wrongPointMaterial;
+               if(!sp1.connected) sp1.pointMesh.material = wrongPointMaterial;
+                if (!sp2.connected) sp2.pointMesh.material = wrongPointMaterial;
+
                 return;
             }
-
-        if (sp1.attachmentId.Equals(sp2.attachmentId) || (sp2.attachmentId.Equals(sp1.attachmentId)))
-        {
-            sp1.pointMesh.material = correctPointMaterial;
-            sp2.pointMesh.material = correctPointMaterial;
-            sp2.pointMesh.enabled = false;
-            sp1.pointMesh.enabled = false;
-       
-
+        if (sp1.attachmentId.Equals(sp2.attachmentId))
             StartCoroutine(IncrementLinksPerPart(sp1, sp2, info1, info2));
-        }
-        else
-        {
-            sp2.pointMesh.enabled = true;
-            sp2.pointMesh.material = wrongPointMaterial;
-        }
-        //Debug.LogError(" checked ");
+
     }
 
     IEnumerator IncrementLinksPerPart(SewPoint s1, SewPoint s2 , ObjectInfo o1, ObjectInfo o2)
     {
         s1.connected = true;
         s2.connected = true;
-        s1.name = "connected 1";
-        s2.name = "connected 2";
+        s1.pointMesh.material = correctPointMaterial;
+        s2.pointMesh.material = correctPointMaterial;
+        s1.name = s1.attachmentId.ToString();
+        s2.name = s2.attachmentId.ToString();
         o1.noOfConnections++;
         o2.noOfConnections++;
         yield return new WaitForSeconds(1);
@@ -354,6 +344,7 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
             var pointDetector = ServiceLocator.GetService<INeedleDetector>();
             if (pointDetector != null)
                 pointDetector.pointsDetected.Clear();
+            
             StopCoroutine(IncrementLinksPerPart(s1, s2, o1, o2));
 
             //Invoke("UpdateProgress", 3);
@@ -387,5 +378,11 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
             Destroy(connections[i].line.gameObject);
         }
         connections.Clear();
+    }
+
+    public Connections GetLastConnection()
+    {
+        if(connections.Count == 0) return null;
+        return connections[connections.Count - 1];
     }
 }

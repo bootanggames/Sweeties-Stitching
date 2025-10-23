@@ -44,7 +44,8 @@ public class InputManager : MonoBehaviour
             drag = true;
             firstTouch = CalculateCurrentPosition();
             GameEvents.ThreadEvents.onInitialiseRope.RaiseEvent(firstTouch);
-
+            Invoke("EnableDetection", 0.25f);
+            //Debug.LogError("down");
         }
         else if (Input.GetMouseButton(0) && drag)
         {
@@ -110,5 +111,16 @@ public class InputManager : MonoBehaviour
             canvasHandler.offsetValue.text = needleOffset.ToString();
 
         }
+    }
+    void EnableDetection()
+    {
+        var pointDetector = ServiceLocator.GetService<INeedleDetector>();
+
+        if (pointDetector != null)
+        {
+            if (!pointDetector.detect)
+                pointDetector.detect = true;
+        }
+        CancelInvoke("EnableDetection");
     }
 }

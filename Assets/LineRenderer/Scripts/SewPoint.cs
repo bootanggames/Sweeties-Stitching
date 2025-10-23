@@ -6,11 +6,12 @@ public class SewPoint : MonoBehaviour, ISewPoint
 {
     public float zVal;
     public int attachmentId;
-    //public int[] alternativeAttachments;
     public bool connected = false;
     public SequenceType sequenceType;
     [SerializeField] TextMeshPro textObj;
     [HideInInspector]public MeshRenderer pointMesh;
+    public bool selected {  get; private set; }
+    [field: SerializeField]public List<Transform> stitchEffect_ThreadPoints {  get; private set; }
     private void OnEnable()
     {
         pointMesh = GetComponent<MeshRenderer>();
@@ -21,10 +22,6 @@ public class SewPoint : MonoBehaviour, ISewPoint
     {
         UnRegisterService();
     }
-    public bool selected {  get; private set; }
-
-    [field: SerializeField]public List<Transform> stitchEffect_ThreadPoints {  get; private set; }
-
     public bool IsSelected()
     {
         return selected;
@@ -47,6 +44,10 @@ public class SewPoint : MonoBehaviour, ISewPoint
         ServiceLocator.UnRegisterService<ISewPoint>(this);
         GameEvents.SewPointEvents.onSelected.UnregisterEvent(Selected);
         GameEvents.SewPointEvents.onPointSelectedStatus.UnregisterEvent(IsSelected);
+    }
+    public void ChangeText(string s)
+    {
+        textObj.text = s;
     }
     public void ChangeTextColor(Color c)
     {

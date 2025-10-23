@@ -128,7 +128,6 @@ public class ThreadManager : MonoBehaviour, IThreadManager
         {
             InstantiateMainThread(true, headPos);
             GameEvents.NeedleEvents.onNeedleActiveStatusUpdate.RaiseEvent(true);
-            Debug.LogError(" null ");
             return;
         }
         if (lastConnectedPoint != null)
@@ -144,7 +143,6 @@ public class ThreadManager : MonoBehaviour, IThreadManager
             //instantiatedLine.SetPosition(0, headPos);
         }
         //GameEvents.NeedleEvents.OnNeedleMovement.RaiseEvent(instantiatedLine.GetPosition(0));
-
     }
 
     public void AddPositionToLineOnDrag(Vector2 mousePos)
@@ -180,7 +178,6 @@ public class ThreadManager : MonoBehaviour, IThreadManager
         MoveThread(instantiatedLine, false);
 
         prevMouseDragPosition = mousePos;
-
     }
 
     public void MoveThread(LineRenderer thread, bool isPrevThread)
@@ -266,6 +263,10 @@ public class ThreadManager : MonoBehaviour, IThreadManager
         lastConnectedPoint = null;
         prevLine = null;
         detectedPointsCount = 0;
+        foreach(Transform t in detectedPoints)
+        {
+            t.gameObject.SetActive(false);
+        }
         detectedPoints.Clear();
         prevMouseDragPosition = Vector3.zero;
         GameEvents.NeedleEvents.onNeedleActiveStatusUpdate.RaiseEvent(false);
@@ -273,29 +274,37 @@ public class ThreadManager : MonoBehaviour, IThreadManager
     public void UndoThread()
     {
         var pointDetector = ServiceLocator.GetService<INeedleDetector>();
-        if (pointDetector != null)
-        {
-            pointDetector.UndoLastConnectedPoint();
-            pointDetector.detect = true;
-        }
-        if (prevLine)
-            Destroy(prevLine.gameObject);
-
-        if (detectedPoints.Count > 0)
-        {
-            detectedPoints.Remove(detectedPoints[(detectedPoints.Count - 1)]);
-            if ((detectedPoints.Count - 1) >= 0)
-                SetLastConnectedPosition(detectedPoints[(detectedPoints.Count - 1)].transform);
-            else
-                SetLastConnectedPosition(null);
-        }
-        else
-            SetLastConnectedPosition(null);
-
         var connectHandler = ServiceLocator.GetService<IPointConnectionHandler>();
      
         if (connectHandler != null)
         {
+            if (pointDetector != null)
+            {
+                if (connectHandler.connections.Count == 0)
+                {
+                    SewPoint s = pointDetector.pointsDetected[pointDetector.pointsDetected.Count - 1];
+                    s.pointMesh.material = connectHandler.originalMaterial;
+                }
+                pointDetector.UndoLastConnectedPoint();
+                pointDetector.detect = false;
+               
+            }
+            if (prevLine)
+                Destroy(prevLine.gameObject);
+
+            if (detectedPoints.Count > 0)
+            {
+                detectedPoints.Remove(detectedPoints[(detectedPoints.Count - 1)]);
+                if ((detectedPoints.Count - 1) >= 0)
+                    SetLastConnectedPosition(detectedPoints[(detectedPoints.Count - 1)].transform);
+                else
+                    SetLastConnectedPosition(null);
+            }
+            else
+                SetLastConnectedPosition(null);
+
+
+
             if (connectHandler.points.Count > 0)
                 connectHandler.points.Remove(connectHandler.points[connectHandler.points.Count - 1]);
             if (connectHandler.connections.Count > 0)
@@ -310,16 +319,19 @@ public class ThreadManager : MonoBehaviour, IThreadManager
                 o_Info2 = c.point2.parent.parent.GetComponent<ObjectInfo>();
                 SewPoint s1 = c.point1.GetComponent<SewPoint>();
                 SewPoint s2 = c.point2.GetComponent<SewPoint>();
-                s1.pointMesh.material = connectHandler.correctPointMaterial;
-                s2.pointMesh.material = connectHandler.correctPointMaterial;
 
                 if (s1.attachmentId.Equals(s2.attachmentId))
                 {
+                    s1.connected = false;
+                    s2.connected = false;
                     if (o_Info1.noOfConnections > 0)
                         o_Info1.noOfConnections--;
                     if (o_Info2.noOfConnections > 0)
                         o_Info2.noOfConnections--;
+                    if(LevelsHandler.instance.currentLevelMeta.noOfCorrectLinks > 0)
+                        LevelsHandler.instance.currentLevelMeta.noOfCorrectLinks--;
 
+                    LevelsHandler.instance.currentLevelMeta.UpdateAllStitchesOfPlushie();
                     if (o_Info1.moveable)
                     {
                         if (o_Info1.head)
@@ -376,10 +388,13 @@ public class ThreadManager : MonoBehaviour, IThreadManager
                 else
                 {
                     connectHandler.UpdateConnections();
-                    instantiatedLine.SetPosition((instantiatedLine.positionCount - 1), lastConnectedPoint.position);
+                    if(lastConnectedPoint != null)
+                        instantiatedLine.SetPosition((instantiatedLine.positionCount - 1), lastConnectedPoint.position);
                 }
 
-
+                if (!s1.connected)
+                    s1.pointMesh.material = connectHandler.startToDetectMaterial;
+                s2.pointMesh.material = connectHandler.originalMaterial;
 
                 Destroy(c.line.gameObject);
             }
@@ -387,6 +402,6 @@ public class ThreadManager : MonoBehaviour, IThreadManager
                 connectHandler.points.Clear();
 
         }
-    
     }
+   
 }

@@ -3,14 +3,15 @@ using UnityEngine;
 
 public class DoTweenAnimationHandler : MonoBehaviour
 {
-    
     private void OnEnable()
     {
+        GameEvents.DoTweenAnimationHandlerEvents.onScaleTransform.RegisterEvent(ScaleTransform);
         GameEvents.DoTweenAnimationHandlerEvents.onScaleAnimation.RegisterEvent(ScaleInOut);
         GameEvents.DoTweenAnimationHandlerEvents.onMoveToTargetAnimation.RegisterEvent(MoveToTarget);
     }
     private void OnDisable()
     {
+        GameEvents.DoTweenAnimationHandlerEvents.onScaleTransform.UnregisterEvent(ScaleTransform);
         GameEvents.DoTweenAnimationHandlerEvents.onScaleAnimation.UnregisterEvent(ScaleInOut);
         GameEvents.DoTweenAnimationHandlerEvents.onMoveToTargetAnimation.UnregisterEvent(MoveToTarget);
     }
@@ -32,4 +33,11 @@ public class DoTweenAnimationHandler : MonoBehaviour
         return moveTween;
     }
 
+    void ScaleTransform(Transform t,Vector3 targetScale, float speed, Ease ease)
+    {
+        t.DOScale(targetScale, speed).SetEase(ease).OnComplete(() =>
+        {
+            //t.DOPause();
+        });
+    }
 }

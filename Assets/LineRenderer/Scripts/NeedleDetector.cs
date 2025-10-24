@@ -1,4 +1,3 @@
-using MoreMountains.NiceVibrations;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -11,7 +10,6 @@ public class NeedleDetector : MonoBehaviour, INeedleDetector
     [field: SerializeField] public float maxDetectionRadius { get; private set; }
     [field: SerializeField] public bool detect { get; set; }
     [field: SerializeField] public List<SewPoint> pointsDetected {  get; private set; }
-
     private void OnEnable()
     {
         RegisterService();
@@ -28,6 +26,7 @@ public class NeedleDetector : MonoBehaviour, INeedleDetector
     {
         detectionRadius = val;
     }
+  
     void DetectPoints()
     {
         if (!detect) return;
@@ -36,6 +35,8 @@ public class NeedleDetector : MonoBehaviour, INeedleDetector
         SewPoint sewPoint = colliders[0].GetComponent<SewPoint>();
         if (sewPoint.IsSelected()) return;
         if (sewPoint.connected) return;
+      
+
         sewPoint.Selected(true);
 
         sewPoint.GetComponent<Collider>().enabled = false;
@@ -44,9 +45,8 @@ public class NeedleDetector : MonoBehaviour, INeedleDetector
         sewPoint.ChangeTextColor(Color.green);
         GameEvents.EffectHandlerEvents.onSelectionEffect.RaiseEvent(sewPoint.transform);
         GameEvents.ThreadEvents.onCreatingConnection.RaiseEvent(sewPoint);
-     
-
         var pointsHandler = ServiceLocator.GetService<IPointConnectionHandler>();
+
         if (pointsHandler != null)
         {
             if(pointsDetected.Count > 0)
@@ -56,35 +56,69 @@ public class NeedleDetector : MonoBehaviour, INeedleDetector
                 {
                     if (!lastDetected.connected)
                     {
-                        sewPoint.pointMesh.material = pointsHandler.wrongPointMaterial;
-                        lastDetected.pointMesh.material = pointsHandler.wrongPointMaterial;
+                        if (!lastDetected.attachmentId.Equals(sewPoint.attachmentId)){
+                            sewPoint.pointMesh.material = pointsHandler.wrongPointMaterial;
+                            lastDetected.pointMesh.material = pointsHandler.wrongPointMaterial;
+                        }
+                        var threadHandler = ServiceLocator.GetService<IThreadManager>();
+
+                        if (threadHandler != null)
+                            threadHandler.ScaleDownAllPoints();
                     }
-                    else
-                    {
-                        if(!sewPoint.connected)
-                            sewPoint.pointMesh.material = pointsHandler.startToDetectMaterial;
-                    }
+                    //else
+                    //{
+                    //    if(!sewPoint.connected)
+                    //        sewPoint.pointMesh.material = pointsHandler.startToDetectMaterial;
+                    //}
                 }
                 else
                 {
-                    if (!sewPoint.connected)
-                        sewPoint.pointMesh.material = pointsHandler.startToDetectMaterial;
-                    if(lastDetected.selected && !lastDetected.connected)
+                    //if (!sewPoint.connected)
+                    //    sewPoint.pointMesh.material = pointsHandler.startToDetectMaterial;
+                    if (!lastDetected.connected)
                     {
-                        lastDetected.pointMesh.material = pointsHandler.wrongPointMaterial;
-                        sewPoint.pointMesh.material = pointsHandler.wrongPointMaterial;
+                        if (lastDetected.selected)
+                        {
+                            if (!lastDetected.attachmentId.Equals(sewPoint.attachmentId))
+                            {
+                                lastDetected.pointMesh.material = pointsHandler.wrongPointMaterial;
+                                sewPoint.pointMesh.material = pointsHandler.wrongPointMaterial;
+                            }
+                            var threadHandler = ServiceLocator.GetService<IThreadManager>();
+
+                            if (threadHandler != null)
+                                threadHandler.ScaleDownAllPoints();
+                        }
                     }
+                    else
+                    {
+                        if (lastDetected.selected)
+                        {
+                            if(!lastDetected.attachmentId.Equals(sewPoint.attachmentId)
+                                && !lastDetected.nextConnectedPointId.Equals(sewPoint.attachmentId))
+                                sewPoint.pointMesh.material = pointsHandler.wrongPointMaterial;
+                            //var threadHandler = ServiceLocator.GetService<IThreadManager>();
+
+                            //if (threadHandler != null)
+                            //    threadHandler.ScaleDownAllPoints();
+                        }
+                    }
+
                 }
             }
-            else
-            {
-                if (!sewPoint.connected)
-                    sewPoint.pointMesh.material = pointsHandler.startToDetectMaterial;
-            }
+         
+
+            //else
+            //{
+            //    if (!sewPoint.connected)
+            //        sewPoint.pointMesh.material = pointsHandler.startToDetectMaterial;
+            //}
         }
+
         if (!pointsDetected.Contains(sewPoint))
             pointsDetected.Add(sewPoint);
     }
+    
     void PlaySound()
     {
         SoundManager.instance.ResetAudioSource();

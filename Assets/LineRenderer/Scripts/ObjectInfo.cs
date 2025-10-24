@@ -8,6 +8,7 @@ public class ObjectInfo : MonoBehaviour
 
     public PartConnectedTo partConnectedTo;
     public Vector3 originalRotation;
+    public Vector3 movedPosition;
     public bool moveable = false;
     public bool shouldBeChild = false;
     [field: SerializeField]public bool IsStitched { get; private set; }

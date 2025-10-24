@@ -8,6 +8,7 @@ public class NeedleMovement : MonoBehaviour,INeedleMovement
     [SerializeField] float needleRotationSpeed;
     [SerializeField] float angleOffset;
     [SerializeField] float minRotationThreshold;
+    [SerializeField] Ease ease;
     private void OnEnable()
     {
         RegisterService();
@@ -58,19 +59,11 @@ public class NeedleMovement : MonoBehaviour,INeedleMovement
     }
     void NeedleRotation(float magnitude, Vector3 _direction)
     {
-        //Debug.LogError(" " + magnitude);
         if (magnitude > minRotationThreshold)
         {
             float angle = Mathf.Atan2(_direction.y, _direction.x) * Mathf.Rad2Deg;
             needle.transform.DOKill();
-            needle.transform.DORotate(new Vector3(0, 0, angle - angleOffset), needleRotationSpeed).SetEase(Ease.Linear);
-
-            //Quaternion targetRotation = Quaternion.Euler(0, 0, angle - angleOffset);
-            //needle.transform.rotation = Quaternion.RotateTowards(
-            //    needle.transform.rotation,
-            //    targetRotation,
-            //    needleRotationSpeed * Time.deltaTime
-            //);
+            needle.transform.DORotate(new Vector3(0, 0, angle - angleOffset), needleRotationSpeed).SetEase(ease);
         }
 
     }

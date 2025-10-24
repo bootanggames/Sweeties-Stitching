@@ -6,14 +6,20 @@ public class SewPoint : MonoBehaviour, ISewPoint
 {
     public float zVal;
     public int attachmentId;
+    public int nextConnectedPointId;
     public bool connected = false;
     public SequenceType sequenceType;
-    [SerializeField] TextMeshPro textObj;
+    [HideInInspector] TextMeshPro textObj;
     [HideInInspector]public MeshRenderer pointMesh;
     public bool selected {  get; private set; }
-    [field: SerializeField]public List<Transform> stitchEffect_ThreadPoints {  get; private set; }
+    [field: SerializeField] public List<Transform> stitchEffect_ThreadPoints {  get; private set; }
+    [field: SerializeField] public bool startFlag { get; private set; }
+    [HideInInspector]public Vector3 originalScale;
+
     private void OnEnable()
     {
+        originalScale = this.transform.localScale;
+
         pointMesh = GetComponent<MeshRenderer>();
         textObj = GetComponentInChildren<TextMeshPro>();
         RegisterService();

@@ -16,4 +16,6 @@ public interface IThreadManager : IGameService
     Vector3 prevMouseDragPosition {  get; }
     Transform lastConnectedPoint {  get; }
     void SetLastConnectedPosition(Transform t);
+    void ScaleDownAllPoints();
+    int pointIndex { get; set; }
 }

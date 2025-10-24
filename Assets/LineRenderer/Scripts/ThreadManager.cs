@@ -30,13 +30,11 @@ public class ThreadManager : MonoBehaviour, IThreadManager
     [field: SerializeField] public int threadIndex { get; private set; }
 
     [field: SerializeField] public LineRenderer prevLine { get; set; }
+    [field: SerializeField] public int pointIndex {  get;  set; }
 
     private void OnEnable()
     {
         RegisterService();
-
-        //InstantiateMainThread(true, startPoint.position);
-
     }
     private void OnDisable()
     {
@@ -223,6 +221,7 @@ public class ThreadManager : MonoBehaviour, IThreadManager
 
     void CreateLineAndApplyPullForceOnConnection(SewPoint point)
     {
+       
         detectedPoints.Add(point.transform);
 
         detectedPointsCount++;
@@ -249,11 +248,46 @@ public class ThreadManager : MonoBehaviour, IThreadManager
         AddFirstPositionOnMouseDown(point.transform.position);
         for (int i = 0; i < instantiatedLine.positionCount; i++)
             instantiatedLine.SetPosition(i, point.transform.position);
-
+    
+        Scale();
         GameEvents.PointConnectionHandlerEvents.onFetchingPoints.RaiseEvent(detectedPoints);
 
     }
 
+    public void ScaleDownAllPoints()
+    {
+        foreach(Transform t in detectedPoints)
+        {
+            SewPoint s = t.GetComponent<SewPoint>();
+            ScaleInOut(s.transform, 0.2f, 0.25f, false, s.originalScale);
+        }
+    }
+    void Scale()
+    {
+        if(pointIndex > 0)
+        {
+            SewPoint s = detectedPoints[pointIndex - 1].GetComponent<SewPoint>();
+            ScaleInOut(detectedPoints[pointIndex - 1], 0.2f, 0.25f, false, s.originalScale);
+        }
+        ScaleInOut(detectedPoints[pointIndex], 0.2f, 0.25f, true, Vector3.zero);
+        if (pointIndex < detectedPoints.Count)
+            pointIndex++;
+        else
+            pointIndex = 0;
+
+        CancelInvoke("Scale");
+    }
+    void ScaleInOut(Transform obj, float targetValue, float speed, bool scaleOut, Vector3 original)
+    {
+        Vector3 localScale = obj.localScale;
+        Vector3 targetScale = Vector3.zero;
+        if (scaleOut)
+            targetScale = new Vector3(localScale.x + targetValue, localScale.y + targetValue, localScale.z);
+        else if (!original.Equals(Vector3.zero))
+            targetScale = original;
+
+        GameEvents.DoTweenAnimationHandlerEvents.onScaleTransform.RaiseEvent(obj, targetScale, speed, Ease.Linear);
+    }
     void ResetThread()
     {
         if(instantiatedLine)
@@ -286,8 +320,10 @@ public class ThreadManager : MonoBehaviour, IThreadManager
                     {
                         SewPoint s = pointDetector.pointsDetected[pointDetector.pointsDetected.Count - 1];
                         s.pointMesh.material = connectHandler.originalMaterial;
+                        ScaleInOut(s.transform, 0.2f, 0.25f, false, s.originalScale);
+                        if (pointIndex > 0) pointIndex--;
                     }
-                
+
                 }
                 pointDetector.UndoLastConnectedPoint();
                 pointDetector.detect = false;
@@ -298,7 +334,17 @@ public class ThreadManager : MonoBehaviour, IThreadManager
 
             if (detectedPoints.Count > 0)
             {
+                SewPoint s = detectedPoints[(detectedPoints.Count - 1)].GetComponent<SewPoint>();
+                if((detectedPoints.Count - 1) > 0)
+                {
+                    SewPoint s2 = detectedPoints[(detectedPoints.Count - 2)].GetComponent<SewPoint>();
+                    if (!s2.connected)
+                        ScaleInOut(detectedPoints[(detectedPoints.Count - 2)], 0.2f, 0.25f, true, Vector3.zero);
+                }
+                ScaleInOut(detectedPoints[(detectedPoints.Count - 1)], 0.2f, 0.25f, false, s.originalScale);
+                if (pointIndex > 0) pointIndex--;
                 detectedPoints.Remove(detectedPoints[(detectedPoints.Count - 1)]);
+
                 if ((detectedPoints.Count - 1) >= 0)
                     SetLastConnectedPosition(detectedPoints[(detectedPoints.Count - 1)].transform);
                 else
@@ -307,7 +353,7 @@ public class ThreadManager : MonoBehaviour, IThreadManager
             else
                 SetLastConnectedPosition(null);
 
-
+           
 
             if (connectHandler.points.Count > 0)
                 connectHandler.points.Remove(connectHandler.points[connectHandler.points.Count - 1]);
@@ -329,74 +375,86 @@ public class ThreadManager : MonoBehaviour, IThreadManager
                 {
                     s1.connected = false;
                     s2.connected = false;
-                    if (o_Info1.noOfConnections > 0)
-                        o_Info1.noOfConnections--;
-                    if (o_Info2.noOfConnections > 0)
-                        o_Info2.noOfConnections--;
+                    if (connectHandler.wrongConnectPoint.Count == 0)
+                    {
+                        if (o_Info1.noOfConnections > 0)
+                            o_Info1.noOfConnections--;
+                        if (o_Info2.noOfConnections > 0)
+                            o_Info2.noOfConnections--;
+
+                        if (o_Info1.moveable)
+                        {
+                            if (o_Info1.head)
+                                moveableTransform = o_Info1.transform.parent;
+                            else
+                                moveableTransform = o_Info1.transform;
+                            if (o_Info1.movedPositions.Count > 0)
+                            {
+                                moveableTransform.DOMove(o_Info1.movedPositions[o_Info1.movedPositions.Count - 1], 0.25f).SetEase(Ease.InOutSine).OnUpdate(() =>
+                                {
+                                    instantiatedLine.SetPosition((instantiatedLine.positionCount - 1), lastConnectedPoint.position);
+                                    connectHandler.UpdateConnections();
+
+                                }).OnComplete(() =>
+                                {
+
+                                    moveableTransform.DOPause();
+                                });
+                                o_Info1.movedPositions.Remove(o_Info1.movedPositions[o_Info1.movedPositions.Count - 1]);
+                                if (o_Info2.movedPositions.Count > 0)
+                                    o_Info2.movedPositions.Remove(o_Info2.movedPositions[o_Info2.movedPositions.Count - 1]);
+
+                            }
+
+                        }
+                        else if (o_Info2.moveable)
+                        {
+                            if (o_Info2.head)
+                                moveableTransform = o_Info2.transform.parent;
+                            else
+                                moveableTransform = o_Info2.transform;
+
+                            if (o_Info2.movedPositions.Count > 0)
+                            {
+                                moveableTransform.DOMove(o_Info2.movedPositions[o_Info2.movedPositions.Count - 1], 0.25f).SetEase(Ease.InOutSine).OnUpdate(() =>
+                                {
+                                    instantiatedLine.SetPosition((instantiatedLine.positionCount - 1), lastConnectedPoint.position);
+                                    connectHandler.UpdateConnections();
+
+                                }).OnComplete(() =>
+                                {
+
+                                    moveableTransform.DOPause();
+                                });
+                                if (o_Info1.movedPositions.Count > 0)
+                                    o_Info1.movedPositions.Remove(o_Info1.movedPositions[o_Info1.movedPositions.Count - 1]);
+                                o_Info2.movedPositions.Remove(o_Info2.movedPositions[o_Info2.movedPositions.Count - 1]);
+                            }
+
+                        }
+                    }
                 
                     LevelsHandler.instance.currentLevelMeta.UpdateAllStitchesOfPlushie();
-                    if (o_Info1.moveable)
-                    {
-                        if (o_Info1.head)
-                            moveableTransform = o_Info1.transform.parent;
-                        else
-                            moveableTransform = o_Info1.transform;
-                        if (o_Info1.movedPositions.Count > 0)
-                        {
-                            //moveableTransform.position = o_Info1.movedPositions[o_Info1.movedPositions.Count - 1];
-                            moveableTransform.DOMove(o_Info1.movedPositions[o_Info1.movedPositions.Count - 1], 0.25f).SetEase(Ease.InOutSine).OnUpdate(() =>
-                            {
-                                instantiatedLine.SetPosition((instantiatedLine.positionCount - 1), lastConnectedPoint.position);
-                                connectHandler.UpdateConnections();
-
-                            }).OnComplete(() =>
-                            {
-
-                                moveableTransform.DOPause();
-                            });
-                            o_Info1.movedPositions.Remove(o_Info1.movedPositions[o_Info1.movedPositions.Count - 1]);
-                            if (o_Info2.movedPositions.Count > 0)
-                                o_Info2.movedPositions.Remove(o_Info2.movedPositions[o_Info2.movedPositions.Count - 1]);
-
-                        }
-
-                    }
-                    else if (o_Info2.moveable)
-                    {
-                        if (o_Info2.head)
-                            moveableTransform = o_Info2.transform.parent;
-                        else
-                            moveableTransform = o_Info2.transform;
-
-                        if (o_Info2.movedPositions.Count > 0)
-                        {
-                            //moveableTransform.position = o_Info2.movedPositions[o_Info2.movedPositions.Count - 1];
-                            moveableTransform.DOMove(o_Info2.movedPositions[o_Info2.movedPositions.Count - 1], 0.25f).SetEase(Ease.InOutSine).OnUpdate(() =>
-                            {
-                                instantiatedLine.SetPosition((instantiatedLine.positionCount - 1), lastConnectedPoint.position);
-                                connectHandler.UpdateConnections();
-
-                            }).OnComplete(() =>
-                            {
-
-                                moveableTransform.DOPause();
-                            });
-                            if (o_Info1.movedPositions.Count > 0)
-                                o_Info1.movedPositions.Remove(o_Info1.movedPositions[o_Info1.movedPositions.Count - 1]);
-                            o_Info2.movedPositions.Remove(o_Info2.movedPositions[o_Info2.movedPositions.Count - 1]);
-                        }
-
-                    }
+                    
                 }
                 else
                 {
                     connectHandler.UpdateConnections();
                     if(lastConnectedPoint != null)
                         instantiatedLine.SetPosition((instantiatedLine.positionCount - 1), lastConnectedPoint.position);
-                }
 
-                if (!s1.connected)
-                    s1.pointMesh.material = connectHandler.startToDetectMaterial;
+                    if (!s1.nextConnectedPointId.Equals(s2.attachmentId))
+                    {
+                        if(connectHandler.wrongConnectPoint.Count > 0)
+                        {
+                            if (connectHandler.wrongConnectPoint.Contains(s2))
+                                connectHandler.wrongConnectPoint.Remove(s2);
+                        }
+                     
+                    }
+                }
+                if(!s1.connected)
+                    s1.pointMesh.material = connectHandler.originalMaterial;
                 s2.pointMesh.material = connectHandler.originalMaterial;
 
                 Destroy(c.line.gameObject);

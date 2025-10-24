@@ -257,25 +257,25 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
                 info1.movedPositions.Add(moveAbleTransform.position);
                 info2.movedPositions.Add(moveAbleTransform.position);
                 Vector3 targetPos = moveAbleTransform.position + avrOffset * info1.pullForce;
-                if (moveStaticallyAtTheEndOfStitch)
-                {
-                   
-                }
-                if (info1.partType.Equals(PlushieActiveStitchPart.lefteye) || info1.partType.Equals(PlushieActiveStitchPart.righteye))
-                {
-                    if (info1.noOfConnections.Equals(info1.totalConnections))
-                    {
-                        info1.transform.DOMove(info1.movedPosition, 0.5f).SetEase(Ease.Linear).OnUpdate(() =>
-                        {
-                            UpdateConnections();
-                        }).OnComplete(() =>
-                        {
-                            info1.DOPause();
-                        });
-                    }
 
-                    return;
-                }
+                //if (info1.partType.Equals(PlushieActiveStitchPart.lefteye) || info1.partType.Equals(PlushieActiveStitchPart.righteye))
+                //{
+                //    if (info1.noOfConnections.Equals(info1.totalConnections))
+                //    {
+                //        info1.transform.DOMove(info1.movedPosition, 0.5f).SetEase(Ease.Linear).OnUpdate(() =>
+                //        {
+                //            UpdateConnections();
+                //        }).OnComplete(() =>
+                //        {
+                //            SewPoint sp1 = p1.GetComponent<SewPoint>();
+                //            SewPoint sp2 = p2.GetComponent<SewPoint>();
+                //            CheckIfLastConnectionUpdated(sp1, sp2, p1, p2, info1, info2);
+                //            info1.DOPause();
+                //        });
+                //    }
+
+                //    return;
+                //}
                 pullSeq.Join(moveAbleTransform.DOMove(targetPos, tweenDuration).SetEase(Ease.InOutSine));
                
                 pullSeq.Join(
@@ -309,25 +309,25 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
                 info1.movedPositions.Add(moveAbleTransform.position);
                 info2.movedPositions.Add(moveAbleTransform.position);
                 Vector3 targetPos = moveAbleTransform.position + avrOffset * info2.pullForce;
-                if (moveStaticallyAtTheEndOfStitch)
-                {
-                    
-                }
-                if (info2.partType.Equals(PlushieActiveStitchPart.lefteye) || info2.partType.Equals(PlushieActiveStitchPart.righteye))
-                {
-                    if (info2.noOfConnections.Equals(info2.totalConnections))
-                    {
-                        info2.transform.DOMove(info2.movedPosition, 0.5f).SetEase(Ease.Linear).OnUpdate(() =>
-                        {
-                            UpdateConnections();
-                        }).OnComplete(() =>
-                        {
-                            info2.DOPause();
-                        });
-                    }
 
-                    return;
-                }
+                //if (info2.partType.Equals(PlushieActiveStitchPart.lefteye) || info2.partType.Equals(PlushieActiveStitchPart.righteye))
+                //{
+                //    if (info2.noOfConnections.Equals(info2.totalConnections))
+                //    {
+                //        info2.transform.DOMove(info2.movedPosition, 0.5f).SetEase(Ease.Linear).OnUpdate(() =>
+                //        {
+                //            UpdateConnections();
+                //        }).OnComplete(() =>
+                //        {
+                //            SewPoint sp1 = p1.GetComponent<SewPoint>();
+                //            SewPoint sp2 = p2.GetComponent<SewPoint>();
+                //            CheckIfLastConnectionUpdated(sp1, sp2, p1, p2, info1, info2);
+                //            info2.DOPause();
+                //        });
+                //    }
+
+                //    return;
+                //}
                 pullSeq.Join(moveAbleTransform.DOMove(targetPos, tweenDuration).SetEase(Ease.InOutSine));
      
                 pullSeq.Join(
@@ -400,7 +400,6 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
         s2.name = s2.attachmentId.ToString();
         o1.noOfConnections++;
         o2.noOfConnections++;
-        Debug.LogError("increment ");
         if (threadHandler != null)
             threadHandler.ScaleDownAllPoints();
         yield return new WaitForSeconds(0.5f);

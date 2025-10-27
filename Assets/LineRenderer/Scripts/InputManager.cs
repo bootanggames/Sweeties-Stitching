@@ -66,7 +66,7 @@ public class InputManager : MonoBehaviour
         else if (Input.GetMouseButtonUp(0) && drag)
         {
             drag = false;
-            GameEvents.PointConnectionHandlerEvents.onStopTweens.RaiseEvent();
+            //GameEvents.PointConnectionHandlerEvents.onStopTweens.RaiseEvent();
             GameEvents.ThreadEvents.setThreadInput.RaiseEvent(true);
 
         }

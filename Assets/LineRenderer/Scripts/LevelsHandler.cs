@@ -47,7 +47,7 @@ public class LevelsHandler : Singleton<LevelsHandler>, ILevelHandler
         levelIndex = PlayerPrefs.GetInt("Level");
         levelIndex++;
 
-        if (levelIndex >= levels.Count)
+        if (levelIndex >= (levels.Count - 1))
             levelIndex = 0;
 
        currentLevelMeta = levels[levelIndex].GetComponent<Level_Metadata>();
@@ -55,7 +55,10 @@ public class LevelsHandler : Singleton<LevelsHandler>, ILevelHandler
         var canvasHandler = ServiceLocator.GetService<ICanvasUIManager>();
         if (canvasHandler != null)
         {
-            canvasHandler.tapToStartButton.SetActive(true);
+            //canvasHandler.tapToStartButton.SetActive(true);
+            canvasHandler.startText.SetActive(true);
+            canvasHandler.startText.transform.localScale = Vector3.zero;
+            canvasHandler.startText.GetComponent<Animate>().StartTextAnimation();
             canvasHandler.stitchCountText.text = currentLevelMeta.noOfCorrectLinks + " OF " + currentLevelMeta.totalCorrectLinks;
         }
         

@@ -33,11 +33,10 @@ public class DoTweenAnimationHandler : MonoBehaviour
         return moveTween;
     }
 
-    void ScaleTransform(Transform t,Vector3 targetScale, float speed, Ease ease)
+    Tween ScaleTransform(Transform t,Vector3 targetScale, float speed, Ease ease)
     {
-        t.DOScale(targetScale, speed).SetEase(ease).OnComplete(() =>
-        {
-            //t.DOPause();
-        });
+        Tween scaleTween = null;
+        scaleTween = t.DOScale(targetScale, speed).SetEase(ease);
+        return scaleTween;
     }
 }

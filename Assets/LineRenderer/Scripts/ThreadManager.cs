@@ -277,6 +277,7 @@ public class ThreadManager : MonoBehaviour, IThreadManager
 
         CancelInvoke("Scale");
     }
+    Tween pointScaleTween = null;
     void ScaleInOut(Transform obj, float targetValue, float speed, bool scaleOut, Vector3 original)
     {
         Vector3 localScale = obj.localScale;
@@ -286,7 +287,11 @@ public class ThreadManager : MonoBehaviour, IThreadManager
         else if (!original.Equals(Vector3.zero))
             targetScale = original;
 
-        GameEvents.DoTweenAnimationHandlerEvents.onScaleTransform.RaiseEvent(obj, targetScale, speed, Ease.Linear);
+        pointScaleTween = GameEvents.DoTweenAnimationHandlerEvents.onScaleTransform.Raise(obj, targetScale, speed, Ease.Linear);
+        pointScaleTween.OnComplete(() =>
+        {
+            //pointScaleTween.Kill();
+        });
     }
     void ResetThread()
     {
@@ -443,20 +448,17 @@ public class ThreadManager : MonoBehaviour, IThreadManager
                     if(lastConnectedPoint != null)
                         instantiatedLine.SetPosition((instantiatedLine.positionCount - 1), lastConnectedPoint.position);
 
-                    if (!s1.nextConnectedPointId.Equals(s2.attachmentId))
-                    {
-                        if(connectHandler.wrongConnectPoint.Count > 0)
-                        {
-                            if (connectHandler.wrongConnectPoint.Contains(s2))
-                                connectHandler.wrongConnectPoint.Remove(s2);
-                        }
-                     
-                    }
+                    
                 }
                 if(!s1.connected)
                     s1.pointMesh.material = connectHandler.originalMaterial;
                 s2.pointMesh.material = connectHandler.originalMaterial;
 
+                if (connectHandler.wrongConnectPoint.Count > 0)
+                {
+                    if (connectHandler.wrongConnectPoint.Contains(s2))
+                        connectHandler.wrongConnectPoint.Remove(s2);
+                }
                 Destroy(c.line.gameObject);
             }
             else

@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using TMPro;
+using UnityEditor.VersionControl;
 using UnityEngine;
 
 public class ObjectInfo : MonoBehaviour
@@ -19,11 +20,14 @@ public class ObjectInfo : MonoBehaviour
     public int noOfConnections;
 
     [SerializeField] GameObject completeStitchTextObj;
+    [SerializeField] GameObject wrongSequenceAlert;
     [SerializeField] string text;
     [SerializeField] List<GameObject> confettiObj;
     [SerializeField] int confettiIndex = 0;
     public List<Vector3> movedPositions;
     [SerializeField] GameObject cotton;
+    [SerializeField] GameObject partWithHoles;
+    [SerializeField] GameObject partWithOutHoles;
 
     [Header("----------------New Data------------------")]
     [SerializeField] GameObject pointPrefab;
@@ -35,6 +39,53 @@ public class ObjectInfo : MonoBehaviour
     [SerializeField] List<Vector3> positions = new List<Vector3>();
     [SerializeField] List<SewPoint> generatedPoints;
     [SerializeField] bool dontChangeY;
+    private void OnEnable()
+    {
+        if (completeStitchTextObj != null)
+            wrongSequenceAlert = completeStitchTextObj;
+            
+        int stitched = PlayerPrefs.GetInt(partType.ToString() + "_IsStiched");
+        if(stitched == 1)
+        {
+            IsStitched = true;
+            noOfConnections = totalConnections;
+            if (LevelsHandler.instance)
+            {
+                if (LevelsHandler.instance.currentLevelMeta)
+                {
+                   
+                    foreach (GameObject g in LevelsHandler.instance.currentLevelMeta.levelParts)
+                    {
+                        if (partType.Equals(g.GetComponent<ObjectInfo>().partType))
+                        {
+                            if (!movedPosition.Equals(Vector3.zero))
+                            {
+                               
+                            }
+                            if (partType.Equals(PlushieActiveStitchPart.neck))
+                                LevelsHandler.instance.currentLevelMeta.head.transform.position = movedPosition;
+                            else
+                            {
+                                if (partWithOutHoles == null)
+                                {
+                                    if (!movedPosition.Equals(Vector3.zero))
+                                        g.transform.position = movedPosition;
+                                }
+                                else
+                                {
+                                    partWithHoles.SetActive(false);
+                                    partWithOutHoles.SetActive(true);
+                                }
+
+                            }
+                        }
+                    }
+                }
+            }
+           
+          
+        }
+    }
     //private void Start()
     //{
     //    SpawnPoints();
@@ -108,14 +159,17 @@ public class ObjectInfo : MonoBehaviour
     public void MarkStitched()
     {
         IsStitched = true;
-        if(cotton)
-            cotton.SetActive(false);
-        PlaySound();
-        if (completeStitchTextObj)
-        {
-            completeStitchTextObj.GetComponent<TextMeshPro>().text = text;
-            completeStitchTextObj.SetActive(true);
+        PlayerPrefs.SetInt(partType.ToString()+"_IsStiched", 1);
+        if(cotton) cotton.SetActive(false);
+        if (partWithHoles)
+        { 
+            partWithHoles.GetComponent<SpriteRenderer>().enabled = false;
         }
+
+        if (partWithOutHoles) partWithOutHoles.SetActive(true);
+
+        PlaySound();
+        ChangeText(completeStitchTextObj, text, 4);
         Invoke("EnableConffetti", 0.2f);
     }
     void EnableConffetti()
@@ -131,13 +185,9 @@ public class ObjectInfo : MonoBehaviour
         CancelInvoke("EnableConffetti");
 
         if (confettiIndex < connectPoints.Count)
-        {
             Invoke("EnableConffetti", 0.15f);
-        }
         else
-        {
             Invoke("UpdateProgress",1);
-        }
     }
 
     void UpdateProgress()
@@ -179,11 +229,41 @@ public class ObjectInfo : MonoBehaviour
         }
         CancelInvoke("DisableWellDoneText");
     }
-
-    public void ResetStitched()
+    void DisableText(GameObject textObj)
     {
-        IsStitched = false;
+        if (textObj != null)
+            textObj.SetActive(false);
     }
+    void ChangeText(GameObject textObj, string _text, float _fontSize)
+    {
+        if (textObj != null)
+        {
+            TextMeshPro textMesh = textObj.GetComponent<TextMeshPro>();
+            textMesh.fontSize = _fontSize;
+            textMesh.text = _text;
+            textObj.SetActive(true);
+        }
+    }
+    public void DisableWrongAlertText()
+    {
+        if (wrongSequenceAlert != null)
+            wrongSequenceAlert.SetActive(false);
+    }
+    public void WrongSequenceAlertText(string _text, float _fontSize)
+    {
+        if (wrongSequenceAlert)
+        {
+            TextMeshPro textMesh = wrongSequenceAlert.GetComponent<TextMeshPro>();
+            textMesh.fontSize = _fontSize;
+            textMesh.text = _text;
+            wrongSequenceAlert.SetActive(true);
+        }
+       
+    }
+    //public void ResetStitched()
+    //{
+    //    IsStitched = false;
+    //}
     void PlaySound()
     {
         SoundManager.instance.ResetAudioSource();

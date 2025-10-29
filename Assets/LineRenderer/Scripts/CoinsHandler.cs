@@ -18,6 +18,7 @@ public class CoinsHandler : MonoBehaviour,ICoinsHandler
     Tween coinMoveTween = null;
     [SerializeField] TextMeshProUGUI coinsEarned;
     int coinsRewarded = 0;
+    [SerializeField] Vector3 targetScaleDown;
     private void Start()
     {
         totalCoins = PlayerPrefs.GetInt("Coins");
@@ -62,15 +63,20 @@ public class CoinsHandler : MonoBehaviour,ICoinsHandler
         coinsRewarded = LevelsHandler.instance.currentLevelMeta.levelReward;
         coinsEarned.text = coinsRewarded.ToString();
     }
+    Sequence seq;
     public IEnumerator MoveCoins()
     {
         coinMoveTween.Kill();
         coinMoveTween = null;
+        Sequence coinSeq = DOTween.Sequence();
+
         for (int i = 0; i < coinsObjList.Count; i++)
         {
             yield return new WaitForSeconds(0.015f);
-        
-            coinMoveTween = GameEvents.DoTweenAnimationHandlerEvents.onMoveToTargetAnimation.Raise(coinsObjList[i].transform, targetPointToMove, coinMoveSpeed, Ease.InOutBack);
+            coinSeq.Join(GameEvents.DoTweenAnimationHandlerEvents.onMoveToTargetAnimation.Raise(coinsObjList[i].transform, targetPointToMove, coinMoveSpeed, Ease.InOutBack));
+            coinSeq.Join(GameEvents.DoTweenAnimationHandlerEvents.onScaleTransform.Raise(coinsObjList[i].transform, targetScaleDown, coinMoveSpeed, Ease.Linear));
+            
+            coinMoveTween = coinSeq;
             coinMoveTween.OnComplete(() =>
             {
                 SaveCoins(1);

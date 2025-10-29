@@ -25,13 +25,20 @@ public class Animate : MonoBehaviour
         {
             t.OnComplete(() =>
             {
-                var canvasHandler = ServiceLocator.GetService<ICanvasUIManager>();
-                if (canvasHandler != null)
-                    canvasHandler.TapToStart();
-                t.Kill();
-                this.gameObject.SetActive(false);
+                Invoke("StartGame", 0.5f);
 
             });
         }
+    }
+
+    void StartGame()
+    {
+        var canvasHandler = ServiceLocator.GetService<ICanvasUIManager>();
+        if (canvasHandler != null)
+            canvasHandler.TapToStart();
+
+        t.Kill();
+        this.gameObject.SetActive(false);
+        CancelInvoke("StartGame");
     }
 }

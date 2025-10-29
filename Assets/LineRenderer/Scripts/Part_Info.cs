@@ -14,7 +14,6 @@ public class Part_Info : MonoBehaviour
             {
                foreach(SewPoint s in o_Info.connectPoints)
                 {
-                    //s.GetComponent<Collider>().enabled = true;
                     s.gameObject.SetActive(val);
                 }
             } 

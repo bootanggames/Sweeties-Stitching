@@ -122,9 +122,7 @@ public class CanvasUIManager : MonoBehaviour, ICanvasUIManager
         GameHandler.instance.SwitchGameState(GameStates.Gamestart);
         var levelhandler = ServiceLocator.GetService<ILevelHandler>();
         if(levelhandler != null)
-        {
             levelhandler.levels[levelhandler.levelIndex].GetComponent<Level_Metadata>().StartLevel();
-        }
     }
 
     public void UpdateStitchCount(int totalStitch, int completedStitch)

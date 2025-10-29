@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Cinemachine;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Level_Metadata : MonoBehaviour
@@ -13,6 +14,7 @@ public class Level_Metadata : MonoBehaviour
     int partIndex = 0;
     public Part_Info head;
     public GameObject immoveablePart;
+    public GameObject bodyWihtoutHoles;
 
     public int totalStitchedPart;
     public int noOfStitchedPart;
@@ -78,12 +80,51 @@ public class Level_Metadata : MonoBehaviour
         GetAllPartsObjects(head.joints);
         GetAllPartsObjects(immoveablePart.GetComponent<Part_Info>().joints);
     }
+    public ObjectInfo GetObjectInfoOfCurrentUnstitchedPart(List<GameObject> list)
+    {
+        ObjectInfo ob_info = null;
+        foreach (GameObject g in list)
+        {
+            ObjectInfo o = g.GetComponent<ObjectInfo>();
+            if (!o.IsStitched)
+            {
+                ob_info = o;
+                break;
+            }
+           
+        }
+        return ob_info;
+    }
     public void StartLevel() 
     {
-        //HandlerPointsEnableDisable();
-        NextPartActivation(true, SequenceType.none);
+        ObjectInfo currentPartInfor = null;
+        ObjectInfo currentConnectedPartInfor = null;
+        ObjectInfo neck = levelParts[0].GetComponent<ObjectInfo>();
+        if (neck.IsStitched)
+            currentPartInfor = GetObjectInfoOfCurrentUnstitchedPart(levelDivision.rightSide);
+        else
+            currentPartInfor = neck;
+        if (currentPartInfor != null)
+        {
+            levelDivision.rightSideIndex = levelDivision.rightSide.IndexOf(currentPartInfor.gameObject) + 1;
+            //if (levelDivision.rightSideIndex < 0)
+            //{
+            //    if (neck.IsStitched)
+            //        levelDivision.rightSideIndex = 1;
+            //    else
+            //        levelDivision.rightSideIndex = 0;
+            //}
+            if (currentPartInfor.partConnectedTo.Equals(PartConnectedTo.head))
+                currentConnectedPartInfor = GetObjectInfoOfCurrentUnstitchedPart(head.joints);
+            else
+                currentConnectedPartInfor = GetObjectInfoOfCurrentUnstitchedPart(immoveablePart.GetComponent<Part_Info>().joints);
+            NextPartActivation(true, SequenceType.none, currentPartInfor, currentConnectedPartInfor);
+        }
+        else
+            NextPartActivation(true, SequenceType.none, null, null);
+
     }
-    void NextPartActivation(bool start, SequenceType sequence)
+    void NextPartActivation(bool start, SequenceType sequence, ObjectInfo currentPart, ObjectInfo connectedTo)
     {
         var needleDetecto = ServiceLocator.GetService<INeedleDetector>();
         if (needleDetecto != null)
@@ -95,55 +136,62 @@ public class Level_Metadata : MonoBehaviour
         ObjectInfo o_info = null;
         if (!start)
         {
-            if (partIndex == 1)
-            {
-                if (sequence.Equals(SequenceType.left))
-                    sequenceType = SequenceType.left;
-                else
-                    sequenceType = SequenceType.right;
-            }
-            if (sequenceType.Equals(SequenceType.left))
-            {
-                if (levelDivision.leftSideIndex >= levelDivision.leftSide.Count) return;
-                o_info = levelDivision.leftSide[levelDivision.leftSideIndex].GetComponent<ObjectInfo>();
-                EnableDisableSewPoints(o_info.connectPoints, true);
-                if (o_info.partConnectedTo.Equals(PartConnectedTo.body))
-                    p2_Info.EnableJoint(o_info.partType,true);
-                if (o_info.partConnectedTo.Equals(PartConnectedTo.head))
-                    head.EnableJoint(o_info.partType,true);
-                levelDivision.leftSideIndex++;
-            }
-            else
+            //if (partIndex == 1)
+            //{
+            //    if (sequence.Equals(SequenceType.left))
+            //        sequenceType = SequenceType.left;
+            //    else
+            //        sequenceType = SequenceType.right;
+            //}
+            sequenceType = SequenceType.right;
+
+            //if (sequenceType.Equals(SequenceType.left))
+            //{
+            //    if (levelDivision.leftSideIndex >= levelDivision.leftSide.Count) return;
+            //    o_info = levelDivision.leftSide[levelDivision.leftSideIndex].GetComponent<ObjectInfo>();
+            //    EnableDisableSewPoints(o_info.connectPoints, true);
+            //    if (o_info.partConnectedTo.Equals(PartConnectedTo.body))
+            //        p2_Info.EnableJoint(o_info.partType,true);
+            //    if (o_info.partConnectedTo.Equals(PartConnectedTo.head))
+            //        head.EnableJoint(o_info.partType,true);
+            //    levelDivision.leftSideIndex++;
+            //}
+            //else
             {
                 o_info = levelDivision.rightSide[levelDivision.rightSideIndex].GetComponent<ObjectInfo>();
-                EnableDisableSewPoints(o_info.connectPoints, true);
-                if (o_info.partConnectedTo.Equals(PartConnectedTo.body))
-                    p2_Info.EnableJoint(o_info.partType, true);
-                if (o_info.partConnectedTo.Equals(PartConnectedTo.head))
-                    head.EnableJoint(o_info.partType, true);
-                levelDivision.rightSideIndex++;
+
+                //EnableDisableSewPoints(o_info.connectPoints, true);
+                //if (o_info.partConnectedTo.Equals(PartConnectedTo.body))
+                //    p2_Info.EnableJoint(o_info.partType, true);
+                //if (o_info.partConnectedTo.Equals(PartConnectedTo.head))
+                //    head.EnableJoint(o_info.partType, true);
+
+                if (levelDivision.rightSideIndex < levelDivision.rightSide.Count)
+                    levelDivision.rightSideIndex++;
             }
         }
         else
         {
-            o_info = p2_Info.joints[partIndex].GetComponent<ObjectInfo>();
-            EnableDisableSewPoints(o_info.connectPoints, true);
-            EnableDisableSewPoints(head.joints[partIndex].GetComponent<ObjectInfo>().connectPoints, true);
+            if(currentPart == null && connectedTo == null)
+            {
+                o_info = levelParts[0].GetComponent<ObjectInfo>();
+                //EnableDisableSewPoints(head.joints[partIndex].GetComponent<ObjectInfo>().connectPoints, true);
+            }
+            else
+            {
+                o_info = currentPart;
+                //EnableDisableSewPoints(connectedTo.connectPoints, true);
+            }
+         
         }
+        EnableDisableSewPoints(o_info.connectPoints, true);
+        if (o_info.partConnectedTo.Equals(PartConnectedTo.body))
+            p2_Info.EnableJoint(o_info.partType, true);
 
-        //------for half progress camera enable-------
+        if (o_info.partConnectedTo.Equals(PartConnectedTo.head))
+            head.EnableJoint(o_info.partType, true);
 
-        //float percent = 0;
-        //if (totalStitchedPart == 0)
-        //    percent = 0;
-        //else
-        //    percent = ((float)noOfStitchedPart / totalStitchedPart) * 100;
-        //if(Mathf.FloorToInt(percent) == 55)
-        //{
-        //    StartCoroutine(CheckProgress(o_info));
-        //}
-        //else 
-            CameraFocus(o_info.partType);
+        CameraFocus(o_info.partType);
         Invoke("EnableDetection", 0.15f);
         partIndex++;
     }
@@ -170,6 +218,7 @@ public class Level_Metadata : MonoBehaviour
     public void UpdateLevelProgress(SequenceType sequence)
     {
         noOfStitchedPart++;
+        PlayerPrefs.SetInt("StitchedCount", noOfStitchedPart);
         var canvasManager = ServiceLocator.GetService<ICanvasUIManager>();
         if (canvasManager != null)
             canvasManager.UpdatePlushieStitchProgress(totalStitchedPart, noOfStitchedPart);
@@ -189,12 +238,17 @@ public class Level_Metadata : MonoBehaviour
             {
                 GameEvents.CameraManagerEvents.onAddingCamera.RaiseEvent(cameraManager.gameCompleteCamera);
             }
+            if (bodyWihtoutHoles)
+            {
+                bodyWihtoutHoles.SetActive(true);
+                immoveablePart.GetComponent<SpriteRenderer>().enabled = false;
+            }
             Invoke("WinEffect", 2.0f);
         }
         else
         {
           
-            NextPartActivation(false, sequence);
+            NextPartActivation(false, sequence, null, null);
         }
     }
     void WinEffect()
@@ -216,7 +270,7 @@ public class Level_Metadata : MonoBehaviour
             canvasManager.UpdateStitchCount(totalCorrectLinks, noOfCorrectLinks);
 
     }
-    void CameraFocus(PlushieActiveStitchPart currentActivePart)
+    public void CameraFocus(PlushieActiveStitchPart currentActivePart)
     {
         var cameraManager = ServiceLocator.GetService<ICameraManager>();
         if (cameraManager != null)
@@ -271,4 +325,6 @@ public class Level_Metadata : MonoBehaviour
         }
        
     }
+
+   
 }

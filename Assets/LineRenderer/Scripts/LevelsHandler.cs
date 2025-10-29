@@ -13,16 +13,19 @@ public class LevelsHandler : Singleton<LevelsHandler>, ILevelHandler
         base.SingletonAwake();
         RegisterService();
         levelIndex = PlayerPrefs.GetInt("Level");
-
-        SetLevel();
         currentLevelMeta = levels[levelIndex].GetComponent<Level_Metadata>();
+        SetLevel();
     }
     public override void SingletonOnDestroy()
     {
         base.SingletonOnDestroy();
         UnRegisterService();
     }
- 
+    public override void SingletonStart()
+    {
+        base.SingletonStart();
+        LoadLastSavedProgress();
+    }
     public void RegisterService()
     {
         ServiceLocator.RegisterService<ILevelHandler>(this);
@@ -46,10 +49,9 @@ public class LevelsHandler : Singleton<LevelsHandler>, ILevelHandler
      
         levelIndex = PlayerPrefs.GetInt("Level");
         levelIndex++;
-
-        if (levelIndex >= (levels.Count - 1))
+        if (levelIndex >= levels.Count)
             levelIndex = 0;
-
+        SetPref(levelIndex);
        currentLevelMeta = levels[levelIndex].GetComponent<Level_Metadata>();
 
         var canvasHandler = ServiceLocator.GetService<ICanvasUIManager>();
@@ -70,7 +72,16 @@ public class LevelsHandler : Singleton<LevelsHandler>, ILevelHandler
         {
             g.SetActive(false);
         }
-        levels[levelIndex].SetActive(true);
+        currentLevelMeta.gameObject.SetActive(true);
     }
    
+    void LoadLastSavedProgress()
+    {
+        if(currentLevelMeta != null)
+        {
+            int stitchedCountOfCurrentLevel =  PlayerPrefs.GetInt("StitchedCount");
+            currentLevelMeta.noOfCorrectLinks = stitchedCountOfCurrentLevel;
+            currentLevelMeta.noOfStitchedPart = PlayerPrefs.GetInt("StitchedCount");
+        }
+    }
 }

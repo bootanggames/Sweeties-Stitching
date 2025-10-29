@@ -96,21 +96,21 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
             {
                 if (sp1.transform.parent.parent.parent == sp2.transform.parent.parent.parent)
                 {
-                   
                     if (!sp1.connected)
                     {
-
                         if (sp1.nextConnectedPointId.Equals(sp2.attachmentId) || !sp1.nextConnectedPointId.Equals(sp2.attachmentId))
                         {
-                            if (!wrongConnectPoint.Contains(sp2))
-                                wrongConnectPoint.Add(sp2);
+                            //if (!wrongConnectPoint.Contains(sp2))
+                            //    wrongConnectPoint.Add(sp2);
+                            UpdateWrongSequence(sp2, o_info1, o_info2);
                         }
                     }
                    
                     if (!sp1.nextConnectedPointId.Equals(sp2.attachmentId))
                     {
-                        if (!wrongConnectPoint.Contains(sp2))
-                            wrongConnectPoint.Add(sp2);
+                        //if (!wrongConnectPoint.Contains(sp2))
+                        //    wrongConnectPoint.Add(sp2);
+                        UpdateWrongSequence(sp2, o_info1, o_info2);
                     }
                 }
                 if (!sp1.attachmentId.Equals(sp2.attachmentId))
@@ -119,20 +119,23 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
                     {
                         if (sp1.nextConnectedPointId.Equals(sp2.attachmentId))
                         {
-                            if (!wrongConnectPoint.Contains(sp2))
-                                wrongConnectPoint.Add(sp2);
+                            //if (!wrongConnectPoint.Contains(sp2))
+                            //    wrongConnectPoint.Add(sp2);
+                            UpdateWrongSequence(sp2, o_info1, o_info2);
                         }
                     }
                     if (!sp1.connected)
                     {
-                        if (!wrongConnectPoint.Contains(sp2))
-                            wrongConnectPoint.Add(sp2);
+                        //if (!wrongConnectPoint.Contains(sp2))
+                        //    wrongConnectPoint.Add(sp2);
+                        UpdateWrongSequence(sp2, o_info1, o_info2);
                     }
                 }
                 if(sp1.connected && sp1.nextConnectedPointId != sp2.attachmentId)
                 {
-                    if (!wrongConnectPoint.Contains(sp2))
-                        wrongConnectPoint.Add(sp2);
+                    //if (!wrongConnectPoint.Contains(sp2))
+                    //    wrongConnectPoint.Add(sp2);
+                    UpdateWrongSequence(sp2, o_info1, o_info2);
                 }
                 if (wrongConnectPoint.Count > 0)
                 {
@@ -140,10 +143,11 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
                         sp1.pointMesh.material = wrongPointMaterial;
                     if (!sp2.connected)
                         sp2.pointMesh.material = wrongPointMaterial;
+
+                    //UpdateWrongSequence(sp2, o_info1, o_info2);
+
                 }
             }
-            
-
 
             if (wrongConnectPoint == null && wrongConnectPoint.Count == 0)
                 CheckIfLastConnectionUpdated(sp1, sp2, sp1.transform, sp2.transform, o_info1, o_info2);
@@ -151,6 +155,27 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
         }
 
         CreateLinkBetweenPoints(sp1, sp2);
+    }
+
+    void UpdateWrongSequence(SewPoint sp, ObjectInfo ob_info1, ObjectInfo ob_info2)
+    {
+        if (!wrongConnectPoint.Contains(sp))
+            wrongConnectPoint.Add(sp);
+
+        GetObjectInfoWrongAlertTextDisableOfPart(LevelsHandler.instance.currentLevelMeta.levelParts);
+        GetObjectInfoWrongAlertTextDisableOfPart(LevelsHandler.instance.currentLevelMeta.immoveablePart.GetComponent<Part_Info>().joints);
+        GetObjectInfoWrongAlertTextDisableOfPart(LevelsHandler.instance.currentLevelMeta.head.joints);
+     
+        ob_info1.WrongSequenceAlertText("Uh oh! Stitching Pattern is OFF", 2);
+        //ob_info2.WrongSequenceAlertText("Uh oh! Stitching Pattern is OFF", 2);
+    }
+    public void GetObjectInfoWrongAlertTextDisableOfPart(List<GameObject> list)
+    {
+        foreach (GameObject g in list)
+        {
+            ObjectInfo o = g.GetComponent<ObjectInfo>();
+            o.DisableWrongAlertText();
+        }
     }
     public void CreateLinkBetweenPoints(SewPoint point1, SewPoint point2)
     {
@@ -163,8 +188,6 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
         {
             if (!existingConnection.isLocked)
                 ManageConnetions(existingConnection);
-
-            //Debug.LogError("existingConnection " + existingConnection.point1.name + " " + existingConnection.point2.name);
             //return;
         }
         if (dynamicStitch)
@@ -195,7 +218,10 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
         {
             s1.pointMesh.material = wrongPointMaterial;
             s2.pointMesh.material = wrongPointMaterial;
-         
+            ObjectInfo ob_Info1 = s1.GetComponentInParent<ObjectInfo>();
+            ObjectInfo ob_Info2 = s2.GetComponentInParent<ObjectInfo>();
+            ob_Info1.WrongSequenceAlertText("Uh oh! Stitching Pattern is OFF", 2);
+            ob_Info2.WrongSequenceAlertText("Uh oh! Stitching Pattern is OFF", 2);
             return;
         }
         if (wrongConnectPoint != null && wrongConnectPoint.Count > 0) return;
@@ -238,10 +264,10 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
             {
                 info1 = p1.parent.parent.GetComponent<ObjectInfo>();
                 info2 = p2.parent.parent.GetComponent<ObjectInfo>();
-                if (p1.parent.parent.parent == p2.parent.parent.parent)
-                {
-                    return;
-                }
+                if (p1.parent.parent.parent == p2.parent.parent.parent) return;
+
+                info1.DisableWrongAlertText();
+                info2.DisableWrongAlertText();
             }
             else
                 return;
@@ -422,24 +448,15 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
         });
         pullSeq.OnComplete(() =>
         {
-            CheckIfLastConnectionUpdated(sp1, sp2, p1, p2, info1, info2);
+            if(info1 != null && info2 != null)
+                CheckIfLastConnectionUpdated(sp1, sp2, p1, p2, info1, info2);
         });
         tween1 = pullSeq;
     }
     void CheckIfLastConnectionUpdated(SewPoint sp1, SewPoint sp2, Transform p1, Transform p2, ObjectInfo info1, ObjectInfo info2)
     {
-
-        //if (p1.parent == p2.parent)
-        //    return;
-        //if (sp1.connected && sp2.connected) return;
-        //if (dynamicStitch)
-        //{
-        //    if (p1.parent.parent.parent == p2.parent.parent.parent) return;
-        //}
-
         if (sp1.attachmentId.Equals(sp2.attachmentId))
             IncrementLinksPerPart(sp1, sp2, info1, info2);
-            //StartCoroutine(IncrementLinksPerPart(sp1, sp2, info1, info2));
     }
     void IncrementLinksPerPart(SewPoint s1, SewPoint s2 , ObjectInfo o1, ObjectInfo o2)
     {

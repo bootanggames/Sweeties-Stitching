@@ -70,5 +70,8 @@ public class GameHandler : Singleton<GameHandler>, IGameHandler
         ServiceLocator.UnRegisterService<IGameHandler>(this);
     }
 
-    
+    public void SaveGameProgress()
+    {
+        Home("HomeScreen");
+    }
 }

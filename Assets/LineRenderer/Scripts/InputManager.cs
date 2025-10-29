@@ -44,7 +44,7 @@ public class InputManager : MonoBehaviour
             drag = true;
             firstTouch = CalculateCurrentPosition();
             GameEvents.ThreadEvents.onInitialiseRope.RaiseEvent(firstTouch);
-            Invoke("EnableDetection", 0.25f);
+            Invoke("EnableDetection", 0.15f);
             //Debug.LogError("down");
         }
         else if (Input.GetMouseButton(0) && drag)
@@ -109,7 +109,6 @@ public class InputManager : MonoBehaviour
         {
             canvasHandler.needleOffset.value = needleOffset;
             canvasHandler.offsetValue.text = needleOffset.ToString();
-
         }
     }
     void EnableDetection()

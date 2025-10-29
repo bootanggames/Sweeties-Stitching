@@ -17,6 +17,10 @@ public class Singleton<T>:MonoBehaviour where T : Component
         }
         SingletonAwake();
     }
+    public virtual void Start()
+    {
+        SingletonStart();
+    }
     public virtual void OnDestroy()
     {
         if (instance != this)
@@ -31,6 +35,10 @@ public class Singleton<T>:MonoBehaviour where T : Component
     public virtual void Hide()
     {
         gameObject.SetActive(false);
+    }
+    public virtual void SingletonStart()
+    {
+
     }
     public virtual void SingletonAwake()
     {

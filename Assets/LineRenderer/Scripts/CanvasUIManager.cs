@@ -18,6 +18,8 @@ public class CanvasUIManager : MonoBehaviour, ICanvasUIManager
     [field: SerializeField] public TextMeshProUGUI offsetValue { get; private set; }
     [field: SerializeField] public GameObject startText { get; private set; }
 
+    [field: SerializeField] public GameObject undoHighLight { get; private set; }
+
     private void OnEnable()
     {
         RegisterService();

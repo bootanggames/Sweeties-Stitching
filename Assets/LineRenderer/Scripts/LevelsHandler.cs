@@ -24,7 +24,12 @@ public class LevelsHandler : Singleton<LevelsHandler>, ILevelHandler
     public override void SingletonStart()
     {
         base.SingletonStart();
-        LoadLastSavedProgress();
+        var gameHandler = ServiceLocator.GetService<IGameHandler>();
+        if (gameHandler != null)
+        {
+            if(gameHandler.saveProgress)
+                LoadLastSavedProgress();
+        }
     }
     public void RegisterService()
     {
@@ -81,7 +86,7 @@ public class LevelsHandler : Singleton<LevelsHandler>, ILevelHandler
         {
             int stitchedCountOfCurrentLevel =  PlayerPrefs.GetInt("StitchedCount");
             currentLevelMeta.noOfCorrectLinks = stitchedCountOfCurrentLevel;
-            currentLevelMeta.noOfStitchedPart = PlayerPrefs.GetInt("StitchedCount");
+            currentLevelMeta.noOfStitchedPart = PlayerPrefs.GetInt("StitchedPartCount");
         }
     }
 }

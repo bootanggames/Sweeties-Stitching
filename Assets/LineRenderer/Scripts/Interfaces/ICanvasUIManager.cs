@@ -12,6 +12,7 @@ public interface ICanvasUIManager:IGameService
     GameObject gameCompletePanel { get; }
     GameObject tapToStartButton { get; }
     GameObject startText { get; }
+    GameObject undoHighLight { get; }
     TextMeshProUGUI stitchCountText {  get; }
     TextMeshProUGUI stitchProgress {  get; }
     TextMeshProUGUI offsetValue {  get; }

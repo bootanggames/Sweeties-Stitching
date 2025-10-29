@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using TMPro;
-using UnityEditor.VersionControl;
 using UnityEngine;
 
 public class ObjectInfo : MonoBehaviour
@@ -43,9 +42,25 @@ public class ObjectInfo : MonoBehaviour
     {
         if (completeStitchTextObj != null)
             wrongSequenceAlert = completeStitchTextObj;
-            
+
+        Invoke("CheckSaveProgress", 0.5f);
+    }
+    void CheckSaveProgress()
+    {
+        var gameHandler = ServiceLocator.GetService<IGameHandler>();
+        if (gameHandler != null)
+        {
+            Debug.LogError("here" + gameHandler.saveProgress);
+
+            if (gameHandler.saveProgress)
+                LoadSavedProgress();
+        }
+        CancelInvoke("CheckSaveProgress");
+    }
+    void LoadSavedProgress()
+    {
         int stitched = PlayerPrefs.GetInt(partType.ToString() + "_IsStiched");
-        if(stitched == 1)
+        if (stitched == 1)
         {
             IsStitched = true;
             noOfConnections = totalConnections;
@@ -53,15 +68,11 @@ public class ObjectInfo : MonoBehaviour
             {
                 if (LevelsHandler.instance.currentLevelMeta)
                 {
-                   
+
                     foreach (GameObject g in LevelsHandler.instance.currentLevelMeta.levelParts)
                     {
                         if (partType.Equals(g.GetComponent<ObjectInfo>().partType))
                         {
-                            if (!movedPosition.Equals(Vector3.zero))
-                            {
-                               
-                            }
                             if (partType.Equals(PlushieActiveStitchPart.neck))
                                 LevelsHandler.instance.currentLevelMeta.head.transform.position = movedPosition;
                             else
@@ -75,6 +86,7 @@ public class ObjectInfo : MonoBehaviour
                                 {
                                     partWithHoles.SetActive(false);
                                     partWithOutHoles.SetActive(true);
+                                    if (cotton) cotton.SetActive(false);
                                 }
 
                             }
@@ -82,8 +94,8 @@ public class ObjectInfo : MonoBehaviour
                     }
                 }
             }
-           
-          
+
+
         }
     }
     //private void Start()
@@ -159,13 +171,12 @@ public class ObjectInfo : MonoBehaviour
     public void MarkStitched()
     {
         IsStitched = true;
-        PlayerPrefs.SetInt(partType.ToString()+"_IsStiched", 1);
-        if(cotton) cotton.SetActive(false);
-        if (partWithHoles)
-        { 
-            partWithHoles.GetComponent<SpriteRenderer>().enabled = false;
-        }
+        if (cotton)
+            cotton.SetActive(false);
 
+        PlayerPrefs.SetInt(partType.ToString()+"_IsStiched", 1);
+
+        if (partWithHoles) partWithHoles.GetComponent<SpriteRenderer>().enabled = false;
         if (partWithOutHoles) partWithOutHoles.SetActive(true);
 
         PlaySound();

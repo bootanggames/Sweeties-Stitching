@@ -4,10 +4,18 @@ using UnityEngine.SceneManagement;
 public class GameHandler : Singleton<GameHandler>, IGameHandler
 {
     [field: SerializeField] public GameStates gameStates {  get; private set; }
+
+    [field: SerializeField] public bool saveProgress {  get; private set; }
+
     public override void SingletonAwake()
     {
         base.SingletonAwake();
         RegisterService();
+        int saveState = PlayerPrefs.GetInt("SaveProgress");
+        if(saveState == 1)
+            saveProgress = true;
+        else
+            saveProgress = false;
     }
     public override void SingletonOnDestroy()
     {
@@ -70,8 +78,17 @@ public class GameHandler : Singleton<GameHandler>, IGameHandler
         ServiceLocator.UnRegisterService<IGameHandler>(this);
     }
 
+    public void DontSaveProgress()
+    {
+        PlayerPrefs.DeleteAll();
+        Home("HomeScreen");
+    }
     public void SaveGameProgress()
     {
+        PlayerPrefs.SetInt("SaveProgress", 1);
+        PlayerPrefs.SetInt("StitchedPartCount", LevelsHandler.instance.currentLevelMeta.noOfStitchedPart);
+        PlayerPrefs.SetInt("StitchedCount", LevelsHandler.instance.currentLevelMeta.noOfCorrectLinks);
+
         Home("HomeScreen");
     }
 }

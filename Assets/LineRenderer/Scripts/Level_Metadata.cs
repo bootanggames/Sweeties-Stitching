@@ -107,13 +107,6 @@ public class Level_Metadata : MonoBehaviour
         if (currentPartInfor != null)
         {
             levelDivision.rightSideIndex = levelDivision.rightSide.IndexOf(currentPartInfor.gameObject) + 1;
-            //if (levelDivision.rightSideIndex < 0)
-            //{
-            //    if (neck.IsStitched)
-            //        levelDivision.rightSideIndex = 1;
-            //    else
-            //        levelDivision.rightSideIndex = 0;
-            //}
             if (currentPartInfor.partConnectedTo.Equals(PartConnectedTo.head))
                 currentConnectedPartInfor = GetObjectInfoOfCurrentUnstitchedPart(head.joints);
             else
@@ -134,6 +127,8 @@ public class Level_Metadata : MonoBehaviour
 
         Part_Info p2_Info = immoveablePart.GetComponent<Part_Info>();
         ObjectInfo o_info = null;
+        sequenceType = SequenceType.right;
+
         if (!start)
         {
             //if (partIndex == 1)
@@ -143,7 +138,7 @@ public class Level_Metadata : MonoBehaviour
             //    else
             //        sequenceType = SequenceType.right;
             //}
-            sequenceType = SequenceType.right;
+            //sequenceType = SequenceType.right;
 
             //if (sequenceType.Equals(SequenceType.left))
             //{
@@ -158,7 +153,8 @@ public class Level_Metadata : MonoBehaviour
             //}
             //else
             {
-                o_info = levelDivision.rightSide[levelDivision.rightSideIndex].GetComponent<ObjectInfo>();
+                if (levelDivision.rightSideIndex < levelDivision.rightSide.Count)
+                    o_info = levelDivision.rightSide[levelDivision.rightSideIndex].GetComponent<ObjectInfo>();
 
                 //EnableDisableSewPoints(o_info.connectPoints, true);
                 //if (o_info.partConnectedTo.Equals(PartConnectedTo.body))
@@ -166,8 +162,7 @@ public class Level_Metadata : MonoBehaviour
                 //if (o_info.partConnectedTo.Equals(PartConnectedTo.head))
                 //    head.EnableJoint(o_info.partType, true);
 
-                if (levelDivision.rightSideIndex < levelDivision.rightSide.Count)
-                    levelDivision.rightSideIndex++;
+                levelDivision.rightSideIndex++;
             }
         }
         else
@@ -218,7 +213,7 @@ public class Level_Metadata : MonoBehaviour
     public void UpdateLevelProgress(SequenceType sequence)
     {
         noOfStitchedPart++;
-        PlayerPrefs.SetInt("StitchedCount", noOfStitchedPart);
+      
         var canvasManager = ServiceLocator.GetService<ICanvasUIManager>();
         if (canvasManager != null)
             canvasManager.UpdatePlushieStitchProgress(totalStitchedPart, noOfStitchedPart);

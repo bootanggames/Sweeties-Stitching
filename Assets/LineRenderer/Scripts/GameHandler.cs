@@ -78,6 +78,7 @@ public class GameHandler : Singleton<GameHandler>, IGameHandler
         ServiceLocator.UnRegisterService<IGameHandler>(this);
     }
 
+<<<<<<< Updated upstream
     public void DontSaveProgress()
     {
         PlayerPrefs.DeleteAll();
@@ -89,6 +90,10 @@ public class GameHandler : Singleton<GameHandler>, IGameHandler
         PlayerPrefs.SetInt("StitchedPartCount", LevelsHandler.instance.currentLevelMeta.noOfStitchedPart);
         PlayerPrefs.SetInt("StitchedCount", LevelsHandler.instance.currentLevelMeta.noOfCorrectLinks);
 
+=======
+    public void SaveGameProgress()
+    {
+>>>>>>> Stashed changes
         Home("HomeScreen");
     }
 }

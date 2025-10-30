@@ -67,6 +67,10 @@ public class Connections
             this.line.SetPosition(0, pos1);
             this.line.SetPosition(1, pos2);
             LevelsHandler.instance.currentLevelMeta.noOfCorrectLinks++;
+<<<<<<< Updated upstream
+=======
+            PlayerPrefs.SetInt("StitchedCount", LevelsHandler.instance.currentLevelMeta.noOfCorrectLinks);
+>>>>>>> Stashed changes
             var canvasManager = ServiceLocator.GetService<ICanvasUIManager>();
             if (canvasManager != null)
                 canvasManager.UpdateStitchCount(LevelsHandler.instance.currentLevelMeta.totalCorrectLinks, LevelsHandler.instance.currentLevelMeta.noOfCorrectLinks);

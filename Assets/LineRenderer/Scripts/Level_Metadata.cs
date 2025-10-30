@@ -107,6 +107,16 @@ public class Level_Metadata : MonoBehaviour
         if (currentPartInfor != null)
         {
             levelDivision.rightSideIndex = levelDivision.rightSide.IndexOf(currentPartInfor.gameObject) + 1;
+<<<<<<< Updated upstream
+=======
+            //if (levelDivision.rightSideIndex < 0)
+            //{
+            //    if (neck.IsStitched)
+            //        levelDivision.rightSideIndex = 1;
+            //    else
+            //        levelDivision.rightSideIndex = 0;
+            //}
+>>>>>>> Stashed changes
             if (currentPartInfor.partConnectedTo.Equals(PartConnectedTo.head))
                 currentConnectedPartInfor = GetObjectInfoOfCurrentUnstitchedPart(head.joints);
             else
@@ -138,7 +148,11 @@ public class Level_Metadata : MonoBehaviour
             //    else
             //        sequenceType = SequenceType.right;
             //}
+<<<<<<< Updated upstream
             //sequenceType = SequenceType.right;
+=======
+            sequenceType = SequenceType.right;
+>>>>>>> Stashed changes
 
             //if (sequenceType.Equals(SequenceType.left))
             //{
@@ -153,8 +167,12 @@ public class Level_Metadata : MonoBehaviour
             //}
             //else
             {
+<<<<<<< Updated upstream
                 if (levelDivision.rightSideIndex < levelDivision.rightSide.Count)
                     o_info = levelDivision.rightSide[levelDivision.rightSideIndex].GetComponent<ObjectInfo>();
+=======
+                o_info = levelDivision.rightSide[levelDivision.rightSideIndex].GetComponent<ObjectInfo>();
+>>>>>>> Stashed changes
 
                 //EnableDisableSewPoints(o_info.connectPoints, true);
                 //if (o_info.partConnectedTo.Equals(PartConnectedTo.body))
@@ -162,7 +180,12 @@ public class Level_Metadata : MonoBehaviour
                 //if (o_info.partConnectedTo.Equals(PartConnectedTo.head))
                 //    head.EnableJoint(o_info.partType, true);
 
+<<<<<<< Updated upstream
                 levelDivision.rightSideIndex++;
+=======
+                if (levelDivision.rightSideIndex < levelDivision.rightSide.Count)
+                    levelDivision.rightSideIndex++;
+>>>>>>> Stashed changes
             }
         }
         else
@@ -213,7 +236,11 @@ public class Level_Metadata : MonoBehaviour
     public void UpdateLevelProgress(SequenceType sequence)
     {
         noOfStitchedPart++;
+<<<<<<< Updated upstream
       
+=======
+        PlayerPrefs.SetInt("StitchedCount", noOfStitchedPart);
+>>>>>>> Stashed changes
         var canvasManager = ServiceLocator.GetService<ICanvasUIManager>();
         if (canvasManager != null)
             canvasManager.UpdatePlushieStitchProgress(totalStitchedPart, noOfStitchedPart);

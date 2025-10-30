@@ -17,8 +17,11 @@ public class CanvasUIManager : MonoBehaviour, ICanvasUIManager
     [field: SerializeField] public GameObject tapToStartButton { get; private set; }
     [field: SerializeField] public TextMeshProUGUI offsetValue { get; private set; }
     [field: SerializeField] public GameObject startText { get; private set; }
+<<<<<<< Updated upstream
 
     [field: SerializeField] public GameObject undoHighLight { get; private set; }
+=======
+>>>>>>> Stashed changes
 
     private void OnEnable()
     {

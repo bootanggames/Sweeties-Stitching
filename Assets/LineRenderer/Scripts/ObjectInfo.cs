@@ -1,5 +1,9 @@
 using System.Collections.Generic;
 using TMPro;
+<<<<<<< Updated upstream
+=======
+using UnityEditor.VersionControl;
+>>>>>>> Stashed changes
 using UnityEngine;
 
 public class ObjectInfo : MonoBehaviour
@@ -42,6 +46,7 @@ public class ObjectInfo : MonoBehaviour
     {
         if (completeStitchTextObj != null)
             wrongSequenceAlert = completeStitchTextObj;
+<<<<<<< Updated upstream
 
         Invoke("CheckSaveProgress", 0.5f);
     }
@@ -61,6 +66,11 @@ public class ObjectInfo : MonoBehaviour
     {
         int stitched = PlayerPrefs.GetInt(partType.ToString() + "_IsStiched");
         if (stitched == 1)
+=======
+            
+        int stitched = PlayerPrefs.GetInt(partType.ToString() + "_IsStiched");
+        if(stitched == 1)
+>>>>>>> Stashed changes
         {
             IsStitched = true;
             noOfConnections = totalConnections;
@@ -68,11 +78,22 @@ public class ObjectInfo : MonoBehaviour
             {
                 if (LevelsHandler.instance.currentLevelMeta)
                 {
+<<<<<<< Updated upstream
 
+=======
+                   
+>>>>>>> Stashed changes
                     foreach (GameObject g in LevelsHandler.instance.currentLevelMeta.levelParts)
                     {
                         if (partType.Equals(g.GetComponent<ObjectInfo>().partType))
                         {
+<<<<<<< Updated upstream
+=======
+                            if (!movedPosition.Equals(Vector3.zero))
+                            {
+                               
+                            }
+>>>>>>> Stashed changes
                             if (partType.Equals(PlushieActiveStitchPart.neck))
                                 LevelsHandler.instance.currentLevelMeta.head.transform.position = movedPosition;
                             else
@@ -86,7 +107,10 @@ public class ObjectInfo : MonoBehaviour
                                 {
                                     partWithHoles.SetActive(false);
                                     partWithOutHoles.SetActive(true);
+<<<<<<< Updated upstream
                                     if (cotton) cotton.SetActive(false);
+=======
+>>>>>>> Stashed changes
                                 }
 
                             }
@@ -94,8 +118,13 @@ public class ObjectInfo : MonoBehaviour
                     }
                 }
             }
+<<<<<<< Updated upstream
 
 
+=======
+           
+          
+>>>>>>> Stashed changes
         }
     }
     //private void Start()
@@ -171,12 +200,22 @@ public class ObjectInfo : MonoBehaviour
     public void MarkStitched()
     {
         IsStitched = true;
+<<<<<<< Updated upstream
         if (cotton)
             cotton.SetActive(false);
 
         PlayerPrefs.SetInt(partType.ToString()+"_IsStiched", 1);
 
         if (partWithHoles) partWithHoles.GetComponent<SpriteRenderer>().enabled = false;
+=======
+        PlayerPrefs.SetInt(partType.ToString()+"_IsStiched", 1);
+        if(cotton) cotton.SetActive(false);
+        if (partWithHoles)
+        { 
+            partWithHoles.GetComponent<SpriteRenderer>().enabled = false;
+        }
+
+>>>>>>> Stashed changes
         if (partWithOutHoles) partWithOutHoles.SetActive(true);
 
         PlaySound();

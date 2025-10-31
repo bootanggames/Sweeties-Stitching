@@ -3,28 +3,28 @@
   "WorkspaceRootPath": "E:\\GithubProjects\\Stitching-Demo\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|e:\\githubprojects\\stitching-demo\\assets\\linerenderer\\scripts\\threadmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|solutionrelative:assets\\linerenderer\\scripts\\threadmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|E:\\GithubProjects\\Stitching-Demo\\assets\\linerenderer\\scripts\\objectinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|solutionrelative:assets\\linerenderer\\scripts\\objectinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|e:\\githubprojects\\stitching-demo\\assets\\linerenderer\\scripts\\highlight.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|solutionrelative:assets\\linerenderer\\scripts\\highlight.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|e:\\githubprojects\\stitching-demo\\assets\\linerenderer\\scripts\\canvasuimanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|solutionrelative:assets\\linerenderer\\scripts\\canvasuimanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|E:\\GithubProjects\\Stitching-Demo\\assets\\linerenderer\\scripts\\interfaces\\icanvasuimanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|solutionrelative:assets\\linerenderer\\scripts\\interfaces\\icanvasuimanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|e:\\githubprojects\\stitching-demo\\assets\\linerenderer\\scripts\\gamecompletehandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|solutionrelative:assets\\linerenderer\\scripts\\gamecompletehandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|E:\\GithubProjects\\Stitching-Demo\\assets\\linerenderer\\scripts\\gamehandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|solutionrelative:assets\\linerenderer\\scripts\\gamehandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|E:\\GithubProjects\\Stitching-Demo\\assets\\linerenderer\\scripts\\levelshandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|solutionrelative:assets\\linerenderer\\scripts\\levelshandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|E:\\GithubProjects\\Stitching-Demo\\assets\\linerenderer\\scripts\\pointconnectorhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|solutionrelative:assets\\linerenderer\\scripts\\pointconnectorhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|e:\\githubprojects\\stitching-demo\\assets\\linerenderer\\scripts\\canvasuimanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|solutionrelative:assets\\linerenderer\\scripts\\canvasuimanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|E:\\GithubProjects\\Stitching-Demo\\assets\\linerenderer\\scripts\\level_metadata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -35,68 +35,16 @@
       "RelativeMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|solutionrelative:assets\\linerenderer\\scripts\\serializableclasses\\connections.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|E:\\GithubProjects\\Stitching-Demo\\assets\\linerenderer\\scripts\\pointconnectorhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|solutionrelative:assets\\linerenderer\\scripts\\pointconnectorhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|E:\\GithubProjects\\Stitching-Demo\\assets\\linerenderer\\scripts\\part_info.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|solutionrelative:assets\\linerenderer\\scripts\\part_info.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|E:\\GithubProjects\\Stitching-Demo\\assets\\linerenderer\\scripts\\inputmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|solutionrelative:assets\\linerenderer\\scripts\\inputmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|E:\\GithubProjects\\Stitching-Demo\\assets\\linerenderer\\scripts\\levelshandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|solutionrelative:assets\\linerenderer\\scripts\\levelshandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|E:\\GithubProjects\\Stitching-Demo\\assets\\linerenderer\\scripts\\needledetector.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|solutionrelative:assets\\linerenderer\\scripts\\needledetector.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|E:\\GithubProjects\\Stitching-Demo\\assets\\linerenderer\\scripts\\threadmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|solutionrelative:assets\\linerenderer\\scripts\\threadmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|E:\\GithubProjects\\Stitching-Demo\\assets\\linerenderer\\scripts\\splashscreen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|solutionrelative:assets\\linerenderer\\scripts\\splashscreen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|E:\\GithubProjects\\Stitching-Demo\\assets\\linerenderer\\scripts\\sparkle_animation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|solutionrelative:assets\\linerenderer\\scripts\\sparkle_animation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|E:\\GithubProjects\\Stitching-Demo\\assets\\linerenderer\\scripts\\cameramanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|solutionrelative:assets\\linerenderer\\scripts\\cameramanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|E:\\GithubProjects\\Stitching-Demo\\assets\\linerenderer\\scripts\\needlemovement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|solutionrelative:assets\\linerenderer\\scripts\\needlemovement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|E:\\GithubProjects\\Stitching-Demo\\assets\\linerenderer\\scripts\\gamecompletehandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|solutionrelative:assets\\linerenderer\\scripts\\gamecompletehandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|E:\\GithubProjects\\Stitching-Demo\\assets\\linerenderer\\scripts\\animate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|solutionrelative:assets\\linerenderer\\scripts\\animate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|E:\\GithubProjects\\Stitching-Demo\\assets\\linerenderer\\scripts\\levelobjectivemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|solutionrelative:assets\\linerenderer\\scripts\\levelobjectivemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|E:\\GithubProjects\\Stitching-Demo\\assets\\linerenderer\\scripts\\events\\dotweenanimationhandlerevents.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|solutionrelative:assets\\linerenderer\\scripts\\events\\dotweenanimationhandlerevents.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|E:\\GithubProjects\\Stitching-Demo\\assets\\linerenderer\\scripts\\sewpoint.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|solutionrelative:assets\\linerenderer\\scripts\\sewpoint.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|E:\\GithubProjects\\Stitching-Demo\\assets\\linerenderer\\scripts\\events\\gameeventtemplate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|solutionrelative:assets\\linerenderer\\scripts\\events\\gameeventtemplate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|E:\\GithubProjects\\Stitching-Demo\\assets\\linerenderer\\scripts\\interfaces\\icoinshandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|solutionrelative:assets\\linerenderer\\scripts\\interfaces\\icoinshandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|E:\\GithubProjects\\Stitching-Demo\\assets\\linerenderer\\scripts\\inputmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|solutionrelative:assets\\linerenderer\\scripts\\inputmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -106,72 +54,48 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 9,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 9,
               "Title": "NeedleDetector.cs",
               "DocumentMoniker": "E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\NeedleDetector.cs",
               "RelativeDocumentMoniker": "Assets\\LineRenderer\\Scripts\\NeedleDetector.cs",
               "ToolTip": "E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\NeedleDetector.cs",
               "RelativeToolTip": "Assets\\LineRenderer\\Scripts\\NeedleDetector.cs",
-              "ViewState": "AgIAABoAAAAAAAAAAAAlwGQAAAAXAAAAAAAAAA==",
+              "ViewState": "AgIAACIAAAAAAAAAAAAtwG0AAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-20T11:00:20.16Z",
               "IsPinned": true
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 4,
               "Title": "PointConnectorHandler.cs",
               "DocumentMoniker": "E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\PointConnectorHandler.cs",
               "RelativeDocumentMoniker": "Assets\\LineRenderer\\Scripts\\PointConnectorHandler.cs",
               "ToolTip": "E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\PointConnectorHandler.cs",
               "RelativeToolTip": "Assets\\LineRenderer\\Scripts\\PointConnectorHandler.cs",
-              "ViewState": "AgIAAGsBAAAAAAAAAAAqwIQBAAAoAAAAAAAAAA==",
+              "ViewState": "AgIAALkAAAAAAAAAAAAQwMwAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-17T06:38:05.553Z",
-              "IsPinned": true
+              "IsPinned": true,
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 0,
               "Title": "ThreadManager.cs",
               "DocumentMoniker": "E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\ThreadManager.cs",
               "RelativeDocumentMoniker": "Assets\\LineRenderer\\Scripts\\ThreadManager.cs",
               "ToolTip": "E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\ThreadManager.cs",
               "RelativeToolTip": "Assets\\LineRenderer\\Scripts\\ThreadManager.cs",
-              "ViewState": "AgIAAF4BAAAAAAAAAADgv3UBAAAtAAAAAAAAAA==",
+              "ViewState": "AgIAAGsBAAAAAAAAAAAAAHgBAAAZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-24T09:17:04.73Z",
-              "IsPinned": true
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "Sparkle_Animation.cs",
-              "DocumentMoniker": "E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\Sparkle_Animation.cs",
-              "RelativeDocumentMoniker": "Assets\\LineRenderer\\Scripts\\Sparkle_Animation.cs",
-              "ToolTip": "E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\Sparkle_Animation.cs",
-              "RelativeToolTip": "Assets\\LineRenderer\\Scripts\\Sparkle_Animation.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAB5AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-28T10:54:51.279Z",
-              "IsPinned": true
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "SplashScreen.cs",
-              "DocumentMoniker": "E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\SplashScreen.cs",
-              "RelativeDocumentMoniker": "Assets\\LineRenderer\\Scripts\\SplashScreen.cs",
-              "ToolTip": "E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\SplashScreen.cs",
-              "RelativeToolTip": "Assets\\LineRenderer\\Scripts\\SplashScreen.cs",
-              "ViewState": "AgIAAAEAAAAAAAAAAAAqwBAAAAAqAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-28T10:46:20.837Z",
-              "IsPinned": true
+              "IsPinned": true,
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -181,7 +105,7 @@
               "RelativeDocumentMoniker": "Assets\\LineRenderer\\Scripts\\InputManager.cs",
               "ToolTip": "E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\InputManager.cs",
               "RelativeToolTip": "Assets\\LineRenderer\\Scripts\\InputManager.cs",
-              "ViewState": "AgIAAFgAAAAAAAAAAAAAAG8AAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-16T13:02:16.377Z",
               "IsPinned": true
@@ -194,84 +118,10 @@
               "RelativeDocumentMoniker": "Assets\\LineRenderer\\Scripts\\Level_Metadata.cs",
               "ToolTip": "E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\Level_Metadata.cs",
               "RelativeToolTip": "Assets\\LineRenderer\\Scripts\\Level_Metadata.cs",
-              "ViewState": "AgIAAFQAAAAAAAAAAAAmwGsAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAOEAAAAAAAAAAAAAACsBAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-17T06:31:01.668Z",
-              "IsPinned": true
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "HighLight.cs",
-              "DocumentMoniker": "E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\HighLight.cs",
-              "RelativeDocumentMoniker": "Assets\\LineRenderer\\Scripts\\HighLight.cs",
-              "ToolTip": "E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\HighLight.cs",
-              "RelativeToolTip": "Assets\\LineRenderer\\Scripts\\HighLight.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-29T14:31:58.76Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "ICanvasUIManager.cs",
-              "DocumentMoniker": "E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\Interfaces\\ICanvasUIManager.cs",
-              "RelativeDocumentMoniker": "Assets\\LineRenderer\\Scripts\\Interfaces\\ICanvasUIManager.cs",
-              "ToolTip": "E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\Interfaces\\ICanvasUIManager.cs",
-              "RelativeToolTip": "Assets\\LineRenderer\\Scripts\\Interfaces\\ICanvasUIManager.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAARAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-29T14:30:53.783Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "ObjectInfo.cs",
-              "DocumentMoniker": "E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\ObjectInfo.cs",
-              "RelativeDocumentMoniker": "Assets\\LineRenderer\\Scripts\\ObjectInfo.cs",
-              "ToolTip": "E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\ObjectInfo.cs",
-              "RelativeToolTip": "Assets\\LineRenderer\\Scripts\\ObjectInfo.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAASAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-20T12:44:18.742Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "LevelsHandler.cs",
-              "DocumentMoniker": "E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\LevelsHandler.cs",
-              "RelativeDocumentMoniker": "Assets\\LineRenderer\\Scripts\\LevelsHandler.cs",
-              "ToolTip": "E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\LevelsHandler.cs",
-              "RelativeToolTip": "Assets\\LineRenderer\\Scripts\\LevelsHandler.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAIA4wBIAAAAtAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-21T11:20:53.669Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "GameHandler.cs",
-              "DocumentMoniker": "E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\GameHandler.cs",
-              "RelativeDocumentMoniker": "Assets\\LineRenderer\\Scripts\\GameHandler.cs",
-              "ToolTip": "E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\GameHandler.cs",
-              "RelativeToolTip": "Assets\\LineRenderer\\Scripts\\GameHandler.cs",
-              "ViewState": "AgIAAEMAAAAAAAAAAAAYwFIAAAAgAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-17T08:04:14.479Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "CanvasUIManager.cs",
-              "DocumentMoniker": "E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\CanvasUIManager.cs",
-              "RelativeDocumentMoniker": "Assets\\LineRenderer\\Scripts\\CanvasUIManager.cs",
-              "ToolTip": "E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\CanvasUIManager.cs",
-              "RelativeToolTip": "Assets\\LineRenderer\\Scripts\\CanvasUIManager.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAbAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-17T08:07:12.215Z",
+              "IsPinned": true,
               "EditorCaption": ""
             },
             {
@@ -282,129 +132,79 @@
               "RelativeDocumentMoniker": "Assets\\LineRenderer\\Scripts\\SerializableClasses\\Connections.cs",
               "ToolTip": "E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\SerializableClasses\\Connections.cs",
               "RelativeToolTip": "Assets\\LineRenderer\\Scripts\\SerializableClasses\\Connections.cs",
-              "ViewState": "AgIAADkAAAAAAAAAAAAlwEUAAABOAAAAAAAAAA==",
+              "ViewState": "AgIAAEYAAAAAAAAAAAAgwEQAAABAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-23T10:38:55.51Z"
+              "WhenOpened": "2025-10-23T10:38:55.51Z",
+              "IsPinned": true,
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "NeedleMovement.cs",
-              "DocumentMoniker": "E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\NeedleMovement.cs",
-              "RelativeDocumentMoniker": "Assets\\LineRenderer\\Scripts\\NeedleMovement.cs",
-              "ToolTip": "E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\NeedleMovement.cs",
-              "RelativeToolTip": "Assets\\LineRenderer\\Scripts\\NeedleMovement.cs",
-              "ViewState": "AgIAABAAAAAAAAAAAAAgwD0AAAAqAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "ObjectInfo.cs",
+              "DocumentMoniker": "E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\ObjectInfo.cs",
+              "RelativeDocumentMoniker": "Assets\\LineRenderer\\Scripts\\ObjectInfo.cs",
+              "ToolTip": "E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\ObjectInfo.cs",
+              "RelativeToolTip": "Assets\\LineRenderer\\Scripts\\ObjectInfo.cs",
+              "ViewState": "AgIAACYAAAAAAAAAAAAowDQAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-17T10:51:26.798Z"
+              "WhenOpened": "2025-10-20T12:44:18.742Z",
+              "IsPinned": true,
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "Animate.cs",
-              "DocumentMoniker": "E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\Animate.cs",
-              "RelativeDocumentMoniker": "Assets\\LineRenderer\\Scripts\\Animate.cs",
-              "ToolTip": "E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\Animate.cs",
-              "RelativeToolTip": "Assets\\LineRenderer\\Scripts\\Animate.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACkAAAAiAAAAAAAAAA==",
+              "DocumentIndex": 8,
+              "Title": "LevelsHandler.cs",
+              "DocumentMoniker": "E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\LevelsHandler.cs",
+              "RelativeDocumentMoniker": "Assets\\LineRenderer\\Scripts\\LevelsHandler.cs",
+              "ToolTip": "E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\LevelsHandler.cs",
+              "RelativeToolTip": "Assets\\LineRenderer\\Scripts\\LevelsHandler.cs",
+              "ViewState": "AgIAADYAAAAAAAAAAADwv0AAAAA9AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-27T10:23:32.378Z"
+              "WhenOpened": "2025-10-21T11:20:53.669Z",
+              "IsPinned": true,
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "Part_Info.cs",
-              "DocumentMoniker": "E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\Part_Info.cs",
-              "RelativeDocumentMoniker": "Assets\\LineRenderer\\Scripts\\Part_Info.cs",
-              "ToolTip": "E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\Part_Info.cs",
-              "RelativeToolTip": "Assets\\LineRenderer\\Scripts\\Part_Info.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAqwBAAAAAwAAAAAAAAAA==",
+              "DocumentIndex": 3,
+              "Title": "GameHandler.cs",
+              "DocumentMoniker": "E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\GameHandler.cs",
+              "RelativeDocumentMoniker": "Assets\\LineRenderer\\Scripts\\GameHandler.cs",
+              "ToolTip": "E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\GameHandler.cs",
+              "RelativeToolTip": "Assets\\LineRenderer\\Scripts\\GameHandler.cs",
+              "ViewState": "AgIAAEoAAAAAAAAAAAA7wFEAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-17T06:33:01.205Z"
+              "WhenOpened": "2025-10-17T08:04:14.479Z",
+              "IsPinned": true,
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 2,
               "Title": "GameCompleteHandler.cs",
               "DocumentMoniker": "E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\GameCompleteHandler.cs",
               "RelativeDocumentMoniker": "Assets\\LineRenderer\\Scripts\\GameCompleteHandler.cs",
               "ToolTip": "E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\GameCompleteHandler.cs",
               "RelativeToolTip": "Assets\\LineRenderer\\Scripts\\GameCompleteHandler.cs",
-              "ViewState": "AgIAACoAAAAAAAAAAAAmwEEAAABZAAAAAAAAAA==",
+              "ViewState": "AgIAADkAAAAAAAAAAAAmwEcAAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-20T10:47:31.6Z"
+              "WhenOpened": "2025-10-31T13:33:42.225Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "CameraManager.cs",
-              "DocumentMoniker": "E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\CameraManager.cs",
-              "RelativeDocumentMoniker": "Assets\\LineRenderer\\Scripts\\CameraManager.cs",
-              "ToolTip": "E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\CameraManager.cs",
-              "RelativeToolTip": "Assets\\LineRenderer\\Scripts\\CameraManager.cs",
-              "ViewState": "AgIAABgAAAAAAAAAAAAiwDsAAAAcAAAAAAAAAA==",
+              "DocumentIndex": 5,
+              "Title": "CanvasUIManager.cs",
+              "DocumentMoniker": "E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\CanvasUIManager.cs",
+              "RelativeDocumentMoniker": "Assets\\LineRenderer\\Scripts\\CanvasUIManager.cs",
+              "ToolTip": "E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\CanvasUIManager.cs",
+              "RelativeToolTip": "Assets\\LineRenderer\\Scripts\\CanvasUIManager.cs",
+              "ViewState": "AgIAADsAAAAAAAAAAAAowFAAAABMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-21T10:11:47.065Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 19,
-              "Title": "LevelObjectiveManager.cs",
-              "DocumentMoniker": "E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\LevelObjectiveManager.cs",
-              "RelativeDocumentMoniker": "Assets\\LineRenderer\\Scripts\\LevelObjectiveManager.cs",
-              "ToolTip": "E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\LevelObjectiveManager.cs",
-              "RelativeToolTip": "Assets\\LineRenderer\\Scripts\\LevelObjectiveManager.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAA5AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-28T10:11:45.718Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 22,
-              "Title": "GameEventTemplate.cs",
-              "DocumentMoniker": "E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\Events\\GameEventTemplate.cs",
-              "RelativeDocumentMoniker": "Assets\\LineRenderer\\Scripts\\Events\\GameEventTemplate.cs",
-              "ToolTip": "E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\Events\\GameEventTemplate.cs",
-              "RelativeToolTip": "Assets\\LineRenderer\\Scripts\\Events\\GameEventTemplate.cs",
-              "ViewState": "AgIAABgBAAAAAAAAAADgvyoBAABAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-23T12:21:41.848Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 21,
-              "Title": "SewPoint.cs",
-              "DocumentMoniker": "E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\SewPoint.cs",
-              "RelativeDocumentMoniker": "Assets\\LineRenderer\\Scripts\\SewPoint.cs",
-              "ToolTip": "E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\SewPoint.cs",
-              "RelativeToolTip": "Assets\\LineRenderer\\Scripts\\SewPoint.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAQwAgAAAAjAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-21T08:55:44.613Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 20,
-              "Title": "DoTweenAnimationHandlerEvents.cs",
-              "DocumentMoniker": "E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\Events\\DoTweenAnimationHandlerEvents.cs",
-              "RelativeDocumentMoniker": "Assets\\LineRenderer\\Scripts\\Events\\DoTweenAnimationHandlerEvents.cs",
-              "ToolTip": "E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\Events\\DoTweenAnimationHandlerEvents.cs",
-              "RelativeToolTip": "Assets\\LineRenderer\\Scripts\\Events\\DoTweenAnimationHandlerEvents.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAnAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-27T10:31:39.071Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 23,
-              "Title": "ICoinsHandler.cs",
-              "DocumentMoniker": "E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\Interfaces\\ICoinsHandler.cs",
-              "RelativeDocumentMoniker": "Assets\\LineRenderer\\Scripts\\Interfaces\\ICoinsHandler.cs",
-              "ToolTip": "E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\Interfaces\\ICoinsHandler.cs",
-              "RelativeToolTip": "Assets\\LineRenderer\\Scripts\\Interfaces\\ICoinsHandler.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAZAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-21T13:37:55.651Z"
+              "WhenOpened": "2025-10-31T11:52:30.754Z",
+              "EditorCaption": ""
             }
           ]
         }

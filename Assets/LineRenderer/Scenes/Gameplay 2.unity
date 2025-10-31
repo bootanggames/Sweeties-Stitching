@@ -206,6 +206,7 @@ MonoBehaviour:
   <tapToStartButton>k__BackingField: {fileID: 0}
   <offsetValue>k__BackingField: {fileID: 0}
   <startText>k__BackingField: {fileID: 0}
+  <undoHighLight>k__BackingField: {fileID: 0}
 --- !u!1 &12340139
 GameObject:
   m_ObjectHideFlags: 0
@@ -1104,11 +1105,14 @@ MonoBehaviour:
   totalConnections: 4
   noOfConnections: 0
   completeStitchTextObj: {fileID: 1574741648}
+  wrongSequenceAlert: {fileID: 0}
   text: Great Work !
   confettiObj: []
   confettiIndex: 0
   movedPositions: []
   cotton: {fileID: 0}
+  partWithHoles: {fileID: 0}
+  partWithOutHoles: {fileID: 0}
   pointPrefab: {fileID: 0}
   pointParent: {fileID: 0}
   firstPoint: {fileID: 0}
@@ -1357,11 +1361,14 @@ MonoBehaviour:
   totalConnections: 4
   noOfConnections: 0
   completeStitchTextObj: {fileID: 0}
+  wrongSequenceAlert: {fileID: 0}
   text: 
   confettiObj: []
   confettiIndex: 0
   movedPositions: []
   cotton: {fileID: 0}
+  partWithHoles: {fileID: 0}
+  partWithOutHoles: {fileID: 0}
   pointPrefab: {fileID: 0}
   pointParent: {fileID: 0}
   firstPoint: {fileID: 0}
@@ -1520,11 +1527,14 @@ MonoBehaviour:
   totalConnections: 4
   noOfConnections: 0
   completeStitchTextObj: {fileID: 0}
+  wrongSequenceAlert: {fileID: 0}
   text: 
   confettiObj: []
   confettiIndex: 0
   movedPositions: []
   cotton: {fileID: 0}
+  partWithHoles: {fileID: 0}
+  partWithOutHoles: {fileID: 0}
   pointPrefab: {fileID: 0}
   pointParent: {fileID: 0}
   firstPoint: {fileID: 0}
@@ -6485,6 +6495,7 @@ MonoBehaviour:
   - {fileID: 444890055}
   head: {fileID: 2099258798}
   immoveablePart: {fileID: 1647088930}
+  bodyWihtoutHoles: {fileID: 0}
   totalStitchedPart: 9
   noOfStitchedPart: 0
   levelDivision:
@@ -7242,11 +7253,14 @@ MonoBehaviour:
   totalConnections: 4
   noOfConnections: 0
   completeStitchTextObj: {fileID: 0}
+  wrongSequenceAlert: {fileID: 0}
   text: 
   confettiObj: []
   confettiIndex: 0
   movedPositions: []
   cotton: {fileID: 0}
+  partWithHoles: {fileID: 0}
+  partWithOutHoles: {fileID: 0}
   pointPrefab: {fileID: 0}
   pointParent: {fileID: 0}
   firstPoint: {fileID: 0}
@@ -7865,11 +7879,14 @@ MonoBehaviour:
   totalConnections: 4
   noOfConnections: 0
   completeStitchTextObj: {fileID: 395382695}
+  wrongSequenceAlert: {fileID: 0}
   text: WELL DONE !
   confettiObj: []
   confettiIndex: 0
   movedPositions: []
   cotton: {fileID: 0}
+  partWithHoles: {fileID: 0}
+  partWithOutHoles: {fileID: 0}
   pointPrefab: {fileID: 0}
   pointParent: {fileID: 0}
   firstPoint: {fileID: 0}
@@ -8114,11 +8131,14 @@ MonoBehaviour:
   totalConnections: 4
   noOfConnections: 0
   completeStitchTextObj: {fileID: 0}
+  wrongSequenceAlert: {fileID: 0}
   text: 
   confettiObj: []
   confettiIndex: 0
   movedPositions: []
   cotton: {fileID: 0}
+  partWithHoles: {fileID: 0}
+  partWithOutHoles: {fileID: 0}
   pointPrefab: {fileID: 0}
   pointParent: {fileID: 0}
   firstPoint: {fileID: 0}
@@ -15209,11 +15229,14 @@ MonoBehaviour:
   totalConnections: 4
   noOfConnections: 0
   completeStitchTextObj: {fileID: 526853357}
+  wrongSequenceAlert: {fileID: 0}
   text: GOOD WORK !
   confettiObj: []
   confettiIndex: 0
   movedPositions: []
   cotton: {fileID: 0}
+  partWithHoles: {fileID: 0}
+  partWithOutHoles: {fileID: 0}
   pointPrefab: {fileID: 0}
   pointParent: {fileID: 0}
   firstPoint: {fileID: 0}
@@ -15986,11 +16009,14 @@ MonoBehaviour:
   totalConnections: 4
   noOfConnections: 0
   completeStitchTextObj: {fileID: 0}
+  wrongSequenceAlert: {fileID: 0}
   text: 
   confettiObj: []
   confettiIndex: 0
   movedPositions: []
   cotton: {fileID: 0}
+  partWithHoles: {fileID: 0}
+  partWithOutHoles: {fileID: 0}
   pointPrefab: {fileID: 0}
   pointParent: {fileID: 0}
   firstPoint: {fileID: 0}
@@ -16109,6 +16135,7 @@ MonoBehaviour:
   targetPointToMove: {fileID: 6167345425118291698}
   coinMoveSpeed: 0.5
   coinsEarned: {fileID: 0}
+  targetScaleDown: {x: 0, y: 0, z: 0}
 --- !u!1 &896695318
 GameObject:
   m_ObjectHideFlags: 0
@@ -18779,11 +18806,14 @@ MonoBehaviour:
   totalConnections: 4
   noOfConnections: 0
   completeStitchTextObj: {fileID: 2056978458}
+  wrongSequenceAlert: {fileID: 0}
   text: NEATLY DONE !
   confettiObj: []
   confettiIndex: 0
   movedPositions: []
   cotton: {fileID: 0}
+  partWithHoles: {fileID: 0}
+  partWithOutHoles: {fileID: 0}
   pointPrefab: {fileID: 0}
   pointParent: {fileID: 0}
   firstPoint: {fileID: 0}
@@ -21120,11 +21150,14 @@ MonoBehaviour:
   totalConnections: 4
   noOfConnections: 0
   completeStitchTextObj: {fileID: 989427932}
+  wrongSequenceAlert: {fileID: 0}
   text: NICELY DONE !
   confettiObj: []
   confettiIndex: 0
   movedPositions: []
   cotton: {fileID: 0}
+  partWithHoles: {fileID: 0}
+  partWithOutHoles: {fileID: 0}
   pointPrefab: {fileID: 0}
   pointParent: {fileID: 0}
   firstPoint: {fileID: 0}
@@ -21767,15 +21800,15 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -5
-  m_Sprite: {fileID: 21300000, guid: edda6687d3110f244ba2939e6b01a173, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d636c3749130c0643bd0cc3a520324c1, type: 3}
   m_Color: {r: 0.9245283, g: 0.9245283, b: 0.9245283, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 15.36, y: 7.09}
+  m_Size: {x: 19.77, y: 10.24}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &1270637636
@@ -21919,11 +21952,14 @@ MonoBehaviour:
   totalConnections: 7
   noOfConnections: 0
   completeStitchTextObj: {fileID: 2130813811}
+  wrongSequenceAlert: {fileID: 0}
   text: WELL DONE !
   confettiObj: []
   confettiIndex: 0
   movedPositions: []
   cotton: {fileID: 0}
+  partWithHoles: {fileID: 0}
+  partWithOutHoles: {fileID: 0}
   pointPrefab: {fileID: 0}
   pointParent: {fileID: 0}
   firstPoint: {fileID: 0}
@@ -24666,11 +24702,14 @@ MonoBehaviour:
   totalConnections: 4
   noOfConnections: 0
   completeStitchTextObj: {fileID: 0}
+  wrongSequenceAlert: {fileID: 0}
   text: 
   confettiObj: []
   confettiIndex: 0
   movedPositions: []
   cotton: {fileID: 0}
+  partWithHoles: {fileID: 0}
+  partWithOutHoles: {fileID: 0}
   pointPrefab: {fileID: 0}
   pointParent: {fileID: 0}
   firstPoint: {fileID: 0}
@@ -25448,11 +25487,14 @@ MonoBehaviour:
   totalConnections: 4
   noOfConnections: 0
   completeStitchTextObj: {fileID: 0}
+  wrongSequenceAlert: {fileID: 0}
   text: 
   confettiObj: []
   confettiIndex: 0
   movedPositions: []
   cotton: {fileID: 0}
+  partWithHoles: {fileID: 0}
+  partWithOutHoles: {fileID: 0}
   pointPrefab: {fileID: 0}
   pointParent: {fileID: 0}
   firstPoint: {fileID: 0}
@@ -27021,11 +27063,14 @@ MonoBehaviour:
   totalConnections: 4
   noOfConnections: 0
   completeStitchTextObj: {fileID: 123807879}
+  wrongSequenceAlert: {fileID: 0}
   text: NICELY DONE !
   confettiObj: []
   confettiIndex: 0
   movedPositions: []
   cotton: {fileID: 0}
+  partWithHoles: {fileID: 0}
+  partWithOutHoles: {fileID: 0}
   pointPrefab: {fileID: 0}
   pointParent: {fileID: 0}
   firstPoint: {fileID: 0}
@@ -27389,11 +27434,14 @@ MonoBehaviour:
   totalConnections: 4
   noOfConnections: 0
   completeStitchTextObj: {fileID: 787102568}
+  wrongSequenceAlert: {fileID: 0}
   text: GOOD WORK !
   confettiObj: []
   confettiIndex: 0
   movedPositions: []
   cotton: {fileID: 0}
+  partWithHoles: {fileID: 0}
+  partWithOutHoles: {fileID: 0}
   pointPrefab: {fileID: 0}
   pointParent: {fileID: 0}
   firstPoint: {fileID: 0}
@@ -28551,11 +28599,14 @@ MonoBehaviour:
   totalConnections: 7
   noOfConnections: 0
   completeStitchTextObj: {fileID: 0}
+  wrongSequenceAlert: {fileID: 0}
   text: 
   confettiObj: []
   confettiIndex: 0
   movedPositions: []
   cotton: {fileID: 0}
+  partWithHoles: {fileID: 0}
+  partWithOutHoles: {fileID: 0}
   pointPrefab: {fileID: 0}
   pointParent: {fileID: 0}
   firstPoint: {fileID: 0}
@@ -32509,6 +32560,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <gameStates>k__BackingField: 0
+  <saveProgress>k__BackingField: 0
 --- !u!4 &1970516908
 Transform:
   m_ObjectHideFlags: 0
@@ -33014,11 +33066,14 @@ MonoBehaviour:
   totalConnections: 4
   noOfConnections: 0
   completeStitchTextObj: {fileID: 0}
+  wrongSequenceAlert: {fileID: 0}
   text: 
   confettiObj: []
   confettiIndex: 0
   movedPositions: []
   cotton: {fileID: 0}
+  partWithHoles: {fileID: 0}
+  partWithOutHoles: {fileID: 0}
   pointPrefab: {fileID: 0}
   pointParent: {fileID: 0}
   firstPoint: {fileID: 0}
@@ -34097,11 +34152,14 @@ MonoBehaviour:
   totalConnections: 4
   noOfConnections: 0
   completeStitchTextObj: {fileID: 510380796}
+  wrongSequenceAlert: {fileID: 0}
   text: AMAZING !
   confettiObj: []
   confettiIndex: 0
   movedPositions: []
   cotton: {fileID: 0}
+  partWithHoles: {fileID: 0}
+  partWithOutHoles: {fileID: 0}
   pointPrefab: {fileID: 0}
   pointParent: {fileID: 0}
   firstPoint: {fileID: 0}

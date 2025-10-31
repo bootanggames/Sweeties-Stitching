@@ -50,8 +50,6 @@ public class ObjectInfo : MonoBehaviour
         var gameHandler = ServiceLocator.GetService<IGameHandler>();
         if (gameHandler != null)
         {
-            Debug.LogError("here" + gameHandler.saveProgress);
-
             if (gameHandler.saveProgress)
                 LoadSavedProgress();
         }
@@ -69,7 +67,7 @@ public class ObjectInfo : MonoBehaviour
                 if (LevelsHandler.instance.currentLevelMeta)
                 {
 
-                    foreach (GameObject g in LevelsHandler.instance.currentLevelMeta.levelParts)
+                    foreach (GameObject g in LevelsHandler.instance.currentLevelMeta.bodyParts)
                     {
                         if (partType.Equals(g.GetComponent<ObjectInfo>().partType))
                         {
@@ -189,6 +187,7 @@ public class ObjectInfo : MonoBehaviour
         {
             GameObject g = GameEvents.EffectHandlerEvents.onPartCompleteEffect.Raise(connectPoints[confettiIndex].transform);
             confettiObj.Add(g);
+            connectPoints[confettiIndex].gameObject.SetActive(false);
             g.SetActive(true);
             confettiIndex++;
         }
@@ -198,7 +197,7 @@ public class ObjectInfo : MonoBehaviour
         if (confettiIndex < connectPoints.Count)
             Invoke("EnableConffetti", 0.15f);
         else
-            Invoke("UpdateProgress",1);
+            Invoke("UpdateProgress",1.5f);
     }
 
     void UpdateProgress()
@@ -240,11 +239,7 @@ public class ObjectInfo : MonoBehaviour
         }
         CancelInvoke("DisableWellDoneText");
     }
-    void DisableText(GameObject textObj)
-    {
-        if (textObj != null)
-            textObj.SetActive(false);
-    }
+
     void ChangeText(GameObject textObj, string _text, float _fontSize)
     {
         if (textObj != null)
@@ -271,10 +266,7 @@ public class ObjectInfo : MonoBehaviour
         }
        
     }
-    //public void ResetStitched()
-    //{
-    //    IsStitched = false;
-    //}
+ 
     void PlaySound()
     {
         SoundManager.instance.ResetAudioSource();

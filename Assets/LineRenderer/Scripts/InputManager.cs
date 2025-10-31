@@ -20,11 +20,6 @@ public class InputManager : MonoBehaviour
     private void Start()
     {
         Input.multiTouchEnabled = false;
-
-        needleOffset = PlayerPrefs.GetFloat("NeedleOffset");
-        if (needleOffset == 0)
-            needleOffset = 0.15f;
-        UpdateOffsetOnStart();
     }
     private void Update()
     {
@@ -89,28 +84,6 @@ public class InputManager : MonoBehaviour
         return Camera.main.ScreenToWorldPoint(position);
     }
 
-    public void UpdateNeedleOffset()
-    {
-        var canvasHandler = ServiceLocator.GetService<ICanvasUIManager>();
-        if (canvasHandler != null)
-        {
-            if (canvasHandler.needleOffset == null) return;
-
-            needleOffset = Mathf.Round(canvasHandler.needleOffset.value * 100f) / 100f;
-            PlayerPrefs.SetFloat("NeedleOffset", needleOffset);
-            canvasHandler.offsetValue.text = needleOffset.ToString();
-        }
-    }
-
-    void UpdateOffsetOnStart()
-    {
-        var canvasHandler = ServiceLocator.GetService<ICanvasUIManager>();
-        if (canvasHandler != null)
-        {
-            canvasHandler.needleOffset.value = needleOffset;
-            canvasHandler.offsetValue.text = needleOffset.ToString();
-        }
-    }
     void EnableDetection()
     {
         var pointDetector = ServiceLocator.GetService<INeedleDetector>();

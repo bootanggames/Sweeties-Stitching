@@ -62,11 +62,9 @@ public class LevelsHandler : Singleton<LevelsHandler>, ILevelHandler
         var canvasHandler = ServiceLocator.GetService<ICanvasUIManager>();
         if (canvasHandler != null)
         {
-            //canvasHandler.tapToStartButton.SetActive(true);
-            canvasHandler.startText.SetActive(true);
             canvasHandler.startText.transform.localScale = Vector3.zero;
-            canvasHandler.startText.GetComponent<Animate>().StartTextAnimation();
-            canvasHandler.stitchCountText.text = currentLevelMeta.noOfCorrectLinks + " OF " + currentLevelMeta.totalCorrectLinks;
+            canvasHandler.startText.SetActive(true);
+            canvasHandler.stitchCountText.text = currentLevelMeta.noOfLinks + " OF " + currentLevelMeta.totalCorrectLinks;
         }
         
         SetLevel();
@@ -85,7 +83,7 @@ public class LevelsHandler : Singleton<LevelsHandler>, ILevelHandler
         if(currentLevelMeta != null)
         {
             int stitchedCountOfCurrentLevel =  PlayerPrefs.GetInt("StitchedCount");
-            currentLevelMeta.noOfCorrectLinks = stitchedCountOfCurrentLevel;
+            currentLevelMeta.noOfLinks = stitchedCountOfCurrentLevel;
             currentLevelMeta.noOfStitchedPart = PlayerPrefs.GetInt("StitchedPartCount");
         }
     }

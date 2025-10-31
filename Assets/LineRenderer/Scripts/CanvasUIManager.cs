@@ -6,84 +6,28 @@ using UnityEngine.UI;
 
 public class CanvasUIManager : MonoBehaviour, ICanvasUIManager
 {
-    [field: SerializeField] public Slider pullSpeedSlider {  get; private set; }
-    [field: SerializeField] public Slider threadCountControlSlider {  get; private set; }
-    [field: SerializeField] public Slider detectionRadiusSlider { get; private set; }
     [field: SerializeField] public GameObject completeStitchedPlushie {  get; private set; }
     [field: SerializeField] public GameObject gameCompletePanel { get; private set; }
     [field: SerializeField] public TextMeshProUGUI stitchCountText {  get; private set; }
     [field: SerializeField] public TextMeshProUGUI stitchProgress {  get; private set; }
-    [field: SerializeField] public Slider needleOffset { get; private set; }
     [field: SerializeField] public GameObject tapToStartButton { get; private set; }
     [field: SerializeField] public TextMeshProUGUI offsetValue { get; private set; }
     [field: SerializeField] public GameObject startText { get; private set; }
-
     [field: SerializeField] public GameObject undoHighLight { get; private set; }
+    [field: SerializeField] public GameObject sewnScreen { get; private set; }
+    [field: SerializeField] public GameObject confettiEffectCanvas { get; private set; }
+    [field: SerializeField] public GameObject sewnTextImage { get; private set; }
 
-    private void OnEnable()
+    private void Start()
     {
         RegisterService();
+        startText.SetActive(true);
     }
     private void OnDisable()
     {
         UnRegisterService();
     }
-    private void Start()
-    {
-        UpdateSliderMinMaxValue();
-        UpdateThreadMinMaxCount();
-        UpdateDetectionRadiusMinMaxValue();
-    }
-    void UpdateSliderMinMaxValue()
-    {
-        if (pullSpeedSlider == null) return;
-        var pullSpeedHandler = ServiceLocator.GetService<IPointConnectionHandler>();
-
-        if (pullSpeedHandler != null)
-        {
-            float max = pullSpeedHandler.maxPullDuration;
-            pullSpeedSlider.maxValue = max;
-            float min = pullSpeedHandler.minPullDuration;
-            pullSpeedSlider.minValue = min;
-        }
-     
-    }
-    public void OnSpeedValueChange()
-    {
-        GameEvents.PointConnectionHandlerEvents.onUpdatingPullSpeed.RaiseEvent(pullSpeedSlider.value);
-    }
-
-    void UpdateThreadMinMaxCount()
-    {
-        if (threadCountControlSlider == null) return;
-
-        var threadStitchCountHandler = ServiceLocator.GetService<IPointConnectionHandler>();
-        if(threadStitchCountHandler != null)
-        {
-            float maxCount = threadStitchCountHandler.maxThreadStitchCount;
-            threadCountControlSlider.maxValue = maxCount;
-            float minCount = threadStitchCountHandler.minThreadStitchCount;
-            threadCountControlSlider.minValue = minCount;
-        }
-    }
- 
-    void UpdateDetectionRadiusMinMaxValue()
-    {
-        if (detectionRadiusSlider == null) return;
-
-        var needleDetector = ServiceLocator.GetService<INeedleDetector>();
-        if (needleDetector != null)
-        {
-            float minVal = needleDetector.minDetectionRadius;
-            detectionRadiusSlider.minValue = minVal;
-            float maxVal = needleDetector.maxDetectionRadius;
-            detectionRadiusSlider.maxValue = maxVal;
-        }
-    }
-    public void OnThreadStitchValueChange()
-    {
-        GameEvents.PointConnectionHandlerEvents.onUpdatingStitchCount.RaiseEvent((int)threadCountControlSlider.value);
-    }
+  
     public void OnClick(bool value)
     {
         GameEvents.ThreadEvents.setThreadInput.RaiseEvent(value);
@@ -101,11 +45,6 @@ public class CanvasUIManager : MonoBehaviour, ICanvasUIManager
     public void SetFreeFormThreadValue(bool value)
     {
         GameEvents.ThreadEvents.onSetFreeformMovementValue.RaiseEvent(value);
-    }
-
-    public void UpdateDetectionRadiusValue()
-    {
-        GameEvents.NeedleDetectorEvents.onSetRadiusValue.RaiseEvent(detectionRadiusSlider.value);
     }
 
     public void SetLevel2()
@@ -139,7 +78,6 @@ public class CanvasUIManager : MonoBehaviour, ICanvasUIManager
             percent = 0;
         else
             percent = ((float)completedParts / totalParts) * 100;
-        stitchProgress.text = Mathf.FloorToInt(percent).ToString() + "% DONE ";
-
+        stitchProgress.text = Mathf.FloorToInt(percent).ToString() + "% DONE";
     }
 }

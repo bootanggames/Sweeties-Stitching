@@ -26,4 +26,5 @@ public interface IPointConnectionHandler : IGameService
     void DeleteAllThreadLinks();
     Connections GetLastConnection();
     void GetObjectInfoWrongAlertTextDisableOfPart(List<GameObject> list);
+    void UpdateColorOfPoints();
 }

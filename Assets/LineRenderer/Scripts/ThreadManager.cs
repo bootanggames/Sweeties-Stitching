@@ -170,6 +170,7 @@ public class ThreadManager : MonoBehaviour, IThreadManager
         Vector3 needlePos = GameEvents.NeedleEvents.OnFetchingNeedlePosition.RaiseEvent();
         needlePos.z = zVal;
         instantiatedLine.SetPosition(0, needlePos);
+        //instantiatedLine.SetPosition((instantiatedLine.positionCount - 1), startPoint.position);
 
         if (prevLine)
             MoveThread(prevLine, true);
@@ -181,7 +182,7 @@ public class ThreadManager : MonoBehaviour, IThreadManager
     public void MoveThread(LineRenderer thread, bool isPrevThread)
     {
         if (!threadInput) return;
-        for (int i = 1; i < thread.positionCount; i++)
+        for (int i = 1; i < (thread.positionCount - 1); i++)
         {
             Vector3 prevThreadPoint = thread.GetPosition(i - 1);
             Vector3 currentPoint = thread.GetPosition(i);
@@ -195,6 +196,7 @@ public class ThreadManager : MonoBehaviour, IThreadManager
             Vector3 lerpPosition = Vector3.Lerp(currentPoint, targetPos, lerpSpeed);
             lerpPosition.z = zVal;
             thread.SetPosition(i, lerpPosition);
+
         }
 
         if (!isPrevThread && lastConnectedPoint != null && !freeForm)
@@ -324,12 +326,13 @@ public class ThreadManager : MonoBehaviour, IThreadManager
                     if(pointDetector.pointsDetected.Count > 0)
                     {
                         SewPoint s = pointDetector.pointsDetected[pointDetector.pointsDetected.Count - 1];
-                        s.pointMesh.material = connectHandler.originalMaterial;
+                        //s.pointMesh.material = connectHandler.originalMaterial;
                         ScaleInOut(s.transform, 0.2f, 0.25f, false, s.originalScale);
                         if (pointIndex > 0) pointIndex--;
                     }
 
                 }
+
                 pointDetector.UndoLastConnectedPoint();
             }
             if (prevLine)
@@ -338,7 +341,16 @@ public class ThreadManager : MonoBehaviour, IThreadManager
             if (detectedPoints.Count > 0)
             {
                 SewPoint s = detectedPoints[(detectedPoints.Count - 1)].GetComponent<SewPoint>();
-                if((detectedPoints.Count - 1) > 0)
+               s.pointMesh.material = connectHandler.originalMaterial;
+                if (connectHandler.wrongConnectPoint.Count > 0)
+                {
+                    if (connectHandler.wrongConnectPoint.Contains(s))
+                        connectHandler.wrongConnectPoint.Remove(s);
+                    connectHandler.UpdateColorOfPoints();
+                    
+                }
+
+                if ((detectedPoints.Count - 1) > 0)
                 {
                     SewPoint s2 = detectedPoints[(detectedPoints.Count - 2)].GetComponent<SewPoint>();
                     if (!s2.connected)
@@ -349,7 +361,30 @@ public class ThreadManager : MonoBehaviour, IThreadManager
                 detectedPoints.Remove(detectedPoints[(detectedPoints.Count - 1)]);
 
                 if ((detectedPoints.Count - 1) >= 0)
+                {
+                    SewPoint s2 = null;
+                    if((detectedPoints.Count - 2) >= 0)
+                        s2 = detectedPoints[(detectedPoints.Count - 2)].GetComponent<SewPoint>();
+                    SewPoint s1 = detectedPoints[(detectedPoints.Count - 1)].GetComponent<SewPoint>();
+                    if(s2 != null)
+                    {
+                        if (s2.nextConnectedPointId.Equals(s1.attachmentId))
+                        {
+                            if (s2.startFlag || s2.connected)
+                            {
+                                s1.pointMesh.material = connectHandler.correctPointMaterial;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        if(s1!= null)
+                        {
+                            if(s1.startFlag) s1.pointMesh.material = connectHandler.correctPointMaterial;
+                        }
+                    }
                     SetLastConnectedPosition(detectedPoints[(detectedPoints.Count - 1)].transform);
+                }
                 else
                     SetLastConnectedPosition(null);
             }
@@ -373,10 +408,10 @@ public class ThreadManager : MonoBehaviour, IThreadManager
               
                 SewPoint s1 = c.point1.GetComponent<SewPoint>();
                 SewPoint s2 = c.point2.GetComponent<SewPoint>();
-                if (LevelsHandler.instance.currentLevelMeta.noOfCorrectLinks > 0)
+                if (LevelsHandler.instance.currentLevelMeta.noOfLinks > 0)
                 {
-                    LevelsHandler.instance.currentLevelMeta.noOfCorrectLinks--;
-                    PlayerPrefs.SetInt("StitchedCount", LevelsHandler.instance.currentLevelMeta.noOfCorrectLinks);
+                    LevelsHandler.instance.currentLevelMeta.noOfLinks--;
+                    PlayerPrefs.SetInt("StitchedCount", LevelsHandler.instance.currentLevelMeta.noOfLinks);
                 }
                 if(lastConnectedPoint != null)
                 {
@@ -409,10 +444,15 @@ public class ThreadManager : MonoBehaviour, IThreadManager
                             {
                                 moveableTransform.DOMove(o_Info1.movedPositions[o_Info1.movedPositions.Count - 1], 0.25f).SetEase(Ease.InOutSine).OnUpdate(() =>
                                 {
-                                    //instantiatedLine.SetPosition(0, lastConnectedPoint.position);
-                                    //instantiatedLine.SetPosition((instantiatedLine.positionCount - 1), lastConnectedPoint.position);
-                                    //GameEvents.NeedleEvents.OnNeedleMovement.RaiseEvent(lastConnectedPoint.position);
-                                    //connectHandler.UpdateConnections();
+                                    if (lastConnectedPoint != null)
+                                    {
+                                        for (int i = 0; i < instantiatedLine.positionCount; i++)
+                                        {
+                                            instantiatedLine.SetPosition(i, lastConnectedPoint.position);
+                                        }
+                                        GameEvents.NeedleEvents.OnNeedleMovement.RaiseEvent(lastConnectedPoint.position);
+                                    }
+                                    connectHandler.UpdateConnections();
                                 }).OnComplete(() =>
                                 {
 
@@ -436,10 +476,15 @@ public class ThreadManager : MonoBehaviour, IThreadManager
                             {
                                 moveableTransform.DOMove(o_Info2.movedPositions[o_Info2.movedPositions.Count - 1], 0.25f).SetEase(Ease.InOutSine).OnUpdate(() =>
                                 {
-                                    //instantiatedLine.SetPosition(0, lastConnectedPoint.position);
-                                    //instantiatedLine.SetPosition((instantiatedLine.positionCount - 1), lastConnectedPoint.position);
-                                    //GameEvents.NeedleEvents.OnNeedleMovement.RaiseEvent(lastConnectedPoint.position);
-                                    //connectHandler.UpdateConnections();
+                                    if (lastConnectedPoint != null)
+                                    {
+                                        for (int i = 0; i < instantiatedLine.positionCount; i++)
+                                        {
+                                            instantiatedLine.SetPosition(i, lastConnectedPoint.position);
+                                        }
+                                        GameEvents.NeedleEvents.OnNeedleMovement.RaiseEvent(lastConnectedPoint.position);
+                                    }
+                                    connectHandler.UpdateConnections();
 
                                 }).OnComplete(() =>
                                 {
@@ -457,27 +502,22 @@ public class ThreadManager : MonoBehaviour, IThreadManager
                     LevelsHandler.instance.currentLevelMeta.UpdateAllStitchesOfPlushie();
                     
                 }
-              
-                if(!s1.connected)
-                    s1.pointMesh.material = connectHandler.originalMaterial;
-                s2.pointMesh.material = connectHandler.originalMaterial;
-
-                if (connectHandler.wrongConnectPoint.Count > 0)
-                {
-                    if (connectHandler.wrongConnectPoint.Contains(s2))
-                        connectHandler.wrongConnectPoint.Remove(s2);
-                }
                
                 Destroy(c.line.gameObject);
             }
             else
                 connectHandler.points.Clear();
 
+          
+
             if (connectHandler.wrongConnectPoint.Count == 0)
             {
-                connectHandler.GetObjectInfoWrongAlertTextDisableOfPart(LevelsHandler.instance.currentLevelMeta.levelParts);
+                connectHandler.GetObjectInfoWrongAlertTextDisableOfPart(LevelsHandler.instance.currentLevelMeta.bodyParts);
                 connectHandler.GetObjectInfoWrongAlertTextDisableOfPart(LevelsHandler.instance.currentLevelMeta.immoveablePart.GetComponent<Part_Info>().joints);
                 connectHandler.GetObjectInfoWrongAlertTextDisableOfPart(LevelsHandler.instance.currentLevelMeta.head.joints);
+                var canvasHandler = ServiceLocator.GetService<ICanvasUIManager>();
+                if (canvasHandler != null)
+                    canvasHandler.undoHighLight.SetActive(false);
             }
         }
     }

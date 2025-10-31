@@ -73,8 +73,81 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
         threadStitchCount = count;
     }
    
+    public void UpdateColorOfPoints()
+    {
+        if (wrongConnectPoint.Count > 0)
+        {
+            SewPoint lastPoint = wrongConnectPoint[wrongConnectPoint.Count - 1];
+            SewPoint secondLast = null;
+            if ((wrongConnectPoint.Count - 2) >= 0)
+                secondLast = wrongConnectPoint[wrongConnectPoint.Count - 2];
+            if(secondLast != null)
+            {
+                if (lastPoint.transform.parent.parent.parent != secondLast.transform.parent.parent.parent)
+                {
+                    if (secondLast.nextConnectedPointId == lastPoint.attachmentId)
+                    {
+                        if (secondLast.connected)
+                            lastPoint.pointMesh.material = correctPointMaterial;
+                        else
+                        {
+                            secondLast.pointMesh.material = wrongPointMaterial;
+                            lastPoint.pointMesh.material = wrongPointMaterial;
+                        }
+                    }
+                    else
+                    {
+                        lastPoint.pointMesh.material = wrongPointMaterial;
+                        if (secondLast.connected)
+                            secondLast.pointMesh.material = correctPointMaterial;
+                    }
+                }
+                else
+                {
+                    if (secondLast.nextConnectedPointId != lastPoint.attachmentId)
+                    {
+                        if (secondLast.connected)
+                            secondLast.pointMesh.material = wrongPointMaterial;
+                        lastPoint.pointMesh.material = wrongPointMaterial;
+                    }
+                    else
+                    {
+                        if (!secondLast.connected)
+                            secondLast.pointMesh.material = wrongPointMaterial;
+                        else
+                            secondLast.pointMesh.material = correctPointMaterial;
+                    }
+                        
+                }
+            }
+            else
+            {
+                if (lastPoint != null)
+                {
+                    if (lastPoint.startFlag)
+                        lastPoint.pointMesh.material = correctPointMaterial;
+                }
+            }
+           
+        }
+    }
     public void GetAttachedPointsToCreateLink(List<Transform> point)
     {
+        SewPoint s_FirstOne = null;
+
+        if (point.Count > 0)
+        {
+            s_FirstOne = point[0].GetComponent<SewPoint>();
+            ObjectInfo ob_Info = s_FirstOne.GetComponentInParent<ObjectInfo>();
+
+            if (!s_FirstOne.startFlag)
+            {
+                s_FirstOne.pointMesh.material = wrongPointMaterial;
+                UpdateWrongSequence(s_FirstOne, ob_Info);
+            }
+            else
+                s_FirstOne.pointMesh.material = correctPointMaterial;
+        }
         if (point.Count <= 1) return;
         foreach (Transform t in point)
         {
@@ -89,85 +162,72 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
         sp2 = points[points.Count - 1];
         o_info1 = sp1.transform.parent.parent.GetComponent<ObjectInfo>();
         o_info2 = sp2.transform.parent.parent.GetComponent<ObjectInfo>();
-        SewPoint s_FirstOne = points[0];
-        if (s_FirstOne.startFlag)
+        sp2.pointMesh.material = correctPointMaterial;
+        if (points.Count > 1)
         {
-            if(points.Count > 1)
+            if (sp1.transform.parent.parent.parent == sp2.transform.parent.parent.parent)
             {
-                if (sp1.transform.parent.parent.parent == sp2.transform.parent.parent.parent)
+                if (!sp1.connected)
                 {
-                    if (!sp1.connected)
-                    {
-                        if (sp1.nextConnectedPointId.Equals(sp2.attachmentId) || !sp1.nextConnectedPointId.Equals(sp2.attachmentId))
-                        {
-                            //if (!wrongConnectPoint.Contains(sp2))
-                            //    wrongConnectPoint.Add(sp2);
-                            UpdateWrongSequence(sp2, o_info1, o_info2);
-                        }
-                    }
-                   
-                    if (!sp1.nextConnectedPointId.Equals(sp2.attachmentId))
-                    {
-                        //if (!wrongConnectPoint.Contains(sp2))
-                        //    wrongConnectPoint.Add(sp2);
-                        UpdateWrongSequence(sp2, o_info1, o_info2);
-                    }
+                    if (sp1.nextConnectedPointId.Equals(sp2.attachmentId) || !sp1.nextConnectedPointId.Equals(sp2.attachmentId))
+                        UpdateWrongSequence(sp2, o_info1);
                 }
-                if (!sp1.attachmentId.Equals(sp2.attachmentId))
-                {
-                    if (wrongConnectPoint.Count > 0)
-                    {
-                        if (sp1.nextConnectedPointId.Equals(sp2.attachmentId))
-                        {
-                            //if (!wrongConnectPoint.Contains(sp2))
-                            //    wrongConnectPoint.Add(sp2);
-                            UpdateWrongSequence(sp2, o_info1, o_info2);
-                        }
-                    }
-                    if (!sp1.connected)
-                    {
-                        //if (!wrongConnectPoint.Contains(sp2))
-                        //    wrongConnectPoint.Add(sp2);
-                        UpdateWrongSequence(sp2, o_info1, o_info2);
-                    }
-                }
-                if(sp1.connected && sp1.nextConnectedPointId != sp2.attachmentId)
-                {
-                    //if (!wrongConnectPoint.Contains(sp2))
-                    //    wrongConnectPoint.Add(sp2);
-                    UpdateWrongSequence(sp2, o_info1, o_info2);
-                }
+
+                if (!sp1.nextConnectedPointId.Equals(sp2.attachmentId))
+                    UpdateWrongSequence(sp2, o_info1);
+            }
+           
+            if (!sp1.attachmentId.Equals(sp2.attachmentId))
+            {
                 if (wrongConnectPoint.Count > 0)
                 {
-                    if (!sp1.connected)
-                        sp1.pointMesh.material = wrongPointMaterial;
-                    if (!sp2.connected)
-                        sp2.pointMesh.material = wrongPointMaterial;
-
-                    //UpdateWrongSequence(sp2, o_info1, o_info2);
-
+                    if (sp1.nextConnectedPointId.Equals(sp2.attachmentId))
+                        UpdateWrongSequence(sp2, o_info1);
+                    else
+                        UpdateWrongSequence(sp2, o_info1);
                 }
-            }
+                else
+                {
+                    if (!sp1.connected)
+                        UpdateWrongSequence(sp2, o_info1);
+                }
 
-            if (wrongConnectPoint == null && wrongConnectPoint.Count == 0)
-                CheckIfLastConnectionUpdated(sp1, sp2, sp1.transform, sp2.transform, o_info1, o_info2);
-           
+            }
+            if (sp1.attachmentId.Equals(sp2.attachmentId))
+            {
+                if (wrongConnectPoint.Count > 0)
+                    UpdateWrongSequence(sp2, o_info1);
+            }
+            if (sp1.connected && sp1.nextConnectedPointId != sp2.attachmentId)
+                UpdateWrongSequence(sp2, o_info1);
+
+            if (wrongConnectPoint.Count > 0)
+            {
+                if (!sp1.connected) sp1.pointMesh.material = wrongPointMaterial;
+            }
         }
+
+        if (wrongConnectPoint == null && wrongConnectPoint.Count == 0)
+            CheckIfLastConnectionUpdated(sp1, sp2, sp1.transform, sp2.transform, o_info1, o_info2);
 
         CreateLinkBetweenPoints(sp1, sp2);
     }
 
-    void UpdateWrongSequence(SewPoint sp, ObjectInfo ob_info1, ObjectInfo ob_info2)
+    void UpdateWrongSequence(SewPoint sp, ObjectInfo ob_info)
     {
         if (!wrongConnectPoint.Contains(sp))
             wrongConnectPoint.Add(sp);
+        sp.pointMesh.material = wrongPointMaterial;
 
-        GetObjectInfoWrongAlertTextDisableOfPart(LevelsHandler.instance.currentLevelMeta.levelParts);
+        GetObjectInfoWrongAlertTextDisableOfPart(LevelsHandler.instance.currentLevelMeta.bodyParts);
         GetObjectInfoWrongAlertTextDisableOfPart(LevelsHandler.instance.currentLevelMeta.immoveablePart.GetComponent<Part_Info>().joints);
         GetObjectInfoWrongAlertTextDisableOfPart(LevelsHandler.instance.currentLevelMeta.head.joints);
      
-        ob_info1.WrongSequenceAlertText("Uh oh! Stitching Pattern is OFF", 2);
-        //ob_info2.WrongSequenceAlertText("Uh oh! Stitching Pattern is OFF", 2);
+        ob_info.WrongSequenceAlertText("Uh oh! Stitching Pattern is OFF", 2);
+        var canvasHandler = ServiceLocator.GetService<ICanvasUIManager>();
+        if(canvasHandler != null)
+            canvasHandler.undoHighLight.SetActive(true);
+        UpdateColorOfPoints();
     }
     public void GetObjectInfoWrongAlertTextDisableOfPart(List<GameObject> list)
     {
@@ -210,21 +270,8 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
         Connections connection = new Connections(p1, p2, linePrefab, zVal, multiple, stitchCount);
         connections.Add(connection);
       
-        SewPoint s_FirstOne = points[0];
-
-        SewPoint s1 = p1.GetComponent<SewPoint>();
-        SewPoint s2 = p2.GetComponent<SewPoint>();
-        if (!s_FirstOne.startFlag)
-        {
-            s1.pointMesh.material = wrongPointMaterial;
-            s2.pointMesh.material = wrongPointMaterial;
-            ObjectInfo ob_Info1 = s1.GetComponentInParent<ObjectInfo>();
-            ObjectInfo ob_Info2 = s2.GetComponentInParent<ObjectInfo>();
-            ob_Info1.WrongSequenceAlertText("Uh oh! Stitching Pattern is OFF", 2);
-            ob_Info2.WrongSequenceAlertText("Uh oh! Stitching Pattern is OFF", 2);
-            return;
-        }
         if (wrongConnectPoint != null && wrongConnectPoint.Count > 0) return;
+
         if (applyPullForce)
             ManageConnetions(connection);
         else
@@ -235,7 +282,6 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
     {
         SewPoint sp1 = c.point1.GetComponent<SewPoint>();
         SewPoint sp2 = c.point2.GetComponent<SewPoint>();
-
         if (sp1.attachmentId.Equals(sp2.attachmentId))
             ApplyForces(c.point1, c.point2);
     }
@@ -272,9 +318,11 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
             else
                 return;
         }
+  
         EndTweens();
         SewPoint sp1 = p1.GetComponent<SewPoint>();
         SewPoint sp2 = p2.GetComponent<SewPoint>();
+
         bool move1 = info1.moveable;
         bool move2 = info2.moveable;
         float tweenDuration = pullDuration;
@@ -332,8 +380,7 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
                 info2.noOfConnections++;
                 sp1.connected = true;
                 sp2.connected = true;
-                sp1.pointMesh.material = correctPointMaterial;
-                sp2.pointMesh.material = correctPointMaterial;
+        
                 if (info1.partType.Equals(PlushieActiveStitchPart.lefteye) || info1.partType.Equals(PlushieActiveStitchPart.righteye))
                 {
                     if (info1.noOfConnections.Equals(info1.totalConnections))
@@ -389,8 +436,7 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
                 info2.noOfConnections++;
                 sp1.connected = true;
                 sp2.connected = true;
-                sp1.pointMesh.material = correctPointMaterial;
-                sp2.pointMesh.material = correctPointMaterial;
+      
                 if (info2.partType.Equals(PlushieActiveStitchPart.lefteye) || info2.partType.Equals(PlushieActiveStitchPart.righteye))
                 {
                     if (info2.noOfConnections.Equals(info2.totalConnections))

@@ -66,10 +66,10 @@ public class Connections
             this.line.positionCount = 2;
             this.line.SetPosition(0, pos1);
             this.line.SetPosition(1, pos2);
-            LevelsHandler.instance.currentLevelMeta.noOfCorrectLinks++;
+            LevelsHandler.instance.currentLevelMeta.noOfLinks++;
             var canvasManager = ServiceLocator.GetService<ICanvasUIManager>();
             if (canvasManager != null)
-                canvasManager.UpdateStitchCount(LevelsHandler.instance.currentLevelMeta.totalCorrectLinks, LevelsHandler.instance.currentLevelMeta.noOfCorrectLinks);
+                canvasManager.UpdateStitchCount(LevelsHandler.instance.currentLevelMeta.totalCorrectLinks, LevelsHandler.instance.currentLevelMeta.noOfLinks);
         }
     }
     public void DestroyPreviousLine()

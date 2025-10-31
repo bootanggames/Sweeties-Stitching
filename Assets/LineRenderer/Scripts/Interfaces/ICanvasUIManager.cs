@@ -4,15 +4,14 @@ using UnityEngine.UI;
 
 public interface ICanvasUIManager:IGameService
 {
-     Slider pullSpeedSlider { get; }
-     Slider threadCountControlSlider {  get; }
-     Slider detectionRadiusSlider {  get; }
-     Slider needleOffset {  get; }
     GameObject completeStitchedPlushie { get; }
     GameObject gameCompletePanel { get; }
     GameObject tapToStartButton { get; }
     GameObject startText { get; }
+    GameObject sewnScreen { get; }
+    GameObject sewnTextImage { get; }
     GameObject undoHighLight { get; }
+    GameObject confettiEffectCanvas { get; }
     TextMeshProUGUI stitchCountText {  get; }
     TextMeshProUGUI stitchProgress {  get; }
     TextMeshProUGUI offsetValue {  get; }

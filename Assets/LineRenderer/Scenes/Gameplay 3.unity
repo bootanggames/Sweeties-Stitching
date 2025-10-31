@@ -169,11 +169,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 9
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 2
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &1446898
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -686,6 +688,8 @@ MonoBehaviour:
   <needleOffset>k__BackingField: {fileID: 1903350214}
   <tapToStartButton>k__BackingField: {fileID: 1862154624}
   <offsetValue>k__BackingField: {fileID: 712347251}
+  <startText>k__BackingField: {fileID: 0}
+  <undoHighLight>k__BackingField: {fileID: 0}
 --- !u!1 &10770095
 GameObject:
   m_ObjectHideFlags: 0
@@ -810,11 +814,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 2
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 2
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!1 &12165962
 GameObject:
   m_ObjectHideFlags: 0
@@ -939,11 +945,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 18
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 2
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!1 &12340139
 GameObject:
   m_ObjectHideFlags: 0
@@ -1130,11 +1138,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 32
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 2
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &12651451
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -2174,11 +2184,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 22
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 1
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!1 &18762530
 GameObject:
   m_ObjectHideFlags: 0
@@ -3161,11 +3173,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 26
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 2
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &25616933
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -3364,11 +3378,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 28
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 2
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!1 &31025220
 GameObject:
   m_ObjectHideFlags: 0
@@ -3493,11 +3509,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 38
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 1
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!1 &31370215
 GameObject:
   m_ObjectHideFlags: 0
@@ -3547,6 +3565,7 @@ MonoBehaviour:
   partType: 7
   partConnectedTo: 1
   originalRotation: {x: 0, y: 0, z: 0}
+  movedPosition: {x: 0, y: 0, z: 0}
   moveable: 0
   shouldBeChild: 0
   <IsStitched>k__BackingField: 0
@@ -3560,11 +3579,14 @@ MonoBehaviour:
   totalConnections: 4
   noOfConnections: 0
   completeStitchTextObj: {fileID: 1574741648}
+  wrongSequenceAlert: {fileID: 0}
   text: Great Work !
   confettiObj: []
   confettiIndex: 0
   movedPositions: []
   cotton: {fileID: 0}
+  partWithHoles: {fileID: 0}
+  partWithOutHoles: {fileID: 0}
   pointPrefab: {fileID: 0}
   pointParent: {fileID: 0}
   firstPoint: {fileID: 0}
@@ -3572,7 +3594,7 @@ MonoBehaviour:
   maxHeightOffset: 0
   positions: []
   generatedPoints: []
-  changeLastPointHeight: 0
+  dontChangeY: 0
 --- !u!1 &33941112
 GameObject:
   m_ObjectHideFlags: 0
@@ -3608,6 +3630,7 @@ MonoBehaviour:
   targetScale: 1
   orignalScale: 0.8
   ease: 1
+  startGame: 0
 --- !u!114 &33941114
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4066,11 +4089,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 10
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 2
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!1 &49477557
 GameObject:
   m_ObjectHideFlags: 0
@@ -4297,11 +4322,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 49
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 1
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &49536974
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -4426,6 +4453,7 @@ MonoBehaviour:
   partType: 8
   partConnectedTo: 1
   originalRotation: {x: 0, y: 0, z: 0}
+  movedPosition: {x: 0, y: 0, z: 0}
   moveable: 1
   shouldBeChild: 0
   <IsStitched>k__BackingField: 0
@@ -4442,11 +4470,14 @@ MonoBehaviour:
   totalConnections: 7
   noOfConnections: 0
   completeStitchTextObj: {fileID: 0}
+  wrongSequenceAlert: {fileID: 0}
   text: 
   confettiObj: []
   confettiIndex: 0
   movedPositions: []
   cotton: {fileID: 975462295}
+  partWithHoles: {fileID: 0}
+  partWithOutHoles: {fileID: 0}
   pointPrefab: {fileID: 0}
   pointParent: {fileID: 0}
   firstPoint: {fileID: 0}
@@ -4454,7 +4485,7 @@ MonoBehaviour:
   maxHeightOffset: 0
   positions: []
   generatedPoints: []
-  changeLastPointHeight: 0
+  dontChangeY: 0
 --- !u!212 &52867600
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4560,11 +4591,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 54
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 2
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &61789079
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -4763,11 +4796,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 47
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 1
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!1 &64266700
 GameObject:
   m_ObjectHideFlags: 0
@@ -4817,6 +4852,7 @@ MonoBehaviour:
   partType: 8
   partConnectedTo: 1
   originalRotation: {x: 0, y: 0, z: 0}
+  movedPosition: {x: 0, y: 0, z: 0}
   moveable: 1
   shouldBeChild: 0
   <IsStitched>k__BackingField: 0
@@ -4830,11 +4866,14 @@ MonoBehaviour:
   totalConnections: 4
   noOfConnections: 0
   completeStitchTextObj: {fileID: 0}
+  wrongSequenceAlert: {fileID: 0}
   text: 
   confettiObj: []
   confettiIndex: 0
   movedPositions: []
   cotton: {fileID: 0}
+  partWithHoles: {fileID: 0}
+  partWithOutHoles: {fileID: 0}
   pointPrefab: {fileID: 0}
   pointParent: {fileID: 0}
   firstPoint: {fileID: 0}
@@ -4842,7 +4881,7 @@ MonoBehaviour:
   maxHeightOffset: 0
   positions: []
   generatedPoints: []
-  changeLastPointHeight: 0
+  dontChangeY: 0
 --- !u!212 &64266703
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5022,11 +5061,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 38
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 1
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!1 &74741417
 GameObject:
   m_ObjectHideFlags: 0
@@ -5092,11 +5133,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 12
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 2
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &76387019
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -5236,6 +5279,7 @@ MonoBehaviour:
   partType: 0
   partConnectedTo: 0
   originalRotation: {x: 0, y: 0, z: 0}
+  movedPosition: {x: 0, y: 0, z: 0}
   moveable: 1
   shouldBeChild: 1
   <IsStitched>k__BackingField: 0
@@ -5249,11 +5293,14 @@ MonoBehaviour:
   totalConnections: 4
   noOfConnections: 0
   completeStitchTextObj: {fileID: 0}
+  wrongSequenceAlert: {fileID: 0}
   text: 
   confettiObj: []
   confettiIndex: 0
   movedPositions: []
   cotton: {fileID: 0}
+  partWithHoles: {fileID: 0}
+  partWithOutHoles: {fileID: 0}
   pointPrefab: {fileID: 0}
   pointParent: {fileID: 0}
   firstPoint: {fileID: 0}
@@ -5261,7 +5308,7 @@ MonoBehaviour:
   maxHeightOffset: 0
   positions: []
   generatedPoints: []
-  changeLastPointHeight: 0
+  dontChangeY: 0
 --- !u!212 &79404753
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5545,6 +5592,7 @@ MonoBehaviour:
   - {fileID: 629340780}
   - {fileID: 896695319}
   plushieOfCurrentLevel: {fileID: 478753434}
+  levelProgress: {fileID: 0}
 --- !u!1 &85089327
 GameObject:
   m_ObjectHideFlags: 0
@@ -5744,11 +5792,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 2
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 2
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!1 &88095238
 GameObject:
   m_ObjectHideFlags: 0
@@ -5799,11 +5849,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 42
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 1
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &88095241
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -6632,11 +6684,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 11
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 2
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &109348160
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -7192,6 +7246,7 @@ MonoBehaviour:
   targetScale: 1
   orignalScale: 0.8
   ease: 1
+  startGame: 0
 --- !u!114 &123807882
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7643,6 +7698,7 @@ MonoBehaviour:
   partType: 0
   partConnectedTo: 0
   originalRotation: {x: 0, y: 0, z: 0}
+  movedPosition: {x: 0, y: 0, z: 0}
   moveable: 0
   shouldBeChild: 0
   <IsStitched>k__BackingField: 0
@@ -7656,11 +7712,14 @@ MonoBehaviour:
   totalConnections: 4
   noOfConnections: 0
   completeStitchTextObj: {fileID: 1754593916}
+  wrongSequenceAlert: {fileID: 0}
   text: NEATLY DONE !
   confettiObj: []
   confettiIndex: 0
   movedPositions: []
   cotton: {fileID: 0}
+  partWithHoles: {fileID: 0}
+  partWithOutHoles: {fileID: 0}
   pointPrefab: {fileID: 0}
   pointParent: {fileID: 0}
   firstPoint: {fileID: 0}
@@ -7668,7 +7727,7 @@ MonoBehaviour:
   maxHeightOffset: 0
   positions: []
   generatedPoints: []
-  changeLastPointHeight: 0
+  dontChangeY: 0
 --- !u!1 &133857473
 GameObject:
   m_ObjectHideFlags: 0
@@ -7934,11 +7993,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 41
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 2
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &136971840
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -8047,11 +8108,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 42
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 1
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &137682466
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -8623,11 +8686,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 5
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 1
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &145971601
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -8826,11 +8891,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 23
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 1
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!1 &149753299
 GameObject:
   m_ObjectHideFlags: 0
@@ -9044,11 +9111,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 18
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 1
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &151139677
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -9645,11 +9714,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 56
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 2
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &172865771
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -10071,11 +10142,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 35
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 1
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!1 &176427279
 GameObject:
   m_ObjectHideFlags: 0
@@ -10108,6 +10181,7 @@ MonoBehaviour:
   partType: 3
   partConnectedTo: 0
   originalRotation: {x: 0, y: 0, z: 15}
+  movedPosition: {x: 0, y: 0, z: 0}
   moveable: 0
   shouldBeChild: 0
   <IsStitched>k__BackingField: 0
@@ -10122,11 +10196,14 @@ MonoBehaviour:
   totalConnections: 5
   noOfConnections: 0
   completeStitchTextObj: {fileID: 726713752}
+  wrongSequenceAlert: {fileID: 0}
   text: WELL DONE !
   confettiObj: []
   confettiIndex: 0
   movedPositions: []
   cotton: {fileID: 0}
+  partWithHoles: {fileID: 0}
+  partWithOutHoles: {fileID: 0}
   pointPrefab: {fileID: 0}
   pointParent: {fileID: 0}
   firstPoint: {fileID: 0}
@@ -10134,7 +10211,7 @@ MonoBehaviour:
   maxHeightOffset: 0
   positions: []
   generatedPoints: []
-  changeLastPointHeight: 0
+  dontChangeY: 0
 --- !u!4 &176427281
 Transform:
   m_ObjectHideFlags: 0
@@ -10276,11 +10353,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 29
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 2
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!1 &182181140
 GameObject:
   m_ObjectHideFlags: 0
@@ -10933,11 +11012,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 55
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 2
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!1 &200049402
 GameObject:
   m_ObjectHideFlags: 0
@@ -11696,11 +11777,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 38
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 1
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &205889084
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -11915,11 +11998,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 13
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 1
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!1 &209583977
 GameObject:
   m_ObjectHideFlags: 0
@@ -11970,11 +12055,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 41
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 1
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &209583980
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -13167,11 +13254,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 1
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 2
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &223528933
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -13370,11 +13459,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 40
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 1
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!1 &226672228
 GameObject:
   m_ObjectHideFlags: 0
@@ -13601,11 +13692,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 11
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 2
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &227264498
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -13730,11 +13823,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 17
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 2
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &227533531
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -13859,11 +13954,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 20
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 1
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &228802459
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -13988,11 +14085,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 12
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 2
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &232157496
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -14630,11 +14729,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 47
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 1
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!1 &237365034
 GameObject:
   m_ObjectHideFlags: 0
@@ -14684,6 +14785,7 @@ MonoBehaviour:
   partType: 2
   partConnectedTo: 0
   originalRotation: {x: 0, y: 0, z: 45}
+  movedPosition: {x: 0, y: 0, z: 0}
   moveable: 0
   shouldBeChild: 0
   <IsStitched>k__BackingField: 0
@@ -14698,11 +14800,14 @@ MonoBehaviour:
   totalConnections: 5
   noOfConnections: 0
   completeStitchTextObj: {fileID: 727544712}
+  wrongSequenceAlert: {fileID: 0}
   text: NICELY DONE !
   confettiObj: []
   confettiIndex: 0
   movedPositions: []
   cotton: {fileID: 0}
+  partWithHoles: {fileID: 0}
+  partWithOutHoles: {fileID: 0}
   pointPrefab: {fileID: 1572344290178555221, guid: 2d08dbe1041cd6641ac3ea6122338c04, type: 3}
   pointParent: {fileID: 413541234}
   firstPoint: {fileID: 0}
@@ -14710,7 +14815,7 @@ MonoBehaviour:
   maxHeightOffset: 0
   positions: []
   generatedPoints: []
-  changeLastPointHeight: 0
+  dontChangeY: 0
 --- !u!1 &238838859
 GameObject:
   m_ObjectHideFlags: 0
@@ -14777,6 +14882,7 @@ MonoBehaviour:
   targetScale: 1
   orignalScale: 0.8
   ease: 1
+  startGame: 0
 --- !u!114 &239362661
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14968,6 +15074,7 @@ MonoBehaviour:
   partType: 6
   partConnectedTo: 1
   originalRotation: {x: 0, y: 0, z: 0}
+  movedPosition: {x: 0, y: 0, z: 0}
   moveable: 1
   shouldBeChild: 0
   <IsStitched>k__BackingField: 0
@@ -14985,11 +15092,14 @@ MonoBehaviour:
   totalConnections: 8
   noOfConnections: 0
   completeStitchTextObj: {fileID: 0}
+  wrongSequenceAlert: {fileID: 0}
   text: 
   confettiObj: []
   confettiIndex: 0
   movedPositions: []
   cotton: {fileID: 473808428}
+  partWithHoles: {fileID: 0}
+  partWithOutHoles: {fileID: 0}
   pointPrefab: {fileID: 0}
   pointParent: {fileID: 0}
   firstPoint: {fileID: 0}
@@ -14997,7 +15107,7 @@ MonoBehaviour:
   maxHeightOffset: 0
   positions: []
   generatedPoints: []
-  changeLastPointHeight: 0
+  dontChangeY: 0
 --- !u!212 &241551615
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -15383,11 +15493,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 18
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 2
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &248531454
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -16040,11 +16152,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 38
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 2
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &273431401
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -16243,11 +16357,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 15
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 1
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!1 &283111275
 GameObject:
   m_ObjectHideFlags: 0
@@ -16654,11 +16770,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 1
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 2
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!1 &289834305
 GameObject:
   m_ObjectHideFlags: 0
@@ -16709,11 +16827,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 4
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 2
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &289834308
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -16838,11 +16958,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 48
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 1
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &290718480
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -17605,11 +17727,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 43
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 1
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!1 &303228543
 GameObject:
   m_ObjectHideFlags: 0
@@ -17907,11 +18031,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 20
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 2
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &310584949
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -18288,11 +18414,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 33
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 1
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &312318300
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -18680,11 +18808,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 21
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 2
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &318521646
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -18883,11 +19013,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 24
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 1
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!1 &327261860
 GameObject:
   m_ObjectHideFlags: 0
@@ -18938,11 +19070,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 49
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 1
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &327261863
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -19394,11 +19528,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 16
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 1
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &337825978
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -20051,11 +20187,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 8
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 1
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &345173069
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -20195,6 +20333,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdc877ac9626c6b4999856cfbbe442c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  levelReward: 0
   totalCorrectLinks: 69
   noOfCorrectLinks: 0
   plushieActivePartToStitch: 0
@@ -20210,6 +20349,7 @@ MonoBehaviour:
   - {fileID: 444890055}
   head: {fileID: 2099258798}
   immoveablePart: {fileID: 1647088930}
+  bodyWihtoutHoles: {fileID: 0}
   totalStitchedPart: 9
   noOfStitchedPart: 0
   levelDivision:
@@ -20449,11 +20589,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 53
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 2
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!1 &352350667
 GameObject:
   m_ObjectHideFlags: 0
@@ -20579,11 +20721,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 38
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 2
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &354228884
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -20782,11 +20926,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 55
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 2
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!1 &358768387
 GameObject:
   m_ObjectHideFlags: 0
@@ -21072,11 +21218,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 4
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 2
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!1 &362115397
 GameObject:
   m_ObjectHideFlags: 0
@@ -21875,11 +22023,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 37
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 1
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!1 &374762472
 GameObject:
   m_ObjectHideFlags: 0
@@ -21929,6 +22079,7 @@ MonoBehaviour:
   partType: 6
   partConnectedTo: 1
   originalRotation: {x: 0, y: 0, z: -28}
+  movedPosition: {x: 0, y: 0, z: 0}
   moveable: 1
   shouldBeChild: 0
   <IsStitched>k__BackingField: 0
@@ -21942,11 +22093,14 @@ MonoBehaviour:
   totalConnections: 4
   noOfConnections: 0
   completeStitchTextObj: {fileID: 0}
+  wrongSequenceAlert: {fileID: 0}
   text: 
   confettiObj: []
   confettiIndex: 0
   movedPositions: []
   cotton: {fileID: 0}
+  partWithHoles: {fileID: 0}
+  partWithOutHoles: {fileID: 0}
   pointPrefab: {fileID: 0}
   pointParent: {fileID: 0}
   firstPoint: {fileID: 0}
@@ -21954,7 +22108,7 @@ MonoBehaviour:
   maxHeightOffset: 0
   positions: []
   generatedPoints: []
-  changeLastPointHeight: 0
+  dontChangeY: 0
 --- !u!212 &374762475
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -22134,11 +22288,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 14
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 1
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!1 &375445091
 GameObject:
   m_ObjectHideFlags: 0
@@ -22380,11 +22536,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 16
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 1
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &379582994
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -22775,11 +22933,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 25
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 1
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!1 &386921000
 GameObject:
   m_ObjectHideFlags: 0
@@ -22830,11 +22990,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 1
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 2
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &386921003
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -23178,11 +23340,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 41
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 1
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!1 &393772050
 GameObject:
   m_ObjectHideFlags: 0
@@ -23233,11 +23397,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 6
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 1
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &393772053
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -23436,11 +23602,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 37
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 1
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!1 &394020424
 GameObject:
   m_ObjectHideFlags: 0
@@ -23474,6 +23642,7 @@ MonoBehaviour:
   partType: 0
   partConnectedTo: 0
   originalRotation: {x: 0, y: 0, z: 0}
+  movedPosition: {x: 0, y: 0, z: 0}
   moveable: 1
   shouldBeChild: 1
   <IsStitched>k__BackingField: 0
@@ -23487,11 +23656,14 @@ MonoBehaviour:
   totalConnections: 4
   noOfConnections: 0
   completeStitchTextObj: {fileID: 0}
+  wrongSequenceAlert: {fileID: 0}
   text: 
   confettiObj: []
   confettiIndex: 0
   movedPositions: []
   cotton: {fileID: 0}
+  partWithHoles: {fileID: 0}
+  partWithOutHoles: {fileID: 0}
   pointPrefab: {fileID: 0}
   pointParent: {fileID: 0}
   firstPoint: {fileID: 0}
@@ -23499,7 +23671,7 @@ MonoBehaviour:
   maxHeightOffset: 0
   positions: []
   generatedPoints: []
-  changeLastPointHeight: 0
+  dontChangeY: 0
 --- !u!212 &394020426
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -23606,6 +23778,7 @@ MonoBehaviour:
   targetScale: 1
   orignalScale: 0.8
   ease: 1
+  startGame: 0
 --- !u!114 &395382697
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23990,11 +24163,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 14
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 1
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &401615456
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -24369,11 +24544,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 52
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 2
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!1 &412422510
 GameObject:
   m_ObjectHideFlags: 0
@@ -24600,11 +24777,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 40
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 1
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &412578292
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -24839,11 +25018,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 45
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 1
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!1 &422923793
 GameObject:
   m_ObjectHideFlags: 0
@@ -24893,6 +25074,7 @@ MonoBehaviour:
   partType: 3
   partConnectedTo: 0
   originalRotation: {x: 0, y: 0, z: -45}
+  movedPosition: {x: 0, y: 0, z: 0}
   moveable: 0
   shouldBeChild: 0
   <IsStitched>k__BackingField: 0
@@ -24906,11 +25088,14 @@ MonoBehaviour:
   totalConnections: 4
   noOfConnections: 0
   completeStitchTextObj: {fileID: 395382695}
+  wrongSequenceAlert: {fileID: 0}
   text: WELL DONE !
   confettiObj: []
   confettiIndex: 0
   movedPositions: []
   cotton: {fileID: 0}
+  partWithHoles: {fileID: 0}
+  partWithOutHoles: {fileID: 0}
   pointPrefab: {fileID: 0}
   pointParent: {fileID: 0}
   firstPoint: {fileID: 0}
@@ -24918,7 +25103,7 @@ MonoBehaviour:
   maxHeightOffset: 0
   positions: []
   generatedPoints: []
-  changeLastPointHeight: 0
+  dontChangeY: 0
 --- !u!1 &425028753
 GameObject:
   m_ObjectHideFlags: 0
@@ -24994,11 +25179,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 12
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 2
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &427917093
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -25315,11 +25502,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 22
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 2
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &432733092
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -25428,11 +25617,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 26
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 1
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &435784098
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -25572,6 +25763,7 @@ MonoBehaviour:
   partType: 2
   partConnectedTo: 0
   originalRotation: {x: 0, y: 0, z: 45}
+  movedPosition: {x: 0, y: 0, z: 0}
   moveable: 1
   shouldBeChild: 1
   <IsStitched>k__BackingField: 0
@@ -25585,11 +25777,14 @@ MonoBehaviour:
   totalConnections: 4
   noOfConnections: 0
   completeStitchTextObj: {fileID: 0}
+  wrongSequenceAlert: {fileID: 0}
   text: 
   confettiObj: []
   confettiIndex: 0
   movedPositions: []
   cotton: {fileID: 0}
+  partWithHoles: {fileID: 0}
+  partWithOutHoles: {fileID: 0}
   pointPrefab: {fileID: 0}
   pointParent: {fileID: 0}
   firstPoint: {fileID: 0}
@@ -25597,7 +25792,7 @@ MonoBehaviour:
   maxHeightOffset: 0
   positions: []
   generatedPoints: []
-  changeLastPointHeight: 0
+  dontChangeY: 0
 --- !u!212 &444890058
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -25839,11 +26034,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 45
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 1
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!1 &456839928
 GameObject:
   m_ObjectHideFlags: 0
@@ -25879,6 +26076,7 @@ MonoBehaviour:
   targetScale: 1
   orignalScale: 0.8
   ease: 1
+  startGame: 0
 --- !u!114 &456839930
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26423,11 +26621,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 56
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 2
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &459738590
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -26603,11 +26803,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 12
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 2
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &463026082
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -27122,11 +27324,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 30
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 1
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &466796729
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -27603,11 +27807,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 2
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 2
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &472675765
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -28144,11 +28350,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 36
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 1
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!1 &485379628
 GameObject:
   m_ObjectHideFlags: 0
@@ -28486,11 +28694,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 55
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 2
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &495798342
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -28615,11 +28825,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 21
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 2
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &500952802
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -28920,11 +29132,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 10
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 2
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &501702087
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -29351,11 +29565,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 25
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 2
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &510351665
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -29484,6 +29700,7 @@ MonoBehaviour:
   targetScale: 1
   orignalScale: 0.8
   ease: 1
+  startGame: 0
 --- !u!114 &510380799
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29747,11 +29964,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 32
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 2
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!1 &511864368
 GameObject:
   m_ObjectHideFlags: 0
@@ -30138,11 +30357,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 20
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 2
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &517318916
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -30283,11 +30504,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 3
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 2
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &523554244
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -30416,6 +30639,7 @@ MonoBehaviour:
   targetScale: 1
   orignalScale: 0.8
   ease: 1
+  startGame: 0
 --- !u!114 &524162434
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30684,6 +30908,7 @@ MonoBehaviour:
   targetScale: 1
   orignalScale: 0.8
   ease: 1
+  startGame: 0
 --- !u!114 &526853360
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30873,11 +31098,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 23
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 2
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &530154797
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -31002,11 +31229,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 48
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 1
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &531001493
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -31115,11 +31344,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 16
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 1
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &537357075
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -31334,11 +31565,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 27
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 2
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!1 &542506035
 GameObject:
   m_ObjectHideFlags: 0
@@ -31565,11 +31798,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 31
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 2
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &547622441
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -32190,11 +32425,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 34
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 1
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &551292558
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -32374,6 +32611,7 @@ MonoBehaviour:
   partType: 6
   partConnectedTo: 1
   originalRotation: {x: 0, y: 0, z: 0}
+  movedPosition: {x: 0, y: 0, z: 0}
   moveable: 1
   shouldBeChild: 0
   <IsStitched>k__BackingField: 0
@@ -32391,11 +32629,14 @@ MonoBehaviour:
   totalConnections: 8
   noOfConnections: 0
   completeStitchTextObj: {fileID: 0}
+  wrongSequenceAlert: {fileID: 0}
   text: 
   confettiObj: []
   confettiIndex: 0
   movedPositions: []
   cotton: {fileID: 832253856}
+  partWithHoles: {fileID: 0}
+  partWithOutHoles: {fileID: 0}
   pointPrefab: {fileID: 0}
   pointParent: {fileID: 0}
   firstPoint: {fileID: 0}
@@ -32403,7 +32644,7 @@ MonoBehaviour:
   maxHeightOffset: 0
   positions: []
   generatedPoints: []
-  changeLastPointHeight: 0
+  dontChangeY: 0
 --- !u!1 &556381600
 GameObject:
   m_ObjectHideFlags: 0
@@ -32704,11 +32945,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 48
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 1
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!1 &560476865
 GameObject:
   m_ObjectHideFlags: 0
@@ -32910,11 +33153,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 54
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 2
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!1 &569810296
 GameObject:
   m_ObjectHideFlags: 0
@@ -32965,11 +33210,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 1
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 2
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &569810299
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -33254,11 +33501,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 22
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 1
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &574998963
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -33473,11 +33722,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 52
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 2
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!1 &581904130
 GameObject:
   m_ObjectHideFlags: 0
@@ -33528,11 +33779,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 13
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 2
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &581904133
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -34772,11 +35025,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 30
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 2
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &604904878
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -34917,11 +35172,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 39
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 2
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &607189627
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -35224,11 +35481,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 2
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 2
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &608285794
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -35473,6 +35732,7 @@ MonoBehaviour:
   partType: 0
   partConnectedTo: 0
   originalRotation: {x: 0, y: 0, z: 0}
+  movedPosition: {x: 0, y: 0, z: 0}
   moveable: 1
   shouldBeChild: 1
   <IsStitched>k__BackingField: 0
@@ -35486,11 +35746,14 @@ MonoBehaviour:
   totalConnections: 4
   noOfConnections: 0
   completeStitchTextObj: {fileID: 0}
+  wrongSequenceAlert: {fileID: 0}
   text: 
   confettiObj: []
   confettiIndex: 0
   movedPositions: []
   cotton: {fileID: 0}
+  partWithHoles: {fileID: 0}
+  partWithOutHoles: {fileID: 0}
   pointPrefab: {fileID: 0}
   pointParent: {fileID: 0}
   firstPoint: {fileID: 0}
@@ -35498,7 +35761,7 @@ MonoBehaviour:
   maxHeightOffset: 0
   positions: []
   generatedPoints: []
-  changeLastPointHeight: 0
+  dontChangeY: 0
 --- !u!212 &615763130
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -36322,11 +36585,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 3
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 2
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!1 &633004263
 GameObject:
   m_ObjectHideFlags: 0
@@ -36362,6 +36627,7 @@ MonoBehaviour:
   targetScale: 1
   orignalScale: 0.8
   ease: 1
+  startGame: 0
 --- !u!114 &633004265
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36636,11 +36902,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 32
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 1
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &639319521
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -36839,11 +37107,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 44
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 1
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!1 &651198287
 GameObject:
   m_ObjectHideFlags: 0
@@ -37231,11 +37501,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 17
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 2
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!1 &654529233
 GameObject:
   m_ObjectHideFlags: 0
@@ -37495,11 +37767,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 3
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 2
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!1 &677199170
 GameObject:
   m_ObjectHideFlags: 0
@@ -37625,11 +37899,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 16
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 1
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &678614139
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -37754,11 +38030,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 2
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 2
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &678795844
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -37883,11 +38161,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 28
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 2
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &678796005
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -38362,11 +38642,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 7
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 1
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &691919108
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -38817,11 +39099,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 33
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 2
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &705289553
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -39196,11 +39480,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 51
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 2
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!1 &712204764
 GameObject:
   m_ObjectHideFlags: 0
@@ -39418,11 +39704,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 26
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 1
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &712448595
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -39740,6 +40028,7 @@ MonoBehaviour:
   partType: 6
   partConnectedTo: 1
   originalRotation: {x: 0, y: 0, z: 0}
+  movedPosition: {x: 0, y: 0, z: 0}
   moveable: 0
   shouldBeChild: 0
   <IsStitched>k__BackingField: 0
@@ -39757,11 +40046,14 @@ MonoBehaviour:
   totalConnections: 8
   noOfConnections: 0
   completeStitchTextObj: {fileID: 33941112}
+  wrongSequenceAlert: {fileID: 0}
   text: AMAZING !
   confettiObj: []
   confettiIndex: 0
   movedPositions: []
   cotton: {fileID: 682322422}
+  partWithHoles: {fileID: 0}
+  partWithOutHoles: {fileID: 0}
   pointPrefab: {fileID: 0}
   pointParent: {fileID: 0}
   firstPoint: {fileID: 0}
@@ -39769,7 +40061,7 @@ MonoBehaviour:
   maxHeightOffset: 0
   positions: []
   generatedPoints: []
-  changeLastPointHeight: 0
+  dontChangeY: 0
 --- !u!4 &721505941
 Transform:
   m_ObjectHideFlags: 0
@@ -39823,6 +40115,7 @@ MonoBehaviour:
   targetScale: 1
   orignalScale: 0.8
   ease: 1
+  startGame: 0
 --- !u!114 &726713754
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -40035,6 +40328,7 @@ MonoBehaviour:
   targetScale: 1
   orignalScale: 0.8
   ease: 1
+  startGame: 0
 --- !u!114 &727544715
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -40224,11 +40518,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 6
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 1
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &732024247
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -40603,11 +40899,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 35
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 1
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!1 &735229259
 GameObject:
   m_ObjectHideFlags: 0
@@ -40713,6 +41011,7 @@ MonoBehaviour:
   partType: 5
   partConnectedTo: 1
   originalRotation: {x: 0, y: 0, z: 0}
+  movedPosition: {x: 0, y: 0, z: 0}
   moveable: 1
   shouldBeChild: 0
   <IsStitched>k__BackingField: 0
@@ -40730,11 +41029,14 @@ MonoBehaviour:
   totalConnections: 8
   noOfConnections: 0
   completeStitchTextObj: {fileID: 0}
+  wrongSequenceAlert: {fileID: 0}
   text: 
   confettiObj: []
   confettiIndex: 0
   movedPositions: []
   cotton: {fileID: 689845666}
+  partWithHoles: {fileID: 0}
+  partWithOutHoles: {fileID: 0}
   pointPrefab: {fileID: 0}
   pointParent: {fileID: 0}
   firstPoint: {fileID: 0}
@@ -40742,7 +41044,7 @@ MonoBehaviour:
   maxHeightOffset: 0
   positions: []
   generatedPoints: []
-  changeLastPointHeight: 0
+  dontChangeY: 0
 --- !u!1 &737360610
 GameObject:
   m_ObjectHideFlags: 0
@@ -41290,11 +41592,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 37
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 1
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!1 &744840384
 GameObject:
   m_ObjectHideFlags: 0
@@ -41345,11 +41649,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 5
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 1
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &744840387
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -41474,11 +41780,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 16
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 1
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &747855911
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -41834,6 +42142,7 @@ MonoBehaviour:
   partType: 8
   partConnectedTo: 1
   originalRotation: {x: 0, y: 0, z: 0}
+  movedPosition: {x: 0, y: 0, z: 0}
   moveable: 1
   shouldBeChild: 0
   <IsStitched>k__BackingField: 0
@@ -41850,11 +42159,14 @@ MonoBehaviour:
   totalConnections: 7
   noOfConnections: 0
   completeStitchTextObj: {fileID: 0}
+  wrongSequenceAlert: {fileID: 0}
   text: 
   confettiObj: []
   confettiIndex: 0
   movedPositions: []
   cotton: {fileID: 19858238}
+  partWithHoles: {fileID: 0}
+  partWithOutHoles: {fileID: 0}
   pointPrefab: {fileID: 0}
   pointParent: {fileID: 0}
   firstPoint: {fileID: 0}
@@ -41862,7 +42174,7 @@ MonoBehaviour:
   maxHeightOffset: 0
   positions: []
   generatedPoints: []
-  changeLastPointHeight: 0
+  dontChangeY: 0
 --- !u!1 &751987643
 GameObject:
   m_ObjectHideFlags: 0
@@ -42854,11 +43166,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 33
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 2
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!1 &762994094
 GameObject:
   m_ObjectHideFlags: 0
@@ -43274,11 +43588,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 35
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 1
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!1 &772614134
 GameObject:
   m_ObjectHideFlags: 0
@@ -43489,11 +43805,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 21
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 2
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &773233912
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -43634,11 +43952,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 31
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 1
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &776723391
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -44013,11 +44333,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 33
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 2
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!1 &785050968
 GameObject:
   m_ObjectHideFlags: 0
@@ -44068,6 +44390,7 @@ MonoBehaviour:
   partType: 7
   partConnectedTo: 1
   originalRotation: {x: 0, y: 0, z: 0}
+  movedPosition: {x: 0, y: 0, z: 0}
   moveable: 1
   shouldBeChild: 0
   <IsStitched>k__BackingField: 0
@@ -44084,11 +44407,14 @@ MonoBehaviour:
   totalConnections: 7
   noOfConnections: 0
   completeStitchTextObj: {fileID: 0}
+  wrongSequenceAlert: {fileID: 0}
   text: 
   confettiObj: []
   confettiIndex: 0
   movedPositions: []
   cotton: {fileID: 800409065}
+  partWithHoles: {fileID: 0}
+  partWithOutHoles: {fileID: 0}
   pointPrefab: {fileID: 0}
   pointParent: {fileID: 0}
   firstPoint: {fileID: 0}
@@ -44096,7 +44422,7 @@ MonoBehaviour:
   maxHeightOffset: 0
   positions: []
   generatedPoints: []
-  changeLastPointHeight: 0
+  dontChangeY: 0
 --- !u!212 &785050971
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -44290,6 +44616,7 @@ MonoBehaviour:
   partType: 5
   partConnectedTo: 1
   originalRotation: {x: 0, y: 0, z: 0}
+  movedPosition: {x: 0, y: 0, z: 0}
   moveable: 0
   shouldBeChild: 0
   <IsStitched>k__BackingField: 0
@@ -44307,11 +44634,14 @@ MonoBehaviour:
   totalConnections: 8
   noOfConnections: 0
   completeStitchTextObj: {fileID: 826989409}
+  wrongSequenceAlert: {fileID: 0}
   text: GOOD WORK !
   confettiObj: []
   confettiIndex: 0
   movedPositions: []
   cotton: {fileID: 0}
+  partWithHoles: {fileID: 0}
+  partWithOutHoles: {fileID: 0}
   pointPrefab: {fileID: 0}
   pointParent: {fileID: 0}
   firstPoint: {fileID: 0}
@@ -44319,7 +44649,7 @@ MonoBehaviour:
   maxHeightOffset: 0
   positions: []
   generatedPoints: []
-  changeLastPointHeight: 0
+  dontChangeY: 0
 --- !u!4 &787075109
 Transform:
   m_ObjectHideFlags: 0
@@ -44392,6 +44722,7 @@ MonoBehaviour:
   targetScale: 1
   orignalScale: 0.8
   ease: 1
+  startGame: 0
 --- !u!114 &787102571
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -44581,11 +44912,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 3
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 2
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &796272883
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -44710,11 +45043,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 17
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 2
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &797892474
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -45550,11 +45885,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 15
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 1
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &809667788
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -46301,11 +46638,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 27
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 2
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!1 &821321018
 GameObject:
   m_ObjectHideFlags: 0
@@ -46459,6 +46798,7 @@ MonoBehaviour:
   targetScale: 1.2
   orignalScale: 1
   ease: 1
+  startGame: 0
 --- !u!1 &824462028
 GameObject:
   m_ObjectHideFlags: 0
@@ -46672,11 +47012,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 23
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 2
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &826939936
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -46786,6 +47128,7 @@ MonoBehaviour:
   targetScale: 1
   orignalScale: 0.8
   ease: 1
+  startGame: 0
 --- !u!114 &826989411
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -47068,11 +47411,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 27
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 2
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!1 &832253856
 GameObject:
   m_ObjectHideFlags: 0
@@ -47284,11 +47629,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 32
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 2
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!1 &843641802
 GameObject:
   m_ObjectHideFlags: 0
@@ -47413,11 +47760,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 51
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 2
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!1 &843669272
 GameObject:
   m_ObjectHideFlags: 0
@@ -47681,6 +48030,7 @@ MonoBehaviour:
   partType: 5
   partConnectedTo: 1
   originalRotation: {x: 0, y: 0, z: 0}
+  movedPosition: {x: 0, y: 0, z: 0}
   moveable: 0
   shouldBeChild: 0
   <IsStitched>k__BackingField: 0
@@ -47694,11 +48044,14 @@ MonoBehaviour:
   totalConnections: 4
   noOfConnections: 0
   completeStitchTextObj: {fileID: 526853357}
+  wrongSequenceAlert: {fileID: 0}
   text: GOOD WORK !
   confettiObj: []
   confettiIndex: 0
   movedPositions: []
   cotton: {fileID: 0}
+  partWithHoles: {fileID: 0}
+  partWithOutHoles: {fileID: 0}
   pointPrefab: {fileID: 0}
   pointParent: {fileID: 0}
   firstPoint: {fileID: 0}
@@ -47706,7 +48059,7 @@ MonoBehaviour:
   maxHeightOffset: 0
   positions: []
   generatedPoints: []
-  changeLastPointHeight: 0
+  dontChangeY: 0
 --- !u!1 &846661660
 GameObject:
   m_ObjectHideFlags: 0
@@ -47757,11 +48110,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 29
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 2
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &846661663
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -47886,11 +48241,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 39
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 1
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &847386381
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -48222,11 +48579,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 2
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 2
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &856883944
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -48703,11 +49062,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 4
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 2
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &862246269
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -48832,11 +49193,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 28
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 2
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &862999055
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -48960,6 +49323,7 @@ MonoBehaviour:
   partType: 7
   partConnectedTo: 1
   originalRotation: {x: 0, y: 0, z: 0}
+  movedPosition: {x: 0, y: 0, z: 0}
   moveable: 1
   shouldBeChild: 0
   <IsStitched>k__BackingField: 0
@@ -48973,11 +49337,14 @@ MonoBehaviour:
   totalConnections: 4
   noOfConnections: 0
   completeStitchTextObj: {fileID: 0}
+  wrongSequenceAlert: {fileID: 0}
   text: 
   confettiObj: []
   confettiIndex: 0
   movedPositions: []
   cotton: {fileID: 0}
+  partWithHoles: {fileID: 0}
+  partWithOutHoles: {fileID: 0}
   pointPrefab: {fileID: 0}
   pointParent: {fileID: 0}
   firstPoint: {fileID: 0}
@@ -48985,7 +49352,7 @@ MonoBehaviour:
   maxHeightOffset: 0
   positions: []
   generatedPoints: []
-  changeLastPointHeight: 0
+  dontChangeY: 0
 --- !u!212 &864509635
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -49095,6 +49462,8 @@ MonoBehaviour:
   yPos: 487
   targetPointToMove: {fileID: 6167345425118291698}
   coinMoveSpeed: 0.5
+  coinsEarned: {fileID: 0}
+  targetScaleDown: {x: 0, y: 0, z: 0}
 --- !u!1 &876064503
 GameObject:
   m_ObjectHideFlags: 0
@@ -49822,11 +50191,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 10
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 2
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &900480155
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -50025,11 +50396,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 31
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 2
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!1 &904081460
 GameObject:
   m_ObjectHideFlags: 0
@@ -50154,11 +50527,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 20
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 2
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!1 &904111847
 GameObject:
   m_ObjectHideFlags: 0
@@ -50439,6 +50814,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdc877ac9626c6b4999856cfbbe442c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  levelReward: 0
   totalCorrectLinks: 103
   noOfCorrectLinks: 0
   plushieActivePartToStitch: 0
@@ -50454,6 +50830,7 @@ MonoBehaviour:
   - {fileID: 1037156085}
   head: {fileID: 485379630}
   immoveablePart: {fileID: 364908439}
+  bodyWihtoutHoles: {fileID: 0}
   totalStitchedPart: 9
   noOfStitchedPart: 0
   levelDivision:
@@ -50694,11 +51071,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 55
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 2
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &919252481
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -50897,11 +51276,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 9
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 2
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!1 &925476132
 GameObject:
   m_ObjectHideFlags: 0
@@ -51289,11 +51670,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 41
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 1
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!1 &932316001
 GameObject:
   m_ObjectHideFlags: 0
@@ -51504,11 +51887,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 53
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 2
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &938453097
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -51649,11 +52034,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 15
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 1
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &951405567
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -51954,11 +52341,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 12
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 2
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &955258043
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -52459,11 +52848,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 29
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 2
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!1 &964420905
 GameObject:
   m_ObjectHideFlags: 0
@@ -52588,11 +52979,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 13
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 1
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!1 &971342658
 GameObject:
   m_ObjectHideFlags: 0
@@ -52819,11 +53212,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 20
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 2
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &972205678
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -53035,11 +53430,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 27
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 2
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &975575335
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -53195,11 +53592,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 1
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 2
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &984867084
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -53328,6 +53727,7 @@ MonoBehaviour:
   targetScale: 1
   orignalScale: 0.8
   ease: 1
+  startGame: 0
 --- !u!114 &989427935
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -53591,11 +53991,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 52
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 2
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!1 &994835485
 GameObject:
   m_ObjectHideFlags: 0
@@ -54733,11 +55135,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 40
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 2
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &1012754978
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -54862,11 +55266,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 17
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 1
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &1012798149
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -54991,11 +55397,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 10
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 2
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &1016373709
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -56027,6 +56435,7 @@ MonoBehaviour:
   partType: 6
   partConnectedTo: 1
   originalRotation: {x: 0, y: 0, z: 0}
+  movedPosition: {x: 0, y: 0, z: 0}
   moveable: 0
   shouldBeChild: 0
   <IsStitched>k__BackingField: 0
@@ -56044,11 +56453,14 @@ MonoBehaviour:
   totalConnections: 8
   noOfConnections: 0
   completeStitchTextObj: {fileID: 1998681857}
+  wrongSequenceAlert: {fileID: 0}
   text: AMAZING !
   confettiObj: []
   confettiIndex: 0
   movedPositions: []
   cotton: {fileID: 315272040}
+  partWithHoles: {fileID: 0}
+  partWithOutHoles: {fileID: 0}
   pointPrefab: {fileID: 0}
   pointParent: {fileID: 0}
   firstPoint: {fileID: 0}
@@ -56056,7 +56468,7 @@ MonoBehaviour:
   maxHeightOffset: 0
   positions: []
   generatedPoints: []
-  changeLastPointHeight: 0
+  dontChangeY: 0
 --- !u!4 &1025022177
 Transform:
   m_ObjectHideFlags: 0
@@ -56285,11 +56697,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 25
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 1
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &1026556832
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -56415,6 +56829,7 @@ MonoBehaviour:
   targetScale: 1
   orignalScale: 0.8
   ease: 1
+  startGame: 0
 --- !u!114 &1027908801
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -56602,6 +57017,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdc877ac9626c6b4999856cfbbe442c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  levelReward: 0
   totalCorrectLinks: 103
   noOfCorrectLinks: 0
   plushieActivePartToStitch: 0
@@ -56617,6 +57033,7 @@ MonoBehaviour:
   - {fileID: 1398587962}
   head: {fileID: 1844176782}
   immoveablePart: {fileID: 1541069313}
+  bodyWihtoutHoles: {fileID: 0}
   totalStitchedPart: 9
   noOfStitchedPart: 0
   levelDivision:
@@ -56813,11 +57230,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 51
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 2
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!1 &1031817461
 GameObject:
   m_ObjectHideFlags: 0
@@ -57044,11 +57463,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 26
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 1
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &1034958685
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -57228,6 +57649,7 @@ MonoBehaviour:
   partType: 2
   partConnectedTo: 0
   originalRotation: {x: 0, y: 0, z: -15}
+  movedPosition: {x: 0, y: 0, z: 0}
   moveable: 1
   shouldBeChild: 1
   <IsStitched>k__BackingField: 0
@@ -57242,11 +57664,14 @@ MonoBehaviour:
   totalConnections: 5
   noOfConnections: 0
   completeStitchTextObj: {fileID: 0}
+  wrongSequenceAlert: {fileID: 0}
   text: 
   confettiObj: []
   confettiIndex: 0
   movedPositions: []
   cotton: {fileID: 1889932971}
+  partWithHoles: {fileID: 0}
+  partWithOutHoles: {fileID: 0}
   pointPrefab: {fileID: 0}
   pointParent: {fileID: 0}
   firstPoint: {fileID: 0}
@@ -57254,7 +57679,7 @@ MonoBehaviour:
   maxHeightOffset: 0
   positions: []
   generatedPoints: []
-  changeLastPointHeight: 0
+  dontChangeY: 0
 --- !u!1 &1038307271
 GameObject:
   m_ObjectHideFlags: 0
@@ -57305,11 +57730,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 16
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 1
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &1038307274
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -57583,11 +58010,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 54
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 2
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!1 &1054032689
 GameObject:
   m_ObjectHideFlags: 0
@@ -58447,11 +58876,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 29
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 2
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &1072027913
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -58650,11 +59081,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 10
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 2
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!1 &1072849248
 GameObject:
   m_ObjectHideFlags: 0
@@ -58705,11 +59138,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 7
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 1
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &1072849251
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -59205,11 +59640,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 46
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 1
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &1077010309
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -59333,6 +59770,7 @@ MonoBehaviour:
   partType: 5
   partConnectedTo: 1
   originalRotation: {x: 0, y: 0, z: 0}
+  movedPosition: {x: 0, y: 0, z: 0}
   moveable: 1
   shouldBeChild: 0
   <IsStitched>k__BackingField: 0
@@ -59350,11 +59788,14 @@ MonoBehaviour:
   totalConnections: 8
   noOfConnections: 0
   completeStitchTextObj: {fileID: 0}
+  wrongSequenceAlert: {fileID: 0}
   text: 
   confettiObj: []
   confettiIndex: 0
   movedPositions: []
   cotton: {fileID: 914069742}
+  partWithHoles: {fileID: 0}
+  partWithOutHoles: {fileID: 0}
   pointPrefab: {fileID: 0}
   pointParent: {fileID: 0}
   firstPoint: {fileID: 0}
@@ -59362,7 +59803,7 @@ MonoBehaviour:
   maxHeightOffset: 0
   positions: []
   generatedPoints: []
-  changeLastPointHeight: 0
+  dontChangeY: 0
 --- !u!212 &1078192033
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -59660,6 +60101,7 @@ MonoBehaviour:
   partType: 0
   partConnectedTo: 0
   originalRotation: {x: 0, y: 0, z: 0}
+  movedPosition: {x: 0, y: 0, z: 0}
   moveable: 0
   shouldBeChild: 0
   <IsStitched>k__BackingField: 0
@@ -59673,11 +60115,14 @@ MonoBehaviour:
   totalConnections: 4
   noOfConnections: 0
   completeStitchTextObj: {fileID: 2056978458}
+  wrongSequenceAlert: {fileID: 0}
   text: NEATLY DONE !
   confettiObj: []
   confettiIndex: 0
   movedPositions: []
   cotton: {fileID: 0}
+  partWithHoles: {fileID: 0}
+  partWithOutHoles: {fileID: 0}
   pointPrefab: {fileID: 0}
   pointParent: {fileID: 0}
   firstPoint: {fileID: 0}
@@ -59685,7 +60130,7 @@ MonoBehaviour:
   maxHeightOffset: 0
   positions: []
   generatedPoints: []
-  changeLastPointHeight: 0
+  dontChangeY: 0
 --- !u!1 &1080495834
 GameObject:
   m_ObjectHideFlags: 0
@@ -59810,11 +60255,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 11
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 2
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!1 &1086720515
 GameObject:
   m_ObjectHideFlags: 0
@@ -60096,6 +60543,7 @@ MonoBehaviour:
   partType: 3
   partConnectedTo: 0
   originalRotation: {x: 0, y: 0, z: 15}
+  movedPosition: {x: 0, y: 0, z: 0}
   moveable: 1
   shouldBeChild: 1
   <IsStitched>k__BackingField: 0
@@ -60110,11 +60558,14 @@ MonoBehaviour:
   totalConnections: 5
   noOfConnections: 0
   completeStitchTextObj: {fileID: 0}
+  wrongSequenceAlert: {fileID: 0}
   text: 
   confettiObj: []
   confettiIndex: 0
   movedPositions: []
   cotton: {fileID: 503038848}
+  partWithHoles: {fileID: 0}
+  partWithOutHoles: {fileID: 0}
   pointPrefab: {fileID: 0}
   pointParent: {fileID: 0}
   firstPoint: {fileID: 0}
@@ -60122,7 +60573,7 @@ MonoBehaviour:
   maxHeightOffset: 0
   positions: []
   generatedPoints: []
-  changeLastPointHeight: 0
+  dontChangeY: 0
 --- !u!1 &1090691582
 GameObject:
   m_ObjectHideFlags: 0
@@ -60173,11 +60624,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 32
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 1
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &1090691585
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -60376,11 +60829,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 5
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 1
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!1 &1101509334
 GameObject:
   m_ObjectHideFlags: 0
@@ -60959,11 +61414,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 21
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 1
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &1106767154
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -61071,6 +61528,7 @@ MonoBehaviour:
   partType: 1
   partConnectedTo: 0
   originalRotation: {x: 0, y: 0, z: 0}
+  movedPosition: {x: 0, y: 0, z: 0}
   moveable: 1
   shouldBeChild: 1
   <IsStitched>k__BackingField: 0
@@ -61084,11 +61542,14 @@ MonoBehaviour:
   totalConnections: 4
   noOfConnections: 0
   completeStitchTextObj: {fileID: 0}
+  wrongSequenceAlert: {fileID: 0}
   text: 
   confettiObj: []
   confettiIndex: 0
   movedPositions: []
   cotton: {fileID: 0}
+  partWithHoles: {fileID: 0}
+  partWithOutHoles: {fileID: 0}
   pointPrefab: {fileID: 0}
   pointParent: {fileID: 0}
   firstPoint: {fileID: 0}
@@ -61096,7 +61557,7 @@ MonoBehaviour:
   maxHeightOffset: 0
   positions: []
   generatedPoints: []
-  changeLastPointHeight: 0
+  dontChangeY: 0
 --- !u!212 &1109250940
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -61543,11 +62004,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 17
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 2
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!1 &1114955660
 GameObject:
   m_ObjectHideFlags: 0
@@ -61598,11 +62061,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 37
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 1
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &1114955663
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -62607,11 +63072,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 47
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 1
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &1127640654
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -62810,11 +63277,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 35
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 1
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!1 &1135757282
 GameObject:
   m_ObjectHideFlags: 0
@@ -62847,6 +63316,7 @@ MonoBehaviour:
   partType: 7
   partConnectedTo: 1
   originalRotation: {x: 0, y: 0, z: 0}
+  movedPosition: {x: 0, y: 0, z: 0}
   moveable: 0
   shouldBeChild: 0
   <IsStitched>k__BackingField: 0
@@ -62863,11 +63333,14 @@ MonoBehaviour:
   totalConnections: 7
   noOfConnections: 0
   completeStitchTextObj: {fileID: 633004263}
+  wrongSequenceAlert: {fileID: 0}
   text: Great Work !
   confettiObj: []
   confettiIndex: 0
   movedPositions: []
   cotton: {fileID: 2104496977}
+  partWithHoles: {fileID: 0}
+  partWithOutHoles: {fileID: 0}
   pointPrefab: {fileID: 0}
   pointParent: {fileID: 0}
   firstPoint: {fileID: 0}
@@ -62875,7 +63348,7 @@ MonoBehaviour:
   maxHeightOffset: 0
   positions: []
   generatedPoints: []
-  changeLastPointHeight: 0
+  dontChangeY: 0
 --- !u!4 &1135757284
 Transform:
   m_ObjectHideFlags: 0
@@ -63194,11 +63667,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 28
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 2
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!1 &1140511352
 GameObject:
   m_ObjectHideFlags: 0
@@ -63249,11 +63724,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 19
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 1
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &1140511356
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -63378,11 +63855,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 14
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 1
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &1141580148
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -64706,6 +65185,7 @@ MonoBehaviour:
   partType: 7
   partConnectedTo: 1
   originalRotation: {x: 0, y: 0, z: 0}
+  movedPosition: {x: 0, y: 0, z: 0}
   moveable: 0
   shouldBeChild: 0
   <IsStitched>k__BackingField: 0
@@ -64722,11 +65202,14 @@ MonoBehaviour:
   totalConnections: 7
   noOfConnections: 0
   completeStitchTextObj: {fileID: 1027908799}
+  wrongSequenceAlert: {fileID: 0}
   text: Great Work !
   confettiObj: []
   confettiIndex: 0
   movedPositions: []
   cotton: {fileID: 210208741}
+  partWithHoles: {fileID: 0}
+  partWithOutHoles: {fileID: 0}
   pointPrefab: {fileID: 0}
   pointParent: {fileID: 0}
   firstPoint: {fileID: 0}
@@ -64734,7 +65217,7 @@ MonoBehaviour:
   maxHeightOffset: 0
   positions: []
   generatedPoints: []
-  changeLastPointHeight: 0
+  dontChangeY: 0
 --- !u!4 &1167871090
 Transform:
   m_ObjectHideFlags: 0
@@ -64877,11 +65360,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 30
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 2
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!1 &1169188043
 GameObject:
   m_ObjectHideFlags: 0
@@ -65006,11 +65491,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 24
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 1
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!1 &1170460112
 GameObject:
   m_ObjectHideFlags: 0
@@ -66092,11 +66579,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 48
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 1
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!1 &1184499253
 GameObject:
   m_ObjectHideFlags: 0
@@ -66499,11 +66988,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 19
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 1
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &1190896317
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -67156,11 +67647,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 10
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 2
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &1197941886
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -67359,11 +67852,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 9
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 2
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!1 &1201240529
 GameObject:
   m_ObjectHideFlags: 0
@@ -68175,6 +68670,7 @@ MonoBehaviour:
   partType: 4
   partConnectedTo: 1
   originalRotation: {x: 0, y: 0, z: 0}
+  movedPosition: {x: 0, y: 0, z: 0}
   moveable: 0
   shouldBeChild: 0
   <IsStitched>k__BackingField: 0
@@ -68192,11 +68688,14 @@ MonoBehaviour:
   totalConnections: 8
   noOfConnections: 0
   completeStitchTextObj: {fileID: 1638657489}
+  wrongSequenceAlert: {fileID: 0}
   text: WELL DONE !
   confettiObj: []
   confettiIndex: 0
   movedPositions: []
   cotton: {fileID: 126879681}
+  partWithHoles: {fileID: 0}
+  partWithOutHoles: {fileID: 0}
   pointPrefab: {fileID: 1572344290178555221, guid: 2d08dbe1041cd6641ac3ea6122338c04, type: 3}
   pointParent: {fileID: 1897725274}
   firstPoint: {fileID: 0}
@@ -68204,7 +68703,7 @@ MonoBehaviour:
   maxHeightOffset: 0
   positions: []
   generatedPoints: []
-  changeLastPointHeight: 0
+  dontChangeY: 0
 --- !u!4 &1228802625
 Transform:
   m_ObjectHideFlags: 0
@@ -68449,11 +68948,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 4
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 2
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &1231136905
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -68754,11 +69255,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 18
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 1
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &1237640283
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -68995,11 +69498,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 30
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 2
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!1 &1246396594
 GameObject:
   m_ObjectHideFlags: 0
@@ -69124,11 +69629,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 43
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 1
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!1 &1248084817
 GameObject:
   m_ObjectHideFlags: 0
@@ -69178,6 +69685,7 @@ MonoBehaviour:
   partType: 2
   partConnectedTo: 0
   originalRotation: {x: 0, y: 0, z: 45}
+  movedPosition: {x: 0, y: 0, z: 0}
   moveable: 0
   shouldBeChild: 0
   <IsStitched>k__BackingField: 0
@@ -69191,11 +69699,14 @@ MonoBehaviour:
   totalConnections: 4
   noOfConnections: 0
   completeStitchTextObj: {fileID: 989427932}
+  wrongSequenceAlert: {fileID: 0}
   text: NICELY DONE !
   confettiObj: []
   confettiIndex: 0
   movedPositions: []
   cotton: {fileID: 0}
+  partWithHoles: {fileID: 0}
+  partWithOutHoles: {fileID: 0}
   pointPrefab: {fileID: 0}
   pointParent: {fileID: 0}
   firstPoint: {fileID: 0}
@@ -69203,7 +69714,7 @@ MonoBehaviour:
   maxHeightOffset: 0
   positions: []
   generatedPoints: []
-  changeLastPointHeight: 0
+  dontChangeY: 0
 --- !u!1 &1257088011
 GameObject:
   m_ObjectHideFlags: 0
@@ -69430,11 +69941,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 24
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 2
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &1258633265
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -70012,12 +70525,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -5
-  m_Sprite: {fileID: 21300000, guid: edda6687d3110f244ba2939e6b01a173, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d636c3749130c0643bd0cc3a520324c1, type: 3}
   m_Color: {r: 0.9245283, g: 0.9245283, b: 0.9245283, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 15.36, y: 7.09}
+  m_Size: {x: 19.77, y: 10.24}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -70147,6 +70660,7 @@ MonoBehaviour:
   partType: 4
   partConnectedTo: 1
   originalRotation: {x: 0, y: 0, z: 0}
+  movedPosition: {x: 0, y: 0, z: 0}
   moveable: 0
   shouldBeChild: 0
   <IsStitched>k__BackingField: 0
@@ -70163,11 +70677,14 @@ MonoBehaviour:
   totalConnections: 7
   noOfConnections: 0
   completeStitchTextObj: {fileID: 2130813811}
+  wrongSequenceAlert: {fileID: 0}
   text: WELL DONE !
   confettiObj: []
   confettiIndex: 0
   movedPositions: []
   cotton: {fileID: 0}
+  partWithHoles: {fileID: 0}
+  partWithOutHoles: {fileID: 0}
   pointPrefab: {fileID: 0}
   pointParent: {fileID: 0}
   firstPoint: {fileID: 0}
@@ -70175,7 +70692,7 @@ MonoBehaviour:
   maxHeightOffset: 0
   positions: []
   generatedPoints: []
-  changeLastPointHeight: 0
+  dontChangeY: 0
 --- !u!1 &1275815608
 GameObject:
   m_ObjectHideFlags: 0
@@ -70300,11 +70817,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 22
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 1
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!1 &1278366953
 GameObject:
   m_ObjectHideFlags: 0
@@ -70605,11 +71124,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 29
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 2
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!1 &1281096540
 GameObject:
   m_ObjectHideFlags: 0
@@ -71235,11 +71756,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 7
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 1
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &1286393256
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -71650,11 +72173,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 4
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 2
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!1 &1294556173
 GameObject:
   m_ObjectHideFlags: 0
@@ -71709,6 +72234,7 @@ MonoBehaviour:
   targetScale: 1
   orignalScale: 0.8
   ease: 1
+  startGame: 0
 --- !u!114 &1294556176
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -72046,11 +72572,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 45
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 1
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!1 &1302083925
 GameObject:
   m_ObjectHideFlags: 0
@@ -72387,11 +72915,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 6
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 1
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!1 &1306377011
 GameObject:
   m_ObjectHideFlags: 0
@@ -72472,6 +73002,7 @@ MonoBehaviour:
   partType: 1
   partConnectedTo: 0
   originalRotation: {x: 0, y: 0, z: 0}
+  movedPosition: {x: 0, y: 0, z: 0}
   moveable: 0
   shouldBeChild: 0
   <IsStitched>k__BackingField: 0
@@ -72485,11 +73016,14 @@ MonoBehaviour:
   totalConnections: 4
   noOfConnections: 0
   completeStitchTextObj: {fileID: 1748056598}
+  wrongSequenceAlert: {fileID: 0}
   text: GOOD WORK !
   confettiObj: []
   confettiIndex: 0
   movedPositions: []
   cotton: {fileID: 0}
+  partWithHoles: {fileID: 0}
+  partWithOutHoles: {fileID: 0}
   pointPrefab: {fileID: 0}
   pointParent: {fileID: 0}
   firstPoint: {fileID: 0}
@@ -72497,7 +73031,7 @@ MonoBehaviour:
   maxHeightOffset: 0
   positions: []
   generatedPoints: []
-  changeLastPointHeight: 0
+  dontChangeY: 0
 --- !u!1 &1308920056
 GameObject:
   m_ObjectHideFlags: 0
@@ -73076,11 +73610,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 21
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 2
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &1322410128
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -73279,11 +73815,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 6
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 1
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!1 &1326343657
 GameObject:
   m_ObjectHideFlags: 0
@@ -73546,11 +74084,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 56
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 2
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &1330587569
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -73675,11 +74215,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 34
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 2
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &1332527071
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -73878,11 +74420,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 53
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 2
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!1 &1333364895
 GameObject:
   m_ObjectHideFlags: 0
@@ -73915,6 +74459,7 @@ MonoBehaviour:
   partType: 8
   partConnectedTo: 1
   originalRotation: {x: 0, y: 0, z: 0}
+  movedPosition: {x: 0, y: 0, z: 0}
   moveable: 0
   shouldBeChild: 0
   <IsStitched>k__BackingField: 0
@@ -73931,11 +74476,14 @@ MonoBehaviour:
   totalConnections: 7
   noOfConnections: 0
   completeStitchTextObj: {fileID: 1525304087}
+  wrongSequenceAlert: {fileID: 0}
   text: NICELY DONE !
   confettiObj: []
   confettiIndex: 0
   movedPositions: []
   cotton: {fileID: 1281096540}
+  partWithHoles: {fileID: 0}
+  partWithOutHoles: {fileID: 0}
   pointPrefab: {fileID: 0}
   pointParent: {fileID: 0}
   firstPoint: {fileID: 0}
@@ -73943,7 +74491,7 @@ MonoBehaviour:
   maxHeightOffset: 0
   positions: []
   generatedPoints: []
-  changeLastPointHeight: 0
+  dontChangeY: 0
 --- !u!4 &1333364897
 Transform:
   m_ObjectHideFlags: 0
@@ -74086,11 +74634,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 52
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 2
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!1 &1335504115
 GameObject:
   m_ObjectHideFlags: 0
@@ -74563,11 +75113,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 5
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 1
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &1358485424
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -74723,11 +75275,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 21
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 1
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &1363262638
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -75074,11 +75628,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 43
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 1
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!1 &1375304766
 GameObject:
   m_ObjectHideFlags: 0
@@ -75203,11 +75759,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 36
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 1
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!1 &1379352597
 GameObject:
   m_ObjectHideFlags: 0
@@ -75332,11 +75890,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 44
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 1
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!1 &1379470894
 GameObject:
   m_ObjectHideFlags: 0
@@ -75461,11 +76021,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 19
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 2
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!1 &1380428708
 GameObject:
   m_ObjectHideFlags: 0
@@ -75626,11 +76188,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 27
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 2
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!1 &1387101140
 GameObject:
   m_ObjectHideFlags: 0
@@ -76377,6 +76941,7 @@ MonoBehaviour:
   partType: 2
   partConnectedTo: 0
   originalRotation: {x: 0, y: 0, z: -15}
+  movedPosition: {x: 0, y: 0, z: 0}
   moveable: 1
   shouldBeChild: 1
   <IsStitched>k__BackingField: 0
@@ -76391,11 +76956,14 @@ MonoBehaviour:
   totalConnections: 5
   noOfConnections: 0
   completeStitchTextObj: {fileID: 0}
+  wrongSequenceAlert: {fileID: 0}
   text: 
   confettiObj: []
   confettiIndex: 0
   movedPositions: []
   cotton: {fileID: 876064503}
+  partWithHoles: {fileID: 0}
+  partWithOutHoles: {fileID: 0}
   pointPrefab: {fileID: 0}
   pointParent: {fileID: 0}
   firstPoint: {fileID: 0}
@@ -76403,7 +76971,7 @@ MonoBehaviour:
   maxHeightOffset: 0
   positions: []
   generatedPoints: []
-  changeLastPointHeight: 0
+  dontChangeY: 0
 --- !u!1 &1407708217
 GameObject:
   m_ObjectHideFlags: 0
@@ -76806,11 +77374,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 5
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 1
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &1411926406
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -76950,11 +77520,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 46
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 1
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &1421881485
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -77424,11 +77996,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 23
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 1
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!1 &1435242422
 GameObject:
   m_ObjectHideFlags: 0
@@ -77689,11 +78263,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 50
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 2
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!1 &1440452720
 GameObject:
   m_ObjectHideFlags: 0
@@ -78134,11 +78710,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 4
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 2
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &1451163556
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -78263,11 +78841,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 35
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 1
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &1454023278
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -78628,6 +79208,7 @@ MonoBehaviour:
   targetScale: 1
   orignalScale: 0.8
   ease: 1
+  startGame: 0
 --- !u!114 &1459132462
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -78836,11 +79417,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 32
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 2
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &1463214986
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -79039,11 +79622,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 11
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 2
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!1 &1469870495
 GameObject:
   m_ObjectHideFlags: 0
@@ -79254,11 +79839,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 34
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 2
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &1474088109
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -79473,11 +80060,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 31
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 2
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!1 &1475460223
 GameObject:
   m_ObjectHideFlags: 0
@@ -79513,6 +80102,7 @@ MonoBehaviour:
   targetScale: 1
   orignalScale: 0.8
   ease: 1
+  startGame: 0
 --- !u!114 &1475460225
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -79721,11 +80311,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 19
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 2
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &1475862807
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -80100,11 +80692,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 50
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 2
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!1 &1483383228
 GameObject:
   m_ObjectHideFlags: 0
@@ -80331,11 +80925,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 54
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 2
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &1484885477
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -81274,6 +81870,7 @@ MonoBehaviour:
   partType: 0
   partConnectedTo: 0
   originalRotation: {x: 0, y: 0, z: 0}
+  movedPosition: {x: 0, y: 0, z: 0}
   moveable: 0
   shouldBeChild: 0
   <IsStitched>k__BackingField: 0
@@ -81287,11 +81884,14 @@ MonoBehaviour:
   totalConnections: 4
   noOfConnections: 0
   completeStitchTextObj: {fileID: 1582608262}
+  wrongSequenceAlert: {fileID: 0}
   text: NEATLY DONE !
   confettiObj: []
   confettiIndex: 0
   movedPositions: []
   cotton: {fileID: 0}
+  partWithHoles: {fileID: 0}
+  partWithOutHoles: {fileID: 0}
   pointPrefab: {fileID: 0}
   pointParent: {fileID: 0}
   firstPoint: {fileID: 0}
@@ -81299,7 +81899,7 @@ MonoBehaviour:
   maxHeightOffset: 0
   positions: []
   generatedPoints: []
-  changeLastPointHeight: 0
+  dontChangeY: 0
 --- !u!1 &1493207831
 GameObject:
   m_ObjectHideFlags: 0
@@ -81350,11 +81950,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 36
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 1
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &1493207834
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -81479,11 +82081,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 42
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 1
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &1494083509
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -81607,6 +82211,7 @@ MonoBehaviour:
   partType: 5
   partConnectedTo: 1
   originalRotation: {x: 0, y: 0, z: 28}
+  movedPosition: {x: 0, y: 0, z: 0}
   moveable: 1
   shouldBeChild: 0
   <IsStitched>k__BackingField: 0
@@ -81620,11 +82225,14 @@ MonoBehaviour:
   totalConnections: 4
   noOfConnections: 0
   completeStitchTextObj: {fileID: 0}
+  wrongSequenceAlert: {fileID: 0}
   text: 
   confettiObj: []
   confettiIndex: 0
   movedPositions: []
   cotton: {fileID: 0}
+  partWithHoles: {fileID: 0}
+  partWithOutHoles: {fileID: 0}
   pointPrefab: {fileID: 0}
   pointParent: {fileID: 0}
   firstPoint: {fileID: 0}
@@ -81632,7 +82240,7 @@ MonoBehaviour:
   maxHeightOffset: 0
   positions: []
   generatedPoints: []
-  changeLastPointHeight: 0
+  dontChangeY: 0
 --- !u!212 &1494152191
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -82121,11 +82729,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 47
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 1
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &1506903799
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -82249,6 +82859,7 @@ MonoBehaviour:
   partType: 4
   partConnectedTo: 1
   originalRotation: {x: 0, y: 0, z: 0}
+  movedPosition: {x: 0, y: 0, z: 0}
   moveable: 1
   shouldBeChild: 0
   <IsStitched>k__BackingField: 0
@@ -82266,11 +82877,14 @@ MonoBehaviour:
   totalConnections: 8
   noOfConnections: 0
   completeStitchTextObj: {fileID: 0}
+  wrongSequenceAlert: {fileID: 0}
   text: 
   confettiObj: []
   confettiIndex: 0
   movedPositions: []
   cotton: {fileID: 2081143502}
+  partWithHoles: {fileID: 0}
+  partWithOutHoles: {fileID: 0}
   pointPrefab: {fileID: 0}
   pointParent: {fileID: 0}
   firstPoint: {fileID: 0}
@@ -82278,7 +82892,7 @@ MonoBehaviour:
   maxHeightOffset: 0
   positions: []
   generatedPoints: []
-  changeLastPointHeight: 0
+  dontChangeY: 0
 --- !u!1 &1517124988
 GameObject:
   m_ObjectHideFlags: 0
@@ -82505,11 +83119,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 41
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 2
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &1517212776
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -82616,6 +83232,7 @@ MonoBehaviour:
   partType: 8
   partConnectedTo: 1
   originalRotation: {x: 0, y: 0, z: 0}
+  movedPosition: {x: 0, y: 0, z: 0}
   moveable: 0
   shouldBeChild: 0
   <IsStitched>k__BackingField: 0
@@ -82632,11 +83249,14 @@ MonoBehaviour:
   totalConnections: 7
   noOfConnections: 0
   completeStitchTextObj: {fileID: 1475460223}
+  wrongSequenceAlert: {fileID: 0}
   text: NICELY DONE !
   confettiObj: []
   confettiIndex: 0
   movedPositions: []
   cotton: {fileID: 2129038723}
+  partWithHoles: {fileID: 0}
+  partWithOutHoles: {fileID: 0}
   pointPrefab: {fileID: 0}
   pointParent: {fileID: 0}
   firstPoint: {fileID: 0}
@@ -82644,7 +83264,7 @@ MonoBehaviour:
   maxHeightOffset: 0
   positions: []
   generatedPoints: []
-  changeLastPointHeight: 0
+  dontChangeY: 0
 --- !u!4 &1521955497
 Transform:
   m_ObjectHideFlags: 0
@@ -82874,6 +83494,7 @@ MonoBehaviour:
   targetScale: 1
   orignalScale: 0.8
   ease: 1
+  startGame: 0
 --- !u!114 &1525304089
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -83082,11 +83703,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 3
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 2
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &1526407057
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -83422,6 +84045,7 @@ MonoBehaviour:
   partType: 1
   partConnectedTo: 0
   originalRotation: {x: 0, y: 0, z: 0}
+  movedPosition: {x: 0, y: 0, z: 0}
   moveable: 1
   shouldBeChild: 1
   <IsStitched>k__BackingField: 0
@@ -83435,11 +84059,14 @@ MonoBehaviour:
   totalConnections: 4
   noOfConnections: 0
   completeStitchTextObj: {fileID: 0}
+  wrongSequenceAlert: {fileID: 0}
   text: 
   confettiObj: []
   confettiIndex: 0
   movedPositions: []
   cotton: {fileID: 0}
+  partWithHoles: {fileID: 0}
+  partWithOutHoles: {fileID: 0}
   pointPrefab: {fileID: 0}
   pointParent: {fileID: 0}
   firstPoint: {fileID: 0}
@@ -83447,7 +84074,7 @@ MonoBehaviour:
   maxHeightOffset: 0
   positions: []
   generatedPoints: []
-  changeLastPointHeight: 0
+  dontChangeY: 0
 --- !u!212 &1531723434
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -83627,11 +84254,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 43
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 1
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!1 &1534513862
 GameObject:
   m_ObjectHideFlags: 0
@@ -83756,11 +84385,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 37
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 1
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!1 &1535050057
 GameObject:
   m_ObjectHideFlags: 0
@@ -83811,11 +84442,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 15
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 1
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &1535050060
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -84014,11 +84647,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 25
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 1
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!1 &1541069313
 GameObject:
   m_ObjectHideFlags: 0
@@ -84356,11 +84991,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 11
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 2
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &1542508483
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -84645,11 +85282,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 42
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 1
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &1547568916
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -84864,11 +85503,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 40
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 1
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!1 &1555219134
 GameObject:
   m_ObjectHideFlags: 0
@@ -84919,11 +85560,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 33
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 1
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &1555219137
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -85048,11 +85691,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 25
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 2
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &1555684857
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -85388,11 +86033,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 34
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 2
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &1561907089
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -85699,6 +86346,7 @@ MonoBehaviour:
   targetScale: 1
   orignalScale: 0.8
   ease: 1
+  startGame: 0
 --- !u!114 &1574741651
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -85888,11 +86536,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 40
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 2
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &1575320388
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -86267,11 +86917,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 23
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 1
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!1 &1578115699
 GameObject:
   m_ObjectHideFlags: 0
@@ -86498,11 +87150,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 27
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 2
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &1578461345
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -86623,6 +87277,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <points>k__BackingField: []
   <connections>k__BackingField: []
+  <wrongConnectPoint>k__BackingField: []
   <pullDuration>k__BackingField: 0.5
   <minDistance>k__BackingField: 0.8
   <maxPullDuration>k__BackingField: 2
@@ -86633,11 +87288,14 @@ MonoBehaviour:
   <dynamicStitch>k__BackingField: 1
   <correctPointMaterial>k__BackingField: {fileID: 2100000, guid: f6f43e43b73651441a6fa3294093763e, type: 2}
   <wrongPointMaterial>k__BackingField: {fileID: 2100000, guid: 4616913e2c0ff5e48944fdd4195515fa, type: 2}
+  <originalMaterial>k__BackingField: {fileID: 0}
+  <startToDetectMaterial>k__BackingField: {fileID: 0}
   tolerance: 0.05
   linePrefab: {fileID: 7377872058111036791, guid: 9b87cbba0ae87414faacff166a8bcaad, type: 3}
   zVal: -0.1
   rotationSpeed: 0
   pullForce: 0.8
+  moveStaticallyAtTheEndOfStitch: 0
 --- !u!1 &1579197748
 GameObject:
   m_ObjectHideFlags: 0
@@ -86863,6 +87521,7 @@ MonoBehaviour:
   partType: 8
   partConnectedTo: 1
   originalRotation: {x: 0, y: 0, z: 0}
+  movedPosition: {x: 0, y: 0, z: 0}
   moveable: 0
   shouldBeChild: 0
   <IsStitched>k__BackingField: 0
@@ -86876,11 +87535,14 @@ MonoBehaviour:
   totalConnections: 4
   noOfConnections: 0
   completeStitchTextObj: {fileID: 123807879}
+  wrongSequenceAlert: {fileID: 0}
   text: NICELY DONE !
   confettiObj: []
   confettiIndex: 0
   movedPositions: []
   cotton: {fileID: 0}
+  partWithHoles: {fileID: 0}
+  partWithOutHoles: {fileID: 0}
   pointPrefab: {fileID: 0}
   pointParent: {fileID: 0}
   firstPoint: {fileID: 0}
@@ -86888,7 +87550,7 @@ MonoBehaviour:
   maxHeightOffset: 0
   positions: []
   generatedPoints: []
-  changeLastPointHeight: 0
+  dontChangeY: 0
 --- !u!1 &1582608262
 GameObject:
   m_ObjectHideFlags: 0
@@ -86943,6 +87605,7 @@ MonoBehaviour:
   targetScale: 1
   orignalScale: 0.8
   ease: 1
+  startGame: 0
 --- !u!114 &1582608265
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -87835,6 +88498,7 @@ MonoBehaviour:
   needleRotationSpeed: 0.25
   angleOffset: 90
   minRotationThreshold: 0.0000145
+  ease: 0
 --- !u!1 &1606012064
 GameObject:
   m_ObjectHideFlags: 0
@@ -87981,6 +88645,7 @@ MonoBehaviour:
   partType: 1
   partConnectedTo: 0
   originalRotation: {x: 0, y: 0, z: 0}
+  movedPosition: {x: 0, y: 0, z: 0}
   moveable: 0
   shouldBeChild: 0
   <IsStitched>k__BackingField: 0
@@ -87994,11 +88659,14 @@ MonoBehaviour:
   totalConnections: 4
   noOfConnections: 0
   completeStitchTextObj: {fileID: 787102568}
+  wrongSequenceAlert: {fileID: 0}
   text: GOOD WORK !
   confettiObj: []
   confettiIndex: 0
   movedPositions: []
   cotton: {fileID: 0}
+  partWithHoles: {fileID: 0}
+  partWithOutHoles: {fileID: 0}
   pointPrefab: {fileID: 0}
   pointParent: {fileID: 0}
   firstPoint: {fileID: 0}
@@ -88006,7 +88674,7 @@ MonoBehaviour:
   maxHeightOffset: 0
   positions: []
   generatedPoints: []
-  changeLastPointHeight: 0
+  dontChangeY: 0
 --- !u!1 &1612402289
 GameObject:
   m_ObjectHideFlags: 0
@@ -88307,11 +88975,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 24
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 1
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!1 &1614506950
 GameObject:
   m_ObjectHideFlags: 0
@@ -88538,11 +89208,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 18
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 2
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &1614942212
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -89218,11 +89890,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 38
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 1
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &1636402283
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -89524,6 +90198,7 @@ MonoBehaviour:
   targetScale: 1
   orignalScale: 0.8
   ease: 1
+  startGame: 0
 --- !u!114 &1638657491
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -89946,11 +90621,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 13
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 1
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &1646136400
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -90362,11 +91039,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 20
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 1
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &1655691612
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -90475,11 +91154,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 26
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 1
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &1655859296
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -90870,11 +91551,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 18
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 2
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!1 &1661740582
 GameObject:
   m_ObjectHideFlags: 0
@@ -91351,11 +92034,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 50
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 2
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!1 &1666946621
 GameObject:
   m_ObjectHideFlags: 0
@@ -91406,11 +92091,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 8
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 1
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &1666946624
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -91961,11 +92648,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 28
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 2
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!1 &1691304270
 GameObject:
   m_ObjectHideFlags: 0
@@ -92176,11 +92865,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 53
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 2
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &1694017434
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -92923,11 +93614,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 14
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 1
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!1 &1715243188
 GameObject:
   m_ObjectHideFlags: 0
@@ -93154,11 +93847,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 31
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 2
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &1715526330
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -93281,6 +93976,7 @@ MonoBehaviour:
   partType: 4
   partConnectedTo: 1
   originalRotation: {x: 0, y: 0, z: 0}
+  movedPosition: {x: 0, y: 0, z: 0}
   moveable: 1
   shouldBeChild: 0
   <IsStitched>k__BackingField: 0
@@ -93297,11 +93993,14 @@ MonoBehaviour:
   totalConnections: 7
   noOfConnections: 0
   completeStitchTextObj: {fileID: 0}
+  wrongSequenceAlert: {fileID: 0}
   text: 
   confettiObj: []
   confettiIndex: 0
   movedPositions: []
   cotton: {fileID: 0}
+  partWithHoles: {fileID: 0}
+  partWithOutHoles: {fileID: 0}
   pointPrefab: {fileID: 0}
   pointParent: {fileID: 0}
   firstPoint: {fileID: 0}
@@ -93309,7 +94008,7 @@ MonoBehaviour:
   maxHeightOffset: 0
   positions: []
   generatedPoints: []
-  changeLastPointHeight: 0
+  dontChangeY: 0
 --- !u!1 &1720284675
 GameObject:
   m_ObjectHideFlags: 0
@@ -93434,11 +94133,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 1
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 2
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!1 &1723553767
 GameObject:
   m_ObjectHideFlags: 0
@@ -93824,6 +94525,7 @@ MonoBehaviour:
   partType: 1
   partConnectedTo: 0
   originalRotation: {x: 0, y: 0, z: 0}
+  movedPosition: {x: 0, y: 0, z: 0}
   moveable: 1
   shouldBeChild: 1
   <IsStitched>k__BackingField: 0
@@ -93837,11 +94539,14 @@ MonoBehaviour:
   totalConnections: 4
   noOfConnections: 0
   completeStitchTextObj: {fileID: 0}
+  wrongSequenceAlert: {fileID: 0}
   text: 
   confettiObj: []
   confettiIndex: 0
   movedPositions: []
   cotton: {fileID: 0}
+  partWithHoles: {fileID: 0}
+  partWithOutHoles: {fileID: 0}
   pointPrefab: {fileID: 0}
   pointParent: {fileID: 0}
   firstPoint: {fileID: 0}
@@ -93849,7 +94554,7 @@ MonoBehaviour:
   maxHeightOffset: 0
   positions: []
   generatedPoints: []
-  changeLastPointHeight: 0
+  dontChangeY: 0
 --- !u!212 &1728792206
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -94045,11 +94750,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 46
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 1
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!1 &1732801382
 GameObject:
   m_ObjectHideFlags: 0
@@ -94242,11 +94949,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 39
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 1
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &1743745964
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -94547,6 +95256,7 @@ MonoBehaviour:
   partType: 7
   partConnectedTo: 1
   originalRotation: {x: 0, y: 0, z: 0}
+  movedPosition: {x: 0, y: 0, z: 0}
   moveable: 1
   shouldBeChild: 0
   <IsStitched>k__BackingField: 0
@@ -94563,11 +95273,14 @@ MonoBehaviour:
   totalConnections: 7
   noOfConnections: 0
   completeStitchTextObj: {fileID: 0}
+  wrongSequenceAlert: {fileID: 0}
   text: 
   confettiObj: []
   confettiIndex: 0
   movedPositions: []
   cotton: {fileID: 1430166238}
+  partWithHoles: {fileID: 0}
+  partWithOutHoles: {fileID: 0}
   pointPrefab: {fileID: 0}
   pointParent: {fileID: 0}
   firstPoint: {fileID: 0}
@@ -94575,7 +95288,7 @@ MonoBehaviour:
   maxHeightOffset: 0
   positions: []
   generatedPoints: []
-  changeLastPointHeight: 0
+  dontChangeY: 0
 --- !u!212 &1745004694
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -94861,6 +95574,7 @@ MonoBehaviour:
   targetScale: 1
   orignalScale: 0.8
   ease: 1
+  startGame: 0
 --- !u!114 &1748056601
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -95476,11 +96190,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 46
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 1
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!1 &1752323332
 GameObject:
   m_ObjectHideFlags: 0
@@ -95711,6 +96427,7 @@ MonoBehaviour:
   targetScale: 1
   orignalScale: 0.8
   ease: 1
+  startGame: 0
 --- !u!114 &1754593919
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -96076,11 +96793,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 8
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 1
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &1755931790
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -96204,6 +96923,7 @@ MonoBehaviour:
   partType: 2
   partConnectedTo: 0
   originalRotation: {x: 0, y: 0, z: 45}
+  movedPosition: {x: 0, y: 0, z: 0}
   moveable: 0
   shouldBeChild: 0
   <IsStitched>k__BackingField: 0
@@ -96218,11 +96938,14 @@ MonoBehaviour:
   totalConnections: 5
   noOfConnections: 0
   completeStitchTextObj: {fileID: 1294556173}
+  wrongSequenceAlert: {fileID: 0}
   text: NICELY DONE !
   confettiObj: []
   confettiIndex: 0
   movedPositions: []
   cotton: {fileID: 0}
+  partWithHoles: {fileID: 0}
+  partWithOutHoles: {fileID: 0}
   pointPrefab: {fileID: 0}
   pointParent: {fileID: 0}
   firstPoint: {fileID: 0}
@@ -96230,7 +96953,7 @@ MonoBehaviour:
   maxHeightOffset: 0
   positions: []
   generatedPoints: []
-  changeLastPointHeight: 0
+  dontChangeY: 0
 --- !u!1 &1764795542
 GameObject:
   m_ObjectHideFlags: 0
@@ -96633,11 +97356,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 41
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 1
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &1766529695
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -96746,11 +97471,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 7
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 1
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &1770835940
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -96875,11 +97602,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 34
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 2
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &1771291947
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -97125,11 +97854,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 50
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 2
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!1 &1779546220
 GameObject:
   m_ObjectHideFlags: 0
@@ -99080,6 +99811,7 @@ MonoBehaviour:
   partType: 1
   partConnectedTo: 0
   originalRotation: {x: 0, y: 0, z: 0}
+  movedPosition: {x: 0, y: 0, z: 0}
   moveable: 0
   shouldBeChild: 0
   <IsStitched>k__BackingField: 0
@@ -99093,11 +99825,14 @@ MonoBehaviour:
   totalConnections: 4
   noOfConnections: 0
   completeStitchTextObj: {fileID: 524162431}
+  wrongSequenceAlert: {fileID: 0}
   text: GOOD WORK !
   confettiObj: []
   confettiIndex: 0
   movedPositions: []
   cotton: {fileID: 0}
+  partWithHoles: {fileID: 0}
+  partWithOutHoles: {fileID: 0}
   pointPrefab: {fileID: 0}
   pointParent: {fileID: 0}
   firstPoint: {fileID: 0}
@@ -99105,7 +99840,7 @@ MonoBehaviour:
   maxHeightOffset: 0
   positions: []
   generatedPoints: []
-  changeLastPointHeight: 0
+  dontChangeY: 0
 --- !u!1 &1819148007
 GameObject:
   m_ObjectHideFlags: 0
@@ -99332,11 +100067,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 22
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 2
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &1820921652
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -100566,6 +101303,7 @@ MonoBehaviour:
   direction: {x: 0, y: 0, z: 0}
   <threadIndex>k__BackingField: 0
   <prevLine>k__BackingField: {fileID: 0}
+  <pointIndex>k__BackingField: 0
 --- !u!1 &1840088392
 GameObject:
   m_ObjectHideFlags: 0
@@ -101079,11 +101817,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 14
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 1
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &1847134260
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -101208,11 +101948,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 24
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 2
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &1851410847
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -102098,11 +102840,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 8
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 1
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &1867747100
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -102403,11 +103147,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 14
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 1
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &1868853618
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -102532,11 +103278,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 11
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 2
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &1872118547
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -102735,11 +103483,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 25
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 1
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!1 &1881908012
 GameObject:
   m_ObjectHideFlags: 0
@@ -102864,11 +103614,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 24
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 1
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!1 &1887465062
 GameObject:
   m_ObjectHideFlags: 0
@@ -103471,11 +104223,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 36
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 1
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!1 &1899928377
 GameObject:
   m_ObjectHideFlags: 0
@@ -103526,11 +104280,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 13
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 1
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &1899928380
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -103966,11 +104722,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 13
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 2
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &1906892705
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -104209,11 +104967,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 22
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 1
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!1 &1919304883
 GameObject:
   m_ObjectHideFlags: 0
@@ -104338,11 +105098,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 51
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 2
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!1 &1921324967
 GameObject:
   m_ObjectHideFlags: 0
@@ -104643,11 +105405,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 39
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 1
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!1 &1926589864
 GameObject:
   m_ObjectHideFlags: 0
@@ -105382,6 +106146,7 @@ MonoBehaviour:
   partType: 5
   partConnectedTo: 1
   originalRotation: {x: 0, y: 0, z: 0}
+  movedPosition: {x: 0, y: 0, z: 0}
   moveable: 0
   shouldBeChild: 0
   <IsStitched>k__BackingField: 0
@@ -105399,11 +106164,14 @@ MonoBehaviour:
   totalConnections: 8
   noOfConnections: 0
   completeStitchTextObj: {fileID: 456839928}
+  wrongSequenceAlert: {fileID: 0}
   text: GOOD WORK !
   confettiObj: []
   confettiIndex: 0
   movedPositions: []
   cotton: {fileID: 1143964268}
+  partWithHoles: {fileID: 0}
+  partWithOutHoles: {fileID: 0}
   pointPrefab: {fileID: 0}
   pointParent: {fileID: 0}
   firstPoint: {fileID: 0}
@@ -105411,7 +106179,7 @@ MonoBehaviour:
   maxHeightOffset: 0
   positions: []
   generatedPoints: []
-  changeLastPointHeight: 0
+  dontChangeY: 0
 --- !u!4 &1947560315
 Transform:
   m_ObjectHideFlags: 0
@@ -105480,11 +106248,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 56
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 2
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &1950073522
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -105683,11 +106453,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 29
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 2
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!1 &1953898407
 GameObject:
   m_ObjectHideFlags: 0
@@ -106145,6 +106917,7 @@ MonoBehaviour:
   partType: 3
   partConnectedTo: 0
   originalRotation: {x: 0, y: 0, z: 15}
+  movedPosition: {x: 0, y: 0, z: 0}
   moveable: 1
   shouldBeChild: 1
   <IsStitched>k__BackingField: 0
@@ -106159,11 +106932,14 @@ MonoBehaviour:
   totalConnections: 5
   noOfConnections: 0
   completeStitchTextObj: {fileID: 0}
+  wrongSequenceAlert: {fileID: 0}
   text: 
   confettiObj: []
   confettiIndex: 0
   movedPositions: []
   cotton: {fileID: 925476132}
+  partWithHoles: {fileID: 0}
+  partWithOutHoles: {fileID: 0}
   pointPrefab: {fileID: 0}
   pointParent: {fileID: 0}
   firstPoint: {fileID: 0}
@@ -106171,7 +106947,7 @@ MonoBehaviour:
   maxHeightOffset: 0
   positions: []
   generatedPoints: []
-  changeLastPointHeight: 0
+  dontChangeY: 0
 --- !u!1 &1955630522
 GameObject:
   m_ObjectHideFlags: 0
@@ -106765,6 +107541,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <gameStates>k__BackingField: 0
+  <saveProgress>k__BackingField: 0
 --- !u!4 &1970516908
 Transform:
   m_ObjectHideFlags: 0
@@ -106830,11 +107607,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 31
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 1
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &1971465574
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -107135,11 +107914,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 7
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 1
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &1977037988
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -107632,6 +108413,7 @@ MonoBehaviour:
   partType: 3
   partConnectedTo: 0
   originalRotation: {x: 0, y: 0, z: -45}
+  movedPosition: {x: 0, y: 0, z: 0}
   moveable: 1
   shouldBeChild: 1
   <IsStitched>k__BackingField: 0
@@ -107645,11 +108427,14 @@ MonoBehaviour:
   totalConnections: 4
   noOfConnections: 0
   completeStitchTextObj: {fileID: 0}
+  wrongSequenceAlert: {fileID: 0}
   text: 
   confettiObj: []
   confettiIndex: 0
   movedPositions: []
   cotton: {fileID: 0}
+  partWithHoles: {fileID: 0}
+  partWithOutHoles: {fileID: 0}
   pointPrefab: {fileID: 0}
   pointParent: {fileID: 0}
   firstPoint: {fileID: 0}
@@ -107657,7 +108442,7 @@ MonoBehaviour:
   maxHeightOffset: 0
   positions: []
   generatedPoints: []
-  changeLastPointHeight: 0
+  dontChangeY: 0
 --- !u!212 &1988934993
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -107748,6 +108533,7 @@ MonoBehaviour:
   targetScale: 1
   orignalScale: 0.8
   ease: 1
+  startGame: 0
 --- !u!114 &1998681859
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -108308,11 +109094,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 6
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 1
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &2007242227
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -108613,11 +109401,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 35
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 1
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &2010447776
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -109094,11 +109884,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 34
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 1
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &2015260562
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -109297,11 +110089,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 15
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 1
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!1 &2016333880
 GameObject:
   m_ObjectHideFlags: 0
@@ -109735,11 +110529,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 6
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 1
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &2019491278
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -110039,6 +110835,7 @@ MonoBehaviour:
   partType: 6
   partConnectedTo: 1
   originalRotation: {x: 0, y: 0, z: 0}
+  movedPosition: {x: 0, y: 0, z: 0}
   moveable: 0
   shouldBeChild: 0
   <IsStitched>k__BackingField: 0
@@ -110052,11 +110849,14 @@ MonoBehaviour:
   totalConnections: 4
   noOfConnections: 0
   completeStitchTextObj: {fileID: 510380796}
+  wrongSequenceAlert: {fileID: 0}
   text: AMAZING !
   confettiObj: []
   confettiIndex: 0
   movedPositions: []
   cotton: {fileID: 0}
+  partWithHoles: {fileID: 0}
+  partWithOutHoles: {fileID: 0}
   pointPrefab: {fileID: 0}
   pointParent: {fileID: 0}
   firstPoint: {fileID: 0}
@@ -110064,7 +110864,7 @@ MonoBehaviour:
   maxHeightOffset: 0
   positions: []
   generatedPoints: []
-  changeLastPointHeight: 0
+  dontChangeY: 0
 --- !u!1 &2030403415
 GameObject:
   m_ObjectHideFlags: 0
@@ -110115,11 +110915,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 26
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 2
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &2030403418
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -110308,11 +111110,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 17
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 1
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &2035282545
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -110421,11 +111225,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 49
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 1
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &2036128449
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -110726,11 +111532,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 49
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 1
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &2042963003
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -111033,11 +111841,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 39
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 1
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!1 &2048848249
 GameObject:
   m_ObjectHideFlags: 0
@@ -111162,11 +111972,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 45
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 1
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!1 &2051295720
 GameObject:
   m_ObjectHideFlags: 0
@@ -111467,11 +112279,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 19
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 2
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!1 &2056978458
 GameObject:
   m_ObjectHideFlags: 0
@@ -111526,6 +112340,7 @@ MonoBehaviour:
   targetScale: 1
   orignalScale: 0.8
   ease: 1
+  startGame: 0
 --- !u!114 &2056978461
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -111715,11 +112530,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 15
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 1
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &2057992253
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -111844,11 +112661,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 40
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 1
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &2066992235
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -112042,6 +112861,7 @@ MonoBehaviour:
   partType: 4
   partConnectedTo: 1
   originalRotation: {x: 0, y: 0, z: 0}
+  movedPosition: {x: 0, y: 0, z: 0}
   moveable: 0
   shouldBeChild: 0
   <IsStitched>k__BackingField: 0
@@ -112059,11 +112879,14 @@ MonoBehaviour:
   totalConnections: 8
   noOfConnections: 0
   completeStitchTextObj: {fileID: 239362659}
+  wrongSequenceAlert: {fileID: 0}
   text: WELL DONE !
   confettiObj: []
   confettiIndex: 0
   movedPositions: []
   cotton: {fileID: 651281421}
+  partWithHoles: {fileID: 0}
+  partWithOutHoles: {fileID: 0}
   pointPrefab: {fileID: 0}
   pointParent: {fileID: 0}
   firstPoint: {fileID: 0}
@@ -112071,7 +112894,7 @@ MonoBehaviour:
   maxHeightOffset: 0
   positions: []
   generatedPoints: []
-  changeLastPointHeight: 0
+  dontChangeY: 0
 --- !u!4 &2069830471
 Transform:
   m_ObjectHideFlags: 0
@@ -112214,11 +113037,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 44
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 1
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!1 &2075791635
 GameObject:
   m_ObjectHideFlags: 0
@@ -112343,11 +113168,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 5
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 1
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!1 &2076841353
 GameObject:
   m_ObjectHideFlags: 0
@@ -112472,11 +113299,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 36
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 1
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!1 &2079113276
 GameObject:
   m_ObjectHideFlags: 0
@@ -112509,6 +113338,7 @@ MonoBehaviour:
   partType: 3
   partConnectedTo: 0
   originalRotation: {x: 0, y: 0, z: 15}
+  movedPosition: {x: 0, y: 0, z: 0}
   moveable: 0
   shouldBeChild: 0
   <IsStitched>k__BackingField: 0
@@ -112523,11 +113353,14 @@ MonoBehaviour:
   totalConnections: 5
   noOfConnections: 0
   completeStitchTextObj: {fileID: 1459132460}
+  wrongSequenceAlert: {fileID: 0}
   text: WELL DONE !
   confettiObj: []
   confettiIndex: 0
   movedPositions: []
   cotton: {fileID: 0}
+  partWithHoles: {fileID: 0}
+  partWithOutHoles: {fileID: 0}
   pointPrefab: {fileID: 0}
   pointParent: {fileID: 0}
   firstPoint: {fileID: 0}
@@ -112535,7 +113368,7 @@ MonoBehaviour:
   maxHeightOffset: 0
   positions: []
   generatedPoints: []
-  changeLastPointHeight: 0
+  dontChangeY: 0
 --- !u!4 &2079113278
 Transform:
   m_ObjectHideFlags: 0
@@ -113292,11 +114125,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 28
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 2
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!1 &2087650191
 GameObject:
   m_ObjectHideFlags: 0
@@ -113507,11 +114342,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 30
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 2
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &2093870510
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -113652,11 +114489,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 3
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 2
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &2094940845
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -113820,11 +114659,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 12
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 2
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &2098071763
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -115011,11 +115852,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 7
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 1
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &2107213425
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -115930,11 +116773,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 44
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 1
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!1 &2119534594
 GameObject:
   m_ObjectHideFlags: 0
@@ -116161,11 +117006,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 33
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 2
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &2123239878
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -116290,11 +117137,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 19
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 2
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &2123500526
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -116531,11 +117380,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 23
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 1
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!1 &2128583226
 GameObject:
   m_ObjectHideFlags: 0
@@ -116586,11 +117437,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 37
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 1
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &2128583229
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -116989,6 +117842,7 @@ MonoBehaviour:
   targetScale: 1
   orignalScale: 0.8
   ease: 1
+  startGame: 0
 --- !u!1 &2133402272
 GameObject:
   m_ObjectHideFlags: 0
@@ -117215,11 +118069,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 9
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 2
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &2134205812
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -117520,11 +118376,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 39
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 2
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &2140222305
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -117686,6 +118544,7 @@ MonoBehaviour:
   partType: 4
   partConnectedTo: 1
   originalRotation: {x: 0, y: 0, z: 0}
+  movedPosition: {x: 0, y: 0, z: 0}
   moveable: 1
   shouldBeChild: 0
   <IsStitched>k__BackingField: 0
@@ -117703,11 +118562,14 @@ MonoBehaviour:
   totalConnections: 8
   noOfConnections: 0
   completeStitchTextObj: {fileID: 0}
+  wrongSequenceAlert: {fileID: 0}
   text: 
   confettiObj: []
   confettiIndex: 0
   movedPositions: []
   cotton: {fileID: 245369061}
+  partWithHoles: {fileID: 0}
+  partWithOutHoles: {fileID: 0}
   pointPrefab: {fileID: 1572344290178555221, guid: 2d08dbe1041cd6641ac3ea6122338c04, type: 3}
   pointParent: {fileID: 1910218055}
   firstPoint: {fileID: 984867082}
@@ -117715,7 +118577,7 @@ MonoBehaviour:
   maxHeightOffset: -0.12
   positions: []
   generatedPoints: []
-  changeLastPointHeight: 0
+  dontChangeY: 0
 --- !u!1 &2141766048
 GameObject:
   m_ObjectHideFlags: 0
@@ -117766,11 +118628,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 36
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 1
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &2141766051
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -118071,11 +118935,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 30
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 1
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!135 &2144423072
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -118503,11 +119369,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zVal: -0.3
   attachmentId: 1
+  nextConnectedPointId: 0
   connected: 0
   sequenceType: 2
-  textObj: {fileID: 0}
   pointMesh: {fileID: 0}
   <stitchEffect_ThreadPoints>k__BackingField: []
+  <startFlag>k__BackingField: 0
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!1 &4143866646524788724
 GameObject:
   m_ObjectHideFlags: 0

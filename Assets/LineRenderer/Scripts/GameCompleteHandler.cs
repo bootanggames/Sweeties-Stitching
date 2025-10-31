@@ -52,8 +52,9 @@ public class GameCompleteHandler : MonoBehaviour, IGameService
             effect.SetActive(true);
             if (effect.GetComponent<ParticleSystem>()) effect.GetComponent<ParticleSystem>().Play();
         }
-       
     }
+
+
     void GameComplete()
     {
         GameEvents.ThreadEvents.setThreadInput.RaiseEvent(false);
@@ -68,6 +69,10 @@ public class GameCompleteHandler : MonoBehaviour, IGameService
         var canvasHandler = ServiceLocator.GetService<ICanvasUIManager>();
         if(canvasHandler != null)
         {
+            PlayerPrefs.DeleteAll();
+            canvasHandler.sewnScreen.SetActive(false);
+            canvasHandler.sewnTextImage.transform.localScale = Vector3.zero;
+            canvasHandler.confettiEffectCanvas.SetActive(false);
             canvasHandler.gameCompletePanel.gameObject.SetActive(true);
             canvasHandler.completeStitchedPlushie.SetActive(true);
             RectTransform rt =  canvasHandler.completeStitchedPlushie.GetComponent<RectTransform>();

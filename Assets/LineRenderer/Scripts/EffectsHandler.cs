@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class EffectsHandler : MonoBehaviour
@@ -6,18 +7,21 @@ public class EffectsHandler : MonoBehaviour
     [SerializeField] Vector3 particleSize;
     [SerializeField] GameObject smallConfettiPrefab;
     [SerializeField] GameObject gameCompleteConfettiPrefab;
+    [SerializeField] ParticleSystem[] confettiEffect;
+    int confettiIndex;
     private void OnEnable()
     {
         GameEvents.EffectHandlerEvents.onSelectionEffect.RegisterEvent(InstantiateEffect);
         GameEvents.EffectHandlerEvents.onGetInstantiatedEffect.RegisterEvent(GetGameWinInstantiatedEffect);
         GameEvents.EffectHandlerEvents.onPartCompleteEffect.RegisterEvent(GetPartCompleteInstantiatedEffect);
+        GameEvents.EffectHandlerEvents.onSewnCompletely.RegisterEvent(StartConfetti);
     }
     private void OnDisable()
     {
         GameEvents.EffectHandlerEvents.onSelectionEffect.UnregisterEvent(InstantiateEffect);
         GameEvents.EffectHandlerEvents.onGetInstantiatedEffect.UnregisterEvent(GetGameWinInstantiatedEffect);
         GameEvents.EffectHandlerEvents.onPartCompleteEffect.UnregisterEvent(GetPartCompleteInstantiatedEffect);
-
+        GameEvents.EffectHandlerEvents.onSewnCompletely.UnregisterEvent(StartConfetti);
     }
     void InstantiateEffect(Transform parent)
     {
@@ -44,6 +48,26 @@ public class EffectsHandler : MonoBehaviour
         g.transform.SetParent(parent);
         g.transform.localEulerAngles = Vector3.zero;
         g.transform.localPosition = Vector3.zero;
+        g.transform.SetParent(null);
         return g;
+    }
+    void StartConfetti()
+    {
+        StartCoroutine(EnableEffect());
+    }
+    IEnumerator EnableEffect()
+    {
+        if(confettiIndex < confettiEffect.Length)
+        {
+            confettiEffect[confettiIndex].gameObject.SetActive(true);
+            confettiEffect[confettiIndex].Play();
+        }
+        yield return new WaitForSeconds(0.15f);
+        confettiIndex++;
+        StopCoroutine(EnableEffect());
+        if(confettiIndex <= (confettiEffect.Length - 1))
+            StartCoroutine(EnableEffect());
+        else
+            GameEvents.GameCompleteEvents.onGameComplete.RaiseEvent();
     }
 }

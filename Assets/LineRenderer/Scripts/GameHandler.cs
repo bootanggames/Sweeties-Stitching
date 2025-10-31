@@ -4,7 +4,6 @@ using UnityEngine.SceneManagement;
 public class GameHandler : Singleton<GameHandler>, IGameHandler
 {
     [field: SerializeField] public GameStates gameStates {  get; private set; }
-
     [field: SerializeField] public bool saveProgress {  get; private set; }
 
     public override void SingletonAwake()
@@ -87,8 +86,8 @@ public class GameHandler : Singleton<GameHandler>, IGameHandler
     {
         PlayerPrefs.SetInt("SaveProgress", 1);
         PlayerPrefs.SetInt("StitchedPartCount", LevelsHandler.instance.currentLevelMeta.noOfStitchedPart);
-        PlayerPrefs.SetInt("StitchedCount", LevelsHandler.instance.currentLevelMeta.noOfCorrectLinks);
-
+        LevelsHandler.instance.currentLevelMeta.UpdateLinks();
+        PlayerPrefs.SetInt("StitchedCount", LevelsHandler.instance.currentLevelMeta.noOfLinks);
         Home("HomeScreen");
     }
 }

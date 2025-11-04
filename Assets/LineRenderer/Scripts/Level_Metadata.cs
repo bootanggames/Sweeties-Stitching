@@ -1,7 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.Cinemachine;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class Level_Metadata : MonoBehaviour
@@ -41,7 +39,7 @@ public class Level_Metadata : MonoBehaviour
         RepositionCameras();
         UpdateAllStitchesOfPlushie();
     }
-
+   
     void RepositionCameras()
     {
         var cameraHandler = ServiceLocator.GetService<ICameraManager>();
@@ -121,9 +119,7 @@ public class Level_Metadata : MonoBehaviour
     {
         var needleDetecto = ServiceLocator.GetService<INeedleDetector>();
         if (needleDetecto != null)
-        {
             needleDetecto.detect = false;
-        }
 
         Part_Info p2_Info = immoveablePart.GetComponent<Part_Info>();
         ObjectInfo o_info = null;
@@ -184,25 +180,15 @@ public class Level_Metadata : MonoBehaviour
         
         if (noOfStitchedPart.Equals(totalStitchedPart))
         {
-            //foreach (GameObject g in bodyParts)
-            //{
-            //    g.SetActive(true);
-            //}
-            //foreach (GameObject p in head.joints)
-            //{
-            //    p.SetActive(true);
-            //}
             var cameraManager = ServiceLocator.GetService<ICameraManager>();
             if (cameraManager != null)
-            {
                 GameEvents.CameraManagerEvents.onAddingCamera.RaiseEvent(cameraManager.gameCompleteCamera);
-            }
+
             if (bodyWihtoutHoles)
             {
                 bodyWihtoutHoles.SetActive(true);
                 immoveablePart.GetComponent<SpriteRenderer>().enabled = false;
             }
-            PlayerPrefs.DeleteAll();
             GameHandler.instance.SwitchGameState(GameStates.Gamecomplete);
 
             Invoke("WinEffect", 2.0f);
@@ -218,9 +204,6 @@ public class Level_Metadata : MonoBehaviour
         var canvasHandler = ServiceLocator.GetService<ICanvasUIManager>();
         if(canvasHandler != null)
             canvasHandler.sewnScreen.SetActive(true);
-
-        //GameEvents.GameCompleteEvents.onGameWin.RaiseEvent();
-        //Invoke("CallGameWinPanel", 1.5f);
     }
     void CallGameWinPanel()
     {
@@ -305,4 +288,15 @@ public class Level_Metadata : MonoBehaviour
        
     }
    
+    public void ResetLevel()
+    {
+        foreach(GameObject g in bodyParts)
+        {
+            ObjectInfo o_Info = g.GetComponent<ObjectInfo>();
+            if (!o_Info.head)
+                 o_Info.ResetPart();
+            else
+                head.transform.position = o_Info.startPosition;
+        }
+    }
 }

@@ -51,11 +51,15 @@ public class LevelsHandler : Singleton<LevelsHandler>, ILevelHandler
             coinHandler.ResetCoinList();
         var connectionHandler = ServiceLocator.GetService<IPointConnectionHandler>();
         if (connectionHandler != null) connectionHandler.DeleteAllThreadLinks();
-     
+
         levelIndex = PlayerPrefs.GetInt("Level");
+
         levelIndex++;
-        if (levelIndex >= (levels.Count-1))
+        PlayerPrefs.DeleteAll();
+
+        if (levelIndex >= levels.Count)
             levelIndex = 0;
+
         SetPref(levelIndex);
        currentLevelMeta = levels[levelIndex].GetComponent<Level_Metadata>();
 
@@ -76,6 +80,7 @@ public class LevelsHandler : Singleton<LevelsHandler>, ILevelHandler
             g.SetActive(false);
         }
         currentLevelMeta.gameObject.SetActive(true);
+        currentLevelMeta.ResetLevel();
     }
    
     void LoadLastSavedProgress()

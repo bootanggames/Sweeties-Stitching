@@ -69,7 +69,6 @@ public class GameCompleteHandler : MonoBehaviour, IGameService
         var canvasHandler = ServiceLocator.GetService<ICanvasUIManager>();
         if(canvasHandler != null)
         {
-            PlayerPrefs.DeleteAll();
             canvasHandler.sewnScreen.SetActive(false);
             canvasHandler.sewnTextImage.transform.localScale = Vector3.zero;
             canvasHandler.confettiEffectCanvas.SetActive(false);

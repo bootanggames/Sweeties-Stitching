@@ -180,15 +180,15 @@ public class ThreadManager : MonoBehaviour, IThreadManager
     {
         if (!threadInput) return;
 
-        int count = thread.positionCount;
-        Vector3[] positions = new Vector3[count];
+        int threadPositionCount = thread.positionCount;
+        Vector3[] positions = new Vector3[threadPositionCount];
         thread.GetPositions(positions);
-        positions[count - 1] = startPos;
+        positions[threadPositionCount - 1] = startPos;
 
         float minDistance = isPrevThread ? 0.001f : minDistanceBetweenSewPoints;
         float lerpSpeed = isPrevThread ? 0.3f : 1.0f;
 
-        for (int i = 1; i < count - 1; i++)
+        for (int i = 1; i < threadPositionCount - 1; i++)
         {
             Vector3 direction = positions[i] - positions[i - 1];
             Vector3 targetPos = positions[i - 1] + direction.normalized * minDistance;
@@ -200,11 +200,11 @@ public class ThreadManager : MonoBehaviour, IThreadManager
         {
             Vector3 endPos = lastConnectedPoint ? lastConnectedPoint.position : startPos;
             endPos.z = zVal;
-            positions[count - 1] = endPos;
+            positions[threadPositionCount - 1] = endPos;
 
             SmoothThreadBackward(positions, minDistanceBetweenSewPoints, 1.0f);
-
             thread.name = lastConnectedPoint ? "Current" : thread.name;
+
             thread.SetPositions(positions);
 
             if (lastConnectedPoint && prevLine != null)
@@ -214,9 +214,7 @@ public class ThreadManager : MonoBehaviour, IThreadManager
             }
         }
         else
-        {
             thread.SetPositions(positions);
-        }
     }
 
     private void SmoothThreadBackward(Vector3[] positions, float minDistance, float smoothFactor)
@@ -274,7 +272,6 @@ public class ThreadManager : MonoBehaviour, IThreadManager
         if(detectedPoints.Count == 1)
         {
             prevLine = instantiatedLine;
-            prevLine.name = "Previous Line";
             InstantiateMainThread(false, Vector2.zero);
         }
         AddFirstPositionOnMouseDown(point.transform.position);
@@ -422,6 +419,7 @@ public class ThreadManager : MonoBehaviour, IThreadManager
             if (prevLine && detectedPoints.Count == 0)
             {
                 Destroy(prevLine.gameObject);
+                Destroy(instantiatedLine.gameObject);
                 GameEvents.NeedleEvents.OnNeedleMovement.RaiseEvent(startPos);
             }
             if (connectHandler.points.Count > 0)

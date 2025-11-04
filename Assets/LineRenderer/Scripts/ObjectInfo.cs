@@ -9,6 +9,7 @@ public class ObjectInfo : MonoBehaviour
     public PartConnectedTo partConnectedTo;
     public Vector3 originalRotation;
     public Vector3 movedPosition;
+    public Vector3 startPosition;
     public bool moveable = false;
     public bool shouldBeChild = false;
     [field: SerializeField]public bool IsStitched { get; private set; }
@@ -181,6 +182,7 @@ public class ObjectInfo : MonoBehaviour
         ChangeText(completeStitchTextObj, text, 4);
         Invoke("EnableConffetti", 0.2f);
     }
+    
     void EnableConffetti()
     {
         if (confettiIndex < connectPoints.Count)
@@ -266,7 +268,6 @@ public class ObjectInfo : MonoBehaviour
         }
        
     }
- 
     void PlaySound()
     {
         SoundManager.instance.ResetAudioSource();
@@ -274,5 +275,26 @@ public class ObjectInfo : MonoBehaviour
         AudioSource _source = SoundManager.instance.audioSource;
         AudioClip _clip = SoundManager.instance.audioClips.completed;
         SoundManager.instance.PlaySound(_source, _clip, false, false, 1, false);
+    }
+    public void ResetPart()
+    {
+        if (moveable) this.transform.position = startPosition;
+        IsStitched = false;
+        if (partWithOutHoles) partWithOutHoles.SetActive(false);
+        if (partWithHoles)
+        {
+            partWithHoles.SetActive(true);
+            partWithHoles.GetComponent<SpriteRenderer>().enabled = true;
+        }
+        if (cotton) cotton.SetActive(true);
+
+        foreach (SewPoint s in connectPoints)
+        {
+            s.connected = false;
+            if(s.pointMesh) s.pointMesh.enabled = true;
+            s.gameObject.SetActive(true);
+            s.ChangeTextColor(Color.white);
+            s.GetComponent<Collider>().enabled = true;
+        }
     }
 }

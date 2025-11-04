@@ -54,7 +54,7 @@ public class LevelsHandler : Singleton<LevelsHandler>, ILevelHandler
      
         levelIndex = PlayerPrefs.GetInt("Level");
         levelIndex++;
-        if (levelIndex >= levels.Count)
+        if (levelIndex >= (levels.Count-1))
             levelIndex = 0;
         SetPref(levelIndex);
        currentLevelMeta = levels[levelIndex].GetComponent<Level_Metadata>();

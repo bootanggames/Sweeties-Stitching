@@ -17,6 +17,7 @@ public class CanvasUIManager : MonoBehaviour, ICanvasUIManager
     [field: SerializeField] public GameObject sewnScreen { get; private set; }
     [field: SerializeField] public GameObject confettiEffectCanvas { get; private set; }
     [field: SerializeField] public GameObject sewnTextImage { get; private set; }
+    [field: SerializeField] public GameObject goToHomeScreen { get; private set; }
 
     private void Start()
     {
@@ -79,5 +80,11 @@ public class CanvasUIManager : MonoBehaviour, ICanvasUIManager
         else
             percent = ((float)completedParts / totalParts) * 100;
         stitchProgress.text = Mathf.FloorToInt(percent).ToString() + "% DONE";
+    }
+
+    public void CheckGameCompleteOnHomeButton()
+    {
+        if (!GameHandler.instance.gameStates.Equals(GameStates.Gamecomplete))
+            goToHomeScreen.SetActive(true);
     }
 }

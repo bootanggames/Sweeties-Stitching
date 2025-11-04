@@ -444,6 +444,7 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
                         info2.transform.DOMove(info2.movedPosition, 0.5f).SetEase(Ease.Linear).OnUpdate(() =>
                         {
                             UpdateConnections();
+
                         }).OnComplete(() =>
                         {
                             SewPoint sp1 = p1.GetComponent<SewPoint>();
@@ -546,6 +547,11 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
         for(int i = 0; i < connections.Count; i++)
         {
             connections[i].UpdateLine(zVal, false);
+        }
+        var threadHandler = ServiceLocator.GetService<IThreadManager>();
+        if(threadHandler != null)
+        {
+            threadHandler.UpdateSpoolThreadLastPoint(0.1f);
         }
     }
    

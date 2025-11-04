@@ -184,14 +184,14 @@ public class Level_Metadata : MonoBehaviour
         
         if (noOfStitchedPart.Equals(totalStitchedPart))
         {
-            foreach (GameObject g in bodyParts)
-            {
-                g.SetActive(true);
-            }
-            foreach (GameObject p in head.joints)
-            {
-                p.SetActive(true);
-            }
+            //foreach (GameObject g in bodyParts)
+            //{
+            //    g.SetActive(true);
+            //}
+            //foreach (GameObject p in head.joints)
+            //{
+            //    p.SetActive(true);
+            //}
             var cameraManager = ServiceLocator.GetService<ICameraManager>();
             if (cameraManager != null)
             {
@@ -202,6 +202,9 @@ public class Level_Metadata : MonoBehaviour
                 bodyWihtoutHoles.SetActive(true);
                 immoveablePart.GetComponent<SpriteRenderer>().enabled = false;
             }
+            PlayerPrefs.DeleteAll();
+            GameHandler.instance.SwitchGameState(GameStates.Gamecomplete);
+
             Invoke("WinEffect", 2.0f);
         }
         else

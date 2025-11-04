@@ -6,6 +6,7 @@ public interface ICanvasUIManager:IGameService
 {
     GameObject completeStitchedPlushie { get; }
     GameObject gameCompletePanel { get; }
+    GameObject goToHomeScreen { get; }
     GameObject tapToStartButton { get; }
     GameObject startText { get; }
     GameObject sewnScreen { get; }

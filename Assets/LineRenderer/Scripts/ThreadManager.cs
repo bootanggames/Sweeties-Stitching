@@ -1,12 +1,10 @@
 ﻿using DG.Tweening;
 using System.Collections.Generic;
-using System.Threading;
 using UnityEngine;
 
 public class ThreadManager : MonoBehaviour, IThreadManager
 {
     [field: SerializeField] public bool threadInput { get; private set; }
-    [field: SerializeField] public bool freeForm { get; private set; }
     [field: SerializeField] public List<Transform> detectedPoints {  get; private set; }
     //[field: SerializeField] public List<Color> threadColor { get; private set; }
 
@@ -25,15 +23,16 @@ public class ThreadManager : MonoBehaviour, IThreadManager
     [SerializeField] Transform pointsLinkParent;
     public Transform lastConnectedPoint { get; private set; }
     [SerializeField] float zVal;
-    [SerializeField] Transform startPoint;
+    //[SerializeField] Transform startPoint;
+    [SerializeField] RectTransform startUIPoint;
     [SerializeField] Vector3 direction;
     [field: SerializeField] public int threadIndex { get; private set; }
-
     [field: SerializeField] public LineRenderer prevLine { get; set; }
     [field: SerializeField] public int pointIndex {  get;  set; }
-
+    Vector3 startPos;
     private void OnEnable()
     {
+       
         RegisterService();
     }
     private void OnDisable()
@@ -49,7 +48,6 @@ public class ThreadManager : MonoBehaviour, IThreadManager
         GameEvents.ThreadEvents.onCreatingConnection.RegisterEvent(CreateLineAndApplyPullForceOnConnection);
         GameEvents.ThreadEvents.onEmptyList_DetectingPoints.RegisterEvent(ClearDetectedPointsList);
         GameEvents.ThreadEvents.setThreadInput.RegisterEvent(SetThreadInputBool);
-        GameEvents.ThreadEvents.onSetFreeformMovementValue.RegisterEvent(SetFreeformThreadMovement);
         GameEvents.ThreadEvents.onResetThreadInput.RegisterEvent(ResetThread);
 
     }
@@ -62,7 +60,6 @@ public class ThreadManager : MonoBehaviour, IThreadManager
         GameEvents.ThreadEvents.onCreatingConnection.UnregisterEvent(CreateLineAndApplyPullForceOnConnection);
         GameEvents.ThreadEvents.onEmptyList_DetectingPoints.UnregisterEvent(ClearDetectedPointsList);
         GameEvents.ThreadEvents.setThreadInput.UnregisterEvent(SetThreadInputBool);
-        GameEvents.ThreadEvents.onSetFreeformMovementValue.UnregisterEvent(SetFreeformThreadMovement);
         GameEvents.ThreadEvents.onInstantiatingThread.UnregisterEvent(InstantiateMainThread);
         GameEvents.ThreadEvents.onResetThreadInput.UnregisterEvent(ResetThread);
 
@@ -71,10 +68,7 @@ public class ThreadManager : MonoBehaviour, IThreadManager
     {
         lastConnectedPoint = t;
     }
-    void SetFreeformThreadMovement(bool value)
-    {
-        freeForm = value;
-    }
+  
     void SetThreadInputBool(bool value)
     {
         threadInput = value;
@@ -108,8 +102,6 @@ public class ThreadManager : MonoBehaviour, IThreadManager
         instantiatedLine.transform.SetParent(threadParent);
         instantiatedLine.transform.position = Vector3.zero;
         instantiatedLine.positionCount = threadMaxLength;
-        //instantiatedLine.material.color = threadColor[threadIndex];
-        //instantiatedLine.endColor = threadColor[threadIndex];
         if (start)
         {
             for (int i = 0; i < instantiatedLine.positionCount; i++)
@@ -122,34 +114,40 @@ public class ThreadManager : MonoBehaviour, IThreadManager
     public void AddFirstPositionOnMouseDown(Vector2 headPos)
     {
         if (!threadInput) return;
+        UpdateStartPositionFromSpool();
         if (instantiatedLine == null)
         {
-            InstantiateMainThread(true, headPos);
+            //InstantiateMainThread(true, headPos);
+            InstantiateMainThread(true, startPos);
             GameEvents.NeedleEvents.onNeedleActiveStatusUpdate.RaiseEvent(true);
             return;
         }
         if (lastConnectedPoint != null)
         {
             currentRopeStartPosition = lastConnectedPoint.position;
-            if (freeForm)
-                currentRopeStartPosition.z = zVal;
-            //instantiatedLine.SetPosition(0, currentRopeStartPosition);
         }
         else
         {
-            currentRopeStartPosition = headPos;
-            //instantiatedLine.SetPosition(0, headPos);
+            //currentRopeStartPosition = headPos;
+            currentRopeStartPosition = startPos;
         }
-        //GameEvents.NeedleEvents.OnNeedleMovement.RaiseEvent(instantiatedLine.GetPosition(0));
     }
-
+    void UpdateStartPositionFromSpool()
+    {
+        Vector3 screenPos = RectTransformUtility.WorldToScreenPoint(null, startUIPoint.position);
+        Vector3 worldPos = Camera.main.ScreenToWorldPoint(screenPos);
+        startPos = worldPos;
+        startPos.z = zVal;
+    }
     public void AddPositionToLineOnDrag(Vector2 mousePos)
     {
         if (!threadInput) return;
         if (instantiatedLine == null) return;
+        UpdateStartPositionFromSpool();
+
         Vector3 targetRopePosition = Vector3.zero;
 
-        if (lastConnectedPoint != null && !freeForm)
+        if (lastConnectedPoint != null)
         {
             currentRopeStartPosition = lastConnectedPoint.position;
 
@@ -165,62 +163,91 @@ public class ThreadManager : MonoBehaviour, IThreadManager
         {
             targetRopePosition = new Vector3(mousePos.x, mousePos.y, zVal);
         }
-
-        GameEvents.NeedleEvents.OnNeedleMovement.RaiseEvent(targetRopePosition);
-        Vector3 needlePos = GameEvents.NeedleEvents.OnFetchingNeedlePosition.RaiseEvent();
+        instantiatedLine.SetPosition(0, targetRopePosition);
+        Vector3 needlePos = (instantiatedLine.GetPosition(0) + instantiatedLine.GetPosition(1))/2;
         needlePos.z = zVal;
-        instantiatedLine.SetPosition(0, needlePos);
-        //instantiatedLine.SetPosition((instantiatedLine.positionCount - 1), startPoint.position);
+        GameEvents.NeedleEvents.OnNeedleMovement.RaiseEvent(needlePos);
 
         if (prevLine)
+        {
+            prevLine.name = "First Line";
             MoveThread(prevLine, true);
+        }
         MoveThread(instantiatedLine, false);
-
         prevMouseDragPosition = mousePos;
     }
-
     public void MoveThread(LineRenderer thread, bool isPrevThread)
     {
         if (!threadInput) return;
-        for (int i = 1; i < (thread.positionCount - 1); i++)
+
+        int count = thread.positionCount;
+        Vector3[] positions = new Vector3[count];
+        thread.GetPositions(positions);
+        positions[count - 1] = startPos;
+
+        float minDistance = isPrevThread ? 0.001f : minDistanceBetweenSewPoints;
+        float lerpSpeed = isPrevThread ? 0.3f : 1.0f;
+
+        for (int i = 1; i < count - 1; i++)
         {
-            Vector3 prevThreadPoint = thread.GetPosition(i - 1);
-            Vector3 currentPoint = thread.GetPosition(i);
-            Vector3 direction = currentPoint - prevThreadPoint;
-
-            float minDistance = isPrevThread ? 0.001f : minDistanceBetweenSewPoints;
-            float lerpSpeed = isPrevThread ? 0.3f : 1.0f;
-            if (freeForm)
-                lerpSpeed = 1.0f;
-            Vector3 targetPos = prevThreadPoint + direction.normalized * minDistance;
-            Vector3 lerpPosition = Vector3.Lerp(currentPoint, targetPos, lerpSpeed);
-            lerpPosition.z = zVal;
-            thread.SetPosition(i, lerpPosition);
-
+            Vector3 direction = positions[i] - positions[i - 1];
+            Vector3 targetPos = positions[i - 1] + direction.normalized * minDistance;
+            positions[i] = Vector3.Lerp(positions[i], targetPos, lerpSpeed);
+            positions[i].z = zVal;
         }
 
-        if (!isPrevThread && lastConnectedPoint != null && !freeForm)
+        if (!isPrevThread)
         {
-            Vector3 lastPos = lastConnectedPoint.position;
-            lastPos.z = zVal;
-            thread.SetPosition(thread.positionCount - 1, lastPos);
+            Vector3 endPos = lastConnectedPoint ? lastConnectedPoint.position : startPos;
+            endPos.z = zVal;
+            positions[count - 1] = endPos;
 
-            for (int i = thread.positionCount - 2; i >= 0; i--)
+            SmoothThreadBackward(positions, minDistanceBetweenSewPoints, 1.0f);
+
+            thread.name = lastConnectedPoint ? "Current" : thread.name;
+            thread.SetPositions(positions);
+
+            if (lastConnectedPoint && prevLine != null)
             {
-                Vector3 nextPoint = thread.GetPosition(i + 1);
-                Vector3 currentPoint = thread.GetPosition(i);
-                Vector3 direction = currentPoint - nextPoint;
-
-                float minDistance = minDistanceBetweenSewPoints;
-                Vector3 targetPos = nextPoint + direction.normalized * minDistance;
-                float smoothFactor = 1.0f;
-                Vector3 lerpPosition = Vector3.Lerp(currentPoint, targetPos, smoothFactor);
-                lerpPosition.z = zVal;
-                thread.SetPosition(i, lerpPosition);
+                prevLine.positionCount = threadMaxLength / 5;
+                UpdatePrevLine(prevLine, detectedPoints[0].position, startPos, 0.3f);
             }
+        }
+        else
+        {
+            thread.SetPositions(positions);
         }
     }
 
+    private void SmoothThreadBackward(Vector3[] positions, float minDistance, float smoothFactor)
+    {
+        for (int i = positions.Length - 2; i >= 0; i--)
+        {
+            Vector3 direction = positions[i] - positions[i + 1];
+            Vector3 targetPos = positions[i + 1] + direction.normalized * minDistance;
+            positions[i] = Vector3.Lerp(positions[i], targetPos, smoothFactor);
+            positions[i].z = zVal;
+        }
+    }
+    public void UpdateSpoolThreadLastPoint(float lerpSpeed)
+    {
+        if(prevLine)
+            UpdatePrevLine(prevLine, detectedPoints[0].position, startPos, lerpSpeed);
+        if (instantiatedLine)
+            instantiatedLine.SetPosition(instantiatedLine.positionCount - 1, lastConnectedPoint.position);
+    }
+    private void UpdatePrevLine(LineRenderer line, Vector3 start, Vector3 end, float lerpSpeed)
+    {
+        int count = line.positionCount;
+        Vector3[] positions = new Vector3[count];
+        line.GetPositions(positions);
+
+        positions[0] = start;
+        positions[count - 1] = end;
+
+        SmoothThreadBackward(positions, minDistanceBetweenSewPoints, lerpSpeed);
+        line.SetPositions(positions);
+    }
     void CreateLineAndApplyPullForceOnConnection(SewPoint point)
     {
        
@@ -229,24 +256,27 @@ public class ThreadManager : MonoBehaviour, IThreadManager
         detectedPointsCount++;
         Vector3 pos=Vector3.zero;
     
-        if (detectedPointsCount % 2 == 0)
-        {
-            for (int i = 0; i < threadParent.childCount; i++)
-            {
-                Destroy(threadParent.GetChild(i).gameObject);
-            }
-        }
+        //if (detectedPointsCount % 2 == 0)
+        //{
+        //    for (int i = 0; i < threadParent.childCount; i++)
+        //    {
+        //        Destroy(threadParent.GetChild(i).gameObject);
+        //    }
+        //}
         if(detectedPoints.Count > 1)
             pos = detectedPoints[detectedPoints.Count - 2].position;
         else
             pos = point.transform.position;
         pos.z = point.zVal;
         instantiatedLine.SetPosition(0, pos);
-        prevLine = instantiatedLine;
-        prevLine.name = "Previous Line";
+       
         lastConnectedPoint = point.transform;
-        InstantiateMainThread(false, Vector2.zero);
-
+        if(detectedPoints.Count == 1)
+        {
+            prevLine = instantiatedLine;
+            prevLine.name = "Previous Line";
+            InstantiateMainThread(false, Vector2.zero);
+        }
         AddFirstPositionOnMouseDown(point.transform.position);
         for (int i = 0; i < instantiatedLine.positionCount; i++)
             instantiatedLine.SetPosition(i, point.transform.position);
@@ -335,8 +365,7 @@ public class ThreadManager : MonoBehaviour, IThreadManager
 
                 pointDetector.UndoLastConnectedPoint();
             }
-            if (prevLine)
-                Destroy(prevLine.gameObject);
+        
 
             if (detectedPoints.Count > 0)
             {
@@ -390,9 +419,11 @@ public class ThreadManager : MonoBehaviour, IThreadManager
             }
             else
                 SetLastConnectedPosition(null);
-
-           
-
+            if (prevLine && detectedPoints.Count == 0)
+            {
+                Destroy(prevLine.gameObject);
+                GameEvents.NeedleEvents.OnNeedleMovement.RaiseEvent(startPos);
+            }
             if (connectHandler.points.Count > 0)
                 connectHandler.points.Remove(connectHandler.points[connectHandler.points.Count - 1]);
             if (connectHandler.connections.Count > 0)

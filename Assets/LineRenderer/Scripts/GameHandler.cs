@@ -82,6 +82,7 @@ public class GameHandler : Singleton<GameHandler>, IGameHandler
         PlayerPrefs.DeleteAll();
         Home("HomeScreen");
     }
+
     public void SaveGameProgress()
     {
         PlayerPrefs.SetInt("SaveProgress", 1);

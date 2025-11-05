@@ -515,6 +515,7 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
             o1.moveable = false;
             o2.MarkStitched();
             o1.MarkStitched();
+            LevelsHandler.instance.currentLevelMeta.noOfStitchedPart++;
 
             points.Clear();
             var pointDetector = ServiceLocator.GetService<INeedleDetector>();
@@ -550,9 +551,7 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
         }
         var threadHandler = ServiceLocator.GetService<IThreadManager>();
         if(threadHandler != null)
-        {
             threadHandler.UpdateSpoolThreadLastPoint(0.1f);
-        }
     }
    
     public void DeleteAllThreadLinks()

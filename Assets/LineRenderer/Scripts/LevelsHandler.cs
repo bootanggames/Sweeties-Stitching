@@ -12,9 +12,9 @@ public class LevelsHandler : Singleton<LevelsHandler>, ILevelHandler
     {
         base.SingletonAwake();
         RegisterService();
-        levelIndex = PlayerPrefs.GetInt("Level");
-        currentLevelMeta = levels[levelIndex].GetComponent<Level_Metadata>();
-        SetLevel();
+
+        
+       
     }
     public override void SingletonOnDestroy()
     {
@@ -24,12 +24,17 @@ public class LevelsHandler : Singleton<LevelsHandler>, ILevelHandler
     public override void SingletonStart()
     {
         base.SingletonStart();
+     
         var gameHandler = ServiceLocator.GetService<IGameHandler>();
         if (gameHandler != null)
         {
             if(gameHandler.saveProgress)
                 LoadLastSavedProgress();
         }
+        levelIndex = PlayerPrefs.GetInt("Level");
+        currentLevelMeta = levels[levelIndex].GetComponent<Level_Metadata>();
+
+        SetLevel();
     }
     public void RegisterService()
     {
@@ -53,12 +58,14 @@ public class LevelsHandler : Singleton<LevelsHandler>, ILevelHandler
         if (connectionHandler != null) connectionHandler.DeleteAllThreadLinks();
 
         levelIndex = PlayerPrefs.GetInt("Level");
-
         levelIndex++;
         PlayerPrefs.DeleteAll();
 
         if (levelIndex >= levels.Count)
+        {
             levelIndex = 0;
+            levels[levelIndex].GetComponent<Level_Metadata>().ResetLevel();
+        }
 
         SetPref(levelIndex);
        currentLevelMeta = levels[levelIndex].GetComponent<Level_Metadata>();
@@ -80,16 +87,19 @@ public class LevelsHandler : Singleton<LevelsHandler>, ILevelHandler
             g.SetActive(false);
         }
         currentLevelMeta.gameObject.SetActive(true);
-        currentLevelMeta.ResetLevel();
     }
    
     void LoadLastSavedProgress()
     {
-        if(currentLevelMeta != null)
+        levelIndex = PlayerPrefs.GetInt("Level");
+        currentLevelMeta = levels[levelIndex].GetComponent<Level_Metadata>();
+        if (currentLevelMeta != null)
         {
             int stitchedCountOfCurrentLevel =  PlayerPrefs.GetInt("StitchedCount");
             currentLevelMeta.noOfLinks = stitchedCountOfCurrentLevel;
             currentLevelMeta.noOfStitchedPart = PlayerPrefs.GetInt("StitchedPartCount");
+            currentLevelMeta.Delay();
+            currentLevelMeta.CheckIfStitchedBeforeCompleteScreen();
         }
     }
 }

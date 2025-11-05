@@ -27,7 +27,7 @@ public class ObjectInfo : MonoBehaviour
     public List<Vector3> movedPositions;
     [SerializeField] GameObject cotton;
     [SerializeField] GameObject partWithHoles;
-    [SerializeField] GameObject partWithOutHoles;
+    public GameObject partWithOutHoles;
 
     [Header("----------------New Data------------------")]
     [SerializeField] GameObject pointPrefab;
@@ -43,60 +43,86 @@ public class ObjectInfo : MonoBehaviour
     {
         if (completeStitchTextObj != null)
             wrongSequenceAlert = completeStitchTextObj;
-
-        Invoke("CheckSaveProgress", 0.5f);
-    }
-    void CheckSaveProgress()
-    {
         var gameHandler = ServiceLocator.GetService<IGameHandler>();
         if (gameHandler != null)
         {
             if (gameHandler.saveProgress)
-                LoadSavedProgress();
-        }
-        CancelInvoke("CheckSaveProgress");
-    }
-    void LoadSavedProgress()
-    {
-        int stitched = PlayerPrefs.GetInt(partType.ToString() + "_IsStiched");
-        if (stitched == 1)
-        {
-            IsStitched = true;
-            noOfConnections = totalConnections;
-            if (LevelsHandler.instance)
             {
-                if (LevelsHandler.instance.currentLevelMeta)
+                int stitched = PlayerPrefs.GetInt(partType.ToString() + "_IsStiched");
+                if (stitched == 1)
                 {
-
-                    foreach (GameObject g in LevelsHandler.instance.currentLevelMeta.bodyParts)
-                    {
-                        if (partType.Equals(g.GetComponent<ObjectInfo>().partType))
-                        {
-                            if (partType.Equals(PlushieActiveStitchPart.neck))
-                                LevelsHandler.instance.currentLevelMeta.head.transform.position = movedPosition;
-                            else
-                            {
-                                if (partWithOutHoles == null)
-                                {
-                                    if (!movedPosition.Equals(Vector3.zero))
-                                        g.transform.position = movedPosition;
-                                }
-                                else
-                                {
-                                    partWithHoles.SetActive(false);
-                                    partWithOutHoles.SetActive(true);
-                                    if (cotton) cotton.SetActive(false);
-                                }
-
-                            }
-                        }
-                    }
+                    IsStitched = true;
+                    noOfConnections = totalConnections;
                 }
             }
-
-
+                
         }
+            
     }
+    //void CheckSaveProgress()
+    //{
+    //    var gameHandler = ServiceLocator.GetService<IGameHandler>();
+    //    if (gameHandler != null)
+    //    {
+    //        if (gameHandler.saveProgress)
+    //            LoadSavedProgress();
+    //    }
+    //    CancelInvoke("CheckSaveProgress");
+    //}
+    //void LoadSavedProgress()
+    //{
+    //    int stitched = PlayerPrefs.GetInt(partType.ToString() + "_IsStiched");
+    //    if (stitched == 1)
+    //    {
+    //        IsStitched = true;
+    //        noOfConnections = totalConnections;
+    //        if (LevelsHandler.instance)
+    //        {
+    //            if (LevelsHandler.instance.currentLevelMeta)
+    //            {
+    //                foreach (GameObject g in LevelsHandler.instance.currentLevelMeta.bodyParts)
+    //                {
+    //                    if (partType.Equals(g.GetComponent<ObjectInfo>().partType))
+    //                    {
+    //                        if (partType.Equals(PlushieActiveStitchPart.neck))
+    //                            LevelsHandler.instance.currentLevelMeta.head.transform.position = movedPosition;
+    //                        else
+    //                        {
+    //                            if (partWithOutHoles == null)
+    //                            {
+    //                                PartPositioning(g, movedPosition);
+    //                            }
+    //                            else
+    //                            {
+    //                                ChangePartsState(false);
+    //                            }
+
+    //                        }
+    //                    }
+    //                }
+    //            }
+    //        }
+
+
+    //    }
+    //}
+
+    public void PartPositioning(GameObject obj, Vector3 position)
+    {
+        if (!position.Equals(Vector3.zero))
+            obj.transform.position = position;
+    }
+    public void ChangePartsState(bool enable)
+    {
+        if (partWithHoles)
+        {
+            partWithHoles.SetActive(enable);
+            partWithHoles.GetComponent<SpriteRenderer>().enabled = enable;
+        }
+        if (cotton) cotton.SetActive(enable);
+        if(partWithOutHoles) partWithOutHoles.SetActive(!enable);
+    }
+
     //private void Start()
     //{
     //    SpawnPoints();
@@ -170,8 +196,7 @@ public class ObjectInfo : MonoBehaviour
     public void MarkStitched()
     {
         IsStitched = true;
-        if (cotton)
-            cotton.SetActive(false);
+        if (cotton) cotton.SetActive(false);
 
         PlayerPrefs.SetInt(partType.ToString()+"_IsStiched", 1);
 
@@ -205,7 +230,11 @@ public class ObjectInfo : MonoBehaviour
     void UpdateProgress()
     {
         DisableWellDoneText();
-
+        foreach(GameObject g in confettiObj)
+        {
+            Destroy(g);
+        }
+        confettiObj.Clear();
         SewPoint sp = null;
 
         IThreadManager threadManager = ServiceLocator.GetService<IThreadManager>();
@@ -280,14 +309,9 @@ public class ObjectInfo : MonoBehaviour
     {
         if (moveable) this.transform.position = startPosition;
         IsStitched = false;
-        if (partWithOutHoles) partWithOutHoles.SetActive(false);
-        if (partWithHoles)
-        {
-            partWithHoles.SetActive(true);
-            partWithHoles.GetComponent<SpriteRenderer>().enabled = true;
-        }
-        if (cotton) cotton.SetActive(true);
-
+        PlayerPrefs.SetInt(partType.ToString() + "_IsStiched", 0);
+        ChangePartsState(true);
+        noOfConnections = 0;
         foreach (SewPoint s in connectPoints)
         {
             s.connected = false;

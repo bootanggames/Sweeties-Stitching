@@ -59,54 +59,6 @@ public class ObjectInfo : MonoBehaviour
         }
             
     }
-    //void CheckSaveProgress()
-    //{
-    //    var gameHandler = ServiceLocator.GetService<IGameHandler>();
-    //    if (gameHandler != null)
-    //    {
-    //        if (gameHandler.saveProgress)
-    //            LoadSavedProgress();
-    //    }
-    //    CancelInvoke("CheckSaveProgress");
-    //}
-    //void LoadSavedProgress()
-    //{
-    //    int stitched = PlayerPrefs.GetInt(partType.ToString() + "_IsStiched");
-    //    if (stitched == 1)
-    //    {
-    //        IsStitched = true;
-    //        noOfConnections = totalConnections;
-    //        if (LevelsHandler.instance)
-    //        {
-    //            if (LevelsHandler.instance.currentLevelMeta)
-    //            {
-    //                foreach (GameObject g in LevelsHandler.instance.currentLevelMeta.bodyParts)
-    //                {
-    //                    if (partType.Equals(g.GetComponent<ObjectInfo>().partType))
-    //                    {
-    //                        if (partType.Equals(PlushieActiveStitchPart.neck))
-    //                            LevelsHandler.instance.currentLevelMeta.head.transform.position = movedPosition;
-    //                        else
-    //                        {
-    //                            if (partWithOutHoles == null)
-    //                            {
-    //                                PartPositioning(g, movedPosition);
-    //                            }
-    //                            else
-    //                            {
-    //                                ChangePartsState(false);
-    //                            }
-
-    //                        }
-    //                    }
-    //                }
-    //            }
-    //        }
-
-
-    //    }
-    //}
-
     public void PartPositioning(GameObject obj, Vector3 position)
     {
         if (!position.Equals(Vector3.zero))
@@ -122,13 +74,7 @@ public class ObjectInfo : MonoBehaviour
         if (cotton) cotton.SetActive(enable);
         if(partWithOutHoles) partWithOutHoles.SetActive(!enable);
     }
-
-    //private void Start()
-    //{
-    //    SpawnPoints();
-
-    //}
-    void UpdateNewPoint(Vector3 pos , Transform point)
+    void UpdateNewPoint(Vector3 pos, Transform point)
     {
         positions.Add(pos);
         generatedPoints.Add(point.GetComponent<SewPoint>());
@@ -136,6 +82,13 @@ public class ObjectInfo : MonoBehaviour
         SewPoint s = point.GetComponent<SewPoint>();
         s.ChangeText(generatedPoints.Count.ToString());
     }
+
+    //private void Start()
+    //{
+    //    SpawnPoints();
+
+    //}
+
     void SpawnPoints()
     {
         if (firstPoint == null) return;

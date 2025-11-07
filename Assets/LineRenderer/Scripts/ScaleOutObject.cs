@@ -44,5 +44,6 @@ public class ScaleOutObject : MonoBehaviour
         if (canvasHandler != null)
             canvasHandler.confettiEffectCanvas.SetActive(true);
         GameEvents.EffectHandlerEvents.onSewnCompletely.RaiseEvent();
+        tween.Kill();
     }
 }

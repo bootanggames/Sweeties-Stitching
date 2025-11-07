@@ -3,6 +3,7 @@ using UnityEngine;
 
 public interface IThreadManager : IGameService
 {
+    float zVal { get; }
     bool threadInput { get; }
     List<Transform> detectedPoints {  get;}
     void AddPositionToLineOnDrag(Vector2 pos);

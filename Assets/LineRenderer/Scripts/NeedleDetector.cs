@@ -18,15 +18,58 @@ public class NeedleDetector : MonoBehaviour, INeedleDetector
     {
         UnRegisterService();
     }
-    void Update()
-    {
-        DetectPoints();
-    }
+    //void Update()
+    //{
+    //    DetectPoints();
+    //}
     void SetRadiusValue(float val)
     {
         detectionRadius = val;
     }
-  
+    private void OnTriggerEnter(Collider other)
+    {
+        
+    }
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.CompareTag("StitchPoint"))
+        {
+            if (!detect) return;
+            SewPoint sewPoint = other.GetComponent<SewPoint>();
+            if (sewPoint.IsSelected()) return;
+            if (sewPoint.connected) return;
+            sewPoint.Selected(true);
+
+            sewPoint.GetComponent<Collider>().enabled = false;
+            sewPoint.name = sewPoint.transform.parent.name + "_sew_" + sewPoint.name;
+            PlaySound();
+            sewPoint.ChangeTextColor(Color.green);
+            GameEvents.EffectHandlerEvents.onSelectionEffect.RaiseEvent(sewPoint.transform);
+            GameEvents.ThreadEvents.onCreatingConnection.RaiseEvent(sewPoint);
+
+            if (!pointsDetected.Contains(sewPoint))
+                pointsDetected.Add(sewPoint);
+            var pointsHandler = ServiceLocator.GetService<IPointConnectionHandler>();
+
+            if (pointsHandler != null)
+            {
+                if (pointsDetected.Count > 0)
+                {
+                    if (pointsDetected.Count % 2 == 0)
+                    {
+                        var threadHandler = ServiceLocator.GetService<IThreadManager>();
+                        if (threadHandler != null)
+                            threadHandler.ScaleDownAllPoints();
+                    }
+                }
+            }
+
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        
+    }
     void DetectPoints()
     {
         if (!detect) return;
@@ -74,13 +117,13 @@ public class NeedleDetector : MonoBehaviour, INeedleDetector
         SoundManager.instance.PlaySound(_source, _clip, false, false, 1, false);
         HepticManager.instance.HapticEffect();
     }
-    private void OnDrawGizmos()
-    {
-        if (needleTransform == null) return;
+    //private void OnDrawGizmos()
+    //{
+    //    if (needleTransform == null) return;
 
-        Gizmos.color = Color.black;
-        Gizmos.DrawWireSphere(needleTransform.position, detectionRadius);
-    }
+    //    Gizmos.color = Color.black;
+    //    Gizmos.DrawWireSphere(needleTransform.position, detectionRadius);
+    //}
 
     public void RegisterService()
     {

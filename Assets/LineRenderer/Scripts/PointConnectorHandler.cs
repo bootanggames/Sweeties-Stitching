@@ -388,6 +388,14 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
                         info1.transform.DOMove(info1.movedPosition, 0.5f).SetEase(Ease.Linear).OnUpdate(() =>
                         {
                             UpdateConnections();
+                            var threadHandler = ServiceLocator.GetService<IThreadManager>();
+                            if (threadHandler != null)
+                            {
+                                if (threadHandler.prevLine)
+                                    threadHandler.prevLine.SetPosition(0, threadHandler.detectedPoints[0].position);
+                                if (threadHandler.instantiatedLine)
+                                    threadHandler.instantiatedLine.SetPosition(threadHandler.instantiatedLine.positionCount - 1, sp1.transform.position);
+                            }
                         }).OnComplete(() =>
                         {
                             SewPoint sp1 = p1.GetComponent<SewPoint>();
@@ -444,6 +452,14 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
                         info2.transform.DOMove(info2.movedPosition, 0.5f).SetEase(Ease.Linear).OnUpdate(() =>
                         {
                             UpdateConnections();
+                            var threadHandler = ServiceLocator.GetService<IThreadManager>();
+                            if (threadHandler != null)
+                            {
+                                if (threadHandler.prevLine)
+                                    threadHandler.prevLine.SetPosition(0, threadHandler.detectedPoints[0].position);
+                                if (threadHandler.instantiatedLine)
+                                    threadHandler.instantiatedLine.SetPosition(threadHandler.instantiatedLine.positionCount - 1, sp2.transform.position);
+                            }
 
                         }).OnComplete(() =>
                         {
@@ -549,9 +565,9 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
         {
             connections[i].UpdateLine(zVal, false);
         }
-        var threadHandler = ServiceLocator.GetService<IThreadManager>();
-        if(threadHandler != null)
-            threadHandler.UpdateSpoolThreadLastPoint(0.1f);
+        //var threadHandler = ServiceLocator.GetService<IThreadManager>();
+        //if(threadHandler != null)
+        //    threadHandler.UpdateSpoolThreadLastPoint(0.1f);
     }
    
     public void DeleteAllThreadLinks()

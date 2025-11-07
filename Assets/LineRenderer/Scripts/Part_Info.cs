@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class Part_Info : MonoBehaviour
 {
+    
+
     public  List<GameObject> joints;
 
     public void EnableJoint(PlushieActiveStitchPart partType, bool val)
@@ -10,13 +12,16 @@ public class Part_Info : MonoBehaviour
         foreach(GameObject g in joints)
         {
             ObjectInfo o_Info = g.GetComponent<ObjectInfo>();
-            if (o_Info.partType.Equals(partType))
+            if (o_Info != null)
             {
-               foreach(SewPoint s in o_Info.connectPoints)
+                if (o_Info.partType.Equals(partType))
                 {
-                    s.gameObject.SetActive(val);
+                    foreach (SewPoint s in o_Info.connectPoints)
+                    {
+                        s.gameObject.SetActive(val);
+                    }
                 }
-            } 
+            }
         } 
     }
 }

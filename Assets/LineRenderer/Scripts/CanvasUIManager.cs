@@ -22,7 +22,7 @@ public class CanvasUIManager : MonoBehaviour, ICanvasUIManager
     private void Start()
     {
         RegisterService();
-        startText.SetActive(true);
+        //startText.SetActive(true);
     }
     private void OnDisable()
     {

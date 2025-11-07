@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 
 public class Level_Metadata : MonoBehaviour
@@ -9,16 +10,17 @@ public class Level_Metadata : MonoBehaviour
     public int noOfLinks;
     public PlushieActiveStitchPart plushieActivePartToStitch;
     public List<GameObject> bodyParts;
-    int partIndex = 0;
+    //int partIndex = 0;
     public Part_Info head;
     public GameObject immoveablePart;
     public GameObject bodyWihtoutHoles;
 
     public int totalStitchedPart;
     public int noOfStitchedPart;
+    [SerializeField]ObjectInfo current_ObjectInfor = null;
 
     [SerializeField] LevelDivision levelDivision;
-    [SerializeField] SequenceType sequenceType;
+    [SerializeField]SequenceType sequenceType;
 
     [SerializeField] Transform neckCamera;
     [SerializeField] Transform leftEyeCamera;
@@ -62,7 +64,8 @@ public class Level_Metadata : MonoBehaviour
         foreach (SewPoint s in points)
         {
             //s.GetComponent<Collider>().enabled = val;
-            s.gameObject.SetActive(val);
+            if(s!=null)
+                s.gameObject.SetActive(val);
         }
     }
     void GetAllPartsObjects(List<GameObject> parts)
@@ -70,14 +73,16 @@ public class Level_Metadata : MonoBehaviour
         foreach (GameObject g in parts)
         {
             ObjectInfo o = g.GetComponent<ObjectInfo>();
-            EnableDisableSewPoints(o.connectPoints, false);
+            if(o!=null)
+                EnableDisableSewPoints(o.connectPoints, false);
         }
     }
     void HandlerPointsEnableDisable()
     {
         GetAllPartsObjects(bodyParts);
         GetAllPartsObjects(head.joints);
-        GetAllPartsObjects(immoveablePart.GetComponent<Part_Info>().joints);
+        if(immoveablePart.GetComponent<Part_Info>())
+            GetAllPartsObjects(immoveablePart.GetComponent<Part_Info>().joints);
     }
     public ObjectInfo GetObjectInfoOfCurrentUnstitchedPart(List<GameObject> list)
     {
@@ -96,29 +101,28 @@ public class Level_Metadata : MonoBehaviour
     }
     public void StartLevel() 
     {
-        ObjectInfo currentPartInfor = null;
+        //ObjectInfo currentPartInfor = null;
         ObjectInfo currentConnectedPartInfor = null;
         ObjectInfo neck = bodyParts[0].GetComponent<ObjectInfo>();
         if (neck.IsStitched)
-            currentPartInfor = GetObjectInfoOfCurrentUnstitchedPart(levelDivision.rightSide);
+            current_ObjectInfor = GetObjectInfoOfCurrentUnstitchedPart(levelDivision.rightSide);
         else
-            currentPartInfor = neck;
-        if (currentPartInfor != null)
+            current_ObjectInfor = neck;
+        if (current_ObjectInfor != null)
         {
-            levelDivision.rightSideIndex = levelDivision.rightSide.IndexOf(currentPartInfor.gameObject) + 1;
-            if (currentPartInfor.partConnectedTo.Equals(PartConnectedTo.head))
+            levelDivision.rightSideIndex = levelDivision.rightSide.IndexOf(current_ObjectInfor.gameObject) + 1;
+            if (current_ObjectInfor.partConnectedTo.Equals(PartConnectedTo.head))
                 currentConnectedPartInfor = GetObjectInfoOfCurrentUnstitchedPart(head.joints);
             else
                 currentConnectedPartInfor = GetObjectInfoOfCurrentUnstitchedPart(immoveablePart.GetComponent<Part_Info>().joints);
-            NextPartActivation(true, SequenceType.none, currentPartInfor, currentConnectedPartInfor);
+            NextPartActivation(true, SequenceType.none, currentConnectedPartInfor);
         }
         else
-            NextPartActivation(true, SequenceType.none, null, null);
+            NextPartActivation(true, SequenceType.none, null);
 
     }
-    ObjectInfo current_ObjectInfor = null;
 
-    void NextPartActivation(bool start, SequenceType sequence, ObjectInfo currentPart, ObjectInfo connectedTo)
+    void NextPartActivation(bool start, SequenceType sequence, ObjectInfo connectedTo)
     {
         var needleDetecto = ServiceLocator.GetService<INeedleDetector>();
         if (needleDetecto != null)
@@ -134,13 +138,9 @@ public class Level_Metadata : MonoBehaviour
 
             levelDivision.rightSideIndex++;
         }
-        else
-        {
-            if(currentPart == null && connectedTo == null)
-                current_ObjectInfor = bodyParts[0].GetComponent<ObjectInfo>();
-            else
-                current_ObjectInfor = currentPart;
-        }
+        if(current_ObjectInfor == null)
+            current_ObjectInfor = bodyParts[0].GetComponent<ObjectInfo>();
+
         EnableDisableSewPoints(current_ObjectInfor.connectPoints, true);
         if (current_ObjectInfor.partConnectedTo.Equals(PartConnectedTo.body))
             p2_Info.EnableJoint(current_ObjectInfor.partType, true);
@@ -150,7 +150,7 @@ public class Level_Metadata : MonoBehaviour
 
         CameraFocus(current_ObjectInfor.partType);
         Invoke("EnableDetection", 0.15f);
-        partIndex++;
+        //partIndex++;
     }
 
     IEnumerator CheckProgress(ObjectInfo o_info)
@@ -196,7 +196,7 @@ public class Level_Metadata : MonoBehaviour
         else
         {
           
-            NextPartActivation(false, sequence, null, null);
+            NextPartActivation(false, sequence, null);
         }
     }
     void WinEffect()
@@ -291,7 +291,6 @@ public class Level_Metadata : MonoBehaviour
                 }
             }
         }
-       
     }
    
     void ResetEveryPart(List<GameObject> parts)
@@ -365,5 +364,59 @@ public class Level_Metadata : MonoBehaviour
             LevelsHandler.instance.SetPref(leveCount);
             LevelsHandler.instance.SetLevel();
         }
+    }
+
+    public void ResetNeedlePosition(PlushieActiveStitchPart currentActivePart)
+    {
+        var needlePos = ServiceLocator.GetService<INeedleResetPositions>();
+        if (needlePos != null )
+        {
+            switch (currentActivePart)
+            {
+                case PlushieActiveStitchPart.neck:
+                    ResetNeedleAndThread(needlePos.headNeedleResetPos);
+                    break;
+                case PlushieActiveStitchPart.righteye:
+                    ResetNeedleAndThread(needlePos.eyeRightNeedleResetPos);
+                    break;
+                case PlushieActiveStitchPart.lefteye:
+                    ResetNeedleAndThread(needlePos.eyeLeftNeedleResetPos);
+                    break;
+                case PlushieActiveStitchPart.rightear:
+                    ResetNeedleAndThread(needlePos.earRightNeedleResetPos);
+                    break;
+                case PlushieActiveStitchPart.leftear:
+                    ResetNeedleAndThread(needlePos.earLeftNeedleResetPos);
+                    break;
+                case PlushieActiveStitchPart.rightarm:
+                    ResetNeedleAndThread(needlePos.armRightNeedleResetPos);
+                    break;
+                case PlushieActiveStitchPart.leftarm:
+                    ResetNeedleAndThread(needlePos.armLeftNeedleResetPos);
+                    break;
+                case PlushieActiveStitchPart.rightleg:
+                    ResetNeedleAndThread(needlePos.legRightNeedleResetPos);
+                    break;
+                case PlushieActiveStitchPart.leftleg:
+                    ResetNeedleAndThread(needlePos.legLeftNeedleResetPos);
+                    break;
+            }
+        }
+        
+    }
+
+    void ResetNeedleAndThread(Transform transform)
+    {
+        var threadHandler = ServiceLocator.GetService<IThreadManager>();
+        Vector3 threadPos = Vector3.zero;
+
+        if (threadHandler != null && threadHandler.instantiatedLine != null)
+        {
+            GameEvents.NeedleEvents.OnNeedleMovement.RaiseEvent(transform.position);
+            threadPos = transform.position;
+            threadPos.z = threadHandler.zVal;
+            threadHandler.instantiatedLine.SetPosition(0, threadPos);
+        }
+       
     }
 }

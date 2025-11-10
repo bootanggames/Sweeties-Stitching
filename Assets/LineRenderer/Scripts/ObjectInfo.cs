@@ -261,17 +261,34 @@ public class ObjectInfo : MonoBehaviour
     public void ResetPart()
     {
         if (moveable) this.transform.position = startPosition;
+
+        foreach(GameObject g in confettiObj)
+        {
+            Destroy(g);
+        }
+        confettiObj.Clear();
+        confettiIndex = 0;
         IsStitched = false;
         PlayerPrefs.SetInt(partType.ToString() + "_IsStiched", 0);
         ChangePartsState(true);
         noOfConnections = 0;
-        foreach (SewPoint s in connectPoints)
+        var connectHandler = ServiceLocator.GetService<IPointConnectionHandler>();
+        if (connectHandler != null)
         {
-            s.connected = false;
-            if(s.pointMesh) s.pointMesh.enabled = true;
-            s.gameObject.SetActive(true);
-            s.ChangeTextColor(Color.white);
-            s.GetComponent<Collider>().enabled = true;
+            foreach (SewPoint s in connectPoints)
+            {
+                s.connected = false;
+                s.Selected(false);
+                if (s.pointMesh)
+                {
+                    s.pointMesh.enabled = true;
+                    s.pointMesh.material = connectHandler.originalMaterial;
+                }
+                s.gameObject.SetActive(true);
+                s.ChangeTextColor(Color.white);
+                s.GetComponent<Collider>().enabled = true;
+            }
         }
+            
     }
 }

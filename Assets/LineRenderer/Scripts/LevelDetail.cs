@@ -13,6 +13,7 @@ public class LevelDetail : MonoBehaviour
 
     private void Start()
     {
-        levelNumber.text = (id+1)+"/"+LevelsHandler.instance.levels.Count;
+        if(LevelsHandler.instance)
+            levelNumber.text = (id+1)+"/"+LevelsHandler.instance.levels.Count;
     }
 }

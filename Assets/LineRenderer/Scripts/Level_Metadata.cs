@@ -10,14 +10,14 @@ public class Level_Metadata : MonoBehaviour
     public int noOfLinks;
     public PlushieActiveStitchPart plushieActivePartToStitch;
     public List<GameObject> bodyParts;
-    //int partIndex = 0;
     public Part_Info head;
     public GameObject immoveablePart;
     public GameObject bodyWihtoutHoles;
+    public GameObject sewnPlushie;
 
     public int totalStitchedPart;
     public int noOfStitchedPart;
-    [SerializeField]ObjectInfo current_ObjectInfor = null;
+    ObjectInfo current_ObjectInfor = null;
 
     [SerializeField] LevelDivision levelDivision;
     [SerializeField]SequenceType sequenceType;
@@ -37,12 +37,14 @@ public class Level_Metadata : MonoBehaviour
     public Sprite plushieSprite;
     private void Start()
     {
+        LevelInitialisation();
+    }
+   public void LevelInitialisation()
+    {
         HandlerPointsEnableDisable();
         RepositionCameras();
         UpdateAllStitchesOfPlushie();
-
     }
-   
     void RepositionCameras()
     {
         var cameraHandler = ServiceLocator.GetService<ICameraManager>();
@@ -298,13 +300,10 @@ public class Level_Metadata : MonoBehaviour
         foreach (GameObject g in parts)
         {
             ObjectInfo o_Info = g.GetComponent<ObjectInfo>();
-            if (!o_Info.head)
-                o_Info.ResetPart();
-            else
-            {
+            if (o_Info.head)
                 head.transform.position = o_Info.startPosition;
-                o_Info.ResetPart();
-            }
+
+            o_Info.ResetPart();
         }
     }
     public void ResetLevel()

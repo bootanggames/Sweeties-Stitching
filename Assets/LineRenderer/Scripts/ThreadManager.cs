@@ -249,7 +249,6 @@ public class ThreadManager : MonoBehaviour, IThreadManager
 
         SmoothThreadBackward(positions, minDistanceBetweenSewPoints, lerpSpeed);
         line.SetPositions(positions);
-        Debug.LogError("respotion" + line.name);
 
     }
     void CreateLineAndApplyPullForceOnConnection(SewPoint point)
@@ -374,7 +373,6 @@ public class ThreadManager : MonoBehaviour, IThreadManager
                     if (connectHandler.wrongConnectPoint.Contains(s))
                         connectHandler.wrongConnectPoint.Remove(s);
                     connectHandler.UpdateColorOfPoints();
-                    
                 }
 
                 if ((detectedPoints.Count - 1) > 0)
@@ -399,7 +397,8 @@ public class ThreadManager : MonoBehaviour, IThreadManager
                         {
                             if (s2.startFlag || s2.connected)
                             {
-                                s1.pointMesh.material = connectHandler.correctPointMaterial;
+                                if(s2.transform.parent.parent.parent != s1.transform.parent.parent.parent)
+                                    s1.pointMesh.material = connectHandler.correctPointMaterial;
                             }
                         }
                     }

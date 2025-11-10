@@ -126,6 +126,20 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
                 {
                     if (lastPoint.startFlag)
                         lastPoint.pointMesh.material = correctPointMaterial;
+                    else
+                    {
+                        if(points.Count > 0)
+                        {
+                            SewPoint startPoint = points[0];
+                            if (startPoint.startFlag)
+                            {
+                                if(startPoint.transform.parent == lastPoint.transform.parent)
+                                    lastPoint.pointMesh.material = wrongPointMaterial;
+                            }
+
+
+                        }
+                    }
                 }
             }
            
@@ -527,8 +541,6 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
         if (o1.noOfConnections.Equals(o1.totalConnections) && o2.noOfConnections.Equals(o2.totalConnections))
         {
 
-            o2.moveable = false;
-            o1.moveable = false;
             o2.MarkStitched();
             o1.MarkStitched();
             LevelsHandler.instance.currentLevelMeta.noOfStitchedPart++;

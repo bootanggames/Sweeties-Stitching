@@ -3,9 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class CoinsHandler : MonoBehaviour,ICoinsHandler
 {
+    [SerializeField] GameObject coinBar;
     [SerializeField] TextMeshProUGUI coinsTextBox;
     [SerializeField] int totalCoins;
     [SerializeField] GameObject coinPrefab;
@@ -16,9 +18,11 @@ public class CoinsHandler : MonoBehaviour,ICoinsHandler
     [SerializeField] Transform targetPointToMove;
     [SerializeField] float coinMoveSpeed;
     Tween coinMoveTween = null;
+    Tween coinScaleTween = null;
     [SerializeField] TextMeshProUGUI coinsEarned;
     int coinsRewarded = 0;
     [SerializeField] Vector3 targetScaleDown;
+    [SerializeField] AudioSource audioSource;
     private void Start()
     {
         totalCoins = PlayerPrefs.GetInt("Coins");
@@ -64,28 +68,46 @@ public class CoinsHandler : MonoBehaviour,ICoinsHandler
         coinsEarned.text = coinsRewarded.ToString();
     }
     Sequence seq;
+    Sequence coinSeq;
+
     public IEnumerator MoveCoins()
     {
-        coinMoveTween.Kill();
-        coinMoveTween = null;
-        Sequence coinSeq = DOTween.Sequence();
-
+      
+        coinSeq = DOTween.Sequence();
         for (int i = 0; i < coinsObjList.Count; i++)
         {
+            GameObject coinObj = coinsObjList[i];
+
             yield return new WaitForSeconds(0.015f);
-            coinSeq.Join(GameEvents.DoTweenAnimationHandlerEvents.onMoveToTargetAnimation.Raise(coinsObjList[i].transform, targetPointToMove, coinMoveSpeed, Ease.InOutBack));
-            coinSeq.Join(GameEvents.DoTweenAnimationHandlerEvents.onScaleTransform.Raise(coinsObjList[i].transform, targetScaleDown, coinMoveSpeed, Ease.Linear));
-            
-            coinMoveTween = coinSeq;
+            coinMoveTween = GameEvents.DoTweenAnimationHandlerEvents.onMoveToTargetAnimation.Raise(coinObj.transform, targetPointToMove, coinMoveSpeed, Ease.InOutBack);
+            coinScaleTween = GameEvents.DoTweenAnimationHandlerEvents.onScaleTransform.Raise(coinObj.transform, targetScaleDown, coinMoveSpeed, Ease.Linear);
+            //coinSeq.Join(coinMoveTween);
+            //coinSeq.Join(coinScaleTween);
+
             coinMoveTween.OnComplete(() =>
             {
                 SaveCoins(1);
+                PlayCoinSound();
+                Vector3 target = new Vector3(1.2f, 1.2f, 1.2f);
+                Tween bar = GameEvents.DoTweenAnimationHandlerEvents.onScaleTransform.Raise(coinBar.transform, target, 0.1f, Ease.InOutFlash);
+                bar.OnComplete(() =>
+                {
+                    bar.Kill();
+                    bar = null;
+                    bar = GameEvents.DoTweenAnimationHandlerEvents.onScaleTransform.Raise(coinBar.transform, Vector3.one, 0.1f, Ease.InOutFlash);
+                });
+       
             });
         }
   
         StopCoroutine(MoveCoins());
     }
 
+    void PlayCoinSound()
+    {
+        audioSource.Stop();
+        SoundManager.instance.PlaySound(audioSource, SoundManager.instance.audioClips.coinCollection, false, false, 1, false);
+    }
     public void ResetCoinList()
     {
         foreach(GameObject c in coinsObjList)

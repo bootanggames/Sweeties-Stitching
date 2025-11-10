@@ -14,6 +14,11 @@ public class ScaleOutObject : MonoBehaviour
     }
     void ScaleOut()
     {
+        if (tween != null && tween.IsActive())
+        {
+            tween.Kill();
+            tween = null;
+        }
         tween = GameEvents.DoTweenAnimationHandlerEvents.onScaleTransform.Raise(this.transform, targetScale, speed, ease);
         if (tween != null)
         {
@@ -43,7 +48,28 @@ public class ScaleOutObject : MonoBehaviour
         var canvasHandler = ServiceLocator.GetService<ICanvasUIManager>();
         if (canvasHandler != null)
             canvasHandler.confettiEffectCanvas.SetActive(true);
-        GameEvents.EffectHandlerEvents.onSewnCompletely.RaiseEvent();
+
+        LevelsHandler.instance.currentLevelMeta.gameObject.SetActive(false);
+        LevelsHandler.instance.currentLevelMeta.sewnPlushie.SetActive(true);
+        PlaySewnSound();
         tween.Kill();
+        tween = null;
+
+        tween = GameEvents.DoTweenAnimationHandlerEvents.onScaleTransform.Raise(this.transform, Vector3.zero, speed, ease);
+        if (tween != null)
+        {
+            tween.OnComplete(() =>
+            {
+                GameEvents.EffectHandlerEvents.onSewnCompletely.RaiseEvent();
+            });
+        }
+    }
+    void PlaySewnSound()
+    {
+        SoundManager.instance.ResetAudioSource();
+
+        AudioSource _source = SoundManager.instance.audioSource;
+        AudioClip _clip = SoundManager.instance.audioClips.completed;
+        SoundManager.instance.PlaySound(_source, _clip, false, false, 1, false);
     }
 }

@@ -55,9 +55,18 @@ public class EffectsHandler : MonoBehaviour
     {
         StartCoroutine(EnableEffect());
     }
+
+    void DisableAllConfetti()
+    {
+        foreach (ParticleSystem p in confettiEffect)
+        {
+            p.gameObject.SetActive(false);
+        }
+        confettiIndex = 0;
+    }
     IEnumerator EnableEffect()
     {
-        if(confettiIndex < confettiEffect.Length)
+        if (confettiIndex < confettiEffect.Length)
         {
             confettiEffect[confettiIndex].gameObject.SetActive(true);
             confettiEffect[confettiIndex].Play();
@@ -65,9 +74,13 @@ public class EffectsHandler : MonoBehaviour
         yield return new WaitForSeconds(0.15f);
         confettiIndex++;
         StopCoroutine(EnableEffect());
-        if(confettiIndex <= (confettiEffect.Length - 1))
+        if (confettiIndex <= (confettiEffect.Length - 1))
             StartCoroutine(EnableEffect());
         else
+        {
+            DisableAllConfetti();
             GameEvents.GameCompleteEvents.onGameComplete.RaiseEvent();
+
+        }
     }
 }

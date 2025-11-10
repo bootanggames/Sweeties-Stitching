@@ -58,13 +58,15 @@ public class GameCompleteHandler : MonoBehaviour, IGameService
     void GameComplete()
     {
         GameEvents.ThreadEvents.setThreadInput.RaiseEvent(false);
-
-        plushieOfCurrentLevel.sprite = LevelsHandler.instance.currentLevelMeta.plushieSprite;
+        if (LevelsHandler.instance)
+        {
+            plushieOfCurrentLevel.sprite = LevelsHandler.instance.currentLevelMeta.plushieSprite;
+            levelProgress.text = (LevelsHandler.instance.levelIndex + 1) + "/3 Till Level 5";
+        }
         var plushieInventory = ServiceLocator.GetService<IPlushieStoreHandler>();
         if (plushieInventory != null)
             plushieInventory.GetPlushieCountUI();
 
-        levelProgress.text = (LevelsHandler.instance.levelIndex + 1) + "/3 Till Level 5";
         var coinsHandler = ServiceLocator.GetService<ICoinsHandler>();
         var canvasHandler = ServiceLocator.GetService<ICanvasUIManager>();
         if(canvasHandler != null)

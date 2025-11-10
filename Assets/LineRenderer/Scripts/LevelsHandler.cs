@@ -12,9 +12,6 @@ public class LevelsHandler : Singleton<LevelsHandler>, ILevelHandler
     {
         base.SingletonAwake();
         RegisterService();
-
-        
-       
     }
     public override void SingletonOnDestroy()
     {
@@ -58,15 +55,16 @@ public class LevelsHandler : Singleton<LevelsHandler>, ILevelHandler
         if (connectionHandler != null) connectionHandler.DeleteAllThreadLinks();
 
         levelIndex = PlayerPrefs.GetInt("Level");
+        levels[levelIndex].GetComponent<Level_Metadata>().sewnPlushie.SetActive(false);
+
         levelIndex++;
         PlayerPrefs.DeleteAll();
 
         if (levelIndex >= levels.Count)
-        {
             levelIndex = 0;
-            levels[levelIndex].GetComponent<Level_Metadata>().ResetLevel();
-        }
-
+        levels[levelIndex].SetActive(true);
+        levels[levelIndex].GetComponent<Level_Metadata>().ResetLevel();
+        levels[levelIndex].GetComponent<Level_Metadata>().LevelInitialisation();
         SetPref(levelIndex);
        currentLevelMeta = levels[levelIndex].GetComponent<Level_Metadata>();
 
@@ -75,6 +73,7 @@ public class LevelsHandler : Singleton<LevelsHandler>, ILevelHandler
         {
             canvasHandler.startText.transform.localScale = Vector3.zero;
             canvasHandler.startText.SetActive(true);
+            canvasHandler.stitchProgress.text = "0% Done";
             canvasHandler.stitchCountText.text = currentLevelMeta.noOfLinks + " OF " + currentLevelMeta.totalCorrectLinks;
         }
         

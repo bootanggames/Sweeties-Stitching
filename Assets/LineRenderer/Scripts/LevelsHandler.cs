@@ -59,7 +59,11 @@ public class LevelsHandler : Singleton<LevelsHandler>, ILevelHandler
 
         levelIndex++;
         PlayerPrefs.DeleteAll();
-
+        for(int i=0;i <= (levelIndex - 1);i++)
+        {
+            string completedLevelName = levels[i].GetComponent<Level_Metadata>().levelName;
+            PlayerPrefs.SetInt(completedLevelName, 1);
+        }
         if (levelIndex >= levels.Count)
             levelIndex = 0;
         levels[levelIndex].SetActive(true);

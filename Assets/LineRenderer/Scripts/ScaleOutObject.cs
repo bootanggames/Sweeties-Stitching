@@ -71,5 +71,6 @@ public class ScaleOutObject : MonoBehaviour
         AudioSource _source = SoundManager.instance.audioSource;
         AudioClip _clip = SoundManager.instance.audioClips.completed;
         SoundManager.instance.PlaySound(_source, _clip, false, false, 1, false);
+        HepticManager.instance.HapticEffect();
     }
 }

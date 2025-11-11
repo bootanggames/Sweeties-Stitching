@@ -67,13 +67,8 @@ public class CoinsHandler : MonoBehaviour,ICoinsHandler
         coinsRewarded = LevelsHandler.instance.currentLevelMeta.levelReward;
         coinsEarned.text = coinsRewarded.ToString();
     }
-    Sequence seq;
-    Sequence coinSeq;
-
     public IEnumerator MoveCoins()
     {
-      
-        coinSeq = DOTween.Sequence();
         for (int i = 0; i < coinsObjList.Count; i++)
         {
             GameObject coinObj = coinsObjList[i];
@@ -81,8 +76,6 @@ public class CoinsHandler : MonoBehaviour,ICoinsHandler
             yield return new WaitForSeconds(0.015f);
             coinMoveTween = GameEvents.DoTweenAnimationHandlerEvents.onMoveToTargetAnimation.Raise(coinObj.transform, targetPointToMove, coinMoveSpeed, Ease.InOutBack);
             coinScaleTween = GameEvents.DoTweenAnimationHandlerEvents.onScaleTransform.Raise(coinObj.transform, targetScaleDown, coinMoveSpeed, Ease.Linear);
-            //coinSeq.Join(coinMoveTween);
-            //coinSeq.Join(coinScaleTween);
 
             coinMoveTween.OnComplete(() =>
             {
@@ -107,6 +100,7 @@ public class CoinsHandler : MonoBehaviour,ICoinsHandler
     {
         audioSource.Stop();
         SoundManager.instance.PlaySound(audioSource, SoundManager.instance.audioClips.coinCollection, false, false, 1, false);
+        HepticManager.instance.HapticEffect();
     }
     public void ResetCoinList()
     {

@@ -1,10 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Threading;
 using UnityEngine;
 
 public class Level_Metadata : MonoBehaviour
 {
+    public string levelName;
     public int levelReward = 0;
     public int totalCorrectLinks;
     public int noOfLinks;
@@ -182,6 +182,7 @@ public class Level_Metadata : MonoBehaviour
         
         if (noOfStitchedPart.Equals(totalStitchedPart))
         {
+            Time.timeScale = 1.2f;
             var cameraManager = ServiceLocator.GetService<ICameraManager>();
             if (cameraManager != null)
                 GameEvents.CameraManagerEvents.onAddingCamera.RaiseEvent(cameraManager.gameCompleteCamera);
@@ -191,6 +192,7 @@ public class Level_Metadata : MonoBehaviour
                 bodyWihtoutHoles.SetActive(true);
                 immoveablePart.GetComponent<SpriteRenderer>().enabled = false;
             }
+            
             GameHandler.instance.SwitchGameState(GameStates.Gamecomplete);
 
             Invoke("WinEffect", 2.0f);
@@ -203,6 +205,8 @@ public class Level_Metadata : MonoBehaviour
     }
     void WinEffect()
     {
+        Time.timeScale = 1.0f;
+
         var canvasHandler = ServiceLocator.GetService<ICanvasUIManager>();
         if(canvasHandler != null)
             canvasHandler.sewnScreen.SetActive(true);

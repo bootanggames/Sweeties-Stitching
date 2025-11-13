@@ -3,9 +3,11 @@ using UnityEngine;
 
 public class LevelsHandler : Singleton<LevelsHandler>, ILevelHandler
 {
-    [field:SerializeField] public List<GameObject> levels {  get; private set; }
+    [field:SerializeField] public List<LevelStructure> levelStructure {  get; private set; }
+    //[field:SerializeField] public List<GameObject> levels {  get; private set; }
     [field: SerializeField] public int levelIndex { get; private set; }
-
+    [field: SerializeField] public int plushieIndex { get; private set; }
+    public LevelStructure currentLevelData { get; private set; }
     public Level_Metadata currentLevelMeta { get; private set; }
 
     public override void SingletonAwake()
@@ -27,10 +29,13 @@ public class LevelsHandler : Singleton<LevelsHandler>, ILevelHandler
         {
             if(gameHandler.saveProgress)
                 LoadLastSavedProgress();
+            else
+                PlayerPrefs.SetInt("StitchedCount", 0);
         }
         levelIndex = PlayerPrefs.GetInt("Level");
-        currentLevelMeta = levels[levelIndex].GetComponent<Level_Metadata>();
-
+        currentLevelData = levelStructure[levelIndex];
+        plushieIndex = PlayerPrefs.GetInt("Plushie");
+        currentLevelMeta = currentLevelData.plushie[plushieIndex];
         SetLevel();
     }
     public void RegisterService()
@@ -46,6 +51,71 @@ public class LevelsHandler : Singleton<LevelsHandler>, ILevelHandler
     {
         PlayerPrefs.SetInt("Level", val);
     }
+    public void SetLevelPlushiePref(int val)
+    {
+        PlayerPrefs.SetInt("Plushie", val);
+    }
+    public void GetCurrentLevel()
+    {
+        int level = PlayerPrefs.GetInt("Level");
+        int plushieIndex = PlayerPrefs.GetInt("Plushie");
+    }
+
+    public void UpdatePlushieInventory(int l_index, int totalCompletedPlushie)
+    {
+        for (int i = 0; i <= totalCompletedPlushie; i++)
+        {
+            string completedLevelName = levelStructure[l_index].plushie[i].levelName;
+            if (PlayerPrefs.HasKey(completedLevelName))
+            {
+                int val = PlayerPrefs.GetInt(completedLevelName);
+                if (val <= 0)
+                    PlayerPrefs.SetInt(completedLevelName, 1);
+            }
+            else
+                PlayerPrefs.SetInt(completedLevelName, 1);
+
+            //Debug.LogError("updated " + completedLevelName);
+        }
+    }
+    public void LevelIncrementProcess()
+    {
+        PlayerPrefs.SetInt("SaveProgress", 0);
+
+        plushieIndex = PlayerPrefs.GetInt("Plushie");
+        levelIndex = PlayerPrefs.GetInt("Level");
+        if (plushieIndex < levelStructure[levelIndex].plushie.Length)
+            plushieIndex++;
+
+        // for plushie inventory update
+        //UpdatePlushieInventory(levelIndex,(plushieIndex - 1));
+        //
+
+        if (plushieIndex >= levelStructure[levelIndex].plushie.Length)
+        {
+            levelIndex++;
+            plushieIndex = 0;
+            if (levelIndex >= levelStructure.Count)
+            {
+                levelIndex = 0;
+                plushieIndex = 0;
+                levelStructure[levelIndex].completed = false;
+            }
+            else
+                levelStructure[levelIndex].completed = true;
+        }
+      
+
+        SetPref(levelIndex);
+        SetLevelPlushiePref(plushieIndex);
+
+        currentLevelData = levelStructure[levelIndex];
+        currentLevelMeta = currentLevelData.plushie[plushieIndex];
+        currentLevelMeta.gameObject.SetActive(true);
+        currentLevelMeta.ResetLevel();
+        currentLevelMeta.LevelInitialisation();
+        SetLevel();
+    }
     public void NextPlushie()
     {
         var coinHandler = ServiceLocator.GetService<ICoinsHandler>();
@@ -54,23 +124,9 @@ public class LevelsHandler : Singleton<LevelsHandler>, ILevelHandler
         var connectionHandler = ServiceLocator.GetService<IPointConnectionHandler>();
         if (connectionHandler != null) connectionHandler.DeleteAllThreadLinks();
 
-        levelIndex = PlayerPrefs.GetInt("Level");
-        levels[levelIndex].GetComponent<Level_Metadata>().sewnPlushie.SetActive(false);
+        currentLevelMeta.sewnPlushie.SetActive(false);
 
-        levelIndex++;
-        PlayerPrefs.DeleteAll();
-        for(int i=0;i <= (levelIndex - 1);i++)
-        {
-            string completedLevelName = levels[i].GetComponent<Level_Metadata>().levelName;
-            PlayerPrefs.SetInt(completedLevelName, 1);
-        }
-        if (levelIndex >= levels.Count)
-            levelIndex = 0;
-        levels[levelIndex].SetActive(true);
-        levels[levelIndex].GetComponent<Level_Metadata>().ResetLevel();
-        levels[levelIndex].GetComponent<Level_Metadata>().LevelInitialisation();
-        SetPref(levelIndex);
-       currentLevelMeta = levels[levelIndex].GetComponent<Level_Metadata>();
+        LevelIncrementProcess();
 
         var canvasHandler = ServiceLocator.GetService<ICanvasUIManager>();
         if (canvasHandler != null)
@@ -81,21 +137,18 @@ public class LevelsHandler : Singleton<LevelsHandler>, ILevelHandler
             canvasHandler.stitchCountText.text = currentLevelMeta.noOfLinks + " OF " + currentLevelMeta.totalCorrectLinks;
         }
         
-        SetLevel();
     }
     public void SetLevel()
     {
-        foreach(GameObject g in levels)
-        {
-            g.SetActive(false);
-        }
+        currentLevelData.DisableAllPlushies();
         currentLevelMeta.gameObject.SetActive(true);
     }
    
     void LoadLastSavedProgress()
     {
         levelIndex = PlayerPrefs.GetInt("Level");
-        currentLevelMeta = levels[levelIndex].GetComponent<Level_Metadata>();
+        plushieIndex = PlayerPrefs.GetInt("Plushie");
+        currentLevelMeta = levelStructure[levelIndex].plushie[plushieIndex];
         if (currentLevelMeta != null)
         {
             int stitchedCountOfCurrentLevel =  PlayerPrefs.GetInt("StitchedCount");

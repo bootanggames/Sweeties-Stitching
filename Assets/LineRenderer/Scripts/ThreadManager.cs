@@ -395,10 +395,40 @@ public class ThreadManager : MonoBehaviour, IThreadManager
                     {
                         if (s2.nextConnectedPointId.Equals(s1.attachmentId))
                         {
-                            if (s2.startFlag || s2.connected)
+                            if (s2.startFlag)
                             {
                                 if(s2.transform.parent.parent.parent != s1.transform.parent.parent.parent)
-                                    s1.pointMesh.material = connectHandler.correctPointMaterial;
+                                {
+                                    if (s2.connected)
+                                        s1.pointMesh.material = connectHandler.correctPointMaterial;
+                                    else
+                                        s1.pointMesh.material = connectHandler.wrongPointMaterial;
+                                }
+                                else
+                                {
+                                    if (s2.connected)
+                                        s1.pointMesh.material = connectHandler.correctPointMaterial;
+                                    else
+                                        s1.pointMesh.material = connectHandler.wrongPointMaterial;
+                                }
+
+                            }
+                            else
+                            {
+                                if (s2.transform.parent.parent.parent != s1.transform.parent.parent.parent)
+                                {
+                                    if (s2.connected)
+                                        s1.pointMesh.material = connectHandler.correctPointMaterial;
+                                    else
+                                        s1.pointMesh.material = connectHandler.wrongPointMaterial;
+                                }
+                                else
+                                {
+                                    if (s2.connected)
+                                        s1.pointMesh.material = connectHandler.correctPointMaterial;
+                                    else
+                                        s1.pointMesh.material = connectHandler.wrongPointMaterial;
+                                }
                             }
                         }
                     }

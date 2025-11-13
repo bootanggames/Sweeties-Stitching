@@ -131,12 +131,11 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
                         if(points.Count > 0)
                         {
                             SewPoint startPoint = points[0];
-                            if (startPoint.startFlag)
+                            if (startPoint.startFlag && !startPoint.connected)
                             {
                                 if(startPoint.transform.parent == lastPoint.transform.parent)
                                     lastPoint.pointMesh.material = wrongPointMaterial;
                             }
-
 
                         }
                     }

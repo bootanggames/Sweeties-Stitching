@@ -10,7 +10,6 @@ public class PlushiesInventory : MonoBehaviour
     [SerializeField] PageScroller pageScroller;
     [SerializeField] PageSlider pageSlider;
   
-
     public void NextPage()
     {
         if (pageScroller != null)

@@ -10,19 +10,20 @@ public class LevelObjectiveManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI totalStitches;
     [SerializeField] List<GameObject> levelsDetailObject;
     [SerializeField] List<GameObject> plushies;
+    [SerializeField] List<LevelObjectivePageDetail> levelPage;
     private void Start()
     {
-        int index = PlayerPrefs.GetInt("Level");
-        UpdateTotalStitchesOfCurrentLevel(index);
-        UpdatePlushie(index);
+        UpdateTotalStitchesOfCurrentLevel();
         LockUnLock();
     }
-    public void UpdateTotalStitchesOfCurrentLevel(int id)
+    public void UpdateTotalStitchesOfCurrentLevel()
     {
-        Level_Metadata levelData = LevelsHandler.instance.levels[id].GetComponent<Level_Metadata>();
+        int levelIndex = PlayerPrefs.GetInt("Level");
+        int plushieIndex = PlayerPrefs.GetInt("Plushie");
+        Level_Metadata levelData = LevelsHandler.instance.levelStructure[levelIndex].plushie[plushieIndex];
         totalStitches.text = levelData.totalCorrectLinks.ToString();
         totalBodyPartsToStitch.text = levelData.totalStitchedPart.ToString();
-        UpdatePlushie(id);
+        UpdatePlushie(plushieIndex);
     }
 
     void UpdatePlushie(int index)
@@ -36,17 +37,19 @@ public class LevelObjectiveManager : MonoBehaviour
 
     void LockUnLock()
     {
-        int index = PlayerPrefs.GetInt("Level");
-        int count = LevelsHandler.instance.levels.Count;
+        int level = PlayerPrefs.GetInt("Level");
+        int index = PlayerPrefs.GetInt("Plushie");
+       
         foreach(GameObject g in levelsDetailObject)
         {
             LevelDetail ld = g.GetComponent<LevelDetail>();
             ld.locked = true;
             ld.lockedImage.SetActive(true);
         }
-        for(int i=0;i<levelsDetailObject.Count;i++)
+
+        for (int i = 0; i < levelsDetailObject.Count; i++)
         {
-            if(i <= index)
+            if (i <= index)
             {
                 levelsDetailObject[i].GetComponent<LevelDetail>().locked = false;
                 levelsDetailObject[i].GetComponent<LevelDetail>().lockedImage.SetActive(false);

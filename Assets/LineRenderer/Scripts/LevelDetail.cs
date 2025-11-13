@@ -13,7 +13,11 @@ public class LevelDetail : MonoBehaviour
 
     private void Start()
     {
-        if(LevelsHandler.instance)
-            levelNumber.text = (id+1)+"/"+LevelsHandler.instance.levels.Count;
+        if (LevelsHandler.instance)
+        {
+            int levelData = PlayerPrefs.GetInt("Level");
+            levelNumber.text = (id + 1) + "/" + LevelsHandler.instance.levelStructure[levelData].plushie.Length;
+        }
+        //levelNumber.text = (id+1)+"/"+LevelsHandler.instance.levels.Count;
     }
 }

@@ -55,7 +55,10 @@ public class ObjectInfo : MonoBehaviour
                     noOfConnections = totalConnections;
                 }
             }
-                
+            else
+            {
+                PlayerPrefs.SetInt(partType.ToString() + "_IsStiched", 0);
+            }
         }
             
     }
@@ -177,7 +180,16 @@ public class ObjectInfo : MonoBehaviour
         if (confettiIndex < connectPoints.Count)
             Invoke("EnableConffetti", 0.15f);
         else
-            Invoke("UpdateProgress",1.5f);
+        {
+            if (LevelsHandler.instance.currentLevelMeta.noOfStitchedPart.Equals(LevelsHandler.instance.currentLevelMeta.totalStitchedPart))
+            {
+                int plushieIndex = PlayerPrefs.GetInt("Plushie");
+                int levelIndex = PlayerPrefs.GetInt("Level");
+                LevelsHandler.instance.UpdatePlushieInventory(levelIndex, plushieIndex);
+            }
+               
+            Invoke("UpdateProgress", 1.5f);
+        }
     }
 
     void UpdateProgress()

@@ -194,7 +194,8 @@ public class Level_Metadata : MonoBehaviour
             }
             
             GameHandler.instance.SwitchGameState(GameStates.Gamecomplete);
-
+           
+           
             Invoke("WinEffect", 2.0f);
         }
         else
@@ -354,18 +355,8 @@ public class Level_Metadata : MonoBehaviour
                 immoveablePart.GetComponent<SpriteRenderer>().enabled = true;
             }
             GameHandler.instance.SwitchGameState(GameStates.Gamecomplete);
-
-            int leveCount = PlayerPrefs.GetInt("Level");
-            PlayerPrefs.DeleteAll();
-
-            leveCount++;
-
-            if (leveCount >= LevelsHandler.instance.levels.Count)
-                leveCount = 0;
-            Level_Metadata nextLevel = LevelsHandler.instance.levels[leveCount].GetComponent<Level_Metadata>();
-            nextLevel.ResetLevel();
-            LevelsHandler.instance.SetPref(leveCount);
-            LevelsHandler.instance.SetLevel();
+            LevelsHandler.instance.LevelIncrementProcess();
+           
         }
     }
 

@@ -6,6 +6,5 @@ using UnityEngine;
 public class LevelObjectivePageDetail 
 {
     public int levelId;
-    public List<GameObject> levelDetail;
-    public List<GameObject> plushieList;
+    public List<LevelSelectionObject> levelDetail;
 }

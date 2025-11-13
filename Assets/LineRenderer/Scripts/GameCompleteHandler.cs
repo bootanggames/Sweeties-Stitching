@@ -61,6 +61,8 @@ public class GameCompleteHandler : MonoBehaviour, IGameService
         if (LevelsHandler.instance)
         {
             plushieOfCurrentLevel.sprite = LevelsHandler.instance.currentLevelMeta.plushieSprite;
+            RectTransform rt = plushieOfCurrentLevel.rectTransform;
+            rt.sizeDelta = new Vector2(LevelsHandler.instance.currentLevelMeta.plushieWidth, LevelsHandler.instance.currentLevelMeta.plushieHeight);
             levelProgress.text = (LevelsHandler.instance.levelIndex + 1) + "/3 Till Level 5";
         }
         var plushieInventory = ServiceLocator.GetService<IPlushieStoreHandler>();

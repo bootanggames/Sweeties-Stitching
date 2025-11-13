@@ -8,51 +8,55 @@ public class LevelObjectiveManager : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI totalBodyPartsToStitch;
     [SerializeField] TextMeshProUGUI totalStitches;
-    [SerializeField] List<GameObject> levelsDetailObject;
-    [SerializeField] List<GameObject> plushies;
     [SerializeField] List<LevelObjectivePageDetail> levelPage;
+    [SerializeField] TextMeshProUGUI coinText; 
     private void Start()
     {
         UpdateTotalStitchesOfCurrentLevel();
         LockUnLock();
+        int c = PlayerPrefs.GetInt("Coins");
+        coinText.text = c.ToString();
     }
     public void UpdateTotalStitchesOfCurrentLevel()
     {
         int levelIndex = PlayerPrefs.GetInt("Level");
-        int plushieIndex = PlayerPrefs.GetInt("Plushie");
+        int plushieIndex = PlayerPrefs.GetInt("Level_" + levelIndex + "_Plushie");
         Level_Metadata levelData = LevelsHandler.instance.levelStructure[levelIndex].plushie[plushieIndex];
         totalStitches.text = levelData.totalCorrectLinks.ToString();
         totalBodyPartsToStitch.text = levelData.totalStitchedPart.ToString();
-        UpdatePlushie(plushieIndex);
+        UpdatePlushie(levelIndex, plushieIndex);
     }
 
-    void UpdatePlushie(int index)
+    void UpdatePlushie(int levelIndex, int detailIndex)
     {
-        foreach (GameObject g in plushies)
+        for (int i = 0; i < levelPage.Count; i++)
         {
-            g.SetActive(false);
+            foreach (LevelSelectionObject g in levelPage[i].levelDetail)
+            {
+                g.plushieObject.SetActive(false);
+            }
         }
-        plushies[index].SetActive(true);
+        levelPage[levelIndex].levelDetail[detailIndex].plushieObject.SetActive(true);
     }
 
     void LockUnLock()
     {
-        int level = PlayerPrefs.GetInt("Level");
-        int index = PlayerPrefs.GetInt("Plushie");
-       
-        foreach(GameObject g in levelsDetailObject)
-        {
-            LevelDetail ld = g.GetComponent<LevelDetail>();
-            ld.locked = true;
-            ld.lockedImage.SetActive(true);
-        }
+        //LevelsHandler.instance.SetLevelLockState(0, 0, 1);
 
-        for (int i = 0; i < levelsDetailObject.Count; i++)
+        for (int i = 0; i < levelPage.Count; i++)
         {
-            if (i <= index)
+            for (int j=0; j< levelPage[i].levelDetail.Count;j++)
             {
-                levelsDetailObject[i].GetComponent<LevelDetail>().locked = false;
-                levelsDetailObject[i].GetComponent<LevelDetail>().lockedImage.SetActive(false);
+                LevelDetail levelD = levelPage[i].levelDetail[j].levelObject.GetComponent<LevelDetail>();
+                int lockState = PlayerPrefs.GetInt("Level_" + i + "Plushie_" + j);
+                if (lockState == 1)
+                    levelD.locked = false;
+                else
+                    levelD.locked = true;
+                if (levelD.locked)
+                    levelD.lockedImage.SetActive(true);
+                else
+                    levelD.lockedImage.SetActive(false);
             }
         }
     }

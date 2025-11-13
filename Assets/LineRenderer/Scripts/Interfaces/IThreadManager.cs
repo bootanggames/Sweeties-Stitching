@@ -3,6 +3,7 @@ using UnityEngine;
 
 public interface IThreadManager : IGameService
 {
+    bool canUndo {  get; }
     float zVal { get; }
     bool threadInput { get; }
     List<Transform> detectedPoints {  get;}
@@ -19,4 +20,5 @@ public interface IThreadManager : IGameService
     void ScaleDownAllPoints();
     int pointIndex { get; set; }
     void UpdateSpoolThreadLastPoint(float lerpSpeed);
+    void SetUndoValue(bool val);
 }

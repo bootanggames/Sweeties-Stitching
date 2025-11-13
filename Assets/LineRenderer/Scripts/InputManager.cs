@@ -44,7 +44,6 @@ public class InputManager : MonoBehaviour
         }
         else if (Input.GetMouseButton(0) && drag)
         {
-
             dragTouchValue = CalculateCurrentPosition();
 
             Vector2 newPos = new Vector2(dragTouchValue.x, (dragTouchValue.y + needleOffset));
@@ -61,9 +60,7 @@ public class InputManager : MonoBehaviour
         else if (Input.GetMouseButtonUp(0) && drag)
         {
             drag = false;
-            //GameEvents.PointConnectionHandlerEvents.onStopTweens.RaiseEvent();
             GameEvents.ThreadEvents.setThreadInput.RaiseEvent(true);
-
         }
 
     }

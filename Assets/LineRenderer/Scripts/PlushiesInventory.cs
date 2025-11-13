@@ -2,14 +2,29 @@ using TMPro;
 using TS.PageSlider;
 using UnityEngine;
 
-public class PlushiesInventory : MonoBehaviour
+public class PlushiesInventory : MonoBehaviour,IPlushieInventory
 {
     [SerializeField] PageContainer[] plushies;
     [SerializeField] TextMeshProUGUI coinUi;
-    [SerializeField] TextMeshProUGUI totalPlushies;
+    [field:SerializeField] public TextMeshProUGUI totalPlushies {  get; private set; }
     [SerializeField] PageScroller pageScroller;
     [SerializeField] PageSlider pageSlider;
-  
+    [field: SerializeField] public int noOfPlushieEnabled {  get; private set; }
+
+    private void OnEnable()
+    {
+        RegisterService();
+    }
+    private void OnDisable()
+    {
+        UnRegisterService();
+    }
+    public void NoPlushieIncrement(int c)
+    {
+        noOfPlushieEnabled = c;
+        totalPlushies.text = noOfPlushieEnabled.ToString();
+
+    }
     public void NextPage()
     {
         if (pageScroller != null)
@@ -34,5 +49,15 @@ public class PlushiesInventory : MonoBehaviour
             else
                 page = 0;
         }
+    }
+
+    public void RegisterService()
+    {
+        ServiceLocator.RegisterService<IPlushieInventory>(this);
+    }
+
+    public void UnRegisterService()
+    {
+        ServiceLocator.UnRegisterService<IPlushieInventory>(this);
     }
 }

@@ -31,11 +31,11 @@ public class ThreadManager : MonoBehaviour, IThreadManager
     [field: SerializeField] public int pointIndex {  get;  set; }
 
     [field: SerializeField] public float zVal {  get; private set; }
+    [field: SerializeField] public bool canUndo {  get; private set; }
 
     Vector3 startPos;
     private void OnEnable()
     {
-       
         RegisterService();
     }
     private void OnDisable()
@@ -66,6 +66,10 @@ public class ThreadManager : MonoBehaviour, IThreadManager
         GameEvents.ThreadEvents.onInstantiatingThread.UnregisterEvent(InstantiateMainThread);
         GameEvents.ThreadEvents.onResetThreadInput.UnregisterEvent(ResetThread);
 
+    }
+    public void SetUndoValue(bool val)
+    {
+        canUndo = val;
     }
     public void SetLastConnectedPosition(Transform t)
     {
@@ -339,6 +343,7 @@ public class ThreadManager : MonoBehaviour, IThreadManager
     }
     public void UndoThread()
     {
+        if (!canUndo) return;
         var pointDetector = ServiceLocator.GetService<INeedleDetector>();
         var connectHandler = ServiceLocator.GetService<IPointConnectionHandler>();
      

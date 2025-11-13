@@ -15,6 +15,8 @@ public class Level_Metadata : MonoBehaviour
     public GameObject bodyWihtoutHoles;
     public GameObject sewnPlushie;
 
+ 
+
     public int totalStitchedPart;
     public int noOfStitchedPart;
     ObjectInfo current_ObjectInfor = null;
@@ -33,7 +35,9 @@ public class Level_Metadata : MonoBehaviour
     [SerializeField] Transform leftArmCamera;
     [SerializeField] Transform gameCompleteCamera;
     [SerializeField] Transform gameHalfProgressCamera;
-
+    [Header("----------GameCompleteScreen---------")]
+    public float plushieWidth;
+    public float plushieHeight;
     public Sprite plushieSprite;
     private void Start()
     {
@@ -179,6 +183,7 @@ public class Level_Metadata : MonoBehaviour
         var canvasManager = ServiceLocator.GetService<ICanvasUIManager>();
         if (canvasManager != null)
             canvasManager.UpdatePlushieStitchProgress(totalStitchedPart, noOfStitchedPart);
+        var IthreadHandler = ServiceLocator.GetService<IThreadManager>();
         
         if (noOfStitchedPart.Equals(totalStitchedPart))
         {
@@ -194,13 +199,15 @@ public class Level_Metadata : MonoBehaviour
             }
             
             GameHandler.instance.SwitchGameState(GameStates.Gamecomplete);
-           
-           
+           if(IthreadHandler != null)
+                IthreadHandler.SetUndoValue(false);
+
             Invoke("WinEffect", 2.0f);
         }
         else
         {
-          
+            if (IthreadHandler != null)
+                IthreadHandler.SetUndoValue(true);
             NextPartActivation(false, sequence, null);
         }
     }

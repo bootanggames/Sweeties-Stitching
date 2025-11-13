@@ -18,3 +18,4 @@ MonoBehaviour:
   completed: {fileID: 8300000, guid: 191d254ba0424a446b958c669b522a74, type: 3}
   sewing: {fileID: 8300000, guid: 04afed4b3926fd7458472ef0d7e193a0, type: 3}
   purchaseComplete: {fileID: 8300000, guid: d7b4f9eb43c6bde4ab91ab0ae6da8529, type: 3}
+  wrongStitchSound: {fileID: 8300000, guid: cc162acb7b574bd448f35a354e2cca0c, type: 3}

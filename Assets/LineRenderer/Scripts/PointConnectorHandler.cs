@@ -298,6 +298,7 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
         if (sp1.attachmentId.Equals(sp2.attachmentId))
             ApplyForces(c.point1, c.point2);
     }
+
     Tween tween1;
     public void ApplyForces(Transform p1, Transform p2)
     {
@@ -356,17 +357,7 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
                 pullSeq.Join(info1.transform.DOMove(Vector3.Lerp(info1.transform.position, avgMid, info1.pullForce), tweenDuration).SetEase(Ease.InOutSine));
                 pullSeq.Join(info2.transform.DOMove(Vector3.Lerp(info2.transform.position, avgMid, info2.pullForce), tweenDuration).SetEase(Ease.InOutSine));
             }
-            else
-            {
-                Vector3 midPoint = (p1.position + p2.position) / 2;
-                pullSeq.Join(p1.DOMove(midPoint, tweenDuration).SetEase(Ease.InOutSine));
-                pullSeq.Join(p1.DORotate(info1.originalRotation, tweenDuration));
-
-                pullSeq.Join(p2.DOMove(midPoint, tweenDuration).SetEase(Ease.InOutSine));
-                pullSeq.Join(p2.DORotate(info2.originalRotation, tweenDuration));
-
-            }
-          
+           
         }
         else if(move1 && !move2)
         {
@@ -393,7 +384,7 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
                 info2.noOfConnections++;
                 sp1.connected = true;
                 sp2.connected = true;
-        
+
                 if (info1.partType.Equals(PlushieActiveStitchPart.lefteye) || info1.partType.Equals(PlushieActiveStitchPart.righteye))
                 {
                     if (info1.noOfConnections.Equals(info1.totalConnections))
@@ -421,16 +412,11 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
                     return;
                 }
                 pullSeq.Join(moveAbleTransform.DOMove(targetPos, tweenDuration).SetEase(Ease.InOutSine));
-               
+
                 pullSeq.Join(
                     moveAbleTransform.DORotate(info1.originalRotation, tweenDuration, RotateMode.Fast)
                     .SetEase(Ease.InOutSine)
                 );
-            }
-            else
-            {
-                pullSeq.Join(p1.DOMove(p2.transform.position, tweenDuration).SetEase(Ease.InOutSine));
-                pullSeq.Join(p1.DORotate(info1.originalRotation, tweenDuration).SetEase(Ease.InOutSine));
             }
 
         }
@@ -492,11 +478,6 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
                     .SetEase(Ease.InOutSine)
                 );
             }
-            else
-            {
-                pullSeq.Join(p2.DOMove(p1.transform.position, tweenDuration).SetEase(Ease.InOutSine));
-                pullSeq.Join(p2.DORotate(info2.originalRotation, tweenDuration).SetEase(Ease.InOutSine));
-            }
 
         }
         else
@@ -550,7 +531,11 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
                 pointDetector.pointsDetected.Clear();
 
             if (threadHandler != null)
+            {
                 threadHandler.pointIndex = 0;
+                threadHandler.SetUndoValue(false);
+
+            }
 
             //Invoke("UpdateProgress", 3);
 
@@ -596,4 +581,63 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
         if(connections.Count == 0) return null;
         return connections[connections.Count - 1];
     }
+
+    #region To Optimise Code --> Replace it later
+    void StitchAndMoveParts(Sequence _pullSequence, ObjectInfo info1, ObjectInfo info2, SewPoint sp1, SewPoint sp2, float _tweenDuration)
+    {
+        Vector3 avrOffset = Vector3.zero;
+        for (int i = 0; i < info1.connectPoints.Count; i++)
+        {
+            Vector3 offset = info2.connectPoints[i].transform.position - info1.connectPoints[i].transform.position;
+            avrOffset += offset;
+        }
+        avrOffset /= info1.connectPoints.Count;
+
+        Transform moveAbleTransform = null;
+        if (info1.head)
+            moveAbleTransform = info1.transform.parent;
+        else
+            moveAbleTransform = info1.transform;
+
+        info1.movedPositions.Add(moveAbleTransform.position);
+        info2.movedPositions.Add(moveAbleTransform.position);
+        Vector3 targetPos = moveAbleTransform.position + avrOffset * info1.pullForce;
+        info1.noOfConnections++;
+        info2.noOfConnections++;
+        sp1.connected = true;
+        sp2.connected = true;
+        Debug.LogError("here");
+        if (info1.partType.Equals(PlushieActiveStitchPart.lefteye) || info1.partType.Equals(PlushieActiveStitchPart.righteye))
+        {
+            if (info1.noOfConnections.Equals(info1.totalConnections))
+            {
+                info1.transform.DOMove(info1.movedPosition, 0.5f).SetEase(Ease.Linear).OnUpdate(() =>
+                {
+                    UpdateConnections();
+                    var threadHandler = ServiceLocator.GetService<IThreadManager>();
+                    if (threadHandler != null)
+                    {
+                        if (threadHandler.prevLine)
+                            threadHandler.prevLine.SetPosition(0, threadHandler.detectedPoints[0].position);
+                        if (threadHandler.instantiatedLine)
+                            threadHandler.instantiatedLine.SetPosition(threadHandler.instantiatedLine.positionCount - 1, sp1.transform.position);
+                    }
+                }).OnComplete(() =>
+                {
+                    CheckIfLastConnectionUpdated(sp1, sp2, sp1.transform, sp2.transform, info1, info2);
+                    info1.DOPause();
+                });
+            }
+
+            return;
+        }
+        _pullSequence.Join(moveAbleTransform.DOMove(targetPos, _tweenDuration).SetEase(Ease.InOutSine));
+
+        _pullSequence.Join(
+            moveAbleTransform.DORotate(info1.originalRotation, _tweenDuration, RotateMode.Fast)
+            .SetEase(Ease.InOutSine)
+        );
+    }
+
+    #endregion
 }

@@ -9,7 +9,7 @@ public class LevelsHandler : Singleton<LevelsHandler>, ILevelHandler
     [field: SerializeField] public int plushieIndex { get; private set; }
     public LevelStructure currentLevelData { get; private set; }
     public Level_Metadata currentLevelMeta { get; private set; }
-
+    int totalCoins;
     public override void SingletonAwake()
     {
         base.SingletonAwake();
@@ -23,7 +23,6 @@ public class LevelsHandler : Singleton<LevelsHandler>, ILevelHandler
     public override void SingletonStart()
     {
         base.SingletonStart();
-     
         var gameHandler = ServiceLocator.GetService<IGameHandler>();
         if (gameHandler != null)
         {
@@ -34,9 +33,16 @@ public class LevelsHandler : Singleton<LevelsHandler>, ILevelHandler
         }
         levelIndex = PlayerPrefs.GetInt("Level");
         currentLevelData = levelStructure[levelIndex];
-        plushieIndex = PlayerPrefs.GetInt("Plushie");
+        plushieIndex = PlayerPrefs.GetInt("Level_" + levelIndex + "_Plushie");
+
         currentLevelMeta = currentLevelData.plushie[plushieIndex];
         SetLevel();
+        Invoke("GetCoins", 0.25f);
+    }
+    void GetCoins()
+    {
+        totalCoins = PlayerPrefs.GetInt("Coins");
+        CancelInvoke("GetCoins");
     }
     public void RegisterService()
     {
@@ -53,14 +59,13 @@ public class LevelsHandler : Singleton<LevelsHandler>, ILevelHandler
     }
     public void SetLevelPlushiePref(int val)
     {
-        PlayerPrefs.SetInt("Plushie", val);
+        int levelIndex = PlayerPrefs.GetInt("Level");
+        PlayerPrefs.SetInt("Level_"+levelIndex+"_Plushie", val);
     }
-    public void GetCurrentLevel()
+    public void SetLevelLockState(int levelIndex, int plushieIndex, int val)
     {
-        int level = PlayerPrefs.GetInt("Level");
-        int plushieIndex = PlayerPrefs.GetInt("Plushie");
+        PlayerPrefs.SetInt("Level_" + levelIndex + "Plushie_" + plushieIndex, val);
     }
-
     public void UpdatePlushieInventory(int l_index, int totalCompletedPlushie)
     {
         for (int i = 0; i <= totalCompletedPlushie; i++)
@@ -81,15 +86,10 @@ public class LevelsHandler : Singleton<LevelsHandler>, ILevelHandler
     public void LevelIncrementProcess()
     {
         PlayerPrefs.SetInt("SaveProgress", 0);
-
-        plushieIndex = PlayerPrefs.GetInt("Plushie");
         levelIndex = PlayerPrefs.GetInt("Level");
+        plushieIndex = PlayerPrefs.GetInt("Level_" + levelIndex + "_Plushie");
         if (plushieIndex < levelStructure[levelIndex].plushie.Length)
             plushieIndex++;
-
-        // for plushie inventory update
-        //UpdatePlushieInventory(levelIndex,(plushieIndex - 1));
-        //
 
         if (plushieIndex >= levelStructure[levelIndex].plushie.Length)
         {
@@ -108,7 +108,7 @@ public class LevelsHandler : Singleton<LevelsHandler>, ILevelHandler
 
         SetPref(levelIndex);
         SetLevelPlushiePref(plushieIndex);
-
+        SetLevelLockState(levelIndex, plushieIndex, 1);
         currentLevelData = levelStructure[levelIndex];
         currentLevelMeta = currentLevelData.plushie[plushieIndex];
         currentLevelMeta.gameObject.SetActive(true);
@@ -119,15 +119,20 @@ public class LevelsHandler : Singleton<LevelsHandler>, ILevelHandler
     public void NextPlushie()
     {
         var coinHandler = ServiceLocator.GetService<ICoinsHandler>();
-        if(coinHandler != null)
-            coinHandler.ResetCoinList();
+     
         var connectionHandler = ServiceLocator.GetService<IPointConnectionHandler>();
         if (connectionHandler != null) connectionHandler.DeleteAllThreadLinks();
 
         currentLevelMeta.sewnPlushie.SetActive(false);
-
+        int rewardedCoins = currentLevelMeta.levelReward;
         LevelIncrementProcess();
-
+        int TotalEarned = totalCoins + rewardedCoins;
+        PlayerPrefs.SetInt("Coins", TotalEarned);
+        if (coinHandler != null)
+        {
+            coinHandler.ResetCoinList();
+            coinHandler.UpdateCoins(TotalEarned);
+        }
         var canvasHandler = ServiceLocator.GetService<ICanvasUIManager>();
         if (canvasHandler != null)
         {
@@ -147,7 +152,7 @@ public class LevelsHandler : Singleton<LevelsHandler>, ILevelHandler
     void LoadLastSavedProgress()
     {
         levelIndex = PlayerPrefs.GetInt("Level");
-        plushieIndex = PlayerPrefs.GetInt("Plushie");
+        plushieIndex = PlayerPrefs.GetInt("Level_" + levelIndex + "_Plushie");
         currentLevelMeta = levelStructure[levelIndex].plushie[plushieIndex];
         if (currentLevelMeta != null)
         {

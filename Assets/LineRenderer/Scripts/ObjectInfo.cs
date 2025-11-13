@@ -183,8 +183,9 @@ public class ObjectInfo : MonoBehaviour
         {
             if (LevelsHandler.instance.currentLevelMeta.noOfStitchedPart.Equals(LevelsHandler.instance.currentLevelMeta.totalStitchedPart))
             {
-                int plushieIndex = PlayerPrefs.GetInt("Plushie");
                 int levelIndex = PlayerPrefs.GetInt("Level");
+
+                int plushieIndex = PlayerPrefs.GetInt("Level_" + levelIndex + "_Plushie");
                 LevelsHandler.instance.UpdatePlushieInventory(levelIndex, plushieIndex);
             }
                
@@ -259,8 +260,17 @@ public class ObjectInfo : MonoBehaviour
             textMesh.fontSize = _fontSize;
             textMesh.text = _text;
             wrongSequenceAlert.SetActive(true);
+            WrongSelectedPointSound();
         }
        
+    }
+
+    void WrongSelectedPointSound()
+    {
+        SoundManager.instance.ResetAudioSource();
+        AudioSource _source = SoundManager.instance.audioSource;
+        AudioClip _clip = SoundManager.instance.audioClips.wrongStitchSound;
+        SoundManager.instance.PlaySound(_source, _clip, false, false, 1, false);
     }
     void PlaySound()
     {

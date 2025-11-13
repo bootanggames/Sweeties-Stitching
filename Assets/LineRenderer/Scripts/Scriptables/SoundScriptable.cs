@@ -9,4 +9,5 @@ public class SoundScriptable : ScriptableObject
     public AudioClip completed;
     public AudioClip sewing;
     public AudioClip purchaseComplete;
+    public AudioClip wrongStitchSound;
 }

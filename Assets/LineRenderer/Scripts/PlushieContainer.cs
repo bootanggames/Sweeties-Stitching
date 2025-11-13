@@ -9,12 +9,20 @@ public class PlushieContainer : MonoBehaviour
 
     private void Start()
     {
-        foreach(GameObject g in plushie)
+        int c = 0;
+
+        foreach (GameObject g in plushie)
         {
             int state = 0;
             state = PlayerPrefs.GetInt(g.name);
             if (state.Equals(1))
+            {
+                c++;
                 g.SetActive(true);
+                var IplushieInventory = ServiceLocator.GetService<IPlushieInventory>();
+                if(IplushieInventory != null)
+                    IplushieInventory.NoPlushieIncrement(c);
+            }
             else
                 g.SetActive(false);
         }

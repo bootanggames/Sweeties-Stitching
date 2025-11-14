@@ -36,6 +36,11 @@ public class LevelsHandler : Singleton<LevelsHandler>, ILevelHandler
         plushieIndex = PlayerPrefs.GetInt("Level_" + levelIndex + "_Plushie");
 
         currentLevelMeta = currentLevelData.plushie[plushieIndex];
+        if (currentLevelMeta.noOfStitchedPart.Equals(currentLevelMeta.totalStitchedPart))
+        {
+            currentLevelMeta.ResetLevel();
+            currentLevelMeta.LevelInitialisation();
+        }
         SetLevel();
         Invoke("GetCoins", 0.25f);
     }
@@ -104,7 +109,6 @@ public class LevelsHandler : Singleton<LevelsHandler>, ILevelHandler
             else
                 levelStructure[levelIndex].completed = true;
         }
-      
 
         SetPref(levelIndex);
         SetLevelPlushiePref(plushieIndex);
@@ -115,6 +119,7 @@ public class LevelsHandler : Singleton<LevelsHandler>, ILevelHandler
         currentLevelMeta.ResetLevel();
         currentLevelMeta.LevelInitialisation();
         SetLevel();
+
     }
     public void NextPlushie()
     {
@@ -141,7 +146,11 @@ public class LevelsHandler : Singleton<LevelsHandler>, ILevelHandler
             canvasHandler.stitchProgress.text = "0% Done";
             canvasHandler.stitchCountText.text = currentLevelMeta.noOfLinks + " OF " + currentLevelMeta.totalCorrectLinks;
         }
-        
+    
+        var IThreadHandler = ServiceLocator.GetService<IThreadManager>();
+        if(IThreadHandler != null)
+            IThreadHandler.SetUndoValue(true);
+
     }
     public void SetLevel()
     {

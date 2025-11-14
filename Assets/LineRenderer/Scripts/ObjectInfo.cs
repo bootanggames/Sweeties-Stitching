@@ -53,6 +53,7 @@ public class ObjectInfo : MonoBehaviour
                 {
                     IsStitched = true;
                     noOfConnections = totalConnections;
+               
                 }
             }
             else

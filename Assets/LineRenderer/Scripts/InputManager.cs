@@ -39,7 +39,7 @@ public class InputManager : MonoBehaviour
             drag = true;
             firstTouch = CalculateCurrentPosition();
             GameEvents.ThreadEvents.onInitialiseRope.RaiseEvent(firstTouch);
-            Invoke("EnableDetection", 0.15f);
+            //Invoke("EnableDetection", 0.15f);
             //Debug.LogError("down");
         }
         else if (Input.GetMouseButton(0) && drag)
@@ -90,6 +90,6 @@ public class InputManager : MonoBehaviour
             if (!pointDetector.detect)
                 pointDetector.detect = true;
         }
-        CancelInvoke("EnableDetection");
+        //CancelInvoke("EnableDetection");
     }
 }

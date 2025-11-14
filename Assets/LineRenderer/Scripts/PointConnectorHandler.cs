@@ -384,7 +384,10 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
                 info2.noOfConnections++;
                 sp1.connected = true;
                 sp2.connected = true;
-
+                if (info1.noOfConnections.Equals(info1.totalConnections) && info2.noOfConnections.Equals(info2.totalConnections))
+                {
+                    LevelsHandler.instance.currentLevelMeta.noOfStitchedPart++;
+                }
                 if (info1.partType.Equals(PlushieActiveStitchPart.lefteye) || info1.partType.Equals(PlushieActiveStitchPart.righteye))
                 {
                     if (info1.noOfConnections.Equals(info1.totalConnections))
@@ -443,7 +446,10 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
                 info2.noOfConnections++;
                 sp1.connected = true;
                 sp2.connected = true;
-      
+                if (info1.noOfConnections.Equals(info1.totalConnections) && info2.noOfConnections.Equals(info2.totalConnections))
+                {
+                    LevelsHandler.instance.currentLevelMeta.noOfStitchedPart++;
+                }
                 if (info2.partType.Equals(PlushieActiveStitchPart.lefteye) || info2.partType.Equals(PlushieActiveStitchPart.righteye))
                 {
                     if (info2.noOfConnections.Equals(info2.totalConnections))
@@ -502,6 +508,7 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
 
                 }
             }
+           
         });
         pullSeq.OnComplete(() =>
         {
@@ -523,7 +530,6 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
 
             o2.MarkStitched();
             o1.MarkStitched();
-            LevelsHandler.instance.currentLevelMeta.noOfStitchedPart++;
 
             points.Clear();
             var pointDetector = ServiceLocator.GetService<INeedleDetector>();

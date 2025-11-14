@@ -141,7 +141,7 @@ public class NeedleDetector : MonoBehaviour, INeedleDetector
     {
         if (pointsDetected.Count == 0) return;
 
-        detect = false;
+        //detect = false;
         SewPoint s = null;
         s = pointsDetected[pointsDetected.Count - 1];
         s.GetComponent<Collider>().enabled = true;

@@ -39,6 +39,7 @@ public class Level_Metadata : MonoBehaviour
     public float plushieWidth;
     public float plushieHeight;
     public Sprite plushieSprite;
+    [SerializeField] Transform needleUndoPosition;
     private void Start()
     {
         LevelInitialisation();
@@ -372,49 +373,55 @@ public class Level_Metadata : MonoBehaviour
         var needlePos = ServiceLocator.GetService<INeedleResetPositions>();
         if (needlePos != null )
         {
-            switch (currentActivePart)
-            {
-                case PlushieActiveStitchPart.neck:
-                    ResetNeedleAndThread(needlePos.headNeedleResetPos);
-                    break;
-                case PlushieActiveStitchPart.righteye:
-                    ResetNeedleAndThread(needlePos.eyeRightNeedleResetPos);
-                    break;
-                case PlushieActiveStitchPart.lefteye:
-                    ResetNeedleAndThread(needlePos.eyeLeftNeedleResetPos);
-                    break;
-                case PlushieActiveStitchPart.rightear:
-                    ResetNeedleAndThread(needlePos.earRightNeedleResetPos);
-                    break;
-                case PlushieActiveStitchPart.leftear:
-                    ResetNeedleAndThread(needlePos.earLeftNeedleResetPos);
-                    break;
-                case PlushieActiveStitchPart.rightarm:
-                    ResetNeedleAndThread(needlePos.armRightNeedleResetPos);
-                    break;
-                case PlushieActiveStitchPart.leftarm:
-                    ResetNeedleAndThread(needlePos.armLeftNeedleResetPos);
-                    break;
-                case PlushieActiveStitchPart.rightleg:
-                    ResetNeedleAndThread(needlePos.legRightNeedleResetPos);
-                    break;
-                case PlushieActiveStitchPart.leftleg:
-                    ResetNeedleAndThread(needlePos.legLeftNeedleResetPos);
-                    break;
-            }
+            //switch (currentActivePart)
+            //{
+            //    case PlushieActiveStitchPart.neck:
+            //        ResetNeedleAndThread(needlePos.headNeedleResetPos);
+            //        break;
+            //    case PlushieActiveStitchPart.righteye:
+            //        ResetNeedleAndThread(needlePos.eyeRightNeedleResetPos);
+            //        break;
+            //    case PlushieActiveStitchPart.lefteye:
+            //        ResetNeedleAndThread(needlePos.eyeLeftNeedleResetPos);
+            //        break;
+            //    case PlushieActiveStitchPart.rightear:
+            //        ResetNeedleAndThread(needlePos.earRightNeedleResetPos);
+            //        break;
+            //    case PlushieActiveStitchPart.leftear:
+            //        ResetNeedleAndThread(needlePos.earLeftNeedleResetPos);
+            //        break;
+            //    case PlushieActiveStitchPart.rightarm:
+            //        ResetNeedleAndThread(needlePos.armRightNeedleResetPos);
+            //        break;
+            //    case PlushieActiveStitchPart.leftarm:
+            //        ResetNeedleAndThread(needlePos.armLeftNeedleResetPos);
+            //        break;
+            //    case PlushieActiveStitchPart.rightleg:
+            //        ResetNeedleAndThread(needlePos.legRightNeedleResetPos);
+            //        break;
+            //    case PlushieActiveStitchPart.leftleg:
+            //        ResetNeedleAndThread(needlePos.legLeftNeedleResetPos);
+            //        break;
+            //}
+            Vector3 pos = RectTransformUtility.WorldToScreenPoint(null, needleUndoPosition.position);
+            Vector3 worldPos = Camera.main.ScreenToWorldPoint(pos);
+
+            ResetNeedleAndThread(worldPos);
+
         }
-        
+
     }
 
-    void ResetNeedleAndThread(Transform transform)
+    void ResetNeedleAndThread(Vector3 position)
     {
         var threadHandler = ServiceLocator.GetService<IThreadManager>();
         Vector3 threadPos = Vector3.zero;
 
         if (threadHandler != null && threadHandler.instantiatedLine != null)
         {
-            GameEvents.NeedleEvents.OnNeedleMovement.RaiseEvent(transform.position);
-            threadPos = transform.position;
+            position.z = threadHandler.zVal;
+            GameEvents.NeedleEvents.OnNeedleMovement.RaiseEvent(position);
+            threadPos = position;
             threadPos.z = threadHandler.zVal;
             threadHandler.instantiatedLine.SetPosition(0, threadPos);
         }

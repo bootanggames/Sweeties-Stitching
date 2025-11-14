@@ -36,6 +36,7 @@ public class ThreadManager : MonoBehaviour, IThreadManager
     Vector3 startPos;
     private void OnEnable()
     {
+        canUndo = true;
         RegisterService();
     }
     private void OnDisable()

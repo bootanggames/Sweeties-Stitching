@@ -146,7 +146,7 @@ public class NeedleDetector : MonoBehaviour, INeedleDetector
         s = pointsDetected[pointsDetected.Count - 1];
         s.GetComponent<Collider>().enabled = true;
         s.pointMesh.enabled = true;
-        s.connected = false;
+        s.IsConnected(false, 0);
         s.Selected(false);
         s.ChangeTextColor(Color.white);
         pointsDetected.Remove(s);

@@ -4,11 +4,12 @@ using UnityEngine;
 public class NeedleMovement : MonoBehaviour,INeedleMovement
 {
     [SerializeField] Transform startPoint;
-    [SerializeField] Transform needle;
+    [SerializeField] Transform needleParent;
     [SerializeField] float needleRotationSpeed;
     [SerializeField] float angleOffset;
     [SerializeField] float minRotationThreshold;
     [SerializeField] Ease ease;
+    [SerializeField] Transform needle;
     private void OnEnable()
     {
         RegisterService();
@@ -40,31 +41,35 @@ public class NeedleMovement : MonoBehaviour,INeedleMovement
 
     public void MoveNeedle(Vector3 pos)
     {
-        needle.position = pos;
+        needleParent.position = pos;
     }
 
     public Vector3 GetPosition()
     {
-        return needle.position;
+        return needleParent.position;
     }
     
     Transform GetNeedle()
     {
-        return needle;
+        return needleParent;
     }
 
     public void HandleNeedleActiveStatus(bool active)
     {
-        needle.gameObject.SetActive(active);
+        needleParent.gameObject.SetActive(active);
     }
     void NeedleRotation(float magnitude, Vector3 _direction)
     {
         if (magnitude > minRotationThreshold)
         {
             float angle = Mathf.Atan2(_direction.y, _direction.x) * Mathf.Rad2Deg;
-            needle.transform.DOKill();
-            needle.transform.DORotate(new Vector3(0, 0, angle - angleOffset), needleRotationSpeed).SetEase(ease);
+            needleParent.transform.DOKill();
+            needleParent.transform.DORotate(new Vector3(0, 0, angle - angleOffset), needleRotationSpeed).SetEase(ease);
         }
+    }
 
+    public void NeedleSize(float val)
+    {
+        needle.localScale = new Vector3(val, val, val);
     }
 }

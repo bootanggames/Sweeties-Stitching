@@ -115,10 +115,11 @@ public class LevelsHandler : Singleton<LevelsHandler>, ILevelHandler
         SetLevelLockState(levelIndex, plushieIndex, 1);
         currentLevelData = levelStructure[levelIndex];
         currentLevelMeta = currentLevelData.plushie[plushieIndex];
-        currentLevelMeta.gameObject.SetActive(true);
+        //currentLevelMeta.gameObject.SetActive(true);
         currentLevelMeta.ResetLevel();
         currentLevelMeta.LevelInitialisation();
         SetLevel();
+        currentLevelMeta.gameObject.SetActive(false);
 
     }
     public void NextPlushie()

@@ -48,10 +48,9 @@ public class ScaleOutObject : MonoBehaviour
         var canvasHandler = ServiceLocator.GetService<ICanvasUIManager>();
         if (canvasHandler != null)
             canvasHandler.confettiEffectCanvas.SetActive(true);
-
+        LevelsHandler.instance.currentLevelMeta.DeactivateAllThreads();
         LevelsHandler.instance.currentLevelMeta.gameObject.SetActive(false);
         LevelsHandler.instance.currentLevelMeta.sewnPlushie.SetActive(true);
-        PlaySewnSound();
         tween.Kill();
         tween = null;
 
@@ -64,13 +63,5 @@ public class ScaleOutObject : MonoBehaviour
             });
         }
     }
-    void PlaySewnSound()
-    {
-        SoundManager.instance.ResetAudioSource();
-
-        AudioSource _source = SoundManager.instance.audioSource;
-        AudioClip _clip = SoundManager.instance.audioClips.completed;
-        SoundManager.instance.PlaySound(_source, _clip, false, false, 1, false);
-        HepticManager.instance.HapticEffect();
-    }
+   
 }

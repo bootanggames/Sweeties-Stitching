@@ -6,7 +6,6 @@ public class ThreadManager : MonoBehaviour, IThreadManager
 {
     [field: SerializeField] public bool threadInput { get; private set; }
     [field: SerializeField] public List<Transform> detectedPoints {  get; private set; }
-    //[field: SerializeField] public List<Color> threadColor { get; private set; }
 
     [SerializeField] LineRenderer lineRenderer;
 
@@ -26,7 +25,6 @@ public class ThreadManager : MonoBehaviour, IThreadManager
     //[SerializeField] Transform startPoint;
     [SerializeField] RectTransform startUIPoint;
     [SerializeField] Vector3 direction;
-    [field: SerializeField] public int threadIndex { get; private set; }
     [field: SerializeField] public LineRenderer prevLine { get; set; }
     [field: SerializeField] public int pointIndex {  get;  set; }
 
@@ -86,22 +84,17 @@ public class ThreadManager : MonoBehaviour, IThreadManager
         detectedPoints.Clear();
     }
 
-    public void SetSpoolId(int id)
+    public void SetThreadColor()
     {
-        threadIndex = id;
-    }
-    public void SetThreadColor(int id)
-    {
-        SetSpoolId(id);
         if (instantiatedLine != null)
         {
-            //instantiatedLine.material.color = threadColor[id];
-            //instantiatedLine.endColor = threadColor[id];
+            instantiatedLine.material.color = LevelsHandler.instance.currentLevelMeta.threadColor;
+            //instantiatedLine.endColor = LevelsHandler.instance.currentLevelMeta.threadColor;
         }
         if(prevLine != null)
         {
-            //prevLine.material.color = threadColor[id];
-            //prevLine.endColor = threadColor[id];
+            prevLine.material.color = LevelsHandler.instance.currentLevelMeta.threadColor;
+            //prevLine.endColor = LevelsHandler.instance.currentLevelMeta.threadColor;
         }
     }
     void InstantiateMainThread(bool start, Vector2 startPos)
@@ -117,7 +110,7 @@ public class ThreadManager : MonoBehaviour, IThreadManager
                 instantiatedLine.SetPosition(i, startPos);
             }
         }
-
+        SetThreadColor();
     }
     public void AddFirstPositionOnMouseDown(Vector2 headPos)
     {
@@ -125,7 +118,6 @@ public class ThreadManager : MonoBehaviour, IThreadManager
         UpdateStartPositionFromSpool();
         if (instantiatedLine == null)
         {
-            //InstantiateMainThread(true, headPos);
             InstantiateMainThread(true, startPos);
             GameEvents.NeedleEvents.onNeedleActiveStatusUpdate.RaiseEvent(true);
             return;
@@ -136,7 +128,6 @@ public class ThreadManager : MonoBehaviour, IThreadManager
         }
         else
         {
-            //currentRopeStartPosition = headPos;
             currentRopeStartPosition = startPos;
         }
     }
@@ -492,8 +483,9 @@ public class ThreadManager : MonoBehaviour, IThreadManager
 
                 if (s1.attachmentId.Equals(s2.attachmentId))
                 {
-                    s1.connected = false;
-                    s2.connected = false;
+                    s1.IsConnected(false, 0);
+                    s2.IsConnected(false, 0);
+                    
                     if (connectHandler.wrongConnectPoint.Count == 0)
                     {
                         if (o_Info1.noOfConnections > 0)

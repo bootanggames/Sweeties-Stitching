@@ -9,6 +9,7 @@ public class EffectsHandler : MonoBehaviour
     [SerializeField] GameObject gameCompleteConfettiPrefab;
     [SerializeField] ParticleSystem[] confettiEffect;
     int confettiIndex;
+    [SerializeField] GameObject[] fireworksEffect;
     private void OnEnable()
     {
         GameEvents.EffectHandlerEvents.onSelectionEffect.RegisterEvent(InstantiateEffect);
@@ -64,6 +65,7 @@ public class EffectsHandler : MonoBehaviour
         }
         confettiIndex = 0;
     }
+    int fireworksIndex = 0;
     IEnumerator EnableEffect()
     {
         if (confettiIndex < confettiEffect.Length)
@@ -71,8 +73,18 @@ public class EffectsHandler : MonoBehaviour
             confettiEffect[confettiIndex].gameObject.SetActive(true);
             confettiEffect[confettiIndex].Play();
         }
+        if(fireworksIndex < fireworksEffect.Length)
+        {
+            fireworksEffect[fireworksIndex].SetActive(true);
+            fireworksEffect[fireworksIndex].GetComponent<ParticleSystem>().Play();
+        }
+        else
+        {
+            fireworksIndex = 0;
+        }
         yield return new WaitForSeconds(0.15f);
         confettiIndex++;
+        fireworksIndex++;
         StopCoroutine(EnableEffect());
         if (confettiIndex <= (confettiEffect.Length - 1))
             StartCoroutine(EnableEffect());
@@ -80,7 +92,6 @@ public class EffectsHandler : MonoBehaviour
         {
             DisableAllConfetti();
             GameEvents.GameCompleteEvents.onGameComplete.RaiseEvent();
-
         }
     }
 }

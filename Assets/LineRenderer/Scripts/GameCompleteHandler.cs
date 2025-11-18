@@ -1,4 +1,5 @@
 using DG.Tweening;
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -12,9 +13,12 @@ public class GameCompleteHandler : MonoBehaviour, IGameService
     [SerializeField] Image plushieOfCurrentLevel;
 
     [SerializeField] TextMeshProUGUI levelProgress;
+    [SerializeField] GameObject[] sparkles;
+    [SerializeField] int sparkleIndex = 0;
     private void OnEnable()
     {
         RegisterService();
+  
     }
     private void OnDisable()
     {
@@ -57,6 +61,8 @@ public class GameCompleteHandler : MonoBehaviour, IGameService
 
     void GameComplete()
     {
+        if(sparkleRoutine == null)
+            sparkleRoutine = StartCoroutine(EnableSparkle());
         GameEvents.ThreadEvents.setThreadInput.RaiseEvent(false);
         if (LevelsHandler.instance)
         {
@@ -90,5 +96,30 @@ public class GameCompleteHandler : MonoBehaviour, IGameService
         }
         GameHandler.instance.SwitchGameState(GameStates.Gamecomplete);
         
+    }
+    Coroutine sparkleRoutine = null;
+    public float speedSparkle;  
+   
+    IEnumerator EnableSparkle()
+    {
+        while (true)
+        {
+            var sparkle = sparkles[sparkleIndex];
+            CanvasGroup cg = sparkle.GetComponent<CanvasGroup>();
+            cg.alpha = 0;
+            sparkle.SetActive(true);
+
+            yield return cg.DOFade(1f, speedSparkle * 0.5f)
+                .SetEase(Ease.OutQuad)
+                .WaitForCompletion();
+
+            yield return cg.DOFade(0f, speedSparkle * 0.5f)
+                .SetEase(Ease.InQuad)
+                .WaitForCompletion();
+
+            sparkleIndex = (sparkleIndex + 1) % sparkles.Length;
+
+            yield return new WaitForSeconds(Random.Range(0.001f, 0.01f));
+        }
     }
 }

@@ -28,7 +28,8 @@ public class ObjectInfo : MonoBehaviour
     [SerializeField] GameObject cotton;
     [SerializeField] GameObject partWithHoles;
     public GameObject partWithOutHoles;
-
+    public CleanStitch c_Stitch;
+    [SerializeField] bool enableConnection;
     [Header("----------------New Data------------------")]
     [SerializeField] GameObject pointPrefab;
     [SerializeField] Transform pointParent;
@@ -39,6 +40,10 @@ public class ObjectInfo : MonoBehaviour
     [SerializeField] List<Vector3> positions = new List<Vector3>();
     [SerializeField] List<SewPoint> generatedPoints;
     [SerializeField] bool dontChangeY;
+    private void Start()
+    {
+        c_Stitch = GetComponent<CleanStitch>();
+    }
     private void OnEnable()
     {
         if (completeStitchTextObj != null)
@@ -61,7 +66,6 @@ public class ObjectInfo : MonoBehaviour
                 PlayerPrefs.SetInt(partType.ToString() + "_IsStiched", 0);
             }
         }
-            
     }
     public void PartPositioning(GameObject obj, Vector3 position)
     {
@@ -86,12 +90,6 @@ public class ObjectInfo : MonoBehaviour
         SewPoint s = point.GetComponent<SewPoint>();
         s.ChangeText(generatedPoints.Count.ToString());
     }
-
-    //private void Start()
-    //{
-    //    SpawnPoints();
-
-    //}
 
     void SpawnPoints()
     {
@@ -149,6 +147,8 @@ public class ObjectInfo : MonoBehaviour
         }
       
     }
+
+   
  
     public void MarkStitched()
     {
@@ -159,12 +159,22 @@ public class ObjectInfo : MonoBehaviour
 
         if (partWithHoles) partWithHoles.GetComponent<SpriteRenderer>().enabled = false;
         if (partWithOutHoles) partWithOutHoles.SetActive(true);
+        if(c_Stitch) c_Stitch.UnParentPoints();
 
         PlaySound();
         ChangeText(completeStitchTextObj, text, 4);
+        var pointHandler = ServiceLocator.GetService<IPointConnectionHandler>();
+        if (pointHandler != null)
+        {
+            foreach (Connections c in pointHandler.connections)
+            {
+                Destroy(c.line.gameObject);
+            }
+            pointHandler.connections.Clear();
+        }
         Invoke("EnableConffetti", 0.2f);
     }
-    
+    [SerializeField]int index = 0;
     void EnableConffetti()
     {
         if (confettiIndex < connectPoints.Count)
@@ -174,6 +184,19 @@ public class ObjectInfo : MonoBehaviour
             connectPoints[confettiIndex].gameObject.SetActive(false);
             g.SetActive(true);
             confettiIndex++;
+           if(enableConnection)
+            {
+                if(index < LevelsHandler.instance.currentLevelMeta.cleanConnection.Count)
+                {
+                    LevelsHandler.instance.currentLevelMeta.cleanConnection[index].line.gameObject.SetActive(true);
+                }
+                
+                index++;
+                if(index >= LevelsHandler.instance.currentLevelMeta.cleanConnection.Count)
+                {
+                    LevelsHandler.instance.currentLevelMeta.cleanConnection.Clear();
+                }
+            }
         }
             
         CancelInvoke("EnableConffetti");
@@ -215,15 +238,7 @@ public class ObjectInfo : MonoBehaviour
                 if (LevelsHandler.instance.currentLevelMeta)
                     LevelsHandler.instance.currentLevelMeta.UpdateLevelProgress(sp.sequenceType);
              
-                var pointHandler = ServiceLocator.GetService<IPointConnectionHandler>();
-                if (pointHandler != null)
-                {
-                    foreach (Connections c in pointHandler.connections)
-                    {
-                        Destroy(c.line.gameObject);
-                    }
-                    pointHandler.connections.Clear();
-                }
+               
             }
         }
         CancelInvoke("UpdateProgress");
@@ -300,7 +315,7 @@ public class ObjectInfo : MonoBehaviour
         {
             foreach (SewPoint s in connectPoints)
             {
-                s.connected = false;
+                s.IsConnected(false, 0);
                 s.Selected(false);
                 if (s.pointMesh)
                 {

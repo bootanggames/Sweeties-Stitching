@@ -16,6 +16,7 @@ public class SewPoint : MonoBehaviour, ISewPoint
     [field: SerializeField] public bool startFlag { get; private set; }
     [HideInInspector]public Vector3 originalScale;
 
+    public Transform cleanStitchPoint;
     private void OnEnable()
     {
         originalScale = this.transform.localScale;
@@ -23,6 +24,24 @@ public class SewPoint : MonoBehaviour, ISewPoint
         pointMesh = GetComponent<MeshRenderer>();
         textObj = GetComponentInChildren<TextMeshPro>();
         RegisterService();
+
+        //var gameHandler = ServiceLocator.GetService<IGameHandler>();
+        //if (gameHandler != null)
+        //{
+        //    if (gameHandler.saveProgress)
+        //    {
+        //        int stitched = PlayerPrefs.GetInt(attachmentId.ToString() + "_IsConnected");
+        //        if (stitched == 1)
+        //        {
+        //            connected = true;
+        //            //parentInfo.noOfConnections++;
+        //        }
+        //    }
+        //    else
+        //    {
+        //        PlayerPrefs.SetInt(attachmentId.ToString() + "_IsConnected", 0);
+        //    }
+        //}
     }
     private void OnDisable()
     {
@@ -59,5 +78,11 @@ public class SewPoint : MonoBehaviour, ISewPoint
     {
         if(textObj)
             textObj.color = c;
+    }
+
+    public void IsConnected(bool val, int v)
+    {
+        connected = val;
+        PlayerPrefs.SetInt(attachmentId.ToString() + "_IsConnected", v);
     }
 }

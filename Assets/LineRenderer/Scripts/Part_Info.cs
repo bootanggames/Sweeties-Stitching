@@ -3,8 +3,8 @@ using UnityEngine;
 
 public class Part_Info : MonoBehaviour
 {
-    
 
+    public string parentName;
     public  List<GameObject> joints;
 
     public void EnableJoint(PlushieActiveStitchPart partType, bool val)

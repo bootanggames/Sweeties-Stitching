@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
 {
@@ -382,8 +383,9 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
                 Vector3 targetPos = moveAbleTransform.position + avrOffset * info1.pullForce;
                 info1.noOfConnections++;
                 info2.noOfConnections++;
-                sp1.connected = true;
-                sp2.connected = true;
+                sp1.IsConnected(true, 1);
+                sp2.IsConnected(true, 1);
+
                 if (info1.noOfConnections.Equals(info1.totalConnections) && info2.noOfConnections.Equals(info2.totalConnections))
                 {
                     LevelsHandler.instance.currentLevelMeta.noOfStitchedPart++;
@@ -414,6 +416,8 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
 
                     return;
                 }
+                LevelsHandler.instance.currentLevelMeta.Connection(sp1, sp2);
+
                 pullSeq.Join(moveAbleTransform.DOMove(targetPos, tweenDuration).SetEase(Ease.InOutSine));
 
                 pullSeq.Join(
@@ -444,8 +448,8 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
                 Vector3 targetPos = moveAbleTransform.position + avrOffset * info2.pullForce;
                 info1.noOfConnections++;
                 info2.noOfConnections++;
-                sp1.connected = true;
-                sp2.connected = true;
+                sp1.IsConnected(true,1);
+                sp2.IsConnected(true,1);
                 if (info1.noOfConnections.Equals(info1.totalConnections) && info2.noOfConnections.Equals(info2.totalConnections))
                 {
                     LevelsHandler.instance.currentLevelMeta.noOfStitchedPart++;
@@ -477,6 +481,8 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
 
                     return;
                 }
+                LevelsHandler.instance.currentLevelMeta.Connection(sp1, sp2);
+
                 pullSeq.Join(moveAbleTransform.DOMove(targetPos, tweenDuration).SetEase(Ease.InOutSine));
      
                 pullSeq.Join(
@@ -508,7 +514,10 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
 
                 }
             }
-           
+            foreach(var connection in LevelsHandler.instance.currentLevelMeta.cleanConnection)
+            {
+                connection.UpdateLine(zVal, false);
+            }
         });
         pullSeq.OnComplete(() =>
         {
@@ -522,9 +531,11 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
         if (sp1.attachmentId.Equals(sp2.attachmentId))
             IncrementLinksPerPart(sp1, sp2, info1, info2);
     }
+
     void IncrementLinksPerPart(SewPoint s1, SewPoint s2 , ObjectInfo o1, ObjectInfo o2)
     {
         var threadHandler = ServiceLocator.GetService<IThreadManager>();
+
         if (o1.noOfConnections.Equals(o1.totalConnections) && o2.noOfConnections.Equals(o2.totalConnections))
         {
 
@@ -567,6 +578,7 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
         {
             connections[i].UpdateLine(zVal, false);
         }
+      
         //var threadHandler = ServiceLocator.GetService<IThreadManager>();
         //if(threadHandler != null)
         //    threadHandler.UpdateSpoolThreadLastPoint(0.1f);

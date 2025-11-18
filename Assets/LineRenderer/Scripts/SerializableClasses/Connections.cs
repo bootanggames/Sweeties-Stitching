@@ -66,6 +66,7 @@ public class Connections
             this.line.positionCount = 2;
             this.line.SetPosition(0, pos1);
             this.line.SetPosition(1, pos2);
+            this.line.material.color = LevelsHandler.instance.currentLevelMeta.threadColor;
             LevelsHandler.instance.currentLevelMeta.noOfLinks++;
             var canvasManager = ServiceLocator.GetService<ICanvasUIManager>();
             if (canvasManager != null)

@@ -10,14 +10,10 @@ public class LevelDetail : MonoBehaviour
     public TextMeshProUGUI levelNumber;
     public GameObject lockedImage;
     public bool locked;
-
+    public int totalPlushies;
     private void Start()
     {
-        if (LevelsHandler.instance)
-        {
-            int levelData = PlayerPrefs.GetInt("Level");
-            levelNumber.text = (id + 1) + "/" + LevelsHandler.instance.levelStructure[levelData].plushie.Length;
-        }
-        //levelNumber.text = (id+1)+"/"+LevelsHandler.instance.levels.Count;
+        int levelData = PlayerPrefs.GetInt("Level");
+        levelNumber.text = (id + 1) + "/" + totalPlushies;
     }
 }

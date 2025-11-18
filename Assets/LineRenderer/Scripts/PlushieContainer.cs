@@ -7,7 +7,7 @@ public class PlushieContainer : MonoBehaviour
     public GameObject[] plushie;
     public bool full = false;
 
-    private void Start()
+    private void OnEnable()
     {
         int c = 0;
 

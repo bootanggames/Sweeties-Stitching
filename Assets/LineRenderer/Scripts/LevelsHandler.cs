@@ -93,9 +93,8 @@ public class LevelsHandler : Singleton<LevelsHandler>, ILevelHandler
         PlayerPrefs.SetInt("SaveProgress", 0);
         levelIndex = PlayerPrefs.GetInt("Level");
         plushieIndex = PlayerPrefs.GetInt("Level_" + levelIndex + "_Plushie");
-        if (plushieIndex < levelStructure[levelIndex].plushie.Length)
-            plushieIndex++;
-
+        //if (plushieIndex < levelStructure[levelIndex].plushie.Length)
+        plushieIndex++;
         if (plushieIndex >= levelStructure[levelIndex].plushie.Length)
         {
             levelIndex++;

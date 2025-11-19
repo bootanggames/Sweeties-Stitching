@@ -26,9 +26,9 @@ public class NeedleDetector : MonoBehaviour, INeedleDetector
     {
         detectionRadius = val;
     }
-    private void OnTriggerEnter(Collider other)
+    public void ResetDetectedPointsList(List<SewPoint> list)
     {
-        
+        pointsDetected = list;
     }
     private void OnTriggerStay(Collider other)
     {
@@ -66,47 +66,47 @@ public class NeedleDetector : MonoBehaviour, INeedleDetector
 
         }
     }
-    private void OnTriggerExit(Collider other)
-    {
+    //private void OnTriggerExit(Collider other)
+    //{
         
-    }
-    void DetectPoints()
-    {
-        if (!detect) return;
-        Collider[] colliders = Physics.OverlapSphere(needleTransform.position, detectionRadius, detectLayer);
-        if (colliders.Length <= 0) return;
-        SewPoint sewPoint = colliders[0].GetComponent<SewPoint>();
-        if (sewPoint.IsSelected()) return;
-        if (sewPoint.connected) return;
+    //}
+    //void DetectPoints()
+    //{
+    //    if (!detect) return;
+    //    Collider[] colliders = Physics.OverlapSphere(needleTransform.position, detectionRadius, detectLayer);
+    //    if (colliders.Length <= 0) return;
+    //    SewPoint sewPoint = colliders[0].GetComponent<SewPoint>();
+    //    if (sewPoint.IsSelected()) return;
+    //    if (sewPoint.connected) return;
       
 
-        sewPoint.Selected(true);
+    //    sewPoint.Selected(true);
 
-        sewPoint.GetComponent<Collider>().enabled = false;
-        sewPoint.name = sewPoint.transform.parent.name+"_sew_"+ sewPoint.name;
-        PlaySound();
-        sewPoint.ChangeTextColor(Color.green);
-        GameEvents.EffectHandlerEvents.onSelectionEffect.RaiseEvent(sewPoint.transform);
-        GameEvents.ThreadEvents.onCreatingConnection.RaiseEvent(sewPoint);
+    //    sewPoint.GetComponent<Collider>().enabled = false;
+    //    sewPoint.name = sewPoint.transform.parent.name+"_sew_"+ sewPoint.name;
+    //    PlaySound();
+    //    sewPoint.ChangeTextColor(Color.green);
+    //    GameEvents.EffectHandlerEvents.onSelectionEffect.RaiseEvent(sewPoint.transform);
+    //    GameEvents.ThreadEvents.onCreatingConnection.RaiseEvent(sewPoint);
 
-        if (!pointsDetected.Contains(sewPoint))
-            pointsDetected.Add(sewPoint);
-        var pointsHandler = ServiceLocator.GetService<IPointConnectionHandler>();
+    //    if (!pointsDetected.Contains(sewPoint))
+    //        pointsDetected.Add(sewPoint);
+    //    var pointsHandler = ServiceLocator.GetService<IPointConnectionHandler>();
 
-        if (pointsHandler != null)
-        {
-            if (pointsDetected.Count > 0)
-            {
-                if (pointsDetected.Count % 2 == 0)
-                {
-                    var threadHandler = ServiceLocator.GetService<IThreadManager>();
-                    if (threadHandler != null)
-                        threadHandler.ScaleDownAllPoints();
-                }
-            }
-        }
+    //    if (pointsHandler != null)
+    //    {
+    //        if (pointsDetected.Count > 0)
+    //        {
+    //            if (pointsDetected.Count % 2 == 0)
+    //            {
+    //                var threadHandler = ServiceLocator.GetService<IThreadManager>();
+    //                if (threadHandler != null)
+    //                    threadHandler.ScaleDownAllPoints();
+    //            }
+    //        }
+    //    }
 
-    }
+    //}
     
     void PlaySound()
     {
@@ -141,12 +141,11 @@ public class NeedleDetector : MonoBehaviour, INeedleDetector
     {
         if (pointsDetected.Count == 0) return;
 
-        //detect = false;
         SewPoint s = null;
         s = pointsDetected[pointsDetected.Count - 1];
         s.GetComponent<Collider>().enabled = true;
         s.pointMesh.enabled = true;
-        s.IsConnected(false, 0);
+        s.IsConnected(false, 0,Vector3.zero,"");
         s.Selected(false);
         s.ChangeTextColor(Color.white);
         pointsDetected.Remove(s);

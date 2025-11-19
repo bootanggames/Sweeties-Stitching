@@ -60,6 +60,24 @@ public class ObjectInfo : MonoBehaviour
                     noOfConnections = totalConnections;
                
                 }
+                else
+                {
+                    int plushieIndex = PlayerPrefs.GetInt("Level_" + LevelsHandler.instance.levelIndex + "_Plushie");
+                    int c = PlayerPrefs.GetInt(plushieIndex + "_" + partType.ToString() + "_" + "noOfConnections");
+                    noOfConnections = c;
+
+                    float x = PlayerPrefs.GetFloat(plushieIndex + "_" + partType.ToString() + "lastMoved_X");
+                    float y = PlayerPrefs.GetFloat(plushieIndex + "_" + partType.ToString() + "lastMoved_Y");
+                    float z = PlayerPrefs.GetFloat(plushieIndex + "_" + partType.ToString() + "lastMoved_Z");
+                    Vector3 lastSavePos = new Vector3(x, y, z);
+                    if(moveable && !lastSavePos.Equals(Vector3.zero))
+                    {
+                        if(!head)
+                            this.transform.position = lastSavePos;
+                        else
+                            LevelsHandler.instance.currentLevelMeta.head.transform.position = lastSavePos;
+                    }
+                }
             }
             else
             {
@@ -148,8 +166,19 @@ public class ObjectInfo : MonoBehaviour
       
     }
 
-   
- 
+
+    public void IncementConnection()
+    {
+        noOfConnections++;
+        int plushieIndex = PlayerPrefs.GetInt("Level_" + LevelsHandler.instance.levelIndex + "_Plushie");
+        PlayerPrefs.SetInt(plushieIndex+"_"+partType.ToString()+"_"+"noOfConnections", noOfConnections);
+    }
+    public void DecementConnection()
+    {
+        noOfConnections--;
+        int plushieIndex = PlayerPrefs.GetInt("Level_" + LevelsHandler.instance.levelIndex + "_Plushie");
+        PlayerPrefs.SetInt(plushieIndex + "_" + partType.ToString() + "_" + "noOfConnections", noOfConnections);
+    }
     public void MarkStitched()
     {
         IsStitched = true;
@@ -315,7 +344,7 @@ public class ObjectInfo : MonoBehaviour
         {
             foreach (SewPoint s in connectPoints)
             {
-                s.IsConnected(false, 0);
+                s.IsConnected(false, 0, Vector3.zero, "");
                 s.Selected(false);
                 if (s.pointMesh)
                 {

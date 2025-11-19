@@ -10,4 +10,5 @@ public interface INeedleDetector : IGameService
     List<SewPoint> pointsDetected {  get; }
     void UndoLastConnectedPoint();
     SewPoint GetDetectedPoint(int index);
+    void ResetDetectedPointsList(List<SewPoint> list);
 }

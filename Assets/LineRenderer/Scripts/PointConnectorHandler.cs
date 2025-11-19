@@ -1,10 +1,7 @@
 ﻿using DG.Tweening;
-using System.Collections;
 using System.Collections.Generic;
-using System.Drawing;
 using System.Linq;
 using UnityEngine;
-using UnityEngine.Rendering;
 
 public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
 {
@@ -26,7 +23,7 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
     [field: SerializeField] public Material startToDetectMaterial { get; private set; }
 
     [SerializeField] float tolerance = 0.05f;
-    [SerializeField] LineRenderer linePrefab;
+    [field: SerializeField] public LineRenderer linePrefab { get; private set; }
     [SerializeField] float zVal = -0.25f;
     [SerializeField] float rotationSpeed;
     [SerializeField] float pullForce;
@@ -60,6 +57,10 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
         GameEvents.PointConnectionHandlerEvents.onUpdatingPullSpeed.UnregisterEvent(SetPullSpeed);
         GameEvents.PointConnectionHandlerEvents.onUpdatingStitchCount.UnregisterEvent(SetStitchCount);
         GameEvents.PointConnectionHandlerEvents.onSettingPlushieLevel2.UnregisterEvent(ActivateDynamicStitch);
+    }
+    public void ResetPointsList(List<SewPoint> list)
+    {
+        points = list;
     }
     void ActivateDynamicStitch(bool val)
     {
@@ -381,10 +382,10 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
                 info1.movedPositions.Add(moveAbleTransform.position);
                 info2.movedPositions.Add(moveAbleTransform.position);
                 Vector3 targetPos = moveAbleTransform.position + avrOffset * info1.pullForce;
-                info1.noOfConnections++;
-                info2.noOfConnections++;
-                sp1.IsConnected(true, 1);
-                sp2.IsConnected(true, 1);
+                info1.IncementConnection();
+                info2.IncementConnection();
+                sp1.IsConnected(true, 1, moveAbleTransform.position, info1.partType.ToString());
+                sp2.IsConnected(true, 1, moveAbleTransform.position, info2.partType.ToString());
 
                 if (info1.noOfConnections.Equals(info1.totalConnections) && info2.noOfConnections.Equals(info2.totalConnections))
                 {
@@ -446,10 +447,10 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
                 info1.movedPositions.Add(moveAbleTransform.position);
                 info2.movedPositions.Add(moveAbleTransform.position);
                 Vector3 targetPos = moveAbleTransform.position + avrOffset * info2.pullForce;
-                info1.noOfConnections++;
-                info2.noOfConnections++;
-                sp1.IsConnected(true,1);
-                sp2.IsConnected(true,1);
+                info1.IncementConnection();
+                info2.IncementConnection();
+                sp1.IsConnected(true, 1, moveAbleTransform.position, info1.partType.ToString());
+                sp2.IsConnected(true,1, moveAbleTransform.position, info2.partType.ToString());
                 if (info1.noOfConnections.Equals(info1.totalConnections) && info2.noOfConnections.Equals(info2.totalConnections))
                 {
                     LevelsHandler.instance.currentLevelMeta.noOfStitchedPart++;
@@ -600,62 +601,5 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
         return connections[connections.Count - 1];
     }
 
-    #region To Optimise Code --> Replace it later
-    void StitchAndMoveParts(Sequence _pullSequence, ObjectInfo info1, ObjectInfo info2, SewPoint sp1, SewPoint sp2, float _tweenDuration)
-    {
-        Vector3 avrOffset = Vector3.zero;
-        for (int i = 0; i < info1.connectPoints.Count; i++)
-        {
-            Vector3 offset = info2.connectPoints[i].transform.position - info1.connectPoints[i].transform.position;
-            avrOffset += offset;
-        }
-        avrOffset /= info1.connectPoints.Count;
-
-        Transform moveAbleTransform = null;
-        if (info1.head)
-            moveAbleTransform = info1.transform.parent;
-        else
-            moveAbleTransform = info1.transform;
-
-        info1.movedPositions.Add(moveAbleTransform.position);
-        info2.movedPositions.Add(moveAbleTransform.position);
-        Vector3 targetPos = moveAbleTransform.position + avrOffset * info1.pullForce;
-        info1.noOfConnections++;
-        info2.noOfConnections++;
-        sp1.connected = true;
-        sp2.connected = true;
-        Debug.LogError("here");
-        if (info1.partType.Equals(PlushieActiveStitchPart.lefteye) || info1.partType.Equals(PlushieActiveStitchPart.righteye))
-        {
-            if (info1.noOfConnections.Equals(info1.totalConnections))
-            {
-                info1.transform.DOMove(info1.movedPosition, 0.5f).SetEase(Ease.Linear).OnUpdate(() =>
-                {
-                    UpdateConnections();
-                    var threadHandler = ServiceLocator.GetService<IThreadManager>();
-                    if (threadHandler != null)
-                    {
-                        if (threadHandler.prevLine)
-                            threadHandler.prevLine.SetPosition(0, threadHandler.detectedPoints[0].position);
-                        if (threadHandler.instantiatedLine)
-                            threadHandler.instantiatedLine.SetPosition(threadHandler.instantiatedLine.positionCount - 1, sp1.transform.position);
-                    }
-                }).OnComplete(() =>
-                {
-                    CheckIfLastConnectionUpdated(sp1, sp2, sp1.transform, sp2.transform, info1, info2);
-                    info1.DOPause();
-                });
-            }
-
-            return;
-        }
-        _pullSequence.Join(moveAbleTransform.DOMove(targetPos, _tweenDuration).SetEase(Ease.InOutSine));
-
-        _pullSequence.Join(
-            moveAbleTransform.DORotate(info1.originalRotation, _tweenDuration, RotateMode.Fast)
-            .SetEase(Ease.InOutSine)
-        );
-    }
-
-    #endregion
+   
 }

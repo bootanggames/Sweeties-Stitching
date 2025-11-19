@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using System.Net.Mail;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -108,7 +110,7 @@ public class Level_Metadata : MonoBehaviour
     }
     public void StartLevel() 
     {
-        //ObjectInfo currentPartInfor = null;
+
         ObjectInfo currentConnectedPartInfor = null;
         ObjectInfo neck = bodyParts[0].GetComponent<ObjectInfo>();
         if (neck.IsStitched)
@@ -175,6 +177,35 @@ public class Level_Metadata : MonoBehaviour
         if (needleDetecto != null)
         {
             needleDetecto.detect = true;
+        }
+        var threadHandler = ServiceLocator.GetService<IThreadManager>();
+        if (threadHandler != null)
+        {
+            threadHandler.ResetList(threadHandler.detectedPoints.OrderBy(t => t.GetComponent<SewPoint>().attachmentId).ToList());
+        }
+        var pointsHandler = ServiceLocator.GetService<IPointConnectionHandler>();
+        if (pointsHandler != null)
+        {
+            if (pointsHandler.points.Count > 0)
+                pointsHandler.ResetPointsList(pointsHandler.points.OrderBy(p => p.attachmentId).ToList());
+
+            for (int i = 0; i < pointsHandler.points.Count; i++)
+            {
+                if((i+1) < pointsHandler.points.Count)
+                {
+                    Connections newConnection = new Connections(pointsHandler.points[i].transform, pointsHandler.points[i + 1].transform, pointsHandler.linePrefab, -0.01f, false, 0);
+                    pointsHandler.connections.Add(newConnection);
+                    if (pointsHandler.points[i].attachmentId.Equals(pointsHandler.points[i + 1].attachmentId))
+                        LevelsHandler.instance.currentLevelMeta.Connection(pointsHandler.points[i], pointsHandler.points[i + 1]);
+                }
+            }
+
+        }
+        var needleDetector = ServiceLocator.GetService<INeedleDetector>();
+        if (needleDetector != null)
+        {
+            if (needleDetector.pointsDetected.Count > 0)
+                needleDetector.ResetDetectedPointsList(needleDetector.pointsDetected.OrderBy(p => p.attachmentId).ToList());
         }
         CancelInvoke("EnableDetection");
     }
@@ -466,6 +497,7 @@ public class Level_Metadata : MonoBehaviour
             Connections connection = new Connections(sp1.cleanStitchPoint, sp2.cleanStitchPoint, linePrefabForCleanConnection, -0.01f, false, 2);
             cleanConnection.Add(connection);
             connection.line.gameObject.SetActive(false);
+            connection.isLocked = true;
             cleanThreads.Add(connection);
         }
        

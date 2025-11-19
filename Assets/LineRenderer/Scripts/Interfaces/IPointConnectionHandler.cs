@@ -18,6 +18,7 @@ public interface IPointConnectionHandler : IGameService
      Material correctPointMaterial {  get; }
     Material wrongPointMaterial {  get; }
     List<SewPoint> wrongConnectPoint {  get; }
+    LineRenderer linePrefab {  get; }
     void GetAttachedPointsToCreateLink(List<Transform> point);
     void CreateLinkBetweenPoints(SewPoint point1, SewPoint point2);
     void ManageConnetions(Connections c);
@@ -27,4 +28,5 @@ public interface IPointConnectionHandler : IGameService
     Connections GetLastConnection();
     void GetObjectInfoWrongAlertTextDisableOfPart(List<GameObject> list);
     void UpdateColorOfPoints();
+    void ResetPointsList(List<SewPoint> list);
 }

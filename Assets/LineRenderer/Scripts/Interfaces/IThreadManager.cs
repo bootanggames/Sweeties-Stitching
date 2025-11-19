@@ -19,4 +19,5 @@ public interface IThreadManager : IGameService
     int pointIndex { get; set; }
     void UpdateSpoolThreadLastPoint(float lerpSpeed);
     void SetUndoValue(bool val);
+    void ResetList(List<Transform> list);
 }

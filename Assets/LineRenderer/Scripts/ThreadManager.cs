@@ -83,7 +83,10 @@ public class ThreadManager : MonoBehaviour, IThreadManager
     {
         detectedPoints.Clear();
     }
-
+    public void ResetList(List<Transform> list)
+    {
+        detectedPoints = list;
+    }
     public void SetThreadColor()
     {
         if (instantiatedLine != null)
@@ -458,6 +461,8 @@ public class ThreadManager : MonoBehaviour, IThreadManager
                 Connections c = null;
                 c = connectHandler.connections[connectHandler.connections.Count - 1];
                 connectHandler.connections.Remove(c);
+
+           
                 Transform moveableTransform = null;
                 ObjectInfo o_Info1 = null;
                 ObjectInfo o_Info2 = null;
@@ -483,15 +488,16 @@ public class ThreadManager : MonoBehaviour, IThreadManager
 
                 if (s1.attachmentId.Equals(s2.attachmentId))
                 {
-                    s1.IsConnected(false, 0);
-                    s2.IsConnected(false, 0);
-                    
+                    Connections c_Clean = LevelsHandler.instance.currentLevelMeta.cleanConnection[LevelsHandler.instance.currentLevelMeta.cleanConnection.Count - 1];
+                    LevelsHandler.instance.currentLevelMeta.cleanConnection.Remove(c_Clean);
+
+
                     if (connectHandler.wrongConnectPoint.Count == 0)
                     {
                         if (o_Info1.noOfConnections > 0)
-                            o_Info1.noOfConnections--;
+                            o_Info1.DecementConnection();
                         if (o_Info2.noOfConnections > 0)
-                            o_Info2.noOfConnections--;
+                            o_Info2.DecementConnection();
 
                         if (o_Info1.moveable)
                         {
@@ -559,7 +565,15 @@ public class ThreadManager : MonoBehaviour, IThreadManager
 
                         }
                     }
-                
+                    if(o_Info1.movedPositions.Count > 0)
+                        s1.IsConnected(false, 0, o_Info1.movedPositions[o_Info1.movedPositions.Count - 1], o_Info1.partType.ToString());
+                    else
+                        s1.IsConnected(false, 0, Vector3.zero, "");
+
+                    if (o_Info2.movedPositions.Count > 0)
+                        s2.IsConnected(false, 0, o_Info2.movedPositions[o_Info2.movedPositions.Count - 1], o_Info2.partType.ToString());
+                    else
+                        s2.IsConnected(false, 0, Vector3.zero, "");
                     LevelsHandler.instance.currentLevelMeta.UpdateAllStitchesOfPlushie();
                     
                 }

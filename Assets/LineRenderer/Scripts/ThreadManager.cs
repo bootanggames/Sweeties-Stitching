@@ -488,8 +488,11 @@ public class ThreadManager : MonoBehaviour, IThreadManager
 
                 if (s1.attachmentId.Equals(s2.attachmentId))
                 {
-                    Connections c_Clean = LevelsHandler.instance.currentLevelMeta.cleanConnection[LevelsHandler.instance.currentLevelMeta.cleanConnection.Count - 1];
-                    LevelsHandler.instance.currentLevelMeta.cleanConnection.Remove(c_Clean);
+                    if(s1.connected)
+                    {
+                        Connections c_Clean = LevelsHandler.instance.currentLevelMeta.cleanConnection[LevelsHandler.instance.currentLevelMeta.cleanConnection.Count - 1];
+                        LevelsHandler.instance.currentLevelMeta.cleanConnection.Remove(c_Clean);
+                    }
 
 
                     if (connectHandler.wrongConnectPoint.Count == 0)

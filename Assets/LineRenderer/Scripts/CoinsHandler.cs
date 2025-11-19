@@ -106,7 +106,6 @@ public class CoinsHandler : MonoBehaviour,ICoinsHandler
         //audioSource.Stop();
         SoundManager.instance.PlaySound(audioSource, SoundManager.instance.audioClips.coinCollection, false, false, 1, false);
         HepticManager.instance.HapticEffect();
-        Debug.LogError("sound ");
     }
     public void ResetCoinList()
     {

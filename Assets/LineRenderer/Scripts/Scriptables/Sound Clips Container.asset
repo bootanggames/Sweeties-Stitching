@@ -12,13 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb88fe338bcb8864fb33624197e9a010, type: 3}
   m_Name: Sound Clips Container
   m_EditorClassIdentifier: 
-  bgMusic: {fileID: 8300000, guid: 245b249336108e9489d15b6ef909b8dd, type: 3}
-  buttonClick: {fileID: 8300000, guid: dfcc37986c1e98e46a9a92be7d73e5f4, type: 3}
-  coinCollection: {fileID: 8300000, guid: 64b563349685c7c40808ea53d85c9ac9, type: 3}
-  completed: {fileID: 8300000, guid: 191d254ba0424a446b958c669b522a74, type: 3}
-  sewing: {fileID: 8300000, guid: 04afed4b3926fd7458472ef0d7e193a0, type: 3}
-  purchaseComplete: {fileID: 8300000, guid: d7b4f9eb43c6bde4ab91ab0ae6da8529, type: 3}
+  bgMusic: {fileID: 8300000, guid: a11c79844267dc94aa49435b451a59d2, type: 3}
+  buttonClick: {fileID: 8300000, guid: b39a2f7d91550a94eb1b771038eb7fed, type: 3}
+  coinCollection: {fileID: 8300000, guid: ce9024b8fbb5da64c85a2684fa12b874, type: 3}
+  completed: {fileID: 8300000, guid: ac029743b2f8c6e46a4d099626293700, type: 3}
+  sewing: {fileID: 8300000, guid: bfac449872047bb4bae5f267de594c69, type: 3}
+  purchaseComplete: {fileID: 8300000, guid: 7cf25feb2058e3d468a68b21649676b3, type: 3}
   wrongStitchSound: {fileID: 8300000, guid: cc162acb7b574bd448f35a354e2cca0c, type: 3}
   fireWorksSound: {fileID: 8300000, guid: 98f6d62977af8fb459470fc70bd5b2ce, type: 3}
-  homeScreenBgSound: {fileID: 8300000, guid: f3de2dcebc0538547985d559090ad39c, type: 3}
   plushieInventoryScreenBgSound: {fileID: 8300000, guid: 3e9912aa7d1b90440b5664ccf0b5ea06, type: 3}

@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using TMPro;
+using UnityEditor.MemoryProfiler;
 using UnityEngine;
 
 public class ObjectInfo : MonoBehaviour
@@ -221,10 +222,7 @@ public class ObjectInfo : MonoBehaviour
                 }
                 
                 index++;
-                if(index >= LevelsHandler.instance.currentLevelMeta.cleanConnection.Count)
-                {
-                    LevelsHandler.instance.currentLevelMeta.cleanConnection.Clear();
-                }
+
             }
         }
             
@@ -265,9 +263,16 @@ public class ObjectInfo : MonoBehaviour
                 sp.name = sp.sequenceType.ToString();
                 GameEvents.ThreadEvents.onResetThreadInput.RaiseEvent();
                 if (LevelsHandler.instance.currentLevelMeta)
+                {
+                    foreach (Connections c in LevelsHandler.instance.currentLevelMeta.cleanConnection)
+                    {
+                        Destroy(c.line.gameObject);
+                    }
+                    LevelsHandler.instance.currentLevelMeta.cleanConnection.Clear();
                     LevelsHandler.instance.currentLevelMeta.UpdateLevelProgress(sp.sequenceType);
-             
-               
+                }
+
+
             }
         }
         CancelInvoke("UpdateProgress");

@@ -67,10 +67,7 @@ public class Connections
             this.line.SetPosition(0, pos1);
             this.line.SetPosition(1, pos2);
             this.line.material.color = LevelsHandler.instance.currentLevelMeta.threadColor;
-            LevelsHandler.instance.currentLevelMeta.noOfLinks++;
-            var canvasManager = ServiceLocator.GetService<ICanvasUIManager>();
-            if (canvasManager != null)
-                canvasManager.UpdateStitchCount(LevelsHandler.instance.currentLevelMeta.totalCorrectLinks, LevelsHandler.instance.currentLevelMeta.noOfLinks);
+
         }
     }
     public void DestroyPreviousLine()

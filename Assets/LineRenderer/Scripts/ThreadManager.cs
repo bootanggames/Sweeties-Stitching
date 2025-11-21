@@ -454,6 +454,7 @@ public class ThreadManager : MonoBehaviour, IThreadManager
                 Destroy(instantiatedLine.gameObject);
                 GameEvents.NeedleEvents.OnNeedleMovement.RaiseEvent(startPos);
             }
+
             if (connectHandler.points.Count > 0)
                 connectHandler.points.Remove(connectHandler.points[connectHandler.points.Count - 1]);
             if (connectHandler.connections.Count > 0)
@@ -461,8 +462,15 @@ public class ThreadManager : MonoBehaviour, IThreadManager
                 Connections c = null;
                 c = connectHandler.connections[connectHandler.connections.Count - 1];
                 connectHandler.connections.Remove(c);
+                if (LevelsHandler.instance.currentLevelMeta.noOfLinks > 0)
+                {
+                    LevelsHandler.instance.currentLevelMeta.noOfLinks--;
+                    PlayerPrefs.SetInt("StitchedCount", LevelsHandler.instance.currentLevelMeta.noOfLinks);
+                    var canvasManager = ServiceLocator.GetService<ICanvasUIManager>();
+                    if (canvasManager != null)
+                        canvasManager.UpdateStitchCount(LevelsHandler.instance.currentLevelMeta.totalCorrectLinks, LevelsHandler.instance.currentLevelMeta.noOfLinks);
+                }
 
-           
                 Transform moveableTransform = null;
                 ObjectInfo o_Info1 = null;
                 ObjectInfo o_Info2 = null;
@@ -471,11 +479,7 @@ public class ThreadManager : MonoBehaviour, IThreadManager
               
                 SewPoint s1 = c.point1.GetComponent<SewPoint>();
                 SewPoint s2 = c.point2.GetComponent<SewPoint>();
-                if (LevelsHandler.instance.currentLevelMeta.noOfLinks > 0)
-                {
-                    LevelsHandler.instance.currentLevelMeta.noOfLinks--;
-                    PlayerPrefs.SetInt("StitchedCount", LevelsHandler.instance.currentLevelMeta.noOfLinks);
-                }
+               
                 if(lastConnectedPoint != null)
                 {
                     for (int i = 1; i < instantiatedLine.positionCount; i++)

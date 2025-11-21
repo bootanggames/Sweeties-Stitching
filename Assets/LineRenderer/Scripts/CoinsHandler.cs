@@ -105,7 +105,6 @@ public class CoinsHandler : MonoBehaviour,ICoinsHandler
     {
         //audioSource.Stop();
         SoundManager.instance.StopSound(audioSource);
-        audioSource = null;
         SoundManager.instance.PlaySound(audioSource, SoundManager.instance.audioClips.coinCollection, false, false, 1, false);
         HepticManager.instance.HapticEffect();
     }

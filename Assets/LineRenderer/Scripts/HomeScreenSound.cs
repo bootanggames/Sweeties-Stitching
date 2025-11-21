@@ -9,6 +9,8 @@ public class HomeScreenSound : MonoBehaviour
     {
         if (inventorySource)
             SoundManager.instance.StopSound(inventorySource);
-        SoundManager.instance.PlaySound(sourceForBgMusic, SoundManager.instance.audioClips.homeScreenBgSound, true, false, 1.0f, true);
+        SoundManager.instance.PlaySound(sourceForBgMusic, SoundManager.instance.audioClips.bgMusic, true, false, 1.0f, true);
+
+        Debug.LogError("Runtime audio device: " + AudioSettings.GetConfiguration().speakerMode);
     }
 }

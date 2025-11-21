@@ -10,15 +10,15 @@ public class ScaleOutObject : MonoBehaviour
     [SerializeField] bool startGame;
     private void OnEnable()
     {
-        ScaleOut();
-    }
-    void ScaleOut()
-    {
         if (tween != null && tween.IsActive())
         {
             tween.Kill();
             tween = null;
         }
+        ScaleOut();
+    }
+    void ScaleOut()
+    {
         tween = GameEvents.DoTweenAnimationHandlerEvents.onScaleTransform.Raise(this.transform, targetScale, speed, ease);
         if (tween != null)
         {
@@ -29,6 +29,7 @@ public class ScaleOutObject : MonoBehaviour
                 else
                     GameComplete();
             });
+           
         }
     }
 
@@ -45,12 +46,14 @@ public class ScaleOutObject : MonoBehaviour
 
     void GameComplete()
     {
+
         var canvasHandler = ServiceLocator.GetService<ICanvasUIManager>();
         if (canvasHandler != null)
             canvasHandler.confettiEffectCanvas.SetActive(true);
-        LevelsHandler.instance.currentLevelMeta.DeactivateAllThreads();
-        LevelsHandler.instance.currentLevelMeta.gameObject.SetActive(false);
+        //LevelsHandler.instance.currentLevelMeta.DeactivateAllThreads();
         LevelsHandler.instance.currentLevelMeta.sewnPlushie.SetActive(true);
+        LevelsHandler.instance.currentLevelMeta.gameObject.SetActive(false);
+
         tween.Kill();
         tween = null;
         PlaySound();

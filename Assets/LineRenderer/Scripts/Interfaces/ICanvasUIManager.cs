@@ -16,6 +16,7 @@ public interface ICanvasUIManager:IGameService
     TextMeshProUGUI stitchCountText {  get; }
     TextMeshProUGUI stitchProgress {  get; }
     TextMeshProUGUI offsetValue {  get; }
+    AudioSource audioSourceForBG {  get; }
     void TapToStart();
     void UpdateStitchCount(int totalStitch, int completedStitch);
     void UpdatePlushieStitchProgress(int totalParts, int completedParts);

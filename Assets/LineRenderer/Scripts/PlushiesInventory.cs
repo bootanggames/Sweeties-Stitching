@@ -10,10 +10,14 @@ public class PlushiesInventory : MonoBehaviour,IPlushieInventory
     [SerializeField] PageScroller pageScroller;
     [SerializeField] PageSlider pageSlider;
     [field: SerializeField] public int noOfPlushieEnabled {  get; private set; }
-
+    [SerializeField] AudioSource source;
+    [SerializeField] AudioSource mainMenuSource;
     private void OnEnable()
     {
         RegisterService();
+        if(mainMenuSource)
+            SoundManager.instance.StopSound(mainMenuSource);
+        SoundManager.instance.PlaySound(source, SoundManager.instance.audioClips.plushieInventoryScreenBgSound, true, false, 1.0f, true);
     }
     private void OnDisable()
     {

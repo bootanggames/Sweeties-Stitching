@@ -74,16 +74,16 @@ public class CoinsHandler : MonoBehaviour,ICoinsHandler
         {
             GameObject coinObj = coinsObjList[i];
 
-            yield return new WaitForSeconds(0.015f);
+            yield return new WaitForSeconds(0.025f);
             if (coinObj != null)
             {
                 coinMoveTween = GameEvents.DoTweenAnimationHandlerEvents.onMoveToTargetAnimation.Raise(coinObj.transform, targetPointToMove, coinMoveSpeed, Ease.InOutBack);
                 coinScaleTween = GameEvents.DoTweenAnimationHandlerEvents.onScaleTransform.Raise(coinObj.transform, targetScaleDown, coinMoveSpeed, Ease.Linear);
+                PlayCoinSound();
 
                 coinMoveTween.OnComplete(() =>
                 {
                     SaveCoins(1);
-                    PlayCoinSound();
                     Vector3 target = new Vector3(1.2f, 1.2f, 1.2f);
                     Tween bar = GameEvents.DoTweenAnimationHandlerEvents.onScaleTransform.Raise(coinBar.transform, target, 0.1f, Ease.InOutFlash);
                     bar.OnComplete(() =>
@@ -104,6 +104,8 @@ public class CoinsHandler : MonoBehaviour,ICoinsHandler
     void PlayCoinSound()
     {
         //audioSource.Stop();
+        SoundManager.instance.StopSound(audioSource);
+        audioSource = null;
         SoundManager.instance.PlaySound(audioSource, SoundManager.instance.audioClips.coinCollection, false, false, 1, false);
         HepticManager.instance.HapticEffect();
     }

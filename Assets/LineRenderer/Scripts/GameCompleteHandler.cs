@@ -35,17 +35,9 @@ public class GameCompleteHandler : MonoBehaviour, IGameService
         GameEvents.GameCompleteEvents.onGameComplete.UnregisterEvent(GameComplete);
         GameEvents.GameCompleteEvents.onGameWin.UnregisterEvent(WinConfettiEffect);
     }
-    void PlaySound()
-    {
-        SoundManager.instance.ResetAudioSource();
-
-        AudioSource _source = SoundManager.instance.audioSource;
-        AudioClip _clip = SoundManager.instance.audioClips.completed;
-        SoundManager.instance.PlaySound(_source, _clip, false, false, 1, false);
-    }
+    
     void WinConfettiEffect()
     {
-        PlaySound();
         foreach (Transform ps in  effectPosition)
         {
             GameObject effect = GameEvents.EffectHandlerEvents.onGetInstantiatedEffect.Raise(ps);

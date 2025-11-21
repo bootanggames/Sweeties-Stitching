@@ -10,4 +10,7 @@ public class SoundScriptable : ScriptableObject
     public AudioClip sewing;
     public AudioClip purchaseComplete;
     public AudioClip wrongStitchSound;
+    public AudioClip fireWorksSound;
+    public AudioClip homeScreenBgSound;
+    public AudioClip plushieInventoryScreenBgSound;
 }

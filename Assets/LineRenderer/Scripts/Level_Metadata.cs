@@ -7,6 +7,7 @@ using UnityEngine;
 
 public class Level_Metadata : MonoBehaviour
 {
+    //public LevelDataScriptable levelScriptable;
     public string levelName;
     public int levelReward = 0;
     public int totalCorrectLinks;

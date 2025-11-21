@@ -19,3 +19,6 @@ MonoBehaviour:
   sewing: {fileID: 8300000, guid: 04afed4b3926fd7458472ef0d7e193a0, type: 3}
   purchaseComplete: {fileID: 8300000, guid: d7b4f9eb43c6bde4ab91ab0ae6da8529, type: 3}
   wrongStitchSound: {fileID: 8300000, guid: cc162acb7b574bd448f35a354e2cca0c, type: 3}
+  fireWorksSound: {fileID: 8300000, guid: 98f6d62977af8fb459470fc70bd5b2ce, type: 3}
+  homeScreenBgSound: {fileID: 8300000, guid: f3de2dcebc0538547985d559090ad39c, type: 3}
+  plushieInventoryScreenBgSound: {fileID: 8300000, guid: 3e9912aa7d1b90440b5664ccf0b5ea06, type: 3}

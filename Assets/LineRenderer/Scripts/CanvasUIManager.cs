@@ -18,11 +18,13 @@ public class CanvasUIManager : MonoBehaviour, ICanvasUIManager
     [field: SerializeField] public GameObject confettiEffectCanvas { get; private set; }
     [field: SerializeField] public GameObject sewnTextImage { get; private set; }
     [field: SerializeField] public GameObject goToHomeScreen { get; private set; }
+    [field: SerializeField] public AudioSource audioSourceForBG { get; private set; }
 
     private void Start()
     {
         RegisterService();
         //startText.SetActive(true);
+        SoundManager.instance.PlaySound(audioSourceForBG, SoundManager.instance.audioClips.bgMusic, true, false, 0.8f, true);
     }
     private void OnDisable()
     {

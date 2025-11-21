@@ -53,6 +53,7 @@ public class ScaleOutObject : MonoBehaviour
         LevelsHandler.instance.currentLevelMeta.sewnPlushie.SetActive(true);
         tween.Kill();
         tween = null;
+        PlaySound();
 
         tween = GameEvents.DoTweenAnimationHandlerEvents.onScaleTransform.Raise(this.transform, Vector3.zero, speed, ease);
         if (tween != null)
@@ -63,5 +64,12 @@ public class ScaleOutObject : MonoBehaviour
             });
         }
     }
-   
+    void PlaySound()
+    {
+        SoundManager.instance.ResetAudioSource();
+
+        AudioSource _source = SoundManager.instance.audioSource;
+        AudioClip _clip = SoundManager.instance.audioClips.completed;
+        SoundManager.instance.PlaySound(_source, _clip, false, false, 1, false);
+    }
 }

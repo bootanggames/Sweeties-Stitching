@@ -56,7 +56,14 @@ public class EffectsHandler : MonoBehaviour
     {
         StartCoroutine(EnableEffect());
     }
+    void PlaySound()
+    {
+        SoundManager.instance.ResetAudioSource();
 
+        AudioSource _source = SoundManager.instance.audioSource;
+        AudioClip _clip = SoundManager.instance.audioClips.fireWorksSound;
+        SoundManager.instance.PlaySound(_source, _clip, false, false, 1, false);
+    }
     void DisableAllConfetti()
     {
         foreach (ParticleSystem p in confettiEffect)
@@ -77,6 +84,7 @@ public class EffectsHandler : MonoBehaviour
         {
             fireworksEffect[fireworksIndex].SetActive(true);
             fireworksEffect[fireworksIndex].GetComponent<ParticleSystem>().Play();
+            PlaySound();
         }
         else
         {

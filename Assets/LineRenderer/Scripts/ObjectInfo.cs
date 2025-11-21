@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using TMPro;
-using UnityEditor.MemoryProfiler;
 using UnityEngine;
 
 public class ObjectInfo : MonoBehaviour
@@ -25,7 +24,8 @@ public class ObjectInfo : MonoBehaviour
     [SerializeField] string text;
     [SerializeField] List<GameObject> confettiObj;
     [SerializeField] int confettiIndex = 0;
-    public List<Vector3> movedPositions;
+    //public List<Vector3> movedPositions;
+    public PlushiePartStitchData stitchData;
     [SerializeField] GameObject cotton;
     [SerializeField] GameObject partWithHoles;
     public GameObject partWithOutHoles;
@@ -49,35 +49,55 @@ public class ObjectInfo : MonoBehaviour
     {
         if (completeStitchTextObj != null)
             wrongSequenceAlert = completeStitchTextObj;
+
+        Invoke(nameof(LoadSavedData), 0.2f);
+    }
+
+    void LoadSavedData()
+    {
         var gameHandler = ServiceLocator.GetService<IGameHandler>();
         if (gameHandler != null)
         {
             if (gameHandler.saveProgress)
             {
+                var saveJson = ServiceLocator.GetService<ISaveDataUsingJson>();
+                if (saveJson != null)
+                    stitchData = saveJson.LoadData<PlushiePartStitchData>(LevelsHandler.instance.currentLevelMeta.levelName + "_" + partType);
+
                 int stitched = PlayerPrefs.GetInt(partType.ToString() + "_IsStiched");
                 if (stitched == 1)
                 {
                     IsStitched = true;
                     noOfConnections = totalConnections;
-               
+
                 }
                 else
                 {
+
                     int plushieIndex = PlayerPrefs.GetInt("Level_" + LevelsHandler.instance.levelIndex + "_Plushie");
                     int c = PlayerPrefs.GetInt(plushieIndex + "_" + partType.ToString() + "_" + "noOfConnections");
                     noOfConnections = c;
 
-                    float x = PlayerPrefs.GetFloat(plushieIndex + "_" + partType.ToString() + "lastMoved_X");
-                    float y = PlayerPrefs.GetFloat(plushieIndex + "_" + partType.ToString() + "lastMoved_Y");
-                    float z = PlayerPrefs.GetFloat(plushieIndex + "_" + partType.ToString() + "lastMoved_Z");
-                    Vector3 lastSavePos = new Vector3(x, y, z);
-                    if(moveable && !lastSavePos.Equals(Vector3.zero))
+                    //float x = PlayerPrefs.GetFloat(plushieIndex + "_" + partType.ToString() + "lastMoved_X");
+                    //float y = PlayerPrefs.GetFloat(plushieIndex + "_" + partType.ToString() + "lastMoved_Y");
+                    //float z = PlayerPrefs.GetFloat(plushieIndex + "_" + partType.ToString() + "lastMoved_Z");
+                    //Vector3 lastSavePos = new Vector3(x, y, z);
+                    if(stitchData != null)
                     {
-                        if(!head)
-                            this.transform.position = lastSavePos;
-                        else
-                            LevelsHandler.instance.currentLevelMeta.head.transform.position = lastSavePos;
+                        if (stitchData.movedPositions.Count > 0)
+                        {
+                            if (moveable /*&& !lastSavePos.Equals(Vector3.zero)*/)
+                            {
+                                if (!head)
+                                    this.transform.position = stitchData.movedPositions[stitchData.movedPositions.Count - 1];
+
+                                else
+                                    LevelsHandler.instance.currentLevelMeta.head.transform.position = stitchData.movedPositions[stitchData.movedPositions.Count - 1];
+                            }
+                        }
+                           
                     }
+                    
                 }
             }
             else
@@ -85,6 +105,7 @@ public class ObjectInfo : MonoBehaviour
                 PlayerPrefs.SetInt(partType.ToString() + "_IsStiched", 0);
             }
         }
+        CancelInvoke(nameof(LoadSavedData));
     }
     public void PartPositioning(GameObject obj, Vector3 position)
     {

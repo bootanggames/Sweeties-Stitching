@@ -12,4 +12,5 @@ public class SoundScriptable : ScriptableObject
     public AudioClip wrongStitchSound;
     public AudioClip fireWorksSound;
     public AudioClip plushieInventoryScreenBgSound;
+    public AudioClip levelUp;
 }

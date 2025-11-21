@@ -6,4 +6,5 @@ public interface INeedleMovement : IGameService
     Vector3 GetPosition();
     void HandleNeedleActiveStatus(bool active);
     void NeedleSize(float val);
+    void ChangeMinThreshHoldValue(float val);
 }

@@ -28,6 +28,11 @@ public class SewPoint : MonoBehaviour, ISewPoint
         textObj = GetComponentInChildren<TextMeshPro>();
         RegisterService();
 
+        Invoke(nameof(LoadSavedData), 0.21f);
+    }
+
+    public void LoadSavedData()
+    {
         var gameHandler = ServiceLocator.GetService<IGameHandler>();
         if (gameHandler != null)
         {
@@ -84,6 +89,7 @@ public class SewPoint : MonoBehaviour, ISewPoint
                 PlayerPrefs.SetInt(plushieIndex + "_" + bodyPart + "_" + attachmentId.ToString() + "_IsConnected", 0);
             }
         }
+        CancelInvoke(nameof(LoadSavedData));
     }
     private void OnDisable()
     {

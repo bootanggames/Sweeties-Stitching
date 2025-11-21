@@ -50,7 +50,14 @@ public class GameCompleteHandler : MonoBehaviour, IGameService
         }
     }
 
+    void PlaySound()
+    {
+        SoundManager.instance.ResetAudioSource();
 
+        AudioSource _source = SoundManager.instance.audioSource;
+        AudioClip _clip = SoundManager.instance.audioClips.levelUp;
+        SoundManager.instance.PlaySound(_source, _clip, false, false, 1, false);
+    }
     void GameComplete()
     {
         if(sparkleRoutine == null)
@@ -74,6 +81,7 @@ public class GameCompleteHandler : MonoBehaviour, IGameService
             canvasHandler.sewnScreen.SetActive(false);
             canvasHandler.sewnTextImage.transform.localScale = Vector3.zero;
             canvasHandler.confettiEffectCanvas.SetActive(false);
+            PlaySound();
             canvasHandler.gameCompletePanel.gameObject.SetActive(true);
             canvasHandler.completeStitchedPlushie.SetActive(true);
             RectTransform rt =  canvasHandler.completeStitchedPlushie.GetComponent<RectTransform>();

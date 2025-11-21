@@ -74,18 +74,20 @@ public class CoinsHandler : MonoBehaviour,ICoinsHandler
         {
             GameObject coinObj = coinsObjList[i];
 
-            yield return new WaitForSeconds(0.025f);
+            yield return new WaitForSeconds(0.1f);
+            PlayCoinSound();
+
             if (coinObj != null)
             {
                 coinMoveTween = GameEvents.DoTweenAnimationHandlerEvents.onMoveToTargetAnimation.Raise(coinObj.transform, targetPointToMove, coinMoveSpeed, Ease.InOutBack);
                 coinScaleTween = GameEvents.DoTweenAnimationHandlerEvents.onScaleTransform.Raise(coinObj.transform, targetScaleDown, coinMoveSpeed, Ease.Linear);
-                PlayCoinSound();
 
                 coinMoveTween.OnComplete(() =>
                 {
                     SaveCoins(1);
+
                     Vector3 target = new Vector3(1.2f, 1.2f, 1.2f);
-                    Tween bar = GameEvents.DoTweenAnimationHandlerEvents.onScaleTransform.Raise(coinBar.transform, target, 0.1f, Ease.InOutFlash);
+                    Tween bar = GameEvents.DoTweenAnimationHandlerEvents.onScaleTransform.Raise(coinBar.transform, target, 0.1f, Ease.InOutQuad);
                     bar.OnComplete(() =>
                     {
                         bar.Kill();

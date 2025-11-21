@@ -72,4 +72,9 @@ public class NeedleMovement : MonoBehaviour,INeedleMovement
     {
         needle.localScale = new Vector3(val, val, val);
     }
+
+    public void ChangeMinThreshHoldValue(float val)
+    {
+        minRotationThreshold = val;
+    }
 }

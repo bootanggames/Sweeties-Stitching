@@ -159,7 +159,7 @@ public class Level_Metadata : MonoBehaviour
             head.EnableJoint(current_ObjectInfor.partType, true);
 
         CameraFocus(current_ObjectInfor.partType);
-        Invoke("EnableDetection", 0.15f);
+        Invoke("EnableDetection", 0.22f);
         //partIndex++;
     }
 
@@ -287,55 +287,83 @@ public class Level_Metadata : MonoBehaviour
                     plushieActivePartToStitch = PlushieActiveStitchPart.neck;
                     GameEvents.CameraManagerEvents.onAddingCamera.RaiseEvent(cameraManager.neckCamera);
                     if (needleHandler != null)
+                    {
                         needleHandler.NeedleSize(0.4f);
+                        needleHandler.ChangeMinThreshHoldValue(1.33e-05f);
+                    }
                     break;
                 case PlushieActiveStitchPart.righteye:
                     plushieActivePartToStitch = PlushieActiveStitchPart.righteye;
                     GameEvents.CameraManagerEvents.onAddingCamera.RaiseEvent(cameraManager.rightEyeCamera);
                     if(needleHandler != null)
+                    {
                         needleHandler.NeedleSize(0.32f);
+                        needleHandler.ChangeMinThreshHoldValue(1.30e-05f);
+
+                    }
                     break;
                 case PlushieActiveStitchPart.lefteye:
                     plushieActivePartToStitch = PlushieActiveStitchPart.lefteye;
                     GameEvents.CameraManagerEvents.onAddingCamera.RaiseEvent(cameraManager.leftEyeCamera);
                     if (needleHandler != null)
+                    {
                         needleHandler.NeedleSize(0.32f);
+                        needleHandler.ChangeMinThreshHoldValue(1.30e-05f);
+                    }
                     break;
                 case PlushieActiveStitchPart.rightear:
                     plushieActivePartToStitch = PlushieActiveStitchPart.rightear;
                     GameEvents.CameraManagerEvents.onAddingCamera.RaiseEvent(cameraManager.rightEarCamera);
                     if (needleHandler != null)
+                    {
                         needleHandler.NeedleSize(0.4f);
+                        needleHandler.ChangeMinThreshHoldValue(1.33e-05f);
+                    }
                     break;
                 case PlushieActiveStitchPart.leftear:
                     plushieActivePartToStitch = PlushieActiveStitchPart.leftear;
                     GameEvents.CameraManagerEvents.onAddingCamera.RaiseEvent(cameraManager.leftEarCamera);
                     if (needleHandler != null)
+                    {
                         needleHandler.NeedleSize(0.4f);
+                        needleHandler.ChangeMinThreshHoldValue(1.33e-05f);
+                    }
                     break;
                 case PlushieActiveStitchPart.rightarm:
                     plushieActivePartToStitch = PlushieActiveStitchPart.rightarm;
                     GameEvents.CameraManagerEvents.onAddingCamera.RaiseEvent(cameraManager.rightArmCamera);
                     if (needleHandler != null)
+                    {
                         needleHandler.NeedleSize(0.4f);
+                        needleHandler.ChangeMinThreshHoldValue(1.33e-05f);
+                    }
                     break;
                 case PlushieActiveStitchPart.leftarm:
                     plushieActivePartToStitch = PlushieActiveStitchPart.leftarm;
                     GameEvents.CameraManagerEvents.onAddingCamera.RaiseEvent(cameraManager.leftArmCamera);
                     if (needleHandler != null)
+                    {
                         needleHandler.NeedleSize(0.4f);
+                        needleHandler.ChangeMinThreshHoldValue(1.33e-05f);
+                    }
                     break;
                 case PlushieActiveStitchPart.rightleg:
                     plushieActivePartToStitch = PlushieActiveStitchPart.rightleg;
                     GameEvents.CameraManagerEvents.onAddingCamera.RaiseEvent(cameraManager.rightLegCamera);
                     if (needleHandler != null)
+                    {
                         needleHandler.NeedleSize(0.4f);
+                        needleHandler.ChangeMinThreshHoldValue(1.33e-05f);
+                    }
                     break;
                 case PlushieActiveStitchPart.leftleg:
                     plushieActivePartToStitch = PlushieActiveStitchPart.leftleg;
                     GameEvents.CameraManagerEvents.onAddingCamera.RaiseEvent(cameraManager.leftLegCamera);
                     if (needleHandler != null)
+                    {
                         needleHandler.NeedleSize(0.4f);
+                        needleHandler.ChangeMinThreshHoldValue(1.33e-05f);
+                    }
                     break;
             }
         }
@@ -426,41 +454,7 @@ public class Level_Metadata : MonoBehaviour
         Vector3 pos = RectTransformUtility.WorldToScreenPoint(null, needleUndoPosition.position);
         Vector3 worldPos = Camera.main.ScreenToWorldPoint(pos);
         ResetNeedleAndThread(worldPos);
-        //var needlePos = ServiceLocator.GetService<INeedleResetPositions>();
-        //if (needlePos != null )
-        //{
-        //    switch (currentActivePart)
-        //    {
-        //        case PlushieActiveStitchPart.neck:
-        //            ResetNeedleAndThread(needlePos.headNeedleResetPos);
-        //            break;
-        //        case PlushieActiveStitchPart.righteye:
-        //            ResetNeedleAndThread(needlePos.eyeRightNeedleResetPos);
-        //            break;
-        //        case PlushieActiveStitchPart.lefteye:
-        //            ResetNeedleAndThread(needlePos.eyeLeftNeedleResetPos);
-        //            break;
-        //        case PlushieActiveStitchPart.rightear:
-        //            ResetNeedleAndThread(needlePos.earRightNeedleResetPos);
-        //            break;
-        //        case PlushieActiveStitchPart.leftear:
-        //            ResetNeedleAndThread(needlePos.earLeftNeedleResetPos);
-        //            break;
-        //        case PlushieActiveStitchPart.rightarm:
-        //            ResetNeedleAndThread(needlePos.armRightNeedleResetPos);
-        //            break;
-        //        case PlushieActiveStitchPart.leftarm:
-        //            ResetNeedleAndThread(needlePos.armLeftNeedleResetPos);
-        //            break;
-        //        case PlushieActiveStitchPart.rightleg:
-        //            ResetNeedleAndThread(needlePos.legRightNeedleResetPos);
-        //            break;
-        //        case PlushieActiveStitchPart.leftleg:
-        //            ResetNeedleAndThread(needlePos.legLeftNeedleResetPos);
-        //            break;
-        //    }
-        //}
-
+        
     }
 
     void ResetNeedleAndThread(Vector3 position)

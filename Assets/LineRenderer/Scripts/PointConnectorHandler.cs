@@ -382,8 +382,15 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
                 else
                     moveAbleTransform = info1.transform;
 
-                info1.movedPositions.Add(moveAbleTransform.position);
-                info2.movedPositions.Add(moveAbleTransform.position);
+                if (info1.stitchData != null)
+                    info1.stitchData.movedPositions.Add(moveAbleTransform.position);
+                if (info2.stitchData != null)
+                    info2.stitchData.movedPositions.Add(moveAbleTransform.position);
+
+                var saveJson = ServiceLocator.GetService<ISaveDataUsingJson>();
+                if (saveJson != null)
+                    saveJson.SaveData(LevelsHandler.instance.currentLevelMeta.levelName + "_" + info2.partType, info2.stitchData);
+                
                 Vector3 targetPos = moveAbleTransform.position + avrOffset * info1.pullForce;
                 info1.IncementConnection();
                 info2.IncementConnection();
@@ -447,8 +454,16 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
                     moveAbleTransform = info2.transform.parent;
                 else
                     moveAbleTransform = info2.transform;
-                info1.movedPositions.Add(moveAbleTransform.position);
-                info2.movedPositions.Add(moveAbleTransform.position);
+
+                if (info1.stitchData != null)
+                    info1.stitchData.movedPositions.Add(moveAbleTransform.position);
+                if (info2.stitchData != null)
+                    info2.stitchData.movedPositions.Add(moveAbleTransform.position);
+
+                var saveJson = ServiceLocator.GetService<ISaveDataUsingJson>();
+                if (saveJson != null)
+                    saveJson.SaveData(LevelsHandler.instance.currentLevelMeta.levelName + "_" + info1.partType, info1.stitchData);
+                
                 Vector3 targetPos = moveAbleTransform.position + avrOffset * info2.pullForce;
                 info1.IncementConnection();
                 info2.IncementConnection();

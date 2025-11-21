@@ -84,7 +84,7 @@ public class EffectsHandler : MonoBehaviour
         {
             fireworksEffect[fireworksIndex].SetActive(true);
             fireworksEffect[fireworksIndex].GetComponent<ParticleSystem>().Play();
-            //PlaySound();
+            PlaySound();
         }
         else
         {
@@ -93,7 +93,6 @@ public class EffectsHandler : MonoBehaviour
         yield return new WaitForSeconds(0.15f);
         confettiIndex++;
         fireworksIndex++;
-        Debug.LogError(" here 0");
         StopCoroutine(EnableEffect());
 
         if (confettiIndex <= (confettiEffect.Length - 1))

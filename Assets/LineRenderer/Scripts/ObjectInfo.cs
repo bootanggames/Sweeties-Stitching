@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -199,9 +200,10 @@ public class ObjectInfo : MonoBehaviour
             }
             pointHandler.connections.Clear();
         }
+        LevelsHandler.instance.currentLevelMeta.UpdateCleanThreadConnections();
+
         Invoke("EnableConffetti", 0.2f);
     }
-    [SerializeField]int index = 0;
     void EnableConffetti()
     {
         if (confettiIndex < connectPoints.Count)
@@ -213,13 +215,12 @@ public class ObjectInfo : MonoBehaviour
             confettiIndex++;
            if(enableConnection)
             {
-                if(index < LevelsHandler.instance.currentLevelMeta.cleanConnection.Count)
+                if (LevelsHandler.instance.currentLevelMeta.cleanThreadIndex < LevelsHandler.instance.currentLevelMeta.cleanConnection.Count)
                 {
-                    LevelsHandler.instance.currentLevelMeta.cleanConnection[index].line.gameObject.SetActive(true);
+                    LevelsHandler.instance.currentLevelMeta.cleanConnection[LevelsHandler.instance.currentLevelMeta.cleanThreadIndex].line.gameObject.SetActive(true);
                 }
-                
-                index++;
 
+                LevelsHandler.instance.currentLevelMeta.cleanThreadIndex++;
             }
         }
             
@@ -261,11 +262,11 @@ public class ObjectInfo : MonoBehaviour
                 GameEvents.ThreadEvents.onResetThreadInput.RaiseEvent();
                 if (LevelsHandler.instance.currentLevelMeta)
                 {
-                    foreach (Connections c in LevelsHandler.instance.currentLevelMeta.cleanConnection)
-                    {
-                        Destroy(c.line.gameObject);
-                    }
-                    LevelsHandler.instance.currentLevelMeta.cleanConnection.Clear();
+                    //foreach (Connections c in LevelsHandler.instance.currentLevelMeta.cleanConnection)
+                    //{
+                    //    Destroy(c.line.gameObject);
+                    //}
+                    //LevelsHandler.instance.currentLevelMeta.cleanConnection.Clear();
                     LevelsHandler.instance.currentLevelMeta.UpdateLevelProgress(sp.sequenceType);
                 }
 

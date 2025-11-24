@@ -53,7 +53,11 @@ public class ScaleOutObject : MonoBehaviour
         //LevelsHandler.instance.currentLevelMeta.DeactivateAllThreads();
         LevelsHandler.instance.currentLevelMeta.sewnPlushie.SetActive(true);
         LevelsHandler.instance.currentLevelMeta.gameObject.SetActive(false);
-
+        foreach (Connections c in LevelsHandler.instance.currentLevelMeta.cleanConnection)
+        {
+            Destroy(c.line.gameObject);
+        }
+        LevelsHandler.instance.currentLevelMeta.cleanConnection.Clear();
         tween.Kill();
         tween = null;
         PlaySound();

@@ -6,8 +6,7 @@ public class CleanStitch : MonoBehaviour
     [SerializeField] GameObject pointPrefab;
     ObjectInfo o_Info;
     public List<GameObject> cleanStitchPoint;
-    [SerializeField] float yVal_ChildObj = 0;
-    [SerializeField] float xVal_ChildObj = 0;
+
     [SerializeField] float yVal = 0;
     [SerializeField] float xVal = 0;
     void Start()
@@ -18,76 +17,80 @@ public class CleanStitch : MonoBehaviour
 
     void CleanStitchPoints()
     {
-        if (!o_Info.partType.Equals(PlushieActiveStitchPart.lefteye) && !o_Info.partType.Equals(PlushieActiveStitchPart.righteye))
+        foreach (SewPoint s in o_Info.connectPoints)
         {
-            foreach (SewPoint s in o_Info.connectPoints)
+            GameObject g = Instantiate(pointPrefab);
+            g.transform.SetParent(s.transform);
+            g.transform.localPosition = Vector3.zero;
+            g.transform.localEulerAngles = Vector3.zero;
+            g.transform.localScale = Vector3.one;
+            s.cleanStitchPoint = g.transform;
+            if (o_Info.partType.Equals(PlushieActiveStitchPart.neck))
             {
-                GameObject g = Instantiate(pointPrefab);
-                g.transform.SetParent(s.transform);
-                g.transform.localPosition = Vector3.zero;
-                g.transform.localEulerAngles = Vector3.zero;
-                g.transform.localScale = Vector3.one;
-                s.cleanStitchPoint = g.transform;
-                if (o_Info.partType.Equals(PlushieActiveStitchPart.neck))
-                {
-                    if (o_Info.head)
-                        g.transform.localPosition = new Vector3(0, yVal, 0);
-                    else
-                        g.transform.localPosition = new Vector3(0, -yVal, 0);
-                }
-                if (o_Info.partType.Equals(PlushieActiveStitchPart.rightear))
-                {
-                    Part_Info p_Info = this.transform.parent.GetComponent<Part_Info>();
-                    if (p_Info != null)
-                        g.transform.localPosition = new Vector3(0, -yVal_ChildObj, 0); // child of head
-                    else
-                        g.transform.localPosition = new Vector3(xVal, 0, 0);
-                }
-                if (o_Info.partType.Equals(PlushieActiveStitchPart.leftear))
-                {
-                    Part_Info p_Info = this.transform.parent.GetComponent<Part_Info>();
-                    if (p_Info != null)
-                        g.transform.localPosition = new Vector3(0, -yVal_ChildObj, 0);// child of head
-                    else
-                        g.transform.localPosition = new Vector3(-xVal, 0, 0);
-                }
-                if (o_Info.partType.Equals(PlushieActiveStitchPart.rightarm))
-                {
-                    Part_Info p_Info = this.transform.parent.GetComponent<Part_Info>();
-                    if (p_Info != null)
-                        g.transform.localPosition = new Vector3(-xVal_ChildObj, 0, 0);// child of body
-                    else
-                        g.transform.localPosition = new Vector3(xVal, 0, 0);
-                }
-                if (o_Info.partType.Equals(PlushieActiveStitchPart.leftarm))
-                {
-                    Part_Info p_Info = this.transform.parent.GetComponent<Part_Info>();
-                    if (p_Info != null)
-                        g.transform.localPosition = new Vector3(xVal_ChildObj, 0, 0);// child of body
-                    else
-                        g.transform.localPosition = new Vector3(-xVal, 0, 0);
-                }
-                if (o_Info.partType.Equals(PlushieActiveStitchPart.leftleg))
-                {
-                    Part_Info p_Info = this.transform.parent.GetComponent<Part_Info>();
-                    if (p_Info != null)
-                        g.transform.localPosition = new Vector3(0, yVal_ChildObj, 0);// child of body
-                    else
-                        g.transform.localPosition = new Vector3(0, -yVal, 0);
-                }
-                if (o_Info.partType.Equals(PlushieActiveStitchPart.rightleg))
-                {
-                    Part_Info p_Info = this.transform.parent.GetComponent<Part_Info>();
-                    if (p_Info != null)
-                        g.transform.localPosition = new Vector3(0, yVal_ChildObj, 0);// child of body
-                    else
-                        g.transform.localPosition = new Vector3(0, -yVal, 0);
-                }
-                if (!cleanStitchPoint.Contains(g))
-                    cleanStitchPoint.Add(g);
+                if (o_Info.head)
+                    g.transform.localPosition = new Vector3(0, yVal, 0);
+                else
+                    g.transform.localPosition = new Vector3(0, -yVal, 0);
             }
+            if (o_Info.partType.Equals(PlushieActiveStitchPart.rightear))
+            {
+                Part_Info p_Info = this.transform.parent.GetComponent<Part_Info>();
+                if (p_Info != null)
+                    g.transform.localPosition = new Vector3(0, -yVal, 0); // child of head
+                else
+                    g.transform.localPosition = new Vector3(xVal, 0, 0);
+            }
+            if (o_Info.partType.Equals(PlushieActiveStitchPart.leftear))
+            {
+                Part_Info p_Info = this.transform.parent.GetComponent<Part_Info>();
+                if (p_Info != null)
+                    g.transform.localPosition = new Vector3(0, -yVal, 0);// child of head
+                else
+                    g.transform.localPosition = new Vector3(-xVal, 0, 0);
+            }
+            if (o_Info.partType.Equals(PlushieActiveStitchPart.rightarm))
+            {
+                Part_Info p_Info = this.transform.parent.GetComponent<Part_Info>();
+                if (p_Info != null)
+                    g.transform.localPosition = new Vector3(-xVal, 0, 0);// child of body
+                else
+                    g.transform.localPosition = new Vector3(xVal, 0, 0);
+            }
+            if (o_Info.partType.Equals(PlushieActiveStitchPart.leftarm))
+            {
+                Part_Info p_Info = this.transform.parent.GetComponent<Part_Info>();
+                if (p_Info != null)
+                    g.transform.localPosition = new Vector3(xVal, 0, 0);// child of body
+                else
+                    g.transform.localPosition = new Vector3(-xVal, 0, 0);
+            }
+            if (o_Info.partType.Equals(PlushieActiveStitchPart.leftleg))
+            {
+                Part_Info p_Info = this.transform.parent.GetComponent<Part_Info>();
+                if (p_Info != null)
+                    g.transform.localPosition = new Vector3(0, yVal, 0);// child of body
+                else
+                    g.transform.localPosition = new Vector3(0, -yVal, 0);
+            }
+            if (o_Info.partType.Equals(PlushieActiveStitchPart.rightleg))
+            {
+                Part_Info p_Info = this.transform.parent.GetComponent<Part_Info>();
+                if (p_Info != null)
+                    g.transform.localPosition = new Vector3(0, yVal, 0);// child of body
+                else
+                    g.transform.localPosition = new Vector3(0, -yVal, 0);
+            }
+            if (!cleanStitchPoint.Contains(g))
+                cleanStitchPoint.Add(g);
         }
-      
+        //if (!o_Info.partType.Equals(PlushieActiveStitchPart.lefteye) && !o_Info.partType.Equals(PlushieActiveStitchPart.righteye))
+        //{
+
+        //}
+        //else
+        //{
+
+        //}
     }
 
     public void UnParentPoints()

@@ -479,6 +479,7 @@ public class Level_Metadata : MonoBehaviour
     LineRenderer lineForCleanConnection;
     public List<Connections> cleanConnection;
     List<Connections> cleanThreads = new List<Connections>();
+    public int cleanThreadIndex = 0;
     public void Connection(SewPoint sp1, SewPoint sp2)
     {
         Vector3 pos1 = Vector3.zero; Vector3 pos2 = Vector3.zero;
@@ -499,6 +500,16 @@ public class Level_Metadata : MonoBehaviour
             cleanThreads.Add(connection);
         }
        
+    }
+    public void UpdateCleanThreadConnections()
+    {
+        if (cleanConnection.Count > 0)
+        {
+            foreach(Connections c in cleanConnection)
+            {
+                c.UpdateLine(-0.01f, false);
+            }
+        }
     }
     public void DeactivateAllThreads()
     {

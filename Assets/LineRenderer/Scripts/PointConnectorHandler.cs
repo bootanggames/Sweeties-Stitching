@@ -425,6 +425,7 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
                             SewPoint sp1 = p1.GetComponent<SewPoint>();
                             SewPoint sp2 = p2.GetComponent<SewPoint>();
                             CheckIfLastConnectionUpdated(sp1, sp2, p1, p2, info1, info2);
+
                             info1.DOPause();
                         });
                     }
@@ -551,10 +552,10 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
     void CheckIfLastConnectionUpdated(SewPoint sp1, SewPoint sp2, Transform p1, Transform p2, ObjectInfo info1, ObjectInfo info2)
     {
         if (sp1.attachmentId.Equals(sp2.attachmentId))
-            IncrementLinksPerPart(sp1, sp2, info1, info2);
+            IncrementLinksPerPart(info1, info2);
     }
 
-    void IncrementLinksPerPart(SewPoint s1, SewPoint s2 , ObjectInfo o1, ObjectInfo o2)
+    void IncrementLinksPerPart( ObjectInfo o1, ObjectInfo o2)
     {
         var threadHandler = ServiceLocator.GetService<IThreadManager>();
 

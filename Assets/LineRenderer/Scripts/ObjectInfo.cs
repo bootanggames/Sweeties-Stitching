@@ -12,35 +12,32 @@ public class ObjectInfo : MonoBehaviour
     public Vector3 startPosition;
     public bool moveable = false;
     public bool shouldBeChild = false;
-    [field: SerializeField]public bool IsStitched { get; private set; }
     public List<SewPoint> connectPoints;
     public bool head;
     public float pullForce;
     public int totalConnections;
-    public int noOfConnections;
 
     [SerializeField] GameObject completeStitchTextObj;
     [SerializeField] GameObject wrongSequenceAlert;
     [SerializeField] string text;
     [SerializeField] List<GameObject> confettiObj;
     [SerializeField] int confettiIndex = 0;
-    //public List<Vector3> movedPositions;
     public PlushiePartStitchData stitchData;
     [SerializeField] GameObject cotton;
     [SerializeField] GameObject partWithHoles;
     public GameObject partWithOutHoles;
     public CleanStitch c_Stitch;
     [SerializeField] bool enableConnection;
-    [Header("----------------New Data------------------")]
-    [SerializeField] GameObject pointPrefab;
-    [SerializeField] Transform pointParent;
-    [SerializeField] Transform firstPoint;
-    [SerializeField] float pointsXDistance;
-    [SerializeField] float maxHeightOffset;
-    Vector3 prevPos;
-    [SerializeField] List<Vector3> positions = new List<Vector3>();
-    [SerializeField] List<SewPoint> generatedPoints;
-    [SerializeField] bool dontChangeY;
+    //[Header("----------------New Data------------------")]
+    //[SerializeField] GameObject pointPrefab;
+    //[SerializeField] Transform pointParent;
+    //[SerializeField] Transform firstPoint;
+    //[SerializeField] float pointsXDistance;
+    //[SerializeField] float maxHeightOffset;
+    //Vector3 prevPos;
+    //[SerializeField] List<Vector3> positions = new List<Vector3>();
+    //[SerializeField] List<SewPoint> generatedPoints;
+    //[SerializeField] bool dontChangeY;
     private void Start()
     {
         c_Stitch = GetComponent<CleanStitch>();
@@ -49,10 +46,11 @@ public class ObjectInfo : MonoBehaviour
     {
         if (completeStitchTextObj != null)
             wrongSequenceAlert = completeStitchTextObj;
-
-        Invoke(nameof(LoadSavedData), 0.2f);
+        stitchData = new PlushiePartStitchData();
+        LoadSavedData();
+        //Invoke(nameof(LoadSavedData), 0.25f);
     }
-
+ 
     void LoadSavedData()
     {
         var gameHandler = ServiceLocator.GetService<IGameHandler>();
@@ -60,49 +58,26 @@ public class ObjectInfo : MonoBehaviour
         {
             if (gameHandler.saveProgress)
             {
-                var saveJson = ServiceLocator.GetService<ISaveDataUsingJson>();
-                if (saveJson != null)
-                    stitchData = saveJson.LoadData<PlushiePartStitchData>(LevelsHandler.instance.currentLevelMeta.levelName + "_" + partType);
-
-                int stitched = PlayerPrefs.GetInt(partType.ToString() + "_IsStiched");
-                if (stitched == 1)
+                if (SaveDataUsingJson.instance)
+                    stitchData = SaveDataUsingJson.instance.LoadData<PlushiePartStitchData>(LevelsHandler.instance.currentLevelMeta.levelName + "_" + partType);
+                if(stitchData == null)
+                    stitchData= new PlushiePartStitchData();
+                if (stitchData.movedPositions.Count > 0)
                 {
-                    IsStitched = true;
-                    noOfConnections = totalConnections;
-
-                }
-                else
-                {
-
-                    int plushieIndex = PlayerPrefs.GetInt("Level_" + LevelsHandler.instance.levelIndex + "_Plushie");
-                    int c = PlayerPrefs.GetInt(plushieIndex + "_" + partType.ToString() + "_" + "noOfConnections");
-                    noOfConnections = c;
-
-                    //float x = PlayerPrefs.GetFloat(plushieIndex + "_" + partType.ToString() + "lastMoved_X");
-                    //float y = PlayerPrefs.GetFloat(plushieIndex + "_" + partType.ToString() + "lastMoved_Y");
-                    //float z = PlayerPrefs.GetFloat(plushieIndex + "_" + partType.ToString() + "lastMoved_Z");
-                    //Vector3 lastSavePos = new Vector3(x, y, z);
-                    if(stitchData != null)
+                    if (moveable)
                     {
-                        if (stitchData.movedPositions.Count > 0)
-                        {
-                            if (moveable /*&& !lastSavePos.Equals(Vector3.zero)*/)
-                            {
-                                if (!head)
-                                    this.transform.position = stitchData.movedPositions[stitchData.movedPositions.Count - 1];
+                        if (!head)
+                            this.transform.position = stitchData.movedPositions[stitchData.movedPositions.Count - 1];
 
-                                else
-                                    LevelsHandler.instance.currentLevelMeta.head.transform.position = stitchData.movedPositions[stitchData.movedPositions.Count - 1];
-                            }
-                        }
-                           
+                        else
+                            LevelsHandler.instance.currentLevelMeta.head.transform.position = stitchData.movedPositions[stitchData.movedPositions.Count - 1];
                     }
-                    
                 }
             }
             else
             {
-                PlayerPrefs.SetInt(partType.ToString() + "_IsStiched", 0);
+                if (SaveDataUsingJson.instance)
+                    SaveDataUsingJson.instance.SaveData(LevelsHandler.instance.currentLevelMeta.levelName + "_" + partType, stitchData);
             }
         }
         CancelInvoke(nameof(LoadSavedData));
@@ -122,88 +97,89 @@ public class ObjectInfo : MonoBehaviour
         if (cotton) cotton.SetActive(enable);
         if(partWithOutHoles) partWithOutHoles.SetActive(!enable);
     }
-    void UpdateNewPoint(Vector3 pos, Transform point)
-    {
-        positions.Add(pos);
-        generatedPoints.Add(point.GetComponent<SewPoint>());
-        point.name = "Point " + generatedPoints.Count;
-        SewPoint s = point.GetComponent<SewPoint>();
-        s.ChangeText(generatedPoints.Count.ToString());
-    }
+    //void UpdateNewPoint(Vector3 pos, Transform point)
+    //{
+    //    positions.Add(pos);
+    //    generatedPoints.Add(point.GetComponent<SewPoint>());
+    //    point.name = "Point " + generatedPoints.Count;
+    //    SewPoint s = point.GetComponent<SewPoint>();
+    //    s.ChangeText(generatedPoints.Count.ToString());
+    //}
 
-    void SpawnPoints()
-    {
-        if (firstPoint == null) return;
-        float startY = firstPoint.transform.localPosition.y;
-        float startX = firstPoint.transform.localPosition.x;
-        if (prevPos.Equals(Vector3.zero))
-        {
-            prevPos = firstPoint.transform.localPosition;
-            UpdateNewPoint(prevPos, firstPoint);
-        }
+    //void SpawnPoints()
+    //{
+    //    if (firstPoint == null) return;
+    //    float startY = firstPoint.transform.localPosition.y;
+    //    float startX = firstPoint.transform.localPosition.x;
+    //    if (prevPos.Equals(Vector3.zero))
+    //    {
+    //        prevPos = firstPoint.transform.localPosition;
+    //        UpdateNewPoint(prevPos, firstPoint);
+    //    }
 
-        Vector3 nextPointPos = Vector3.zero;
+    //    Vector3 nextPointPos = Vector3.zero;
 
-        if ((positions.Count) < totalConnections)
-        {
-            GameObject p = Instantiate(pointPrefab, pointParent, false);
-            p.transform.SetParent(pointParent);
-            p.transform.localPosition = Vector3.zero;
+    //    if ((positions.Count) < totalConnections)
+    //    {
+    //        GameObject p = Instantiate(pointPrefab, pointParent, false);
+    //        p.transform.SetParent(pointParent);
+    //        p.transform.localPosition = Vector3.zero;
 
-            float newX = prevPos.x + pointsXDistance;
+    //        float newX = prevPos.x + pointsXDistance;
           
-            float endX = startX + pointsXDistance * (totalConnections - 1);
-            float endY = prevPos.y;
-            float t = Mathf.InverseLerp(startX, endX, newX);
-            float baseHeight = Mathf.Lerp(startY, endY, t);
-            float arcHeight = (1 - Mathf.Pow((2 * t) - 1, 2)) * maxHeightOffset;
-            float curveY = 0;
-            if (dontChangeY)
-                 curveY = startY + arcHeight;
-            else
-                curveY = baseHeight + arcHeight;
+    //        float endX = startX + pointsXDistance * (totalConnections - 1);
+    //        float endY = prevPos.y;
+    //        float t = Mathf.InverseLerp(startX, endX, newX);
+    //        float baseHeight = Mathf.Lerp(startY, endY, t);
+    //        float arcHeight = (1 - Mathf.Pow((2 * t) - 1, 2)) * maxHeightOffset;
+    //        float curveY = 0;
+    //        if (dontChangeY)
+    //             curveY = startY + arcHeight;
+    //        else
+    //            curveY = baseHeight + arcHeight;
 
-            nextPointPos = new Vector3(newX, curveY, prevPos.z);
+    //        nextPointPos = new Vector3(newX, curveY, prevPos.z);
 
 
-            if (positions.Count > 0)
-            {
-                if (!positions.Contains(nextPointPos))
-                {
-                    UpdateNewPoint(nextPointPos, p.transform);
-                    p.transform.localPosition = nextPointPos;
-                }
-                else
-                    return;
-            }
-            else
-            {
-                UpdateNewPoint(nextPointPos, p.transform);
-                p.transform.localPosition = nextPointPos;
-            }
+    //        if (positions.Count > 0)
+    //        {
+    //            if (!positions.Contains(nextPointPos))
+    //            {
+    //                UpdateNewPoint(nextPointPos, p.transform);
+    //                p.transform.localPosition = nextPointPos;
+    //            }
+    //            else
+    //                return;
+    //        }
+    //        else
+    //        {
+    //            UpdateNewPoint(nextPointPos, p.transform);
+    //            p.transform.localPosition = nextPointPos;
+    //        }
 
-            prevPos = nextPointPos;
-            SpawnPoints();
-        }
+    //        prevPos = nextPointPos;
+    //        SpawnPoints();
+    //    }
       
-    }
+    //}
 
 
     public void IncementConnection()
     {
-        noOfConnections++;
-        int plushieIndex = PlayerPrefs.GetInt("Level_" + LevelsHandler.instance.levelIndex + "_Plushie");
-        PlayerPrefs.SetInt(plushieIndex+"_"+partType.ToString()+"_"+"noOfConnections", noOfConnections);
+        stitchData.noOfConnections++;
+        SaveDataUsingJson.instance.SaveData(LevelsHandler.instance.currentLevelMeta.levelName + "_" + partType, stitchData);
     }
     public void DecementConnection()
     {
-        noOfConnections--;
-        int plushieIndex = PlayerPrefs.GetInt("Level_" + LevelsHandler.instance.levelIndex + "_Plushie");
-        PlayerPrefs.SetInt(plushieIndex + "_" + partType.ToString() + "_" + "noOfConnections", noOfConnections);
+        stitchData.noOfConnections--;
+        SaveDataUsingJson.instance.SaveData(LevelsHandler.instance.currentLevelMeta.levelName + "_" + partType, stitchData);
     }
     public void MarkStitched()
     {
-        IsStitched = true;
+        stitchData.IsStitched = true;
+
+        SaveDataUsingJson.instance.SaveData(LevelsHandler.instance.currentLevelMeta.levelName + "_" + partType, stitchData);
+
         if (cotton) cotton.SetActive(false);
 
         PlayerPrefs.SetInt(partType.ToString()+"_IsStiched", 1);
@@ -361,10 +337,10 @@ public class ObjectInfo : MonoBehaviour
         }
         confettiObj.Clear();
         confettiIndex = 0;
-        IsStitched = false;
+        stitchData.IsStitched = false;
         PlayerPrefs.SetInt(partType.ToString() + "_IsStiched", 0);
         ChangePartsState(true);
-        noOfConnections = 0;
+        stitchData.noOfConnections = 0;
         var connectHandler = ServiceLocator.GetService<IPointConnectionHandler>();
         if (connectHandler != null)
         {

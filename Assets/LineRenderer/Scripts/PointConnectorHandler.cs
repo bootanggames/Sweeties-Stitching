@@ -83,13 +83,21 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
             SewPoint secondLast = null;
             if ((wrongConnectPoint.Count - 2) >= 0)
                 secondLast = wrongConnectPoint[wrongConnectPoint.Count - 2];
-            if(secondLast != null)
+
+            if (lastPoint == null) return;
+
+            if (lastPoint.metaData == null)
+                lastPoint.metaData = new SewPointMetaData();
+
+            if (secondLast != null)
             {
+                if (secondLast.metaData == null)
+                    secondLast.metaData = new SewPointMetaData();
                 if (lastPoint.transform.parent.parent.parent != secondLast.transform.parent.parent.parent)
                 {
                     if (secondLast.nextConnectedPointId == lastPoint.attachmentId)
                     {
-                        if (secondLast.connected)
+                        if (secondLast.metaData.connected)
                             lastPoint.pointMesh.material = correctPointMaterial;
                         else
                         {
@@ -100,7 +108,7 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
                     else
                     {
                         lastPoint.pointMesh.material = wrongPointMaterial;
-                        if (secondLast.connected)
+                        if (secondLast.metaData.connected)
                             secondLast.pointMesh.material = correctPointMaterial;
                     }
                 }
@@ -108,13 +116,13 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
                 {
                     if (secondLast.nextConnectedPointId != lastPoint.attachmentId)
                     {
-                        if (secondLast.connected)
+                        if (secondLast.metaData.connected)
                             secondLast.pointMesh.material = wrongPointMaterial;
                         lastPoint.pointMesh.material = wrongPointMaterial;
                     }
                     else
                     {
-                        if (!secondLast.connected)
+                        if (!secondLast.metaData.connected)
                             secondLast.pointMesh.material = wrongPointMaterial;
                         else
                             secondLast.pointMesh.material = correctPointMaterial;
@@ -124,22 +132,19 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
             }
             else
             {
-                if (lastPoint != null)
+                if (lastPoint.startFlag)
+                    lastPoint.pointMesh.material = correctPointMaterial;
+                else
                 {
-                    if (lastPoint.startFlag)
-                        lastPoint.pointMesh.material = correctPointMaterial;
-                    else
+                    if (points.Count > 0)
                     {
-                        if(points.Count > 0)
+                        SewPoint startPoint = points[0];
+                        if (startPoint.startFlag && !startPoint.metaData.connected)
                         {
-                            SewPoint startPoint = points[0];
-                            if (startPoint.startFlag && !startPoint.connected)
-                            {
-                                if(startPoint.transform.parent == lastPoint.transform.parent)
-                                    lastPoint.pointMesh.material = wrongPointMaterial;
-                            }
-
+                            if (startPoint.transform.parent == lastPoint.transform.parent)
+                                lastPoint.pointMesh.material = wrongPointMaterial;
                         }
+
                     }
                 }
             }
@@ -182,7 +187,7 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
         {
             if (sp1.transform.parent.parent.parent == sp2.transform.parent.parent.parent)
             {
-                if (!sp1.connected)
+                if (!sp1.metaData.connected)
                 {
                     if (sp1.nextConnectedPointId.Equals(sp2.attachmentId) || !sp1.nextConnectedPointId.Equals(sp2.attachmentId))
                         UpdateWrongSequence(sp2, o_info1);
@@ -203,7 +208,7 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
                 }
                 else
                 {
-                    if (!sp1.connected)
+                    if (!sp1.metaData.connected)
                         UpdateWrongSequence(sp2, o_info1);
                 }
 
@@ -213,12 +218,12 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
                 if (wrongConnectPoint.Count > 0)
                     UpdateWrongSequence(sp2, o_info1);
             }
-            if (sp1.connected && sp1.nextConnectedPointId != sp2.attachmentId)
+            if (sp1.metaData.connected && sp1.nextConnectedPointId != sp2.attachmentId)
                 UpdateWrongSequence(sp2, o_info1);
 
             if (wrongConnectPoint.Count > 0)
             {
-                if (!sp1.connected) sp1.pointMesh.material = wrongPointMaterial;
+                if (!sp1.metaData.connected) sp1.pointMesh.material = wrongPointMaterial;
             }
         }
 
@@ -387,23 +392,22 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
                 if (info2.stitchData != null)
                     info2.stitchData.movedPositions.Add(moveAbleTransform.position);
 
-                var saveJson = ServiceLocator.GetService<ISaveDataUsingJson>();
-                if (saveJson != null)
-                    saveJson.SaveData(LevelsHandler.instance.currentLevelMeta.levelName + "_" + info2.partType, info2.stitchData);
-                
+              
+
                 Vector3 targetPos = moveAbleTransform.position + avrOffset * info1.pullForce;
                 info1.IncementConnection();
                 info2.IncementConnection();
+
                 sp1.IsConnected(true, 1, moveAbleTransform.position, info1.partType.ToString());
                 sp2.IsConnected(true, 1, moveAbleTransform.position, info2.partType.ToString());
 
-                if (info1.noOfConnections.Equals(info1.totalConnections) && info2.noOfConnections.Equals(info2.totalConnections))
+                if (info1.stitchData.noOfConnections.Equals(info1.totalConnections) && info2.stitchData.noOfConnections.Equals(info2.totalConnections))
                 {
                     LevelsHandler.instance.currentLevelMeta.noOfStitchedPart++;
                 }
                 if (info1.partType.Equals(PlushieActiveStitchPart.lefteye) || info1.partType.Equals(PlushieActiveStitchPart.righteye))
                 {
-                    if (info1.noOfConnections.Equals(info1.totalConnections))
+                    if (info1.stitchData.noOfConnections.Equals(info1.totalConnections))
                     {
                         info1.transform.DOMove(info1.movedPosition, 0.5f).SetEase(Ease.Linear).OnUpdate(() =>
                         {
@@ -460,22 +464,21 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
                 if (info2.stitchData != null)
                     info2.stitchData.movedPositions.Add(moveAbleTransform.position);
 
-                var saveJson = ServiceLocator.GetService<ISaveDataUsingJson>();
-                if (saveJson != null)
-                    saveJson.SaveData(LevelsHandler.instance.currentLevelMeta.levelName + "_" + info1.partType, info1.stitchData);
-                
+               
+
                 Vector3 targetPos = moveAbleTransform.position + avrOffset * info2.pullForce;
                 info1.IncementConnection();
                 info2.IncementConnection();
+
                 sp1.IsConnected(true, 1, moveAbleTransform.position, info1.partType.ToString());
                 sp2.IsConnected(true,1, moveAbleTransform.position, info2.partType.ToString());
-                if (info1.noOfConnections.Equals(info1.totalConnections) && info2.noOfConnections.Equals(info2.totalConnections))
+                if (info1.stitchData.noOfConnections.Equals(info1.totalConnections) && info2.stitchData.noOfConnections.Equals(info2.totalConnections))
                 {
                     LevelsHandler.instance.currentLevelMeta.noOfStitchedPart++;
                 }
                 if (info2.partType.Equals(PlushieActiveStitchPart.lefteye) || info2.partType.Equals(PlushieActiveStitchPart.righteye))
                 {
-                    if (info2.noOfConnections.Equals(info2.totalConnections))
+                    if (info2.stitchData.noOfConnections.Equals(info2.totalConnections))
                     {
                         info2.transform.DOMove(info2.movedPosition, 0.5f).SetEase(Ease.Linear).OnUpdate(() =>
                         {
@@ -555,9 +558,8 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
     {
         var threadHandler = ServiceLocator.GetService<IThreadManager>();
 
-        if (o1.noOfConnections.Equals(o1.totalConnections) && o2.noOfConnections.Equals(o2.totalConnections))
+        if (o1.stitchData.noOfConnections.Equals(o1.totalConnections) && o2.stitchData.noOfConnections.Equals(o2.totalConnections))
         {
-
             o2.MarkStitched();
             o1.MarkStitched();
 

@@ -85,7 +85,6 @@ public class LevelsHandler : Singleton<LevelsHandler>, ILevelHandler
             else
                 PlayerPrefs.SetInt(completedLevelName, 1);
 
-            Debug.LogError("updated " + completedLevelName);
         }
     }
     public void LevelIncrementProcess()

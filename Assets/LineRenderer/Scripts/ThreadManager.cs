@@ -378,7 +378,7 @@ public class ThreadManager : MonoBehaviour, IThreadManager
                 if ((detectedPoints.Count - 1) > 0)
                 {
                     SewPoint s2 = detectedPoints[(detectedPoints.Count - 2)].GetComponent<SewPoint>();
-                    if (!s2.connected)
+                    if (!s2.metaData.connected)
                         ScaleInOut(detectedPoints[(detectedPoints.Count - 2)], 0.2f, 0.25f, true, Vector3.zero);
                 }
                 ScaleInOut(detectedPoints[(detectedPoints.Count - 1)], 0.2f, 0.25f, false, s.originalScale);
@@ -399,14 +399,14 @@ public class ThreadManager : MonoBehaviour, IThreadManager
                             {
                                 if(s2.transform.parent.parent.parent != s1.transform.parent.parent.parent)
                                 {
-                                    if (s2.connected)
+                                    if (s2.metaData.connected)
                                         s1.pointMesh.material = connectHandler.correctPointMaterial;
                                     else
                                         s1.pointMesh.material = connectHandler.wrongPointMaterial;
                                 }
                                 else
                                 {
-                                    if (s2.connected)
+                                    if (s2.metaData.connected)
                                         s1.pointMesh.material = connectHandler.correctPointMaterial;
                                     else
                                         s1.pointMesh.material = connectHandler.wrongPointMaterial;
@@ -417,14 +417,14 @@ public class ThreadManager : MonoBehaviour, IThreadManager
                             {
                                 if (s2.transform.parent.parent.parent != s1.transform.parent.parent.parent)
                                 {
-                                    if (s2.connected)
+                                    if (s2.metaData.connected)
                                         s1.pointMesh.material = connectHandler.correctPointMaterial;
                                     else
                                         s1.pointMesh.material = connectHandler.wrongPointMaterial;
                                 }
                                 else
                                 {
-                                    if (s2.connected)
+                                    if (s2.metaData.connected)
                                         s1.pointMesh.material = connectHandler.correctPointMaterial;
                                     else
                                         s1.pointMesh.material = connectHandler.wrongPointMaterial;
@@ -482,17 +482,21 @@ public class ThreadManager : MonoBehaviour, IThreadManager
                
                 if(lastConnectedPoint != null)
                 {
-                    for (int i = 1; i < instantiatedLine.positionCount; i++)
+                    if(instantiatedLine != null)
                     {
-                        instantiatedLine.SetPosition(i, lastConnectedPoint.position);
+                        for (int i = 1; i < instantiatedLine.positionCount; i++)
+                        {
+                            instantiatedLine.SetPosition(i, lastConnectedPoint.position);
+                        }
                     }
+                 
                     //GameEvents.NeedleEvents.OnNeedleMovement.RaiseEvent(lastConnectedPoint.position);
                 }
                 connectHandler.UpdateConnections();
 
                 if (s1.attachmentId.Equals(s2.attachmentId))
                 {
-                    if(s1.connected)
+                    if(s1.metaData.connected)
                     {
                         if(LevelsHandler.instance.currentLevelMeta.cleanConnection.Count > 0)
                         {
@@ -505,9 +509,9 @@ public class ThreadManager : MonoBehaviour, IThreadManager
 
                     if (connectHandler.wrongConnectPoint.Count == 0)
                     {
-                        if (o_Info1.noOfConnections > 0)
+                        if (o_Info1.stitchData.noOfConnections > 0)
                             o_Info1.DecementConnection();
-                        if (o_Info2.noOfConnections > 0)
+                        if (o_Info2.stitchData.noOfConnections > 0)
                             o_Info2.DecementConnection();
 
                         if (o_Info1.moveable)
@@ -524,9 +528,13 @@ public class ThreadManager : MonoBehaviour, IThreadManager
                                     {
                                         if (lastConnectedPoint != null)
                                         {
-                                            for (int i = 1; i < instantiatedLine.positionCount; i++)
+                                            if(instantiatedLine != null)
                                             {
-                                                instantiatedLine.SetPosition(i, lastConnectedPoint.position);
+                                                for (int i = 1; i < instantiatedLine.positionCount; i++)
+                                                {
+                                                    instantiatedLine.SetPosition(i, lastConnectedPoint.position);
+                                                }
+
                                             }
 
                                             //GameEvents.NeedleEvents.OnNeedleMovement.RaiseEvent(lastConnectedPoint.position);
@@ -538,8 +546,12 @@ public class ThreadManager : MonoBehaviour, IThreadManager
                                         moveableTransform.DOPause();
                                     });
                                     o_Info1.stitchData.movedPositions.Remove(o_Info1.stitchData.movedPositions[o_Info1.stitchData.movedPositions.Count - 1]);
-                                    if (o_Info2.stitchData.movedPositions.Count > 0)
-                                        o_Info2.stitchData.movedPositions.Remove(o_Info2.stitchData.movedPositions[o_Info2.stitchData.movedPositions.Count - 1]);
+                                    if (o_Info2.stitchData != null)
+                                    {
+                                        if (o_Info2.stitchData.movedPositions.Count > 0)
+                                            o_Info2.stitchData.movedPositions.Remove(o_Info2.stitchData.movedPositions[o_Info2.stitchData.movedPositions.Count - 1]);
+                                    }
+
 
                                 }
                             }
@@ -561,10 +573,14 @@ public class ThreadManager : MonoBehaviour, IThreadManager
                                     {
                                         if (lastConnectedPoint != null)
                                         {
-                                            for (int i = 1; i < instantiatedLine.positionCount; i++)
+                                            if(instantiatedLine != null)
                                             {
-                                                instantiatedLine.SetPosition(i, lastConnectedPoint.position);
+                                                for (int i = 1; i < instantiatedLine.positionCount; i++)
+                                                {
+                                                    instantiatedLine.SetPosition(i, lastConnectedPoint.position);
+                                                }
                                             }
+                                         
 
                                             //GameEvents.NeedleEvents.OnNeedleMovement.RaiseEvent(lastConnectedPoint.position);
                                         }
@@ -575,9 +591,13 @@ public class ThreadManager : MonoBehaviour, IThreadManager
 
                                         moveableTransform.DOPause();
                                     });
-                                    if (o_Info1.stitchData.movedPositions.Count > 0)
-                                        o_Info1.stitchData.movedPositions.Remove(o_Info1.stitchData.movedPositions[o_Info1.stitchData.movedPositions.Count - 1]);
-                                    o_Info2.stitchData.movedPositions.Remove(o_Info2.stitchData.movedPositions[o_Info2.stitchData.movedPositions.Count - 1]);
+                                    if(o_Info1.stitchData != null)
+                                    {
+                                        if (o_Info1.stitchData.movedPositions.Count > 0)
+                                            o_Info1.stitchData.movedPositions.Remove(o_Info1.stitchData.movedPositions[o_Info1.stitchData.movedPositions.Count - 1]);
+                                    }
+                                    if(o_Info2.stitchData != null)
+                                        o_Info2.stitchData.movedPositions.Remove(o_Info2.stitchData.movedPositions[o_Info2.stitchData.movedPositions.Count - 1]);
                                 }
                             }
                            
@@ -596,14 +616,12 @@ public class ThreadManager : MonoBehaviour, IThreadManager
                         else
                             s2.IsConnected(false, 0, Vector3.zero, "");
                     }
-             
 
-                    var saveJson = ServiceLocator.GetService<ISaveDataUsingJson>();
-                    if (saveJson != null)
-                    {
-                        saveJson.SaveData(LevelsHandler.instance.currentLevelMeta.levelName + "_" + o_Info1.partType, o_Info1.stitchData);
-                        saveJson.SaveData(LevelsHandler.instance.currentLevelMeta.levelName + "_" + o_Info2.partType, o_Info2.stitchData);
-                    }
+
+
+                    SaveDataUsingJson.instance.SaveData(LevelsHandler.instance.currentLevelMeta.levelName + "_" + o_Info1.partType, o_Info1.stitchData);
+                    SaveDataUsingJson.instance.SaveData(LevelsHandler.instance.currentLevelMeta.levelName + "_" + o_Info2.partType, o_Info2.stitchData);
+                    
                     LevelsHandler.instance.currentLevelMeta.UpdateAllStitchesOfPlushie();
                     
                 }

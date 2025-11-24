@@ -1,20 +1,17 @@
 using System.IO;
 using UnityEngine;
 
-public class SaveDataUsingJson : MonoBehaviour,ISaveDataUsingJson
+public class SaveDataUsingJson : Singleton<SaveDataUsingJson>
 {
     [SerializeField]string path;
-    private void Start()
+    public override void SingletonAwake()
     {
+        base.SingletonAwake();
         path = Application.persistentDataPath;
     }
-    private void Awake()
+    public override void SingletonOnDestroy()
     {
-        RegisterService();
-    }
-    private void OnDisable()
-    {
-        UnRegisterService();
+        base.SingletonOnDestroy();
     }
     public void SaveData<T>(string fileName, T data)
     {
@@ -36,13 +33,4 @@ public class SaveDataUsingJson : MonoBehaviour,ISaveDataUsingJson
         return JsonUtility.FromJson<T>(json);
     }
 
-    public void RegisterService()
-    {
-        ServiceLocator.RegisterService<ISaveDataUsingJson>(this);
-    }
-
-    public void UnRegisterService()
-    {
-        ServiceLocator.UnRegisterService<ISaveDataUsingJson>(this);
-    }
 }

@@ -37,7 +37,8 @@ public class NeedleDetector : MonoBehaviour, INeedleDetector
             if (!detect) return;
             SewPoint sewPoint = other.GetComponent<SewPoint>();
             if (sewPoint.IsSelected()) return;
-            if (sewPoint.connected) return;
+        
+            if (sewPoint.metaData.connected) return;
             sewPoint.Selected(true);
 
             sewPoint.GetComponent<Collider>().enabled = false;

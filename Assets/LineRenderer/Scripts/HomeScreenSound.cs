@@ -11,6 +11,5 @@ public class HomeScreenSound : MonoBehaviour
             SoundManager.instance.StopSound(inventorySource);
         SoundManager.instance.PlaySound(sourceForBgMusic, SoundManager.instance.audioClips.bgMusic, true, false, 1.0f, true);
 
-        Debug.LogError("Runtime audio device: " + AudioSettings.GetConfiguration().speakerMode);
     }
 }

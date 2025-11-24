@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class SoundManager : Singleton<SoundManager>, ISoundManager
+public class SoundManager : Singleton<SoundManager>
 {
     [field: SerializeField] public SoundScriptable audioClips {  get; private set; }
     [field: SerializeField] public AudioSource audioSource { get; private set; }
@@ -8,20 +8,10 @@ public class SoundManager : Singleton<SoundManager>, ISoundManager
     public override void SingletonAwake()
     {
         base.SingletonAwake();
-        RegisterService();
     }
     public override void SingletonOnDestroy()
     {
         base.SingletonOnDestroy();
-        UnRegisterService();
-    }
-    public void RegisterService()
-    {
-        ServiceLocator.RegisterService<ISoundManager>(this);
-    }
-    public void UnRegisterService()
-    {
-        ServiceLocator.UnRegisterService<ISoundManager>(this);
     }
 
     public void PlaySound(AudioSource source, AudioClip clip, bool loop, bool mute, float volume, bool playOnAwake)

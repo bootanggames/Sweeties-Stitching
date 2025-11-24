@@ -100,12 +100,15 @@ public class Level_Metadata : MonoBehaviour
         foreach (GameObject g in list)
         {
             ObjectInfo o = g.GetComponent<ObjectInfo>();
-            if (!o.IsStitched)
+            if (o.stitchData == null)
+                o.stitchData = new PlushiePartStitchData();
+            if (!o.stitchData.IsStitched)
             {
                 ob_info = o;
                 break;
             }
-           
+
+
         }
         return ob_info;
     }
@@ -114,7 +117,7 @@ public class Level_Metadata : MonoBehaviour
 
         ObjectInfo currentConnectedPartInfor = null;
         ObjectInfo neck = bodyParts[0].GetComponent<ObjectInfo>();
-        if (neck.IsStitched)
+        if (neck.stitchData.IsStitched)
             current_ObjectInfor = GetObjectInfoOfCurrentUnstitchedPart(levelDivision.rightSide);
         else
             current_ObjectInfor = neck;
@@ -377,7 +380,7 @@ public class Level_Metadata : MonoBehaviour
             foreach (GameObject g in bodyParts)
             {
                 ObjectInfo ob_info = g.GetComponent<ObjectInfo>();
-                if (!ob_info.IsStitched)
+                if (!ob_info.stitchData.IsStitched)
                 {
                     if (ob_info.Equals(current_ObjectInfor))
                     {

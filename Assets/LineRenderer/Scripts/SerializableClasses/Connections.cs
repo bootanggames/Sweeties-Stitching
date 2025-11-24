@@ -17,58 +17,66 @@ public class Connections
         this.point1 = p1;
         this.point2 = p2;
         isLocked = false;
-        multipleLine = multiple;
 
-        if (multiple)
-        {
-            SewPoint sp_P1 = p1.GetComponent<SewPoint>();
-            SewPoint sp_P2 = p2.GetComponent<SewPoint>();
+        this.line = GameObject.Instantiate(prefab);
+        Vector3 pos1 = p1.position; pos1.z = zVal;
+        Vector3 pos2 = p2.position; pos2.z = zVal;
+        this.line.positionCount = 2;
+        this.line.SetPosition(0, pos1);
+        this.line.SetPosition(1, pos2);
+        this.line.material.color = LevelsHandler.instance.currentLevelMeta.threadColor;
+        //multipleLine = multiple;
 
-            if (sp_P1 == null || sp_P2 == null)
-            {
-                Debug.LogWarning("Missing SewPoint component on one or both points.");
-                return;
-            }
+        //if (multiple)
+        //{
+        //    SewPoint sp_P1 = p1.GetComponent<SewPoint>();
+        //    SewPoint sp_P2 = p2.GetComponent<SewPoint>();
 
-            links = new List<LineRenderer>();
-            count = stitchCount;
-            Debug.LogError(" " + count);
-            if (count <= 0) return;
-            //int count = Mathf.Min(sp_P1.stitchEffect_ThreadPoints.Count, sp_P2.stitchEffect_ThreadPoints.Count);
+        //    if (sp_P1 == null || sp_P2 == null)
+        //    {
+        //        Debug.LogWarning("Missing SewPoint component on one or both points.");
+        //        return;
+        //    }
 
-            for (int i = 0; i < count; i++)
-            {
-                Transform threadP1 = sp_P1.stitchEffect_ThreadPoints[i];
-                Transform threadP2 = sp_P2.stitchEffect_ThreadPoints[i];
+        //    links = new List<LineRenderer>();
+        //    count = stitchCount;
+        //    Debug.LogError(" " + count);
+        //    if (count <= 0) return;
+        //    //int count = Mathf.Min(sp_P1.stitchEffect_ThreadPoints.Count, sp_P2.stitchEffect_ThreadPoints.Count);
 
-                if (threadP1 == null || threadP2 == null)
-                    continue;
+        //    for (int i = 0; i < count; i++)
+        //    {
+        //        Transform threadP1 = sp_P1.stitchEffect_ThreadPoints[i];
+        //        Transform threadP2 = sp_P2.stitchEffect_ThreadPoints[i];
 
-                LineRenderer l = GameObject.Instantiate(prefab);
-                l.positionCount = 2;
+        //        if (threadP1 == null || threadP2 == null)
+        //            continue;
 
-                Vector3 pos1 = threadP1.position; pos1.z = zVal;
-                Vector3 pos2 = threadP2.position; pos2.z = zVal;
+        //        LineRenderer l = GameObject.Instantiate(prefab);
+        //        l.positionCount = 2;
 
-                l.SetPosition(0, pos1);
-                l.SetPosition(1, pos2);
+        //        Vector3 pos1 = threadP1.position; pos1.z = zVal;
+        //        Vector3 pos2 = threadP2.position; pos2.z = zVal;
 
-                l.name = $"link_{i}";
-                if(!links.Contains(l) )
-                    links.Add(l);
-            }
-        }
-        else
-        {
-            this.line = GameObject.Instantiate(prefab);
-            Vector3 pos1 = p1.position; pos1.z = zVal;
-            Vector3 pos2 = p2.position; pos2.z = zVal;
-            this.line.positionCount = 2;
-            this.line.SetPosition(0, pos1);
-            this.line.SetPosition(1, pos2);
-            this.line.material.color = LevelsHandler.instance.currentLevelMeta.threadColor;
+        //        l.SetPosition(0, pos1);
+        //        l.SetPosition(1, pos2);
 
-        }
+        //        l.name = $"link_{i}";
+        //        if(!links.Contains(l) )
+        //            links.Add(l);
+        //    }
+        //}
+        //else
+        //{
+        //    this.line = GameObject.Instantiate(prefab);
+        //    Vector3 pos1 = p1.position; pos1.z = zVal;
+        //    Vector3 pos2 = p2.position; pos2.z = zVal;
+        //    this.line.positionCount = 2;
+        //    this.line.SetPosition(0, pos1);
+        //    this.line.SetPosition(1, pos2);
+        //    this.line.material.color = LevelsHandler.instance.currentLevelMeta.threadColor;
+
+        //}
     }
     public void DestroyPreviousLine()
     {
@@ -96,44 +104,48 @@ public class Connections
 
     public void UpdateLine(float zVal, bool multiple)
     {
+        if (line == null) return;
+        Vector3 pos1 = point1.position; pos1.z = zVal;
+        Vector3 pos2 = point2.position; pos2.z = zVal;
+        line.SetPosition(0, pos1);
+        line.SetPosition(1, pos2);
+        //if (multiple)
+        //{
 
-        if (multiple)
-        {
+        //    SewPoint sp_P1 = point1.GetComponent<SewPoint>();
+        //    SewPoint sp_P2 = point2.GetComponent<SewPoint>();
+        //    if (sp_P1 == null || sp_P2 == null) return;
 
-            SewPoint sp_P1 = point1.GetComponent<SewPoint>();
-            SewPoint sp_P2 = point2.GetComponent<SewPoint>();
-            if (sp_P1 == null || sp_P2 == null) return;
+        //    int count = Mathf.Min(
+        //        sp_P1.stitchEffect_ThreadPoints.Count,
+        //        sp_P2.stitchEffect_ThreadPoints.Count,
+        //        links.Count
+        //    );
 
-            int count = Mathf.Min(
-                sp_P1.stitchEffect_ThreadPoints.Count,
-                sp_P2.stitchEffect_ThreadPoints.Count,
-                links.Count
-            );
+        //    //Debug.LogError($"[UpdateLine] multiple={multiple}, count={count}, links={links.Count}");
 
-            //Debug.LogError($"[UpdateLine] multiple={multiple}, count={count}, links={links.Count}");
+        //    for (int i = 0; i < count; i++)
+        //    {
+        //        if (links[i] == null) continue;
 
-            for (int i = 0; i < count; i++)
-            {
-                if (links[i] == null) continue;
+        //        Vector3 pos1 = sp_P1.stitchEffect_ThreadPoints[i].position;
+        //        Vector3 pos2 = sp_P2.stitchEffect_ThreadPoints[i].position;
 
-                Vector3 pos1 = sp_P1.stitchEffect_ThreadPoints[i].position;
-                Vector3 pos2 = sp_P2.stitchEffect_ThreadPoints[i].position;
+        //        pos1.z = pos2.z = zVal;
+        //        //Debug.LogError(" " + pos1 + " " + pos2);
+        //        links[i].SetPosition(0, pos1);
+        //        links[i].SetPosition(1, pos2);
+        //    }
+        //}
+        //else
+        //{
+        //    if (line == null) return;
+        //    Vector3 pos1 = point1.position; pos1.z = zVal;
+        //    Vector3 pos2 = point2.position; pos2.z = zVal;
+        //    line.SetPosition(0, pos1);
+        //    line.SetPosition(1, pos2);
+        //}
 
-                pos1.z = pos2.z = zVal;
-                //Debug.LogError(" " + pos1 + " " + pos2);
-                links[i].SetPosition(0, pos1);
-                links[i].SetPosition(1, pos2);
-            }
-        }
-        else
-        {
-            if (line == null) return;
-            Vector3 pos1 = point1.position; pos1.z = zVal;
-            Vector3 pos2 = point2.position; pos2.z = zVal;
-            line.SetPosition(0, pos1);
-            line.SetPosition(1, pos2);
-        }
-      
     }
 
     

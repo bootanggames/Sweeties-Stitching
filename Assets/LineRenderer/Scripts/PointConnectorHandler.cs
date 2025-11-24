@@ -272,13 +272,13 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
         }
         if (dynamicStitch)
             NewConnection(point1.transform, point2.transform, true, false, threadStitchCount);
-        else
-        {
-            if (threadStitchCount == 1)
-                NewConnection(point1.transform, point2.transform, true, false, threadStitchCount);
-            else
-                NewConnection(point1.transform, point2.transform, true, true, threadStitchCount);
-        }
+        //else
+        //{
+        //    if (threadStitchCount == 1)
+        //        NewConnection(point1.transform, point2.transform, true, false, threadStitchCount);
+        //    else
+        //        NewConnection(point1.transform, point2.transform, true, true, threadStitchCount);
+        //}
     }
 
     void NewConnection(Transform p1, Transform p2, bool applyPullForce, bool multiple, int stitchCount)
@@ -424,6 +424,9 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
                         {
                             SewPoint sp1 = p1.GetComponent<SewPoint>();
                             SewPoint sp2 = p2.GetComponent<SewPoint>();
+                            //create eye connections
+                            LevelsHandler.instance.currentLevelMeta.Connection(info1.connectPoints[0], info2.connectPoints[info2.connectPoints.Count - 1]);
+                            LevelsHandler.instance.currentLevelMeta.Connection(info1.connectPoints[1], info2.connectPoints[info2.connectPoints.Count - 2]);
                             CheckIfLastConnectionUpdated(sp1, sp2, p1, p2, info1, info2);
 
                             info1.DOPause();
@@ -497,7 +500,12 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
                         {
                             SewPoint sp1 = p1.GetComponent<SewPoint>();
                             SewPoint sp2 = p2.GetComponent<SewPoint>();
+                            LevelsHandler.instance.currentLevelMeta.Connection(info1.connectPoints[0], info2.connectPoints[info2.connectPoints.Count - 1]);
+                            LevelsHandler.instance.currentLevelMeta.Connection(info1.connectPoints[1], info2.connectPoints[info2.connectPoints.Count - 2]);
+
                             CheckIfLastConnectionUpdated(sp1, sp2, p1, p2, info1, info2);
+                            //create eye connections
+                         
                             info2.DOPause();
                         });
                     }
@@ -525,9 +533,9 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
             foreach (var connection in connections)
             {
              
-                if(connection.multipleLine)
-                    connection.UpdateLine(zVal, true);
-                else
+                //if(connection.multipleLine)
+                //    connection.UpdateLine(zVal, true);
+                //else
                     connection.UpdateLine(zVal, false);
 
                 float currentDist = Vector3.Distance(connection.point1.position, connection.point2.position);
@@ -544,7 +552,7 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
         });
         pullSeq.OnComplete(() =>
         {
-            if(info1 != null && info2 != null)
+            if (info1 != null && info2 != null)
                 CheckIfLastConnectionUpdated(sp1, sp2, p1, p2, info1, info2);
         });
         tween1 = pullSeq;
@@ -552,7 +560,9 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
     void CheckIfLastConnectionUpdated(SewPoint sp1, SewPoint sp2, Transform p1, Transform p2, ObjectInfo info1, ObjectInfo info2)
     {
         if (sp1.attachmentId.Equals(sp2.attachmentId))
+        {
             IncrementLinksPerPart(info1, info2);
+        }
     }
 
     void IncrementLinksPerPart( ObjectInfo o1, ObjectInfo o2)

@@ -10,8 +10,8 @@ public class CanvasUIManager : MonoBehaviour, ICanvasUIManager
     [field: SerializeField] public GameObject gameCompletePanel { get; private set; }
     [field: SerializeField] public TextMeshProUGUI stitchCountText {  get; private set; }
     [field: SerializeField] public TextMeshProUGUI stitchProgress {  get; private set; }
-    [field: SerializeField] public GameObject tapToStartButton { get; private set; }
-    [field: SerializeField] public TextMeshProUGUI offsetValue { get; private set; }
+     public GameObject tapToStartButton { get; private set; }
+     public TextMeshProUGUI offsetValue { get; private set; }
     [field: SerializeField] public GameObject startText { get; private set; }
     [field: SerializeField] public GameObject undoHighLight { get; private set; }
     [field: SerializeField] public GameObject sewnScreen { get; private set; }
@@ -19,6 +19,7 @@ public class CanvasUIManager : MonoBehaviour, ICanvasUIManager
     [field: SerializeField] public GameObject sewnTextImage { get; private set; }
     [field: SerializeField] public GameObject goToHomeScreen { get; private set; }
     [field: SerializeField] public AudioSource audioSourceForBG { get; private set; }
+    [field: SerializeField] public Image spoolImg { get; private set; }
 
     private void Start()
     {

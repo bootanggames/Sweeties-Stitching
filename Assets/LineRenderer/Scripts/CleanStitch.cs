@@ -9,10 +9,11 @@ public class CleanStitch : MonoBehaviour
 
     [SerializeField] float yVal = 0;
     [SerializeField] float xVal = 0;
-    void Start()
+    void OnEnable()
     {
         o_Info = GetComponent<ObjectInfo>();
-        CleanStitchPoints();
+        if(cleanStitchPoint.Count == 0)
+            CleanStitchPoints();
     }
 
     void CleanStitchPoints()

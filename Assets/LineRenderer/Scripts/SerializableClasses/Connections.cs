@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using UnityEngine;
 
 [Serializable]
@@ -9,9 +8,7 @@ public class Connections
     public Transform point2;
     public bool isLocked;
     public LineRenderer line;
-    public List<LineRenderer> links;
-    public bool multipleLine = false;
-    int count = 0;
+    //public List<LineRenderer> links;
     public Connections(Transform p1, Transform p2, LineRenderer prefab, float zVal, bool multiple, int stitchCount)
     {
         this.point1 = p1;
@@ -25,6 +22,7 @@ public class Connections
         this.line.SetPosition(0, pos1);
         this.line.SetPosition(1, pos2);
         this.line.material.color = LevelsHandler.instance.currentLevelMeta.threadColor;
+
         //multipleLine = multiple;
 
         //if (multiple)

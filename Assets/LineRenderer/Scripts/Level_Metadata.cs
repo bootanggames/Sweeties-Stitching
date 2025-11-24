@@ -43,11 +43,15 @@ public class Level_Metadata : MonoBehaviour
     public Sprite plushieSprite;
     [SerializeField] Transform needleUndoPosition;
     public Color threadColor;
+    public Sprite spoolColor;
     private void Start()
     {
+        var canvasHandler = ServiceLocator.GetService<ICanvasUIManager>();
+        if (canvasHandler != null)
+            canvasHandler.spoolImg.sprite = spoolColor;
         LevelInitialisation();
     }
-   public void LevelInitialisation()
+    public void LevelInitialisation()
     {
         HandlerPointsEnableDisable();
         RepositionCameras();
@@ -177,34 +181,45 @@ public class Level_Metadata : MonoBehaviour
     }
     void EnableDetection()
     {
+        var gameHandler = ServiceLocator.GetService<IGameHandler>();
+        if (gameHandler != null)
+        {
+            if (gameHandler.saveProgress)
+            {
+                //CreateConnectionsIfProgressSaved();
+
+                var threadHandler = ServiceLocator.GetService<IThreadManager>();
+                if (threadHandler != null)
+                {
+                    threadHandler.ResetList(threadHandler.detectedPoints.OrderBy(t => t.GetComponent<SewPoint>().attachmentId).ToList());
+                }
+                var pointsHandler = ServiceLocator.GetService<IPointConnectionHandler>();
+                if (pointsHandler != null)
+                {
+                    if (pointsHandler.points.Count > 0)
+                        pointsHandler.ResetPointsList(pointsHandler.points.OrderBy(p => p.attachmentId).ToList());
+
+                    for (int i = 0; i < pointsHandler.points.Count; i++)
+                    {
+                        if ((i + 1) < pointsHandler.points.Count)
+                        {
+                            Connections newConnection = new Connections(pointsHandler.points[i].transform, pointsHandler.points[i + 1].transform, pointsHandler.linePrefab, -0.01f, false, 0);
+                            pointsHandler.connections.Add(newConnection);
+                            if (pointsHandler.points[i].attachmentId.Equals(pointsHandler.points[i + 1].attachmentId))
+                                LevelsHandler.instance.currentLevelMeta.Connection(pointsHandler.points[i], pointsHandler.points[i + 1]);
+                        }
+                    }
+
+                }
+                //
+            }
+        }
         var needleDetecto = ServiceLocator.GetService<INeedleDetector>();
         if (needleDetecto != null)
         {
             needleDetecto.detect = true;
         }
-        var threadHandler = ServiceLocator.GetService<IThreadManager>();
-        if (threadHandler != null)
-        {
-            threadHandler.ResetList(threadHandler.detectedPoints.OrderBy(t => t.GetComponent<SewPoint>().attachmentId).ToList());
-        }
-        var pointsHandler = ServiceLocator.GetService<IPointConnectionHandler>();
-        if (pointsHandler != null)
-        {
-            if (pointsHandler.points.Count > 0)
-                pointsHandler.ResetPointsList(pointsHandler.points.OrderBy(p => p.attachmentId).ToList());
-
-            for (int i = 0; i < pointsHandler.points.Count; i++)
-            {
-                if((i+1) < pointsHandler.points.Count)
-                {
-                    Connections newConnection = new Connections(pointsHandler.points[i].transform, pointsHandler.points[i + 1].transform, pointsHandler.linePrefab, -0.01f, false, 0);
-                    pointsHandler.connections.Add(newConnection);
-                    if (pointsHandler.points[i].attachmentId.Equals(pointsHandler.points[i + 1].attachmentId))
-                        LevelsHandler.instance.currentLevelMeta.Connection(pointsHandler.points[i], pointsHandler.points[i + 1]);
-                }
-            }
-
-        }
+       
         var needleDetector = ServiceLocator.GetService<INeedleDetector>();
         if (needleDetector != null)
         {
@@ -516,6 +531,142 @@ public class Level_Metadata : MonoBehaviour
         foreach(var connections in cleanThreads)
         {
             connections.line.gameObject.SetActive(false);
+        }
+    }
+    int index = 0;
+    public void CreateConnectionsIfProgressSaved()
+    {
+        Part_Info body_PInfo = immoveablePart.GetComponent<Part_Info>();
+        List<SewPoint>list1 = new List<SewPoint>();
+        List<SewPoint>list2 = new List<SewPoint>();
+        for(int i=0;i<bodyParts.Count;i++)
+        {
+            ObjectInfo o_info = bodyParts[i].GetComponent<ObjectInfo>();
+            if (o_info.stitchData.IsStitched)
+            {
+                if (o_info.head)
+                {
+                    list1.AddRange(o_info.connectPoints);
+                    list2.AddRange(body_PInfo.joints[0].GetComponent<ObjectInfo>().connectPoints);
+                    index = 0;
+                    while (index < list1.Count)
+                    {
+                        Connection(list1[index], list2[index]);
+                        cleanThreadIndex++;
+
+                        index++;
+                    }
+                }
+                else
+                {
+                    if (o_info.partConnectedTo.Equals(PartConnectedTo.head))
+                    {
+                        //head parts
+                        if (o_info.partType.Equals(PlushieActiveStitchPart.righteye))
+                        {
+                            list1.AddRange(o_info.connectPoints);
+                            list2.AddRange(head.joints[2].GetComponent<ObjectInfo>().connectPoints);
+                            Connection(list1[0], list2[3]);
+                            Connection(list1[1], list2[2]);
+                            cleanThreadIndex += 2;
+
+                        }
+                        else if (o_info.partType.Equals(PlushieActiveStitchPart.lefteye))
+                        {
+                            list1.AddRange(o_info.connectPoints);
+                            list2.AddRange(head.joints[1].GetComponent<ObjectInfo>().connectPoints);
+                            Connection(list1[0], list2[list2.Count - 1]);
+                            Connection(list1[1], list2[list2.Count - 2]);
+                            cleanThreadIndex += 2;
+
+                        }
+                        else if (o_info.partType.Equals(PlushieActiveStitchPart.rightear))
+                        {
+                            list1.AddRange(o_info.connectPoints);
+                            list2.AddRange(head.joints[4].GetComponent<ObjectInfo>().connectPoints);
+                            index = 0;
+                            while (index < list1.Count)
+                            {
+                                Connection(list1[index], list2[index]);
+                                cleanThreadIndex++;
+                                index++;
+                            }
+                        }
+                        else if (o_info.partType.Equals(PlushieActiveStitchPart.leftear))
+                        {
+                            list1.AddRange(o_info.connectPoints);
+                            list2.AddRange(head.joints[3].GetComponent<ObjectInfo>().connectPoints);
+                            index = 0;
+                            while (index < list1.Count)
+                            {
+                                Connection(list1[index], list2[index]);
+                                cleanThreadIndex++; 
+                                index++;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        //body parts
+                        if (o_info.partType.Equals(PlushieActiveStitchPart.leftarm))
+                        {
+                            list1.AddRange(o_info.connectPoints);
+                            list2.AddRange(body_PInfo.joints[1].GetComponent<ObjectInfo>().connectPoints);
+                            index = 0;
+                            while (index < list1.Count)
+                            {
+                                Connection(list1[index], list2[index]);
+                                cleanThreadIndex++; 
+                                index++;
+                            }
+                        }
+                        else if (o_info.partType.Equals(PlushieActiveStitchPart.rightarm))
+                        {
+                            list1.AddRange(o_info.connectPoints);
+                            list2.AddRange(body_PInfo.joints[2].GetComponent<ObjectInfo>().connectPoints);
+                            index = 0;
+                            while (index < list1.Count)
+                            {
+                                Connection(list1[index], list2[index]);
+                                cleanThreadIndex++; 
+                                index++;
+                            }
+                        }
+                        else if (o_info.partType.Equals(PlushieActiveStitchPart.leftleg))
+                        {
+                            list1.AddRange(o_info.connectPoints);
+                            list2.AddRange(body_PInfo.joints[4].GetComponent<ObjectInfo>().connectPoints);
+                            index = 0;
+                            while (index < list1.Count)
+                            {
+                                Connection(list1[index], list2[index]);
+                                cleanThreadIndex++; 
+                                index++;
+                            }
+                        }
+                        else if (o_info.partType.Equals(PlushieActiveStitchPart.rightleg))
+                        {
+                            list1.AddRange(o_info.connectPoints);
+                            list2.AddRange(body_PInfo.joints[3].GetComponent<ObjectInfo>().connectPoints);
+                            index = 0;
+                            while (index < list1.Count)
+                            {
+                                Connection(list1[index], list2[index]);
+                                cleanThreadIndex++; 
+                                index++;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        if (cleanConnection.Count > 0)
+        {
+            foreach (Connections c in cleanConnection)
+            {
+                c.line.gameObject.SetActive(true);
+            }
         }
     }
 }

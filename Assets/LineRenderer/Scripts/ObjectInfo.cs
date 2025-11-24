@@ -204,6 +204,8 @@ public class ObjectInfo : MonoBehaviour
 
         Invoke("EnableConffetti", 0.2f);
     }
+    int index = 0;
+    [SerializeField] int noOfCleanThreadConnections = 0;
     void EnableConffetti()
     {
         if (confettiIndex < connectPoints.Count)
@@ -213,17 +215,19 @@ public class ObjectInfo : MonoBehaviour
             connectPoints[confettiIndex].gameObject.SetActive(false);
             g.SetActive(true);
             confettiIndex++;
-           if(enableConnection)
+        }
+        if(index < noOfCleanThreadConnections)
+        {
+            if (enableConnection)
             {
                 if (LevelsHandler.instance.currentLevelMeta.cleanThreadIndex < LevelsHandler.instance.currentLevelMeta.cleanConnection.Count)
-                {
                     LevelsHandler.instance.currentLevelMeta.cleanConnection[LevelsHandler.instance.currentLevelMeta.cleanThreadIndex].line.gameObject.SetActive(true);
-                }
 
                 LevelsHandler.instance.currentLevelMeta.cleanThreadIndex++;
             }
+            index++;
         }
-            
+       
         CancelInvoke("EnableConffetti");
 
         if (confettiIndex < connectPoints.Count)

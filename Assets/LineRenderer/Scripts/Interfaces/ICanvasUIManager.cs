@@ -13,6 +13,7 @@ public interface ICanvasUIManager:IGameService
     GameObject sewnTextImage { get; }
     GameObject undoHighLight { get; }
     GameObject confettiEffectCanvas { get; }
+    Image spoolImg { get; }
     TextMeshProUGUI stitchCountText {  get; }
     TextMeshProUGUI stitchProgress {  get; }
     TextMeshProUGUI offsetValue {  get; }

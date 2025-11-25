@@ -4,6 +4,7 @@ using UnityEngine.UI;
 
 public interface ICanvasUIManager:IGameService
 {
+    GameObject mainCanvas { get; }
     GameObject completeStitchedPlushie { get; }
     GameObject gameCompletePanel { get; }
     GameObject goToHomeScreen { get; }

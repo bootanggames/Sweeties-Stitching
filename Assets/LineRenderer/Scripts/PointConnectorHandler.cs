@@ -395,6 +395,8 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
               
 
                 Vector3 targetPos = moveAbleTransform.position + avrOffset * info1.pullForce;
+                if (info1.head)
+                    targetPos.x = 0;
                 info1.IncementConnection();
                 info2.IncementConnection();
 
@@ -471,6 +473,8 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
                
 
                 Vector3 targetPos = moveAbleTransform.position + avrOffset * info2.pullForce;
+                if (info2.head)
+                    targetPos.x = 0;
                 info1.IncementConnection();
                 info2.IncementConnection();
 

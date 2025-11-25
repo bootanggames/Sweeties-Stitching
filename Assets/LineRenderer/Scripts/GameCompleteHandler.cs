@@ -15,6 +15,7 @@ public class GameCompleteHandler : MonoBehaviour, IGameService
     [SerializeField] TextMeshProUGUI levelProgress;
     [SerializeField] GameObject[] sparkles;
     [SerializeField] int sparkleIndex = 0;
+    [SerializeField] GameObject sparkleCanvas ;
     private void OnEnable()
     {
         RegisterService();
@@ -55,13 +56,13 @@ public class GameCompleteHandler : MonoBehaviour, IGameService
         SoundManager.instance.ResetAudioSource();
 
         AudioSource _source = SoundManager.instance.audioSource;
-        AudioClip _clip = SoundManager.instance.audioClips.levelUp;
+        AudioClip _clip = SoundManager.instance.audioClips.congratulationsScreenSound;
         SoundManager.instance.PlaySound(_source, _clip, false, false, 1, false);
     }
     void GameComplete()
     {
-        if(sparkleRoutine == null)
-            sparkleRoutine = StartCoroutine(EnableSparkle());
+        //if (sparkleRoutine == null)
+        //    sparkleRoutine = StartCoroutine(EnableSparkle());
         GameEvents.ThreadEvents.setThreadInput.RaiseEvent(false);
         if (LevelsHandler.instance)
         {
@@ -81,16 +82,18 @@ public class GameCompleteHandler : MonoBehaviour, IGameService
             canvasHandler.sewnScreen.SetActive(false);
             canvasHandler.sewnTextImage.transform.localScale = Vector3.zero;
             canvasHandler.confettiEffectCanvas.SetActive(false);
-            PlaySound();
+            canvasHandler.mainCanvas.SetActive(false);
             canvasHandler.gameCompletePanel.gameObject.SetActive(true);
             canvasHandler.completeStitchedPlushie.SetActive(true);
+            PlaySound();
+            sparkleCanvas.SetActive(true);
             RectTransform rt =  canvasHandler.completeStitchedPlushie.GetComponent<RectTransform>();
             rt.DOScale(1, speed).SetEase(Ease.Linear).OnComplete(() =>
             {
                 if (coinsHandler != null)
                 {
                     coinsHandler.CreateCoinsObjects();
-                    StartCoroutine(coinsHandler.MoveCoins());
+                    StartCoroutine(coinsHandler.MoveCoins(coinsHandler.coinsObjList, coinsHandler.targetPointToMove, coinsHandler.coinBar, coinsHandler.coinMoveSpeed,Ease.InOutBack,0.01f));
                 }
             });
         }
@@ -119,7 +122,7 @@ public class GameCompleteHandler : MonoBehaviour, IGameService
 
             sparkleIndex = (sparkleIndex + 1) % sparkles.Length;
 
-            yield return new WaitForSeconds(Random.Range(0.001f, 0.01f));
+            yield return new WaitForSeconds(cg.DOComplete());
         }
     }
 }

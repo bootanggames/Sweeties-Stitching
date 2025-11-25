@@ -44,6 +44,7 @@ public class Level_Metadata : MonoBehaviour
     [SerializeField] Transform needleUndoPosition;
     public Color threadColor;
     public Sprite spoolColor;
+    public GameObject crissCrossObj;
     private void Start()
     {
         var canvasHandler = ServiceLocator.GetService<ICanvasUIManager>();
@@ -275,7 +276,7 @@ public class Level_Metadata : MonoBehaviour
         SoundManager.instance.ResetAudioSource();
 
         AudioSource _source = SoundManager.instance.audioSource;
-        AudioClip _clip = SoundManager.instance.audioClips.completed;
+        AudioClip _clip = SoundManager.instance.audioClips.levelUp;
         SoundManager.instance.PlaySound(_source, _clip, false, false, 1, false);
         HepticManager.instance.HapticEffect();
         //Debug.LogError("completed");
@@ -495,6 +496,8 @@ public class Level_Metadata : MonoBehaviour
     public List<Connections> cleanConnection;
     List<Connections> cleanThreads = new List<Connections>();
     public int cleanThreadIndex = 0;
+    public List<GameObject> crissCrossObjList = new List<GameObject>();
+
     public void Connection(SewPoint sp1, SewPoint sp2)
     {
         Vector3 pos1 = Vector3.zero; Vector3 pos2 = Vector3.zero;

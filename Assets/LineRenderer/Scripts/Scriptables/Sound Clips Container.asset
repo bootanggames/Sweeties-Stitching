@@ -20,5 +20,8 @@ MonoBehaviour:
   purchaseComplete: {fileID: 8300000, guid: 7cf25feb2058e3d468a68b21649676b3, type: 3}
   wrongStitchSound: {fileID: 8300000, guid: cc162acb7b574bd448f35a354e2cca0c, type: 3}
   fireWorksSound: {fileID: 8300000, guid: 98f6d62977af8fb459470fc70bd5b2ce, type: 3}
-  plushieInventoryScreenBgSound: {fileID: 8300000, guid: 3e9912aa7d1b90440b5664ccf0b5ea06, type: 3}
-  levelUp: {fileID: 8300000, guid: 56f9e90501b4af04fb173b500a3a54d9, type: 3}
+  plushieInventoryScreenBgSound: {fileID: 8300000, guid: 8bc1fb05a2c2ba04680ccc058b4657ef, type: 3}
+  levelUp: {fileID: 8300000, guid: 199af18fa6e081e4b929efd19c40b762, type: 3}
+  sparklesSound: {fileID: 8300000, guid: b307b93297008034dbc053d6f1e0bca7, type: 3}
+  congratulationsScreenSound: {fileID: 8300000, guid: 8f9e930cdf5fbcc40bc0141137002c2e, type: 3}
+  sewingRoomBgSound: {fileID: 8300000, guid: 8bc1fb05a2c2ba04680ccc058b4657ef, type: 3}

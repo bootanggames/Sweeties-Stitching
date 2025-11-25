@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System;
 using System.Collections.Generic;
 using TMPro;
@@ -29,6 +30,7 @@ public class ObjectInfo : MonoBehaviour
     public GameObject partWithOutHoles;
     public CleanStitch c_Stitch;
     [SerializeField] bool enableConnection;
+    List<GameObject> coinsObj = new List<GameObject>();
     //[Header("----------------New Data------------------")]
     //[SerializeField] GameObject pointPrefab;
     //[SerializeField] Transform pointParent;
@@ -214,20 +216,58 @@ public class ObjectInfo : MonoBehaviour
             confettiObj.Add(g);
             connectPoints[confettiIndex].gameObject.SetActive(false);
             g.SetActive(true);
+            if (!moveable)
+            {
+                var coinHandler = ServiceLocator.GetService<ICoinsHandler>();
+                if (coinHandler != null)
+                {
+                    coinHandler.InstantiateCoins(coinHandler.coinSpritePrefab, 1, coinsObj, connectPoints[confettiIndex].transform);
+                    foreach(GameObject c in coinsObj)
+                    {
+                        c.transform.SetParent(this.transform);
+                    }
+                    //coinHandler.SaveCoins((confettiIndex + 1));
+                    Vector3 screenPos = RectTransformUtility.WorldToScreenPoint(null, coinHandler.coinsGameplayTarget.position);
+                    Vector3 worldPos = Camera.main.ScreenToWorldPoint(screenPos);
+                    Transform targetPos = new GameObject("Temp").transform;
+                    targetPos.position = worldPos;
+                    StartCoroutine(coinHandler.MoveCoins(coinsObj, targetPos, coinHandler.coinBarForGameplayScreen, coinHandler.coinMoveSpeed, Ease.Linear,0));
+                    //Debug.LogError(" " + (confettiIndex + 1));
+                }
+            }
+            if (moveable)
+            {
+                if (!partType.Equals(PlushieActiveStitchPart.lefteye) && !partType.Equals(PlushieActiveStitchPart.righteye))
+                {
+                    GameObject crissCross = Instantiate(LevelsHandler.instance.currentLevelMeta.crissCrossObj, connectPoints[confettiIndex].transform);
+                    crissCross.GetComponent<SpriteRenderer>().color = LevelsHandler.instance.currentLevelMeta.threadColor;
+                    crissCross.transform.SetParent(null);
+                    crissCross.transform.localEulerAngles = Vector3.zero;
+                    crissCross.SetActive(true);
+                    if(!LevelsHandler.instance.currentLevelMeta.crissCrossObjList.Contains(crissCross))
+                        LevelsHandler.instance.currentLevelMeta.crissCrossObjList.Add(crissCross);
+                }
+                    
+            }
             confettiIndex++;
         }
         if(index < noOfCleanThreadConnections)
         {
             if (enableConnection)
             {
-                if (LevelsHandler.instance.currentLevelMeta.cleanThreadIndex < LevelsHandler.instance.currentLevelMeta.cleanConnection.Count)
-                    LevelsHandler.instance.currentLevelMeta.cleanConnection[LevelsHandler.instance.currentLevelMeta.cleanThreadIndex].line.gameObject.SetActive(true);
+                if(partType.Equals(PlushieActiveStitchPart.lefteye) || partType.Equals(PlushieActiveStitchPart.righteye))
+                {
+                    if (LevelsHandler.instance.currentLevelMeta.cleanThreadIndex < LevelsHandler.instance.currentLevelMeta.cleanConnection.Count)
+                        LevelsHandler.instance.currentLevelMeta.cleanConnection[LevelsHandler.instance.currentLevelMeta.cleanThreadIndex].line.gameObject.SetActive(true);
+
+                }
 
                 LevelsHandler.instance.currentLevelMeta.cleanThreadIndex++;
             }
             index++;
         }
-       
+        
+
         CancelInvoke("EnableConffetti");
 
         if (confettiIndex < connectPoints.Count)

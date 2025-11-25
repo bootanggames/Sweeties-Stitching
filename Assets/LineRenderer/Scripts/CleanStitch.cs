@@ -18,6 +18,41 @@ public class CleanStitch : MonoBehaviour
 
     void CleanStitchPoints()
     {
+        if (o_Info.partType.Equals(PlushieActiveStitchPart.righteye) || o_Info.partType.Equals(PlushieActiveStitchPart.lefteye))
+        {
+            GameObject point1 = Instantiate(pointPrefab);
+            point1.transform.SetParent(o_Info.connectPoints[0].transform);
+            point1.transform.localPosition = Vector3.zero;
+            point1.transform.localEulerAngles = Vector3.zero;
+            point1.transform.localScale = Vector3.one;
+            o_Info.connectPoints[0].cleanStitchPoint = point1.transform;
+            point1.transform.localPosition = new Vector3(-xVal, yVal, 0); // child of head
+
+            GameObject point2 = Instantiate(pointPrefab);
+            point2.transform.SetParent(o_Info.connectPoints[1].transform);
+            point2.transform.localPosition = Vector3.zero;
+            point2.transform.localEulerAngles = Vector3.zero;
+            point2.transform.localScale = Vector3.one;
+            o_Info.connectPoints[1].cleanStitchPoint = point2.transform;
+            point2.transform.localPosition = new Vector3(xVal, yVal, 0); // child of head
+
+            GameObject point3 = Instantiate(pointPrefab);
+            point3.transform.SetParent(o_Info.connectPoints[2].transform);
+            point3.transform.localPosition = Vector3.zero;
+            point3.transform.localEulerAngles = Vector3.zero;
+            point3.transform.localScale = Vector3.one;
+            o_Info.connectPoints[2].cleanStitchPoint = point3.transform;
+            point3.transform.localPosition = new Vector3(-xVal, -yVal, 0); // child of head
+
+            GameObject point4 = Instantiate(pointPrefab);
+            point4.transform.SetParent(o_Info.connectPoints[3].transform);
+            point4.transform.localPosition = Vector3.zero;
+            point4.transform.localEulerAngles = Vector3.zero;
+            point4.transform.localScale = Vector3.one;
+            o_Info.connectPoints[3].cleanStitchPoint = point4.transform;
+            point4.transform.localPosition = new Vector3(xVal, -yVal, 0); // child of head
+        }
+        
         foreach (SewPoint s in o_Info.connectPoints)
         {
             GameObject g = Instantiate(pointPrefab);
@@ -26,6 +61,7 @@ public class CleanStitch : MonoBehaviour
             g.transform.localEulerAngles = Vector3.zero;
             g.transform.localScale = Vector3.one;
             s.cleanStitchPoint = g.transform;
+           
             if (o_Info.partType.Equals(PlushieActiveStitchPart.neck))
             {
                 if (o_Info.head)

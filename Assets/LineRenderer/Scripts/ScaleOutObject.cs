@@ -58,6 +58,11 @@ public class ScaleOutObject : MonoBehaviour
             Destroy(c.line.gameObject);
         }
         LevelsHandler.instance.currentLevelMeta.cleanConnection.Clear();
+        foreach(GameObject g in LevelsHandler.instance.currentLevelMeta.crissCrossObjList)
+        {
+            Destroy(g);
+        }
+        LevelsHandler.instance.currentLevelMeta.crissCrossObjList.Clear();
         tween.Kill();
         tween = null;
         PlaySound();

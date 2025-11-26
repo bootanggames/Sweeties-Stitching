@@ -9,6 +9,7 @@ public class DoTweenAnimationHandler : MonoBehaviour
         GameEvents.DoTweenAnimationHandlerEvents.onScaleAnimation.RegisterEvent(ScaleInOut);
         GameEvents.DoTweenAnimationHandlerEvents.onMoveToTargetAnimation.RegisterEvent(MoveToTarget);
         GameEvents.DoTweenAnimationHandlerEvents.onUIHighLight.RegisterEvent(FadeInOut);
+        GameEvents.DoTweenAnimationHandlerEvents.onSpining.RegisterEvent(Spining);
     }
     private void OnDisable()
     {
@@ -16,6 +17,7 @@ public class DoTweenAnimationHandler : MonoBehaviour
         GameEvents.DoTweenAnimationHandlerEvents.onScaleAnimation.UnregisterEvent(ScaleInOut);
         GameEvents.DoTweenAnimationHandlerEvents.onMoveToTargetAnimation.UnregisterEvent(MoveToTarget);
         GameEvents.DoTweenAnimationHandlerEvents.onUIHighLight.UnregisterEvent(FadeInOut);
+        GameEvents.DoTweenAnimationHandlerEvents.onSpining.UnregisterEvent(Spining);
     }
     void ScaleInOut(Transform t, float originalScale, float targetScale, float speed, Ease ease)
     {
@@ -45,5 +47,9 @@ public class DoTweenAnimationHandler : MonoBehaviour
     Tween FadeInOut(CanvasGroup cg, float endVal, float speed, Ease ease)
     {
         return DOTween.To(() => cg.alpha, x => cg.alpha = x, endVal, speed).SetEase(ease);
+    }
+    Tween Spining (Transform obj, Vector3 rotationVal, float speed, Ease ease)
+    {
+        return obj.DORotate(rotationVal, speed).SetEase(ease);
     }
 }

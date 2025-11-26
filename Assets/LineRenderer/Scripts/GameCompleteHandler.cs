@@ -13,11 +13,8 @@ public class GameCompleteHandler : MonoBehaviour, IGameService
     [SerializeField] Image plushieOfCurrentLevel;
 
     [SerializeField] TextMeshProUGUI levelProgress;
-    [SerializeField] GameObject chestObj;
-    [SerializeField] GameObject chestSmokeEffect;
-    [SerializeField] GameObject chestTarget;
-    [SerializeField] GameObject chestTop;
     [SerializeField] GameObject gameplayBgObj;
+    [SerializeField] private GameObject _coinAnimationObject;
     [SerializeField] float treasureMoveSpeed;
     private void OnEnable()
     {
@@ -102,16 +99,10 @@ public class GameCompleteHandler : MonoBehaviour, IGameService
         GameHandler.instance.SwitchGameState(GameStates.Gamecomplete);
     }
 
+    [ContextMenu("Appear TreasureBox")]
     void TreasureBoxAppearance()
     {
         gameplayBgObj.SetActive(false);
-        chestObj.transform.DOLocalMove(chestTarget.transform.localPosition, treasureMoveSpeed).SetEase(Ease.Linear).OnComplete(() =>
-        {
-            chestSmokeEffect.gameObject.SetActive(true);
-            chestSmokeEffect.GetComponent<ParticleSystem>().Play();
-            chestTop.GetComponent<ChestTopRotation>().enabled = true;
-            
-        });
-        CancelInvoke(nameof(treasureMoveSpeed));
+        _coinAnimationObject.SetActive(true);
     }
 }

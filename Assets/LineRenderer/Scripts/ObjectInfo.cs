@@ -203,7 +203,23 @@ public class ObjectInfo : MonoBehaviour
             pointHandler.connections.Clear();
         }
         LevelsHandler.instance.currentLevelMeta.UpdateCleanThreadConnections();
-
+        if (partType.Equals(PlushieActiveStitchPart.lefteye) || partType.Equals(PlushieActiveStitchPart.righteye))
+        {
+            if (moveable)
+            {
+                GameObject crissCross = Instantiate(LevelsHandler.instance.currentLevelMeta.crissCrossObj, this.transform);
+                crissCross.GetComponent<SpriteRenderer>().color = LevelsHandler.instance.currentLevelMeta.threadColor;
+                crissCross.transform.SetParent(null);
+                crissCross.transform.localEulerAngles = Vector3.zero;
+                crissCross.transform.localScale = new Vector3(0.13f, 0.13f, 0.13f);
+                Vector3 pos = crissCross.transform.localPosition;
+                pos.z = 1;
+                crissCross.transform.localPosition = pos;
+                if (!LevelsHandler.instance.currentLevelMeta.crissCrossObjList.Contains(crissCross))
+                    LevelsHandler.instance.currentLevelMeta.crissCrossObjList.Add(crissCross);
+            }
+      
+        }
         Invoke("EnableConffetti", 0.2f);
     }
     int index = 0;
@@ -225,6 +241,7 @@ public class ObjectInfo : MonoBehaviour
                     foreach(GameObject c in coinsObj)
                     {
                         c.transform.SetParent(this.transform);
+                        GameEvents.EffectHandlerEvents.onSparkleTrailEffect.RaiseEvent(c.transform);
                     }
                     //coinHandler.SaveCoins((confettiIndex + 1));
                     Vector3 screenPos = RectTransformUtility.WorldToScreenPoint(null, coinHandler.coinsGameplayTarget.position);
@@ -247,7 +264,8 @@ public class ObjectInfo : MonoBehaviour
                     if(!LevelsHandler.instance.currentLevelMeta.crissCrossObjList.Contains(crissCross))
                         LevelsHandler.instance.currentLevelMeta.crissCrossObjList.Add(crissCross);
                 }
-                    
+                
+
             }
             confettiIndex++;
         }

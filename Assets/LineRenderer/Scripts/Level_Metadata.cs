@@ -508,6 +508,8 @@ public class Level_Metadata : MonoBehaviour
             pos1 = sp1.cleanStitchPoint.position;
             pos2 = sp2.cleanStitchPoint.position;
             this.lineForCleanConnection.positionCount = 2;
+            pos1.z = -0.01f;
+            pos2.z = -0.01f;
             this.lineForCleanConnection.SetPosition(0, pos1);
             this.lineForCleanConnection.SetPosition(1, pos2);
             this.lineForCleanConnection.material.color = threadColor;
@@ -516,6 +518,7 @@ public class Level_Metadata : MonoBehaviour
             connection.line.gameObject.SetActive(false);
             connection.isLocked = true;
             cleanThreads.Add(connection);
+            Debug.LogError("connection");
         }
        
     }

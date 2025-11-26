@@ -48,8 +48,8 @@ public class DoTweenAnimationHandler : MonoBehaviour
     {
         return DOTween.To(() => cg.alpha, x => cg.alpha = x, endVal, speed).SetEase(ease);
     }
-    Tween Spining (Transform obj, Vector3 rotationVal, float speed, Ease ease)
+    Tween Spining (Transform obj, float speed, Ease ease)
     {
-        return obj.DORotate(rotationVal, speed).SetEase(ease);
+        return obj.DORotate(new Vector3(0, 0, 360), speed, RotateMode.FastBeyond360).SetLoops(-1).SetEase(Ease.Linear).Pause();
     }
 }

@@ -1,0 +1,14 @@
+Thanks for purchase this package.
+In this package you can find 4 particle effects.
+All effects showing Burst of Gold Coins.
+3 effects are based on sprites, 1 is based on 3d model of coin.
+
+Package conteins:
+
+- 3D Coin model with PBR textures
+- 2D sprite with animated coin
+- 4 prefabs of Particle effect that represents Burst effect.
+- Demo scene 
+
+Support email:
+contact@vrsource.eu

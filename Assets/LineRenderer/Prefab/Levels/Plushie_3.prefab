@@ -1844,7 +1844,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 2
+  m_text: 4
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2227,7 +2227,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -3.285, y: -0.544}
+  m_AnchoredPosition: {x: -3.285, y: -0.39}
   m_SizeDelta: {x: 3.712, y: 1.203}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &3297605068371745082
@@ -2942,7 +2942,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 4
+  m_text: '1
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -3030,7 +3032,7 @@ GameObject:
   - component: {fileID: 9031804635471298420}
   - component: {fileID: 6821965504072675545}
   m_Layer: 7
-  m_Name: Point0
+  m_Name: Point3
   m_TagString: StitchPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3142,13 +3144,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zVal: -0.3
-  attachmentId: 1
-  nextConnectedPointId: 2
+  attachmentId: 4
+  nextConnectedPointId: 0
   metaData:
     connected: 0
-  sequenceType: 1
+  sequenceType: 2
   pointMesh: {fileID: 0}
-  <startFlag>k__BackingField: 1
+  <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
 --- !u!1 &751678652184589091
@@ -3435,7 +3437,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 1
+  m_text: '4
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -3689,7 +3693,7 @@ GameObject:
   - component: {fileID: 5372119036468892887}
   - component: {fileID: 2103164792827553623}
   m_Layer: 7
-  m_Name: Point0
+  m_Name: Point4
   m_TagString: StitchPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3801,13 +3805,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zVal: -0.3
-  attachmentId: 1
-  nextConnectedPointId: 2
+  attachmentId: 5
+  nextConnectedPointId: 0
   metaData:
     connected: 0
-  sequenceType: 1
+  sequenceType: 2
   pointMesh: {fileID: 0}
-  <startFlag>k__BackingField: 1
+  <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
 --- !u!1 &915612620219020673
@@ -4797,7 +4801,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 2
+  m_text: 3
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -6379,7 +6383,7 @@ GameObject:
   - component: {fileID: 4262833505156621716}
   - component: {fileID: 4205165531700793732}
   m_Layer: 7
-  m_Name: Point1
+  m_Name: Point3
   m_TagString: StitchPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6491,11 +6495,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zVal: -0.3
-  attachmentId: 2
-  nextConnectedPointId: 3
+  attachmentId: 4
+  nextConnectedPointId: 5
   metaData:
     connected: 0
-  sequenceType: 1
+  sequenceType: 2
   pointMesh: {fileID: 0}
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
@@ -6938,7 +6942,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 2
+  m_text: 4
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -10973,7 +10977,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 5
+  m_text: 1
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -11152,7 +11156,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 2
+  m_text: 3
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -13013,7 +13017,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 4
+  m_text: 1
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -13591,10 +13595,10 @@ MonoBehaviour:
   moveable: 0
   shouldBeChild: 0
   connectPoints:
-  - {fileID: 6821965504072675545}
-  - {fileID: 2782251436000351043}
-  - {fileID: 8690525425769970034}
   - {fileID: 1390238451147754422}
+  - {fileID: 8690525425769970034}
+  - {fileID: 2782251436000351043}
+  - {fileID: 6821965504072675545}
   head: 0
   pullForce: 0.55
   totalConnections: 4
@@ -16085,7 +16089,7 @@ GameObject:
   - component: {fileID: 1559967112807629565}
   - component: {fileID: 5385419860648987271}
   m_Layer: 7
-  m_Name: Point3
+  m_Name: Point0
   m_TagString: StitchPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16197,13 +16201,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zVal: -0.3
-  attachmentId: 4
-  nextConnectedPointId: 5
+  attachmentId: 1
+  nextConnectedPointId: 2
   metaData:
     connected: 0
-  sequenceType: 1
+  sequenceType: 2
   pointMesh: {fileID: 0}
-  <startFlag>k__BackingField: 0
+  <startFlag>k__BackingField: 1
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
 --- !u!1 &3362615540361026361
@@ -16220,7 +16224,7 @@ GameObject:
   - component: {fileID: 60253409555348810}
   - component: {fileID: 1058183156332436837}
   m_Layer: 7
-  m_Name: Point3
+  m_Name: Point1
   m_TagString: StitchPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16332,11 +16336,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zVal: -0.3
-  attachmentId: 4
-  nextConnectedPointId: 5
+  attachmentId: 2
+  nextConnectedPointId: 3
   metaData:
     connected: 0
-  sequenceType: 1
+  sequenceType: 2
   pointMesh: {fileID: 0}
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
@@ -17027,7 +17031,7 @@ MonoBehaviour:
   nextConnectedPointId: 4
   metaData:
     connected: 0
-  sequenceType: 1
+  sequenceType: 2
   pointMesh: {fileID: 0}
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
@@ -17202,7 +17206,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 2.41, y: 4.54}
+  m_AnchoredPosition: {x: -1.9, y: 3.12}
   m_SizeDelta: {x: 3.712, y: 1.203}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &5784854091486753865
@@ -18177,7 +18181,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 4
+  m_text: 2
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -18625,7 +18629,7 @@ GameObject:
   - component: {fileID: 3097322627908164668}
   - component: {fileID: 8690525425769970034}
   m_Layer: 7
-  m_Name: Point2
+  m_Name: Point1
   m_TagString: StitchPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18737,11 +18741,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zVal: -0.3
-  attachmentId: 3
-  nextConnectedPointId: 4
+  attachmentId: 2
+  nextConnectedPointId: 3
   metaData:
     connected: 0
-  sequenceType: 1
+  sequenceType: 2
   pointMesh: {fileID: 0}
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
@@ -20385,7 +20389,7 @@ GameObject:
   - component: {fileID: 3526560826606428692}
   - component: {fileID: 6270445166705499315}
   m_Layer: 7
-  m_Name: Point1
+  m_Name: Point2
   m_TagString: StitchPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -20497,11 +20501,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zVal: -0.3
-  attachmentId: 2
-  nextConnectedPointId: 3
+  attachmentId: 3
+  nextConnectedPointId: 4
   metaData:
     connected: 0
-  sequenceType: 1
+  sequenceType: 2
   pointMesh: {fileID: 0}
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
@@ -23745,7 +23749,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 3
+  m_text: '2
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -23934,11 +23940,11 @@ MonoBehaviour:
   moveable: 1
   shouldBeChild: 0
   connectPoints:
-  - {fileID: 9110971743215417626}
-  - {fileID: 1271544462387986777}
-  - {fileID: 3595816730042209005}
-  - {fileID: 1058183156332436837}
   - {fileID: 6745235666983329307}
+  - {fileID: 1058183156332436837}
+  - {fileID: 3595816730042209005}
+  - {fileID: 1271544462387986777}
+  - {fileID: 9110971743215417626}
   head: 0
   pullForce: 0.4
   totalConnections: 5
@@ -25644,8 +25650,8 @@ MonoBehaviour:
   moveable: 0
   shouldBeChild: 0
   connectPoints:
-  - {fileID: 7556116088654801521}
   - {fileID: 426750471457413806}
+  - {fileID: 7556116088654801521}
   - {fileID: 1462570633879827199}
   - {fileID: 8451492497284104468}
   head: 0
@@ -27086,7 +27092,7 @@ GameObject:
   - component: {fileID: 5042404758531483120}
   - component: {fileID: 854439663586979528}
   m_Layer: 7
-  m_Name: Point2
+  m_Name: Point1
   m_TagString: StitchPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27198,11 +27204,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zVal: -0.3
-  attachmentId: 3
-  nextConnectedPointId: 4
+  attachmentId: 2
+  nextConnectedPointId: 3
   metaData:
     connected: 0
-  sequenceType: 1
+  sequenceType: 2
   pointMesh: {fileID: 0}
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
@@ -27312,7 +27318,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 1
+  m_text: '5
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -27670,7 +27678,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 1
+  m_text: 5
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -29219,10 +29227,10 @@ MonoBehaviour:
   moveable: 1
   shouldBeChild: 1
   connectPoints:
-  - {fileID: 5456377351417163034}
-  - {fileID: 6270445166705499315}
-  - {fileID: 854439663586979528}
   - {fileID: 5385419860648987271}
+  - {fileID: 854439663586979528}
+  - {fileID: 6270445166705499315}
+  - {fileID: 5456377351417163034}
   head: 0
   pullForce: 0.55
   totalConnections: 4
@@ -30047,7 +30055,7 @@ GameObject:
   - component: {fileID: 6435149053431949897}
   - component: {fileID: 2782251436000351043}
   m_Layer: 7
-  m_Name: Point1
+  m_Name: Point2
   m_TagString: StitchPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30159,11 +30167,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zVal: -0.3
-  attachmentId: 2
-  nextConnectedPointId: 3
+  attachmentId: 3
+  nextConnectedPointId: 4
   metaData:
     connected: 0
-  sequenceType: 1
+  sequenceType: 2
   pointMesh: {fileID: 0}
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
@@ -30966,7 +30974,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 4
+  m_text: 2
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -31671,7 +31679,7 @@ GameObject:
   - component: {fileID: 8133112452415618192}
   - component: {fileID: 383647722245882357}
   m_Layer: 7
-  m_Name: Point4
+  m_Name: Point0
   m_TagString: StitchPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31783,13 +31791,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zVal: -0.3
-  attachmentId: 5
-  nextConnectedPointId: 6
+  attachmentId: 1
+  nextConnectedPointId: 2
   metaData:
     connected: 0
-  sequenceType: 1
+  sequenceType: 2
   pointMesh: {fileID: 0}
-  <startFlag>k__BackingField: 0
+  <startFlag>k__BackingField: 1
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
 --- !u!1 &6334116843469536141
@@ -32904,7 +32912,7 @@ GameObject:
   - component: {fileID: 443945652865553365}
   - component: {fileID: 5456377351417163034}
   m_Layer: 7
-  m_Name: Point0
+  m_Name: Point3
   m_TagString: StitchPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -33016,13 +33024,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zVal: -0.3
-  attachmentId: 1
-  nextConnectedPointId: 2
+  attachmentId: 4
+  nextConnectedPointId: 0
   metaData:
     connected: 0
-  sequenceType: 1
+  sequenceType: 2
   pointMesh: {fileID: 0}
-  <startFlag>k__BackingField: 1
+  <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
 --- !u!1 &6479106539167591645
@@ -34692,7 +34700,7 @@ GameObject:
   - component: {fileID: 8553167809280112119}
   - component: {fileID: 1390238451147754422}
   m_Layer: 7
-  m_Name: Point3
+  m_Name: Point0
   m_TagString: StitchPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -34804,13 +34812,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zVal: -0.3
-  attachmentId: 4
-  nextConnectedPointId: 5
+  attachmentId: 1
+  nextConnectedPointId: 2
   metaData:
     connected: 0
-  sequenceType: 1
+  sequenceType: 2
   pointMesh: {fileID: 0}
-  <startFlag>k__BackingField: 0
+  <startFlag>k__BackingField: 1
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
 --- !u!1 &6983519171363674011
@@ -36439,7 +36447,7 @@ GameObject:
   - component: {fileID: 2852940020737598986}
   - component: {fileID: 1271544462387986777}
   m_Layer: 7
-  m_Name: Point1
+  m_Name: Point3
   m_TagString: StitchPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -36551,11 +36559,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zVal: -0.3
-  attachmentId: 2
-  nextConnectedPointId: 3
+  attachmentId: 4
+  nextConnectedPointId: 5
   metaData:
     connected: 0
-  sequenceType: 1
+  sequenceType: 2
   pointMesh: {fileID: 0}
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
@@ -37285,7 +37293,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 3
+  m_text: '2
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -38195,11 +38205,11 @@ MonoBehaviour:
   moveable: 0
   shouldBeChild: 0
   connectPoints:
-  - {fileID: 2103164792827553623}
-  - {fileID: 4205165531700793732}
-  - {fileID: 4161120445733195249}
-  - {fileID: 3669081809534936545}
   - {fileID: 383647722245882357}
+  - {fileID: 3669081809534936545}
+  - {fileID: 4161120445733195249}
+  - {fileID: 4205165531700793732}
+  - {fileID: 2103164792827553623}
   head: 0
   pullForce: 0.4
   totalConnections: 5
@@ -38607,7 +38617,7 @@ GameObject:
   - component: {fileID: 2613357845773524133}
   - component: {fileID: 6745235666983329307}
   m_Layer: 7
-  m_Name: Point4
+  m_Name: Point0
   m_TagString: StitchPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -38719,13 +38729,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zVal: -0.3
-  attachmentId: 5
-  nextConnectedPointId: 6
+  attachmentId: 1
+  nextConnectedPointId: 2
   metaData:
     connected: 0
-  sequenceType: 1
+  sequenceType: 2
   pointMesh: {fileID: 0}
-  <startFlag>k__BackingField: 0
+  <startFlag>k__BackingField: 1
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
 --- !u!1 &7628907530315471412
@@ -39506,7 +39516,7 @@ GameObject:
   - component: {fileID: 7742140614315225414}
   - component: {fileID: 3669081809534936545}
   m_Layer: 7
-  m_Name: Point3
+  m_Name: Point1
   m_TagString: StitchPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -39618,11 +39628,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zVal: -0.3
-  attachmentId: 4
-  nextConnectedPointId: 5
+  attachmentId: 2
+  nextConnectedPointId: 3
   metaData:
     connected: 0
-  sequenceType: 1
+  sequenceType: 2
   pointMesh: {fileID: 0}
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
@@ -40390,7 +40400,7 @@ GameObject:
   - component: {fileID: 5469929485388075921}
   - component: {fileID: 9110971743215417626}
   m_Layer: 7
-  m_Name: Point0
+  m_Name: Point4
   m_TagString: StitchPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -40502,13 +40512,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zVal: -0.3
-  attachmentId: 1
-  nextConnectedPointId: 2
+  attachmentId: 5
+  nextConnectedPointId: 0
   metaData:
     connected: 0
-  sequenceType: 1
+  sequenceType: 2
   pointMesh: {fileID: 0}
-  <startFlag>k__BackingField: 1
+  <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
 --- !u!1 &7989644403725167108
@@ -40635,7 +40645,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 6.504, y: 3.1}
+  m_AnchoredPosition: {x: 3.19, y: -0.41}
   m_SizeDelta: {x: 3.712, y: 1.203}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &8076409913132912681
@@ -40901,7 +40911,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 5
+  m_text: 1
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -41080,7 +41090,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 1
+  m_text: '4
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -42626,7 +42638,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.72, y: 3.97}
+  m_AnchoredPosition: {x: -0.72, y: 4.39}
   m_SizeDelta: {x: 3.712, y: 1.203}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &8278098440376801414
@@ -42917,7 +42929,7 @@ MonoBehaviour:
   nextConnectedPointId: 4
   metaData:
     connected: 0
-  sequenceType: 1
+  sequenceType: 2
   pointMesh: {fileID: 0}
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}

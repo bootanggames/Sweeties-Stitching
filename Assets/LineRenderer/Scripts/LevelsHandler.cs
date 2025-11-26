@@ -127,7 +127,6 @@ public class LevelsHandler : Singleton<LevelsHandler>, ILevelHandler
         var connectionHandler = ServiceLocator.GetService<IPointConnectionHandler>();
         if (connectionHandler != null) connectionHandler.DeleteAllThreadLinks();
 
-        currentLevelMeta.sewnPlushie.SetActive(false);
         int rewardedCoins = currentLevelMeta.levelReward;
         LevelIncrementProcess();
         int TotalEarned = totalCoins + rewardedCoins;

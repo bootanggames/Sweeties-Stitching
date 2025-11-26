@@ -13,13 +13,15 @@ public class GameCompleteHandler : MonoBehaviour, IGameService
     [SerializeField] Image plushieOfCurrentLevel;
 
     [SerializeField] TextMeshProUGUI levelProgress;
-    [SerializeField] GameObject[] sparkles;
-    [SerializeField] int sparkleIndex = 0;
-    [SerializeField] GameObject sparkleCanvas ;
+    [SerializeField] GameObject chestObj;
+    [SerializeField] GameObject chestSmokeEffect;
+    [SerializeField] GameObject chestTarget;
+    [SerializeField] GameObject chestTop;
+    [SerializeField] GameObject gameplayBgObj;
+    [SerializeField] float treasureMoveSpeed;
     private void OnEnable()
     {
         RegisterService();
-  
     }
     private void OnDisable()
     {
@@ -61,8 +63,6 @@ public class GameCompleteHandler : MonoBehaviour, IGameService
     }
     void GameComplete()
     {
-        //if (sparkleRoutine == null)
-        //    sparkleRoutine = StartCoroutine(EnableSparkle());
         GameEvents.ThreadEvents.setThreadInput.RaiseEvent(false);
         if (LevelsHandler.instance)
         {
@@ -83,46 +83,35 @@ public class GameCompleteHandler : MonoBehaviour, IGameService
             canvasHandler.sewnTextImage.transform.localScale = Vector3.zero;
             canvasHandler.confettiEffectCanvas.SetActive(false);
             canvasHandler.mainCanvas.SetActive(false);
+            LevelsHandler.instance.currentLevelMeta.sewnPlushie.SetActive(false);
+
             canvasHandler.gameCompletePanel.gameObject.SetActive(true);
+            Invoke(nameof(TreasureBoxAppearance), 0.2f);
             canvasHandler.completeStitchedPlushie.SetActive(true);
             PlaySound();
-            sparkleCanvas.SetActive(true);
             RectTransform rt =  canvasHandler.completeStitchedPlushie.GetComponent<RectTransform>();
             rt.DOScale(1, speed).SetEase(Ease.Linear).OnComplete(() =>
             {
-                if (coinsHandler != null)
-                {
-                    coinsHandler.CreateCoinsObjects();
-                    StartCoroutine(coinsHandler.MoveCoins(coinsHandler.coinsObjList, coinsHandler.targetPointToMove, coinsHandler.coinBar, coinsHandler.coinMoveSpeed,Ease.InOutBack,0.01f));
-                }
+                //if (coinsHandler != null)
+                //{
+                //    coinsHandler.CreateCoinsObjects();
+                //    StartCoroutine(coinsHandler.MoveCoins(coinsHandler.coinsObjList, coinsHandler.targetPointToMove, coinsHandler.coinBar, coinsHandler.coinMoveSpeed,Ease.InOutBack,0.01f));
+                //}
             });
         }
         GameHandler.instance.SwitchGameState(GameStates.Gamecomplete);
-        
     }
-    Coroutine sparkleRoutine = null;
-    public float speedSparkle;  
-   
-    IEnumerator EnableSparkle()
+
+    void TreasureBoxAppearance()
     {
-        while (true)
+        gameplayBgObj.SetActive(false);
+        chestObj.transform.DOLocalMove(chestTarget.transform.localPosition, treasureMoveSpeed).SetEase(Ease.Linear).OnComplete(() =>
         {
-            var sparkle = sparkles[sparkleIndex];
-            CanvasGroup cg = sparkle.GetComponent<CanvasGroup>();
-            cg.alpha = 0;
-            sparkle.SetActive(true);
-
-            yield return cg.DOFade(1f, speedSparkle * 0.5f)
-                .SetEase(Ease.OutQuad)
-                .WaitForCompletion();
-
-            yield return cg.DOFade(0f, speedSparkle * 0.5f)
-                .SetEase(Ease.InQuad)
-                .WaitForCompletion();
-
-            sparkleIndex = (sparkleIndex + 1) % sparkles.Length;
-
-            yield return new WaitForSeconds(cg.DOComplete());
-        }
+            chestSmokeEffect.gameObject.SetActive(true);
+            chestSmokeEffect.GetComponent<ParticleSystem>().Play();
+            chestTop.GetComponent<ChestTopRotation>().enabled = true;
+            
+        });
+        CancelInvoke(nameof(treasureMoveSpeed));
     }
 }

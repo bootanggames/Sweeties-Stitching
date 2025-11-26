@@ -427,8 +427,8 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
                             SewPoint sp1 = p1.GetComponent<SewPoint>();
                             SewPoint sp2 = p2.GetComponent<SewPoint>();
                             //create eye connections
-                            LevelsHandler.instance.currentLevelMeta.Connection(info1.connectPoints[0], info2.connectPoints[info2.connectPoints.Count - 1]);
-                            LevelsHandler.instance.currentLevelMeta.Connection(info1.connectPoints[1], info2.connectPoints[info2.connectPoints.Count - 2]);
+                            //LevelsHandler.instance.currentLevelMeta.Connection(info1.connectPoints[0], info2.connectPoints[info2.connectPoints.Count - 1]);
+                            //LevelsHandler.instance.currentLevelMeta.Connection(info1.connectPoints[1], info2.connectPoints[info2.connectPoints.Count - 2]);
                             CheckIfLastConnectionUpdated(sp1, sp2, p1, p2, info1, info2);
 
                             info1.DOPause();
@@ -437,8 +437,13 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
 
                     return;
                 }
-                LevelsHandler.instance.currentLevelMeta.Connection(sp1, sp2);
+                else
+                {
+                    //LevelsHandler.instance.currentLevelMeta.Connection(sp1, sp2);
+                    //Debug.LogError("here stitching ");
 
+                }
+                //LevelsHandler.instance.currentLevelMeta.Connection(sp1, sp2);
                 pullSeq.Join(moveAbleTransform.DOMove(targetPos, tweenDuration).SetEase(Ease.InOutSine));
 
                 pullSeq.Join(
@@ -504,8 +509,8 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
                         {
                             SewPoint sp1 = p1.GetComponent<SewPoint>();
                             SewPoint sp2 = p2.GetComponent<SewPoint>();
-                            LevelsHandler.instance.currentLevelMeta.Connection(info1.connectPoints[0], info2.connectPoints[info2.connectPoints.Count - 1]);
-                            LevelsHandler.instance.currentLevelMeta.Connection(info1.connectPoints[1], info2.connectPoints[info2.connectPoints.Count - 2]);
+                            //LevelsHandler.instance.currentLevelMeta.Connection(info1.connectPoints[0], info2.connectPoints[info2.connectPoints.Count - 1]);
+                            //LevelsHandler.instance.currentLevelMeta.Connection(info1.connectPoints[1], info2.connectPoints[info2.connectPoints.Count - 2]);
 
                             CheckIfLastConnectionUpdated(sp1, sp2, p1, p2, info1, info2);
                             //create eye connections
@@ -516,7 +521,12 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
 
                     return;
                 }
-                LevelsHandler.instance.currentLevelMeta.Connection(sp1, sp2);
+                else
+                {
+                    //LevelsHandler.instance.currentLevelMeta.Connection(sp1, sp2);
+                    //Debug.LogError("here stitching2 ");
+
+                }
 
                 pullSeq.Join(moveAbleTransform.DOMove(targetPos, tweenDuration).SetEase(Ease.InOutSine));
      
@@ -557,7 +567,11 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
         pullSeq.OnComplete(() =>
         {
             if (info1 != null && info2 != null)
+            {
+                //LevelsHandler.instance.currentLevelMeta.Connection(sp1, sp2);
                 CheckIfLastConnectionUpdated(sp1, sp2, p1, p2, info1, info2);
+
+            }
         });
         tween1 = pullSeq;
     }

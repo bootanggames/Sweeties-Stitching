@@ -9,6 +9,7 @@ public static partial class GameEvents
         public static readonly GameFunc<Transform,GameObject> onPartCompleteEffect = new ();
         public static readonly GameEvent onSewnCompletely = new();
         public static readonly GameEvent<Transform> onSparkleTrailEffect = new();
+        public static readonly GameFunc<Transform, GameObject> onSparkleTrailEffectOnCompletion = new();
 
     }
 }

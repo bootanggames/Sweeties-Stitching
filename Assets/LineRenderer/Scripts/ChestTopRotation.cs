@@ -13,7 +13,10 @@ public class ChestTopRotation : MonoBehaviour
         chestTop.DOLocalRotate(targetEularAngle, speed).SetEase(Ease.Linear).OnComplete(() => {
             chestTop.DOPause();
             coinsEffectParent.SetActive(true);
-            Invoke(nameof(DisableTreasureBox),1.5f);
+            var icoinsHandler = ServiceLocator.GetService<ICoinsHandler>();
+            if(icoinsHandler != null)
+                icoinsHandler.CoinIncrementAnimation(LevelsHandler.instance.currentLevelMeta.levelReward);
+            Invoke(nameof(DisableTreasureBox),1.0f);
         });
     }
 

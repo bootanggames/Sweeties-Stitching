@@ -28,16 +28,24 @@ public class CoinsHandler : MonoBehaviour,ICoinsHandler
     int coinsRewarded = 0;
     [SerializeField] Vector3 targetScaleDown;
     [SerializeField] AudioSource audioSource;
+    [SerializeField] float coinsIncrementSpeed = 0;
+    Tween coinIncrementTween = null;
+    [SerializeField] bool testCoinIncrement = false;
+    [SerializeField] int amountToTest = 0;
     private void Start()
     {
         totalCoins = PlayerPrefs.GetInt("Coins");
         UpdateCoins(totalCoins);
         if (totalCoins == 0)
             SaveCoins(10);
+        //if (testCoinIncrement)
+        //    CoinIncrementAnimation(amountToTest);
+
     }
     private void OnEnable()
     {
         RegisterService();
+     
     }
     private void OnDisable()
     {
@@ -97,7 +105,7 @@ public class CoinsHandler : MonoBehaviour,ICoinsHandler
 
             seq.Join(
                 GameEvents.DoTweenAnimationHandlerEvents.onMoveToTargetAnimation
-                    .Raise(coinObj.transform, _target, moveSpeed, moveEase).SetDelay(delay)
+                    .Raise(coinObj.transform, _target.position, moveSpeed, moveEase).SetDelay(delay)
             );
 
             seq.Join(
@@ -150,5 +158,13 @@ public class CoinsHandler : MonoBehaviour,ICoinsHandler
         ServiceLocator.UnRegisterService<ICoinsHandler>(this);
     }
 
-   
+    public void CoinIncrementAnimation(int targetAmount)
+    {
+        coinIncrementTween = GameEvents.DoTweenAnimationHandlerEvents.onCountIncrement.Raise(targetAmount, coinsIncrementSpeed, coinsTextBox, Ease.InOutBack);
+        coinIncrementTween.OnComplete(() =>
+        {
+            coinIncrementTween.Kill();
+            coinIncrementTween = null;
+        });
+    }
 }

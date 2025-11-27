@@ -13,15 +13,22 @@ public class GameCompleteHandler : MonoBehaviour, IGameService
     [SerializeField] Image plushieOfCurrentLevel;
 
     [SerializeField] TextMeshProUGUI levelProgress;
+    [SerializeField] GameObject gameplayBgObj;
+
+    [Header("-------------Sparkle Trail On Completion--------------")]
+    [SerializeField] Transform sparkleTrailAtCompletionStartPos;
+    [SerializeField] Transform sparkleTrailAtCompletionTargetPos;
+    [SerializeField] float sparkleMoveSpeed;
+    [Header("-------------Treasure Box Properties--------------")]
     [SerializeField] GameObject chestObj;
     [SerializeField] GameObject chestSmokeEffect;
     [SerializeField] GameObject chestTarget;
     [SerializeField] GameObject chestTop;
-    [SerializeField] GameObject gameplayBgObj;
     [SerializeField] float treasureMoveSpeed;
     private void OnEnable()
     {
         RegisterService();
+
     }
     private void OnDisable()
     {
@@ -31,14 +38,16 @@ public class GameCompleteHandler : MonoBehaviour, IGameService
     {
         GameEvents.GameCompleteEvents.onGameComplete.RegisterEvent(GameComplete);
         GameEvents.GameCompleteEvents.onGameWin.RegisterEvent(WinConfettiEffect);
+        GameEvents.GameCompleteEvents.onPlushieComplete.RegisterEvent(SparkleEffectOnPlushieComplete);
     }
 
     public void UnRegisterService()
     {
         GameEvents.GameCompleteEvents.onGameComplete.UnregisterEvent(GameComplete);
         GameEvents.GameCompleteEvents.onGameWin.UnregisterEvent(WinConfettiEffect);
+        GameEvents.GameCompleteEvents.onPlushieComplete.UnregisterEvent(SparkleEffectOnPlushieComplete);
     }
-    
+
     void WinConfettiEffect()
     {
         foreach (Transform ps in  effectPosition)
@@ -107,11 +116,63 @@ public class GameCompleteHandler : MonoBehaviour, IGameService
         gameplayBgObj.SetActive(false);
         chestObj.transform.DOLocalMove(chestTarget.transform.localPosition, treasureMoveSpeed).SetEase(Ease.Linear).OnComplete(() =>
         {
-            chestSmokeEffect.gameObject.SetActive(true);
-            chestSmokeEffect.GetComponent<ParticleSystem>().Play();
+            //chestSmokeEffect.gameObject.SetActive(true);
+            //chestSmokeEffect.GetComponent<ParticleSystem>().Play();
             chestTop.GetComponent<ChestTopRotation>().enabled = true;
             
         });
         CancelInvoke(nameof(treasureMoveSpeed));
+    }
+    Tween sparkleMoveTween = null;
+    Tween sparkleMoveTween1 = null;
+    Tween sparkleMoveTween2 = null;
+    [SerializeField]int count= 0 ;
+    [SerializeField] List<GameObject> sparkleEffectListOnComplete;
+    void SparkleEffectOnPlushieComplete()
+    {
+        int _count = 2; 
+        for (int i = 0; i < _count; i++)
+        {
+            GameObject g = GameEvents.EffectHandlerEvents.onSparkleTrailEffectOnCompletion.Raise(sparkleTrailAtCompletionStartPos);
+
+            if (!sparkleEffectListOnComplete.Contains(g))
+                sparkleEffectListOnComplete.Add(g);
+            g.transform.SetParent(gameplayBgObj.transform);
+            g.transform.localPosition = sparkleTrailAtCompletionStartPos.localPosition;
+            Vector3 startPos = g.transform.position;
+            Vector3 targetPos = sparkleTrailAtCompletionTargetPos.localPosition;
+
+            float distance = Vector3.Distance(startPos, targetPos);
+
+            float baseSpeed = sparkleMoveSpeed;
+
+            float speedVariation = Random.Range(0.4f, 0.5f); 
+            float speed = baseSpeed * speedVariation;
+
+            float duration = distance / speed;   
+
+            Tween tween = GameEvents.DoTweenAnimationHandlerEvents.onMoveToTargetAnimation.Raise(g.transform, targetPos, duration, Ease.Linear);
+
+            tween.OnComplete(() =>
+            {
+                sparkleEffectListOnComplete.Remove(g);
+                count++;
+                Invoke(nameof(WinEffect), 0.5f);
+                Destroy(g);
+
+            });
+        }
+       
+    }
+
+
+    void WinEffect()
+    {
+        Time.timeScale = 1.0f;
+
+        var canvasHandler = ServiceLocator.GetService<ICanvasUIManager>();
+        if (canvasHandler != null)
+            canvasHandler.sewnScreen.SetActive(true);
+        CancelInvoke(nameof( WinEffect));
     }
 }

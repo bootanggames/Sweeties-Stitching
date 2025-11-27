@@ -6,6 +6,8 @@ public static partial class GameEvents
     {
         public static readonly GameEvent onGameComplete = new ();
         public static readonly GameEvent onGameWin = new ();
+        public static readonly GameEvent onPlushieComplete = new();
+
     }
 }
 

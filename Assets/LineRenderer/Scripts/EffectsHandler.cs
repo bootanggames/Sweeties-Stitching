@@ -12,6 +12,7 @@ public class EffectsHandler : MonoBehaviour
     [SerializeField] GameObject[] fireworksEffect;
     [SerializeField] GameObject sparkleTrail;
     [SerializeField] GameObject coinBurstEffect;
+    [SerializeField] GameObject sparkleTrailAtTheStitchCompletion;
     private void OnEnable()
     {
         GameEvents.EffectHandlerEvents.onSelectionEffect.RegisterEvent(InstantiateEffect);
@@ -19,6 +20,7 @@ public class EffectsHandler : MonoBehaviour
         GameEvents.EffectHandlerEvents.onPartCompleteEffect.RegisterEvent(GetPartCompleteInstantiatedEffect);
         GameEvents.EffectHandlerEvents.onSewnCompletely.RegisterEvent(StartConfetti);
         GameEvents.EffectHandlerEvents.onSparkleTrailEffect.RegisterEvent(SparkleTrailEffect);
+        GameEvents.EffectHandlerEvents.onSparkleTrailEffectOnCompletion.RegisterEvent(SparkleTrailEffectOnPlushieComplete);
     }
     private void OnDisable()
     {
@@ -27,6 +29,8 @@ public class EffectsHandler : MonoBehaviour
         GameEvents.EffectHandlerEvents.onPartCompleteEffect.UnregisterEvent(GetPartCompleteInstantiatedEffect);
         GameEvents.EffectHandlerEvents.onSewnCompletely.UnregisterEvent(StartConfetti);
         GameEvents.EffectHandlerEvents.onSparkleTrailEffect.UnregisterEvent(SparkleTrailEffect);
+        GameEvents.EffectHandlerEvents.onSparkleTrailEffectOnCompletion.UnregisterEvent(SparkleTrailEffectOnPlushieComplete);
+
     }
     void InstantiateEffect(Transform parent)
     {
@@ -114,5 +118,14 @@ public class EffectsHandler : MonoBehaviour
         g.transform.SetParent(parent);
         g.transform.localEulerAngles = Vector3.zero;
         g.transform.localPosition = Vector3.zero;
+    }
+    GameObject SparkleTrailEffectOnPlushieComplete(Transform parent)
+    {
+        GameObject g = Instantiate(sparkleTrailAtTheStitchCompletion, parent, false);
+        g.transform.SetParent(parent);
+        g.transform.localEulerAngles = Vector3.zero;
+        g.transform.localPosition = Vector3.zero;
+     
+        return g;
     }
 }

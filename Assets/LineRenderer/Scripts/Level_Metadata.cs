@@ -254,7 +254,8 @@ public class Level_Metadata : MonoBehaviour
            if(IthreadHandler != null)
                 IthreadHandler.SetUndoValue(false);
             PlaySewnSound();
-            Invoke("WinEffect", 2.0f);
+            GameEvents.GameCompleteEvents.onPlushieComplete.RaiseEvent();
+            //Invoke("WinEffect", 2.0f);
         }
         else
         {

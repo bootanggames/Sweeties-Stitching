@@ -76,6 +76,49 @@ public class ObjectInfo : MonoBehaviour
                             LevelsHandler.instance.currentLevelMeta.head.transform.position = stitchData.movedPositions[stitchData.movedPositions.Count - 1];
                     }
                 }
+                if (stitchData.IsStitched)
+                {
+                    ChangePartsState(false);
+                    if (head)
+                        LevelsHandler.instance.currentLevelMeta.head.transform.position = movedPosition;
+
+                    if (!moveable)
+                    {
+                        if (!partType.Equals(PlushieActiveStitchPart.lefteye) && !partType.Equals(PlushieActiveStitchPart.righteye))
+                        {
+                            for (int i = 0; i < stitchData.movedPositions.Count; i++)
+                            {
+                                GameObject crissCross = Instantiate(LevelsHandler.instance.currentLevelMeta.crissCrossObj, connectPoints[i].transform);
+                                crissCross.GetComponent<SpriteRenderer>().color = LevelsHandler.instance.currentLevelMeta.threadColor;
+                                crissCross.transform.localPosition = Vector3.zero;
+                                crissCross.transform.localEulerAngles = Vector3.zero;
+                                crissCross.SetActive(true);
+                                crissCross.transform.SetParent(connectPoints[i].transform.parent);
+                                if (!LevelsHandler.instance.currentLevelMeta.crissCrossObjList.Contains(crissCross))
+                                    LevelsHandler.instance.currentLevelMeta.crissCrossObjList.Add(crissCross);
+                            }
+                        }
+                    }
+                    if (partType.Equals(PlushieActiveStitchPart.lefteye) || partType.Equals(PlushieActiveStitchPart.righteye))
+                    {
+                        if (moveable)
+                        {
+                            this.transform.position = movedPosition;
+                            GameObject crissCross = Instantiate(LevelsHandler.instance.currentLevelMeta.crissCrossObj, this.transform);
+                            crissCross.GetComponent<SpriteRenderer>().color = LevelsHandler.instance.currentLevelMeta.threadColor;
+                            crissCross.transform.localScale = new Vector3(3, 3, 3);
+
+                            //crissCross.transform.SetParent(null);
+                            crissCross.transform.localEulerAngles = Vector3.zero;
+                            Vector3 pos = crissCross.transform.localPosition;
+                            pos.z = 1;
+                            crissCross.transform.localPosition = pos;
+                            if (!LevelsHandler.instance.currentLevelMeta.crissCrossObjList.Contains(crissCross))
+                                LevelsHandler.instance.currentLevelMeta.crissCrossObjList.Add(crissCross);
+                        }
+
+                    }
+                }
             }
             else
             {
@@ -202,6 +245,22 @@ public class ObjectInfo : MonoBehaviour
             }
             pointHandler.connections.Clear();
         }
+        if (head)
+        {
+            if (moveable)
+            {
+                LevelsHandler.instance.currentLevelMeta.head.transform.position = movedPosition;
+                LevelsHandler.instance.currentLevelMeta.immoveablePart.GetComponent<SpriteRenderer>().enabled = false;
+                LevelsHandler.instance.currentLevelMeta.bodyWihtoutHoles.SetActive(true);
+
+            }
+        }
+        if (moveable)
+        {
+            LevelsHandler.instance.currentLevelMeta.noOfStitchedPart++;
+            PlayerPrefs.SetInt("StitchedPartCount", LevelsHandler.instance.currentLevelMeta.noOfStitchedPart);
+        }
+
         LevelsHandler.instance.currentLevelMeta.UpdateCleanThreadConnections();
         if (partType.Equals(PlushieActiveStitchPart.lefteye) || partType.Equals(PlushieActiveStitchPart.righteye))
         {
@@ -209,9 +268,9 @@ public class ObjectInfo : MonoBehaviour
             {
                 GameObject crissCross = Instantiate(LevelsHandler.instance.currentLevelMeta.crissCrossObj, this.transform);
                 crissCross.GetComponent<SpriteRenderer>().color = LevelsHandler.instance.currentLevelMeta.threadColor;
-                crissCross.transform.SetParent(null);
+                crissCross.transform.localScale = new Vector3(3, 3, 3);
+                //crissCross.transform.SetParent(null);
                 crissCross.transform.localEulerAngles = Vector3.zero;
-                crissCross.transform.localScale = new Vector3(0.13f, 0.13f, 0.13f);
                 Vector3 pos = crissCross.transform.localPosition;
                 pos.z = 1;
                 crissCross.transform.localPosition = pos;
@@ -251,22 +310,19 @@ public class ObjectInfo : MonoBehaviour
                     StartCoroutine(coinHandler.MoveCoins(coinsObj, targetPos, coinHandler.coinBarForGameplayScreen, coinHandler.coinMoveSpeed, Ease.Linear,0));
                     //Debug.LogError(" " + (confettiIndex + 1));
                 }
-            }
-            if (moveable)
-            {
                 if (!partType.Equals(PlushieActiveStitchPart.lefteye) && !partType.Equals(PlushieActiveStitchPart.righteye))
                 {
                     GameObject crissCross = Instantiate(LevelsHandler.instance.currentLevelMeta.crissCrossObj, connectPoints[confettiIndex].transform);
                     crissCross.GetComponent<SpriteRenderer>().color = LevelsHandler.instance.currentLevelMeta.threadColor;
-                    crissCross.transform.SetParent(null);
+                    crissCross.transform.localPosition = Vector3.zero;
                     crissCross.transform.localEulerAngles = Vector3.zero;
                     crissCross.SetActive(true);
-                    if(!LevelsHandler.instance.currentLevelMeta.crissCrossObjList.Contains(crissCross))
+                    crissCross.transform.SetParent(connectPoints[confettiIndex].transform.parent);
+                    if (!LevelsHandler.instance.currentLevelMeta.crissCrossObjList.Contains(crissCross))
                         LevelsHandler.instance.currentLevelMeta.crissCrossObjList.Add(crissCross);
                 }
-                
-
             }
+         
             confettiIndex++;
         }
         if(index < noOfCleanThreadConnections)

@@ -43,7 +43,7 @@ MonoBehaviour:
     width: 1920
     height: 1057
   m_ShowMode: 0
-  m_Title: Scene
+  m_Title: Game
   m_RootView: {fileID: 7}
   m_MinSize: {x: 200, y: 50}
   m_MaxSize: {x: 16192, y: 8096}
@@ -67,8 +67,8 @@ MonoBehaviour:
     y: 0
     width: 575
     height: 917
-  m_MinSize: {x: 50, y: 50}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 51, y: 76}
+  m_MaxSize: {x: 4001, y: 4026}
   m_ActualView: {fileID: 18}
   m_Panes:
   - {fileID: 18}
@@ -94,8 +94,8 @@ MonoBehaviour:
     y: 0
     width: 830
     height: 1057
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 201, y: 226}
+  m_MaxSize: {x: 4001, y: 4026}
   m_ActualView: {fileID: 19}
   m_Panes:
   - {fileID: 19}
@@ -276,7 +276,7 @@ MonoBehaviour:
   m_MinSize: {x: 400, y: 50}
   m_MaxSize: {x: 32384, y: 8096}
   vertical: 0
-  controlID: 192
+  controlID: 187
   draggingID: 0
 --- !u!114 &12
 MonoBehaviour:
@@ -440,7 +440,7 @@ MonoBehaviour:
   m_Zoom: -1
   m_ScrollPosition: {x: 0, y: 0}
   m_SelectedObject: {fileID: 0}
-  m_SelectedSpriteRectGUID: 5e97eb03825dee720800000000000000
+  m_SelectedSpriteRectGUID: 00000000000000000000000000000000
   m_LastUsedModuleTypeName: UnityEditor.U2D.Sprites.SpriteFrameModule
 --- !u!114 &16
 MonoBehaviour:
@@ -1101,9 +1101,9 @@ MonoBehaviour:
   m_AudioPlay: 0
   m_DebugDrawModesUseInteractiveLightBakingData: 0
   m_Position:
-    m_Target: {x: 4.8991666, y: 3.4758534, z: 0.065319985}
+    m_Target: {x: 0.23731321, y: 0.64505583, z: -0.0148538565}
     speed: 2
-    m_Value: {x: 4.8991666, y: 3.4758534, z: 0.065319985}
+    m_Value: {x: 0.23731321, y: 0.64505583, z: -0.0148538565}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -1153,9 +1153,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 3.467988
+    m_Target: 0.9069587
     speed: 2
-    m_Value: 3.467988
+    m_Value: 0.9069587
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -1227,10 +1227,10 @@ MonoBehaviour:
     m_OverlaysVisible: 1
   m_SceneHierarchy:
     m_TreeViewState:
-      scrollPos: {x: 0, y: 10}
-      m_SelectedIDs: b83e0200
-      m_LastClickedID: 147128
-      m_ExpandedIDs: cea9ffffa0200200ae300200f84f0200
+      scrollPos: {x: 0, y: 0}
+      m_SelectedIDs: 600d0100
+      m_LastClickedID: 68960
+      m_ExpandedIDs: 46f6ffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -1319,7 +1319,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 40300100
     m_LastClickedID: 77888
-    m_ExpandedIDs: 00000000ec85010022860100cc5a0200ce5a0200d05a0200d25a0200d45a0200d65a0200d85a0200da5a0200dc5a0200de5a0200e05a0200e25a0200e45a0200e65a0200e85a0200ea5a0200ec5a0200ee5a0200f05a0200f25a0200f45a0200f65a0200f85a0200fa5a0200fc5a0200fe5a0200005b0200025b0200045b0200065b0200085b02000a5b02000c5b02000e5b0200105b0200125b0200145b0200165b0200185b02001a5b02001c5b02001e5b0200205b0200225b0200245b0200265b0200285b02002a5b02002c5b02002e5b0200305b0200325b0200345b0200365b0200385b02003a5b02003c5b02003e5b0200405b0200425b0200445b0200465b0200485b02004a5b02004c5b0200
+    m_ExpandedIDs: 00000000e8590100ea590100ec590100ee590100f0590100f2590100f4590100f6590100f8590100fa590100fc590100fe590100005a0100025a0100045a0100065a0100085a01000a5a01000c5a01000e5a0100105a0100125a0100145a0100165a0100185a01001a5a01001c5a01001e5a0100205a0100225a0100245a0100265a0100285a01002a5a01002c5a01002e5a0100305a0100325a0100345a0100365a0100385a0100
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1348,7 +1348,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 979}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: ffffffff00000000ec85010022860100cc5a0200ce5a0200d05a0200d25a0200d45a0200d65a0200d85a0200da5a0200dc5a0200de5a0200e05a0200e25a0200e45a0200e65a0200e85a0200ea5a0200ec5a0200ee5a0200f05a0200f25a0200f45a0200f65a0200f85a0200fa5a0200fc5a0200fe5a0200005b0200025b0200045b0200065b0200085b02000a5b02000c5b02000e5b0200105b0200125b0200145b0200165b0200185b02001a5b02001c5b02001e5b0200205b0200225b0200245b0200265b0200285b02002a5b02002c5b02002e5b0200305b0200325b0200345b0200365b0200385b02003a5b02003c5b02003e5b0200405b0200425b0200445b0200465b0200485b02004a5b02004c5b0200
+    m_ExpandedIDs: ffffffff00000000e8590100ea590100ec590100ee590100f0590100f2590100f4590100f6590100f8590100fa590100fc590100fe590100005a0100025a0100045a0100065a0100085a01000a5a01000c5a01000e5a0100105a0100125a0100145a0100165a0100185a01001a5a01001c5a01001e5a0100205a0100225a0100245a0100265a0100285a01002a5a01002c5a01002e5a0100305a0100325a0100345a0100365a0100385a0100
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 

@@ -45,6 +45,7 @@ public class Level_Metadata : MonoBehaviour
     public Color threadColor;
     public Sprite spoolColor;
     public GameObject crissCrossObj;
+    public bool completed = false;
     private void Start()
     {
         var canvasHandler = ServiceLocator.GetService<ICanvasUIManager>();
@@ -119,7 +120,6 @@ public class Level_Metadata : MonoBehaviour
     }
     public void StartLevel() 
     {
-
         ObjectInfo currentConnectedPartInfor = null;
         ObjectInfo neck = bodyParts[0].GetComponent<ObjectInfo>();
         if (neck.stitchData.IsStitched)
@@ -206,8 +206,8 @@ public class Level_Metadata : MonoBehaviour
                         {
                             Connections newConnection = new Connections(pointsHandler.points[i].transform, pointsHandler.points[i + 1].transform, pointsHandler.linePrefab, -0.01f, false, 0);
                             pointsHandler.connections.Add(newConnection);
-                            if (pointsHandler.points[i].attachmentId.Equals(pointsHandler.points[i + 1].attachmentId))
-                                LevelsHandler.instance.currentLevelMeta.Connection(pointsHandler.points[i], pointsHandler.points[i + 1]);
+                            //if (pointsHandler.points[i].attachmentId.Equals(pointsHandler.points[i + 1].attachmentId))
+                            //    LevelsHandler.instance.currentLevelMeta.Connection(pointsHandler.points[i], pointsHandler.points[i + 1]);
                         }
                     }
 
@@ -264,14 +264,14 @@ public class Level_Metadata : MonoBehaviour
             NextPartActivation(false, sequence, null);
         }
     }
-    void WinEffect()
-    {
-        Time.timeScale = 1.0f;
+    //void WinEffect()
+    //{
+    //    Time.timeScale = 1.0f;
 
-        var canvasHandler = ServiceLocator.GetService<ICanvasUIManager>();
-        if(canvasHandler != null)
-            canvasHandler.sewnScreen.SetActive(true);
-    }
+    //    var canvasHandler = ServiceLocator.GetService<ICanvasUIManager>();
+    //    if(canvasHandler != null)
+    //        canvasHandler.sewnScreen.SetActive(true);
+    //}
     void PlaySewnSound()
     {
         SoundManager.instance.ResetAudioSource();
@@ -431,28 +431,28 @@ public class Level_Metadata : MonoBehaviour
 
     public void Delay()
     {
-        Invoke("LoadPRogress", 0.5f);
+        //Invoke("LoadPRogress", 0.5f);
     }
-    public void LoadPRogress()
-    {
-        foreach (GameObject g in bodyParts)
-        {
-            ObjectInfo o_Info = g.GetComponent<ObjectInfo>();
-            int stitched = PlayerPrefs.GetInt(o_Info.partType.ToString() + "_IsStiched");
-            if (stitched == 1)
-            {
-                if (o_Info.head)
-                    o_Info.PartPositioning(head.gameObject, o_Info.movedPosition);
-                else
-                {
-                    if (o_Info.partWithOutHoles == null)
-                        o_Info.PartPositioning(g.gameObject, o_Info.movedPosition);
-                    o_Info.ChangePartsState(false);
-                }
-            }
-        }
+    //public void LoadPRogress()
+    //{
+    //    foreach (GameObject g in bodyParts)
+    //    {
+    //        ObjectInfo o_Info = g.GetComponent<ObjectInfo>();
+    //        int stitched = PlayerPrefs.GetInt(o_Info.partType.ToString() + "_IsStiched");
+    //        if (stitched == 1)
+    //        {
+    //            if (o_Info.head)
+    //                o_Info.PartPositioning(head.gameObject, o_Info.movedPosition);
+    //            else
+    //            {
+    //                if (o_Info.partWithOutHoles == null)
+    //                    o_Info.PartPositioning(g.gameObject, o_Info.movedPosition);
+    //                o_Info.ChangePartsState(false);
+    //            }
+    //        }
+    //    }
 
-    }
+    //}
     public void CheckIfStitchedBeforeCompleteScreen()
     {
         if (noOfStitchedPart.Equals(totalStitchedPart))

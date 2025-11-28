@@ -2,7 +2,6 @@ using DG.Tweening;
 using System;
 using TMPro;
 using UnityEngine;
-using static UnityEditor.PlayerSettings;
 
 public class DoTweenAnimationHandler : MonoBehaviour
 {
@@ -41,13 +40,10 @@ public class DoTweenAnimationHandler : MonoBehaviour
 
     Tween MoveToTarget(Transform obj, Vector3 target, float moveSpeed, Ease ease)
     {
-        Debug.Log("EVENT MOVE:");
-        Debug.Log("Target Transform: " + obj.name);
-        Debug.Log("Target Pos: " + target);
-        Debug.Log("Speed: " + moveSpeed);
+      
         Tween moveTween = null;
         moveTween = obj.DOMove(target, moveSpeed).SetEase(ease);
-        Debug.Log("Tween is null ? " + (moveTween == null));
+     
 
         return moveTween;
     }

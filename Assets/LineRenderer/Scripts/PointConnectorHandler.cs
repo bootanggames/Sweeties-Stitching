@@ -403,10 +403,10 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
                 sp1.IsConnected(true, 1, moveAbleTransform.position, info1.partType.ToString());
                 sp2.IsConnected(true, 1, moveAbleTransform.position, info2.partType.ToString());
 
-                if (info1.stitchData.noOfConnections.Equals(info1.totalConnections) && info2.stitchData.noOfConnections.Equals(info2.totalConnections))
-                {
-                    LevelsHandler.instance.currentLevelMeta.noOfStitchedPart++;
-                }
+                //if (info1.stitchData.noOfConnections.Equals(info1.totalConnections) && info2.stitchData.noOfConnections.Equals(info2.totalConnections))
+                //{
+                //    LevelsHandler.instance.currentLevelMeta.noOfStitchedPart++;
+                //}
                 if (info1.partType.Equals(PlushieActiveStitchPart.lefteye) || info1.partType.Equals(PlushieActiveStitchPart.righteye))
                 {
                     if (info1.stitchData.noOfConnections.Equals(info1.totalConnections))
@@ -485,10 +485,10 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
 
                 sp1.IsConnected(true, 1, moveAbleTransform.position, info1.partType.ToString());
                 sp2.IsConnected(true,1, moveAbleTransform.position, info2.partType.ToString());
-                if (info1.stitchData.noOfConnections.Equals(info1.totalConnections) && info2.stitchData.noOfConnections.Equals(info2.totalConnections))
-                {
-                    LevelsHandler.instance.currentLevelMeta.noOfStitchedPart++;
-                }
+                //if (info1.stitchData.noOfConnections.Equals(info1.totalConnections) && info2.stitchData.noOfConnections.Equals(info2.totalConnections))
+                //{
+                //    LevelsHandler.instance.currentLevelMeta.noOfStitchedPart++;
+                //}
                 if (info2.partType.Equals(PlushieActiveStitchPart.lefteye) || info2.partType.Equals(PlushieActiveStitchPart.righteye))
                 {
                     if (info2.stitchData.noOfConnections.Equals(info2.totalConnections))

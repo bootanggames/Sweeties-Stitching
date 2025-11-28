@@ -19,12 +19,9 @@ public class GameCompleteHandler : MonoBehaviour, IGameService
     [SerializeField] Transform sparkleTrailAtCompletionStartPos;
     [SerializeField] Transform sparkleTrailAtCompletionTargetPos;
     [SerializeField] float sparkleMoveSpeed;
-    [Header("-------------Treasure Box Properties--------------")]
-    [SerializeField] GameObject chestObj;
-    [SerializeField] GameObject chestSmokeEffect;
-    [SerializeField] GameObject chestTarget;
-    [SerializeField] GameObject chestTop;
-    [SerializeField] float treasureMoveSpeed;
+
+    [SerializeField] private GameObject _coinBurstObject;
+    
     private void OnEnable()
     {
         RegisterService();
@@ -113,24 +110,19 @@ public class GameCompleteHandler : MonoBehaviour, IGameService
 
     void TreasureBoxAppearance()
     {
+        _coinBurstObject.SetActive(true);
+        var icoinsHandler = ServiceLocator.GetService<ICoinsHandler>();
+        if (icoinsHandler != null)
+            icoinsHandler.CoinIncrementAnimation(LevelsHandler.instance.currentLevelMeta.levelReward);
         gameplayBgObj.SetActive(false);
-        chestObj.transform.DOLocalMove(chestTarget.transform.localPosition, treasureMoveSpeed).SetEase(Ease.Linear).OnComplete(() =>
-        {
-            //chestSmokeEffect.gameObject.SetActive(true);
-            //chestSmokeEffect.GetComponent<ParticleSystem>().Play();
-            chestTop.GetComponent<ChestTopRotation>().enabled = true;
-            
-        });
-        CancelInvoke(nameof(treasureMoveSpeed));
     }
-    Tween sparkleMoveTween = null;
-    Tween sparkleMoveTween1 = null;
-    Tween sparkleMoveTween2 = null;
-    [SerializeField]int count= 0 ;
+   
     [SerializeField] List<GameObject> sparkleEffectListOnComplete;
     void SparkleEffectOnPlushieComplete()
     {
-        int _count = 2; 
+        int _count = 2;
+        Invoke(nameof(CleanEnablePlushie), 1.5f);
+        Sequence seq = DOTween.Sequence();
         for (int i = 0; i < _count; i++)
         {
             GameObject g = GameEvents.EffectHandlerEvents.onSparkleTrailEffectOnCompletion.Raise(sparkleTrailAtCompletionStartPos);
@@ -149,23 +141,37 @@ public class GameCompleteHandler : MonoBehaviour, IGameService
             float speedVariation = Random.Range(0.4f, 0.5f); 
             float speed = baseSpeed * speedVariation;
 
-            float duration = distance / speed;   
+            float duration = distance / speed;
 
-            Tween tween = GameEvents.DoTweenAnimationHandlerEvents.onMoveToTargetAnimation.Raise(g.transform, targetPos, duration, Ease.Linear);
+            seq.Join( GameEvents.DoTweenAnimationHandlerEvents.onMoveToTargetAnimation.Raise(g.transform, targetPos, duration, Ease.Linear));
+            //seq.Join( GameEvents.DoTweenAnimationHandlerEvents.onScaleTransform.Raise(g.transform, Vector3.zero, duration, Ease.Linear));
 
-            tween.OnComplete(() =>
+            seq.OnComplete(() =>
             {
                 sparkleEffectListOnComplete.Remove(g);
-                count++;
                 Invoke(nameof(WinEffect), 0.5f);
                 Destroy(g);
-
             });
         }
        
     }
 
-
+    void CleanEnablePlushie()
+    {
+        LevelsHandler.instance.currentLevelMeta.sewnPlushie.SetActive(true);
+        LevelsHandler.instance.currentLevelMeta.gameObject.SetActive(false);
+        foreach (Connections c in LevelsHandler.instance.currentLevelMeta.cleanConnection)
+        {
+            Destroy(c.line.gameObject);
+        }
+        LevelsHandler.instance.currentLevelMeta.cleanConnection.Clear();
+        foreach (GameObject g in LevelsHandler.instance.currentLevelMeta.crissCrossObjList)
+        {
+            Destroy(g);
+        }
+        LevelsHandler.instance.currentLevelMeta.crissCrossObjList.Clear();
+        CancelInvoke(nameof(CleanEnablePlushie));
+    }
     void WinEffect()
     {
         Time.timeScale = 1.0f;

@@ -8,8 +8,8 @@ public class LevelObjectiveManager : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI totalBodyPartsToStitch;
     [SerializeField] TextMeshProUGUI totalStitches;
-    [SerializeField] List<LevelObjectivePageDetail> levelPage;
-    [SerializeField] TextMeshProUGUI coinText; 
+    [SerializeField] TextMeshProUGUI coinText;
+    [SerializeField] LevelsInfoOnSelection levels;
     private void Start()
     {
         UpdateTotalStitchesOfCurrentLevel();
@@ -29,25 +29,25 @@ public class LevelObjectiveManager : MonoBehaviour
 
     void UpdatePlushie(int levelIndex, int detailIndex)
     {
-        for (int i = 0; i < levelPage.Count; i++)
+        for (int i = 0; i < levels.levelPage.Count; i++)
         {
-            foreach (LevelSelectionObject g in levelPage[i].levelDetail)
+            foreach (LevelSelectionObject g in levels.levelPage[i].levelDetail)
             {
                 g.plushieObject.SetActive(false);
             }
         }
-        levelPage[levelIndex].levelDetail[detailIndex].plushieObject.SetActive(true);
+        levels.levelPage[levelIndex].levelDetail[detailIndex].plushieObject.SetActive(true);
     }
 
     void LockUnLock()
     {
         //LevelsHandler.instance.SetLevelLockState(0, 0, 1);
 
-        for (int i = 0; i < levelPage.Count; i++)
+        for (int i = 0; i < levels.levelPage.Count; i++)
         {
-            for (int j=0; j< levelPage[i].levelDetail.Count;j++)
+            for (int j=0; j< levels.levelPage[i].levelDetail.Count;j++)
             {
-                LevelDetail levelD = levelPage[i].levelDetail[j].levelObject.GetComponent<LevelDetail>();
+                LevelDetail levelD = levels.levelPage[i].levelDetail[j].levelObject.GetComponent<LevelDetail>();
                 int lockState = PlayerPrefs.GetInt("Level_" + i + "Plushie_" + j);
                 if (lockState == 1)
                     levelD.locked = false;

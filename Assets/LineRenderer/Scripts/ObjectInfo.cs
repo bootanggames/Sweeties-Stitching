@@ -88,10 +88,14 @@ public class ObjectInfo : MonoBehaviour
                         {
                             for (int i = 0; i < stitchData.movedPositions.Count; i++)
                             {
-                                GameObject crissCross = Instantiate(LevelsHandler.instance.currentLevelMeta.crissCrossObj, connectPoints[i].transform);
+                                GameObject crissCross = Instantiate(LevelsHandler.instance.currentLevelMeta.stitchObj, connectPoints[i].transform);
                                 crissCross.GetComponent<SpriteRenderer>().color = LevelsHandler.instance.currentLevelMeta.threadColor;
                                 crissCross.transform.localPosition = Vector3.zero;
-                                crissCross.transform.localEulerAngles = Vector3.zero;
+                                if (partType.Equals(PlushieActiveStitchPart.leftarm) || partType.Equals(PlushieActiveStitchPart.rightarm))
+                                    crissCross.transform.localEulerAngles = new Vector3(0, 0, 0);
+                                else
+                                    crissCross.transform.localEulerAngles = new Vector3(0, 0, 90);
+                                crissCross.transform.localScale = new Vector3(0.2f, 0.2f, 0.2f);
                                 crissCross.SetActive(true);
                                 crissCross.transform.SetParent(connectPoints[i].transform.parent);
                                 if (!LevelsHandler.instance.currentLevelMeta.crissCrossObjList.Contains(crissCross))
@@ -104,7 +108,7 @@ public class ObjectInfo : MonoBehaviour
                         if (moveable)
                         {
                             this.transform.position = movedPosition;
-                            GameObject crissCross = Instantiate(LevelsHandler.instance.currentLevelMeta.crissCrossObj, this.transform);
+                            GameObject crissCross = Instantiate(LevelsHandler.instance.currentLevelMeta.crissCrossObjForEyes, this.transform);
                             crissCross.GetComponent<SpriteRenderer>().color = LevelsHandler.instance.currentLevelMeta.threadColor;
                             crissCross.transform.localScale = new Vector3(3, 3, 3);
 
@@ -143,72 +147,7 @@ public class ObjectInfo : MonoBehaviour
         if (cotton) cotton.SetActive(enable);
         if(partWithOutHoles) partWithOutHoles.SetActive(!enable);
     }
-    //void UpdateNewPoint(Vector3 pos, Transform point)
-    //{
-    //    positions.Add(pos);
-    //    generatedPoints.Add(point.GetComponent<SewPoint>());
-    //    point.name = "Point " + generatedPoints.Count;
-    //    SewPoint s = point.GetComponent<SewPoint>();
-    //    s.ChangeText(generatedPoints.Count.ToString());
-    //}
-
-    //void SpawnPoints()
-    //{
-    //    if (firstPoint == null) return;
-    //    float startY = firstPoint.transform.localPosition.y;
-    //    float startX = firstPoint.transform.localPosition.x;
-    //    if (prevPos.Equals(Vector3.zero))
-    //    {
-    //        prevPos = firstPoint.transform.localPosition;
-    //        UpdateNewPoint(prevPos, firstPoint);
-    //    }
-
-    //    Vector3 nextPointPos = Vector3.zero;
-
-    //    if ((positions.Count) < totalConnections)
-    //    {
-    //        GameObject p = Instantiate(pointPrefab, pointParent, false);
-    //        p.transform.SetParent(pointParent);
-    //        p.transform.localPosition = Vector3.zero;
-
-    //        float newX = prevPos.x + pointsXDistance;
-          
-    //        float endX = startX + pointsXDistance * (totalConnections - 1);
-    //        float endY = prevPos.y;
-    //        float t = Mathf.InverseLerp(startX, endX, newX);
-    //        float baseHeight = Mathf.Lerp(startY, endY, t);
-    //        float arcHeight = (1 - Mathf.Pow((2 * t) - 1, 2)) * maxHeightOffset;
-    //        float curveY = 0;
-    //        if (dontChangeY)
-    //             curveY = startY + arcHeight;
-    //        else
-    //            curveY = baseHeight + arcHeight;
-
-    //        nextPointPos = new Vector3(newX, curveY, prevPos.z);
-
-
-    //        if (positions.Count > 0)
-    //        {
-    //            if (!positions.Contains(nextPointPos))
-    //            {
-    //                UpdateNewPoint(nextPointPos, p.transform);
-    //                p.transform.localPosition = nextPointPos;
-    //            }
-    //            else
-    //                return;
-    //        }
-    //        else
-    //        {
-    //            UpdateNewPoint(nextPointPos, p.transform);
-    //            p.transform.localPosition = nextPointPos;
-    //        }
-
-    //        prevPos = nextPointPos;
-    //        SpawnPoints();
-    //    }
-      
-    //}
-
+   
 
     public void IncementConnection()
     {
@@ -249,7 +188,8 @@ public class ObjectInfo : MonoBehaviour
         {
             if (moveable)
             {
-                LevelsHandler.instance.currentLevelMeta.head.transform.position = movedPosition;
+                LevelsHandler.instance.currentLevelMeta.head.transform.localPosition = movedPosition;
+                //Debug.LogError(" " + movedPosition+" "+ LevelsHandler.instance.currentLevelMeta.head.transform.localPosition);
                 LevelsHandler.instance.currentLevelMeta.immoveablePart.GetComponent<SpriteRenderer>().enabled = false;
                 LevelsHandler.instance.currentLevelMeta.bodyWihtoutHoles.SetActive(true);
 
@@ -266,7 +206,7 @@ public class ObjectInfo : MonoBehaviour
         {
             if (moveable)
             {
-                GameObject crissCross = Instantiate(LevelsHandler.instance.currentLevelMeta.crissCrossObj, this.transform);
+                GameObject crissCross = Instantiate(LevelsHandler.instance.currentLevelMeta.crissCrossObjForEyes, this.transform);
                 crissCross.GetComponent<SpriteRenderer>().color = LevelsHandler.instance.currentLevelMeta.threadColor;
                 crissCross.transform.localScale = new Vector3(3, 3, 3);
                 //crissCross.transform.SetParent(null);
@@ -312,10 +252,15 @@ public class ObjectInfo : MonoBehaviour
                 }
                 if (!partType.Equals(PlushieActiveStitchPart.lefteye) && !partType.Equals(PlushieActiveStitchPart.righteye))
                 {
-                    GameObject crissCross = Instantiate(LevelsHandler.instance.currentLevelMeta.crissCrossObj, connectPoints[confettiIndex].transform);
+                    GameObject crissCross = Instantiate(LevelsHandler.instance.currentLevelMeta.stitchObj, connectPoints[confettiIndex].transform);
                     crissCross.GetComponent<SpriteRenderer>().color = LevelsHandler.instance.currentLevelMeta.threadColor;
                     crissCross.transform.localPosition = Vector3.zero;
-                    crissCross.transform.localEulerAngles = Vector3.zero;
+                    if(partType.Equals(PlushieActiveStitchPart.leftarm) || partType.Equals(PlushieActiveStitchPart.rightarm))
+                        crissCross.transform.localEulerAngles = new Vector3(0, 0, 0);
+                    else
+                        crissCross.transform.localEulerAngles = new Vector3(0, 0, 90);
+                    crissCross.transform.localScale = new Vector3(0.3f, 0.3f, 0.3f);
+
                     crissCross.SetActive(true);
                     crissCross.transform.SetParent(connectPoints[confettiIndex].transform.parent);
                     if (!LevelsHandler.instance.currentLevelMeta.crissCrossObjList.Contains(crissCross))

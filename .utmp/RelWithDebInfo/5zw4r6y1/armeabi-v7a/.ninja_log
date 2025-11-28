@@ -1,10 +1,19 @@
 # ninja log v5
 28	1622	7854348920432056	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	4bf872f6cbbf8d60
 21	1633	7854348920507586	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	617a7576f7577249
-0	1661	7854348920896113	GameActivity/CMakeFiles/game.dir/UGAConfiguration.cpp.o	53ed417be3b180b2
-55	1690	7854348921197753	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	b6819f404c02f652
-14	1739	7854348921682147	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	2bff6a1b6c892239
 45	1877	7854348923073311	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	d5f00a75259089b8
+0	1661	7854348920896113	GameActivity/CMakeFiles/game.dir/UGAConfiguration.cpp.o	53ed417be3b180b2
+2180	2302	7854348927317739	E:/GithubProjects/Stitching-Demo/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/5zw4r6y1/obj/armeabi-v7a/libgame.so	a572bb817c6870bb
+14	1739	7854348921682147	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	2bff6a1b6c892239
+55	1690	7854348921197753	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	b6819f404c02f652
 36	2046	7854348924724350	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	409c31b23eb05275
 7	2180	7854348926033339	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	a7301f2ec922756
-2180	2302	7854348927317739	E:/GithubProjects/Stitching-Demo/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/5zw4r6y1/obj/armeabi-v7a/libgame.so	a572bb817c6870bb
+40	1610	7860244337218929	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	4bf872f6cbbf8d60
+25	1618	7860244337307168	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	617a7576f7577249
+8	1652	7860244337673767	GameActivity/CMakeFiles/game.dir/UGAConfiguration.cpp.o	53ed417be3b180b2
+57	1681	7860244337967623	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	b6819f404c02f652
+17	1722	7860244338385012	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	2bff6a1b6c892239
+48	1853	7860244339647637	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	d5f00a75259089b8
+32	1979	7860244340900538	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	409c31b23eb05275
+1	2123	7860244342346320	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	a7301f2ec922756
+2123	2296	7860244344113344	E:/GithubProjects/Stitching-Demo/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/5zw4r6y1/obj/armeabi-v7a/libgame.so	a572bb817c6870bb

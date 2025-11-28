@@ -413,6 +413,7 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
                     {
                         info1.transform.DOMove(info1.movedPosition, 0.5f).SetEase(Ease.Linear).OnUpdate(() =>
                         {
+
                             UpdateConnections();
                             var threadHandler = ServiceLocator.GetService<IThreadManager>();
                             if (threadHandler != null)
@@ -424,6 +425,8 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
                             }
                         }).OnComplete(() =>
                         {
+                            Debug.LogError(" " + info1.transform.position + "" + info1.movedPosition);
+                            info1.transform.localPosition = info1.movedPosition;
                             SewPoint sp1 = p1.GetComponent<SewPoint>();
                             SewPoint sp2 = p2.GetComponent<SewPoint>();
                             //create eye connections
@@ -507,6 +510,10 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
 
                         }).OnComplete(() =>
                         {
+                            Debug.LogError(" " + info2.transform.position + "" + info2.movedPosition);
+
+                            info2.transform.position = info2.movedPosition;
+
                             SewPoint sp1 = p1.GetComponent<SewPoint>();
                             SewPoint sp2 = p2.GetComponent<SewPoint>();
                             //LevelsHandler.instance.currentLevelMeta.Connection(info1.connectPoints[0], info2.connectPoints[info2.connectPoints.Count - 1]);

@@ -44,7 +44,8 @@ public class Level_Metadata : MonoBehaviour
     [SerializeField] Transform needleUndoPosition;
     public Color threadColor;
     public Sprite spoolColor;
-    public GameObject crissCrossObj;
+    public GameObject stitchObj;
+    public GameObject crissCrossObjForEyes;
     public bool completed = false;
     private void Start()
     {
@@ -254,8 +255,7 @@ public class Level_Metadata : MonoBehaviour
            if(IthreadHandler != null)
                 IthreadHandler.SetUndoValue(false);
             PlaySewnSound();
-            GameEvents.GameCompleteEvents.onPlushieComplete.RaiseEvent();
-            //Invoke("WinEffect", 2.0f);
+            Invoke("WinEffect", 2.0f);
         }
         else
         {
@@ -264,14 +264,22 @@ public class Level_Metadata : MonoBehaviour
             NextPartActivation(false, sequence, null);
         }
     }
-    //void WinEffect()
-    //{
-    //    Time.timeScale = 1.0f;
-
-    //    var canvasHandler = ServiceLocator.GetService<ICanvasUIManager>();
-    //    if(canvasHandler != null)
-    //        canvasHandler.sewnScreen.SetActive(true);
-    //}
+    void WinEffect()
+    {
+        Time.timeScale = 1.0f;
+        GameEvents.GameCompleteEvents.onPlushieComplete.RaiseEvent();
+        Invoke(nameof(DisableLevel), 0.5f);
+        //var canvasHandler = ServiceLocator.GetService<ICanvasUIManager>();
+        //if (canvasHandler != null)
+        //    canvasHandler.sewnScreen.SetActive(true);
+        CancelInvoke(nameof(WinEffect));
+    }
+    void DisableLevel()
+    {
+        sewnPlushie.SetActive(true);
+        gameObject.SetActive(false);
+        CancelInvoke(nameof(DisableLevel));
+    }
     void PlaySewnSound()
     {
         SoundManager.instance.ResetAudioSource();
@@ -540,140 +548,5 @@ public class Level_Metadata : MonoBehaviour
             connections.line.gameObject.SetActive(false);
         }
     }
-    int index = 0;
-    public void CreateConnectionsIfProgressSaved()
-    {
-        Part_Info body_PInfo = immoveablePart.GetComponent<Part_Info>();
-        List<SewPoint>list1 = new List<SewPoint>();
-        List<SewPoint>list2 = new List<SewPoint>();
-        for(int i=0;i<bodyParts.Count;i++)
-        {
-            ObjectInfo o_info = bodyParts[i].GetComponent<ObjectInfo>();
-            if (o_info.stitchData.IsStitched)
-            {
-                if (o_info.head)
-                {
-                    list1.AddRange(o_info.connectPoints);
-                    list2.AddRange(body_PInfo.joints[0].GetComponent<ObjectInfo>().connectPoints);
-                    index = 0;
-                    while (index < list1.Count)
-                    {
-                        Connection(list1[index], list2[index]);
-                        cleanThreadIndex++;
 
-                        index++;
-                    }
-                }
-                else
-                {
-                    if (o_info.partConnectedTo.Equals(PartConnectedTo.head))
-                    {
-                        //head parts
-                        if (o_info.partType.Equals(PlushieActiveStitchPart.righteye))
-                        {
-                            list1.AddRange(o_info.connectPoints);
-                            list2.AddRange(head.joints[2].GetComponent<ObjectInfo>().connectPoints);
-                            Connection(list1[0], list2[3]);
-                            Connection(list1[1], list2[2]);
-                            cleanThreadIndex += 2;
-
-                        }
-                        else if (o_info.partType.Equals(PlushieActiveStitchPart.lefteye))
-                        {
-                            list1.AddRange(o_info.connectPoints);
-                            list2.AddRange(head.joints[1].GetComponent<ObjectInfo>().connectPoints);
-                            Connection(list1[0], list2[list2.Count - 1]);
-                            Connection(list1[1], list2[list2.Count - 2]);
-                            cleanThreadIndex += 2;
-
-                        }
-                        else if (o_info.partType.Equals(PlushieActiveStitchPart.rightear))
-                        {
-                            list1.AddRange(o_info.connectPoints);
-                            list2.AddRange(head.joints[4].GetComponent<ObjectInfo>().connectPoints);
-                            index = 0;
-                            while (index < list1.Count)
-                            {
-                                Connection(list1[index], list2[index]);
-                                cleanThreadIndex++;
-                                index++;
-                            }
-                        }
-                        else if (o_info.partType.Equals(PlushieActiveStitchPart.leftear))
-                        {
-                            list1.AddRange(o_info.connectPoints);
-                            list2.AddRange(head.joints[3].GetComponent<ObjectInfo>().connectPoints);
-                            index = 0;
-                            while (index < list1.Count)
-                            {
-                                Connection(list1[index], list2[index]);
-                                cleanThreadIndex++; 
-                                index++;
-                            }
-                        }
-                    }
-                    else
-                    {
-                        //body parts
-                        if (o_info.partType.Equals(PlushieActiveStitchPart.leftarm))
-                        {
-                            list1.AddRange(o_info.connectPoints);
-                            list2.AddRange(body_PInfo.joints[1].GetComponent<ObjectInfo>().connectPoints);
-                            index = 0;
-                            while (index < list1.Count)
-                            {
-                                Connection(list1[index], list2[index]);
-                                cleanThreadIndex++; 
-                                index++;
-                            }
-                        }
-                        else if (o_info.partType.Equals(PlushieActiveStitchPart.rightarm))
-                        {
-                            list1.AddRange(o_info.connectPoints);
-                            list2.AddRange(body_PInfo.joints[2].GetComponent<ObjectInfo>().connectPoints);
-                            index = 0;
-                            while (index < list1.Count)
-                            {
-                                Connection(list1[index], list2[index]);
-                                cleanThreadIndex++; 
-                                index++;
-                            }
-                        }
-                        else if (o_info.partType.Equals(PlushieActiveStitchPart.leftleg))
-                        {
-                            list1.AddRange(o_info.connectPoints);
-                            list2.AddRange(body_PInfo.joints[4].GetComponent<ObjectInfo>().connectPoints);
-                            index = 0;
-                            while (index < list1.Count)
-                            {
-                                Connection(list1[index], list2[index]);
-                                cleanThreadIndex++; 
-                                index++;
-                            }
-                        }
-                        else if (o_info.partType.Equals(PlushieActiveStitchPart.rightleg))
-                        {
-                            list1.AddRange(o_info.connectPoints);
-                            list2.AddRange(body_PInfo.joints[3].GetComponent<ObjectInfo>().connectPoints);
-                            index = 0;
-                            while (index < list1.Count)
-                            {
-                                Connection(list1[index], list2[index]);
-                                cleanThreadIndex++; 
-                                index++;
-                            }
-                        }
-                    }
-                }
-            }
-        }
-
-        if (cleanConnection.Count > 0)
-        {
-            foreach (Connections c in cleanConnection)
-            {
-                c.line.gameObject.SetActive(true);
-            }
-        }
-    }
 }

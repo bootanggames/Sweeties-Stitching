@@ -90,7 +90,6 @@ public class GameCompleteHandler : MonoBehaviour, IGameService
             canvasHandler.confettiEffectCanvas.SetActive(false);
             canvasHandler.mainCanvas.SetActive(false);
             LevelsHandler.instance.currentLevelMeta.sewnPlushie.SetActive(false);
-
             canvasHandler.gameCompletePanel.gameObject.SetActive(true);
             Invoke(nameof(TreasureBoxAppearance), 0.2f);
             canvasHandler.completeStitchedPlushie.SetActive(true);
@@ -120,8 +119,8 @@ public class GameCompleteHandler : MonoBehaviour, IGameService
     [SerializeField] List<GameObject> sparkleEffectListOnComplete;
     void SparkleEffectOnPlushieComplete()
     {
-        int _count = 2;
-        Invoke(nameof(CleanEnablePlushie), 1.5f);
+        int _count = 8;
+        Invoke(nameof(CleanEnablePlushie), 0.5f);
         Sequence seq = DOTween.Sequence();
         for (int i = 0; i < _count; i++)
         {
@@ -132,8 +131,8 @@ public class GameCompleteHandler : MonoBehaviour, IGameService
             g.transform.SetParent(gameplayBgObj.transform);
             g.transform.localPosition = sparkleTrailAtCompletionStartPos.localPosition;
             Vector3 startPos = g.transform.position;
+            startPos.y -= i;
             Vector3 targetPos = sparkleTrailAtCompletionTargetPos.localPosition;
-
             float distance = Vector3.Distance(startPos, targetPos);
 
             float baseSpeed = sparkleMoveSpeed;
@@ -144,7 +143,7 @@ public class GameCompleteHandler : MonoBehaviour, IGameService
             float duration = distance / speed;
 
             seq.Join( GameEvents.DoTweenAnimationHandlerEvents.onMoveToTargetAnimation.Raise(g.transform, targetPos, duration, Ease.Linear));
-            //seq.Join( GameEvents.DoTweenAnimationHandlerEvents.onScaleTransform.Raise(g.transform, Vector3.zero, duration, Ease.Linear));
+            seq.Join(GameEvents.DoTweenAnimationHandlerEvents.onScaleTransform.Raise(g.transform, Vector3.zero, 3.5f, Ease.Linear));
 
             seq.OnComplete(() =>
             {
@@ -158,8 +157,7 @@ public class GameCompleteHandler : MonoBehaviour, IGameService
 
     void CleanEnablePlushie()
     {
-        LevelsHandler.instance.currentLevelMeta.sewnPlushie.SetActive(true);
-        LevelsHandler.instance.currentLevelMeta.gameObject.SetActive(false);
+     
         foreach (Connections c in LevelsHandler.instance.currentLevelMeta.cleanConnection)
         {
             Destroy(c.line.gameObject);

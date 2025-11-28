@@ -1,10 +1,19 @@
 # ninja log v5
 48	2428	7854348872345920	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	a9bfb8be95a2a6ed
 38	2439	7854348872311724	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	ff48f750b8ee0c0a
-9	2465	7854348872633127	GameActivity/CMakeFiles/game.dir/UGAConfiguration.cpp.o	ed626f30d05df6e
-69	2537	7854348873490758	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	9df56f255a082018
-1	2578	7854348873872522	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	4481bbd471d5eb9
 58	2862	7854348876756218	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	cbf0e76cf7be6bad
+9	2465	7854348872633127	GameActivity/CMakeFiles/game.dir/UGAConfiguration.cpp.o	ed626f30d05df6e
+1	2578	7854348873872522	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	4481bbd471d5eb9
+69	2537	7854348873490758	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	9df56f255a082018
 27	2969	7854348877851450	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	51fd327909469f97
 18	3129	7854348879403336	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	d5e49995341901a2
 3129	3324	7854348881448889	E:/GithubProjects/Stitching-Demo/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/5zw4r6y1/obj/arm64-v8a/libgame.so	b49f38a6e5ca41e5
+53	2602	7860244294646374	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	ff48f750b8ee0c0a
+7	2611	7860244294686700	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	a9bfb8be95a2a6ed
+18	2638	7860244295001407	GameActivity/CMakeFiles/game.dir/UGAConfiguration.cpp.o	ed626f30d05df6e
+45	2682	7860244295258953	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	9df56f255a082018
+25	2746	7860244296099227	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	4481bbd471d5eb9
+31	3053	7860244299155899	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	51fd327909469f97
+60	3160	7860244300218324	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	cbf0e76cf7be6bad
+0	3176	7860244300314396	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	d5e49995341901a2
+3176	3760	7860244306250085	E:/GithubProjects/Stitching-Demo/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/5zw4r6y1/obj/arm64-v8a/libgame.so	b49f38a6e5ca41e5

@@ -3,20 +3,52 @@
   "WorkspaceRootPath": "E:\\GithubProjects\\Stitching-Demo\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|E:\\GithubProjects\\Stitching-Demo\\assets\\linerenderer\\scripts\\mainmenulevelshandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|solutionrelative:assets\\linerenderer\\scripts\\mainmenulevelshandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|E:\\GithubProjects\\Stitching-Demo\\assets\\linerenderer\\scripts\\canvasuimanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|solutionrelative:assets\\linerenderer\\scripts\\canvasuimanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|E:\\GithubProjects\\Stitching-Demo\\assets\\linerenderer\\scripts\\objectinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|solutionrelative:assets\\linerenderer\\scripts\\objectinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|e:\\githubprojects\\stitching-demo\\assets\\linerenderer\\scripts\\pointconnectorhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|solutionrelative:assets\\linerenderer\\scripts\\pointconnectorhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|E:\\GithubProjects\\Stitching-Demo\\assets\\linerenderer\\scripts\\level_metadata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|solutionrelative:assets\\linerenderer\\scripts\\level_metadata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|E:\\GithubProjects\\Stitching-Demo\\assets\\linerenderer\\scripts\\dotweenanimationhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|solutionrelative:assets\\linerenderer\\scripts\\dotweenanimationhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|E:\\GithubProjects\\Stitching-Demo\\assets\\linerenderer\\scripts\\threadmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|solutionrelative:assets\\linerenderer\\scripts\\threadmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|E:\\GithubProjects\\Stitching-Demo\\assets\\linerenderer\\scripts\\levelshandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|solutionrelative:assets\\linerenderer\\scripts\\levelshandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|E:\\GithubProjects\\Stitching-Demo\\assets\\linerenderer\\scripts\\levelobjectivemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|solutionrelative:assets\\linerenderer\\scripts\\levelobjectivemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|E:\\GithubProjects\\Stitching-Demo\\assets\\linerenderer\\scripts\\levelsinfoonselection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|solutionrelative:assets\\linerenderer\\scripts\\levelsinfoonselection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|E:\\GithubProjects\\Stitching-Demo\\assets\\linerenderer\\scripts\\gamecompletehandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|solutionrelative:assets\\linerenderer\\scripts\\gamecompletehandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|E:\\GithubProjects\\Stitching-Demo\\assets\\linerenderer\\scripts\\effectshandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|solutionrelative:assets\\linerenderer\\scripts\\effectshandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|e:\\githubprojects\\stitching-demo\\assets\\linerenderer\\scripts\\gamecompletehandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|solutionrelative:assets\\linerenderer\\scripts\\gamecompletehandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|E:\\GithubProjects\\Stitching-Demo\\assets\\linerenderer\\scripts\\dotweenanimationhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|solutionrelative:assets\\linerenderer\\scripts\\dotweenanimationhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|E:\\GithubProjects\\Stitching-Demo\\assets\\linerenderer\\scripts\\scaleoutobject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -27,16 +59,8 @@
       "RelativeMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|solutionrelative:assets\\linerenderer\\scripts\\coinshandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|E:\\GithubProjects\\Stitching-Demo\\assets\\linerenderer\\scripts\\threadmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|solutionrelative:assets\\linerenderer\\scripts\\threadmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|E:\\GithubProjects\\Stitching-Demo\\assets\\linerenderer\\scripts\\events\\gamecompleteevents.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|solutionrelative:assets\\linerenderer\\scripts\\events\\gamecompleteevents.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|E:\\GithubProjects\\Stitching-Demo\\assets\\linerenderer\\scripts\\events\\effecthandlerevents.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|solutionrelative:assets\\linerenderer\\scripts\\events\\effecthandlerevents.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|E:\\GithubProjects\\Stitching-Demo\\assets\\linerenderer\\scripts\\chesttoprotation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -47,32 +71,12 @@
       "RelativeMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|solutionrelative:assets\\linerenderer\\scripts\\gamehandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|E:\\GithubProjects\\Stitching-Demo\\assets\\linerenderer\\scripts\\interfaces\\icoinshandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|solutionrelative:assets\\linerenderer\\scripts\\interfaces\\icoinshandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|E:\\GithubProjects\\Stitching-Demo\\assets\\linerenderer\\scripts\\inputmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|solutionrelative:assets\\linerenderer\\scripts\\inputmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|E:\\GithubProjects\\Stitching-Demo\\assets\\linerenderer\\scripts\\objectinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|solutionrelative:assets\\linerenderer\\scripts\\objectinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|E:\\GithubProjects\\Stitching-Demo\\assets\\linerenderer\\scripts\\pointconnectorhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|solutionrelative:assets\\linerenderer\\scripts\\pointconnectorhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|E:\\GithubProjects\\Stitching-Demo\\assets\\linerenderer\\scripts\\levelshandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|solutionrelative:assets\\linerenderer\\scripts\\levelshandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|E:\\GithubProjects\\Stitching-Demo\\assets\\linerenderer\\scripts\\spinanimation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|solutionrelative:assets\\linerenderer\\scripts\\spinanimation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|E:\\GithubProjects\\Stitching-Demo\\assets\\linerenderer\\scripts\\canvasuimanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|solutionrelative:assets\\linerenderer\\scripts\\canvasuimanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|E:\\GithubProjects\\Stitching-Demo\\assets\\linerenderer\\scripts\\cleanstitch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -135,10 +139,6 @@
       "RelativeMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|solutionrelative:assets\\linerenderer\\scripts\\leveldetail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|E:\\GithubProjects\\Stitching-Demo\\assets\\linerenderer\\scripts\\mainmenulevelshandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|solutionrelative:assets\\linerenderer\\scripts\\mainmenulevelshandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|E:\\GithubProjects\\Stitching-Demo\\assets\\pageslider\\scripts\\pagedotsindicator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|solutionrelative:assets\\pageslider\\scripts\\pagedotsindicator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
@@ -150,11 +150,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 24,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 22,
               "Title": "NeedleDetector.cs",
               "DocumentMoniker": "E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\NeedleDetector.cs",
               "RelativeDocumentMoniker": "Assets\\LineRenderer\\Scripts\\NeedleDetector.cs",
@@ -167,47 +167,47 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 3,
               "Title": "PointConnectorHandler.cs",
               "DocumentMoniker": "E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\PointConnectorHandler.cs",
               "RelativeDocumentMoniker": "Assets\\LineRenderer\\Scripts\\PointConnectorHandler.cs",
               "ToolTip": "E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\PointConnectorHandler.cs",
               "RelativeToolTip": "Assets\\LineRenderer\\Scripts\\PointConnectorHandler.cs",
-              "ViewState": "AgIAAPEBAAAAAAAAAAAuwAACAACdAAAAAAAAAA==",
+              "ViewState": "AgIAAJQBAAAAAAAAAAAuwJ8BAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-17T06:38:05.553Z",
-              "IsPinned": true
+              "IsPinned": true,
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 5,
               "Title": "ThreadManager.cs",
               "DocumentMoniker": "E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\ThreadManager.cs",
               "RelativeDocumentMoniker": "Assets\\LineRenderer\\Scripts\\ThreadManager.cs",
               "ToolTip": "E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\ThreadManager.cs",
               "RelativeToolTip": "Assets\\LineRenderer\\Scripts\\ThreadManager.cs",
-              "ViewState": "AgIAAIIAAAAAAAAAAAAAAIoAAAAFAAAAAAAAAA==",
+              "ViewState": "AgIAAMEAAAAAAAAAAAAowIoAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-24T09:17:04.73Z",
               "IsPinned": true
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 4,
               "Title": "Level_Metadata.cs",
               "DocumentMoniker": "E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\Level_Metadata.cs",
               "RelativeDocumentMoniker": "Assets\\LineRenderer\\Scripts\\Level_Metadata.cs",
               "ToolTip": "E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\Level_Metadata.cs",
               "RelativeToolTip": "Assets\\LineRenderer\\Scripts\\Level_Metadata.cs",
-              "ViewState": "AgIAAPAAAAAAAAAAAAAmwAEBAAAOAAAAAAAAAA==",
+              "ViewState": "AgIAACAAAAAAAAAAAAAQwC4AAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-17T06:31:01.668Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 21,
               "Title": "Connections.cs",
               "DocumentMoniker": "E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\SerializableClasses\\Connections.cs",
               "RelativeDocumentMoniker": "Assets\\LineRenderer\\Scripts\\SerializableClasses\\Connections.cs",
@@ -220,20 +220,21 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 2,
               "Title": "ObjectInfo.cs",
               "DocumentMoniker": "E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\ObjectInfo.cs",
               "RelativeDocumentMoniker": "Assets\\LineRenderer\\Scripts\\ObjectInfo.cs",
               "ToolTip": "E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\ObjectInfo.cs",
               "RelativeToolTip": "Assets\\LineRenderer\\Scripts\\ObjectInfo.cs",
-              "ViewState": "AgIAAMgAAAAAAAAAAAAkwNoAAABeAAAAAAAAAA==",
+              "ViewState": "AgIAAOEAAAAAAAAAAAA7wP4AAACTAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-20T12:44:18.742Z",
-              "IsPinned": true
+              "IsPinned": true,
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 6,
               "Title": "LevelsHandler.cs",
               "DocumentMoniker": "E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\LevelsHandler.cs",
               "RelativeDocumentMoniker": "Assets\\LineRenderer\\Scripts\\LevelsHandler.cs",
@@ -246,7 +247,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 16,
               "Title": "GameHandler.cs",
               "DocumentMoniker": "E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\GameHandler.cs",
               "RelativeDocumentMoniker": "Assets\\LineRenderer\\Scripts\\GameHandler.cs",
@@ -259,7 +260,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 30,
               "Title": "PlushiesInventory.cs",
               "DocumentMoniker": "E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\PlushiesInventory.cs",
               "RelativeDocumentMoniker": "Assets\\LineRenderer\\Scripts\\PlushiesInventory.cs",
@@ -272,34 +273,34 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 1,
               "Title": "CanvasUIManager.cs",
               "DocumentMoniker": "E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\CanvasUIManager.cs",
               "RelativeDocumentMoniker": "Assets\\LineRenderer\\Scripts\\CanvasUIManager.cs",
               "ToolTip": "E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\CanvasUIManager.cs",
               "RelativeToolTip": "Assets\\LineRenderer\\Scripts\\CanvasUIManager.cs",
-              "ViewState": "AgIAABEAAAAAAAAAAAAAwBYAAAAEAAAAAAAAAA==",
+              "ViewState": "AgIAAEoAAAAAAAAAAAAmwF8AAAAbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-31T11:52:30.754Z",
-              "IsPinned": true
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "GameCompleteHandler.cs",
-              "DocumentMoniker": "E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\GameCompleteHandler.cs",
-              "RelativeDocumentMoniker": "Assets\\LineRenderer\\Scripts\\GameCompleteHandler.cs",
-              "ToolTip": "E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\GameCompleteHandler.cs",
-              "RelativeToolTip": "Assets\\LineRenderer\\Scripts\\GameCompleteHandler.cs",
-              "ViewState": "AgIAABwAAAAAAAAAAAAgwJ8AAAAtAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-13T08:11:59.297Z",
               "IsPinned": true,
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 9,
+              "Title": "GameCompleteHandler.cs",
+              "DocumentMoniker": "E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\GameCompleteHandler.cs",
+              "RelativeDocumentMoniker": "Assets\\LineRenderer\\Scripts\\GameCompleteHandler.cs",
+              "ToolTip": "E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\GameCompleteHandler.cs",
+              "RelativeToolTip": "Assets\\LineRenderer\\Scripts\\GameCompleteHandler.cs",
+              "ViewState": "AgIAAH0AAAAAAAAAAAAtwJEAAABiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-13T08:11:59.297Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
               "Title": "CoinsHandler.cs",
               "DocumentMoniker": "E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\CoinsHandler.cs",
               "RelativeDocumentMoniker": "Assets\\LineRenderer\\Scripts\\CoinsHandler.cs",
@@ -312,7 +313,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 18,
               "Title": "SpinAnimation.cs",
               "DocumentMoniker": "E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\SpinAnimation.cs",
               "RelativeDocumentMoniker": "Assets\\LineRenderer\\Scripts\\SpinAnimation.cs",
@@ -325,7 +326,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 11,
               "Title": "DoTweenAnimationHandler.cs",
               "DocumentMoniker": "E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\DoTweenAnimationHandler.cs",
               "RelativeDocumentMoniker": "Assets\\LineRenderer\\Scripts\\DoTweenAnimationHandler.cs",
@@ -334,48 +335,35 @@
               "ViewState": "AgIAAAYAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-25T08:09:12.714Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "LevelsInfoOnSelection.cs",
+              "DocumentMoniker": "E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\LevelsInfoOnSelection.cs",
+              "RelativeDocumentMoniker": "Assets\\LineRenderer\\Scripts\\LevelsInfoOnSelection.cs",
+              "ToolTip": "E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\LevelsInfoOnSelection.cs",
+              "RelativeToolTip": "Assets\\LineRenderer\\Scripts\\LevelsInfoOnSelection.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAALAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-28T08:59:21.645Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 7,
-              "Title": "GameCompleteEvents.cs",
-              "DocumentMoniker": "E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\Events\\GameCompleteEvents.cs",
-              "RelativeDocumentMoniker": "Assets\\LineRenderer\\Scripts\\Events\\GameCompleteEvents.cs",
-              "ToolTip": "E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\Events\\GameCompleteEvents.cs",
-              "RelativeToolTip": "Assets\\LineRenderer\\Scripts\\Events\\GameCompleteEvents.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAA6AAAAAAAAAA==",
+              "Title": "LevelObjectiveManager.cs",
+              "DocumentMoniker": "E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\LevelObjectiveManager.cs",
+              "RelativeDocumentMoniker": "Assets\\LineRenderer\\Scripts\\LevelObjectiveManager.cs",
+              "ToolTip": "E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\LevelObjectiveManager.cs",
+              "RelativeToolTip": "Assets\\LineRenderer\\Scripts\\LevelObjectiveManager.cs",
+              "ViewState": "AgIAACIAAAAAAAAAAAAowAoAAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-27T07:45:21.004Z"
+              "WhenOpened": "2025-11-28T08:58:19.269Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "ICoinsHandler.cs",
-              "DocumentMoniker": "E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\Interfaces\\ICoinsHandler.cs",
-              "RelativeDocumentMoniker": "Assets\\LineRenderer\\Scripts\\Interfaces\\ICoinsHandler.cs",
-              "ToolTip": "E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\Interfaces\\ICoinsHandler.cs",
-              "RelativeToolTip": "Assets\\LineRenderer\\Scripts\\Interfaces\\ICoinsHandler.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAwwBgAAAAyAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-25T07:04:34.288Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "CleanStitch.cs",
-              "DocumentMoniker": "E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\CleanStitch.cs",
-              "RelativeDocumentMoniker": "Assets\\LineRenderer\\Scripts\\CleanStitch.cs",
-              "ToolTip": "E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\CleanStitch.cs",
-              "RelativeToolTip": "Assets\\LineRenderer\\Scripts\\CleanStitch.cs",
-              "ViewState": "AgIAAAQAAAAAAAAAAAAgwBIAAAAcAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-18T11:25:51.939Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 25,
               "Title": "SoundManager.cs",
               "DocumentMoniker": "E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\SoundManager.cs",
               "RelativeDocumentMoniker": "Assets\\LineRenderer\\Scripts\\SoundManager.cs",
@@ -387,7 +375,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 23,
               "Title": "SewPoint.cs",
               "DocumentMoniker": "E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\SewPoint.cs",
               "RelativeDocumentMoniker": "Assets\\LineRenderer\\Scripts\\SewPoint.cs",
@@ -399,7 +387,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 24,
               "Title": "HomeScreenSound.cs",
               "DocumentMoniker": "E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\HomeScreenSound.cs",
               "RelativeDocumentMoniker": "Assets\\LineRenderer\\Scripts\\HomeScreenSound.cs",
@@ -411,7 +399,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 26,
               "Title": "NeedleMovement.cs",
               "DocumentMoniker": "E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\NeedleMovement.cs",
               "RelativeDocumentMoniker": "Assets\\LineRenderer\\Scripts\\NeedleMovement.cs",
@@ -423,20 +411,19 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 10,
               "Title": "EffectsHandler.cs",
               "DocumentMoniker": "E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\EffectsHandler.cs",
               "RelativeDocumentMoniker": "Assets\\LineRenderer\\Scripts\\EffectsHandler.cs",
               "ToolTip": "E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\EffectsHandler.cs",
               "RelativeToolTip": "Assets\\LineRenderer\\Scripts\\EffectsHandler.cs",
-              "ViewState": "AgIAADIAAAAAAAAAAAD4v3kAAAAPAAAAAAAAAA==",
+              "ViewState": "AgIAAG0AAAAAAAAAAAASwHsAAAAwAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-18T06:50:23.248Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-18T06:50:23.248Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 12,
               "Title": "ScaleOutObject.cs",
               "DocumentMoniker": "E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\ScaleOutObject.cs",
               "RelativeDocumentMoniker": "Assets\\LineRenderer\\Scripts\\ScaleOutObject.cs",
@@ -444,12 +431,11 @@
               "RelativeToolTip": "Assets\\LineRenderer\\Scripts\\ScaleOutObject.cs",
               "ViewState": "AgIAAC8AAAAAAAAAAAAIwEAAAABKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-12T12:42:13.261Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-12T12:42:13.261Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 15,
               "Title": "ChestTopRotation.cs",
               "DocumentMoniker": "E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\ChestTopRotation.cs",
               "RelativeDocumentMoniker": "Assets\\LineRenderer\\Scripts\\ChestTopRotation.cs",
@@ -461,7 +447,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 20,
               "Title": "SoundScriptable.cs",
               "DocumentMoniker": "E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\Scriptables\\SoundScriptable.cs",
               "RelativeDocumentMoniker": "Assets\\LineRenderer\\Scripts\\Scriptables\\SoundScriptable.cs",
@@ -473,7 +459,44 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 0,
+              "Title": "MainMenuLevelsHandler.cs",
+              "DocumentMoniker": "E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\MainMenuLevelsHandler.cs",
+              "RelativeDocumentMoniker": "Assets\\LineRenderer\\Scripts\\MainMenuLevelsHandler.cs",
+              "ToolTip": "E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\MainMenuLevelsHandler.cs",
+              "RelativeToolTip": "Assets\\LineRenderer\\Scripts\\MainMenuLevelsHandler.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-13T07:52:34.109Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "CleanStitch.cs",
+              "DocumentMoniker": "E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\CleanStitch.cs",
+              "RelativeDocumentMoniker": "Assets\\LineRenderer\\Scripts\\CleanStitch.cs",
+              "ToolTip": "E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\CleanStitch.cs",
+              "RelativeToolTip": "Assets\\LineRenderer\\Scripts\\CleanStitch.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAgwBIAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-18T11:25:51.939Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "GameCompleteEvents.cs",
+              "DocumentMoniker": "E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\Events\\GameCompleteEvents.cs",
+              "RelativeDocumentMoniker": "Assets\\LineRenderer\\Scripts\\Events\\GameCompleteEvents.cs",
+              "ToolTip": "E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\Events\\GameCompleteEvents.cs",
+              "RelativeToolTip": "Assets\\LineRenderer\\Scripts\\Events\\GameCompleteEvents.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAA6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-27T07:45:21.004Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
               "Title": "InputManager.cs",
               "DocumentMoniker": "E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\InputManager.cs",
               "RelativeDocumentMoniker": "Assets\\LineRenderer\\Scripts\\InputManager.cs",
@@ -485,19 +508,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "EffectHandlerEvents.cs",
-              "DocumentMoniker": "E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\Events\\EffectHandlerEvents.cs",
-              "RelativeDocumentMoniker": "Assets\\LineRenderer\\Scripts\\Events\\EffectHandlerEvents.cs",
-              "ToolTip": "E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\Events\\EffectHandlerEvents.cs",
-              "RelativeToolTip": "Assets\\LineRenderer\\Scripts\\Events\\EffectHandlerEvents.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAhAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-26T10:16:21.606Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 27,
               "Title": "CameraManager.cs",
               "DocumentMoniker": "E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\CameraManager.cs",
               "RelativeDocumentMoniker": "Assets\\LineRenderer\\Scripts\\CameraManager.cs",
@@ -509,7 +520,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 28,
               "Title": "PlushieContainer.cs",
               "DocumentMoniker": "E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\PlushieContainer.cs",
               "RelativeDocumentMoniker": "Assets\\LineRenderer\\Scripts\\PlushieContainer.cs",
@@ -521,7 +532,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 29,
               "Title": "Plushie_ShelfContainer.cs",
               "DocumentMoniker": "E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\Plushie_ShelfContainer.cs",
               "RelativeDocumentMoniker": "Assets\\LineRenderer\\Scripts\\Plushie_ShelfContainer.cs",
@@ -533,7 +544,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
+              "DocumentIndex": 31,
               "Title": "MainMenuHandler.cs",
               "DocumentMoniker": "E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\MainMenuHandler.cs",
               "RelativeDocumentMoniker": "Assets\\LineRenderer\\Scripts\\MainMenuHandler.cs",
@@ -545,7 +556,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 31,
+              "DocumentIndex": 32,
               "Title": "Plushie_Details.cs",
               "DocumentMoniker": "E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\Plushie_Details.cs",
               "RelativeDocumentMoniker": "Assets\\LineRenderer\\Scripts\\Plushie_Details.cs",
@@ -557,7 +568,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 32,
+              "DocumentIndex": 33,
               "Title": "LevelDetail.cs",
               "DocumentMoniker": "E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\LevelDetail.cs",
               "RelativeDocumentMoniker": "Assets\\LineRenderer\\Scripts\\LevelDetail.cs",
@@ -566,18 +577,6 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-17T13:23:31.851Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 33,
-              "Title": "MainMenuLevelsHandler.cs",
-              "DocumentMoniker": "E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\MainMenuLevelsHandler.cs",
-              "RelativeDocumentMoniker": "Assets\\LineRenderer\\Scripts\\MainMenuLevelsHandler.cs",
-              "ToolTip": "E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\MainMenuLevelsHandler.cs",
-              "RelativeToolTip": "Assets\\LineRenderer\\Scripts\\MainMenuLevelsHandler.cs",
-              "ViewState": "AgIAAAoAAAAAAAAAAAAgwBQAAAAjAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-13T07:52:34.109Z"
             },
             {
               "$type": "Document",

@@ -21,11 +21,10 @@ public class GameCompleteHandler : MonoBehaviour, IGameService
     [SerializeField] float sparkleMoveSpeed;
 
     [SerializeField] private GameObject _coinBurstObject;
-    
+    [SerializeField] bool test;
     private void OnEnable()
     {
         RegisterService();
-
     }
     private void OnDisable()
     {
@@ -91,7 +90,7 @@ public class GameCompleteHandler : MonoBehaviour, IGameService
             canvasHandler.mainCanvas.SetActive(false);
             LevelsHandler.instance.currentLevelMeta.sewnPlushie.SetActive(false);
             canvasHandler.gameCompletePanel.gameObject.SetActive(true);
-            Invoke(nameof(TreasureBoxAppearance), 0.2f);
+            Invoke(nameof(TreasureBoxAppearance), 0.45f);
             canvasHandler.completeStitchedPlushie.SetActive(true);
             PlaySound();
             RectTransform rt =  canvasHandler.completeStitchedPlushie.GetComponent<RectTransform>();
@@ -106,20 +105,31 @@ public class GameCompleteHandler : MonoBehaviour, IGameService
         }
         GameHandler.instance.SwitchGameState(GameStates.Gamecomplete);
     }
+   
+    void PlaySoundCoinBagExploding()
+    {
+        SoundManager.instance.ResetAudioSource();
 
+        AudioSource _source = SoundManager.instance.audioSource;
+        AudioClip _clip = SoundManager.instance.audioClips.coinBagExploding;
+        SoundManager.instance.PlaySound(_source, _clip, false, false, 1, false);
+    }
     void TreasureBoxAppearance()
     {
         _coinBurstObject.SetActive(true);
+        PlaySoundCoinBagExploding();
         var icoinsHandler = ServiceLocator.GetService<ICoinsHandler>();
         if (icoinsHandler != null)
-            icoinsHandler.CoinIncrementAnimation(LevelsHandler.instance.currentLevelMeta.levelReward);
+        {
+            icoinsHandler.CoinIncrementAnimation(LevelsHandler.instance.currentLevelMeta.levelScriptable.levelReward);
+        }
         gameplayBgObj.SetActive(false);
     }
    
     [SerializeField] List<GameObject> sparkleEffectListOnComplete;
     void SparkleEffectOnPlushieComplete()
     {
-        int _count = 8;
+        int _count = 10;
         Invoke(nameof(CleanEnablePlushie), 0.5f);
         Sequence seq = DOTween.Sequence();
         for (int i = 0; i < _count; i++)
@@ -131,8 +141,23 @@ public class GameCompleteHandler : MonoBehaviour, IGameService
             g.transform.SetParent(gameplayBgObj.transform);
             g.transform.localPosition = sparkleTrailAtCompletionStartPos.localPosition;
             Vector3 startPos = g.transform.position;
-            startPos.y -= i;
+            
+           
             Vector3 targetPos = sparkleTrailAtCompletionTargetPos.localPosition;
+            if (i != 0)
+            {
+                if (sparkleEffectListOnComplete.Count % 2 == 0)
+                {
+                    startPos.y += 2f;
+                    targetPos.y += 2f;
+                }
+                else
+                {
+                    startPos.y -= 2f;
+                    targetPos.y -= 2f;
+
+                }
+            }
             float distance = Vector3.Distance(startPos, targetPos);
 
             float baseSpeed = sparkleMoveSpeed;
@@ -141,14 +166,20 @@ public class GameCompleteHandler : MonoBehaviour, IGameService
             float speed = baseSpeed * speedVariation;
 
             float duration = distance / speed;
-
+            //if(sparkleEffectListOnComplete.Count % 2 == 0)
+            //{
+            //    Vector3 pos = sparkleEffectListOnComplete[i].transform.localPosition;
+            //    pos.y += 10;
+            //    sparkleEffectListOnComplete[i].transform.localPosition = pos;
+            //}
             seq.Join( GameEvents.DoTweenAnimationHandlerEvents.onMoveToTargetAnimation.Raise(g.transform, targetPos, duration, Ease.Linear));
             seq.Join(GameEvents.DoTweenAnimationHandlerEvents.onScaleTransform.Raise(g.transform, Vector3.zero, 3.5f, Ease.Linear));
 
             seq.OnComplete(() =>
             {
                 sparkleEffectListOnComplete.Remove(g);
-                Invoke(nameof(WinEffect), 0.5f);
+                WinEffect();
+                //Invoke(nameof(WinEffect), 0.5f);
                 Destroy(g);
             });
         }

@@ -18,8 +18,10 @@ MonoBehaviour:
   noOfStitchesDone: 0
   totalParts: 9
   noOfStitchedPart: 0
-  plushieWidth: 545
-  plushieHeight: 645
+  plushieWidth: 800
+  plushieHeight: 800
   plushieSprite: {fileID: 21300000, guid: 90c3a480cb8f7b94b87a6ac4a84076e5, type: 3}
   threadColor: {r: 0.62352943, g: 0.32941177, b: 0.101960786, a: 1}
   threadSpool: {fileID: 21300000, guid: 3b934d44e5b2efa4e96049d0cfa16599, type: 3}
+  stitchObj: {fileID: 2318274901814856818, guid: 75e7b52665f739f47823b55122662811, type: 3}
+  crissCrossObjForEyes: {fileID: 2127325833259773361, guid: 201d15cda53417e4fa34909114448bc3, type: 3}

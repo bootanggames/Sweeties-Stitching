@@ -14,4 +14,6 @@ public class LevelDataScriptable : ScriptableObject
     public Sprite plushieSprite;
     public Color threadColor;
     public Sprite threadSpool;
+    public GameObject stitchObj;
+    public GameObject crissCrossObjForEyes;
 }

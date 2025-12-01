@@ -425,7 +425,7 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
                             }
                         }).OnComplete(() =>
                         {
-                            Debug.LogError(" " + info1.transform.position + "" + info1.movedPosition);
+                            //Debug.LogError(" " + info1.transform.position + "" + info1.movedPosition);
                             info1.transform.localPosition = info1.movedPosition;
                             SewPoint sp1 = p1.GetComponent<SewPoint>();
                             SewPoint sp2 = p2.GetComponent<SewPoint>();
@@ -510,7 +510,7 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
 
                         }).OnComplete(() =>
                         {
-                            Debug.LogError(" " + info2.transform.position + "" + info2.movedPosition);
+                            //Debug.LogError(" " + info2.transform.position + "" + info2.movedPosition);
 
                             info2.transform.position = info2.movedPosition;
 

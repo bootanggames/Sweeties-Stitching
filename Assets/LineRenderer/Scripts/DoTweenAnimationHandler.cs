@@ -71,10 +71,18 @@ public class DoTweenAnimationHandler : MonoBehaviour
     int actualAmount;
     Tween CoinsIncrement(int rewardAmount, float speed,TextMeshProUGUI coinsText, Ease ease)
     {
-        Debug.LogError("speed " + speed);
         actualAmount = PlayerPrefs.GetInt("Coins");
         int target = actualAmount + rewardAmount;
-        return DOTween.To(() => actualAmount, x => { target = x; coinsText.text = x.ToString(); }, target, speed).SetEase(Ease.InOutBack);
+        return DOTween.To(() => actualAmount, x => 
+        { 
+            target = x; 
+            coinsText.text = x.ToString();
+            //int TotalEarned = actualAmount + x;
+            PlayerPrefs.SetInt("Coins", x);
+            var coinHandler = ServiceLocator.GetService<ICoinsHandler>();
+            if (coinHandler != null)
+                coinHandler.UpdateCoins(x);
+        }, target, speed).SetEase(Ease.InOutBack);
     }
  
 }

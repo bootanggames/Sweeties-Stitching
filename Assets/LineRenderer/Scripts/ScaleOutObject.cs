@@ -1,4 +1,5 @@
 using DG.Tweening;
+using System.Runtime.Versioning;
 using UnityEngine;
 
 public class ScaleOutObject : MonoBehaviour
@@ -10,12 +11,15 @@ public class ScaleOutObject : MonoBehaviour
     [SerializeField] bool startGame;
     private void OnEnable()
     {
+        ScaleOut();
+    }
+    private void OnDisable()
+    {
         if (tween != null && tween.IsActive())
         {
             tween.Kill();
             tween = null;
         }
-        ScaleOut();
     }
     void ScaleOut()
     {
@@ -25,7 +29,7 @@ public class ScaleOutObject : MonoBehaviour
             tween.OnComplete(() =>
             {
                 if (startGame)
-                    Invoke("StartGame", 0.5f);
+                    Invoke("StartGame", 0.25f);
                 else
                     GameComplete();
             });
@@ -40,6 +44,7 @@ public class ScaleOutObject : MonoBehaviour
             canvasHandler.TapToStart();
 
         tween.Kill();
+        this.gameObject.transform.localScale = Vector3.zero;
         this.gameObject.SetActive(false);
         CancelInvoke("StartGame");
     }
@@ -47,9 +52,7 @@ public class ScaleOutObject : MonoBehaviour
     void GameComplete()
     {
 
-        var canvasHandler = ServiceLocator.GetService<ICanvasUIManager>();
-        if (canvasHandler != null)
-            canvasHandler.confettiEffectCanvas.SetActive(true);
+   
         //LevelsHandler.instance.currentLevelMeta.DeactivateAllThreads();
         //LevelsHandler.instance.currentLevelMeta.sewnPlushie.SetActive(true);
         //LevelsHandler.instance.currentLevelMeta.gameObject.SetActive(false);
@@ -66,7 +69,14 @@ public class ScaleOutObject : MonoBehaviour
         tween.Kill();
         tween = null;
         PlaySound();
+        Invoke(nameof(FireworksParticles),1.0f);
+    }
 
+    void FireworksParticles()
+    {
+        var canvasHandler = ServiceLocator.GetService<ICanvasUIManager>();
+        if (canvasHandler != null)
+            canvasHandler.confettiEffectCanvas.SetActive(true);
         tween = GameEvents.DoTweenAnimationHandlerEvents.onScaleTransform.Raise(this.transform, Vector3.zero, speed, ease);
         if (tween != null)
         {
@@ -75,6 +85,7 @@ public class ScaleOutObject : MonoBehaviour
                 GameEvents.EffectHandlerEvents.onSewnCompletely.RaiseEvent();
             });
         }
+        CancelInvoke(nameof(FireworksParticles));
     }
     void PlaySound()
     {

@@ -70,12 +70,13 @@ public class LevelsHandler : Singleton<LevelsHandler>, ILevelHandler
     public void SetLevelLockState(int levelIndex, int plushieIndex, int val)
     {
         PlayerPrefs.SetInt("Level_" + levelIndex + "Plushie_" + plushieIndex, val);
+        PlayerPrefs.SetInt(currentLevelMeta.levelScriptable.levelName, val);
     }
     public void UpdatePlushieInventory(int l_index, int totalCompletedPlushie)
     {
         for (int i = 0; i <= totalCompletedPlushie; i++)
         {
-            string completedLevelName = levelStructure[l_index].plushie[i].levelName;
+            string completedLevelName = levelStructure[l_index].plushie[i].levelScriptable.levelName;
             if (PlayerPrefs.HasKey(completedLevelName))
             {
                 int val = PlayerPrefs.GetInt(completedLevelName);
@@ -94,6 +95,7 @@ public class LevelsHandler : Singleton<LevelsHandler>, ILevelHandler
         plushieIndex = PlayerPrefs.GetInt("Level_" + levelIndex + "_Plushie");
         //if (plushieIndex < levelStructure[levelIndex].plushie.Length)
         plushieIndex++;
+
         if (plushieIndex >= levelStructure[levelIndex].plushie.Length)
         {
             levelIndex++;
@@ -127,15 +129,15 @@ public class LevelsHandler : Singleton<LevelsHandler>, ILevelHandler
         var connectionHandler = ServiceLocator.GetService<IPointConnectionHandler>();
         if (connectionHandler != null) connectionHandler.DeleteAllThreadLinks();
 
-        int rewardedCoins = currentLevelMeta.levelReward;
+        int rewardedCoins = currentLevelMeta.levelScriptable.levelReward;
         LevelIncrementProcess();
-        int TotalEarned = totalCoins + rewardedCoins;
-        PlayerPrefs.SetInt("Coins", TotalEarned);
-        if (coinHandler != null)
-        {
-            coinHandler.ResetCoinList();
-            coinHandler.UpdateCoins(TotalEarned);
-        }
+        //int TotalEarned = totalCoins + rewardedCoins;
+        //PlayerPrefs.SetInt("Coins", TotalEarned);
+        //if (coinHandler != null)
+        //{
+        //    coinHandler.ResetCoinList();
+        //    coinHandler.UpdateCoins(TotalEarned);
+        //}
         var canvasHandler = ServiceLocator.GetService<ICanvasUIManager>();
         if (canvasHandler != null)
         {

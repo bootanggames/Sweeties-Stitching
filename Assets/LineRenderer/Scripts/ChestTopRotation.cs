@@ -15,7 +15,7 @@ public class ChestTopRotation : MonoBehaviour
             coinsEffectParent.SetActive(true);
             var icoinsHandler = ServiceLocator.GetService<ICoinsHandler>();
             if(icoinsHandler != null)
-                icoinsHandler.CoinIncrementAnimation(LevelsHandler.instance.currentLevelMeta.levelReward);
+                icoinsHandler.CoinIncrementAnimation(LevelsHandler.instance.currentLevelMeta.levelScriptable.levelReward);
             Invoke(nameof(DisableTreasureBox),1.0f);
         });
     }

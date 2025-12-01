@@ -15,7 +15,8 @@ public class SaveDataUsingJson : Singleton<SaveDataUsingJson>
     }
     public void SaveData<T>(string fileName, T data)
     {
-        string fullPath = Path.Combine(path, fileName);
+        string folderName = Path.Combine(path, "Stitching_BackUpFiles");
+        string fullPath = Path.Combine(folderName, fileName);
         if(!File.Exists(fullPath)) 
             Directory.CreateDirectory(Path.GetDirectoryName(fullPath));
         string json = JsonUtility.ToJson(data, true);
@@ -24,7 +25,9 @@ public class SaveDataUsingJson : Singleton<SaveDataUsingJson>
 
     public T LoadData<T>(string fileName) where T : class
     {
-        string fullPath = Path.Combine(path, fileName);
+        string folderName = Path.Combine(path, "Stitching_BackUpFiles");
+
+        string fullPath = Path.Combine(folderName, fileName);
         if (!File.Exists(fullPath))
             return null;
 

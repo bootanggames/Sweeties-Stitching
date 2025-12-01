@@ -25,3 +25,4 @@ MonoBehaviour:
   sparklesSound: {fileID: 8300000, guid: b307b93297008034dbc053d6f1e0bca7, type: 3}
   congratulationsScreenSound: {fileID: 8300000, guid: 8f9e930cdf5fbcc40bc0141137002c2e, type: 3}
   sewingRoomBgSound: {fileID: 8300000, guid: 8bc1fb05a2c2ba04680ccc058b4657ef, type: 3}
+  coinBagExploding: {fileID: 8300000, guid: 24d023a56c9594345a7be3bc108f600e, type: 3}

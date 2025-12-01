@@ -41,7 +41,7 @@ public class SewPoint : MonoBehaviour, ISewPoint
                 int plushieIndex = PlayerPrefs.GetInt("Level_" + LevelsHandler.instance.levelIndex + "_Plushie");
                 string bodyPart = parentInfo.partType.ToString();
                 if (SaveDataUsingJson.instance)
-                    metaData = SaveDataUsingJson.instance.LoadData<SewPointMetaData>(LevelsHandler.instance.currentLevelMeta.levelName + "_" + plushieIndex + "_" + bodyPart + "_" + attachmentId);
+                    metaData = SaveDataUsingJson.instance.LoadData<SewPointMetaData>(LevelsHandler.instance.currentLevelMeta.levelScriptable.levelName + "_" + plushieIndex + "_" + bodyPart + "_" + attachmentId);
 
                 if (metaData == null)
                     metaData = new SewPointMetaData();
@@ -90,7 +90,7 @@ public class SewPoint : MonoBehaviour, ISewPoint
                 string bodyPart = parentInfo.partType.ToString();
 
                 if (SaveDataUsingJson.instance)
-                    SaveDataUsingJson.instance.SaveData(LevelsHandler.instance.currentLevelMeta.levelName + "_" + plushieIndex + "_" + bodyPart + "_" + attachmentId, metaData);
+                    SaveDataUsingJson.instance.SaveData(LevelsHandler.instance.currentLevelMeta.levelScriptable.levelName + "_" + plushieIndex + "_" + bodyPart + "_" + attachmentId, metaData);
             }
         }
         CancelInvoke(nameof(LoadSavedData));
@@ -138,6 +138,6 @@ public class SewPoint : MonoBehaviour, ISewPoint
         int plushieIndex = PlayerPrefs.GetInt("Level_" + LevelsHandler.instance.levelIndex + "_Plushie");
 
         if (SaveDataUsingJson.instance)
-            SaveDataUsingJson.instance.SaveData(LevelsHandler.instance.currentLevelMeta.levelName + "_" + plushieIndex + "_" + bodyPart + "_" + attachmentId, metaData);
+            SaveDataUsingJson.instance.SaveData(LevelsHandler.instance.currentLevelMeta.levelScriptable.levelName + "_" + plushieIndex + "_" + bodyPart + "_" + attachmentId, metaData);
     }
 }

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -14,8 +15,15 @@ public class SplashScreen : MonoBehaviour
     GameObject sparkle;
     private void Start()
     {
+        if (!PlayerPrefs.HasKey("initialized"))
+        {
+            PlayerPrefs.SetInt("initialized", 1);
+            PlayerPrefs.Save();
+            string path = Application.persistentDataPath;
+            if (Directory.Exists(path))
+                Directory.Delete(path, true);
+        }
         Invoke("LoadScene", loadSceneDelay);
-        //InvokeRepeating("InstantiateSingleObject", 0.2f, 1.25f);
     }
 
     void LoadScene()

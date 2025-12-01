@@ -36,8 +36,8 @@ public class CoinsHandler : MonoBehaviour,ICoinsHandler
     {
         totalCoins = PlayerPrefs.GetInt("Coins");
         UpdateCoins(totalCoins);
-        if (totalCoins == 0)
-            SaveCoins(10);
+        //if (totalCoins == 0)
+        //    SaveCoins(10);
         //if (testCoinIncrement)
         //    CoinIncrementAnimation(amountToTest);
 
@@ -90,7 +90,7 @@ public class CoinsHandler : MonoBehaviour,ICoinsHandler
             float y = Random.Range(-yPos, yPos);
             g.GetComponent<RectTransform>().anchoredPosition = new Vector2(x, y);
         }
-        coinsRewarded = LevelsHandler.instance.currentLevelMeta.levelReward;
+        coinsRewarded = LevelsHandler.instance.currentLevelMeta.levelScriptable.levelReward;
         coinsEarned.text = coinsRewarded.ToString();
     }
     public IEnumerator MoveCoins(List<GameObject> coinList,Transform _target, GameObject coinsBarObj, float moveSpeed, Ease moveEase,float delay)
@@ -140,6 +140,7 @@ public class CoinsHandler : MonoBehaviour,ICoinsHandler
         SoundManager.instance.StopSound(audioSource);
         SoundManager.instance.PlaySound(audioSource, SoundManager.instance.audioClips.coinCollection, false, false, 1, false);
         HepticManager.instance.HapticEffect();
+        CancelInvoke(nameof(PlayCoinSound));
     }
     public void ResetCoinList()
     {
@@ -157,10 +158,19 @@ public class CoinsHandler : MonoBehaviour,ICoinsHandler
     {
         ServiceLocator.UnRegisterService<ICoinsHandler>(this);
     }
-
+   
     public void CoinIncrementAnimation(int targetAmount)
     {
         coinIncrementTween = GameEvents.DoTweenAnimationHandlerEvents.onCountIncrement.Raise(targetAmount, coinsIncrementSpeed, coinsTextBox, Ease.InOutBack);
+        if(coinIncrementTween != null)
+        {
+            coinIncrementTween.OnUpdate(() =>
+            {
+
+                Invoke(nameof(PlayCoinSound), 0.1f);
+            });
+        }
+       
         coinIncrementTween.OnComplete(() =>
         {
             coinIncrementTween.Kill();

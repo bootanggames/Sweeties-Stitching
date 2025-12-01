@@ -14,6 +14,8 @@ public class PlushiesInventory : MonoBehaviour,IPlushieInventory
     [SerializeField] AudioSource mainMenuSource;
     private void OnEnable()
     {
+        int c = PlayerPrefs.GetInt("Coins");
+        coinUi.text = c.ToString();
         RegisterService();
         if(mainMenuSource)
             SoundManager.instance.StopSound(mainMenuSource);

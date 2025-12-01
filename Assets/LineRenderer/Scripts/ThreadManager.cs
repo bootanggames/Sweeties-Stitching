@@ -619,8 +619,8 @@ public class ThreadManager : MonoBehaviour, IThreadManager
 
 
 
-                    SaveDataUsingJson.instance.SaveData(LevelsHandler.instance.currentLevelMeta.levelName + "_" + o_Info1.partType, o_Info1.stitchData);
-                    SaveDataUsingJson.instance.SaveData(LevelsHandler.instance.currentLevelMeta.levelName + "_" + o_Info2.partType, o_Info2.stitchData);
+                    SaveDataUsingJson.instance.SaveData(LevelsHandler.instance.currentLevelMeta.levelScriptable.levelName + "_" + o_Info1.partType, o_Info1.stitchData);
+                    SaveDataUsingJson.instance.SaveData(LevelsHandler.instance.currentLevelMeta.levelScriptable.levelName + "_" + o_Info2.partType, o_Info2.stitchData);
                     
                     LevelsHandler.instance.currentLevelMeta.UpdateAllStitchesOfPlushie();
                     

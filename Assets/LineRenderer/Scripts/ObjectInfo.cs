@@ -62,7 +62,7 @@ public class ObjectInfo : MonoBehaviour
             if (gameHandler.saveProgress)
             {
                 if (SaveDataUsingJson.instance)
-                    stitchData = SaveDataUsingJson.instance.LoadData<PlushiePartStitchData>(LevelsHandler.instance.currentLevelMeta.levelName + "_" + partType);
+                    stitchData = SaveDataUsingJson.instance.LoadData<PlushiePartStitchData>(LevelsHandler.instance.currentLevelMeta.levelScriptable.levelName + "_" + partType);
                 if(stitchData == null)
                     stitchData= new PlushiePartStitchData();
                 if (stitchData.movedPositions.Count > 0)
@@ -123,11 +123,12 @@ public class ObjectInfo : MonoBehaviour
 
                     }
                 }
+               
             }
             else
             {
                 if (SaveDataUsingJson.instance)
-                    SaveDataUsingJson.instance.SaveData(LevelsHandler.instance.currentLevelMeta.levelName + "_" + partType, stitchData);
+                    SaveDataUsingJson.instance.SaveData(LevelsHandler.instance.currentLevelMeta.levelScriptable.levelName + "_" + partType, stitchData);
             }
         }
         CancelInvoke(nameof(LoadSavedData));
@@ -152,18 +153,18 @@ public class ObjectInfo : MonoBehaviour
     public void IncementConnection()
     {
         stitchData.noOfConnections++;
-        SaveDataUsingJson.instance.SaveData(LevelsHandler.instance.currentLevelMeta.levelName + "_" + partType, stitchData);
+        SaveDataUsingJson.instance.SaveData(LevelsHandler.instance.currentLevelMeta.levelScriptable.levelName + "_" + partType, stitchData);
     }
     public void DecementConnection()
     {
         stitchData.noOfConnections--;
-        SaveDataUsingJson.instance.SaveData(LevelsHandler.instance.currentLevelMeta.levelName + "_" + partType, stitchData);
+        SaveDataUsingJson.instance.SaveData(LevelsHandler.instance.currentLevelMeta.levelScriptable.levelName + "_" + partType, stitchData);
     }
     public void MarkStitched()
     {
         stitchData.IsStitched = true;
 
-        SaveDataUsingJson.instance.SaveData(LevelsHandler.instance.currentLevelMeta.levelName + "_" + partType, stitchData);
+        SaveDataUsingJson.instance.SaveData(LevelsHandler.instance.currentLevelMeta.levelScriptable.levelName + "_" + partType, stitchData);
 
         if (cotton) cotton.SetActive(false);
 

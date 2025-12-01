@@ -8,6 +8,7 @@ public class GameHandler : Singleton<GameHandler>, IGameHandler
 
     public override void SingletonAwake()
     {
+        Time.timeScale = 1;
         base.SingletonAwake();
         RegisterService();
         int saveState = PlayerPrefs.GetInt("SaveProgress");

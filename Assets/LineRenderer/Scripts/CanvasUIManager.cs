@@ -87,8 +87,11 @@ public class CanvasUIManager : MonoBehaviour, ICanvasUIManager
     public void CheckGameCompleteOnHomeButton()
     {
         if (!GameHandler.instance.gameStates.Equals(GameStates.Gamecomplete))
+        {
             goToHomeScreen.SetActive(true);
-        Time.timeScale = 0;
+            Time.timeScale = 0;
+        }
+            
     }
 
     public void TimeScale()

@@ -168,7 +168,6 @@ public class LevelsHandler : Singleton<LevelsHandler>, ILevelHandler
             int stitchedCountOfCurrentLevel =  PlayerPrefs.GetInt("StitchedCount");
             currentLevelMeta.noOfStitchesDone = stitchedCountOfCurrentLevel;
             currentLevelMeta.noOfStitchedPart = PlayerPrefs.GetInt("StitchedPartCount");
-            currentLevelMeta.Delay();
             currentLevelMeta.CheckIfStitchedBeforeCompleteScreen();
         }
     }

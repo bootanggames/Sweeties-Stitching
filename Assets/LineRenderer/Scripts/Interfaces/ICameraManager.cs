@@ -20,6 +20,6 @@ public interface ICameraManager : IGameService
     CinemachineVirtualCameraBase gameCompleteCamera { get; }
     CinemachineVirtualCameraBase gameHalfProgressCamera { get; }
 
-    void RepositionCamera(Transform camera, Transform pos);
+    void RepositionCamera(Transform camera, Vector3 pos);
     
 }

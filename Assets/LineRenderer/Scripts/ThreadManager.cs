@@ -641,7 +641,7 @@ public class ThreadManager : MonoBehaviour, IThreadManager
                     canvasHandler.undoHighLight.SetActive(false);
             }
             if(detectedPoints.Count > 0)
-                LevelsHandler.instance.currentLevelMeta.ResetNeedlePosition(LevelsHandler.instance.currentLevelMeta.plushieActivePartToStitch);
+                LevelsHandler.instance.currentLevelMeta.ResetNeedlePosition(LevelsHandler.instance.currentLevelMeta.currentActivePart);
      
         }
     }

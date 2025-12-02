@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class GameCompleteHandler : MonoBehaviour, IGameService
 {
     [SerializeField] float speed;
-    [SerializeField] List<GameObject> confettiEffect;
+    /*[SerializeField]*/ List<GameObject> confettiEffect;
     [SerializeField] Transform[] effectPosition;
     [SerializeField] Image plushieOfCurrentLevel;
 
@@ -19,9 +19,10 @@ public class GameCompleteHandler : MonoBehaviour, IGameService
     [SerializeField] Transform sparkleTrailAtCompletionStartPos;
     [SerializeField] Transform sparkleTrailAtCompletionTargetPos;
     [SerializeField] float sparkleMoveSpeed;
+    /*[SerializeField]*/
+    List<GameObject> sparkleEffectListOnComplete = new List<GameObject>();
 
     [SerializeField] private GameObject _coinBurstObject;
-    [SerializeField] bool test;
     private void OnEnable()
     {
         RegisterService();
@@ -64,7 +65,7 @@ public class GameCompleteHandler : MonoBehaviour, IGameService
 
         AudioSource _source = SoundManager.instance.audioSource;
         AudioClip _clip = SoundManager.instance.audioClips.congratulationsScreenSound;
-        SoundManager.instance.PlaySound(_source, _clip, false, false, 1, false);
+        SoundManager.instance.PlaySound(_source, _clip, true, false, 1, false);
     }
     void GameComplete()
     {
@@ -108,11 +109,11 @@ public class GameCompleteHandler : MonoBehaviour, IGameService
    
     void PlaySoundCoinBagExploding()
     {
-        SoundManager.instance.ResetAudioSource();
-
-        AudioSource _source = SoundManager.instance.audioSource;
+        //SoundManager.instance.ResetAudioSource();
+        _coinBurstObject.AddComponent<AudioSource>();
+        AudioSource source = _coinBurstObject.GetComponent<AudioSource>();
         AudioClip _clip = SoundManager.instance.audioClips.coinBagExploding;
-        SoundManager.instance.PlaySound(_source, _clip, false, false, 1, false);
+        SoundManager.instance.PlaySound(source, _clip, false, false, 1, false);
     }
     void TreasureBoxAppearance()
     {
@@ -126,7 +127,6 @@ public class GameCompleteHandler : MonoBehaviour, IGameService
         gameplayBgObj.SetActive(false);
     }
    
-    [SerializeField] List<GameObject> sparkleEffectListOnComplete;
     void SparkleEffectOnPlushieComplete()
     {
         int _count = 10;
@@ -178,17 +178,15 @@ public class GameCompleteHandler : MonoBehaviour, IGameService
             seq.OnComplete(() =>
             {
                 sparkleEffectListOnComplete.Remove(g);
-                WinEffect();
-                //Invoke(nameof(WinEffect), 0.5f);
+                //WinEffect();
                 Destroy(g);
             });
         }
-       
+        Invoke(nameof(WinEffect), 1.0f);
     }
 
     void CleanEnablePlushie()
     {
-     
         foreach (Connections c in LevelsHandler.instance.currentLevelMeta.cleanConnection)
         {
             Destroy(c.line.gameObject);

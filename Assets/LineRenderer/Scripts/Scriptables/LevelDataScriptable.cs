@@ -14,4 +14,15 @@ public class LevelDataScriptable : ScriptableObject
     public Sprite threadSpool;
     public GameObject stitchObj;
     public GameObject crissCrossObjForEyes;
+
+    public Vector3 neckCameraPos;
+    public Vector3 rightEyeCameraPos;
+    public Vector3 rightEarCameraPos;
+    public Vector3 leftEarCameraPos;
+    public Vector3 leftEyeCameraPos;
+    public Vector3 leftArmCameraPos;
+    public Vector3 leftLegCameraPos;
+    public Vector3 rightLegCameraPos;
+    public Vector3 rightArmCameraPos;
+    public Vector3 gameCompleteCameraPos;
 }

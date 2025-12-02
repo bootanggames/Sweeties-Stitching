@@ -32,8 +32,12 @@ public class CoinsHandler : MonoBehaviour,ICoinsHandler
     Tween coinIncrementTween = null;
     [SerializeField] bool testCoinIncrement = false;
     [SerializeField] int amountToTest = 0;
+    [SerializeField]float timeDuration = 0;
+    [SerializeField] float waitTime;
     private void Start()
     {
+        timeDuration = Time.time;
+
         totalCoins = PlayerPrefs.GetInt("Coins");
         UpdateCoins(totalCoins);
         //if (totalCoins == 0)
@@ -140,6 +144,10 @@ public class CoinsHandler : MonoBehaviour,ICoinsHandler
         SoundManager.instance.StopSound(audioSource);
         SoundManager.instance.PlaySound(audioSource, SoundManager.instance.audioClips.coinCollection, false, false, 1, false);
         HepticManager.instance.HapticEffect();
+        Invoke(nameof(StopCoinSound), 4);
+    }
+    void StopCoinSound()
+    {
         CancelInvoke(nameof(PlayCoinSound));
     }
     public void ResetCoinList()
@@ -158,7 +166,6 @@ public class CoinsHandler : MonoBehaviour,ICoinsHandler
     {
         ServiceLocator.UnRegisterService<ICoinsHandler>(this);
     }
-   
     public void CoinIncrementAnimation(int targetAmount)
     {
         coinIncrementTween = GameEvents.DoTweenAnimationHandlerEvents.onCountIncrement.Raise(targetAmount, coinsIncrementSpeed, coinsTextBox, Ease.InOutBack);
@@ -166,8 +173,6 @@ public class CoinsHandler : MonoBehaviour,ICoinsHandler
         {
             coinIncrementTween.OnUpdate(() =>
             {
-
-                Invoke(nameof(PlayCoinSound), 0.1f);
             });
         }
        
@@ -176,5 +181,6 @@ public class CoinsHandler : MonoBehaviour,ICoinsHandler
             coinIncrementTween.Kill();
             coinIncrementTween = null;
         });
+        InvokeRepeating(nameof(PlayCoinSound), 0, 0.1f);
     }
 }

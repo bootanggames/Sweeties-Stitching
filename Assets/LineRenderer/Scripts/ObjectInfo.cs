@@ -7,8 +7,8 @@ using UnityEngine;
 public class ObjectInfo : MonoBehaviour
 {
     public PlushieActiveStitchPart partType;
-
     public PartConnectedTo partConnectedTo;
+    public ObjectInfo addressOfNextPartToBeStitched;
     public Vector3 originalRotation;
     public Vector3 movedPosition;
     public Vector3 startPosition;
@@ -31,16 +31,7 @@ public class ObjectInfo : MonoBehaviour
     public CleanStitch c_Stitch;
     [SerializeField] bool enableConnection;
     List<GameObject> coinsObj = new List<GameObject>();
-    //[Header("----------------New Data------------------")]
-    //[SerializeField] GameObject pointPrefab;
-    //[SerializeField] Transform pointParent;
-    //[SerializeField] Transform firstPoint;
-    //[SerializeField] float pointsXDistance;
-    //[SerializeField] float maxHeightOffset;
-    //Vector3 prevPos;
-    //[SerializeField] List<Vector3> positions = new List<Vector3>();
-    //[SerializeField] List<SewPoint> generatedPoints;
-    //[SerializeField] bool dontChangeY;
+ 
     private void Start()
     {
         c_Stitch = GetComponent<CleanStitch>();
@@ -163,7 +154,11 @@ public class ObjectInfo : MonoBehaviour
     public void MarkStitched()
     {
         stitchData.IsStitched = true;
-
+        if (moveable)
+        {
+            LevelsHandler.instance.currentLevelMeta.current_ObjectInfor = addressOfNextPartToBeStitched;
+            LevelsHandler.instance.currentLevelMeta.currentActivePart = partType;
+        }
         SaveDataUsingJson.instance.SaveData(LevelsHandler.instance.currentLevelMeta.levelScriptable.levelName + "_" + partType, stitchData);
 
         if (cotton) cotton.SetActive(false);
@@ -220,6 +215,7 @@ public class ObjectInfo : MonoBehaviour
             }
       
         }
+     
         Invoke("EnableConffetti", 0.2f);
     }
     int index = 0;
@@ -321,8 +317,8 @@ public class ObjectInfo : MonoBehaviour
         {
             if (threadManager.detectedPoints != null && threadManager.detectedPoints.Count > 0)
             {
-                sp = threadManager.detectedPoints[threadManager.detectedPoints.Count - 1].GetComponent<SewPoint>();
-                sp.name = sp.sequenceType.ToString();
+                //sp = threadManager.detectedPoints[threadManager.detectedPoints.Count - 1].GetComponent<SewPoint>();
+                //sp.name = sp.sequenceType.ToString();
                 GameEvents.ThreadEvents.onResetThreadInput.RaiseEvent();
                 if (LevelsHandler.instance.currentLevelMeta)
                 {
@@ -331,7 +327,7 @@ public class ObjectInfo : MonoBehaviour
                     //    Destroy(c.line.gameObject);
                     //}
                     //LevelsHandler.instance.currentLevelMeta.cleanConnection.Clear();
-                    LevelsHandler.instance.currentLevelMeta.UpdateLevelProgress(sp.sequenceType);
+                    LevelsHandler.instance.currentLevelMeta.UpdateLevelProgress(/*sp.sequenceType*/);
                 }
 
 

@@ -55,8 +55,8 @@ public class CameraManager : MonoBehaviour, ICameraManager
         GameEvents.CameraManagerEvents.onAddingCamera.UnregisterEvent(AddCamera);
     }
 
-    public void RepositionCamera(Transform camera, Transform pos)
+    public void RepositionCamera(Transform camera, Vector3 pos)
     {
-        camera.localPosition = pos.localPosition;
+        camera.localPosition = pos;
     }
 }

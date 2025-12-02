@@ -1098,6 +1098,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   partType: 6
   partConnectedTo: 1
+  addressOfNextPartToBeStitched: {fileID: 0}
   originalRotation: {x: 0, y: 0, z: 0}
   movedPosition: {x: 0, y: 0, z: 0}
   startPosition: {x: 0, y: 0, z: 0}
@@ -2406,6 +2407,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   partType: 6
   partConnectedTo: 1
+  addressOfNextPartToBeStitched: {fileID: 3886041523131487947}
   originalRotation: {x: 0, y: 0, z: 0}
   movedPosition: {x: 0, y: 0, z: 0}
   startPosition: {x: -1.4650999, y: 1.1309999, z: 0}
@@ -3038,6 +3040,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   partType: 8
   partConnectedTo: 1
+  addressOfNextPartToBeStitched: {fileID: 0}
   originalRotation: {x: 0, y: 0, z: 0}
   movedPosition: {x: 0, y: 0, z: 0}
   startPosition: {x: 0, y: 0, z: 0}
@@ -3491,6 +3494,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   partType: 4
   partConnectedTo: 1
+  addressOfNextPartToBeStitched: {fileID: 1668455603682535711}
   originalRotation: {x: 0, y: 0, z: 0}
   movedPosition: {x: 0, y: 2.33, z: 0}
   startPosition: {x: 0, y: 2.6, z: 0}
@@ -4857,11 +4861,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdc877ac9626c6b4999856cfbbe442c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelName: Brownie
-  levelReward: 30
-  totalCorrectLinks: 73
-  noOfLinks: 0
-  plushieActivePartToStitch: 0
+  completed: 0
+  levelScriptable: {fileID: 11400000, guid: 000ff189ddcc5b64ebae869a8a36ae40, type: 2}
+  noOfStitchesDone: 0
+  noOfStitchedPart: 0
+  currentActivePart: 0
   bodyParts:
   - {fileID: 1100506877336581595}
   - {fileID: 767890908964576312}
@@ -4876,50 +4880,9 @@ MonoBehaviour:
   immoveablePart: {fileID: 4149786716482060576}
   bodyWihtoutHoles: {fileID: 8428181899845767678}
   sewnPlushie: {fileID: 0}
-  totalStitchedPart: 9
-  noOfStitchedPart: 0
-  levelDivision:
-    leftSide:
-    - {fileID: 8781973318632296159}
-    - {fileID: 6604650078643895803}
-    - {fileID: 7845435807239354731}
-    - {fileID: 3802753783051937580}
-    - {fileID: 4524582397169479704}
-    - {fileID: 8246029601467004673}
-    - {fileID: 1642004754154723431}
-    - {fileID: 767890908964576312}
-    rightSide:
-    - {fileID: 3802753783051937580}
-    - {fileID: 7845435807239354731}
-    - {fileID: 6604650078643895803}
-    - {fileID: 8781973318632296159}
-    - {fileID: 767890908964576312}
-    - {fileID: 1642004754154723431}
-    - {fileID: 8246029601467004673}
-    - {fileID: 4524582397169479704}
-    leftSideIndex: 0
-    rightSideIndex: 0
-  sequenceType: 0
-  neckCamera: {fileID: 4110823380288563356}
-  leftEyeCamera: {fileID: 6782006372771117322}
-  leftEarCamera: {fileID: 5595179521838669814}
-  rightEarCamera: {fileID: 7717018186053283293}
-  rightEyeCamera: {fileID: 2657084537158098060}
-  rightArmCamera: {fileID: 5866887583104720945}
-  rightLegCamera: {fileID: 7169169254557151170}
-  leftLegCamera: {fileID: 1767003836767255949}
-  leftArmCamera: {fileID: 856914150405780933}
-  gameCompleteCamera: {fileID: 7475907959703308089}
-  gameHalfProgressCamera: {fileID: 6179773318693236599}
-  plushieWidth: 800
-  plushieHeight: 800
-  plushieSprite: {fileID: 21300000, guid: 90c3a480cb8f7b94b87a6ac4a84076e5, type: 3}
+  current_ObjectInfor: {fileID: 0}
+  stitchStartingPart: {fileID: 9099363760956503711}
   needleUndoPosition: {fileID: 0}
-  threadColor: {r: 0.3254902, g: 0.16862746, b: 0.078431375, a: 1}
-  spoolColor: {fileID: 21300000, guid: 3b934d44e5b2efa4e96049d0cfa16599, type: 3}
-  stitchObj: {fileID: 2318274901814856818, guid: 75e7b52665f739f47823b55122662811, type: 3}
-  crissCrossObjForEyes: {fileID: 2127325833259773361, guid: 201d15cda53417e4fa34909114448bc3, type: 3}
-  completed: 0
   linePrefabForCleanConnection: {fileID: 7377872058111036791, guid: 9b87cbba0ae87414faacff166a8bcaad, type: 3}
   cleanConnection: []
   cleanThreadIndex: 0
@@ -5793,7 +5756,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  - {fileID: 2100000, guid: 79459efec17a4d00a321bdcc27bbc385, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5838,7 +5801,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: well done !
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 3eef0d716748f354ba582b229fcd6468, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -5907,7 +5870,7 @@ MonoBehaviour:
   _SortingLayer: 0
   _SortingLayerID: 0
   _SortingOrder: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_renderer: {fileID: 3296535353081966052}
   m_maskType: 0
 --- !u!114 &6728186446486654766
@@ -6387,6 +6350,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   partType: 8
   partConnectedTo: 1
+  addressOfNextPartToBeStitched: {fileID: 3157232403349040802}
   originalRotation: {x: 0, y: 0, z: 0}
   movedPosition: {x: 0, y: 0, z: 0}
   startPosition: {x: -0.79092014, y: -0.08580005, z: 0}
@@ -7109,6 +7073,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   partType: 2
   partConnectedTo: 0
+  addressOfNextPartToBeStitched: {fileID: 0}
   originalRotation: {x: 0, y: 0, z: 45}
   movedPosition: {x: 0, y: 0, z: 0}
   startPosition: {x: 0, y: 0, z: 0}
@@ -7430,7 +7395,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  - {fileID: 2100000, guid: 79459efec17a4d00a321bdcc27bbc385, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -7475,7 +7440,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: well done !
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 3eef0d716748f354ba582b229fcd6468, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -7544,7 +7509,7 @@ MonoBehaviour:
   _SortingLayer: 0
   _SortingLayerID: 0
   _SortingOrder: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_renderer: {fileID: 5438166620166385098}
   m_maskType: 0
 --- !u!114 &4944778416891448737
@@ -7612,6 +7577,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   partType: 1
   partConnectedTo: 0
+  addressOfNextPartToBeStitched: {fileID: 0}
   originalRotation: {x: 0, y: 0, z: 0}
   movedPosition: {x: 0, y: 0, z: 0}
   startPosition: {x: 0, y: 0, z: 0}
@@ -9531,7 +9497,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  - {fileID: 2100000, guid: 79459efec17a4d00a321bdcc27bbc385, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -9576,7 +9542,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: well done !
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 3eef0d716748f354ba582b229fcd6468, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -9645,7 +9611,7 @@ MonoBehaviour:
   _SortingLayer: 0
   _SortingLayerID: 0
   _SortingOrder: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_renderer: {fileID: 8164279098849307067}
   m_maskType: 0
 --- !u!114 &3833602633881748644
@@ -10445,7 +10411,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  - {fileID: 2100000, guid: 79459efec17a4d00a321bdcc27bbc385, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -10490,7 +10456,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: well done !
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 3eef0d716748f354ba582b229fcd6468, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -10559,7 +10525,7 @@ MonoBehaviour:
   _SortingLayer: 0
   _SortingLayerID: 0
   _SortingOrder: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_renderer: {fileID: 2979672652343038647}
   m_maskType: 0
 --- !u!114 &5356700533665988310
@@ -11540,7 +11506,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  - {fileID: 2100000, guid: 79459efec17a4d00a321bdcc27bbc385, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -11585,7 +11551,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: well done !
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 3eef0d716748f354ba582b229fcd6468, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -11654,7 +11620,7 @@ MonoBehaviour:
   _SortingLayer: 0
   _SortingLayerID: 0
   _SortingOrder: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_renderer: {fileID: 1957343586582185936}
   m_maskType: 0
 --- !u!114 &5325106357042248367
@@ -11915,7 +11881,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  - {fileID: 2100000, guid: 79459efec17a4d00a321bdcc27bbc385, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -11960,7 +11926,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: well done !
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 3eef0d716748f354ba582b229fcd6468, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -12029,7 +11995,7 @@ MonoBehaviour:
   _SortingLayer: 0
   _SortingLayerID: 0
   _SortingOrder: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_renderer: {fileID: 401777013029258762}
   m_maskType: 0
 --- !u!114 &6977389126535911159
@@ -13819,7 +13785,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  - {fileID: 2100000, guid: 79459efec17a4d00a321bdcc27bbc385, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -13864,7 +13830,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: well done !
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 3eef0d716748f354ba582b229fcd6468, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -13933,7 +13899,7 @@ MonoBehaviour:
   _SortingLayer: 0
   _SortingLayerID: 0
   _SortingOrder: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_renderer: {fileID: 7303163329714166852}
   m_maskType: 0
 --- !u!114 &1733939193326811256
@@ -17184,7 +17150,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.0844062, y: 5.8297086}
+  m_AnchoredPosition: {x: -0.0844062, y: 5.3}
   m_SizeDelta: {x: 3.712, y: 1.203}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &3278065946733392762
@@ -17212,7 +17178,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  - {fileID: 2100000, guid: 79459efec17a4d00a321bdcc27bbc385, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -17257,7 +17223,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: well done !
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 3eef0d716748f354ba582b229fcd6468, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -17326,7 +17292,7 @@ MonoBehaviour:
   _SortingLayer: 0
   _SortingLayerID: 0
   _SortingOrder: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_renderer: {fileID: 3278065946733392762}
   m_maskType: 0
 --- !u!114 &1114807653825165265
@@ -17933,6 +17899,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   partType: 0
   partConnectedTo: 0
+  addressOfNextPartToBeStitched: {fileID: 7397933102844274759}
   originalRotation: {x: 0, y: 0, z: 0}
   movedPosition: {x: 0.521, y: 2.583, z: 0}
   startPosition: {x: 1.08, y: 2.746, z: 0}
@@ -18398,7 +18365,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  - {fileID: 2100000, guid: 79459efec17a4d00a321bdcc27bbc385, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -18443,7 +18410,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: well done !
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 3eef0d716748f354ba582b229fcd6468, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -18512,7 +18479,7 @@ MonoBehaviour:
   _SortingLayer: 0
   _SortingLayerID: 0
   _SortingOrder: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_renderer: {fileID: 4829278698993382655}
   m_maskType: 0
 --- !u!114 &4050184985199760828
@@ -19717,7 +19684,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  - {fileID: 2100000, guid: 79459efec17a4d00a321bdcc27bbc385, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -19762,8 +19729,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: well done !
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 3eef0d716748f354ba582b229fcd6468, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 3eef0d716748f354ba582b229fcd6468, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -21149,6 +21116,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   partType: 5
   partConnectedTo: 1
+  addressOfNextPartToBeStitched: {fileID: 0}
   originalRotation: {x: 0, y: 0, z: 0}
   movedPosition: {x: 0, y: 0, z: 0}
   startPosition: {x: 1.4910998, y: 1.1206, z: 0}
@@ -24760,6 +24728,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   partType: 0
   partConnectedTo: 0
+  addressOfNextPartToBeStitched: {fileID: 0}
   originalRotation: {x: 0, y: 0, z: 0}
   movedPosition: {x: 0, y: 0, z: 0}
   startPosition: {x: 0, y: 0, z: 0}
@@ -25661,7 +25630,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  - {fileID: 2100000, guid: 79459efec17a4d00a321bdcc27bbc385, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -25706,7 +25675,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: well done !
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 3eef0d716748f354ba582b229fcd6468, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -25775,7 +25744,7 @@ MonoBehaviour:
   _SortingLayer: 0
   _SortingLayerID: 0
   _SortingOrder: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_renderer: {fileID: 6298733734963617394}
   m_maskType: 0
 --- !u!114 &1296133162875384701
@@ -26117,7 +26086,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  - {fileID: 2100000, guid: 79459efec17a4d00a321bdcc27bbc385, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -26162,7 +26131,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: well done !
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 3eef0d716748f354ba582b229fcd6468, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -26231,7 +26200,7 @@ MonoBehaviour:
   _SortingLayer: 0
   _SortingLayerID: 0
   _SortingOrder: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_renderer: {fileID: 7181964156838908395}
   m_maskType: 0
 --- !u!114 &2404979803783859821
@@ -29983,6 +29952,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   partType: 5
   partConnectedTo: 1
+  addressOfNextPartToBeStitched: {fileID: 0}
   originalRotation: {x: 0, y: 0, z: 0}
   movedPosition: {x: 0, y: 0, z: 0}
   startPosition: {x: 0, y: 0, z: 0}
@@ -30449,7 +30419,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  - {fileID: 2100000, guid: 79459efec17a4d00a321bdcc27bbc385, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -30494,7 +30464,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: well done !
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 3eef0d716748f354ba582b229fcd6468, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -30563,7 +30533,7 @@ MonoBehaviour:
   _SortingLayer: 0
   _SortingLayerID: 0
   _SortingOrder: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_renderer: {fileID: 3109473196626461564}
   m_maskType: 0
 --- !u!114 &2434253916946996588
@@ -31275,6 +31245,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   partType: 2
   partConnectedTo: 0
+  addressOfNextPartToBeStitched: {fileID: 5565119781008684172}
   originalRotation: {x: 0, y: 0, z: -25}
   movedPosition: {x: 0, y: 0, z: 0}
   startPosition: {x: -1.01, y: 3.39, z: 0}
@@ -31382,7 +31353,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  - {fileID: 2100000, guid: 79459efec17a4d00a321bdcc27bbc385, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -31427,7 +31398,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: well done !
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 3eef0d716748f354ba582b229fcd6468, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -31496,7 +31467,7 @@ MonoBehaviour:
   _SortingLayer: 0
   _SortingLayerID: 0
   _SortingOrder: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_renderer: {fileID: 392145544577524452}
   m_maskType: 0
 --- !u!114 &3100874559063445500
@@ -33837,6 +33808,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   partType: 7
   partConnectedTo: 1
+  addressOfNextPartToBeStitched: {fileID: 0}
   originalRotation: {x: 0, y: 0, z: 0}
   movedPosition: {x: 0, y: 0, z: 0}
   startPosition: {x: 0, y: 0, z: 0}
@@ -34787,7 +34759,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  - {fileID: 2100000, guid: 79459efec17a4d00a321bdcc27bbc385, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -34832,7 +34804,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: well done !
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 3eef0d716748f354ba582b229fcd6468, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -34901,7 +34873,7 @@ MonoBehaviour:
   _SortingLayer: 0
   _SortingLayerID: 0
   _SortingOrder: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_renderer: {fileID: 6373501797440283392}
   m_maskType: 0
 --- !u!114 &8850746669060158090
@@ -37023,7 +36995,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  - {fileID: 2100000, guid: 79459efec17a4d00a321bdcc27bbc385, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -37068,7 +37040,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: well done !
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 3eef0d716748f354ba582b229fcd6468, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -37137,7 +37109,7 @@ MonoBehaviour:
   _SortingLayer: 0
   _SortingLayerID: 0
   _SortingOrder: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_renderer: {fileID: 1857368850754310568}
   m_maskType: 0
 --- !u!114 &8059160140625618033
@@ -37623,6 +37595,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   partType: 3
   partConnectedTo: 0
+  addressOfNextPartToBeStitched: {fileID: 2940215653186403252}
   originalRotation: {x: 0, y: 0, z: 21}
   movedPosition: {x: 0, y: 0, z: 0}
   startPosition: {x: 1.13, y: 3.41, z: 0}
@@ -39793,7 +39766,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  - {fileID: 2100000, guid: 79459efec17a4d00a321bdcc27bbc385, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -39838,7 +39811,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: well done !
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 3eef0d716748f354ba582b229fcd6468, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -39907,7 +39880,7 @@ MonoBehaviour:
   _SortingLayer: 0
   _SortingLayerID: 0
   _SortingOrder: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_renderer: {fileID: 4991694146039986110}
   m_maskType: 0
 --- !u!114 &5393569425149112818
@@ -40035,6 +40008,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   partType: 7
   partConnectedTo: 1
+  addressOfNextPartToBeStitched: {fileID: 1273503339475191747}
   originalRotation: {x: 0, y: 0, z: 0}
   movedPosition: {x: 0, y: 0, z: 0}
   startPosition: {x: 0.7670001, y: -0.10399997, z: 0}
@@ -42207,6 +42181,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   partType: 1
   partConnectedTo: 0
+  addressOfNextPartToBeStitched: {fileID: 4572506562246350037}
   originalRotation: {x: 0, y: 0, z: 0}
   movedPosition: {x: -0.489, y: 2.588, z: 0}
   startPosition: {x: -1.13, y: 2.641, z: 0}
@@ -43604,6 +43579,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   partType: 3
   partConnectedTo: 0
+  addressOfNextPartToBeStitched: {fileID: 0}
   originalRotation: {x: 0, y: 0, z: 15}
   movedPosition: {x: 0, y: 0, z: 0}
   startPosition: {x: 0, y: 0, z: 0}
@@ -44383,7 +44359,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  - {fileID: 2100000, guid: 79459efec17a4d00a321bdcc27bbc385, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -44428,7 +44404,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: well done !
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 3eef0d716748f354ba582b229fcd6468, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -44497,7 +44473,7 @@ MonoBehaviour:
   _SortingLayer: 0
   _SortingLayerID: 0
   _SortingOrder: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_renderer: {fileID: 7125804796675594471}
   m_maskType: 0
 --- !u!114 &107919804870397973
@@ -44745,6 +44721,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   partType: 4
   partConnectedTo: 1
+  addressOfNextPartToBeStitched: {fileID: 0}
   originalRotation: {x: 0, y: 0, z: 0}
   movedPosition: {x: 0, y: 0, z: 0}
   startPosition: {x: 0, y: 0, z: 0}

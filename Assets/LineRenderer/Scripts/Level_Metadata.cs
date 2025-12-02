@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Level_Metadata : MonoBehaviour
@@ -124,6 +125,10 @@ public class Level_Metadata : MonoBehaviour
     public void StartLevel() 
     {
         current_ObjectInfor = stitchStartingPart;
+        if (stitchStartingPart.stitchData.IsStitched)
+        {
+            current_ObjectInfor = GetObjectInfoOfCurrentUnstitchedPart(bodyParts);
+        }
         currentActivePart = current_ObjectInfor.partType;
         NextPartActivation(current_ObjectInfor);
 

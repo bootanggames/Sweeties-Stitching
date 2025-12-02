@@ -71,9 +71,9 @@ public class GameCompleteHandler : MonoBehaviour, IGameService
         GameEvents.ThreadEvents.setThreadInput.RaiseEvent(false);
         if (LevelsHandler.instance)
         {
-            plushieOfCurrentLevel.sprite = LevelsHandler.instance.currentLevelMeta.plushieSprite;
+            plushieOfCurrentLevel.sprite = LevelsHandler.instance.currentLevelMeta.levelScriptable.plushieSprite;
             RectTransform rt = plushieOfCurrentLevel.rectTransform;
-            rt.sizeDelta = new Vector2(LevelsHandler.instance.currentLevelMeta.plushieWidth, LevelsHandler.instance.currentLevelMeta.plushieHeight);
+            rt.sizeDelta = new Vector2(LevelsHandler.instance.currentLevelMeta.levelScriptable.plushieWidth, LevelsHandler.instance.currentLevelMeta.levelScriptable.plushieHeight);
             levelProgress.text = (LevelsHandler.instance.levelIndex + 1) + "/3 Till Level 5";
         }
         var plushieInventory = ServiceLocator.GetService<IPlushieStoreHandler>();

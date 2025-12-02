@@ -22,8 +22,8 @@ public class LevelObjectiveManager : MonoBehaviour
         int levelIndex = PlayerPrefs.GetInt("Level");
         int plushieIndex = PlayerPrefs.GetInt("Level_" + levelIndex + "_Plushie");
         Level_Metadata levelData = LevelsHandler.instance.levelStructure[levelIndex].plushie[plushieIndex];
-        totalStitches.text = levelData.totalCorrectLinks.ToString();
-        totalBodyPartsToStitch.text = levelData.totalStitchedPart.ToString();
+        totalStitches.text = levelData.levelScriptable.totalStitches.ToString();
+        totalBodyPartsToStitch.text = levelData.levelScriptable.totalParts.ToString();
         UpdatePlushie(levelIndex, plushieIndex);
     }
 

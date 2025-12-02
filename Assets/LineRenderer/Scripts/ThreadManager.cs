@@ -91,12 +91,12 @@ public class ThreadManager : MonoBehaviour, IThreadManager
     {
         if (instantiatedLine != null)
         {
-            instantiatedLine.material.color = LevelsHandler.instance.currentLevelMeta.threadColor;
+            instantiatedLine.material.color = LevelsHandler.instance.currentLevelMeta.levelScriptable.threadColor;
             //instantiatedLine.endColor = LevelsHandler.instance.currentLevelMeta.threadColor;
         }
         if(prevLine != null)
         {
-            prevLine.material.color = LevelsHandler.instance.currentLevelMeta.threadColor;
+            prevLine.material.color = LevelsHandler.instance.currentLevelMeta.levelScriptable.threadColor;
             //prevLine.endColor = LevelsHandler.instance.currentLevelMeta.threadColor;
         }
     }
@@ -462,13 +462,13 @@ public class ThreadManager : MonoBehaviour, IThreadManager
                 Connections c = null;
                 c = connectHandler.connections[connectHandler.connections.Count - 1];
                 connectHandler.connections.Remove(c);
-                if (LevelsHandler.instance.currentLevelMeta.noOfLinks > 0)
+                if (LevelsHandler.instance.currentLevelMeta.noOfStitchesDone > 0)
                 {
-                    LevelsHandler.instance.currentLevelMeta.noOfLinks--;
-                    PlayerPrefs.SetInt("StitchedCount", LevelsHandler.instance.currentLevelMeta.noOfLinks);
+                    LevelsHandler.instance.currentLevelMeta.noOfStitchesDone--;
+                    PlayerPrefs.SetInt("StitchedCount", LevelsHandler.instance.currentLevelMeta.noOfStitchesDone);
                     var canvasManager = ServiceLocator.GetService<ICanvasUIManager>();
                     if (canvasManager != null)
-                        canvasManager.UpdateStitchCount(LevelsHandler.instance.currentLevelMeta.totalCorrectLinks, LevelsHandler.instance.currentLevelMeta.noOfLinks);
+                        canvasManager.UpdateStitchCount(LevelsHandler.instance.currentLevelMeta.levelScriptable.totalStitches, LevelsHandler.instance.currentLevelMeta.noOfStitchesDone);
                 }
 
                 Transform moveableTransform = null;

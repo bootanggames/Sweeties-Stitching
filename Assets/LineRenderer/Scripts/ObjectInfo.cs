@@ -88,8 +88,8 @@ public class ObjectInfo : MonoBehaviour
                         {
                             for (int i = 0; i < stitchData.movedPositions.Count; i++)
                             {
-                                GameObject crissCross = Instantiate(LevelsHandler.instance.currentLevelMeta.stitchObj, connectPoints[i].transform);
-                                crissCross.GetComponent<SpriteRenderer>().color = LevelsHandler.instance.currentLevelMeta.threadColor;
+                                GameObject crissCross = Instantiate(LevelsHandler.instance.currentLevelMeta.levelScriptable.stitchObj, connectPoints[i].transform);
+                                crissCross.GetComponent<SpriteRenderer>().color = LevelsHandler.instance.currentLevelMeta.levelScriptable.threadColor;
                                 crissCross.transform.localPosition = Vector3.zero;
                                 if (partType.Equals(PlushieActiveStitchPart.leftarm) || partType.Equals(PlushieActiveStitchPart.rightarm))
                                     crissCross.transform.localEulerAngles = new Vector3(0, 0, 0);
@@ -108,8 +108,8 @@ public class ObjectInfo : MonoBehaviour
                         if (moveable)
                         {
                             this.transform.position = movedPosition;
-                            GameObject crissCross = Instantiate(LevelsHandler.instance.currentLevelMeta.crissCrossObjForEyes, this.transform);
-                            crissCross.GetComponent<SpriteRenderer>().color = LevelsHandler.instance.currentLevelMeta.threadColor;
+                            GameObject crissCross = Instantiate(LevelsHandler.instance.currentLevelMeta.levelScriptable.crissCrossObjForEyes, this.transform);
+                            crissCross.GetComponent<SpriteRenderer>().color = LevelsHandler.instance.currentLevelMeta.levelScriptable.threadColor;
                             crissCross.transform.localScale = new Vector3(3, 3, 3);
 
                             //crissCross.transform.SetParent(null);
@@ -207,8 +207,8 @@ public class ObjectInfo : MonoBehaviour
         {
             if (moveable)
             {
-                GameObject crissCross = Instantiate(LevelsHandler.instance.currentLevelMeta.crissCrossObjForEyes, this.transform);
-                crissCross.GetComponent<SpriteRenderer>().color = LevelsHandler.instance.currentLevelMeta.threadColor;
+                GameObject crissCross = Instantiate(LevelsHandler.instance.currentLevelMeta.levelScriptable.crissCrossObjForEyes, this.transform);
+                crissCross.GetComponent<SpriteRenderer>().color = LevelsHandler.instance.currentLevelMeta.levelScriptable.threadColor;
                 crissCross.transform.localScale = new Vector3(3, 3, 3);
                 //crissCross.transform.SetParent(null);
                 crissCross.transform.localEulerAngles = Vector3.zero;
@@ -253,8 +253,8 @@ public class ObjectInfo : MonoBehaviour
                 }
                 if (!partType.Equals(PlushieActiveStitchPart.lefteye) && !partType.Equals(PlushieActiveStitchPart.righteye))
                 {
-                    GameObject crissCross = Instantiate(LevelsHandler.instance.currentLevelMeta.stitchObj, connectPoints[confettiIndex].transform);
-                    crissCross.GetComponent<SpriteRenderer>().color = LevelsHandler.instance.currentLevelMeta.threadColor;
+                    GameObject crissCross = Instantiate(LevelsHandler.instance.currentLevelMeta.levelScriptable.stitchObj, connectPoints[confettiIndex].transform);
+                    crissCross.GetComponent<SpriteRenderer>().color = LevelsHandler.instance.currentLevelMeta.levelScriptable.threadColor;
                     crissCross.transform.localPosition = Vector3.zero;
                     if(partType.Equals(PlushieActiveStitchPart.leftarm) || partType.Equals(PlushieActiveStitchPart.rightarm))
                         crissCross.transform.localEulerAngles = new Vector3(0, 0, 0);
@@ -294,7 +294,7 @@ public class ObjectInfo : MonoBehaviour
             Invoke("EnableConffetti", 0.15f);
         else
         {
-            if (LevelsHandler.instance.currentLevelMeta.noOfStitchedPart.Equals(LevelsHandler.instance.currentLevelMeta.totalStitchedPart))
+            if (LevelsHandler.instance.currentLevelMeta.noOfStitchedPart.Equals(LevelsHandler.instance.currentLevelMeta.levelScriptable.totalParts))
             {
                 int levelIndex = PlayerPrefs.GetInt("Level");
 

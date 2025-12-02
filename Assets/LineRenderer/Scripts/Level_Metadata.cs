@@ -1,8 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net.Mail;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class Level_Metadata : MonoBehaviour
@@ -10,8 +8,8 @@ public class Level_Metadata : MonoBehaviour
     public LevelDataScriptable levelScriptable;
     //public string levelName;
     //public int levelReward = 0;
-    public int totalCorrectLinks;
-    public int noOfLinks;
+    //public int totalCorrectLinks;
+    public int noOfStitchesDone;
     public PlushieActiveStitchPart plushieActivePartToStitch;
     public List<GameObject> bodyParts;
     public Part_Info head;
@@ -19,7 +17,7 @@ public class Level_Metadata : MonoBehaviour
     public GameObject bodyWihtoutHoles;
     public GameObject sewnPlushie;
 
-    public int totalStitchedPart;
+    //public int totalStitchedPart;
     public int noOfStitchedPart;
     ObjectInfo current_ObjectInfor = null;
 
@@ -38,20 +36,27 @@ public class Level_Metadata : MonoBehaviour
     [SerializeField] Transform gameCompleteCamera;
     [SerializeField] Transform gameHalfProgressCamera;
     [Header("----------GameCompleteScreen---------")]
-    public float plushieWidth;
-    public float plushieHeight;
-    public Sprite plushieSprite;
+    //public float plushieWidth;
+    //public float plushieHeight;
+    //public Sprite plushieSprite;
     [SerializeField] Transform needleUndoPosition;
-    public Color threadColor;
-    public Sprite spoolColor;
-    public GameObject stitchObj;
-    public GameObject crissCrossObjForEyes;
+    //public Color threadColor;
+    //public Sprite spoolColor;
+    //public GameObject stitchObj;
+    //public GameObject crissCrossObjForEyes;
     public bool completed = false;
+
+    [SerializeField] LineRenderer linePrefabForCleanConnection;
+    LineRenderer lineForCleanConnection;
+    public List<Connections> cleanConnection;
+    List<Connections> cleanThreads = new List<Connections>();
+    public int cleanThreadIndex = 0;
+    public List<GameObject> crissCrossObjList = new List<GameObject>();
     private void Start()
     {
         var canvasHandler = ServiceLocator.GetService<ICanvasUIManager>();
         if (canvasHandler != null)
-            canvasHandler.spoolImg.sprite = spoolColor;
+            canvasHandler.spoolImg.sprite = levelScriptable.threadSpool;
         LevelInitialisation();
     }
     public void LevelInitialisation()
@@ -235,10 +240,10 @@ public class Level_Metadata : MonoBehaviour
     {
         var canvasManager = ServiceLocator.GetService<ICanvasUIManager>();
         if (canvasManager != null)
-            canvasManager.UpdatePlushieStitchProgress(totalStitchedPart, noOfStitchedPart);
+            canvasManager.UpdatePlushieStitchProgress(levelScriptable.totalParts, noOfStitchedPart);
         var IthreadHandler = ServiceLocator.GetService<IThreadManager>();
         
-        if (noOfStitchedPart.Equals(totalStitchedPart))
+        if (noOfStitchedPart.Equals(levelScriptable.totalParts))
         {
             Time.timeScale = 1.2f;
             var cameraManager = ServiceLocator.GetService<ICameraManager>();
@@ -300,7 +305,7 @@ public class Level_Metadata : MonoBehaviour
     {
         var canvasManager = ServiceLocator.GetService<ICanvasUIManager>();
         if (canvasManager != null)
-            canvasManager.UpdateStitchCount(totalCorrectLinks, noOfLinks);
+            canvasManager.UpdateStitchCount(levelScriptable.totalStitches, noOfStitchesDone);
     }
     public void CameraFocus(PlushieActiveStitchPart currentActivePart)
     {
@@ -409,7 +414,7 @@ public class Level_Metadata : MonoBehaviour
                 {
                     if (ob_info.Equals(current_ObjectInfor))
                     {
-                        noOfLinks -= sewPointHandler.connections.Count;
+                        noOfStitchesDone -= sewPointHandler.connections.Count;
                         break;
                     }
                 }
@@ -434,7 +439,7 @@ public class Level_Metadata : MonoBehaviour
         ResetEveryPart(head.joints);
         ResetEveryPart(immoveablePart.GetComponent<Part_Info>().joints);
         noOfStitchedPart = 0;
-        noOfLinks = 0;
+        noOfStitchesDone = 0;
     }
 
     public void Delay()
@@ -463,7 +468,7 @@ public class Level_Metadata : MonoBehaviour
     //}
     public void CheckIfStitchedBeforeCompleteScreen()
     {
-        if (noOfStitchedPart.Equals(totalStitchedPart))
+        if (noOfStitchedPart.Equals(levelScriptable.totalParts))
         {
             if (bodyWihtoutHoles)
             {
@@ -500,12 +505,7 @@ public class Level_Metadata : MonoBehaviour
         }
        
     }
-    [SerializeField] LineRenderer linePrefabForCleanConnection;
-    LineRenderer lineForCleanConnection;
-    public List<Connections> cleanConnection;
-    List<Connections> cleanThreads = new List<Connections>();
-    public int cleanThreadIndex = 0;
-    public List<GameObject> crissCrossObjList = new List<GameObject>();
+
 
     public void Connection(SewPoint sp1, SewPoint sp2)
     {
@@ -521,7 +521,7 @@ public class Level_Metadata : MonoBehaviour
             pos2.z = -0.01f;
             this.lineForCleanConnection.SetPosition(0, pos1);
             this.lineForCleanConnection.SetPosition(1, pos2);
-            this.lineForCleanConnection.material.color = threadColor;
+            this.lineForCleanConnection.material.color = levelScriptable.threadColor;
             Connections connection = new Connections(sp1.cleanStitchPoint, sp2.cleanStitchPoint, linePrefabForCleanConnection, -0.01f, false, 2);
             cleanConnection.Add(connection);
             connection.line.gameObject.SetActive(false);

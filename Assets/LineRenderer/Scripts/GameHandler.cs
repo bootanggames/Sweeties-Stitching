@@ -89,7 +89,7 @@ public class GameHandler : Singleton<GameHandler>, IGameHandler
         PlayerPrefs.SetInt("SaveProgress", 1);
         PlayerPrefs.SetInt("StitchedPartCount", LevelsHandler.instance.currentLevelMeta.noOfStitchedPart);
         LevelsHandler.instance.currentLevelMeta.UpdateLinks();
-        PlayerPrefs.SetInt("StitchedCount", LevelsHandler.instance.currentLevelMeta.noOfLinks);
+        PlayerPrefs.SetInt("StitchedCount", LevelsHandler.instance.currentLevelMeta.noOfStitchesDone);
         Home("HomeScreen");
     }
 }

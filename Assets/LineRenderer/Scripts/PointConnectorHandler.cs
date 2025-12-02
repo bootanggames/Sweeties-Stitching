@@ -289,10 +289,10 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
             return;
         Connections connection = new Connections(p1, p2, linePrefab, zVal, multiple, stitchCount);
         connections.Add(connection);
-        LevelsHandler.instance.currentLevelMeta.noOfLinks++;
+        LevelsHandler.instance.currentLevelMeta.noOfStitchesDone++;
         var canvasManager = ServiceLocator.GetService<ICanvasUIManager>();
         if (canvasManager != null)
-            canvasManager.UpdateStitchCount(LevelsHandler.instance.currentLevelMeta.totalCorrectLinks, LevelsHandler.instance.currentLevelMeta.noOfLinks);
+            canvasManager.UpdateStitchCount(LevelsHandler.instance.currentLevelMeta.levelScriptable.totalStitches, LevelsHandler.instance.currentLevelMeta.noOfStitchesDone);
         if (wrongConnectPoint != null && wrongConnectPoint.Count > 0) return;
 
         if (applyPullForce)

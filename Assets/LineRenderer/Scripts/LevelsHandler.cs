@@ -36,7 +36,7 @@ public class LevelsHandler : Singleton<LevelsHandler>, ILevelHandler
         plushieIndex = PlayerPrefs.GetInt("Level_" + levelIndex + "_Plushie");
 
         currentLevelMeta = currentLevelData.plushie[plushieIndex];
-        if (currentLevelMeta.noOfStitchedPart.Equals(currentLevelMeta.totalStitchedPart))
+        if (currentLevelMeta.noOfStitchedPart.Equals(currentLevelMeta.levelScriptable.totalParts))
         {
             currentLevelMeta.ResetLevel();
             currentLevelMeta.LevelInitialisation();
@@ -144,7 +144,7 @@ public class LevelsHandler : Singleton<LevelsHandler>, ILevelHandler
             canvasHandler.startText.transform.localScale = Vector3.zero;
             canvasHandler.startText.SetActive(true);
             canvasHandler.stitchProgress.text = "0% Done";
-            canvasHandler.stitchCountText.text = currentLevelMeta.noOfLinks + " OF " + currentLevelMeta.totalCorrectLinks;
+            canvasHandler.stitchCountText.text = currentLevelMeta.noOfStitchesDone + " OF " + currentLevelMeta.levelScriptable.totalStitches;
         }
     
         var IThreadHandler = ServiceLocator.GetService<IThreadManager>();
@@ -166,7 +166,7 @@ public class LevelsHandler : Singleton<LevelsHandler>, ILevelHandler
         if (currentLevelMeta != null)
         {
             int stitchedCountOfCurrentLevel =  PlayerPrefs.GetInt("StitchedCount");
-            currentLevelMeta.noOfLinks = stitchedCountOfCurrentLevel;
+            currentLevelMeta.noOfStitchesDone = stitchedCountOfCurrentLevel;
             currentLevelMeta.noOfStitchedPart = PlayerPrefs.GetInt("StitchedPartCount");
             currentLevelMeta.Delay();
             currentLevelMeta.CheckIfStitchedBeforeCompleteScreen();

@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83ae505dd8444de45a7c3931d26f8473, type: 3}
+  m_Name: Level3_Plushie_8
+  m_EditorClassIdentifier: 
+  levelName: Fire
+  levelReward: 30
+  totalStitches: 82
+  totalParts: 9
+  plushieWidth: 550
+  plushieHeight: 600
+  plushieSprite: {fileID: 21300000, guid: 18f617b4f237f5249b554646c62c63b1, type: 3}
+  threadColor: {r: 0.8117648, g: 0.098039225, b: 0.07450981, a: 1}
+  threadSpool: {fileID: 21300000, guid: ba1f25c3e4d772748851ec5ecc9bb54d, type: 3}
+  stitchObj: {fileID: 2318274901814856818, guid: 75e7b52665f739f47823b55122662811, type: 3}
+  crissCrossObjForEyes: {fileID: 2127325833259773361, guid: 201d15cda53417e4fa34909114448bc3, type: 3}

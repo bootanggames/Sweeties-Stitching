@@ -29,7 +29,6 @@ public class PlushiesInventory : MonoBehaviour,IPlushieInventory
     {
         noOfPlushieEnabled = c;
         totalPlushies.text = noOfPlushieEnabled.ToString();
-
     }
     public void NextPage()
     {

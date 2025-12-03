@@ -131,13 +131,6 @@ public class LevelsHandler : Singleton<LevelsHandler>, ILevelHandler
 
         int rewardedCoins = currentLevelMeta.levelScriptable.levelReward;
         LevelIncrementProcess();
-        //int TotalEarned = totalCoins + rewardedCoins;
-        //PlayerPrefs.SetInt("Coins", TotalEarned);
-        //if (coinHandler != null)
-        //{
-        //    coinHandler.ResetCoinList();
-        //    coinHandler.UpdateCoins(TotalEarned);
-        //}
         var canvasHandler = ServiceLocator.GetService<ICanvasUIManager>();
         if (canvasHandler != null)
         {

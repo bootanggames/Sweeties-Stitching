@@ -465,6 +465,11 @@ public class ThreadManager : MonoBehaviour, IThreadManager
                 if (LevelsHandler.instance.currentLevelMeta.noOfStitchesDone > 0)
                 {
                     LevelsHandler.instance.currentLevelMeta.noOfStitchesDone--;
+                    if (LevelsHandler.instance.currentLevelMeta.currentSpool)
+                    {
+                        SpoolInfo s_Info = LevelsHandler.instance.currentLevelMeta.currentSpool.GetComponent<SpoolInfo>();
+                        s_Info.noOfStitchedDone--;
+                    }
                     PlayerPrefs.SetInt("StitchedCount", LevelsHandler.instance.currentLevelMeta.noOfStitchesDone);
                     var canvasManager = ServiceLocator.GetService<ICanvasUIManager>();
                     if (canvasManager != null)
@@ -645,5 +650,15 @@ public class ThreadManager : MonoBehaviour, IThreadManager
      
         }
     }
-   
+
+    public void UpdateCurrentActiveSpoolReference()
+    {
+        int indexOfSpool = LevelsHandler.instance.currentLevelMeta.currentActiveSpoolIndex;
+        var IspoolHandler = ServiceLocator.GetService<ISpoolManager>();
+        if(IspoolHandler != null)
+        {
+            GameObject currentSpool = IspoolHandler.GetSpool(indexOfSpool);
+            startUIPoint = currentSpool.GetComponent<RectTransform>();
+        }
+    }
 }

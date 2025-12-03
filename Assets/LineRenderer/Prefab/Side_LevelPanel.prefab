@@ -205,7 +205,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Strawberry
+  m_text: Shortcake
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3eef0d716748f354ba582b229fcd6468, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 3eef0d716748f354ba582b229fcd6468, type: 2}
@@ -705,7 +705,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Fire
+  m_text: Spicie
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3eef0d716748f354ba582b229fcd6468, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 3eef0d716748f354ba582b229fcd6468, type: 2}
@@ -1629,7 +1629,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Cream Pie
+  m_text: Creamie
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3eef0d716748f354ba582b229fcd6468, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 3eef0d716748f354ba582b229fcd6468, type: 2}
@@ -1988,7 +1988,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 2
-  plushieName: Rainbow
+  plushieName: Rainbaby
   plushieImage: {fileID: 7297001579136380946}
   coinText: {fileID: 9013604083055785868}
   levelNumber: {fileID: 4518250326437624036}
@@ -3013,7 +3013,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: PolkaDots
+  m_text: Zellie
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3eef0d716748f354ba582b229fcd6468, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 3eef0d716748f354ba582b229fcd6468, type: 2}
@@ -3150,7 +3150,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Rainbow
+  m_text: Rainbaby
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3eef0d716748f354ba582b229fcd6468, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 3eef0d716748f354ba582b229fcd6468, type: 2}
@@ -3525,7 +3525,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 1
-  plushieName: Orange
+  plushieName: Lovely
   plushieImage: {fileID: 3151029356666564482}
   coinText: {fileID: 3077651768571299972}
   levelNumber: {fileID: 8528899619025909496}
@@ -3625,7 +3625,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 1
-  plushieName: Fire
+  plushieName: Spicie
   plushieImage: {fileID: 6410350168617387660}
   coinText: {fileID: 5849105086272422991}
   levelNumber: {fileID: 1104620693212275052}
@@ -3835,7 +3835,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Pink
+  m_text: Bubble Gum
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3eef0d716748f354ba582b229fcd6468, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 3eef0d716748f354ba582b229fcd6468, type: 2}
@@ -4135,7 +4135,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 0
-  plushieName: Pink
+  plushieName: Bubble Gum
   plushieImage: {fileID: 8119859044762666558}
   coinText: {fileID: 5669845264983708337}
   levelNumber: {fileID: 1601485967588550319}
@@ -4798,7 +4798,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 2
-  plushieName: Bubble Gum
+  plushieName: Bluemoo
   plushieImage: {fileID: 1995046774396301205}
   coinText: {fileID: 388753752584204187}
   levelNumber: {fileID: 8199313771654711198}
@@ -5439,7 +5439,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 1
-  plushieName: Cream Pie
+  plushieName: Creamie
   plushieImage: {fileID: 3245006383625611686}
   coinText: {fileID: 426369198483655318}
   levelNumber: {fileID: 126817073379354298}
@@ -5798,7 +5798,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Orange
+  m_text: Lovely
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3eef0d716748f354ba582b229fcd6468, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 3eef0d716748f354ba582b229fcd6468, type: 2}
@@ -6949,7 +6949,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 2
-  plushieName: Strawberry
+  plushieName: Shortcake
   plushieImage: {fileID: 5891595630140681191}
   coinText: {fileID: 4376181411770754693}
   levelNumber: {fileID: 626752601929065383}
@@ -7368,7 +7368,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Bubble Gum
+  m_text: Bluemoo
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3eef0d716748f354ba582b229fcd6468, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 3eef0d716748f354ba582b229fcd6468, type: 2}
@@ -8064,7 +8064,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 0
-  plushieName: PinkPolkaDots
+  plushieName: Zellie
   plushieImage: {fileID: 5619579184089985988}
   coinText: {fileID: 2314834810900368142}
   levelNumber: {fileID: 1484359774916377361}

@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83ae505dd8444de45a7c3931d26f8473, type: 3}
   m_Name: Level2_Plushie_6
   m_EditorClassIdentifier: 
-  levelName: Rainbow
+  levelName: Rainbaby
   levelReward: 30
   totalStitches: 78
   totalParts: 9
+  totalSpoolsNeeded: 2
   plushieWidth: 536
   plushieHeight: 650
   plushieSprite: {fileID: 21300000, guid: ddcae2729aa2cf9409ac359134810d9b, type: 3}

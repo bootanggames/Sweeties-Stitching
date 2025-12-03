@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83ae505dd8444de45a7c3931d26f8473, type: 3}
   m_Name: Level2_Plushie_4
   m_EditorClassIdentifier: 
-  levelName: Pink
+  levelName: Bubble Gum
   levelReward: 30
   totalStitches: 82
   totalParts: 9
+  totalSpoolsNeeded: 1
   plushieWidth: 550
   plushieHeight: 907
   plushieSprite: {fileID: 21300000, guid: a948208422f161b4fba1fcb886f1a233, type: 3}

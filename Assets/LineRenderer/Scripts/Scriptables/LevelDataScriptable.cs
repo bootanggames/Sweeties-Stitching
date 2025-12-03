@@ -7,6 +7,7 @@ public class LevelDataScriptable : ScriptableObject
     public int levelReward = 0;
     public int totalStitches;
     public int totalParts;
+    public int totalSpoolsNeeded;
     public float plushieWidth;
     public float plushieHeight;
     public Sprite plushieSprite;

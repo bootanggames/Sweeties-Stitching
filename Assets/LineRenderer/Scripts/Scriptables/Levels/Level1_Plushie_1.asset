@@ -16,6 +16,7 @@ MonoBehaviour:
   levelReward: 30
   totalStitches: 73
   totalParts: 9
+  totalSpoolsNeeded: 1
   plushieWidth: 800
   plushieHeight: 800
   plushieSprite: {fileID: 21300000, guid: 90c3a480cb8f7b94b87a6ac4a84076e5, type: 3}

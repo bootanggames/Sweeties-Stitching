@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83ae505dd8444de45a7c3931d26f8473, type: 3}
   m_Name: Level3_Plushie_8
   m_EditorClassIdentifier: 
-  levelName: Fire
+  levelName: Spicie
   levelReward: 30
   totalStitches: 82
   totalParts: 9
+  totalSpoolsNeeded: 2
   plushieWidth: 550
   plushieHeight: 600
   plushieSprite: {fileID: 21300000, guid: 18f617b4f237f5249b554646c62c63b1, type: 3}

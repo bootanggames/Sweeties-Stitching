@@ -19,7 +19,7 @@ public class CanvasUIManager : MonoBehaviour, ICanvasUIManager
     [field: SerializeField] public GameObject sewnTextImage { get; private set; }
     [field: SerializeField] public GameObject goToHomeScreen { get; private set; }
     [field: SerializeField] public AudioSource audioSourceForBG { get; private set; }
-    [field: SerializeField] public Image spoolImg { get; private set; }
+    //[field: SerializeField] public Image spoolImg { get; private set; }
     [field: SerializeField] public GameObject mainCanvas { get; private set; }
 
     private void Start()

@@ -1,7 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class Level_Metadata : MonoBehaviour
@@ -10,55 +10,56 @@ public class Level_Metadata : MonoBehaviour
     public LevelDataScriptable levelScriptable;
     public int noOfStitchesDone;
     public int noOfStitchedPart;
+    public int currentActiveSpoolIndex;
     public PlushieActiveStitchPart currentActivePart;
     public List<GameObject> bodyParts;
     public Part_Info head;
     public GameObject immoveablePart;
     public GameObject bodyWihtoutHoles;
     public GameObject sewnPlushie;
-    [HideInInspector]public ObjectInfo current_ObjectInfor = null;
-    [SerializeField] ObjectInfo stitchStartingPart;
-    [SerializeField] Transform needleUndoPosition;
-    [SerializeField] LineRenderer linePrefabForCleanConnection;
-
     LineRenderer lineForCleanConnection;
+    [SerializeField] LineRenderer linePrefabForCleanConnection;
+    [SerializeField] ObjectInfo stitchStartingPart;
+    [HideInInspector] public ObjectInfo current_ObjectInfor = null;
+    [HideInInspector] Transform needleUndoPosition;
     [HideInInspector] public List<Connections> cleanConnection;
     [HideInInspector] public int cleanThreadIndex = 0;
     [HideInInspector] public List<GameObject> crissCrossObjList = new List<GameObject>();
     List<Connections> cleanThreads = new List<Connections>();
-
-    //[SerializeField] Transform neckCamera;
-    //[SerializeField] Transform leftEyeCamera;
-    //[SerializeField] Transform leftEarCamera;
-    //[SerializeField] Transform rightEarCamera;
-    //[SerializeField] Transform rightEyeCamera;
-    //[SerializeField] Transform rightArmCamera;
-    //[SerializeField] Transform rightLegCamera;
-    //[SerializeField] Transform leftLegCamera;
-    //[SerializeField] Transform leftArmCamera;
-    //[SerializeField] Transform gameCompleteCamera;
-    //[SerializeField] Transform gameHalfProgressCamera;
-    //public string levelName;
-    //public int levelReward = 0;
-    //public int totalCorrectLinks;
-    //public int totalStitchedPart;
-    //[SerializeField] LevelDivision levelDivision;
-    //[SerializeField]SequenceType sequenceType;
-    //public float plushieWidth;
-    //public float plushieHeight;
-    //public Sprite plushieSprite;
-    //public Color threadColor;
-    //public Sprite spoolColor;
-    //public GameObject stitchObj;
-    //public GameObject crissCrossObjForEyes;
-
+    [HideInInspector]public GameObject currentSpool;
     private void Start()
     {
-        var canvasHandler = ServiceLocator.GetService<ICanvasUIManager>();
-        if (canvasHandler != null)
-            canvasHandler.spoolImg.sprite = levelScriptable.threadSpool;
+        AssignAndUpdateSpools();
         LevelInitialisation();
     }
+
+    void AssignAndUpdateSpools()
+    {
+        var IthreadManage = ServiceLocator.GetService<IThreadManager>();
+        var spoolManager = ServiceLocator.GetService<ISpoolManager>();
+        if (spoolManager != null)
+        {
+            spoolManager.SpoolList(levelScriptable.totalSpoolsNeeded);
+            //canvasHandler.spoolImg.sprite = levelScriptable.threadSpool;
+            spoolManager.ChangeSpriteOfSpools(levelScriptable.threadSpool);
+            currentSpool = spoolManager.GetSpool(currentActiveSpoolIndex);
+            SpoolInfo s_Info = currentSpool.GetComponent<SpoolInfo>();
+            needleUndoPosition = s_Info.undoPosition;
+            float totalThread = 0;
+            if (levelScriptable.totalSpoolsNeeded > 1)
+            {
+                float total = (levelScriptable.totalStitches / 2);
+                totalThread = (float)Math.Ceiling(total) + 1;
+            }
+            else
+                totalThread = levelScriptable.totalStitches;
+            s_Info.UpdateThreadProgress(totalThread);
+
+        }
+        if (IthreadManage != null)
+            IthreadManage.UpdateCurrentActiveSpoolReference();
+    }
+    
     public void LevelInitialisation()
     {
         DisableAllSewPoints();
@@ -154,11 +155,6 @@ public class Level_Metadata : MonoBehaviour
     }
     void NextPartActivation(/*bool start,*/ObjectInfo currentActivePart)
     {
-        var needleDetecto = ServiceLocator.GetService<INeedleDetector>();
-        if (needleDetecto != null)
-            needleDetecto.detect = false;
-
-        Part_Info p2_Info = immoveablePart.GetComponent<Part_Info>();
         //sequenceType = SequenceType.right;
 
         //if (!start)
@@ -170,6 +166,11 @@ public class Level_Metadata : MonoBehaviour
         //}
         //if(current_ObjectInfor == null)
         //    current_ObjectInfor = bodyParts[0].GetComponent<ObjectInfo>();
+        var needleDetecto = ServiceLocator.GetService<INeedleDetector>();
+        if (needleDetecto != null)
+            needleDetecto.detect = false;
+
+        Part_Info p2_Info = immoveablePart.GetComponent<Part_Info>();
 
         EnableDisableSewPoints(currentActivePart.connectPoints, true);
         if (currentActivePart.partConnectedTo.Equals(PartConnectedTo.body))
@@ -238,11 +239,66 @@ public class Level_Metadata : MonoBehaviour
  
     public void UpdateLevelProgress(/*SequenceType sequence*/)
     {
+        var IthreadHandler = ServiceLocator.GetService<IThreadManager>();
+
         var canvasManager = ServiceLocator.GetService<ICanvasUIManager>();
         if (canvasManager != null)
             canvasManager.UpdatePlushieStitchProgress(levelScriptable.totalParts, noOfStitchedPart);
-        var IthreadHandler = ServiceLocator.GetService<IThreadManager>();
-        
+        var spoolManager = ServiceLocator.GetService<ISpoolManager>();
+
+        if (spoolManager != null)
+        {
+            float percent = ((float)noOfStitchedPart / levelScriptable.totalParts) * 100;
+            int percentRoundedUp = (int)(percent);
+            SpoolInfo s_Info = currentSpool.GetComponent<SpoolInfo>();
+            float totalThread = 0;
+
+
+            if (levelScriptable.totalSpoolsNeeded > 1)
+            {
+                if (percentRoundedUp == 55)
+                {
+                    float total = (levelScriptable.totalStitches / 2);
+                    totalThread = (float)Math.Ceiling(total) + 1;
+                    s_Info.UpdateThreadProgress(totalThread);
+                    //Debug.LogError("here "+ percentRoundedUp);
+                    int t = levelScriptable.totalStitches - s_Info.totalThreadsInSpool;
+                    totalThread = (float)t;
+
+                    currentActiveSpoolIndex++;
+                    currentSpool = spoolManager.GetSpool(currentActiveSpoolIndex);
+
+                    s_Info = currentSpool.GetComponent<SpoolInfo>();
+                    needleUndoPosition = s_Info.undoPosition;
+                    s_Info.UpdateThreadProgress(totalThread);
+
+                    if (IthreadHandler != null) IthreadHandler.UpdateCurrentActiveSpoolReference();
+                }
+                else if (percentRoundedUp < 55)
+                {
+                    float total = (levelScriptable.totalStitches / 2);
+                    totalThread = (float)Math.Ceiling(total) + 1;
+                    s_Info.UpdateThreadProgress(totalThread);
+
+                }
+                else if(percentRoundedUp > 55)
+                {
+                    SpoolInfo prevSpool = spoolManager.GetSpool(currentActiveSpoolIndex - 1).GetComponent<SpoolInfo>();
+                    int t = levelScriptable.totalStitches - prevSpool.totalThreadsInSpool;
+                    totalThread = (float)t;
+                    //Debug.LogError("greater " + percentRoundedUp+" "+ totalThread);
+                    s_Info.UpdateThreadProgress(totalThread);
+
+                }
+            }
+            else
+            {
+                totalThread = levelScriptable.totalStitches;
+                s_Info.UpdateThreadProgress(totalThread);
+            }
+
+        }
+
         if (noOfStitchedPart.Equals(levelScriptable.totalParts))
         {
             Time.timeScale = 1.2f;

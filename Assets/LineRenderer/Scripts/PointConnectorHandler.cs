@@ -290,6 +290,12 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
         Connections connection = new Connections(p1, p2, linePrefab, zVal, multiple, stitchCount);
         connections.Add(connection);
         LevelsHandler.instance.currentLevelMeta.noOfStitchesDone++;
+        if (LevelsHandler.instance.currentLevelMeta.currentSpool)
+        {
+            SpoolInfo s_Info = LevelsHandler.instance.currentLevelMeta.currentSpool.GetComponent<SpoolInfo>();
+            s_Info.noOfStitchedDone++;
+        }
+
         var canvasManager = ServiceLocator.GetService<ICanvasUIManager>();
         if (canvasManager != null)
             canvasManager.UpdateStitchCount(LevelsHandler.instance.currentLevelMeta.levelScriptable.totalStitches, LevelsHandler.instance.currentLevelMeta.noOfStitchesDone);

@@ -1,5 +1,6 @@
 ﻿using DG.Tweening;
 using System.Collections.Generic;
+using UnityEditor.EditorTools;
 using UnityEngine;
 
 public class ThreadManager : MonoBehaviour, IThreadManager
@@ -469,6 +470,9 @@ public class ThreadManager : MonoBehaviour, IThreadManager
                     {
                         SpoolInfo s_Info = LevelsHandler.instance.currentLevelMeta.currentSpool.GetComponent<SpoolInfo>();
                         s_Info.noOfStitchedDone--;
+                        float total = (LevelsHandler.instance.currentLevelMeta.levelScriptable.totalStitches / LevelsHandler.instance.currentLevelMeta.levelScriptable.totalSpoolsNeeded);
+
+                        s_Info.UpdateThreadProgress((int)total);
                     }
                     PlayerPrefs.SetInt("StitchedCount", LevelsHandler.instance.currentLevelMeta.noOfStitchesDone);
                     var canvasManager = ServiceLocator.GetService<ICanvasUIManager>();

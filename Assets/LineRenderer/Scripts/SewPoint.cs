@@ -114,6 +114,54 @@ public class SewPoint : MonoBehaviour, ISewPoint
     public void Selected(bool val)
     {
         selected = val;
+
+        var spoolManager = ServiceLocator.GetService<ISpoolManager>();
+        var IthreadHandler = ServiceLocator.GetService<IThreadManager>();
+        Level_Metadata currentLevel = LevelsHandler.instance.currentLevelMeta;
+        if (spoolManager != null)
+        {
+            SpoolInfo s_Info = currentLevel.currentSpool.GetComponent<SpoolInfo>();
+            int totalThread = 0;
+
+            if (currentLevel.levelScriptable.totalSpoolsNeeded == 2)
+            {
+                if (s_Info.noOfStitchedDone >= s_Info.totalThreadsInSpool)
+                {
+                    currentLevel.currentActiveSpoolIndex++;
+
+                    if (currentLevel.currentActiveSpoolIndex < spoolManager.spoolList.Count)
+                    {
+                        currentLevel.currentSpool = spoolManager.GetSpool(currentLevel.currentActiveSpoolIndex);
+                        s_Info = currentLevel.currentSpool.GetComponent<SpoolInfo>();
+                        currentLevel.needleUndoPosition = s_Info.undoPosition;
+                        if (IthreadHandler != null) IthreadHandler.UpdateCurrentActiveSpoolReference();
+                        SpoolInfo prevSpool = spoolManager.GetSpool(currentLevel.currentActiveSpoolIndex - 1).GetComponent<SpoolInfo>();
+                        float total = (currentLevel.levelScriptable.totalStitches - prevSpool.totalThreadsInSpool);
+                        totalThread = (int)total;
+                    }
+                }
+                else
+                {
+                    if(currentLevel.currentActiveSpoolIndex == 0)
+                    {
+                        float total = (currentLevel.levelScriptable.totalStitches / spoolManager.spoolList.Count);
+                        totalThread = (int)total;
+                    }
+                    else
+                    {
+                        SpoolInfo prevSpool = spoolManager.GetSpool(currentLevel.currentActiveSpoolIndex - 1).GetComponent<SpoolInfo>();
+                        float total = (currentLevel.levelScriptable.totalStitches - prevSpool.totalThreadsInSpool);
+                        totalThread = (int)total;
+                    }
+                }
+
+            }
+            else
+                totalThread = currentLevel.levelScriptable.totalStitches;
+
+            s_Info.UpdateThreadProgress(totalThread);
+
+        }
     }
 
     public void UnRegisterService()
@@ -139,5 +187,8 @@ public class SewPoint : MonoBehaviour, ISewPoint
 
         if (SaveDataUsingJson.instance)
             SaveDataUsingJson.instance.SaveData(LevelsHandler.instance.currentLevelMeta.levelScriptable.levelName + "_" + plushieIndex + "_" + bodyPart + "_" + attachmentId, metaData);
+
+      
+
     }
 }

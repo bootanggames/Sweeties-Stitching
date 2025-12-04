@@ -10,14 +10,17 @@ public class SpoolInfo : MonoBehaviour
     public RectTransform undoPosition;
     public Image spoolImage;
 
-    public void UpdateThreadProgress(float totalThreads)
+    public void UpdateThreadProgress(int totalThreads)
     {
         //Debug.LogError(" " + totalThreads);
-        totalThreadsInSpool = (int)totalThreads;
+        totalThreadsInSpool = totalThreads;
         int remainigThreads = totalThreadsInSpool - noOfStitchedDone;
         float fillBarPercent = (float)remainigThreads / totalThreads;
+        //Debug.LogError(" " + fillBarPercent);
+
         //Debug.LogError(" " + remainigThreads + " " + totalThreadsInSpool + " " + noOfStitchedDone + " " + fillBarPercent);
-        spoolImage.fillAmount = (float)Math.Round(fillBarPercent, 1);
+        spoolImage.fillAmount = fillBarPercent;
+        //spoolImage.fillAmount = (float)Math.Round(fillBarPercent, 1);
 
     }
 }

@@ -21,7 +21,7 @@ public class Level_Metadata : MonoBehaviour
     [SerializeField] LineRenderer linePrefabForCleanConnection;
     [SerializeField] ObjectInfo stitchStartingPart;
     [HideInInspector] public ObjectInfo current_ObjectInfor = null;
-    [HideInInspector] Transform needleUndoPosition;
+    [HideInInspector] public Transform needleUndoPosition;
     [HideInInspector] public List<Connections> cleanConnection;
     [HideInInspector] public int cleanThreadIndex = 0;
     [HideInInspector] public List<GameObject> crissCrossObjList = new List<GameObject>();
@@ -45,11 +45,12 @@ public class Level_Metadata : MonoBehaviour
             currentSpool = spoolManager.GetSpool(currentActiveSpoolIndex);
             SpoolInfo s_Info = currentSpool.GetComponent<SpoolInfo>();
             needleUndoPosition = s_Info.undoPosition;
-            float totalThread = 0;
+            int totalThread = 0;
             if (levelScriptable.totalSpoolsNeeded > 1)
             {
-                float total = (levelScriptable.totalStitches / 2);
-                totalThread = (float)Math.Ceiling(total) + 1;
+                float total = (levelScriptable.totalStitches / spoolManager.spoolList.Count);
+                //totalThread = (float)Math.Ceiling(total) + 1;
+                totalThread = (int)total;
             }
             else
                 totalThread = levelScriptable.totalStitches;
@@ -244,61 +245,7 @@ public class Level_Metadata : MonoBehaviour
         var canvasManager = ServiceLocator.GetService<ICanvasUIManager>();
         if (canvasManager != null)
             canvasManager.UpdatePlushieStitchProgress(levelScriptable.totalParts, noOfStitchedPart);
-        var spoolManager = ServiceLocator.GetService<ISpoolManager>();
-
-        if (spoolManager != null)
-        {
-            float percent = ((float)noOfStitchedPart / levelScriptable.totalParts) * 100;
-            int percentRoundedUp = (int)(percent);
-            SpoolInfo s_Info = currentSpool.GetComponent<SpoolInfo>();
-            float totalThread = 0;
-
-
-            if (levelScriptable.totalSpoolsNeeded > 1)
-            {
-                if (percentRoundedUp == 55)
-                {
-                    float total = (levelScriptable.totalStitches / 2);
-                    totalThread = (float)Math.Ceiling(total) + 1;
-                    s_Info.UpdateThreadProgress(totalThread);
-                    //Debug.LogError("here "+ percentRoundedUp);
-                    int t = levelScriptable.totalStitches - s_Info.totalThreadsInSpool;
-                    totalThread = (float)t;
-
-                    currentActiveSpoolIndex++;
-                    currentSpool = spoolManager.GetSpool(currentActiveSpoolIndex);
-
-                    s_Info = currentSpool.GetComponent<SpoolInfo>();
-                    needleUndoPosition = s_Info.undoPosition;
-                    s_Info.UpdateThreadProgress(totalThread);
-
-                    if (IthreadHandler != null) IthreadHandler.UpdateCurrentActiveSpoolReference();
-                }
-                else if (percentRoundedUp < 55)
-                {
-                    float total = (levelScriptable.totalStitches / 2);
-                    totalThread = (float)Math.Ceiling(total) + 1;
-                    s_Info.UpdateThreadProgress(totalThread);
-
-                }
-                else if(percentRoundedUp > 55)
-                {
-                    SpoolInfo prevSpool = spoolManager.GetSpool(currentActiveSpoolIndex - 1).GetComponent<SpoolInfo>();
-                    int t = levelScriptable.totalStitches - prevSpool.totalThreadsInSpool;
-                    totalThread = (float)t;
-                    //Debug.LogError("greater " + percentRoundedUp+" "+ totalThread);
-                    s_Info.UpdateThreadProgress(totalThread);
-
-                }
-            }
-            else
-            {
-                totalThread = levelScriptable.totalStitches;
-                s_Info.UpdateThreadProgress(totalThread);
-            }
-
-        }
-
+        
         if (noOfStitchedPart.Equals(levelScriptable.totalParts))
         {
             Time.timeScale = 1.2f;

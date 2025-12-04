@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelName: Lovely
   levelReward: 30
-  totalStitches: 82
+  totalStitches: 83
   totalParts: 9
   totalSpoolsNeeded: 2
   plushieWidth: 560

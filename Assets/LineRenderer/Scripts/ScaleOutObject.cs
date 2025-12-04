@@ -1,6 +1,8 @@
 using DG.Tweening;
 using System.Runtime.Versioning;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ScaleOutObject : MonoBehaviour
 {
@@ -9,6 +11,7 @@ public class ScaleOutObject : MonoBehaviour
     [SerializeField] float speed;
     [SerializeField] Ease ease;
     [SerializeField] bool startGame;
+    [SerializeField] bool levelUp;
     private void OnEnable()
     {
         ScaleOut();
@@ -30,6 +33,8 @@ public class ScaleOutObject : MonoBehaviour
             {
                 if (startGame)
                     Invoke("StartGame", 0.25f);
+                else if (levelUp)
+                    OnLevelUp();
                 else
                     GameComplete();
             });
@@ -51,8 +56,6 @@ public class ScaleOutObject : MonoBehaviour
 
     void GameComplete()
     {
-
-   
         //LevelsHandler.instance.currentLevelMeta.DeactivateAllThreads();
         //LevelsHandler.instance.currentLevelMeta.sewnPlushie.SetActive(true);
         //LevelsHandler.instance.currentLevelMeta.gameObject.SetActive(false);
@@ -69,7 +72,9 @@ public class ScaleOutObject : MonoBehaviour
         tween.Kill();
         tween = null;
         PlaySound();
-        Invoke(nameof(FireworksParticles),1.0f);
+        FireworksParticles();
+
+        //Invoke(nameof(FireworksParticles),1.0f);
     }
 
     void FireworksParticles()
@@ -94,5 +99,53 @@ public class ScaleOutObject : MonoBehaviour
         AudioSource _source = SoundManager.instance.audioSource;
         AudioClip _clip = SoundManager.instance.audioClips.completed;
         SoundManager.instance.PlaySound(_source, _clip, false, false, 1, false);
+    }
+
+    void OnLevelUp()
+    {
+        var levelUpScreen = ServiceLocator.GetService<ILevelUpScreen>();
+        if (levelUpScreen != null)
+        {
+            levelUpScreen.PlayLevelUpSound();
+        }
+        GameEvents.EffectHandlerEvents.onSewnCompletely.RaiseEvent();
+        Invoke(nameof(LevelUpScreenActivation), 3.0f);
+    }
+
+    void LevelUpScreenActivation()
+    {
+        this.transform.GetComponent<Image>().enabled = false;
+        var levelUpScreen = ServiceLocator.GetService<ILevelUpScreen>();
+        if (levelUpScreen != null)
+        {
+            levelUpScreen.confettiCameraRenderObj.SetActive(false);
+            levelUpScreen.PlayCelebrationSound();
+            levelUpScreen.levelUpFadeScreen.SetActive(true);
+            Invoke(nameof(NextLevelPanel), 1.5f);
+        }
+        CancelInvoke(nameof(LevelUpScreenActivation));
+    }
+    void NextLevelPanel()
+    {
+        var levelUpScreen = ServiceLocator.GetService<ILevelUpScreen>();
+        if (levelUpScreen != null)
+            levelUpScreen.NextPage();
+
+        Invoke(nameof(LevelIntroScreen), 2.5f);
+        CancelInvoke(nameof(NextLevelPanel));
+    }
+
+    void LevelIntroScreen()
+    {
+        var levelUpScreen = ServiceLocator.GetService<ILevelUpScreen>();
+        if (levelUpScreen != null)
+        {
+            levelUpScreen.levelUpFadeScreen.SetActive(false);
+            levelUpScreen.levelUpIntroScreen.SetActive(true);
+            levelUpScreen.PlayLevelUpSongSound();
+            this.GetComponent<Image>().enabled = true;
+            this.gameObject.SetActive(false);
+        }
+        CancelInvoke(nameof(LevelIntroScreen));
     }
 }

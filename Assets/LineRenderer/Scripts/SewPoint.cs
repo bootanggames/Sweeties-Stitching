@@ -118,6 +118,7 @@ public class SewPoint : MonoBehaviour, ISewPoint
         var spoolManager = ServiceLocator.GetService<ISpoolManager>();
         var IthreadHandler = ServiceLocator.GetService<IThreadManager>();
         Level_Metadata currentLevel = LevelsHandler.instance.currentLevelMeta;
+        currentLevel.currentSpool = spoolManager.GetSpool(currentLevel.currentActiveSpoolIndex);
         if (spoolManager != null)
         {
             SpoolInfo s_Info = currentLevel.currentSpool.GetComponent<SpoolInfo>();

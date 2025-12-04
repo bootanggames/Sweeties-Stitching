@@ -100,6 +100,7 @@ public class LevelsHandler : Singleton<LevelsHandler>, ILevelHandler
         {
             levelIndex++;
             plushieIndex = 0;
+            PlayerPrefs.SetInt("LevelUp", 1);
             if (levelIndex >= levelStructure.Count)
             {
                 levelIndex = 0;
@@ -143,7 +144,9 @@ public class LevelsHandler : Singleton<LevelsHandler>, ILevelHandler
         var IThreadHandler = ServiceLocator.GetService<IThreadManager>();
         if(IThreadHandler != null)
             IThreadHandler.SetUndoValue(true);
-
+        var icoinsHandler = ServiceLocator.GetService<ICoinsHandler>();
+        if (icoinsHandler != null)
+            icoinsHandler.StopCoinSound();
     }
     public void SetLevel()
     {

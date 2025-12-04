@@ -1,6 +1,5 @@
 ﻿using DG.Tweening;
 using System.Collections.Generic;
-using UnityEditor.EditorTools;
 using UnityEngine;
 
 public class ThreadManager : MonoBehaviour, IThreadManager

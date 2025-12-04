@@ -27,7 +27,7 @@ public class CoinsHandler : MonoBehaviour,ICoinsHandler
     [SerializeField] TextMeshProUGUI coinsEarned;
     int coinsRewarded = 0;
     [SerializeField] Vector3 targetScaleDown;
-    [SerializeField] AudioSource audioSource;
+    [field:SerializeField] public AudioSource audioSource {  get; private set; }
     [SerializeField] float coinsIncrementSpeed = 0;
     Tween coinIncrementTween = null;
     [SerializeField] bool testCoinIncrement = false;
@@ -146,7 +146,7 @@ public class CoinsHandler : MonoBehaviour,ICoinsHandler
         HepticManager.instance.HapticEffect();
         Invoke(nameof(StopCoinSound), 4);
     }
-    void StopCoinSound()
+    public void StopCoinSound()
     {
         CancelInvoke(nameof(PlayCoinSound));
     }

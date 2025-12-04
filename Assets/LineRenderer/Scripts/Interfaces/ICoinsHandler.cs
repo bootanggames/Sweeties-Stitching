@@ -15,6 +15,7 @@ public interface ICoinsHandler : IGameService
     GameObject coinSpritePrefab {  get; }
     Transform coinsGameplayTarget {  get; }
     float coinMoveSpeed {  get; }
+    AudioSource audioSource {  get; }
     void SaveCoins(int amount);
     int GetCoins();
     void UpdateCoins(int amount);
@@ -23,4 +24,5 @@ public interface ICoinsHandler : IGameService
     void ResetCoinList();
     void InstantiateCoins(GameObject coinObj, int total, List<GameObject> coinList, Transform parent);
     void CoinIncrementAnimation(int targetAmount);
+    void StopCoinSound();
 }

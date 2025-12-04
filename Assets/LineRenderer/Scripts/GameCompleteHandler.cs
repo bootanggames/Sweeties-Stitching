@@ -182,7 +182,7 @@ public class GameCompleteHandler : MonoBehaviour, IGameService
                 Destroy(g);
             });
         }
-        Invoke(nameof(WinEffect), 1.0f);
+        Invoke(nameof(WinEffect), 0f);
     }
 
     void CleanEnablePlushie()

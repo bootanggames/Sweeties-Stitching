@@ -8,7 +8,6 @@ public class MainMenuLevelsHandler : MonoBehaviour
     private void Start()
     {
         Time.timeScale = 1;
-
         LockUnLock();
     }
     void LockUnLock()

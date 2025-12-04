@@ -7,6 +7,11 @@ public class HomeScreenSound : MonoBehaviour
 
     private void OnEnable()
     {
+        EnableSound();
+    }
+
+    public void EnableSound()
+    {
         if (inventorySource)
             SoundManager.instance.StopSound(inventorySource);
         SoundManager.instance.PlaySound(sourceForBgMusic, SoundManager.instance.audioClips.bgMusic, true, false, 1.0f, true);

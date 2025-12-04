@@ -26,3 +26,6 @@ MonoBehaviour:
   congratulationsScreenSound: {fileID: 8300000, guid: 8f9e930cdf5fbcc40bc0141137002c2e, type: 3}
   sewingRoomBgSound: {fileID: 8300000, guid: 8bc1fb05a2c2ba04680ccc058b4657ef, type: 3}
   coinBagExploding: {fileID: 8300000, guid: 24d023a56c9594345a7be3bc108f600e, type: 3}
+  levelUpSong: {fileID: 8300000, guid: 698d0ffe6722acd49b2c596376c213a9, type: 3}
+  celebrationJingleTrumpets: {fileID: 8300000, guid: e466523c655e9ed4c811d579ede31694, type: 3}
+  ting: {fileID: 8300000, guid: 8f3c9e4f4ceabce448195eb905c61777, type: 3}

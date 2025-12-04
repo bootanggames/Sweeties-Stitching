@@ -29,6 +29,8 @@ public class Level_Metadata : MonoBehaviour
     [HideInInspector]public GameObject currentSpool;
     private void Start()
     {
+        Time.timeScale = 1;
+
         AssignAndUpdateSpools();
         LevelInitialisation();
     }
@@ -126,6 +128,8 @@ public class Level_Metadata : MonoBehaviour
     }
     public void StartLevel() 
     {
+        Time.timeScale = 1;
+
         current_ObjectInfor = stitchStartingPart;
         if (stitchStartingPart.stitchData.IsStitched)
         {
@@ -263,7 +267,8 @@ public class Level_Metadata : MonoBehaviour
            if(IthreadHandler != null)
                 IthreadHandler.SetUndoValue(false);
             PlaySewnSound();
-            Invoke("WinEffect", 2.0f);
+            WinEffect();
+            //Invoke("WinEffect", 2.0f);
         }
         else
         {

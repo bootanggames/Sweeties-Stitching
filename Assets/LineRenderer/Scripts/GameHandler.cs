@@ -29,6 +29,7 @@ public class GameHandler : Singleton<GameHandler>, IGameHandler
     }
     public void Retry()
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
     public void SwitchGameState(GameStates state)
@@ -80,12 +81,14 @@ public class GameHandler : Singleton<GameHandler>, IGameHandler
 
     public void DontSaveProgress()
     {
+        Time.timeScale = 1;
         PlayerPrefs.SetInt("SaveProgress", 0);
         Home("HomeScreen");
     }
 
     public void SaveGameProgress()
     {
+        Time.timeScale = 1;
         PlayerPrefs.SetInt("SaveProgress", 1);
         PlayerPrefs.SetInt("StitchedPartCount", LevelsHandler.instance.currentLevelMeta.noOfStitchedPart);
         LevelsHandler.instance.currentLevelMeta.UpdateLinks();

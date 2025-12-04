@@ -17,4 +17,7 @@ public class SoundScriptable : ScriptableObject
     public AudioClip congratulationsScreenSound;
     public AudioClip sewingRoomBgSound;
     public AudioClip coinBagExploding;
+    public AudioClip levelUpSong;
+    public AudioClip celebrationJingleTrumpets;
+    public AudioClip ting;
 }

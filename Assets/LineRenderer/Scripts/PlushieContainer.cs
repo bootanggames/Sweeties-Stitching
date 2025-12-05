@@ -9,6 +9,14 @@ public class PlushieContainer : MonoBehaviour
 
     private void OnEnable()
     {
+        UpdatePlushieCount();
+    }
+    private void Start()
+    {
+        UpdatePlushieCount();
+    }
+    void UpdatePlushieCount()
+    {
         int c = 0;
         foreach (GameObject g in plushie)
         {

@@ -107,6 +107,7 @@ public class ScaleOutObject : MonoBehaviour
         if (levelUpScreen != null)
         {
             levelUpScreen.PlayLevelUpSound();
+            levelUpScreen.renderTextureImageObj.SetActive(true);
         }
         GameEvents.EffectHandlerEvents.onSewnCompletely.RaiseEvent();
         Invoke(nameof(LevelUpScreenActivation), 3.0f);
@@ -121,7 +122,7 @@ public class ScaleOutObject : MonoBehaviour
             levelUpScreen.confettiCameraRenderObj.SetActive(false);
             levelUpScreen.PlayCelebrationSound();
             levelUpScreen.levelUpFadeScreen.SetActive(true);
-            Invoke(nameof(NextLevelPanel), 1.5f);
+            Invoke(nameof(NextLevelPanel), 1.0f);
         }
         CancelInvoke(nameof(LevelUpScreenActivation));
     }

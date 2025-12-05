@@ -24,6 +24,8 @@ public class LevelUpIntroScreen : MonoBehaviour
         {
             levelUpScreen.StopSound();
             levelUpScreen.homeScreen.EnableSound();
+            levelUpScreen.renderTextureImageObj.SetActive(false);
+            levelUpScreen.levelUpScreen.SetActive(false);
         }
         this.gameObject.SetActive(false);
     }

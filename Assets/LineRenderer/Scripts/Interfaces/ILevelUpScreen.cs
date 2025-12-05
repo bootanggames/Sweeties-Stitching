@@ -9,6 +9,7 @@ public interface ILevelUpScreen : IGameService
     TextMeshProUGUI levelScreenText {  get; }
     GameObject confettiCameraRenderObj {  get; }
     HomeScreenSound homeScreen {  get; }
+    GameObject renderTextureImageObj { get; }
     void NextPage();
     void PlayLevelUpSound();
     void PlayCelebrationSound();

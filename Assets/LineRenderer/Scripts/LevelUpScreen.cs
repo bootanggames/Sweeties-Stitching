@@ -17,6 +17,8 @@ public class LevelUpScreen : MonoBehaviour, ILevelUpScreen
     [SerializeField] LevelUpPlushieInfo[] plushieInfo;
     [SerializeField] AudioSource audioSource;
     [field: SerializeField]public HomeScreenSound homeScreen {  get; private set; }
+    [field: SerializeField] public GameObject renderTextureImageObj { get; private set; }
+
     private void OnEnable()
     {
         RegisterService();

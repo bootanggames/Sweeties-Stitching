@@ -237,7 +237,7 @@ public class ObjectInfo : MonoBehaviour
                     foreach(GameObject c in coinsObj)
                     {
                         c.transform.SetParent(this.transform);
-                        GameEvents.EffectHandlerEvents.onSparkleTrailEffect.RaiseEvent(c.transform);
+                        GameEvents.EffectHandlerEvents.onSparkleTrailEffect.Raise(c.transform);
                     }
                     //coinHandler.SaveCoins((confettiIndex + 1));
                     Vector3 screenPos = RectTransformUtility.WorldToScreenPoint(null, coinHandler.coinsGameplayTarget.position);
@@ -319,7 +319,7 @@ public class ObjectInfo : MonoBehaviour
             {
                 //sp = threadManager.detectedPoints[threadManager.detectedPoints.Count - 1].GetComponent<SewPoint>();
                 //sp.name = sp.sequenceType.ToString();
-                GameEvents.ThreadEvents.onResetThreadInput.RaiseEvent();
+                GameEvents.ThreadEvents.onResetThreadInput.Raise();
                 if (LevelsHandler.instance.currentLevelMeta)
                 {
                     //foreach (Connections c in LevelsHandler.instance.currentLevelMeta.cleanConnection)

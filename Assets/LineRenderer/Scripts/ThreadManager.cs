@@ -44,26 +44,26 @@ public class ThreadManager : MonoBehaviour, IThreadManager
     public void RegisterService()
     {
         ServiceLocator.RegisterService<IThreadManager>(this);
-        GameEvents.ThreadEvents.onInstantiatingThread.RegisterEvent(InstantiateMainThread);
-        GameEvents.ThreadEvents.onInitialiseRope.RegisterEvent(AddFirstPositionOnMouseDown);
-        GameEvents.ThreadEvents.onAddingPositionToRope.RegisterEvent(AddPositionToLineOnDrag);
-        GameEvents.ThreadEvents.onCreatingConnection.RegisterEvent(CreateLineAndApplyPullForceOnConnection);
-        GameEvents.ThreadEvents.onEmptyList_DetectingPoints.RegisterEvent(ClearDetectedPointsList);
-        GameEvents.ThreadEvents.setThreadInput.RegisterEvent(SetThreadInputBool);
-        GameEvents.ThreadEvents.onResetThreadInput.RegisterEvent(ResetThread);
+        GameEvents.ThreadEvents.onInstantiatingThread.Register(InstantiateMainThread);
+        GameEvents.ThreadEvents.onInitialiseRope.Register(AddFirstPositionOnMouseDown);
+        GameEvents.ThreadEvents.onAddingPositionToRope.Register(AddPositionToLineOnDrag);
+        GameEvents.ThreadEvents.onCreatingConnection.Register(CreateLineAndApplyPullForceOnConnection);
+        GameEvents.ThreadEvents.onEmptyList_DetectingPoints.Register(ClearDetectedPointsList);
+        GameEvents.ThreadEvents.setThreadInput.Register(SetThreadInputBool);
+        GameEvents.ThreadEvents.onResetThreadInput.Register(ResetThread);
 
     }
 
     public void UnRegisterService()
     {
         ServiceLocator.UnRegisterService<IThreadManager>(this);
-        GameEvents.ThreadEvents.onInitialiseRope.UnregisterEvent(AddFirstPositionOnMouseDown);
-        GameEvents.ThreadEvents.onAddingPositionToRope.UnregisterEvent(AddPositionToLineOnDrag);
-        GameEvents.ThreadEvents.onCreatingConnection.UnregisterEvent(CreateLineAndApplyPullForceOnConnection);
-        GameEvents.ThreadEvents.onEmptyList_DetectingPoints.UnregisterEvent(ClearDetectedPointsList);
-        GameEvents.ThreadEvents.setThreadInput.UnregisterEvent(SetThreadInputBool);
-        GameEvents.ThreadEvents.onInstantiatingThread.UnregisterEvent(InstantiateMainThread);
-        GameEvents.ThreadEvents.onResetThreadInput.UnregisterEvent(ResetThread);
+        GameEvents.ThreadEvents.onInitialiseRope.UnRegister(AddFirstPositionOnMouseDown);
+        GameEvents.ThreadEvents.onAddingPositionToRope.UnRegister(AddPositionToLineOnDrag);
+        GameEvents.ThreadEvents.onCreatingConnection.UnRegister(CreateLineAndApplyPullForceOnConnection);
+        GameEvents.ThreadEvents.onEmptyList_DetectingPoints.UnRegister(ClearDetectedPointsList);
+        GameEvents.ThreadEvents.setThreadInput.UnRegister(SetThreadInputBool);
+        GameEvents.ThreadEvents.onInstantiatingThread.UnRegister(InstantiateMainThread);
+        GameEvents.ThreadEvents.onResetThreadInput.UnRegister(ResetThread);
 
     }
     public void SetUndoValue(bool val)
@@ -122,7 +122,7 @@ public class ThreadManager : MonoBehaviour, IThreadManager
         if (instantiatedLine == null)
         {
             InstantiateMainThread(true, startPos);
-            GameEvents.NeedleEvents.onNeedleActiveStatusUpdate.RaiseEvent(true);
+            GameEvents.NeedleEvents.onNeedleActiveStatusUpdate.Raise(true);
             return;
         }
         if (lastConnectedPoint != null)
@@ -169,7 +169,7 @@ public class ThreadManager : MonoBehaviour, IThreadManager
         Vector3 needlePos = (instantiatedLine.GetPosition(0))/* + instantiatedLine.GetPosition(1))/2*/;
         needlePos.z = zVal;
        
-        GameEvents.NeedleEvents.OnNeedleMovement.RaiseEvent(needlePos);
+        GameEvents.NeedleEvents.OnNeedleMovement.Raise(needlePos);
 
         if (prevLine)
         {
@@ -276,7 +276,7 @@ public class ThreadManager : MonoBehaviour, IThreadManager
             instantiatedLine.SetPosition(i, point.transform.position);
     
         Scale();
-        GameEvents.PointConnectionHandlerEvents.onFetchingPoints.RaiseEvent(detectedPoints);
+        GameEvents.PointConnectionHandlerEvents.onFetchingPoints.Raise(detectedPoints);
 
     }
 
@@ -334,7 +334,7 @@ public class ThreadManager : MonoBehaviour, IThreadManager
         }
         detectedPoints.Clear();
         prevMouseDragPosition = Vector3.zero;
-        GameEvents.NeedleEvents.onNeedleActiveStatusUpdate.RaiseEvent(false);
+        GameEvents.NeedleEvents.onNeedleActiveStatusUpdate.Raise(false);
     }
     public void UndoThread()
     {
@@ -452,7 +452,7 @@ public class ThreadManager : MonoBehaviour, IThreadManager
             {
                 Destroy(prevLine.gameObject);
                 Destroy(instantiatedLine.gameObject);
-                GameEvents.NeedleEvents.OnNeedleMovement.RaiseEvent(startPos);
+                GameEvents.NeedleEvents.OnNeedleMovement.Raise(startPos);
             }
 
             if (connectHandler.points.Count > 0)

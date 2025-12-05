@@ -33,16 +33,16 @@ public class GameCompleteHandler : MonoBehaviour, IGameService
     }
     public void RegisterService()
     {
-        GameEvents.GameCompleteEvents.onGameComplete.RegisterEvent(GameComplete);
-        GameEvents.GameCompleteEvents.onGameWin.RegisterEvent(WinConfettiEffect);
-        GameEvents.GameCompleteEvents.onPlushieComplete.RegisterEvent(SparkleEffectOnPlushieComplete);
+        GameEvents.GameCompleteEvents.onGameComplete.Register(GameComplete);
+        GameEvents.GameCompleteEvents.onGameWin.Register(WinConfettiEffect);
+        GameEvents.GameCompleteEvents.onPlushieComplete.Register(SparkleEffectOnPlushieComplete);
     }
 
     public void UnRegisterService()
     {
-        GameEvents.GameCompleteEvents.onGameComplete.UnregisterEvent(GameComplete);
-        GameEvents.GameCompleteEvents.onGameWin.UnregisterEvent(WinConfettiEffect);
-        GameEvents.GameCompleteEvents.onPlushieComplete.UnregisterEvent(SparkleEffectOnPlushieComplete);
+        GameEvents.GameCompleteEvents.onGameComplete.UnRegister(GameComplete);
+        GameEvents.GameCompleteEvents.onGameWin.UnRegister(WinConfettiEffect);
+        GameEvents.GameCompleteEvents.onPlushieComplete.UnRegister(SparkleEffectOnPlushieComplete);
     }
 
     void WinConfettiEffect()
@@ -69,7 +69,7 @@ public class GameCompleteHandler : MonoBehaviour, IGameService
     }
     void GameComplete()
     {
-        GameEvents.ThreadEvents.setThreadInput.RaiseEvent(false);
+        GameEvents.ThreadEvents.setThreadInput.Raise(false);
         if (LevelsHandler.instance)
         {
             plushieOfCurrentLevel.sprite = LevelsHandler.instance.currentLevelMeta.levelScriptable.plushieSprite;

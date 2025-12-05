@@ -87,7 +87,7 @@ public class ScaleOutObject : MonoBehaviour
         {
             tween.OnComplete(() =>
             {
-                GameEvents.EffectHandlerEvents.onSewnCompletely.RaiseEvent();
+                GameEvents.EffectHandlerEvents.onSewnCompletely.Raise();
             });
         }
         CancelInvoke(nameof(FireworksParticles));
@@ -108,7 +108,7 @@ public class ScaleOutObject : MonoBehaviour
         {
             levelUpScreen.PlayLevelUpSound();
         }
-        GameEvents.EffectHandlerEvents.onSewnCompletely.RaiseEvent();
+        GameEvents.EffectHandlerEvents.onSewnCompletely.Raise();
         Invoke(nameof(LevelUpScreenActivation), 3.0f);
     }
 

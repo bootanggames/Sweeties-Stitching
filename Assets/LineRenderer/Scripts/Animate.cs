@@ -14,7 +14,7 @@ public class Animate : MonoBehaviour
     }
     public void StartTextAnimation()
     {
-        GameEvents.DoTweenAnimationHandlerEvents.onScaleAnimation.RaiseEvent(this.transform, orignalScale, targetScale, speed, ease);
+        GameEvents.DoTweenAnimationHandlerEvents.onScaleAnimation.Raise(this.transform, orignalScale, targetScale, speed, ease);
     }
 
    

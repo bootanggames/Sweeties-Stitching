@@ -46,13 +46,13 @@ public class CameraManager : MonoBehaviour, ICameraManager
     public void RegisterService()
     {
         ServiceLocator.RegisterService<ICameraManager>(this);
-        GameEvents.CameraManagerEvents.onAddingCamera.RegisterEvent(AddCamera);
+        GameEvents.CameraManagerEvents.onAddingCamera.Register(AddCamera);
     }
 
     public void UnRegisterService()
     {
         ServiceLocator.UnRegisterService<ICameraManager>(this);
-        GameEvents.CameraManagerEvents.onAddingCamera.UnregisterEvent(AddCamera);
+        GameEvents.CameraManagerEvents.onAddingCamera.UnRegister(AddCamera);
     }
 
     public void RepositionCamera(Transform camera, Vector3 pos)

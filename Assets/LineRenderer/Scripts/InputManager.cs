@@ -38,7 +38,7 @@ public class InputManager : MonoBehaviour
 
             drag = true;
             firstTouch = CalculateCurrentPosition();
-            GameEvents.ThreadEvents.onInitialiseRope.RaiseEvent(firstTouch);
+            GameEvents.ThreadEvents.onInitialiseRope.Raise(firstTouch);
             //Invoke("EnableDetection", 0.15f);
             //Debug.LogError("down");
         }
@@ -47,12 +47,12 @@ public class InputManager : MonoBehaviour
             dragTouchValue = CalculateCurrentPosition();
 
             Vector2 newPos = new Vector2(dragTouchValue.x, (dragTouchValue.y + needleOffset));
-            GameEvents.ThreadEvents.onAddingPositionToRope.RaiseEvent(newPos);
+            GameEvents.ThreadEvents.onAddingPositionToRope.Raise(newPos);
             //------Needle Rotation--------
             direction = (dragTouchValue - prevDragPos);
             Vector3 normalisedDirection = direction.normalized;
             float magnitude = direction.sqrMagnitude;
-            GameEvents.NeedleEvents.onNeedleRotation.RaiseEvent(magnitude, normalisedDirection);
+            GameEvents.NeedleEvents.onNeedleRotation.Raise(magnitude, normalisedDirection);
             //-----------------------------
 
             prevDragPos = dragTouchValue;
@@ -60,7 +60,7 @@ public class InputManager : MonoBehaviour
         else if (Input.GetMouseButtonUp(0) && drag)
         {
             drag = false;
-            GameEvents.ThreadEvents.setThreadInput.RaiseEvent(true);
+            GameEvents.ThreadEvents.setThreadInput.Raise(true);
         }
 
     }

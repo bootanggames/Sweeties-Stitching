@@ -5,7 +5,7 @@ public class GameEvent
 {
     public event Action Event;
 
-    public void RegisterEvent(Action eventAction)
+    public void Register(Action eventAction)
     {
         if (eventAction != null)
         {
@@ -13,7 +13,7 @@ public class GameEvent
         }
     }
 
-    public void UnregisterEvent(Action eventAction)
+    public void UnRegister(Action eventAction)
     {
         if (eventAction != null)
         {
@@ -21,7 +21,7 @@ public class GameEvent
         }
     }
 
-    public void RaiseEvent()
+    public void Raise()
     {
         Event?.Invoke();
     }
@@ -35,7 +35,7 @@ public class GameEvent
 public class GameEvent<T>
 {
     public event Action<T> Event;
-    public void RegisterEvent(Action<T> eventAction)
+    public void Register(Action<T> eventAction)
     {
         if (eventAction != null)
         {
@@ -43,7 +43,7 @@ public class GameEvent<T>
         }
     }
 
-    public void UnregisterEvent(Action<T> eventAction)
+    public void UnRegister(Action<T> eventAction)
     {
         if (eventAction != null)
         {
@@ -51,7 +51,7 @@ public class GameEvent<T>
         }
     }
 
-    public void RaiseEvent(T param)
+    public void Raise(T param)
     {
         Event?.Invoke(param);
     }
@@ -65,7 +65,7 @@ public class GameEvent<T>
 public class GameEvent<T1,T2>
 {
     public event Action<T1,T2> Event;
-    public void RegisterEvent(Action<T1,T2> eventAction)
+    public void Register(Action<T1,T2> eventAction)
     {
         if (eventAction != null)
         {
@@ -73,7 +73,7 @@ public class GameEvent<T1,T2>
         }
     }
 
-    public void UnregisterEvent(Action<T1,T2> eventAction)
+    public void UnRegister(Action<T1,T2> eventAction)
     {
         if (eventAction != null)
         {
@@ -81,7 +81,7 @@ public class GameEvent<T1,T2>
         }
     }
 
-    public void RaiseEvent(T1 param1, T2 param2)
+    public void Raise(T1 param1, T2 param2)
     {
         Event?.Invoke(param1, param2);
     }
@@ -95,7 +95,7 @@ public class GameEvent<T1,T2>
 public class GameEvent<T1, T2,T3>
 {
     public event Action<T1, T2,T3> Event;
-    public void RegisterEvent(Action<T1, T2,T3> eventAction)
+    public void Register(Action<T1, T2,T3> eventAction)
     {
         if (eventAction != null)
         {
@@ -103,7 +103,7 @@ public class GameEvent<T1, T2,T3>
         }
     }
 
-    public void UnregisterEvent(Action<T1, T2,T3> eventAction)
+    public void UnRegister(Action<T1, T2,T3> eventAction)
     {
         if (eventAction != null)
         {
@@ -111,7 +111,7 @@ public class GameEvent<T1, T2,T3>
         }
     }
 
-    public void RaiseEvent(T1 param1, T2 param2, T3 param3)
+    public void Raise(T1 param1, T2 param2, T3 param3)
     {
         Event?.Invoke(param1, param2, param3);
     }
@@ -124,7 +124,7 @@ public class GameEvent<T1, T2,T3>
 public class GameEvent<T1, T2, T3, T4>
 {
     public event Action<T1, T2, T3, T4> Event;
-    public void RegisterEvent(Action<T1, T2, T3, T4> eventAction)
+    public void Register(Action<T1, T2, T3, T4> eventAction)
     {
         if (eventAction != null)
         {
@@ -132,7 +132,7 @@ public class GameEvent<T1, T2, T3, T4>
         }
     }
 
-    public void UnregisterEvent(Action<T1, T2, T3, T4> eventAction)
+    public void UnRegister(Action<T1, T2, T3, T4> eventAction)
     {
         if (eventAction != null)
         {
@@ -140,7 +140,7 @@ public class GameEvent<T1, T2, T3, T4>
         }
     }
 
-    public void RaiseEvent(T1 param1, T2 param2, T3 param3, T4 param4)
+    public void Raise(T1 param1, T2 param2, T3 param3, T4 param4)
     {
         Event?.Invoke(param1, param2, param3, param4);
     }
@@ -153,7 +153,7 @@ public class GameEvent<T1, T2, T3, T4>
 public class GameEvent<T1, T2, T3, T4, T5>
 {
     public event Action<T1, T2, T3, T4, T5> Event;
-    public void RegisterEvent(Action<T1, T2, T3, T4, T5> eventAction)
+    public void Register(Action<T1, T2, T3, T4, T5> eventAction)
     {
         if (eventAction != null)
         {
@@ -161,7 +161,7 @@ public class GameEvent<T1, T2, T3, T4, T5>
         }
     }
 
-    public void UnregisterEvent(Action<T1, T2, T3, T4, T5> eventAction)
+    public void UnRegister(Action<T1, T2, T3, T4, T5> eventAction)
     {
         if (eventAction != null)
         {
@@ -169,7 +169,7 @@ public class GameEvent<T1, T2, T3, T4, T5>
         }
     }
 
-    public void RaiseEvent(T1 param1, T2 param2, T3 param3, T4 param4, T5 param5)
+    public void Raise(T1 param1, T2 param2, T3 param3, T4 param4, T5 param5)
     {
         Event?.Invoke(param1, param2, param3, param4, param5);
     }
@@ -182,7 +182,7 @@ public class GameEvent<T1, T2, T3, T4, T5>
 public class GameEvent<T1, T2, T3, T4, T5, T6>
 {
     public event Action<T1, T2, T3, T4, T5, T6> Event;
-    public void RegisterEvent(Action<T1, T2, T3, T4, T5, T6> eventAction)
+    public void Register(Action<T1, T2, T3, T4, T5, T6> eventAction)
     {
         if (eventAction != null)
         {
@@ -190,7 +190,7 @@ public class GameEvent<T1, T2, T3, T4, T5, T6>
         }
     }
 
-    public void UnregisterEvent(Action<T1, T2, T3, T4, T5, T6> eventAction)
+    public void UnRegister(Action<T1, T2, T3, T4, T5, T6> eventAction)
     {
         if (eventAction != null)
         {
@@ -198,7 +198,7 @@ public class GameEvent<T1, T2, T3, T4, T5, T6>
         }
     }
 
-    public void RaiseEvent(T1 param1, T2 param2, T3 param3, T4 param4, T5 param5, T6 param6)
+    public void Raise(T1 param1, T2 param2, T3 param3, T4 param4, T5 param5, T6 param6)
     {
         Event?.Invoke(param1, param2, param3, param4, param5, param6);
     }
@@ -208,10 +208,10 @@ public class GameEvent<T1, T2, T3, T4, T5, T6>
         Event = null;
     }
 }
-public class GameFunc<T, result>
+public class GameQuery<T, result>
 {
     private event Func<T, result> Event;
-    public void RegisterEvent(Func<T, result> method)
+    public void Register(Func<T, result> method)
     {
         if (method == null)
             return;
@@ -219,7 +219,7 @@ public class GameFunc<T, result>
         Event += method;
     }
 
-    public void UnregisterEvent(Func<T, result> method)
+    public void UnRegister(Func<T, result> method)
     {
         Event -= method;
     }
@@ -238,10 +238,10 @@ public class GameFunc<T, result>
         return default;
     }
 }
-public class GameFunc<T1,T2, result>
+public class GameQuery<T1,T2, result>
 {
     private event Func<T1,T2, result> Event;
-    public void RegisterEvent(Func<T1,T2, result> method)
+    public void Register(Func<T1,T2, result> method)
     {
         if (method == null)
             return;
@@ -249,7 +249,7 @@ public class GameFunc<T1,T2, result>
         Event += method;
     }
 
-    public void UnregisterEvent(Func<T1, T2, result> method)
+    public void UnRegister(Func<T1, T2, result> method)
     {
         Event -= method;
     }
@@ -268,10 +268,10 @@ public class GameFunc<T1,T2, result>
         return default;
     }
 }
-public class GameFunc<T1, T2,T3, result>
+public class GameQuery<T1, T2,T3, result>
 {
     private event Func<T1, T2, T3, result> Event;
-    public void RegisterEvent(Func<T1, T2, T3, result> method)
+    public void Register(Func<T1, T2, T3, result> method)
     {
         if (method == null)
             return;
@@ -279,7 +279,7 @@ public class GameFunc<T1, T2,T3, result>
         Event += method;
     }
 
-    public void UnregisterEvent(Func<T1, T2, T3, result> method)
+    public void UnRegister(Func<T1, T2, T3, result> method)
     {
         Event -= method;
     }
@@ -298,10 +298,10 @@ public class GameFunc<T1, T2,T3, result>
         return default;
     }
 }
-public class GameFunc<T1, T2,T3,T4, result>
+public class GameQuery<T1, T2,T3,T4, result>
 {
     private event Func<T1, T2,T3,T4, result> Event;
-    public void RegisterEvent(Func<T1, T2,T3,T4, result> method)
+    public void Register(Func<T1, T2,T3,T4, result> method)
     {
         if (method == null)
             return;
@@ -309,7 +309,7 @@ public class GameFunc<T1, T2,T3,T4, result>
         Event += method;
     }
 
-    public void UnregisterEvent(Func<T1, T2,T3,T4, result> method)
+    public void UnRegister(Func<T1, T2,T3,T4, result> method)
     {
         Event -= method;
     }
@@ -328,10 +328,10 @@ public class GameFunc<T1, T2,T3,T4, result>
         return default;
     }
 }
-public class GameFunc<T1, T2, T3, T4,T5, result>
+public class GameQuery<T1, T2, T3, T4,T5, result>
 {
     private event Func<T1, T2, T3, T4, T5, result> Event;
-    public void RegisterEvent(Func<T1, T2, T3, T4, T5, result> method)
+    public void Register(Func<T1, T2, T3, T4, T5, result> method)
     {
         if (method == null)
             return;
@@ -339,7 +339,7 @@ public class GameFunc<T1, T2, T3, T4,T5, result>
         Event += method;
     }
 
-    public void UnregisterEvent(Func<T1, T2, T3, T4, T5, result> method)
+    public void UnRegister(Func<T1, T2, T3, T4, T5, result> method)
     {
         Event -= method;
     }
@@ -359,10 +359,10 @@ public class GameFunc<T1, T2, T3, T4,T5, result>
     }
 }
 
-public class GameFunc<result>
+public class GameQuery<result>
 {
     private event Func<result> Event;
-    public void RegisterEvent(Func<result> method)
+    public void Register(Func<result> method)
     {
         if (method == null)
             return;
@@ -370,7 +370,7 @@ public class GameFunc<result>
         Event += method;
     }
 
-    public void UnregisterEvent(Func<result> method)
+    public void UnRegister(Func<result> method)
     {
         Event -= method;
     }
@@ -384,7 +384,7 @@ public class GameFunc<result>
     {
         if (Event != null)
         {
-            // NOTE: Only last subscriber’s return is given
+            // NOTE: Only last subscriberï¿½s return is given
             return Event.Invoke();
         }
         return default;

@@ -45,8 +45,8 @@ public class NeedleDetector : MonoBehaviour, INeedleDetector
             sewPoint.name = sewPoint.transform.parent.name + "_sew_" + sewPoint.name;
             PlaySound();
             sewPoint.ChangeTextColor(Color.green);
-            GameEvents.EffectHandlerEvents.onSelectionEffect.RaiseEvent(sewPoint.transform);
-            GameEvents.ThreadEvents.onCreatingConnection.RaiseEvent(sewPoint);
+            GameEvents.EffectHandlerEvents.onSelectionEffect.Raise(sewPoint.transform);
+            GameEvents.ThreadEvents.onCreatingConnection.Raise(sewPoint);
 
             if (!pointsDetected.Contains(sewPoint))
                 pointsDetected.Add(sewPoint);
@@ -129,13 +129,13 @@ public class NeedleDetector : MonoBehaviour, INeedleDetector
     public void RegisterService()
     {
         ServiceLocator.RegisterService<INeedleDetector>(this);
-        GameEvents.NeedleDetectorEvents.onSetRadiusValue.RegisterEvent(SetRadiusValue);
+        GameEvents.NeedleDetectorEvents.onSetRadiusValue.Register(SetRadiusValue);
     }
 
     public void UnRegisterService()
     {
         ServiceLocator.UnRegisterService<INeedleDetector>(this);
-        GameEvents.NeedleDetectorEvents.onSetRadiusValue.UnregisterEvent(SetRadiusValue);
+        GameEvents.NeedleDetectorEvents.onSetRadiusValue.UnRegister(SetRadiusValue);
 
     }
     public void UndoLastConnectedPoint()

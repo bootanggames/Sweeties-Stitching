@@ -35,7 +35,7 @@ public class CanvasUIManager : MonoBehaviour, ICanvasUIManager
   
     public void OnClick(bool value)
     {
-        GameEvents.ThreadEvents.setThreadInput.RaiseEvent(value);
+        GameEvents.ThreadEvents.setThreadInput.Raise(value);
     }
     public void RegisterService()
     {
@@ -49,7 +49,7 @@ public class CanvasUIManager : MonoBehaviour, ICanvasUIManager
 
     public void SetFreeFormThreadValue(bool value)
     {
-        GameEvents.ThreadEvents.onSetFreeformMovementValue.RaiseEvent(value);
+        GameEvents.ThreadEvents.onSetFreeformMovementValue.Raise(value);
     }
 
     public void SetLevel2()
@@ -64,7 +64,7 @@ public class CanvasUIManager : MonoBehaviour, ICanvasUIManager
     }
     public void TapToStart()
     {
-        GameEvents.ThreadEvents.setThreadInput.RaiseEvent(true);
+        GameEvents.ThreadEvents.setThreadInput.Raise(true);
         GameHandler.instance.SwitchGameState(GameStates.Gamestart);
         LevelsHandler.instance.currentLevelMeta.StartLevel();
     }

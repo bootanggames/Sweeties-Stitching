@@ -107,8 +107,8 @@ public class SewPoint : MonoBehaviour, ISewPoint
     public void RegisterService()
     {
         ServiceLocator.RegisterService<ISewPoint>(this);
-        GameEvents.SewPointEvents.onSelected.RegisterEvent(Selected);
-        GameEvents.SewPointEvents.onPointSelectedStatus.RegisterEvent(IsSelected);
+        GameEvents.SewPointEvents.onSelected.Register(Selected);
+        GameEvents.SewPointEvents.onPointSelectedStatus.Register(IsSelected);
     }
 
     public void Selected(bool val)
@@ -168,8 +168,8 @@ public class SewPoint : MonoBehaviour, ISewPoint
     public void UnRegisterService()
     {
         ServiceLocator.UnRegisterService<ISewPoint>(this);
-        GameEvents.SewPointEvents.onSelected.UnregisterEvent(Selected);
-        GameEvents.SewPointEvents.onPointSelectedStatus.UnregisterEvent(IsSelected);
+        GameEvents.SewPointEvents.onSelected.UnRegister(Selected);
+        GameEvents.SewPointEvents.onPointSelectedStatus.UnRegister(IsSelected);
     }
     public void ChangeText(string s)
     {

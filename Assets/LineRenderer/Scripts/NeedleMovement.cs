@@ -21,21 +21,21 @@ public class NeedleMovement : MonoBehaviour,INeedleMovement
     public void RegisterService()
     {
         ServiceLocator.RegisterService<INeedleMovement>(this);
-        GameEvents.NeedleEvents.OnNeedleMovement.RegisterEvent(MoveNeedle);
-        GameEvents.NeedleEvents.OnFetchingNeedlePosition.RegisterEvent(GetPosition);
-        GameEvents.NeedleEvents.onGettingNeedleTransform.RegisterEvent(GetNeedle);
-        GameEvents.NeedleEvents.onNeedleActiveStatusUpdate.RegisterEvent(HandleNeedleActiveStatus);
-        GameEvents.NeedleEvents.onNeedleRotation.RegisterEvent(NeedleRotation);
+        GameEvents.NeedleEvents.OnNeedleMovement.Register(MoveNeedle);
+        GameEvents.NeedleEvents.OnFetchingNeedlePosition.Register(GetPosition);
+        GameEvents.NeedleEvents.onGettingNeedleTransform.Register(GetNeedle);
+        GameEvents.NeedleEvents.onNeedleActiveStatusUpdate.Register(HandleNeedleActiveStatus);
+        GameEvents.NeedleEvents.onNeedleRotation.Register(NeedleRotation);
     }
 
     public void UnRegisterService()
     {
         ServiceLocator.UnRegisterService<INeedleMovement>(this);
-        GameEvents.NeedleEvents.OnNeedleMovement.UnregisterEvent(MoveNeedle);
-        GameEvents.NeedleEvents.OnFetchingNeedlePosition.UnregisterEvent(GetPosition);
-        GameEvents.NeedleEvents.onGettingNeedleTransform.UnregisterEvent(GetNeedle);
-        GameEvents.NeedleEvents.onNeedleActiveStatusUpdate.UnregisterEvent(HandleNeedleActiveStatus);
-        GameEvents.NeedleEvents.onNeedleRotation.UnregisterEvent(NeedleRotation);
+        GameEvents.NeedleEvents.OnNeedleMovement.UnRegister(MoveNeedle);
+        GameEvents.NeedleEvents.OnFetchingNeedlePosition.UnRegister(GetPosition);
+        GameEvents.NeedleEvents.onGettingNeedleTransform.UnRegister(GetNeedle);
+        GameEvents.NeedleEvents.onNeedleActiveStatusUpdate.UnRegister(HandleNeedleActiveStatus);
+        GameEvents.NeedleEvents.onNeedleRotation.UnRegister(NeedleRotation);
 
     }
 

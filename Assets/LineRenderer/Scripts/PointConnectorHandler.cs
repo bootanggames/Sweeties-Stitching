@@ -42,21 +42,21 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
     public void RegisterService()
     {
         ServiceLocator.RegisterService<IPointConnectionHandler>(this);
-        GameEvents.PointConnectionHandlerEvents.onFetchingPoints.RegisterEvent(GetAttachedPointsToCreateLink);
-        GameEvents.PointConnectionHandlerEvents.onStopTweens.RegisterEvent(EndTweens);
-        GameEvents.PointConnectionHandlerEvents.onUpdatingPullSpeed.RegisterEvent(SetPullSpeed);
-        GameEvents.PointConnectionHandlerEvents.onUpdatingStitchCount.RegisterEvent(SetStitchCount);
-        GameEvents.PointConnectionHandlerEvents.onSettingPlushieLevel2.RegisterEvent(ActivateDynamicStitch);
+        GameEvents.PointConnectionHandlerEvents.onFetchingPoints.Register(GetAttachedPointsToCreateLink);
+        GameEvents.PointConnectionHandlerEvents.onStopTweens.Register(EndTweens);
+        GameEvents.PointConnectionHandlerEvents.onUpdatingPullSpeed.Register(SetPullSpeed);
+        GameEvents.PointConnectionHandlerEvents.onUpdatingStitchCount.Register(SetStitchCount);
+        GameEvents.PointConnectionHandlerEvents.onSettingPlushieLevel2.Register(ActivateDynamicStitch);
     }
 
     public void UnRegisterService()
     {
         ServiceLocator.UnRegisterService<IPointConnectionHandler>(this);
-        GameEvents.PointConnectionHandlerEvents.onFetchingPoints.UnregisterEvent(GetAttachedPointsToCreateLink);
-        GameEvents.PointConnectionHandlerEvents.onStopTweens.UnregisterEvent(EndTweens);
-        GameEvents.PointConnectionHandlerEvents.onUpdatingPullSpeed.UnregisterEvent(SetPullSpeed);
-        GameEvents.PointConnectionHandlerEvents.onUpdatingStitchCount.UnregisterEvent(SetStitchCount);
-        GameEvents.PointConnectionHandlerEvents.onSettingPlushieLevel2.UnregisterEvent(ActivateDynamicStitch);
+        GameEvents.PointConnectionHandlerEvents.onFetchingPoints.UnRegister(GetAttachedPointsToCreateLink);
+        GameEvents.PointConnectionHandlerEvents.onStopTweens.UnRegister(EndTweens);
+        GameEvents.PointConnectionHandlerEvents.onUpdatingPullSpeed.UnRegister(SetPullSpeed);
+        GameEvents.PointConnectionHandlerEvents.onUpdatingStitchCount.UnRegister(SetStitchCount);
+        GameEvents.PointConnectionHandlerEvents.onSettingPlushieLevel2.UnRegister(ActivateDynamicStitch);
     }
     public void ResetPointsList(List<SewPoint> list)
     {

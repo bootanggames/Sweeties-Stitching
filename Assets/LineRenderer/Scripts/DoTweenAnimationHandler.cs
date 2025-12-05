@@ -7,24 +7,24 @@ public class DoTweenAnimationHandler : MonoBehaviour
 {
     private void OnEnable()
     {
-        GameEvents.DoTweenAnimationHandlerEvents.onScaleTransform.RegisterEvent(ScaleTransform);
-        GameEvents.DoTweenAnimationHandlerEvents.onScaleAnimation.RegisterEvent(ScaleInOut);
-        GameEvents.DoTweenAnimationHandlerEvents.onMoveToTargetAnimation.RegisterEvent(MoveToTarget);
-        GameEvents.DoTweenAnimationHandlerEvents.onMoveToRectTargetAnimation.RegisterEvent(MoveToRectTarget);
-        GameEvents.DoTweenAnimationHandlerEvents.onUIHighLight.RegisterEvent(FadeInOut);
-        GameEvents.DoTweenAnimationHandlerEvents.onSpining.RegisterEvent(Spining);
-        GameEvents.DoTweenAnimationHandlerEvents.onCountIncrement.RegisterEvent(CoinsIncrement);
+        GameEvents.DoTweenAnimationHandlerEvents.onScaleTransform.Register(ScaleTransform);
+        GameEvents.DoTweenAnimationHandlerEvents.onScaleAnimation.Register(ScaleInOut);
+        GameEvents.DoTweenAnimationHandlerEvents.onMoveToTargetAnimation.Register(MoveToTarget);
+        GameEvents.DoTweenAnimationHandlerEvents.onMoveToRectTargetAnimation.Register(MoveToRectTarget);
+        GameEvents.DoTweenAnimationHandlerEvents.onUIHighLight.Register(FadeInOut);
+        GameEvents.DoTweenAnimationHandlerEvents.onSpining.Register(Spining);
+        GameEvents.DoTweenAnimationHandlerEvents.onCountIncrement.Register(CoinsIncrement);
 
     }
     private void OnDisable()
     {
-        GameEvents.DoTweenAnimationHandlerEvents.onScaleTransform.UnregisterEvent(ScaleTransform);
-        GameEvents.DoTweenAnimationHandlerEvents.onScaleAnimation.UnregisterEvent(ScaleInOut);
-        GameEvents.DoTweenAnimationHandlerEvents.onMoveToTargetAnimation.UnregisterEvent(MoveToTarget);
-        GameEvents.DoTweenAnimationHandlerEvents.onUIHighLight.UnregisterEvent(FadeInOut);
-        GameEvents.DoTweenAnimationHandlerEvents.onSpining.UnregisterEvent(Spining);
-        GameEvents.DoTweenAnimationHandlerEvents.onCountIncrement.UnregisterEvent(CoinsIncrement);
-        GameEvents.DoTweenAnimationHandlerEvents.onMoveToRectTargetAnimation.UnregisterEvent(MoveToRectTarget);
+        GameEvents.DoTweenAnimationHandlerEvents.onScaleTransform.UnRegister(ScaleTransform);
+        GameEvents.DoTweenAnimationHandlerEvents.onScaleAnimation.UnRegister(ScaleInOut);
+        GameEvents.DoTweenAnimationHandlerEvents.onMoveToTargetAnimation.UnRegister(MoveToTarget);
+        GameEvents.DoTweenAnimationHandlerEvents.onUIHighLight.UnRegister(FadeInOut);
+        GameEvents.DoTweenAnimationHandlerEvents.onSpining.UnRegister(Spining);
+        GameEvents.DoTweenAnimationHandlerEvents.onCountIncrement.UnRegister(CoinsIncrement);
+        GameEvents.DoTweenAnimationHandlerEvents.onMoveToRectTargetAnimation.UnRegister(MoveToRectTarget);
 
     }
     void ScaleInOut(Transform t, float originalScale, float targetScale, float speed, Ease ease)

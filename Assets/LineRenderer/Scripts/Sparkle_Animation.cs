@@ -14,6 +14,6 @@ public class Sparkle_Animation : MonoBehaviour
     }
     void ScaleInOut(float target, float scaleIn)
     {
-        GameEvents.DoTweenAnimationHandlerEvents.onScaleAnimation.RaiseEvent(this.transform, scaleIn, target, speed, ease);
+        GameEvents.DoTweenAnimationHandlerEvents.onScaleAnimation.Raise(this.transform, scaleIn, target, speed, ease);
     }
 }

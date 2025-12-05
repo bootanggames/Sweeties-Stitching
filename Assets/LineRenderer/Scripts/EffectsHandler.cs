@@ -13,23 +13,24 @@ public class EffectsHandler : MonoBehaviour
     [SerializeField] GameObject sparkleTrail;
     [SerializeField] GameObject coinBurstEffect;
     [SerializeField] GameObject sparkleTrailAtTheStitchCompletion;
+    
     private void OnEnable()
     {
-        GameEvents.EffectHandlerEvents.onSelectionEffect.RegisterEvent(InstantiateEffect);
-        GameEvents.EffectHandlerEvents.onGetInstantiatedEffect.RegisterEvent(GetGameWinInstantiatedEffect);
-        GameEvents.EffectHandlerEvents.onPartCompleteEffect.RegisterEvent(GetPartCompleteInstantiatedEffect);
-        GameEvents.EffectHandlerEvents.onSewnCompletely.RegisterEvent(StartConfetti);
-        GameEvents.EffectHandlerEvents.onSparkleTrailEffect.RegisterEvent(SparkleTrailEffect);
-        GameEvents.EffectHandlerEvents.onSparkleTrailEffectOnCompletion.RegisterEvent(SparkleTrailEffectOnPlushieComplete);
+        GameEvents.EffectHandlerEvents.onSelectionEffect.Register(InstantiateEffect);
+        GameEvents.EffectHandlerEvents.onGetInstantiatedEffect.Register(GetGameWinInstantiatedEffect);
+        GameEvents.EffectHandlerEvents.onPartCompleteEffect.Register(GetPartCompleteInstantiatedEffect);
+        GameEvents.EffectHandlerEvents.onSewnCompletely.Register(StartConfetti);
+        GameEvents.EffectHandlerEvents.onSparkleTrailEffect.Register(SparkleTrailEffect);
+        GameEvents.EffectHandlerEvents.onSparkleTrailEffectOnCompletion.Register(SparkleTrailEffectOnPlushieComplete);
     }
     private void OnDisable()
     {
-        GameEvents.EffectHandlerEvents.onSelectionEffect.UnregisterEvent(InstantiateEffect);
-        GameEvents.EffectHandlerEvents.onGetInstantiatedEffect.UnregisterEvent(GetGameWinInstantiatedEffect);
-        GameEvents.EffectHandlerEvents.onPartCompleteEffect.UnregisterEvent(GetPartCompleteInstantiatedEffect);
-        GameEvents.EffectHandlerEvents.onSewnCompletely.UnregisterEvent(StartConfetti);
-        GameEvents.EffectHandlerEvents.onSparkleTrailEffect.UnregisterEvent(SparkleTrailEffect);
-        GameEvents.EffectHandlerEvents.onSparkleTrailEffectOnCompletion.UnregisterEvent(SparkleTrailEffectOnPlushieComplete);
+        GameEvents.EffectHandlerEvents.onSelectionEffect.UnRegister(InstantiateEffect);
+        GameEvents.EffectHandlerEvents.onGetInstantiatedEffect.UnRegister(GetGameWinInstantiatedEffect);
+        GameEvents.EffectHandlerEvents.onPartCompleteEffect.UnRegister(GetPartCompleteInstantiatedEffect);
+        GameEvents.EffectHandlerEvents.onSewnCompletely.UnRegister(StartConfetti);
+        GameEvents.EffectHandlerEvents.onSparkleTrailEffect.UnRegister(SparkleTrailEffect);
+        GameEvents.EffectHandlerEvents.onSparkleTrailEffectOnCompletion.UnRegister(SparkleTrailEffectOnPlushieComplete);
 
     }
     void InstantiateEffect(Transform parent)
@@ -108,7 +109,7 @@ public class EffectsHandler : MonoBehaviour
         else
         {
             DisableAllConfetti();
-            GameEvents.GameCompleteEvents.onGameComplete.RaiseEvent();
+            GameEvents.GameCompleteEvents.onGameComplete.Raise();
         }
 
     }

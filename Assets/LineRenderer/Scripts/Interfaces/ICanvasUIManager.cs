@@ -22,4 +22,6 @@ public interface ICanvasUIManager:IGameService
     void TapToStart();
     void UpdateStitchCount(int totalStitch, int completedStitch);
     void UpdatePlushieStitchProgress(int totalParts, int completedParts);
+    void PlayBgMusic();
+    void StopBgMusic();
 }

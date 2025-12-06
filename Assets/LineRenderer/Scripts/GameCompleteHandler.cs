@@ -59,14 +59,15 @@ public class GameCompleteHandler : MonoBehaviour, IGameService
         }
     }
 
-    void PlaySound()
+    void PlayGiggleSound()
     {
         SoundManager.instance.ResetAudioSource();
 
         AudioSource _source = SoundManager.instance.audioSource;
         AudioClip _clip = SoundManager.instance.audioClips.congratulationsScreenSound;
-        SoundManager.instance.PlaySound(_source, _clip, true, false, 1, false);
+        SoundManager.instance.PlaySound(_source, _clip, false, false, 1, false);
     }
+
     void GameComplete()
     {
         GameEvents.ThreadEvents.setThreadInput.RaiseEvent(false);
@@ -93,10 +94,11 @@ public class GameCompleteHandler : MonoBehaviour, IGameService
             canvasHandler.gameCompletePanel.gameObject.SetActive(true);
             Invoke(nameof(TreasureBoxAppearance), 0.45f);
             canvasHandler.completeStitchedPlushie.SetActive(true);
-            PlaySound();
+            PlayGiggleSound();
             RectTransform rt =  canvasHandler.completeStitchedPlushie.GetComponent<RectTransform>();
             rt.DOScale(1, speed).SetEase(Ease.Linear).OnComplete(() =>
             {
+                canvasHandler.PlayBgMusic();
                 //if (coinsHandler != null)
                 //{
                 //    coinsHandler.CreateCoinsObjects();

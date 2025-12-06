@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4109aabcceec3524db282b4af3af3110, type: 3}
+  m_Name: BedSprites
+  m_EditorClassIdentifier: Assembly-CSharp::ItemsSprite
+  itemSprite:
+  - {fileID: 21300000, guid: 87c802e1acccf8446b47a468ca26cc6b, type: 3}
+  - {fileID: 21300000, guid: 6b4b84e5254cbcc48a9d0ebc1f1b674f, type: 3}
+  - {fileID: 21300000, guid: de27c3b19f3c9cc48b72b63164529029, type: 3}
+  - {fileID: 21300000, guid: 1914966039696164bb9eea03e45dbc29, type: 3}
+  - {fileID: 21300000, guid: 698e343e782885b4ea74495703d1526d, type: 3}
+  - {fileID: 21300000, guid: 40cf5b0e628688f4cb6d118152e12af7, type: 3}
+  - {fileID: 21300000, guid: bb09d53296f2d9f4f9c0e06468594324, type: 3}
+  - {fileID: 21300000, guid: 9c4b674a6d649494eae37c195845982f, type: 3}
+  - {fileID: 21300000, guid: 437aec253715b5c4a8537e8da76e077d, type: 3}

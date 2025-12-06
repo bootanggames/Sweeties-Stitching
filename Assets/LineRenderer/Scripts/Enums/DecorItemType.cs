@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public enum BedRoomItemType
+public enum DecorItemType
 {
    BED,
    SEWING_MACHINE,

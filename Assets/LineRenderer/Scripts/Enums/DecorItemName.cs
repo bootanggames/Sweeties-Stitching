@@ -1,8 +1,8 @@
 using UnityEngine;
 
-public enum BedRoomItemName
+public enum DecorItemName
 {
-   SIMPLE_WALL,
+   SIMPLE_WALL = 0,
    GEM_WALL,
    YELLOW_WALL,
    PINK_WALL,

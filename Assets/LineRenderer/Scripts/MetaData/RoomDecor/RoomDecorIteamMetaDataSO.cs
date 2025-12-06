@@ -3,8 +3,8 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "RoomDecorItem", menuName = "MetaData/RoomDecorItems/Create Item", order = 0)]
 public class RoomDecorIteamMetaDataSO : ScriptableObject
 {
-    [field: SerializeField] public BedRoomItemName ItemName { get; private set; }
-    [field: SerializeField] public BedRoomItemType ItemType { get; private set; }
+    [field: SerializeField] public DecorItemName ItemName { get; private set; }
+    [field: SerializeField] public DecorItemType ItemType { get; private set; }
     
     [field: SerializeField] public string DisplayName { get; private set; }
     [field: SerializeField] public Sprite ItemIcon { get; private set; }

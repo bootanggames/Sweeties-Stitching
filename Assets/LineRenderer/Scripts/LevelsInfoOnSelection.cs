@@ -9,18 +9,20 @@ public class LevelsInfoOnSelection : MonoBehaviour
     [SerializeField] PageSlider pageSlider;
     private void Start()
     {
-        int levelIndex = PlayerPrefs.GetInt("Level");
-        NextPage(1);
-        // current page for slider on objective screen
+        Invoke(nameof(GoToNextLevelPage), 0.25f);
     }
-
+    void GoToNextLevelPage()
+    {
+        int levelIndex = PlayerPrefs.GetInt("Level");
+        NextPage(levelIndex);
+        CancelInvoke(nameof(GoToNextLevelPage));
+    }
     public void NextPage(int page)
     {
         if (pageScroller != null)
         {
             //var page = pageScroller._currentPage;
             //page++;
-            Debug.LogError(" " + page + " " + pageSlider._pages.Count);
             if (page < pageSlider._pages.Count)
                 pageScroller.ScrollToPage(page);
             else

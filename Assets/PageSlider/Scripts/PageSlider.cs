@@ -164,7 +164,6 @@ namespace TS.PageSlider
         /// <param name="toIndex">The index of the page that is being activated.</param>
         private void PageScroller_PageChangeStarted(int fromIndex, int toIndex)
         {
-            Debug.LogError("from " + fromIndex + " to " + toIndex);
             _pages[fromIndex].ChangingToInactiveState();
             _pages[toIndex].ChangingToActiveState();
         }

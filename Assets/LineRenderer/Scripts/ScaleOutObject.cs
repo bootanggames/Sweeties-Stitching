@@ -73,21 +73,21 @@ public class ScaleOutObject : MonoBehaviour
         tween = null;
         PlaySound();
         //FireworksParticles();
-
+   
         Invoke(nameof(FireworksParticles), 0.25f);
     }
 
     void FireworksParticles()
     {
-        var canvasHandler = ServiceLocator.GetService<ICanvasUIManager>();
-        if (canvasHandler != null)
-            canvasHandler.confettiEffectCanvas.SetActive(true);
+        //var canvasHandler = ServiceLocator.GetService<ICanvasUIManager>();
+        //if (canvasHandler != null)
+        //    canvasHandler.confettiEffectCanvas.SetActive(true);
         tween = GameEvents.DoTweenAnimationHandlerEvents.onScaleTransform.Raise(this.transform, Vector3.zero, speed, ease);
         if (tween != null)
         {
             tween.OnComplete(() =>
             {
-                GameEvents.EffectHandlerEvents.onSewnCompletely.RaiseEvent();
+                //GameEvents.EffectHandlerEvents.onSewnCompletely.RaiseEvent();
             });
         }
         CancelInvoke(nameof(FireworksParticles));

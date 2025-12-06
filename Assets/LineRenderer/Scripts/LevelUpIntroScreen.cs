@@ -18,7 +18,7 @@ public class LevelUpIntroScreen : MonoBehaviour
             plishieObj[i].SetActive(true);
             yield return new WaitForSeconds(0.25f);
         }
-        yield return new WaitForSeconds(1.0f);
+        yield return new WaitForSeconds(1.5f);
         var levelUpScreen = ServiceLocator.GetService<ILevelUpScreen>();
         if (levelUpScreen != null)
         {

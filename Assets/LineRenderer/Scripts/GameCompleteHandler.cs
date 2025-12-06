@@ -75,7 +75,7 @@ public class GameCompleteHandler : MonoBehaviour, IGameService
             plushieOfCurrentLevel.sprite = LevelsHandler.instance.currentLevelMeta.levelScriptable.plushieSprite;
             RectTransform rt = plushieOfCurrentLevel.rectTransform;
             rt.sizeDelta = new Vector2(LevelsHandler.instance.currentLevelMeta.levelScriptable.plushieWidth, LevelsHandler.instance.currentLevelMeta.levelScriptable.plushieHeight);
-            levelProgress.text = (LevelsHandler.instance.levelIndex + 1) + "/3 Till Level 5";
+            levelProgress.text = (LevelsHandler.instance.plushieIndex + 1) + "/3 Till Level 5";
         }
         var plushieInventory = ServiceLocator.GetService<IPlushieStoreHandler>();
         if (plushieInventory != null)
@@ -105,6 +105,7 @@ public class GameCompleteHandler : MonoBehaviour, IGameService
             });
         }
         GameHandler.instance.SwitchGameState(GameStates.Gamecomplete);
+            
     }
    
     void PlaySoundCoinBagExploding()
@@ -205,7 +206,11 @@ public class GameCompleteHandler : MonoBehaviour, IGameService
 
         var canvasHandler = ServiceLocator.GetService<ICanvasUIManager>();
         if (canvasHandler != null)
+        {
+            canvasHandler.confettiEffectCanvas.SetActive(true);
             canvasHandler.sewnScreen.SetActive(true);
+            GameEvents.EffectHandlerEvents.onSewnCompletely.RaiseEvent();
+        }
         CancelInvoke(nameof( WinEffect));
     }
 }

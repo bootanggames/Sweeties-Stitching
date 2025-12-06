@@ -69,7 +69,7 @@ public class LevelUpScreen : MonoBehaviour, ILevelUpScreen
             PlayerPrefs.SetInt("LevelUp", 0);
             renderTextureImageObj.SetActive(true);
             confettiCameraRenderObj.SetActive(false);
-            levelUpCamera.SetActive(true);
+            //levelUpCamera.SetActive(true);
             foreach(ParticleSystem ps in levelUpEffect)
             {
                 ps.gameObject.SetActive(true);

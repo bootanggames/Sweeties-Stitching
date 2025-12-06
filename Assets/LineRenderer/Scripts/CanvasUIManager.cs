@@ -26,7 +26,15 @@ public class CanvasUIManager : MonoBehaviour, ICanvasUIManager
     {
         RegisterService();
         //startText.SetActive(true);
+        PlayBgMusic();
+    }
+    public void PlayBgMusic()
+    {
         SoundManager.instance.PlaySound(audioSourceForBG, SoundManager.instance.audioClips.bgMusic, true, false, 0.8f, true);
+    }
+    public void StopBgMusic()
+    {
+        SoundManager.instance.StopSound(audioSourceForBG);
     }
     private void OnDisable()
     {

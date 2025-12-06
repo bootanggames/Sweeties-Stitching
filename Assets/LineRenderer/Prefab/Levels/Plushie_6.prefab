@@ -1776,7 +1776,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   partType: 4
   partConnectedTo: 1
-  addressOfNextPartToBeStitched: {fileID: 0}
+  addressOfNextPartToBeStitched: {fileID: 975854627904244461}
   originalRotation: {x: 0, y: 0, z: 0}
   movedPosition: {x: 0, y: 2.33, z: 0}
   startPosition: {x: 0, y: 2.6, z: 0}
@@ -16416,7 +16416,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   partType: 7
   partConnectedTo: 1
-  addressOfNextPartToBeStitched: {fileID: 0}
+  addressOfNextPartToBeStitched: {fileID: 7356436891419299430}
   originalRotation: {x: 0, y: 0, z: 0}
   movedPosition: {x: 0, y: 0, z: 0}
   startPosition: {x: 0.7670001, y: -0.10399997, z: 0}
@@ -16571,7 +16571,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   partType: 0
   partConnectedTo: 0
-  addressOfNextPartToBeStitched: {fileID: 0}
+  addressOfNextPartToBeStitched: {fileID: 4153499506359288539}
   originalRotation: {x: 0, y: 0, z: 0}
   movedPosition: {x: 0.521, y: 2.583, z: 0}
   startPosition: {x: 1.08, y: 2.746, z: 0}
@@ -25727,7 +25727,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   partType: 3
   partConnectedTo: 0
-  addressOfNextPartToBeStitched: {fileID: 0}
+  addressOfNextPartToBeStitched: {fileID: 5655738408113313663}
   originalRotation: {x: 0, y: 0, z: 21}
   movedPosition: {x: 0, y: 0, z: 0}
   startPosition: {x: 1.13, y: 3.41, z: 0}
@@ -30944,7 +30944,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   partType: 1
   partConnectedTo: 0
-  addressOfNextPartToBeStitched: {fileID: 0}
+  addressOfNextPartToBeStitched: {fileID: 7815946448547805336}
   originalRotation: {x: 0, y: 0, z: 0}
   movedPosition: {x: -0.489, y: 2.588, z: 0}
   startPosition: {x: -1.13, y: 2.641, z: 0}
@@ -33143,7 +33143,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   partType: 2
   partConnectedTo: 0
-  addressOfNextPartToBeStitched: {fileID: 0}
+  addressOfNextPartToBeStitched: {fileID: 4287910294380421048}
   originalRotation: {x: 0, y: 0, z: -25}
   movedPosition: {x: 0, y: 0, z: 0}
   startPosition: {x: -1.01, y: 3.39, z: 0}
@@ -40614,6 +40614,7 @@ MonoBehaviour:
   levelScriptable: {fileID: 11400000, guid: 1832ab442304a2041bad3bf18726ef7d, type: 2}
   noOfStitchesDone: 0
   noOfStitchedPart: 0
+  currentActiveSpoolIndex: 0
   currentActivePart: 0
   bodyParts:
   - {fileID: 242194613618373054}
@@ -40629,13 +40630,14 @@ MonoBehaviour:
   immoveablePart: {fileID: 2706987198306283300}
   bodyWihtoutHoles: {fileID: 251204700659946200}
   sewnPlushie: {fileID: 0}
-  current_ObjectInfor: {fileID: 0}
-  stitchStartingPart: {fileID: 5578114465657538591}
-  needleUndoPosition: {fileID: 0}
   linePrefabForCleanConnection: {fileID: 7377872058111036791, guid: 9b87cbba0ae87414faacff166a8bcaad, type: 3}
+  stitchStartingPart: {fileID: 5578114465657538591}
+  current_ObjectInfor: {fileID: 0}
+  needleUndoPosition: {fileID: 0}
   cleanConnection: []
   cleanThreadIndex: 0
   crissCrossObjList: []
+  currentSpool: {fileID: 0}
 --- !u!1 &7969697668406664759
 GameObject:
   m_ObjectHideFlags: 0
@@ -42266,7 +42268,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   partType: 6
   partConnectedTo: 1
-  addressOfNextPartToBeStitched: {fileID: 0}
+  addressOfNextPartToBeStitched: {fileID: 2179528802015243929}
   originalRotation: {x: 0, y: 0, z: 0}
   movedPosition: {x: 0, y: 0, z: 0}
   startPosition: {x: -1.4650999, y: 1.1309999, z: 0}
@@ -43543,7 +43545,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   partType: 8
   partConnectedTo: 1
-  addressOfNextPartToBeStitched: {fileID: 0}
+  addressOfNextPartToBeStitched: {fileID: 8385408167629079192}
   originalRotation: {x: 0, y: 0, z: 0}
   movedPosition: {x: 0, y: 0, z: 0}
   startPosition: {x: -0.79092014, y: -0.08580005, z: 0}

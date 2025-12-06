@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -10,7 +11,11 @@ public interface ILevelUpScreen : IGameService
     GameObject confettiCameraRenderObj {  get; }
     HomeScreenSound homeScreen {  get; }
     GameObject renderTextureImageObj { get; }
+    GameObject levelUpCamera { get; }
+    ParticleSystem[] levelUpEffect { get; }
+    List<PlushieSpriteContainer> pageSliderContainer {  get; }
     void NextPage();
+    void PrevPage();
     void PlayLevelUpSound();
     void PlayCelebrationSound();
     void PlayLevelUpSongSound();

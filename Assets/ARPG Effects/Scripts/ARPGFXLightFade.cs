@@ -23,6 +23,16 @@ namespace ARPGFX
             else
                 print("No light object found on " + gameObject.name);
         }
+		
+		void OnEnable()
+		{
+			
+			if (gameObject.GetComponent<Light>())
+            {
+                li = gameObject.GetComponent<Light>();
+                initIntensity = li.intensity;
+            }
+		}
 
         // Update is called once per frame
         void Update()

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelName: Zellie
   levelReward: 30
-  totalStitches: 82
+  totalStitches: 93
   totalParts: 9
   totalSpoolsNeeded: 2
   plushieWidth: 550

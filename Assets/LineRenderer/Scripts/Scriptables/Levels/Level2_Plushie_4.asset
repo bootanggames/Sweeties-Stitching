@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelName: Bubble Gum
   levelReward: 30
-  totalStitches: 82
+  totalStitches: 83
   totalParts: 9
   totalSpoolsNeeded: 1
   plushieWidth: 550

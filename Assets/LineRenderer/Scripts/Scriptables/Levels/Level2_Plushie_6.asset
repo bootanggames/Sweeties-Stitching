@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelName: Rainbaby
   levelReward: 30
-  totalStitches: 78
+  totalStitches: 83
   totalParts: 9
   totalSpoolsNeeded: 2
   plushieWidth: 536
@@ -24,13 +24,13 @@ MonoBehaviour:
   threadSpool: {fileID: 21300000, guid: bf01711c16053b4429b4d06d76fb7b74, type: 3}
   stitchObj: {fileID: 2318274901814856818, guid: 75e7b52665f739f47823b55122662811, type: 3}
   crissCrossObjForEyes: {fileID: 2127325833259773361, guid: 201d15cda53417e4fa34909114448bc3, type: 3}
-  neckCameraPos: {x: 0.065, y: 0.443, z: -1.3}
-  rightEyeCameraPos: {x: 0.63, y: 0.97, z: -1.3}
-  rightEarCameraPos: {x: 0.74, y: 1.41, z: -1.3}
-  leftEarCameraPos: {x: -0.371, y: 1.406, z: -1.3}
-  leftEyeCameraPos: {x: -0.4, y: 1.013, z: -1.3}
-  leftArmCameraPos: {x: -0.71, y: 0.1, z: -1.3}
-  leftLegCameraPos: {x: -0.28, y: -0.848, z: -1.3}
-  rightLegCameraPos: {x: 0.743, y: -0.883, z: -1.3}
-  rightArmCameraPos: {x: 0.915, y: 0.096, z: -1.3}
-  gameCompleteCameraPos: {x: -0.18, y: 1.07, z: -1.3}
+  neckCameraPos: {x: -0.10850002, y: 1.5990001, z: -1.3}
+  rightEyeCameraPos: {x: 0.85, y: 2.66, z: -1.3}
+  rightEarCameraPos: {x: 0.79, y: 3.25, z: -1.3}
+  leftEarCameraPos: {x: -0.8, y: 3.236, z: -1.3}
+  leftEyeCameraPos: {x: -0.887, y: 2.615, z: -1.3}
+  leftArmCameraPos: {x: -0.851, y: 1.112, z: -1.3}
+  leftLegCameraPos: {x: -0.64, y: 0.2800001, z: -1.3}
+  rightLegCameraPos: {x: 0.5, y: 0.2880001, z: -1.3}
+  rightArmCameraPos: {x: 0.893, y: 1.124, z: -1.3}
+  gameCompleteCameraPos: {x: -0.18, y: 1.07, z: -1}

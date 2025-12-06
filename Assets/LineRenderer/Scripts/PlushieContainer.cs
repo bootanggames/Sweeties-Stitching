@@ -15,6 +15,7 @@ public class PlushieContainer : MonoBehaviour
     {
         UpdatePlushieCount();
     }
+
     void UpdatePlushieCount()
     {
         int c = 0;

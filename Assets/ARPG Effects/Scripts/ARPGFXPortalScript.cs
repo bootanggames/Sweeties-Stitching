@@ -4,49 +4,53 @@ using System.Collections;
 namespace ARPGFX
 {
 
+
 public class ARPGFXPortalScript : MonoBehaviour
 {
 
-	public GameObject portalOpen;
-	public GameObject portalIdle;
-	public GameObject portalClose;
-	
-	public float portalLifetime = 4.0f;
+    public GameObject portalOpenPrefab;
+    public GameObject portalIdlePrefab;
+    public GameObject portalClosePrefab;
+    private GameObject portalOpen;
+    private GameObject portalIdle;
+    private GameObject portalClose;
+
+    public float portalLifetime = 4.0f;
 
 
-	void Start ()
-	{
-		OpenPortal();
-	}
+    void Start()
+    {
+        portalOpen = Instantiate(portalOpenPrefab, transform.position, transform.rotation);
+        portalIdle = Instantiate(portalIdlePrefab, transform.position, transform.rotation);
+        portalIdle.SetActive(false);
+        portalClose = Instantiate(portalClosePrefab, transform.position, transform.rotation);
+        portalClose.SetActive(false);
 
+        StartCoroutine("PortalLoop");
+    }
 
-	public void OpenPortal()
-	{
-		StartCoroutine("PortalLoop");
-	}
-	
+    IEnumerator PortalLoop()
+    {
+        while (true)
+        {
+            portalOpen.SetActive(true);
 
-	IEnumerator PortalLoop()
-	{
-		GameObject portalOpener = (GameObject) Instantiate(portalOpen, transform.position, transform.rotation);
-		yield return new WaitForSeconds(0.8f);
-		GameObject portalIdler = (GameObject) Instantiate(portalIdle, transform.position, transform.rotation);
+            yield return new WaitForSeconds(0.8f);
 
-		yield return new WaitForSeconds(portalLifetime);
-		Destroy (portalIdler);
-		Destroy (portalOpener);
-		GameObject portalCloser = (GameObject) Instantiate(portalClose, transform.position, transform.rotation);
+            portalIdle.SetActive(true);
+			portalOpen.SetActive(false);
 
-		yield return new WaitForSeconds(1f);
-		Destroy (portalCloser);
-		OpenPortal();
-	}
+            yield return new WaitForSeconds(portalLifetime);
+           
+            portalIdle.SetActive(false);
 
-//	IENumerator ClosePortal()
-//	{
-//		yield return new WaitForSeconds(2f);
-//		Destroy (portalIdler);
-//		GameObject portalClose = (GameObject) Instantiate(portalClose, transform.position, transform.rotation);
-//	}
+            portalClose.SetActive(true);
+
+            yield return new WaitForSeconds(1f);
+
+            portalClose.SetActive(false);
+        }
+    }
 }
+
 }

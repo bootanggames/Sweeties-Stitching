@@ -114,10 +114,15 @@ public class SewPoint : MonoBehaviour, ISewPoint
     public void Selected(bool val)
     {
         selected = val;
-
+        if(!GameHandler.instance.gameStates.Equals(GameStates.Gamecomplete))
+            SpoolArrangement();
+    }
+    void SpoolArrangement()
+    {
         var spoolManager = ServiceLocator.GetService<ISpoolManager>();
         var IthreadHandler = ServiceLocator.GetService<IThreadManager>();
         Level_Metadata currentLevel = LevelsHandler.instance.currentLevelMeta;
+        if (currentLevel.currentActiveSpoolIndex >= spoolManager.spoolList.Count) return;
         currentLevel.currentSpool = spoolManager.GetSpool(currentLevel.currentActiveSpoolIndex);
         if (spoolManager != null)
         {
@@ -129,7 +134,8 @@ public class SewPoint : MonoBehaviour, ISewPoint
                 if (s_Info.noOfStitchedDone >= s_Info.totalThreadsInSpool)
                 {
                     currentLevel.currentActiveSpoolIndex++;
-
+                    //if (currentLevel.currentActiveSpoolIndex >= currentLevel.levelScriptable.totalSpoolsNeeded)
+                    //    currentLevel.currentActiveSpoolIndex = currentLevel.currentActiveSpoolIndex - 1;
                     if (currentLevel.currentActiveSpoolIndex < spoolManager.spoolList.Count)
                     {
                         currentLevel.currentSpool = spoolManager.GetSpool(currentLevel.currentActiveSpoolIndex);
@@ -143,7 +149,7 @@ public class SewPoint : MonoBehaviour, ISewPoint
                 }
                 else
                 {
-                    if(currentLevel.currentActiveSpoolIndex == 0)
+                    if (currentLevel.currentActiveSpoolIndex == 0)
                     {
                         float total = (currentLevel.levelScriptable.totalStitches / spoolManager.spoolList.Count);
                         totalThread = (int)total;
@@ -164,7 +170,6 @@ public class SewPoint : MonoBehaviour, ISewPoint
 
         }
     }
-
     public void UnRegisterService()
     {
         ServiceLocator.UnRegisterService<ISewPoint>(this);

@@ -72,9 +72,9 @@ public class ScaleOutObject : MonoBehaviour
         tween.Kill();
         tween = null;
         PlaySound();
-        FireworksParticles();
+        //FireworksParticles();
 
-        //Invoke(nameof(FireworksParticles),1.0f);
+        Invoke(nameof(FireworksParticles), 0.25f);
     }
 
     void FireworksParticles()
@@ -107,19 +107,24 @@ public class ScaleOutObject : MonoBehaviour
         if (levelUpScreen != null)
         {
             levelUpScreen.PlayLevelUpSound();
-            levelUpScreen.renderTextureImageObj.SetActive(true);
+            levelUpScreen.confettiCameraRenderObj.SetActive(true);
         }
+        Invoke(nameof(ConfettiEffect),0.5f);
+    }
+    void ConfettiEffect()
+    {
+        var levelUpScreen = ServiceLocator.GetService<ILevelUpScreen>();
+        if (levelUpScreen != null)
+            levelUpScreen.levelUpCamera.SetActive(false);
         GameEvents.EffectHandlerEvents.onSewnCompletely.RaiseEvent();
         Invoke(nameof(LevelUpScreenActivation), 3.0f);
     }
-
     void LevelUpScreenActivation()
     {
         this.transform.GetComponent<Image>().enabled = false;
         var levelUpScreen = ServiceLocator.GetService<ILevelUpScreen>();
         if (levelUpScreen != null)
         {
-            levelUpScreen.confettiCameraRenderObj.SetActive(false);
             levelUpScreen.PlayCelebrationSound();
             levelUpScreen.levelUpFadeScreen.SetActive(true);
             Invoke(nameof(NextLevelPanel), 1.0f);
@@ -130,7 +135,15 @@ public class ScaleOutObject : MonoBehaviour
     {
         var levelUpScreen = ServiceLocator.GetService<ILevelUpScreen>();
         if (levelUpScreen != null)
-            levelUpScreen.NextPage();
+        {
+            int levelIndex = PlayerPrefs.GetInt("Level");
+
+            if (levelIndex >= levelUpScreen.pageSliderContainer.Count || levelIndex == 0)
+                levelUpScreen.PrevPage();
+            else
+                levelUpScreen.NextPage();
+
+        }
 
         Invoke(nameof(LevelIntroScreen), 2.5f);
         CancelInvoke(nameof(NextLevelPanel));

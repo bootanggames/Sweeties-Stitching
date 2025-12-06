@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelName: Rainbaby
   levelReward: 30
-  totalStitches: 83
+  totalStitches: 87
   totalParts: 9
   totalSpoolsNeeded: 2
   plushieWidth: 536

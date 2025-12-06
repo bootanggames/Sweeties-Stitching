@@ -4,7 +4,7 @@ public static partial class GameEvents
 {
     public static class RoomDecorEvents
     {
-        public static readonly GameEvent<DecorItemName,DecorItemType> DecorItemSelected = new GameEvent<DecorItemName>();
+        public static readonly GameEvent<DecorItemName,DecorItemType> DecorItemSelected = new GameEvent<DecorItemName,DecorItemType>();
     }
 }
 

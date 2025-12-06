@@ -137,40 +137,9 @@ public class Level_Metadata : MonoBehaviour
         }
         currentActivePart = current_ObjectInfor.partType;
         NextPartActivation(current_ObjectInfor);
-
-        //ObjectInfo currentConnectedPartInfor = null;
-        //ObjectInfo neck = bodyParts[0].GetComponent<ObjectInfo>();
-        //if (neck.stitchData.IsStitched)
-        //    current_ObjectInfor = GetObjectInfoOfCurrentUnstitchedPart(levelDivision.rightSide);
-        //else
-        //    current_ObjectInfor = neck;
-
-        //if (current_ObjectInfor != null)
-        //{
-        //    levelDivision.rightSideIndex = levelDivision.rightSide.IndexOf(current_ObjectInfor.gameObject) + 1;
-        //    if (current_ObjectInfor.partConnectedTo.Equals(PartConnectedTo.head))
-        //        currentConnectedPartInfor = GetObjectInfoOfCurrentUnstitchedPart(head.joints);
-        //    else
-        //        currentConnectedPartInfor = GetObjectInfoOfCurrentUnstitchedPart(immoveablePart.GetComponent<Part_Info>().joints);
-        //    NextPartActivation(/*true,*/currentConnectedPartInfor);
-        //}
-        //else
-        //    NextPartActivation(/*true,*/ null);
-
     }
     void NextPartActivation(/*bool start,*/ObjectInfo currentActivePart)
     {
-        //sequenceType = SequenceType.right;
-
-        //if (!start)
-        //{
-        //    if (levelDivision.rightSideIndex < levelDivision.rightSide.Count)
-        //        current_ObjectInfor = levelDivision.rightSide[levelDivision.rightSideIndex].GetComponent<ObjectInfo>();
-
-        //    levelDivision.rightSideIndex++;
-        //}
-        //if(current_ObjectInfor == null)
-        //    current_ObjectInfor = bodyParts[0].GetComponent<ObjectInfo>();
         var needleDetecto = ServiceLocator.GetService<INeedleDetector>();
         if (needleDetecto != null)
             needleDetecto.detect = false;
@@ -186,7 +155,6 @@ public class Level_Metadata : MonoBehaviour
 
         CameraFocus(currentActivePart.partType);
         Invoke("EnableDetection", 0.22f);
-        //partIndex++;
     }
 
     IEnumerator CheckProgress(ObjectInfo o_info)
@@ -267,8 +235,8 @@ public class Level_Metadata : MonoBehaviour
            if(IthreadHandler != null)
                 IthreadHandler.SetUndoValue(false);
             PlaySewnSound();
-            WinEffect();
-            //Invoke("WinEffect", 2.0f);
+            //WinEffect();
+            Invoke("WinEffect",0.5f);
         }
         else
         {

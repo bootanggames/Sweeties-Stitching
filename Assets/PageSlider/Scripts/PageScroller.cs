@@ -220,7 +220,6 @@ namespace TS.PageSlider
         {
             // Calculate the target normalized position for the scroll rect based on the target page index.
             _targetNormalizedPosition = GetTargetPagePosition(page);
-
             // Calculate the speed required to reach the target position within the snap duration.
             _moveSpeed = (_targetNormalizedPosition - _scrollRect.horizontalNormalizedPosition) / _snapDuration;
 

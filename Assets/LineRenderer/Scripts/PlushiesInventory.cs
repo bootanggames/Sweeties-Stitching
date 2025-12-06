@@ -42,7 +42,6 @@ public class PlushiesInventory : MonoBehaviour,IPlushieInventory
                 page = pageSlider._pages.Count - 1;
         }
     }
-
     public void PrevPage()
     {
         if (pageScroller != null)

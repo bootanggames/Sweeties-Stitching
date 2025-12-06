@@ -1,4 +1,5 @@
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -6,6 +7,7 @@ public class MainMenuHandler : MonoBehaviour
 {
     [SerializeField] string SceneName;
     [SerializeField] TextMeshProUGUI coinText;
+
     private void Start()
     {
         int c = PlayerPrefs.GetInt("Coins");
@@ -15,4 +17,6 @@ public class MainMenuHandler : MonoBehaviour
     {
         SceneManager.LoadScene(SceneName);
     }
+
+   
 }

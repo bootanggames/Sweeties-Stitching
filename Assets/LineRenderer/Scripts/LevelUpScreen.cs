@@ -1,3 +1,4 @@
+using FirstGearGames.SmoothCameraShaker;
 using System.Collections.Generic;
 using TMPro;
 using TS.PageSlider;
@@ -13,10 +14,15 @@ public class LevelUpScreen : MonoBehaviour, ILevelUpScreen
     [field: SerializeField] public GameObject confettiCameraRenderObj { get; private set; }
     [SerializeField] PageScroller pageScroller;
     [SerializeField] PageSlider pageSlider;
-    [SerializeField] List<PlushieSpriteContainer> pageSliderContainer;
+    [field: SerializeField] public List<PlushieSpriteContainer> pageSliderContainer {  get; private set; }
     [SerializeField] LevelUpPlushieInfo[] plushieInfo;
     [SerializeField] AudioSource audioSource;
     [field: SerializeField]public HomeScreenSound homeScreen {  get; private set; }
+    [field: SerializeField] public GameObject renderTextureImageObj { get; private set; }
+    [field: SerializeField] public GameObject levelUpCamera { get; private set; }
+    [field: SerializeField] public ParticleSystem[] levelUpEffect { get; private set; }
+    [SerializeField] ShakerInstance _shakerInstance;
+    [SerializeField] ShakeData shakeData;
     private void OnEnable()
     {
         RegisterService();
@@ -59,8 +65,18 @@ public class LevelUpScreen : MonoBehaviour, ILevelUpScreen
                     break;
                 }
             }
+            CameraShake2D();
             PlayerPrefs.SetInt("LevelUp", 0);
+            renderTextureImageObj.SetActive(true);
+            confettiCameraRenderObj.SetActive(false);
+            //levelUpCamera.SetActive(true);
+            foreach(ParticleSystem ps in levelUpEffect)
+            {
+                ps.gameObject.SetActive(true);
+                ps.Play();
+            }
         }
+     
     }
 
     public void NextPage()
@@ -75,7 +91,18 @@ public class LevelUpScreen : MonoBehaviour, ILevelUpScreen
                 page = pageSlider._pages.Count - 1;
         }
     }
-
+    public void PrevPage()
+    {
+        if (pageScroller != null)
+        {
+            var page = pageScroller._currentPage;
+            page--;
+            if (page >= 0)
+                pageScroller.ScrollToPage(page);
+            else
+                page = 0;
+        }
+    }
     public void PlayLevelUpSound()
     {
         AudioClip _clip = SoundManager.instance.audioClips.levelUp;
@@ -95,5 +122,12 @@ public class LevelUpScreen : MonoBehaviour, ILevelUpScreen
     {
         if (audioSource != null)
             audioSource.Stop();
+    }
+   public void CameraShake2D()
+    {
+        ShakerInstance instance = CameraShakerHandler.Shake(shakeData);
+        instance.Data.SetShakeCanvases(true);
+        //instance.MultiplyMagnitude(_mass, -1);
+
     }
 }

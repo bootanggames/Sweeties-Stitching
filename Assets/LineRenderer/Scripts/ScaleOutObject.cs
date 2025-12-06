@@ -72,22 +72,22 @@ public class ScaleOutObject : MonoBehaviour
         tween.Kill();
         tween = null;
         PlaySound();
-        FireworksParticles();
-
-        //Invoke(nameof(FireworksParticles),1.0f);
+        //FireworksParticles();
+   
+        Invoke(nameof(FireworksParticles), 0.25f);
     }
 
     void FireworksParticles()
     {
-        var canvasHandler = ServiceLocator.GetService<ICanvasUIManager>();
-        if (canvasHandler != null)
-            canvasHandler.confettiEffectCanvas.SetActive(true);
+        //var canvasHandler = ServiceLocator.GetService<ICanvasUIManager>();
+        //if (canvasHandler != null)
+        //    canvasHandler.confettiEffectCanvas.SetActive(true);
         tween = GameEvents.DoTweenAnimationHandlerEvents.onScaleTransform.Raise(this.transform, Vector3.zero, speed, ease);
         if (tween != null)
         {
             tween.OnComplete(() =>
             {
-                GameEvents.EffectHandlerEvents.onSewnCompletely.Raise();
+                //GameEvents.EffectHandlerEvents.onSewnCompletely.RaiseEvent();
             });
         }
         CancelInvoke(nameof(FireworksParticles));
@@ -107,21 +107,27 @@ public class ScaleOutObject : MonoBehaviour
         if (levelUpScreen != null)
         {
             levelUpScreen.PlayLevelUpSound();
+            levelUpScreen.confettiCameraRenderObj.SetActive(true);
         }
-        GameEvents.EffectHandlerEvents.onSewnCompletely.Raise();
+        Invoke(nameof(ConfettiEffect),0.5f);
+    }
+    void ConfettiEffect()
+    {
+        var levelUpScreen = ServiceLocator.GetService<ILevelUpScreen>();
+        if (levelUpScreen != null)
+            levelUpScreen.levelUpCamera.SetActive(false);
+        GameEvents.EffectHandlerEvents.onSewnCompletely.RaiseEvent();
         Invoke(nameof(LevelUpScreenActivation), 3.0f);
     }
-
     void LevelUpScreenActivation()
     {
         this.transform.GetComponent<Image>().enabled = false;
         var levelUpScreen = ServiceLocator.GetService<ILevelUpScreen>();
         if (levelUpScreen != null)
         {
-            levelUpScreen.confettiCameraRenderObj.SetActive(false);
             levelUpScreen.PlayCelebrationSound();
             levelUpScreen.levelUpFadeScreen.SetActive(true);
-            Invoke(nameof(NextLevelPanel), 1.5f);
+            Invoke(nameof(NextLevelPanel), 1.0f);
         }
         CancelInvoke(nameof(LevelUpScreenActivation));
     }
@@ -129,7 +135,15 @@ public class ScaleOutObject : MonoBehaviour
     {
         var levelUpScreen = ServiceLocator.GetService<ILevelUpScreen>();
         if (levelUpScreen != null)
-            levelUpScreen.NextPage();
+        {
+            int levelIndex = PlayerPrefs.GetInt("Level");
+
+            if (levelIndex >= levelUpScreen.pageSliderContainer.Count || levelIndex == 0)
+                levelUpScreen.PrevPage();
+            else
+                levelUpScreen.NextPage();
+
+        }
 
         Invoke(nameof(LevelIntroScreen), 2.5f);
         CancelInvoke(nameof(NextLevelPanel));

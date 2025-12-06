@@ -131,6 +131,13 @@ public class LevelsHandler : Singleton<LevelsHandler>, ILevelHandler
         if (connectionHandler != null) connectionHandler.DeleteAllThreadLinks();
 
         int rewardedCoins = currentLevelMeta.levelScriptable.levelReward;
+        var spoolManager = ServiceLocator.GetService<ISpoolManager>();
+        if (spoolManager != null)
+        {
+            if (currentLevelMeta.currentActiveSpoolIndex >= spoolManager.spoolList.Count)
+                currentLevelMeta.currentActiveSpoolIndex = 0;
+        }
+           
         LevelIncrementProcess();
         var canvasHandler = ServiceLocator.GetService<ICanvasUIManager>();
         if (canvasHandler != null)

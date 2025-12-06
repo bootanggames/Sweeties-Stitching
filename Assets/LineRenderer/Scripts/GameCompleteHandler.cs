@@ -211,7 +211,7 @@ public class GameCompleteHandler : MonoBehaviour, IGameService
         {
             canvasHandler.confettiEffectCanvas.SetActive(true);
             canvasHandler.sewnScreen.SetActive(true);
-            GameEvents.EffectHandlerEvents.onSewnCompletely.RaiseEvent();
+            GameEvents.EffectHandlerEvents.onSewnCompletely.Raise();
         }
         CancelInvoke(nameof( WinEffect));
     }

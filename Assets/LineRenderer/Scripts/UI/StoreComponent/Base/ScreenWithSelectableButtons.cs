@@ -16,9 +16,6 @@ public abstract class ScreenWithSelectableButtons<T> : MonoBehaviour where T : B
         SpawnButtons();
     }
     
-         
-    
-    
     protected virtual void SpawnButtons()
     {
         ClearAll();

@@ -116,7 +116,7 @@ public class ScaleOutObject : MonoBehaviour
         var levelUpScreen = ServiceLocator.GetService<ILevelUpScreen>();
         if (levelUpScreen != null)
             levelUpScreen.levelUpCamera.SetActive(false);
-        GameEvents.EffectHandlerEvents.onSewnCompletely.RaiseEvent();
+        GameEvents.EffectHandlerEvents.onSewnCompletely.Raise();
         Invoke(nameof(LevelUpScreenActivation), 3.0f);
     }
     void LevelUpScreenActivation()

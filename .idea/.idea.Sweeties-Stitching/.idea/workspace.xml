@@ -5,9 +5,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="279ec758-988c-4252-9264-acff4404cf81" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/LineRenderer/Scripts/Store/RoomDecor/DecorItemsInventory.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Sweeties-Stitching/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Sweeties-Stitching/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/MoreMountains.Tools.Feedbacks.Editor.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/MoreMountains.Tools.Feedbacks.Editor.csproj.AssemblyReference.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/ToonyColorsPro.Demo.Editor.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/ToonyColorsPro.Demo.Editor.csproj.AssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ARPG Effects/Upgrades/ARPGFX URP Upgrade (2019.3.10f1).unitypackage.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LineRenderer/GAME FILES/RoomDecor/beds/4  yellow and orange hearts.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LineRenderer/GAME FILES/RoomDecor/beds/4  yellow and orange hearts.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LineRenderer/Scenes/Gameplay.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LineRenderer/Scenes/Gameplay.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LineRenderer/Scripts/MetaData/RoomDecor/RoomDecorIteamMetaDataSO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LineRenderer/Scripts/MetaData/RoomDecor/DecorIteamMetaDataSO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LineRenderer/Scripts/MetaData/RoomDecor/RoomDecorIteamMetaDataSO.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LineRenderer/Scripts/MetaData/RoomDecor/DecorIteamMetaDataSO.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LineRenderer/Scripts/Scriptables/ItemSpritesScriptable.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LineRenderer/Scripts/Scriptables/ItemSpritesScriptable/BedSprites.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LineRenderer/Scripts/Scriptables/ItemSpritesScriptable/BedSprites.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LineRenderer/Scripts/Scriptables/ItemSpritesScriptable/SewMachineSprites.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LineRenderer/Scripts/Scriptables/ItemSpritesScriptable/SewMachineSprites.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LineRenderer/Scripts/Scriptables/ItemSpritesScriptable/ShelfSprites.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LineRenderer/Scripts/Scriptables/ItemSpritesScriptable/ShelfSprites.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LineRenderer/Scripts/Store/RoomDecor/DecorItemsStore.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LineRenderer/Scripts/Store/RoomDecor/DecorItemsStore.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LineRenderer/Scripts/Store/RoomDecor/DecorItemsInventory.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/MetaData/RoomDecor/Beds/BedNormal.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/MetaData/RoomDecor/Beds/BedNormal.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-6000.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-6000.dwlt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,26 +37,37 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5a41d6b7189842eca409fd0b1c3e3dcf17bf78/c8/b7de05dc/Func`2.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/LineRenderer/Scripts/StoreComponent/Base/ScreenWithSelectableButtons.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/LineRenderer/Scripts/Events/GameEvents.UIEvents.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/LineRenderer/Scripts/MetaData/RoomDecor/DecorIteamMetaDataSO.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/LineRenderer/Scripts/Repositories/DecorItemRepositorySO.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/LineRenderer/Scripts/Store/RoomDecor/DecorItemsInventroy.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/LineRenderer/Scripts/UI/StoreComponent/Base/ScreenWithSelectableButtons.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/LineRenderer/Scripts/UI/Widget/BaseButtonWidget.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/LineRenderer/Scripts/UI/Widget/ButtonWithWidget.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 2
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2
+}</component>
   <component name="ProjectId" id="36QUs5iBYJYFUaD0EO1vNe4skeD" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "git-widget-placeholder": "Hadid/Merge-Katana-Boilerplate",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Hadid/Merge-Katana-Boilerplate&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\6000.2.11f1\Editor\Unity.exe" />
@@ -86,6 +115,9 @@
       <option name="presentableId" value="Default" />
       <updated>1764938495894</updated>
       <workItem from="1764938516060" duration="278000" />
+      <workItem from="1765125567060" duration="4549000" />
+      <workItem from="1765141398776" duration="17000" />
+      <workItem from="1765141498238" duration="1508000" />
     </task>
     <servers />
   </component>

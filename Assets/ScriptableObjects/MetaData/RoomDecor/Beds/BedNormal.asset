@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5f1b0128b08df546bf84187be42833c, type: 3}
   m_Name: BedNormal
   m_EditorClassIdentifier: Assembly-CSharp::RoomDecorIteamMetaDataSO
-  <ItemName>k__BackingField: 0
+  <ItemName>k__BackingField: 14
   <ItemType>k__BackingField: 0
-  <DisplayName>k__BackingField: 
-  <ItemIcon>k__BackingField: {fileID: 0}
-  <ItemSprite>k__BackingField: {fileID: 0}
+  <DisplayName>k__BackingField: BROWN BED
+  <ItemIcon>k__BackingField: {fileID: 21300000, guid: 8ec933c36e9f1cf4f97ffc19633cf7c0, type: 3}
+  <ItemSprite>k__BackingField: {fileID: 21300000, guid: 8ec933c36e9f1cf4f97ffc19633cf7c0, type: 3}
   <Price>k__BackingField:
     _currencyEntities: []

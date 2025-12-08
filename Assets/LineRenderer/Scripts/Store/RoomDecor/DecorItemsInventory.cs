@@ -7,7 +7,6 @@ public class DecorItemsInventory : ScreenWithSelectableButtons<DecoreItemStoreBu
 {
     [SerializeField] private GameObject _container;
     [SerializeField] private DecorItemRepositorySO _decorItemRepository;
-    private Dictionary<DecorItemType, DecorItemName> _itemNames = new();
 
     private DecorItemType _itemType = DecorItemType.BED;
 
@@ -24,6 +23,7 @@ public class DecorItemsInventory : ScreenWithSelectableButtons<DecoreItemStoreBu
     private void OnShowDecorItemsInventory(DecorItemType decorItemType)
     {
         _itemType = decorItemType;
+        Debug.LogError($"OnShowDecorItemsInventory {decorItemType}");
         SpawnButtons();
         _container.SetActive(true);
     }
@@ -52,9 +52,7 @@ public class DecorItemsInventory : ScreenWithSelectableButtons<DecoreItemStoreBu
     protected override void OnItemButtonClicked(UIContext context)
     {
         DecorItemName itemName = (DecorItemName)context.ID;
-        DecorItemType itemType = _itemNames.FirstOrDefault(item => item.Value == itemName).Key;
-
-        GameEvents.RoomDecorEvents.DecorItemSelected.Raise(itemName, itemType);
+        GameEvents.RoomDecorEvents.DecorItemSelected.Raise(itemName, _itemType);
         _container.SetActive(false);
     }
 }

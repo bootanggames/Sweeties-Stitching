@@ -9,6 +9,6 @@ public class DecorItemRepositorySO : ScriptableObject
     public List<DecorIteamMetaDataSO> GetItemsByType(DecorItemType type) =>
         _decorItems.FindAll(x => x.ItemType == type);
     
-    public DecorIteamMetaDataSO GetItem(DecorItemType type) =>
-        _decorItems.Find(x => x.ItemType == type);
+    public DecorIteamMetaDataSO GetItem(DecorItemName itemName) =>
+        _decorItems.Find(x => x.ItemName == itemName);
 }

@@ -5,26 +5,37 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="279ec758-988c-4252-9264-acff4404cf81" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/LineRenderer/Scripts/Store/RoomDecor/DecorItemsInventory.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Sweeties-Stitching/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Sweeties-Stitching/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ARPG Effects/Upgrades/ARPGFX URP Upgrade (2019.3.10f1).unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LineRenderer/GAME FILES/RoomDecor/beds/4  yellow and orange hearts.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LineRenderer/GAME FILES/RoomDecor/beds/4  yellow and orange hearts.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LineRenderer/Confetti.renderTexture" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LineRenderer/Confetti.renderTexture" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LineRenderer/GAME FILES 1/Updated_Plushie_Parts/RoomStuff/RoomStuff/ceiling.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LineRenderer/GAME FILES 1/Updated_Plushie_Parts/RoomStuff/RoomStuff/ceiling.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LineRenderer/GAME FILES/RoomDecor/ceilings.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LineRenderer/GAME FILES/RoomDecor/ceilings.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LineRenderer/GAME FILES/RoomDecor/ceilings/1 ceiling.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LineRenderer/GAME FILES/RoomDecor/ceilings/1 ceiling.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LineRenderer/GAME FILES/RoomDecor/ceilings/1 gem ceiling.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LineRenderer/GAME FILES/RoomDecor/ceilings/1 gem ceiling.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LineRenderer/GAME FILES/RoomDecor/ceilings/2 pink ceiling.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LineRenderer/GAME FILES/RoomDecor/ceilings/2 pink ceiling.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LineRenderer/GAME FILES/RoomDecor/ceilings/3 yellow ceiling.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LineRenderer/GAME FILES/RoomDecor/ceilings/3 yellow ceiling.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LineRenderer/GAME FILES/RoomDecor/ceilings/4 blue ceiling.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LineRenderer/GAME FILES/RoomDecor/ceilings/4 blue ceiling.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LineRenderer/GAME FILES/RoomDecor/floors.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LineRenderer/GAME FILES/RoomDecor/floors.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LineRenderer/GAME FILES/RoomDecor/floors/1 gem floor.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LineRenderer/GAME FILES/RoomDecor/floors/1 gem floor.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LineRenderer/GAME FILES/RoomDecor/floors/2 pink floor.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LineRenderer/GAME FILES/RoomDecor/floors/2 pink floor.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LineRenderer/GAME FILES/RoomDecor/floors/3 blue floor.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LineRenderer/GAME FILES/RoomDecor/floors/3 blue floor.png.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/LineRenderer/Scenes/Gameplay.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LineRenderer/Scenes/Gameplay.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LineRenderer/Scripts/MetaData/RoomDecor/RoomDecorIteamMetaDataSO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LineRenderer/Scripts/MetaData/RoomDecor/DecorIteamMetaDataSO.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LineRenderer/Scripts/MetaData/RoomDecor/RoomDecorIteamMetaDataSO.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LineRenderer/Scripts/MetaData/RoomDecor/DecorIteamMetaDataSO.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LineRenderer/Scripts/Scriptables/ItemSpritesScriptable.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LineRenderer/Scripts/Scriptables/ItemSpritesScriptable/BedSprites.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LineRenderer/Scripts/Scriptables/ItemSpritesScriptable/BedSprites.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LineRenderer/Scripts/Scriptables/ItemSpritesScriptable/SewMachineSprites.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LineRenderer/Scripts/Scriptables/ItemSpritesScriptable/SewMachineSprites.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LineRenderer/Scripts/Scriptables/ItemSpritesScriptable/ShelfSprites.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LineRenderer/Scripts/Scriptables/ItemSpritesScriptable/ShelfSprites.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LineRenderer/Scripts/Store/RoomDecor/DecorItemsStore.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LineRenderer/Scripts/Store/RoomDecor/DecorItemsStore.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LineRenderer/Scripts/Store/RoomDecor/DecorItemsInventory.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/MetaData/RoomDecor/Beds/BedNormal.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/MetaData/RoomDecor/Beds/BedNormal.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LineRenderer/Scenes/HomeScreen.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LineRenderer/Scenes/HomeScreen.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LineRenderer/Scenes/ScriptableObjects.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LineRenderer/Scenes/ScriptableObjects/ItemSpritesScriptable.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LineRenderer/Scenes/ScriptableObjects/ItemSpritesScriptable/BedSprites.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LineRenderer/Scenes/ScriptableObjects/ItemSpritesScriptable/BedSprites.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LineRenderer/Scenes/ScriptableObjects/ItemSpritesScriptable/SewMachineSprites.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LineRenderer/Scenes/ScriptableObjects/ItemSpritesScriptable/SewMachineSprites.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LineRenderer/Scenes/ScriptableObjects/ItemSpritesScriptable/ShelfSprites.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LineRenderer/Scenes/ScriptableObjects/ItemSpritesScriptable/ShelfSprites.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LineRenderer/Scripts/Events/GameEvents.RoomDecorEvents.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LineRenderer/Scripts/Events/GameEvents.RoomDecorEvents.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LineRenderer/Scripts/Repositories/DecorItemRepositorySO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LineRenderer/Scripts/Repositories/DecorItemRepositorySO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LineRenderer/Scripts/Store/RoomDecor/DecorItemsInventory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LineRenderer/Scripts/Store/RoomDecor/DecorItemsInventory.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/MetaData/Repositories/DecorItems Repository.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/MetaData/Repositories/DecorItems Repository.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-6000.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-6000.dwlt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -40,7 +51,10 @@
     <setting file="file://$PROJECT_DIR$/Assets/LineRenderer/Scripts/Events/GameEvents.UIEvents.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/LineRenderer/Scripts/MetaData/RoomDecor/DecorIteamMetaDataSO.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/LineRenderer/Scripts/Repositories/DecorItemRepositorySO.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/LineRenderer/Scripts/Store/RoomDecor/DecorItemsInventroy.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/LineRenderer/Scripts/Store/RoomDecor/DecorItemsInventory.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/LineRenderer/Scripts/UI/AlphaClickFilter.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/LineRenderer/Scripts/UI/MainMenu/MainMenu.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/LineRenderer/Scripts/UI/RoomDecor/RoomItem.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/LineRenderer/Scripts/UI/StoreComponent/Base/ScreenWithSelectableButtons.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/LineRenderer/Scripts/UI/Widget/BaseButtonWidget.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/LineRenderer/Scripts/UI/Widget/ButtonWithWidget.cs" root0="FORCE_HIGHLIGHTING" />
@@ -117,7 +131,7 @@
       <workItem from="1764938516060" duration="278000" />
       <workItem from="1765125567060" duration="4549000" />
       <workItem from="1765141398776" duration="17000" />
-      <workItem from="1765141498238" duration="1508000" />
+      <workItem from="1765141498238" duration="5555000" />
     </task>
     <servers />
   </component>

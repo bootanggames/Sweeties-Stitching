@@ -20,6 +20,11 @@ public class DecorItemsInventory : ScreenWithSelectableButtons<DecoreItemStoreBu
         GameEvents.UIEvents.ShowDecorItemsInventory.UnRegister(OnShowDecorItemsInventory);
     }
 
+    public void ShowWithBeds()
+    {
+        OnShowDecorItemsInventory(DecorItemType.BED);
+    }
+    
     private void OnShowDecorItemsInventory(DecorItemType decorItemType)
     {
         _itemType = decorItemType;
@@ -34,6 +39,11 @@ public class DecorItemsInventory : ScreenWithSelectableButtons<DecoreItemStoreBu
         SpawnButtons(_itemType);
     }
 
+    public void ShowByType(DecorItemType decorItemType)
+    {
+        OnShowDecorItemsInventory(decorItemType);
+    }
+    
     private void SpawnButtons(DecorItemType decorItemType)
     {
         List<DecorIteamMetaDataSO> items = _decorItemRepository.GetItemsByType(decorItemType);

@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb88fe338bcb8864fb33624197e9a010, type: 3}
+  m_Name: Sound Clips Container
+  m_EditorClassIdentifier: 
+  bgMusic: {fileID: 8300000, guid: a11c79844267dc94aa49435b451a59d2, type: 3}
+  buttonClick: {fileID: 8300000, guid: b39a2f7d91550a94eb1b771038eb7fed, type: 3}
+  coinCollection: {fileID: 8300000, guid: ce9024b8fbb5da64c85a2684fa12b874, type: 3}
+  completed: {fileID: 8300000, guid: ac029743b2f8c6e46a4d099626293700, type: 3}
+  sewing: {fileID: 8300000, guid: bfac449872047bb4bae5f267de594c69, type: 3}
+  purchaseComplete: {fileID: 8300000, guid: 7cf25feb2058e3d468a68b21649676b3, type: 3}
+  wrongStitchSound: {fileID: 8300000, guid: cc162acb7b574bd448f35a354e2cca0c, type: 3}
+  fireWorksSound: {fileID: 8300000, guid: 98f6d62977af8fb459470fc70bd5b2ce, type: 3}
+  plushieInventoryScreenBgSound: {fileID: 8300000, guid: 8bc1fb05a2c2ba04680ccc058b4657ef, type: 3}
+  levelUp: {fileID: 8300000, guid: 199af18fa6e081e4b929efd19c40b762, type: 3}
+  sparklesSound: {fileID: 8300000, guid: b307b93297008034dbc053d6f1e0bca7, type: 3}
+  congratulationsScreenSound: {fileID: 8300000, guid: 8f9e930cdf5fbcc40bc0141137002c2e, type: 3}
+  sewingRoomBgSound: {fileID: 8300000, guid: 8bc1fb05a2c2ba04680ccc058b4657ef, type: 3}
+  coinBagExploding: {fileID: 8300000, guid: 24d023a56c9594345a7be3bc108f600e, type: 3}
+  levelUpSong: {fileID: 8300000, guid: 698d0ffe6722acd49b2c596376c213a9, type: 3}
+  celebrationJingleTrumpets: {fileID: 8300000, guid: e466523c655e9ed4c811d579ede31694, type: 3}
+  ting: {fileID: 8300000, guid: 8f3c9e4f4ceabce448195eb905c61777, type: 3}

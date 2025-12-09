@@ -3,140 +3,152 @@
   "WorkspaceRootPath": "E:\\GithubProjects\\Stitching-Demo\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|E:\\GithubProjects\\Stitching-Demo\\assets\\linerenderer\\scripts\\plushiesinventory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|solutionrelative:assets\\linerenderer\\scripts\\plushiesinventory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|e:\\githubprojects\\stitching-demo\\assets\\scripts\\levelsinfoonselection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\levelsinfoonselection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|E:\\GithubProjects\\Stitching-Demo\\assets\\linerenderer\\scripts\\gamecompletehandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|solutionrelative:assets\\linerenderer\\scripts\\gamecompletehandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|e:\\githubprojects\\stitching-demo\\assets\\scripts\\levelupscreen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\levelupscreen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|e:\\githubprojects\\stitching-demo\\assets\\linerenderer\\scripts\\interfaces\\icanvasuimanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|solutionrelative:assets\\linerenderer\\scripts\\interfaces\\icanvasuimanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|e:\\githubprojects\\stitching-demo\\assets\\scripts\\levelshandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\levelshandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|E:\\GithubProjects\\Stitching-Demo\\assets\\linerenderer\\scripts\\canvasuimanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|solutionrelative:assets\\linerenderer\\scripts\\canvasuimanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|e:\\githubprojects\\stitching-demo\\assets\\scripts\\level_metadata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\level_metadata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|E:\\GithubProjects\\Stitching-Demo\\assets\\linerenderer\\scripts\\soundmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|solutionrelative:assets\\linerenderer\\scripts\\soundmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|e:\\githubprojects\\stitching-demo\\assets\\scripts\\metadata\\roomdecor\\decoriteammetadataso.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\metadata\\roomdecor\\decoriteammetadataso.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|E:\\GithubProjects\\Stitching-Demo\\assets\\linerenderer\\scripts\\gamehandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|solutionrelative:assets\\linerenderer\\scripts\\gamehandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|e:\\githubprojects\\stitching-demo\\assets\\scripts\\scaleoutobject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\scaleoutobject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|E:\\GithubProjects\\Stitching-Demo\\assets\\linerenderer\\scripts\\item.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|solutionrelative:assets\\linerenderer\\scripts\\item.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|e:\\githubprojects\\stitching-demo\\assets\\scripts\\levelobjectivemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\levelobjectivemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|e:\\githubprojects\\stitching-demo\\assets\\linerenderer\\scripts\\roomdecorstore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|solutionrelative:assets\\linerenderer\\scripts\\roomdecorstore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|e:\\githubprojects\\stitching-demo\\assets\\thirdpartyassets\\pageslider\\scripts\\pagedotsindicator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|solutionrelative:assets\\thirdpartyassets\\pageslider\\scripts\\pagedotsindicator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|E:\\GithubProjects\\Stitching-Demo\\assets\\linerenderer\\scripts\\interfaces\\iroomdecorstore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|solutionrelative:assets\\linerenderer\\scripts\\interfaces\\iroomdecorstore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|e:\\githubprojects\\stitching-demo\\assets\\scripts\\levelupintroscreen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\levelupintroscreen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|e:\\githubprojects\\stitching-demo\\assets\\linerenderer\\scripts\\serializableclasses\\storeitemdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|solutionrelative:assets\\linerenderer\\scripts\\serializableclasses\\storeitemdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\PointConnectorHandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\LineRenderer\\Scripts\\PointConnectorHandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|E:\\GithubProjects\\Stitching-Demo\\assets\\linerenderer\\scripts\\scriptables\\itemssprite.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|solutionrelative:assets\\linerenderer\\scripts\\scriptables\\itemssprite.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\Scriptables\\ItemsSprite.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\LineRenderer\\Scripts\\Scriptables\\ItemsSprite.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|E:\\GithubProjects\\Stitching-Demo\\assets\\linerenderer\\scripts\\scaleoutobject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|solutionrelative:assets\\linerenderer\\scripts\\scaleoutobject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\GithubProjects\\Stitching-Demo\\Assets\\FirstGearGames\\SmoothCameraShaker\\Scripts\\Shakables\\ShakableCanvas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\FirstGearGames\\SmoothCameraShaker\\Scripts\\Shakables\\ShakableCanvas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|E:\\GithubProjects\\Stitching-Demo\\assets\\linerenderer\\scripts\\levelupintroscreen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|solutionrelative:assets\\linerenderer\\scripts\\levelupintroscreen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\ThreadManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\LineRenderer\\Scripts\\ThreadManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|E:\\GithubProjects\\Stitching-Demo\\assets\\linerenderer\\scripts\\interfaces\\ilevelupscreen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|solutionrelative:assets\\linerenderer\\scripts\\interfaces\\ilevelupscreen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\SerializableClasses\\Connections.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\LineRenderer\\Scripts\\SerializableClasses\\Connections.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|E:\\GithubProjects\\Stitching-Demo\\assets\\linerenderer\\scripts\\levelupscreen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|solutionrelative:assets\\linerenderer\\scripts\\levelupscreen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\ObjectInfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\LineRenderer\\Scripts\\ObjectInfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|E:\\GithubProjects\\Stitching-Demo\\assets\\linerenderer\\scripts\\levelsinfoonselection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|solutionrelative:assets\\linerenderer\\scripts\\levelsinfoonselection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\CanvasUIManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\LineRenderer\\Scripts\\CanvasUIManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|E:\\GithubProjects\\Stitching-Demo\\assets\\linerenderer\\scripts\\levelobjectivemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|solutionrelative:assets\\linerenderer\\scripts\\levelobjectivemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\GameCompleteHandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\LineRenderer\\Scripts\\GameCompleteHandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|E:\\GithubProjects\\Stitching-Demo\\assets\\linerenderer\\scripts\\pointconnectorhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|solutionrelative:assets\\linerenderer\\scripts\\pointconnectorhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\CoinsHandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\LineRenderer\\Scripts\\CoinsHandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|E:\\GithubProjects\\Stitching-Demo\\assets\\pageslider\\scripts\\pagescroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|solutionrelative:assets\\pageslider\\scripts\\pagescroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\SewPoint.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\LineRenderer\\Scripts\\SewPoint.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|E:\\GithubProjects\\Stitching-Demo\\assets\\firstgeargames\\smoothcamerashaker\\scripts\\shakables\\shakablecanvas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|solutionrelative:assets\\firstgeargames\\smoothcamerashaker\\scripts\\shakables\\shakablecanvas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\Store\\RoomDecor\\DecorItemsInventory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\LineRenderer\\Scripts\\Store\\RoomDecor\\DecorItemsInventory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|E:\\GithubProjects\\Stitching-Demo\\assets\\linerenderer\\scripts\\sewpoint.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|solutionrelative:assets\\linerenderer\\scripts\\sewpoint.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\UI\\RoomDecor\\RoomItem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\LineRenderer\\Scripts\\UI\\RoomDecor\\RoomItem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|E:\\GithubProjects\\Stitching-Demo\\assets\\linerenderer\\scripts\\objectinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|solutionrelative:assets\\linerenderer\\scripts\\objectinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\SerializableClasses\\StoreItemData.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\LineRenderer\\Scripts\\SerializableClasses\\StoreItemData.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|E:\\GithubProjects\\Stitching-Demo\\assets\\linerenderer\\scripts\\plushiecontainer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|solutionrelative:assets\\linerenderer\\scripts\\plushiecontainer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\Interfaces\\IRoomdecorStore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\LineRenderer\\Scripts\\Interfaces\\IRoomdecorStore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|E:\\GithubProjects\\Stitching-Demo\\assets\\linerenderer\\scripts\\needledetector.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|solutionrelative:assets\\linerenderer\\scripts\\needledetector.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\RoomdecorStore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\LineRenderer\\Scripts\\RoomdecorStore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|E:\\GithubProjects\\Stitching-Demo\\assets\\linerenderer\\scripts\\spoolmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|solutionrelative:assets\\linerenderer\\scripts\\spoolmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\Item.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\LineRenderer\\Scripts\\Item.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|E:\\GithubProjects\\Stitching-Demo\\assets\\linerenderer\\scripts\\level_metadata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|solutionrelative:assets\\linerenderer\\scripts\\level_metadata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\LevelsInfoOnSelection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\LineRenderer\\Scripts\\LevelsInfoOnSelection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|E:\\GithubProjects\\Stitching-Demo\\assets\\linerenderer\\scripts\\levelshandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|solutionrelative:assets\\linerenderer\\scripts\\levelshandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\LevelObjectiveManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\LineRenderer\\Scripts\\LevelObjectiveManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|E:\\GithubProjects\\Stitching-Demo\\assets\\linerenderer\\scripts\\mainmenuhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|solutionrelative:assets\\linerenderer\\scripts\\mainmenuhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\GithubProjects\\Stitching-Demo\\Assets\\PageSlider\\Scripts\\PageScroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\PageSlider\\Scripts\\PageScroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|E:\\GithubProjects\\Stitching-Demo\\assets\\linerenderer\\scripts\\effectshandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|solutionrelative:assets\\linerenderer\\scripts\\effectshandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\SpoolManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\LineRenderer\\Scripts\\SpoolManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|E:\\GithubProjects\\Stitching-Demo\\assets\\linerenderer\\scripts\\homescreensound.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|solutionrelative:assets\\linerenderer\\scripts\\homescreensound.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\Interfaces\\ILevelUpScreen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\LineRenderer\\Scripts\\Interfaces\\ILevelUpScreen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|E:\\GithubProjects\\Stitching-Demo\\assets\\linerenderer\\scripts\\threadmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|solutionrelative:assets\\linerenderer\\scripts\\threadmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\SoundManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\LineRenderer\\Scripts\\SoundManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|E:\\GithubProjects\\Stitching-Demo\\assets\\linerenderer\\scripts\\serializableclasses\\connections.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|solutionrelative:assets\\linerenderer\\scripts\\serializableclasses\\connections.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\LevelUpIntroScreen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\LineRenderer\\Scripts\\LevelUpIntroScreen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|E:\\GithubProjects\\Stitching-Demo\\assets\\linerenderer\\scripts\\coinshandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|solutionrelative:assets\\linerenderer\\scripts\\coinshandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\EffectsHandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\LineRenderer\\Scripts\\EffectsHandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|E:\\GithubProjects\\Stitching-Demo\\assets\\linerenderer\\scripts\\needlemovement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F83DACE1-0729-8E5A-85C1-CA81AD011443}|Assembly-CSharp.csproj|solutionrelative:assets\\linerenderer\\scripts\\needlemovement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\MainMenuHandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\LineRenderer\\Scripts\\MainMenuHandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\PlushieContainer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\LineRenderer\\Scripts\\PlushieContainer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\NeedleMovement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\LineRenderer\\Scripts\\NeedleMovement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\HomeScreenSound.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\LineRenderer\\Scripts\\HomeScreenSound.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -146,37 +158,23 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 8,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 23,
-              "Title": "NeedleDetector.cs",
-              "DocumentMoniker": "E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\NeedleDetector.cs",
-              "RelativeDocumentMoniker": "Assets\\LineRenderer\\Scripts\\NeedleDetector.cs",
-              "ToolTip": "E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\NeedleDetector.cs",
-              "RelativeToolTip": "Assets\\LineRenderer\\Scripts\\NeedleDetector.cs",
-              "ViewState": "AgIAABsAAAAAAAAAAAArwCkAAAAkAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-20T11:00:20.16Z",
-              "IsPinned": true
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 9,
               "Title": "PointConnectorHandler.cs",
               "DocumentMoniker": "E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\PointConnectorHandler.cs",
               "RelativeDocumentMoniker": "Assets\\LineRenderer\\Scripts\\PointConnectorHandler.cs",
               "ToolTip": "E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\PointConnectorHandler.cs",
               "RelativeToolTip": "Assets\\LineRenderer\\Scripts\\PointConnectorHandler.cs",
-              "ViewState": "AgIAAAgBAAAAAAAAAAAgwCMBAABAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-17T06:38:05.553Z",
               "IsPinned": true
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
+              "DocumentIndex": 12,
               "Title": "ThreadManager.cs",
               "DocumentMoniker": "E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\ThreadManager.cs",
               "RelativeDocumentMoniker": "Assets\\LineRenderer\\Scripts\\ThreadManager.cs",
@@ -189,7 +187,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 31,
+              "DocumentIndex": 13,
               "Title": "Connections.cs",
               "DocumentMoniker": "E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\SerializableClasses\\Connections.cs",
               "RelativeDocumentMoniker": "Assets\\LineRenderer\\Scripts\\SerializableClasses\\Connections.cs",
@@ -202,7 +200,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 14,
               "Title": "ObjectInfo.cs",
               "DocumentMoniker": "E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\ObjectInfo.cs",
               "RelativeDocumentMoniker": "Assets\\LineRenderer\\Scripts\\ObjectInfo.cs",
@@ -215,48 +213,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
-              "Title": "LevelsHandler.cs",
-              "DocumentMoniker": "E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\LevelsHandler.cs",
-              "RelativeDocumentMoniker": "Assets\\LineRenderer\\Scripts\\LevelsHandler.cs",
-              "ToolTip": "E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\LevelsHandler.cs",
-              "RelativeToolTip": "Assets\\LineRenderer\\Scripts\\LevelsHandler.cs",
-              "ViewState": "AgIAAHsAAAAAAAAAAIBJwIoAAAA9AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-21T11:20:53.669Z",
-              "IsPinned": true
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "GameHandler.cs",
-              "DocumentMoniker": "E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\GameHandler.cs",
-              "RelativeDocumentMoniker": "Assets\\LineRenderer\\Scripts\\GameHandler.cs",
-              "ToolTip": "E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\GameHandler.cs",
-              "RelativeToolTip": "Assets\\LineRenderer\\Scripts\\GameHandler.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAC8AAAAQAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-17T08:04:14.479Z",
-              "IsPinned": true,
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "PlushiesInventory.cs",
-              "DocumentMoniker": "E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\PlushiesInventory.cs",
-              "RelativeDocumentMoniker": "Assets\\LineRenderer\\Scripts\\PlushiesInventory.cs",
-              "ToolTip": "E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\PlushiesInventory.cs",
-              "RelativeToolTip": "Assets\\LineRenderer\\Scripts\\PlushiesInventory.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAADcAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-11T07:32:44.373Z",
-              "IsPinned": true,
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 15,
               "Title": "CanvasUIManager.cs",
               "DocumentMoniker": "E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\CanvasUIManager.cs",
               "RelativeDocumentMoniker": "Assets\\LineRenderer\\Scripts\\CanvasUIManager.cs",
@@ -265,12 +222,11 @@
               "ViewState": "AgIAABMAAAAAAAAAAAAcwCIAAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-31T11:52:30.754Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 16,
               "Title": "GameCompleteHandler.cs",
               "DocumentMoniker": "E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\GameCompleteHandler.cs",
               "RelativeDocumentMoniker": "Assets\\LineRenderer\\Scripts\\GameCompleteHandler.cs",
@@ -279,12 +235,11 @@
               "ViewState": "AgIAAEAAAAAAAAAAAAAgwFYAAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-13T08:11:59.297Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
-              "DocumentIndex": 32,
+              "DocumentIndex": 17,
               "Title": "CoinsHandler.cs",
               "DocumentMoniker": "E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\CoinsHandler.cs",
               "RelativeDocumentMoniker": "Assets\\LineRenderer\\Scripts\\CoinsHandler.cs",
@@ -297,20 +252,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "ScaleOutObject.cs",
-              "DocumentMoniker": "E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\ScaleOutObject.cs",
-              "RelativeDocumentMoniker": "Assets\\LineRenderer\\Scripts\\ScaleOutObject.cs",
-              "ToolTip": "E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\ScaleOutObject.cs",
-              "RelativeToolTip": "Assets\\LineRenderer\\Scripts\\ScaleOutObject.cs",
-              "ViewState": "AgIAAE8AAAAAAAAAAAAAwFQAAAAmAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-12T12:42:13.261Z",
-              "IsPinned": true
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 18,
               "Title": "SewPoint.cs",
               "DocumentMoniker": "E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\SewPoint.cs",
               "RelativeDocumentMoniker": "Assets\\LineRenderer\\Scripts\\SewPoint.cs",
@@ -323,46 +265,149 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
-              "Title": "Level_Metadata.cs",
-              "DocumentMoniker": "E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\Level_Metadata.cs",
-              "RelativeDocumentMoniker": "Assets\\LineRenderer\\Scripts\\Level_Metadata.cs",
-              "ToolTip": "E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\Level_Metadata.cs",
-              "RelativeToolTip": "Assets\\LineRenderer\\Scripts\\Level_Metadata.cs",
-              "ViewState": "AgIAAMoAAAAAAAAAAADwv+kAAAAxAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "LevelsInfoOnSelection.cs",
+              "DocumentMoniker": "E:\\GithubProjects\\Stitching-Demo\\Assets\\Scripts\\LevelsInfoOnSelection.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\LevelsInfoOnSelection.cs",
+              "ToolTip": "E:\\GithubProjects\\Stitching-Demo\\Assets\\Scripts\\LevelsInfoOnSelection.cs",
+              "RelativeToolTip": "Assets\\Scripts\\LevelsInfoOnSelection.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAQwBIAAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-17T06:31:01.668Z",
-              "IsPinned": true
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "LevelUpScreen.cs",
-              "DocumentMoniker": "E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\LevelUpScreen.cs",
-              "RelativeDocumentMoniker": "Assets\\LineRenderer\\Scripts\\LevelUpScreen.cs",
-              "ToolTip": "E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\LevelUpScreen.cs",
-              "RelativeToolTip": "Assets\\LineRenderer\\Scripts\\LevelUpScreen.cs",
-              "ViewState": "AgIAAD0AAAAAAAAAAAAowEcAAAAsAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-04T09:19:52.486Z",
-              "IsPinned": true
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "ICanvasUIManager.cs",
-              "DocumentMoniker": "E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\Interfaces\\ICanvasUIManager.cs",
-              "RelativeDocumentMoniker": "Assets\\LineRenderer\\Scripts\\Interfaces\\ICanvasUIManager.cs",
-              "ToolTip": "E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\Interfaces\\ICanvasUIManager.cs",
-              "RelativeToolTip": "Assets\\LineRenderer\\Scripts\\Interfaces\\ICanvasUIManager.cs",
-              "ViewState": "AgIAAAoAAAAAAAAAAAA0wBkAAAAXAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-06T12:40:38.481Z",
+              "WhenOpened": "2025-12-09T07:24:38.164Z",
+              "IsPinned": true,
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 2,
+              "Title": "LevelsHandler.cs",
+              "DocumentMoniker": "E:\\GithubProjects\\Stitching-Demo\\Assets\\Scripts\\LevelsHandler.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\LevelsHandler.cs",
+              "ToolTip": "E:\\GithubProjects\\Stitching-Demo\\Assets\\Scripts\\LevelsHandler.cs",
+              "RelativeToolTip": "Assets\\Scripts\\LevelsHandler.cs",
+              "ViewState": "AgIAAFYAAAAAAAAAAAAqwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-09T09:05:55.816Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Level_Metadata.cs",
+              "DocumentMoniker": "E:\\GithubProjects\\Stitching-Demo\\Assets\\Scripts\\Level_Metadata.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Level_Metadata.cs",
+              "ToolTip": "E:\\GithubProjects\\Stitching-Demo\\Assets\\Scripts\\Level_Metadata.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Level_Metadata.cs",
+              "ViewState": "AgIAAOsAAAAAAAAAAAAUwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-09T09:04:59.844Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "LevelUpScreen.cs",
+              "DocumentMoniker": "E:\\GithubProjects\\Stitching-Demo\\Assets\\Scripts\\LevelUpScreen.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\LevelUpScreen.cs",
+              "ToolTip": "E:\\GithubProjects\\Stitching-Demo\\Assets\\Scripts\\LevelUpScreen.cs",
+              "RelativeToolTip": "Assets\\Scripts\\LevelUpScreen.cs",
+              "ViewState": "AgIAACIAAAAAAAAAAAAUwCwAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-09T07:04:31.648Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "DecorIteamMetaDataSO.cs",
+              "DocumentMoniker": "E:\\GithubProjects\\Stitching-Demo\\Assets\\Scripts\\MetaData\\RoomDecor\\DecorIteamMetaDataSO.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\MetaData\\RoomDecor\\DecorIteamMetaDataSO.cs",
+              "ToolTip": "E:\\GithubProjects\\Stitching-Demo\\Assets\\Scripts\\MetaData\\RoomDecor\\DecorIteamMetaDataSO.cs",
+              "RelativeToolTip": "Assets\\Scripts\\MetaData\\RoomDecor\\DecorIteamMetaDataSO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-09T08:22:49.007Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "LevelObjectiveManager.cs",
+              "DocumentMoniker": "E:\\GithubProjects\\Stitching-Demo\\Assets\\Scripts\\LevelObjectiveManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\LevelObjectiveManager.cs",
+              "ToolTip": "E:\\GithubProjects\\Stitching-Demo\\Assets\\Scripts\\LevelObjectiveManager.cs",
+              "RelativeToolTip": "Assets\\Scripts\\LevelObjectiveManager.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-09T07:31:38.864Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "PageDotsIndicator.cs",
+              "DocumentMoniker": "E:\\GithubProjects\\Stitching-Demo\\Assets\\ThirdPartyAssets\\PageSlider\\Scripts\\PageDotsIndicator.cs",
+              "RelativeDocumentMoniker": "Assets\\ThirdPartyAssets\\PageSlider\\Scripts\\PageDotsIndicator.cs",
+              "ToolTip": "E:\\GithubProjects\\Stitching-Demo\\Assets\\ThirdPartyAssets\\PageSlider\\Scripts\\PageDotsIndicator.cs",
+              "RelativeToolTip": "Assets\\ThirdPartyAssets\\PageSlider\\Scripts\\PageDotsIndicator.cs",
+              "ViewState": "AgIAAHgAAAAAAAAAAAArwIYAAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-09T07:21:48.947Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "LevelUpIntroScreen.cs",
+              "DocumentMoniker": "E:\\GithubProjects\\Stitching-Demo\\Assets\\Scripts\\LevelUpIntroScreen.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\LevelUpIntroScreen.cs",
+              "ToolTip": "E:\\GithubProjects\\Stitching-Demo\\Assets\\Scripts\\LevelUpIntroScreen.cs",
+              "RelativeToolTip": "Assets\\Scripts\\LevelUpIntroScreen.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-09T07:10:07.867Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ScaleOutObject.cs",
+              "DocumentMoniker": "E:\\GithubProjects\\Stitching-Demo\\Assets\\Scripts\\ScaleOutObject.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\ScaleOutObject.cs",
+              "ToolTip": "E:\\GithubProjects\\Stitching-Demo\\Assets\\Scripts\\ScaleOutObject.cs",
+              "RelativeToolTip": "Assets\\Scripts\\ScaleOutObject.cs",
+              "ViewState": "AgIAAGwAAAAAAAAAAAAAwH8AAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-09T07:04:49.923Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "DecorItemsInventory.cs",
+              "DocumentMoniker": "E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\Store\\RoomDecor\\DecorItemsInventory.cs",
+              "RelativeDocumentMoniker": "Assets\\LineRenderer\\Scripts\\Store\\RoomDecor\\DecorItemsInventory.cs",
+              "ToolTip": "E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\Store\\RoomDecor\\DecorItemsInventory.cs",
+              "RelativeToolTip": "Assets\\LineRenderer\\Scripts\\Store\\RoomDecor\\DecorItemsInventory.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAYwA4AAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-09T06:01:24.167Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "RoomItem.cs",
+              "DocumentMoniker": "E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\UI\\RoomDecor\\RoomItem.cs",
+              "RelativeDocumentMoniker": "Assets\\LineRenderer\\Scripts\\UI\\RoomDecor\\RoomItem.cs",
+              "ToolTip": "E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\UI\\RoomDecor\\RoomItem.cs",
+              "RelativeToolTip": "Assets\\LineRenderer\\Scripts\\UI\\RoomDecor\\RoomItem.cs",
+              "ViewState": "AgIAACAAAAAAAAAAAAAIwDQAAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-09T06:05:41.302Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
               "Title": "StoreItemData.cs",
               "DocumentMoniker": "E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\SerializableClasses\\StoreItemData.cs",
               "RelativeDocumentMoniker": "Assets\\LineRenderer\\Scripts\\SerializableClasses\\StoreItemData.cs",
@@ -370,12 +415,11 @@
               "RelativeToolTip": "Assets\\LineRenderer\\Scripts\\SerializableClasses\\StoreItemData.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-06T12:19:30.499Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-06T12:19:30.499Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 22,
               "Title": "IRoomdecorStore.cs",
               "DocumentMoniker": "E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\Interfaces\\IRoomdecorStore.cs",
               "RelativeDocumentMoniker": "Assets\\LineRenderer\\Scripts\\Interfaces\\IRoomdecorStore.cs",
@@ -383,12 +427,11 @@
               "RelativeToolTip": "Assets\\LineRenderer\\Scripts\\Interfaces\\IRoomdecorStore.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-06T12:18:44.84Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-06T12:18:44.84Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 23,
               "Title": "RoomdecorStore.cs",
               "DocumentMoniker": "E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\RoomdecorStore.cs",
               "RelativeDocumentMoniker": "Assets\\LineRenderer\\Scripts\\RoomdecorStore.cs",
@@ -396,12 +439,11 @@
               "RelativeToolTip": "Assets\\LineRenderer\\Scripts\\RoomdecorStore.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-06T12:18:25.665Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-06T12:18:25.665Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 24,
               "Title": "Item.cs",
               "DocumentMoniker": "E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\Item.cs",
               "RelativeDocumentMoniker": "Assets\\LineRenderer\\Scripts\\Item.cs",
@@ -409,12 +451,11 @@
               "RelativeToolTip": "Assets\\LineRenderer\\Scripts\\Item.cs",
               "ViewState": "AgIAABoAAAAAAAAAAAAIwCAAAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-06T11:44:24.518Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-06T11:44:24.518Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 25,
               "Title": "LevelsInfoOnSelection.cs",
               "DocumentMoniker": "E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\LevelsInfoOnSelection.cs",
               "RelativeDocumentMoniker": "Assets\\LineRenderer\\Scripts\\LevelsInfoOnSelection.cs",
@@ -426,7 +467,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 26,
               "Title": "LevelObjectiveManager.cs",
               "DocumentMoniker": "E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\LevelObjectiveManager.cs",
               "RelativeDocumentMoniker": "Assets\\LineRenderer\\Scripts\\LevelObjectiveManager.cs",
@@ -438,7 +479,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 27,
               "Title": "PageScroller.cs",
               "DocumentMoniker": "E:\\GithubProjects\\Stitching-Demo\\Assets\\PageSlider\\Scripts\\PageScroller.cs",
               "RelativeDocumentMoniker": "Assets\\PageSlider\\Scripts\\PageScroller.cs",
@@ -450,7 +491,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 11,
               "Title": "ShakableCanvas.cs",
               "DocumentMoniker": "E:\\GithubProjects\\Stitching-Demo\\Assets\\FirstGearGames\\SmoothCameraShaker\\Scripts\\Shakables\\ShakableCanvas.cs",
               "RelativeDocumentMoniker": "Assets\\FirstGearGames\\SmoothCameraShaker\\Scripts\\Shakables\\ShakableCanvas.cs",
@@ -462,7 +503,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 28,
               "Title": "SpoolManager.cs",
               "DocumentMoniker": "E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\SpoolManager.cs",
               "RelativeDocumentMoniker": "Assets\\LineRenderer\\Scripts\\SpoolManager.cs",
@@ -474,7 +515,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 29,
               "Title": "ILevelUpScreen.cs",
               "DocumentMoniker": "E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\Interfaces\\ILevelUpScreen.cs",
               "RelativeDocumentMoniker": "Assets\\LineRenderer\\Scripts\\Interfaces\\ILevelUpScreen.cs",
@@ -486,7 +527,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 30,
               "Title": "SoundManager.cs",
               "DocumentMoniker": "E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\SoundManager.cs",
               "RelativeDocumentMoniker": "Assets\\LineRenderer\\Scripts\\SoundManager.cs",
@@ -494,8 +535,7 @@
               "RelativeToolTip": "Assets\\LineRenderer\\Scripts\\SoundManager.cs",
               "ViewState": "AgIAAAIAAAAAAAAAAAAzwBAAAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-20T13:48:15.139Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-20T13:48:15.139Z"
             },
             {
               "$type": "Document",
@@ -511,7 +551,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 31,
               "Title": "LevelUpIntroScreen.cs",
               "DocumentMoniker": "E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\LevelUpIntroScreen.cs",
               "RelativeDocumentMoniker": "Assets\\LineRenderer\\Scripts\\LevelUpIntroScreen.cs",
@@ -523,7 +563,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 32,
               "Title": "EffectsHandler.cs",
               "DocumentMoniker": "E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\EffectsHandler.cs",
               "RelativeDocumentMoniker": "Assets\\LineRenderer\\Scripts\\EffectsHandler.cs",
@@ -535,7 +575,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 33,
               "Title": "MainMenuHandler.cs",
               "DocumentMoniker": "E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\MainMenuHandler.cs",
               "RelativeDocumentMoniker": "Assets\\LineRenderer\\Scripts\\MainMenuHandler.cs",
@@ -547,7 +587,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 34,
               "Title": "PlushieContainer.cs",
               "DocumentMoniker": "E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\PlushieContainer.cs",
               "RelativeDocumentMoniker": "Assets\\LineRenderer\\Scripts\\PlushieContainer.cs",
@@ -559,7 +599,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 33,
+              "DocumentIndex": 35,
               "Title": "NeedleMovement.cs",
               "DocumentMoniker": "E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\NeedleMovement.cs",
               "RelativeDocumentMoniker": "Assets\\LineRenderer\\Scripts\\NeedleMovement.cs",
@@ -571,7 +611,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 36,
               "Title": "HomeScreenSound.cs",
               "DocumentMoniker": "E:\\GithubProjects\\Stitching-Demo\\Assets\\LineRenderer\\Scripts\\HomeScreenSound.cs",
               "RelativeDocumentMoniker": "Assets\\LineRenderer\\Scripts\\HomeScreenSound.cs",

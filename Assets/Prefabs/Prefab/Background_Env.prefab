@@ -66,6 +66,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7328450759946618117}
+  - component: {fileID: 896980357620811331}
   m_Layer: 5
   m_Name: Background_Env
   m_TagString: Untagged
@@ -85,8 +86,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
-  - {fileID: 7427981900505196708}
   - {fileID: 8038348309861558675}
+  - {fileID: 7427981900505196708}
   - {fileID: 7557164405961827762}
   - {fileID: 1726750000831537128}
   - {fileID: 2956263199691806343}
@@ -98,6 +99,27 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &896980357620811331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 328101694733523326}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20d888a1fa57b264ca892aace1510801, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  _repository: {fileID: 11400000, guid: 98f644c9e8b4cd040ae2af9f0d5278a1, type: 2}
+  roomitem:
+  - {fileID: 5910865453634661946}
+  - {fileID: 493652816107823064}
+  - {fileID: 357402146073978241}
+  - {fileID: 8019878062293805918}
+  - {fileID: 9139528740205376618}
+  - {fileID: 857419708494288604}
+  <saveRoom>k__BackingField: 0
 --- !u!1 &422588438404213854
 GameObject:
   m_ObjectHideFlags: 0
@@ -109,6 +131,7 @@ GameObject:
   - component: {fileID: 7427981900505196708}
   - component: {fileID: 2213802511463803378}
   - component: {fileID: 7350462311740957547}
+  - component: {fileID: 493652816107823064}
   m_Layer: 5
   m_Name: Ceiling
   m_TagString: Untagged
@@ -130,10 +153,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 7328450759946618117}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0.0284375, y: 1}
+  m_AnchorMax: {x: 0.97300005, y: 1}
+  m_AnchoredPosition: {x: 1.1525879, y: 0}
+  m_SizeDelta: {x: 30.305199, y: 288.09}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &2213802511463803378
 CanvasRenderer:
@@ -155,7 +178,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 2100000, guid: 71c9c4fae8899d4489c657018a3dac45, type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -163,7 +186,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 3e191d38e4ce9d246adc366806f71c52, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 542ecde1fb5d6024ea5da413f5b312da, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -173,6 +196,21 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &493652816107823064
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 422588438404213854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 520af472ac1917c4da784a9f2f51fa52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RoomItem
+  _decorImage: {fileID: 7350462311740957547}
+  <_decorItemType>k__BackingField: 2
+  _repository: {fileID: 11400000, guid: 98f644c9e8b4cd040ae2af9f0d5278a1, type: 2}
 --- !u!1 &465687155685694804
 GameObject:
   m_ObjectHideFlags: 0
@@ -427,6 +465,7 @@ GameObject:
   - component: {fileID: 1951373650537165455}
   - component: {fileID: 8397709030828808134}
   - component: {fileID: 7156524230511662449}
+  - component: {fileID: 857419708494288604}
   m_Layer: 5
   m_Name: Bed
   m_TagString: Untagged
@@ -483,7 +522,7 @@ MonoBehaviour:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: 437aec253715b5c4a8537e8da76e077d, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -491,6 +530,21 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &857419708494288604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1274134355040188848}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 520af472ac1917c4da784a9f2f51fa52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RoomItem
+  _decorImage: {fileID: 7156524230511662449}
+  <_decorItemType>k__BackingField: 0
+  _repository: {fileID: 11400000, guid: 98f644c9e8b4cd040ae2af9f0d5278a1, type: 2}
 --- !u!1 &1294439887686716298
 GameObject:
   m_ObjectHideFlags: 0
@@ -592,6 +646,7 @@ GameObject:
   - component: {fileID: 1726750000831537128}
   - component: {fileID: 5029884400671301042}
   - component: {fileID: 2391729526039772613}
+  - component: {fileID: 9139528740205376618}
   m_Layer: 5
   m_Name: SewMachine
   m_TagString: Untagged
@@ -616,7 +671,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 448, y: -63}
-  m_SizeDelta: {x: 362.8238, y: 461.3092}
+  m_SizeDelta: {x: 265.9986, y: 338.2016}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5029884400671301042
 CanvasRenderer:
@@ -646,9 +701,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 2e50b2d08334d474e9a3720d191056fc, type: 3}
+  m_Sprite: {fileID: 1073716762, guid: d403274cd16fae54cbd16cae2f76800e, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -656,6 +711,21 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &9139528740205376618
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2006414103778679236}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 520af472ac1917c4da784a9f2f51fa52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RoomItem
+  _decorImage: {fileID: 2391729526039772613}
+  <_decorItemType>k__BackingField: 1
+  _repository: {fileID: 11400000, guid: 98f644c9e8b4cd040ae2af9f0d5278a1, type: 2}
 --- !u!1 &2715178319262148380
 GameObject:
   m_ObjectHideFlags: 0
@@ -847,6 +917,7 @@ GameObject:
   - component: {fileID: 7557164405961827762}
   - component: {fileID: 1009676737106597976}
   - component: {fileID: 9095650097084018386}
+  - component: {fileID: 357402146073978241}
   m_Layer: 5
   m_Name: Floor
   m_TagString: Untagged
@@ -869,9 +940,9 @@ RectTransform:
   m_Father: {fileID: 7328450759946618117}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 390.0708}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!222 &1009676737106597976
 CanvasRenderer:
@@ -893,7 +964,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 2100000, guid: 71c9c4fae8899d4489c657018a3dac45, type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -901,7 +972,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: c7dadf29009b8f54e8dee6f9e2eb6f43, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4f77631a8b034e0439eb3958a0e98aff, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -911,6 +982,21 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &357402146073978241
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5418533641341407436}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 520af472ac1917c4da784a9f2f51fa52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RoomItem
+  _decorImage: {fileID: 9095650097084018386}
+  <_decorItemType>k__BackingField: 4
+  _repository: {fileID: 11400000, guid: 98f644c9e8b4cd040ae2af9f0d5278a1, type: 2}
 --- !u!1 &5791896277784520952
 GameObject:
   m_ObjectHideFlags: 0
@@ -1012,6 +1098,8 @@ GameObject:
   - component: {fileID: 2956263199691806343}
   - component: {fileID: 6986326439948800580}
   - component: {fileID: 6126366402646182209}
+  - component: {fileID: 7598004818987627791}
+  - component: {fileID: 8019878062293805918}
   m_Layer: 5
   m_Name: shelf
   m_TagString: Untagged
@@ -1078,6 +1166,36 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &7598004818987627791
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6261634279006366544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb829997cb62186439008b87cdaeebfb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  plushieShelf:
+  - {fileID: 8352457364571467324}
+  - {fileID: 2915223546006589564}
+--- !u!114 &8019878062293805918
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6261634279006366544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 520af472ac1917c4da784a9f2f51fa52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RoomItem
+  _decorImage: {fileID: 6126366402646182209}
+  <_decorItemType>k__BackingField: 5
+  _repository: {fileID: 11400000, guid: 98f644c9e8b4cd040ae2af9f0d5278a1, type: 2}
 --- !u!1 &6569496932102664406
 GameObject:
   m_ObjectHideFlags: 0
@@ -1179,6 +1297,7 @@ GameObject:
   - component: {fileID: 8038348309861558675}
   - component: {fileID: 3274985087473119473}
   - component: {fileID: 6889694141284356672}
+  - component: {fileID: 5910865453634661946}
   m_Layer: 5
   m_Name: walls
   m_TagString: Untagged
@@ -1233,7 +1352,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 0c27433705335b241a6da784c3c42c40, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f58bd61a717fc964586bc414c12cc31e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1243,6 +1362,21 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &5910865453634661946
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7265969431909333154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 520af472ac1917c4da784a9f2f51fa52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RoomItem
+  _decorImage: {fileID: 6889694141284356672}
+  <_decorItemType>k__BackingField: 3
+  _repository: {fileID: 11400000, guid: 98f644c9e8b4cd040ae2af9f0d5278a1, type: 2}
 --- !u!1 &8079394964355663761
 GameObject:
   m_ObjectHideFlags: 0

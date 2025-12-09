@@ -7,6 +7,7 @@ public class Item : MonoBehaviour,IPointerDownHandler,IDragHandler,IPointerUpHan
     [SerializeField] RectTransform itemRect;
     IRoomdecorStore _store;
     [SerializeField] string ItemName;
+    [SerializeField] RoomItem roomItem;
     private void Start()
     {
         _store = ServiceLocator.GetService<IRoomdecorStore>();
@@ -30,18 +31,21 @@ public class Item : MonoBehaviour,IPointerDownHandler,IDragHandler,IPointerUpHan
     public void OnPointerDown(PointerEventData eventData)
     {
         if (_store == null) return;
-        if (!_store.changeItem) return;
-        foreach(StoreItemData sd in _store.itemSpriteData)
-        {
-            if (sd.ItemName.Equals(ItemName))
-            {
-                Image itemImage = this.GetComponent<Image>();
-                int r = Random.Range(0, sd._itemSprites.itemSprite.Length);
-                Sprite sprite = sd._itemSprites.itemSprite[r];
-                _store.ChangeItemSprite(itemImage, sprite);
-            }
-        }
-      
+        if (_store.repositionItem) return;
+            //if (!_store.changeItem) return;
+       GameEvents.UIEvents.ShowDecorItemsInventory.Raise(roomItem._decorItemType);
+
+        //foreach(StoreItemData sd in _store.itemSpriteData)
+        //{
+        //    if (sd.ItemName.Equals(ItemName))
+        //    {
+        //        Image itemImage = this.GetComponent<Image>();
+        //        int r = Random.Range(0, sd._itemSprites.itemSprite.Length);
+        //        Sprite sprite = sd._itemSprites.itemSprite[r];
+        //        _store.ChangeItemSprite(itemImage, sprite);
+        //    }
+        //}
+
         Debug.Log("onPointerDown");
     }
 

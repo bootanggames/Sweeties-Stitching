@@ -45,6 +45,7 @@ public class DecorItemsInventory : ScreenWithSelectableButtons<DecoreItemStoreBu
                 LabelToSet = item.DisplayName,
                 ID = (int)item.ItemName,
             };
+
             SpawnButton(context);
         }
     }

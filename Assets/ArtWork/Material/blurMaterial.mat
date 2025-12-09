@@ -86,8 +86,9 @@ Material:
     - _AlphaClip: 0
     - _AlphaToMask: 0
     - _Blend: 0
+    - _BlendAmount: 1
     - _BlendModePreserveSpecular: 1
-    - _BlurSize: 8
+    - _BlurSize: 15
     - _BumpScale: 1
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 0

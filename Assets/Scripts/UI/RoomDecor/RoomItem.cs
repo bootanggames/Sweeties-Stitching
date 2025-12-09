@@ -4,21 +4,22 @@ using UnityEngine.UI;
 
 public class RoomItem : MonoBehaviour
 {
-   [SerializeField] private Button _decorButton;
+   //[SerializeField] private Button _decorButton;
    [SerializeField] private Image _decorImage;
 
-   [SerializeField] private DecorItemType _decorItemType;
+   [field:SerializeField] public DecorItemType _decorItemType {  get; private set; }
    [SerializeField] private DecorItemRepositorySO _repository;
 
    private bool _canChange = false;
-
+    IRoomUpgrade saveRoomUpgrade;
    private void Start()
    {
-      _decorButton.onClick.AddListener(OnButtonPress);
+      //_decorButton.onClick.AddListener(OnButtonPress);
    }
 
    private void OnEnable()
    {
+        saveRoomUpgrade = ServiceLocator.GetService<IRoomUpgrade>();
       GameEvents.RoomDecorEvents.SetRoomDecorPermissionStatus.Register(OnSetRoomDecorPermissionStatus);
       GameEvents.RoomDecorEvents.DecorItemSelected.Register(OnDecorItemSelected);
    }
@@ -33,17 +34,30 @@ public class RoomItem : MonoBehaviour
    {
       _canChange = status;
    }
+    public void ChangeItemImage(Sprite itemSprite)
+    {
+        _decorImage.sprite = itemSprite;
 
-   private void OnDecorItemSelected(DecorItemName decorItemName, DecorItemType decorItemType)
+    }
+    private void OnDecorItemSelected(DecorItemName decorItemName, DecorItemType decorItemType)
    {
       Debug.Log($"OnDecorItemSelected {decorItemType}");
       if (decorItemType != _decorItemType)
          return;
-
       _decorImage.sprite = _repository.GetItem(decorItemName).ItemSprite;
-   }
 
-   private void OnButtonPress()
+        SaveItems(decorItemType, decorItemName.ToString());
+    }
+
+    public void SaveItems(DecorItemType itemType, string itemName)
+    {
+        foreach (DecorIteamMetaDataSO metaData in _repository.GetItemsByType(itemType))
+        {
+            PlayerPrefs.SetInt(metaData.ItemName.ToString(), 0);
+        }
+        PlayerPrefs.SetInt(itemName, 1);
+    }
+    private void OnButtonPress()
    {
       Debug.LogError("OnButtonPress");
       

@@ -16,6 +16,6 @@ MonoBehaviour:
   <ItemType>k__BackingField: 2
   <DisplayName>k__BackingField: YELLOW CEILING
   <ItemIcon>k__BackingField: {fileID: 21300000, guid: 237e91aebd1f7a24a88b06641ebceb57, type: 3}
-  <ItemSprite>k__BackingField: {fileID: 21300000, guid: ea951f8b1a66b1e4a965006585efb1d7, type: 3}
+  <ItemSprite>k__BackingField: {fileID: 21300000, guid: 237e91aebd1f7a24a88b06641ebceb57, type: 3}
   <Price>k__BackingField:
     _currencyEntities: []

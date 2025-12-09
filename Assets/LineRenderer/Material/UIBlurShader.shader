@@ -3,7 +3,7 @@ Shader "UI/UIBlur"
     Properties
     {
         _MainTex ("Texture", 2D) = "white" {}
-        _BlurSize ("Blur Size", Range(0, 10)) = 2
+        _BlurSize ("Blur Size", Range(0, 100)) = 2
     }
 
     SubShader

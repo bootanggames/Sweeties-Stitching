@@ -16,6 +16,6 @@ MonoBehaviour:
   <ItemType>k__BackingField: 4
   <DisplayName>k__BackingField: NORMAL MACHINE
   <ItemIcon>k__BackingField: {fileID: 21300000, guid: 4f77631a8b034e0439eb3958a0e98aff, type: 3}
-  <ItemSprite>k__BackingField: {fileID: 21300000, guid: c7dadf29009b8f54e8dee6f9e2eb6f43, type: 3}
+  <ItemSprite>k__BackingField: {fileID: 21300000, guid: 4f77631a8b034e0439eb3958a0e98aff, type: 3}
   <Price>k__BackingField:
     _currencyEntities: []

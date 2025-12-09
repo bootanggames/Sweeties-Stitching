@@ -16,6 +16,6 @@ MonoBehaviour:
   <ItemType>k__BackingField: 4
   <DisplayName>k__BackingField: BLUE FLOOR
   <ItemIcon>k__BackingField: {fileID: 21300000, guid: 88841c0ca75ae664283705f2789251c7, type: 3}
-  <ItemSprite>k__BackingField: {fileID: 21300000, guid: d3695717c691d1941a82d432ddaf28cd, type: 3}
+  <ItemSprite>k__BackingField: {fileID: 21300000, guid: 88841c0ca75ae664283705f2789251c7, type: 3}
   <Price>k__BackingField:
     _currencyEntities: []

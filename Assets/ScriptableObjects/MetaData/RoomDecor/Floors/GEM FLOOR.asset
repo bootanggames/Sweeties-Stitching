@@ -16,6 +16,6 @@ MonoBehaviour:
   <ItemType>k__BackingField: 4
   <DisplayName>k__BackingField: GEM FLOOR
   <ItemIcon>k__BackingField: {fileID: 21300000, guid: f6621421c81d4f249a7f64f55b6004e2, type: 3}
-  <ItemSprite>k__BackingField: {fileID: 21300000, guid: 42606ca8d8ea01d4097e447216b93e33, type: 3}
+  <ItemSprite>k__BackingField: {fileID: 21300000, guid: f6621421c81d4f249a7f64f55b6004e2, type: 3}
   <Price>k__BackingField:
     _currencyEntities: []

@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 5085828607062364691}
   - component: {fileID: 2917299766827347362}
   - component: {fileID: 1446386324002322537}
-  - component: {fileID: 51752532270010094}
   m_Layer: 5
   m_Name: Ceiling
   m_TagString: Untagged
@@ -138,19 +137,6 @@ MonoBehaviour:
   _decorImage: {fileID: 5085828607062364691}
   _decorItemType: 2
   _repository: {fileID: 11400000, guid: 98f644c9e8b4cd040ae2af9f0d5278a1, type: 2}
---- !u!114 &51752532270010094
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 248926707873576217}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4db0d842adb300745a4d2acd76dff00e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::AlphaClickFilter
-  alphaThreshold: 1
 --- !u!1 &339351641648643585
 GameObject:
   m_ObjectHideFlags: 0
@@ -254,7 +240,6 @@ GameObject:
   - component: {fileID: 1367937160440328587}
   - component: {fileID: 7557966404233727043}
   - component: {fileID: 5844215908147803814}
-  - component: {fileID: 8724859790869279925}
   m_Layer: 5
   m_Name: Floor
   m_TagString: Untagged
@@ -379,19 +364,6 @@ MonoBehaviour:
   _decorImage: {fileID: 1367937160440328587}
   _decorItemType: 4
   _repository: {fileID: 11400000, guid: 98f644c9e8b4cd040ae2af9f0d5278a1, type: 2}
---- !u!114 &8724859790869279925
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1119325379281987680}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4db0d842adb300745a4d2acd76dff00e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::AlphaClickFilter
-  alphaThreshold: 1
 --- !u!1 &1244774799025796905
 GameObject:
   m_ObjectHideFlags: 0
@@ -1433,7 +1405,6 @@ GameObject:
   - component: {fileID: 6224921269372324404}
   - component: {fileID: 11580371692973147}
   - component: {fileID: 3019927442848004257}
-  - component: {fileID: 552489517111455827}
   m_Layer: 5
   m_Name: walls
   m_TagString: Untagged
@@ -1558,19 +1529,6 @@ MonoBehaviour:
   _decorImage: {fileID: 6224921269372324404}
   _decorItemType: 3
   _repository: {fileID: 11400000, guid: 98f644c9e8b4cd040ae2af9f0d5278a1, type: 2}
---- !u!114 &552489517111455827
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7384106310372234823}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4db0d842adb300745a4d2acd76dff00e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::AlphaClickFilter
-  alphaThreshold: 1
 --- !u!1 &7842213893272101849
 GameObject:
   m_ObjectHideFlags: 0
@@ -1594,7 +1552,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7842213893272101849}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1

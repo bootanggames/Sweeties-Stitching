@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5f1b0128b08df546bf84187be42833c, type: 3}
   m_Name: WHITE MACHINE
   m_EditorClassIdentifier: Assembly-CSharp::RoomDecorIteamMetaDataSO
-  <ItemName>k__BackingField: 32
+  <ItemName>k__BackingField: 27
   <ItemType>k__BackingField: 1
   <DisplayName>k__BackingField: WHITE MACHINE
   <ItemIcon>k__BackingField: {fileID: 21300000, guid: cb95f05a6a1821d43871fc7ef533c39a, type: 3}

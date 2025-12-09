@@ -7,5 +7,5 @@ public enum DecorItemType
    ROOF,
    WALL,
    FLOOR,
-   CUPBOARD
+   SHELF
 }

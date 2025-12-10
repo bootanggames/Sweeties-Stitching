@@ -10,6 +10,12 @@ public class LevelsHandler : Singleton<LevelsHandler>, ILevelHandler
     public LevelStructure currentLevelData { get; private set; }
     public Level_Metadata currentLevelMeta { get; private set; }
     int totalCoins;
+    ICoinsHandler coinHandler;
+    IGameHandler gameHandler;
+    IThreadManager IThreadHandler;
+    ICanvasUIManager canvasHandler;
+    IPointConnectionHandler connectionHandler;
+    ISpoolManager spoolManager;
     public override void SingletonAwake()
     {
         base.SingletonAwake();
@@ -23,7 +29,12 @@ public class LevelsHandler : Singleton<LevelsHandler>, ILevelHandler
     public override void SingletonStart()
     {
         base.SingletonStart();
-        var gameHandler = ServiceLocator.GetService<IGameHandler>();
+        spoolManager = ServiceLocator.GetService<ISpoolManager>();
+        connectionHandler = ServiceLocator.GetService<IPointConnectionHandler>();
+        canvasHandler = ServiceLocator.GetService<ICanvasUIManager>();
+        IThreadHandler = ServiceLocator.GetService<IThreadManager>();
+        coinHandler = ServiceLocator.GetService<ICoinsHandler>();
+        gameHandler = ServiceLocator.GetService<IGameHandler>();
         if (gameHandler != null)
         {
             if(gameHandler.saveProgress)
@@ -123,15 +134,13 @@ public class LevelsHandler : Singleton<LevelsHandler>, ILevelHandler
         currentLevelMeta.gameObject.SetActive(false);
 
     }
+    bool once = false;
     public void NextPlushie()
     {
-        var coinHandler = ServiceLocator.GetService<ICoinsHandler>();
-     
-        var connectionHandler = ServiceLocator.GetService<IPointConnectionHandler>();
+        if (once) return;
         if (connectionHandler != null) connectionHandler.DeleteAllThreadLinks();
 
         int rewardedCoins = currentLevelMeta.levelScriptable.levelReward;
-        var spoolManager = ServiceLocator.GetService<ISpoolManager>();
         if (spoolManager != null)
         {
             if (currentLevelMeta.currentActiveSpoolIndex >= spoolManager.spoolList.Count)
@@ -139,7 +148,6 @@ public class LevelsHandler : Singleton<LevelsHandler>, ILevelHandler
         }
            
         LevelIncrementProcess();
-        var canvasHandler = ServiceLocator.GetService<ICanvasUIManager>();
         if (canvasHandler != null)
         {
             canvasHandler.startText.transform.localScale = Vector3.zero;
@@ -147,13 +155,10 @@ public class LevelsHandler : Singleton<LevelsHandler>, ILevelHandler
             canvasHandler.stitchProgress.text = "0% Done";
             canvasHandler.stitchCountText.text = currentLevelMeta.noOfStitchesDone + " OF " + currentLevelMeta.levelScriptable.totalStitches;
         }
-    
-        var IThreadHandler = ServiceLocator.GetService<IThreadManager>();
-        if(IThreadHandler != null)
-            IThreadHandler.SetUndoValue(true);
-        var icoinsHandler = ServiceLocator.GetService<ICoinsHandler>();
-        if (icoinsHandler != null)
-            icoinsHandler.StopCoinSound();
+        if(IThreadHandler != null) IThreadHandler.SetUndoValue(true);
+        if (coinHandler != null) coinHandler.StopCoinSound();
+
+        once = true;
     }
     public void SetLevel()
     {

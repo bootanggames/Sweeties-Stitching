@@ -27,10 +27,11 @@ public class Level_Metadata : MonoBehaviour
     [HideInInspector] public List<GameObject> crissCrossObjList = new List<GameObject>();
     List<Connections> cleanThreads = new List<Connections>();
     [HideInInspector]public GameObject currentSpool;
+    ISpoolManager spoolManager;
     private void Start()
     {
         Time.timeScale = 1;
-
+        spoolManager = ServiceLocator.GetService<ISpoolManager>();
         AssignAndUpdateSpools();
         LevelInitialisation();
     }
@@ -38,7 +39,7 @@ public class Level_Metadata : MonoBehaviour
     void AssignAndUpdateSpools()
     {
         var IthreadManage = ServiceLocator.GetService<IThreadManager>();
-        var spoolManager = ServiceLocator.GetService<ISpoolManager>();
+        
         if (spoolManager != null)
         {
             spoolManager.SpoolList(levelScriptable.totalSpoolsNeeded);
@@ -56,13 +57,33 @@ public class Level_Metadata : MonoBehaviour
             }
             else
                 totalThread = levelScriptable.totalStitches;
+            if (GameHandler.instance.saveProgress)
+            {
+                LoadSpoolDataIfSaved(spoolManager);
+            }
+
             s_Info.UpdateThreadProgress(totalThread);
 
         }
         if (IthreadManage != null)
             IthreadManage.UpdateCurrentActiveSpoolReference();
     }
-    
+    void LoadSpoolDataIfSaved(ISpoolManager spoolManager)
+    {
+        if (SaveDataUsingJson.instance)
+        {
+            int levelIndex = LevelsHandler.instance.levelIndex;
+            string _plushieName = LevelsHandler.instance.currentLevelMeta.levelScriptable.levelName;
+            for(int i=0;i< spoolManager.spoolList.Count; i++)
+            {
+                SpoolInfo s_Info = spoolManager.spoolList[i].GetComponent<SpoolInfo>();
+                s_Info._spoolData = SaveDataUsingJson.instance.LoadData<SpoolData>(s_Info._spoolData.spoolId + "_" + levelIndex + "_" + _plushieName, "SpoolData");
+                if (s_Info._spoolData != null)
+                    s_Info.UpdateThreadProgress(s_Info._spoolData.totalThreadsInSpool);
+            }
+          
+        }
+    }
     public void LevelInitialisation()
     {
         DisableAllSewPoints();

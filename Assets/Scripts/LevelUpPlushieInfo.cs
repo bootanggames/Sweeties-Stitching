@@ -15,5 +15,6 @@ public class LevelUpPlushieInfo : MonoBehaviour
     public void PlaySound()
     {
         SoundManager.instance.PlaySound(source, SoundManager.instance.audioClips.ting, false, false, 1, false);
+        HepticManager.instance.HapticEffect();
     }
 }

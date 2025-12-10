@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class SaveDataUsingJson : Singleton<SaveDataUsingJson>
 {
-    [SerializeField]string path;
+    string path;
     public override void SingletonAwake()
     {
         base.SingletonAwake();
@@ -13,9 +13,9 @@ public class SaveDataUsingJson : Singleton<SaveDataUsingJson>
     {
         base.SingletonOnDestroy();
     }
-    public void SaveData<T>(string fileName, T data)
+    public void SaveData<T>(string fileName, T data, string _folderName)
     {
-        string folderName = Path.Combine(path, "Stitching_BackUpFiles");
+        string folderName = Path.Combine(path, _folderName);
         string fullPath = Path.Combine(folderName, fileName);
         if(!File.Exists(fullPath)) 
             Directory.CreateDirectory(Path.GetDirectoryName(fullPath));
@@ -23,16 +23,15 @@ public class SaveDataUsingJson : Singleton<SaveDataUsingJson>
         File.WriteAllText(fullPath, json);
     }
 
-    public T LoadData<T>(string fileName) where T : class
+    public T LoadData<T>(string fileName, string _folderName) where T : class
     {
-        string folderName = Path.Combine(path, "Stitching_BackUpFiles");
+        string folderName = Path.Combine(path, _folderName);
 
         string fullPath = Path.Combine(folderName, fileName);
         if (!File.Exists(fullPath))
             return null;
 
         string json = File.ReadAllText(fullPath);
-
         return JsonUtility.FromJson<T>(json);
     }
 

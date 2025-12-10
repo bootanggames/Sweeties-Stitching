@@ -13,6 +13,9 @@ public interface ILevelUpScreen : IGameService
     GameObject renderTextureImageObj { get; }
     GameObject levelUpCamera { get; }
     ParticleSystem[] levelUpEffect { get; }
+    GameObject unlockedPlushieWord { get; }
+    TextMeshProUGUI levelNumber { get; }
+
     List<PlushieSpriteContainer> pageSliderContainer {  get; }
     void NextPage();
     void PrevPage();

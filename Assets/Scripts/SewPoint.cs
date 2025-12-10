@@ -41,7 +41,7 @@ public class SewPoint : MonoBehaviour, ISewPoint
                 int plushieIndex = PlayerPrefs.GetInt("Level_" + LevelsHandler.instance.levelIndex + "_Plushie");
                 string bodyPart = parentInfo.partType.ToString();
                 if (SaveDataUsingJson.instance)
-                    metaData = SaveDataUsingJson.instance.LoadData<SewPointMetaData>(LevelsHandler.instance.currentLevelMeta.levelScriptable.levelName + "_" + plushieIndex + "_" + bodyPart + "_" + attachmentId);
+                    metaData = SaveDataUsingJson.instance.LoadData<SewPointMetaData>(LevelsHandler.instance.currentLevelMeta.levelScriptable.levelName + "_" + plushieIndex + "_" + bodyPart + "_" + attachmentId, "Stitching_BackUpFiles");
 
                 if (metaData == null)
                     metaData = new SewPointMetaData();
@@ -90,7 +90,7 @@ public class SewPoint : MonoBehaviour, ISewPoint
                 string bodyPart = parentInfo.partType.ToString();
 
                 if (SaveDataUsingJson.instance)
-                    SaveDataUsingJson.instance.SaveData(LevelsHandler.instance.currentLevelMeta.levelScriptable.levelName + "_" + plushieIndex + "_" + bodyPart + "_" + attachmentId, metaData);
+                    SaveDataUsingJson.instance.SaveData(LevelsHandler.instance.currentLevelMeta.levelScriptable.levelName + "_" + plushieIndex + "_" + bodyPart + "_" + attachmentId, metaData, "Stitching_BackUpFiles");
             }
         }
         CancelInvoke(nameof(LoadSavedData));
@@ -131,7 +131,7 @@ public class SewPoint : MonoBehaviour, ISewPoint
 
             if (currentLevel.levelScriptable.totalSpoolsNeeded == 2)
             {
-                if (s_Info.noOfStitchedDone >= s_Info.totalThreadsInSpool)
+                if (s_Info._spoolData.noOfStitchedDone >= s_Info._spoolData.totalThreadsInSpool)
                 {
                     currentLevel.currentActiveSpoolIndex++;
                     //if (currentLevel.currentActiveSpoolIndex >= currentLevel.levelScriptable.totalSpoolsNeeded)
@@ -143,7 +143,7 @@ public class SewPoint : MonoBehaviour, ISewPoint
                         currentLevel.needleUndoPosition = s_Info.undoPosition;
                         if (IthreadHandler != null) IthreadHandler.UpdateCurrentActiveSpoolReference();
                         SpoolInfo prevSpool = spoolManager.GetSpool(currentLevel.currentActiveSpoolIndex - 1).GetComponent<SpoolInfo>();
-                        float total = (currentLevel.levelScriptable.totalStitches - prevSpool.totalThreadsInSpool);
+                        float total = (currentLevel.levelScriptable.totalStitches - prevSpool._spoolData.totalThreadsInSpool);
                         totalThread = (int)total;
                     }
                 }
@@ -157,7 +157,7 @@ public class SewPoint : MonoBehaviour, ISewPoint
                     else
                     {
                         SpoolInfo prevSpool = spoolManager.GetSpool(currentLevel.currentActiveSpoolIndex - 1).GetComponent<SpoolInfo>();
-                        float total = (currentLevel.levelScriptable.totalStitches - prevSpool.totalThreadsInSpool);
+                        float total = (currentLevel.levelScriptable.totalStitches - prevSpool._spoolData.totalThreadsInSpool);
                         totalThread = (int)total;
                     }
                 }
@@ -167,7 +167,12 @@ public class SewPoint : MonoBehaviour, ISewPoint
                 totalThread = currentLevel.levelScriptable.totalStitches;
 
             s_Info.UpdateThreadProgress(totalThread);
-
+            if (SaveDataUsingJson.instance)
+            {
+                int levelIndex = LevelsHandler.instance.levelIndex;
+                string _plushieName = LevelsHandler.instance.currentLevelMeta.levelScriptable.levelName;
+                SaveDataUsingJson.instance.SaveData(s_Info._spoolData.spoolId + "_"+levelIndex + "_" + _plushieName, s_Info._spoolData, "SpoolData");
+            }
         }
     }
     public void UnRegisterService()
@@ -192,7 +197,7 @@ public class SewPoint : MonoBehaviour, ISewPoint
         int plushieIndex = PlayerPrefs.GetInt("Level_" + LevelsHandler.instance.levelIndex + "_Plushie");
 
         if (SaveDataUsingJson.instance)
-            SaveDataUsingJson.instance.SaveData(LevelsHandler.instance.currentLevelMeta.levelScriptable.levelName + "_" + plushieIndex + "_" + bodyPart + "_" + attachmentId, metaData);
+            SaveDataUsingJson.instance.SaveData(LevelsHandler.instance.currentLevelMeta.levelScriptable.levelName + "_" + plushieIndex + "_" + bodyPart + "_" + attachmentId, metaData, "Stitching_BackUpFiles");
 
       
 

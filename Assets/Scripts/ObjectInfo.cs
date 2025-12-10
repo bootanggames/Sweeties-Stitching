@@ -53,7 +53,7 @@ public class ObjectInfo : MonoBehaviour
             if (gameHandler.saveProgress)
             {
                 if (SaveDataUsingJson.instance)
-                    stitchData = SaveDataUsingJson.instance.LoadData<PlushiePartStitchData>(LevelsHandler.instance.currentLevelMeta.levelScriptable.levelName + "_" + partType);
+                    stitchData = SaveDataUsingJson.instance.LoadData<PlushiePartStitchData>(LevelsHandler.instance.currentLevelMeta.levelScriptable.levelName + "_" + partType, "Stitching_BackUpFiles");
                 if(stitchData == null)
                     stitchData= new PlushiePartStitchData();
                 if (stitchData.movedPositions.Count > 0)
@@ -119,7 +119,7 @@ public class ObjectInfo : MonoBehaviour
             else
             {
                 if (SaveDataUsingJson.instance)
-                    SaveDataUsingJson.instance.SaveData(LevelsHandler.instance.currentLevelMeta.levelScriptable.levelName + "_" + partType, stitchData);
+                    SaveDataUsingJson.instance.SaveData(LevelsHandler.instance.currentLevelMeta.levelScriptable.levelName + "_" + partType, stitchData, "Stitching_BackUpFiles");
             }
         }
         CancelInvoke(nameof(LoadSavedData));
@@ -144,12 +144,12 @@ public class ObjectInfo : MonoBehaviour
     public void IncementConnection()
     {
         stitchData.noOfConnections++;
-        SaveDataUsingJson.instance.SaveData(LevelsHandler.instance.currentLevelMeta.levelScriptable.levelName + "_" + partType, stitchData);
+        SaveDataUsingJson.instance.SaveData(LevelsHandler.instance.currentLevelMeta.levelScriptable.levelName + "_" + partType, stitchData, "Stitching_BackUpFiles");
     }
     public void DecementConnection()
     {
         stitchData.noOfConnections--;
-        SaveDataUsingJson.instance.SaveData(LevelsHandler.instance.currentLevelMeta.levelScriptable.levelName + "_" + partType, stitchData);
+        SaveDataUsingJson.instance.SaveData(LevelsHandler.instance.currentLevelMeta.levelScriptable.levelName + "_" + partType, stitchData, "Stitching_BackUpFiles");
     }
     public void MarkStitched()
     {
@@ -159,7 +159,7 @@ public class ObjectInfo : MonoBehaviour
             LevelsHandler.instance.currentLevelMeta.current_ObjectInfor = addressOfNextPartToBeStitched;
             LevelsHandler.instance.currentLevelMeta.currentActivePart = partType;
         }
-        SaveDataUsingJson.instance.SaveData(LevelsHandler.instance.currentLevelMeta.levelScriptable.levelName + "_" + partType, stitchData);
+        SaveDataUsingJson.instance.SaveData(LevelsHandler.instance.currentLevelMeta.levelScriptable.levelName + "_" + partType, stitchData, "Stitching_BackUpFiles");
 
         if (cotton) cotton.SetActive(false);
 

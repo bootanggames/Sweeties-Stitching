@@ -15,10 +15,13 @@ public class SpoolManager : MonoBehaviour,ISpoolManager
     {
         UnRegisterService();
     }
-    void CreateSpool()
+    void CreateSpool(int index)
     {
         GameObject sp = Instantiate(spoolPrefab);
         sp.transform.SetParent(spoolParent.transform);
+        SpoolInfo s_Info = sp.GetComponent<SpoolInfo>();
+        s_Info._spoolData.spoolId = (index + 1);
+        Debug.LogError(" " + index + " " + s_Info._spoolData.spoolId);
         sp.transform.localPosition = Vector3.zero;
         sp.transform.localRotation = Quaternion.identity;
         sp.transform.localScale = Vector3.one;
@@ -32,7 +35,7 @@ public class SpoolManager : MonoBehaviour,ISpoolManager
     {
         for (int i = 0; i < count; i++)
         {
-            CreateSpool();
+            CreateSpool(i);
         }
     }
     public void ChangeSpriteOfSpools(Sprite sp)

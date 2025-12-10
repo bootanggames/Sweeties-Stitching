@@ -468,10 +468,16 @@ public class ThreadManager : MonoBehaviour, IThreadManager
                     if (LevelsHandler.instance.currentLevelMeta.currentSpool)
                     {
                         SpoolInfo s_Info = LevelsHandler.instance.currentLevelMeta.currentSpool.GetComponent<SpoolInfo>();
-                        s_Info.noOfStitchedDone--;
+                        s_Info._spoolData.noOfStitchedDone--;
                         float total = (LevelsHandler.instance.currentLevelMeta.levelScriptable.totalStitches / LevelsHandler.instance.currentLevelMeta.levelScriptable.totalSpoolsNeeded);
 
                         s_Info.UpdateThreadProgress((int)total);
+                        if (SaveDataUsingJson.instance)
+                        {
+                            int levelIndex = LevelsHandler.instance.levelIndex;
+                            string _plushieName = LevelsHandler.instance.currentLevelMeta.levelScriptable.levelName;
+                            SaveDataUsingJson.instance.SaveData(s_Info._spoolData.spoolId + "_" + levelIndex + "_" + _plushieName, s_Info._spoolData, "SpoolData");
+                        }
                     }
                     PlayerPrefs.SetInt("StitchedCount", LevelsHandler.instance.currentLevelMeta.noOfStitchesDone);
                     var canvasManager = ServiceLocator.GetService<ICanvasUIManager>();
@@ -627,8 +633,8 @@ public class ThreadManager : MonoBehaviour, IThreadManager
 
 
 
-                    SaveDataUsingJson.instance.SaveData(LevelsHandler.instance.currentLevelMeta.levelScriptable.levelName + "_" + o_Info1.partType, o_Info1.stitchData);
-                    SaveDataUsingJson.instance.SaveData(LevelsHandler.instance.currentLevelMeta.levelScriptable.levelName + "_" + o_Info2.partType, o_Info2.stitchData);
+                    SaveDataUsingJson.instance.SaveData(LevelsHandler.instance.currentLevelMeta.levelScriptable.levelName + "_" + o_Info1.partType, o_Info1.stitchData, "Stitching_BackUpFiles");
+                    SaveDataUsingJson.instance.SaveData(LevelsHandler.instance.currentLevelMeta.levelScriptable.levelName + "_" + o_Info2.partType, o_Info2.stitchData, "Stitching_BackUpFiles");
                     
                     LevelsHandler.instance.currentLevelMeta.UpdateAllStitchesOfPlushie();
                     

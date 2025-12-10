@@ -1413,9 +1413,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DecorMenuController
   _decorItemsInventory: {fileID: 3526614756314736840}
   _bedsButton: {fileID: 7077969419041494265}
-  _shelfButton: {fileID: 4765034850359669527}
+  _shelfButton: {fileID: 1228526527138257908}
   _machineButton: {fileID: 8762599866076477082}
-  _ceilingButton: {fileID: 8396661442923917333}
+  _ceilingButton: {fileID: 5798179397960793014}
   _wallsButton: {fileID: 5703674104736355937}
   _floorsButton: {fileID: 8396661442923917333}
 --- !u!1 &5101058861465659600
@@ -1451,7 +1451,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.0217688, y: 0.059581738}
   m_AnchorMax: {x: 0.8393124, y: 0.6984364}
-  m_AnchoredPosition: {x: -3.1400146, y: 0.7644043}
+  m_AnchoredPosition: {x: -3.1401367, y: 0.7644043}
   m_SizeDelta: {x: -0.79000854, y: 1.4928894}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &5104029784974230646

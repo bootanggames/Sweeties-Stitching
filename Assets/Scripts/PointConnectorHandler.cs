@@ -293,7 +293,7 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
         if (LevelsHandler.instance.currentLevelMeta.currentSpool)
         {
             SpoolInfo s_Info = LevelsHandler.instance.currentLevelMeta.currentSpool.GetComponent<SpoolInfo>();
-            s_Info.noOfStitchedDone++;
+            s_Info._spoolData.noOfStitchedDone++;
         }
 
         var canvasManager = ServiceLocator.GetService<ICanvasUIManager>();

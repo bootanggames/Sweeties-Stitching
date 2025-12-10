@@ -11,15 +11,16 @@ public class RoomItem : MonoBehaviour
    [SerializeField] private DecorItemRepositorySO _repository;
 
    private bool _canChange = false;
-    IRoomUpgrade saveRoomUpgrade;
+    UpdateRoom upgradeRoom;
    private void Start()
    {
-      //_decorButton.onClick.AddListener(OnButtonPress);
-   }
+        upgradeRoom = GetComponentInParent<UpdateRoom>();
+        //_decorButton.onClick.AddListener(OnButtonPress);
+    }
 
-   private void OnEnable()
+    private void OnEnable()
    {
-        saveRoomUpgrade = ServiceLocator.GetService<IRoomUpgrade>();
+        upgradeRoom = GetComponentInParent<UpdateRoom>();
       GameEvents.RoomDecorEvents.SetRoomDecorPermissionStatus.Register(OnSetRoomDecorPermissionStatus);
       GameEvents.RoomDecorEvents.DecorItemSelected.Register(OnDecorItemSelected);
    }
@@ -44,8 +45,10 @@ public class RoomItem : MonoBehaviour
       Debug.Log($"OnDecorItemSelected {decorItemType}");
       if (decorItemType != _decorItemType)
          return;
-      _decorImage.sprite = _repository.GetItem(decorItemName).ItemSprite;
-
+        if (!decorItemType.Equals(DecorItemType.SHELF))
+            _decorImage.sprite = _repository.GetItem(decorItemName).ItemSprite;
+        else
+            upgradeRoom.UpdateShelf(decorItemName);
         SaveItems(decorItemType, decorItemName.ToString());
     }
 

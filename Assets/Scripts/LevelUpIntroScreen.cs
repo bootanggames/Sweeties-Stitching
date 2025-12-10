@@ -4,9 +4,11 @@ using UnityEngine;
 public class LevelUpIntroScreen : MonoBehaviour
 {
     [SerializeField] GameObject[] plishieObj;
-
+    ILevelUpScreen levelUpScreen;
     private void OnEnable()
     {
+        levelUpScreen = ServiceLocator.GetService<ILevelUpScreen>();
+        levelUpScreen.homeScreen.SetVolumeForBgMusic(0.5f);
         StopCoroutine(nameof(EnableOneByOne));
         StartCoroutine(nameof(EnableOneByOne));
     }
@@ -19,10 +21,10 @@ public class LevelUpIntroScreen : MonoBehaviour
             yield return new WaitForSeconds(0.25f);
         }
         yield return new WaitForSeconds(1.5f);
-        var levelUpScreen = ServiceLocator.GetService<ILevelUpScreen>();
         if (levelUpScreen != null)
         {
             levelUpScreen.StopSound();
+            levelUpScreen.homeScreen.SetVolumeForBgMusic(1);
             levelUpScreen.homeScreen.EnableSound();
             levelUpScreen.renderTextureImageObj.SetActive(false);
             levelUpScreen.levelUpScreen.SetActive(false);

@@ -1,26 +1,23 @@
 using System;
+using System.Net.Mail;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class SpoolInfo : MonoBehaviour
 {
-    public int noOfStitchedDone = 0;
-    public int remainigThreads;
-    public int totalThreadsInSpool;
+    public SpoolData _spoolData;
     public RectTransform undoPosition;
     public Image spoolImage;
-
+   
     public void UpdateThreadProgress(int totalThreads)
     {
-        //Debug.LogError(" " + totalThreads);
-        totalThreadsInSpool = totalThreads;
-        int remainigThreads = totalThreadsInSpool - noOfStitchedDone;
+        _spoolData.totalThreadsInSpool = totalThreads;
+        int remainigThreads = _spoolData.totalThreadsInSpool - _spoolData.noOfStitchedDone;
         float fillBarPercent = (float)remainigThreads / totalThreads;
         //Debug.LogError(" " + fillBarPercent);
-
-        //Debug.LogError(" " + remainigThreads + " " + totalThreadsInSpool + " " + noOfStitchedDone + " " + fillBarPercent);
         spoolImage.fillAmount = fillBarPercent;
         //spoolImage.fillAmount = (float)Math.Round(fillBarPercent, 1);
-
+       
     }
 }

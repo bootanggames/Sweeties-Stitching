@@ -21,6 +21,9 @@ public class LevelUpScreen : MonoBehaviour, ILevelUpScreen
     [field: SerializeField] public GameObject renderTextureImageObj { get; private set; }
     [field: SerializeField] public GameObject levelUpCamera { get; private set; }
     [field: SerializeField] public ParticleSystem[] levelUpEffect { get; private set; }
+    [field: SerializeField] public GameObject unlockedPlushieWord { get; private set; }
+    [field: SerializeField] public TextMeshProUGUI levelNumber { get; private set; }
+
     [SerializeField] ShakerInstance _shakerInstance;
     [SerializeField] ShakeData shakeData;
     private void OnEnable()
@@ -47,13 +50,15 @@ public class LevelUpScreen : MonoBehaviour, ILevelUpScreen
     void GetLevel()
     {
         int levelIndex = PlayerPrefs.GetInt("Level");
+        levelNumber.text = levelIndex.ToString();
         int levelUp = PlayerPrefs.GetInt("LevelUp");
 
         if (levelUp == 1)
         {
             levelScreenText.text = "Level" + levelIndex;
             levelUpScreen.SetActive(true);
-            foreach(PlushieSpriteContainer container in pageSliderContainer)
+            PlayLevelUpSound();
+            foreach (PlushieSpriteContainer container in pageSliderContainer)
             {
                 if(container.levelId.Equals(levelIndex + 1))
                 {
@@ -107,16 +112,19 @@ public class LevelUpScreen : MonoBehaviour, ILevelUpScreen
     {
         AudioClip _clip = SoundManager.instance.audioClips.levelUp;
         SoundManager.instance.PlaySound(audioSource, _clip, false, false, 1, false);
+        HepticManager.instance.HapticEffect();
+
     }
     public void PlayCelebrationSound()
     {
-        AudioClip _clip = SoundManager.instance.audioClips.celebrationJingleTrumpets;
-        SoundManager.instance.PlaySound(audioSource, _clip, false, false, 1, false);
+        //AudioClip _clip = SoundManager.instance.audioClips.celebrationJingleTrumpets;
+        //SoundManager.instance.PlaySound(audioSource, _clip, false, false, 1, false);
+        HepticManager.instance.HapticEffect();
     }
     public void PlayLevelUpSongSound()
     {
-        AudioClip _clip = SoundManager.instance.audioClips.levelUpSong;
-        SoundManager.instance.PlaySound(audioSource, _clip, false, false, 1, false);
+        //AudioClip _clip = SoundManager.instance.audioClips.levelUpSong;
+        //SoundManager.instance.PlaySound(audioSource, _clip, false, false, 1, false);
     }
     public void StopSound()
     {

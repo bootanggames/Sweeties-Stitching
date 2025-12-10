@@ -746,14 +746,14 @@ RectTransform:
   m_GameObject: {fileID: 212401616871760259}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.545321, y: 0.545321, z: 0.545321}
+  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5026153137631712241}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 2.923, y: 0.15}
+  m_AnchoredPosition: {x: 2.616, y: 0.15}
   m_SizeDelta: {x: 3.712, y: 1.203}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &7205058341270714278
@@ -911,8 +911,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.5
-  targetScale: 0.5
-  orignalScale: 0.35
+  targetScale: 0.3
+  orignalScale: 0.4
   ease: 1
 --- !u!1 &236800877788213578
 GameObject:
@@ -1397,7 +1397,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1.4, y: -6.7}
+  m_AnchoredPosition: {x: -5.18, y: -6.7}
   m_SizeDelta: {x: 3.712, y: 1.203}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &5799786336246662859
@@ -2922,7 +2922,7 @@ Transform:
   m_GameObject: {fileID: 906803369500409634}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.4294236, y: 0.39860225, z: 0}
+  m_LocalPosition: {x: -0.65, y: -0.17, z: 0}
   m_LocalScale: {x: 0.98894095, y: 1.0253793, z: 1.2494662}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -15078,8 +15078,8 @@ Transform:
   m_GameObject: {fileID: 3067445682976149592}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.36, y: 0.55000055, z: 0}
-  m_LocalScale: {x: 1.3597947, y: 1.4098964, z: 1.7180172}
+  m_LocalPosition: {x: -0.66, y: 0.67, z: 0}
+  m_LocalScale: {x: 1.2822864, y: 1.4098964, z: 1.7180172}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3845906627727710021}
@@ -18102,7 +18102,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7543169494821413038
 Transform:
   m_ObjectHideFlags: 0
@@ -26719,7 +26719,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 7.3, y: -0.71}
+  m_AnchoredPosition: {x: 6.82, y: -1.33}
   m_SizeDelta: {x: 3.712, y: 1.203}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &2358695437237575736
@@ -28620,7 +28620,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.5250257, y: -4.1584253}
+  m_AnchoredPosition: {x: 1.46, y: 2.23}
   m_SizeDelta: {x: 3.712, y: 1.203}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &7382679308972079707
@@ -32253,7 +32253,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -9.49, y: 0.38}
+  m_AnchoredPosition: {x: -8.04, y: -1.28}
   m_SizeDelta: {x: 3.712, y: 1.203}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &3681740944919871560
@@ -40531,7 +40531,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1.9665201, y: -3.6963933}
+  m_AnchoredPosition: {x: 0.08, y: -4.43}
   m_SizeDelta: {x: 3.712, y: 1.203}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &8730719137248140981
@@ -41641,8 +41641,8 @@ RectTransform:
   m_GameObject: {fileID: 8755774978667432852}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
-  m_ConstrainProportionsScale: 1
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1935992407628443261}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -41806,8 +41806,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.5
-  targetScale: 1.4
-  orignalScale: 1.2
+  targetScale: 1.1
+  orignalScale: 1
   ease: 1
 --- !u!1 &8759960970586393402
 GameObject:

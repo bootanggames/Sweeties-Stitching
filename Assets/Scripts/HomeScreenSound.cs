@@ -9,7 +9,10 @@ public class HomeScreenSound : MonoBehaviour
     {
         EnableSound();
     }
-
+    public void SetVolumeForBgMusic(float val)
+    {
+        sourceForBgMusic.volume = val;
+    }
     public void EnableSound()
     {
         if (inventorySource)

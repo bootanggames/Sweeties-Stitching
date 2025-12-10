@@ -22,7 +22,8 @@ public class GameCompleteHandler : MonoBehaviour, IGameService
     /*[SerializeField]*/
     List<GameObject> sparkleEffectListOnComplete = new List<GameObject>();
 
-    [SerializeField] private GameObject _coinBurstObject;
+    [SerializeField] private GameObject _coinBurstParentObject;
+    [SerializeField] private GameObject[] _coinBurstObject;
     private void OnEnable()
     {
         RegisterService();
@@ -90,6 +91,7 @@ public class GameCompleteHandler : MonoBehaviour, IGameService
             canvasHandler.sewnTextImage.transform.localScale = Vector3.zero;
             canvasHandler.confettiEffectCanvas.SetActive(false);
             canvasHandler.mainCanvas.SetActive(false);
+            canvasHandler.audioSourceForBG.volume = 0.5f;
             LevelsHandler.instance.currentLevelMeta.sewnPlushie.SetActive(false);
             canvasHandler.gameCompletePanel.gameObject.SetActive(true);
             Invoke(nameof(TreasureBoxAppearance), 0.45f);
@@ -109,24 +111,30 @@ public class GameCompleteHandler : MonoBehaviour, IGameService
         GameHandler.instance.SwitchGameState(GameStates.Gamecomplete);
             
     }
-   
+    void EnhanceGiggleSoundVolume()
+    {
+        SoundManager.instance.audioSource.volume = 1;
+    }
     void PlaySoundCoinBagExploding()
     {
         //SoundManager.instance.ResetAudioSource();
-        _coinBurstObject.AddComponent<AudioSource>();
-        AudioSource source = _coinBurstObject.GetComponent<AudioSource>();
+        SoundManager.instance.audioSource.volume = 0.6f;
+        _coinBurstParentObject.AddComponent<AudioSource>();
+        AudioSource source = _coinBurstParentObject.GetComponent<AudioSource>();
         AudioClip _clip = SoundManager.instance.audioClips.coinBagExploding;
         SoundManager.instance.PlaySound(source, _clip, false, false, 1, false);
+        Invoke(nameof(EnhanceGiggleSoundVolume), 0.25f);
     }
     void TreasureBoxAppearance()
     {
-        _coinBurstObject.SetActive(true);
+        foreach(GameObject g in _coinBurstObject)
+        {
+            g.SetActive(true);
+        }
         PlaySoundCoinBagExploding();
         var icoinsHandler = ServiceLocator.GetService<ICoinsHandler>();
         if (icoinsHandler != null)
-        {
             icoinsHandler.CoinIncrementAnimation(LevelsHandler.instance.currentLevelMeta.levelScriptable.levelReward);
-        }
         gameplayBgObj.SetActive(false);
     }
    

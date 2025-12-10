@@ -1640,7 +1640,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 3.026, y: 0.15}
+  m_AnchoredPosition: {x: 2.77, y: 0.15}
   m_SizeDelta: {x: 3.712, y: 1.203}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &5167770667232271074
@@ -15342,6 +15342,7 @@ MonoBehaviour:
   levelScriptable: {fileID: 11400000, guid: effee38bbf210d44ab9a7d5a061e9971, type: 2}
   noOfStitchesDone: 0
   noOfStitchedPart: 0
+  currentActiveSpoolIndex: 0
   currentActivePart: 0
   bodyParts:
   - {fileID: 5731040402553017077}
@@ -15357,13 +15358,14 @@ MonoBehaviour:
   immoveablePart: {fileID: 5106215898618448664}
   bodyWihtoutHoles: {fileID: 4958288383644563923}
   sewnPlushie: {fileID: 0}
-  current_ObjectInfor: {fileID: 0}
-  stitchStartingPart: {fileID: 283956946319833575}
-  needleUndoPosition: {fileID: 0}
   linePrefabForCleanConnection: {fileID: 7377872058111036791, guid: 9b87cbba0ae87414faacff166a8bcaad, type: 3}
+  stitchStartingPart: {fileID: 283956946319833575}
+  current_ObjectInfor: {fileID: 0}
+  needleUndoPosition: {fileID: 0}
   cleanConnection: []
   cleanThreadIndex: 0
   crissCrossObjList: []
+  currentSpool: {fileID: 0}
 --- !u!1 &2887734891039097805
 GameObject:
   m_ObjectHideFlags: 0
@@ -29799,7 +29801,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1.96, y: -2.53}
+  m_AnchoredPosition: {x: -0.89, y: -3.09}
   m_SizeDelta: {x: 3.712, y: 1.203}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &8863394764814922774
@@ -29827,7 +29829,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 79459efec17a4d00a321bdcc27bbc385, type: 2}
+  - {fileID: 2180264, guid: 3eef0d716748f354ba582b229fcd6468, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -35176,7 +35178,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -8.77, y: -0.68}
+  m_AnchoredPosition: {x: -8.25, y: -0.68}
   m_SizeDelta: {x: 3.712, y: 1.203}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &3016962888669971300

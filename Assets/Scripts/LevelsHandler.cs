@@ -11,7 +11,6 @@ public class LevelsHandler : Singleton<LevelsHandler>, ILevelHandler
     public Level_Metadata currentLevelMeta { get; private set; }
     int totalCoins;
     ICoinsHandler coinHandler;
-    IGameHandler gameHandler;
     IThreadManager IThreadHandler;
     ICanvasUIManager canvasHandler;
     IPointConnectionHandler connectionHandler;
@@ -34,10 +33,9 @@ public class LevelsHandler : Singleton<LevelsHandler>, ILevelHandler
         canvasHandler = ServiceLocator.GetService<ICanvasUIManager>();
         IThreadHandler = ServiceLocator.GetService<IThreadManager>();
         coinHandler = ServiceLocator.GetService<ICoinsHandler>();
-        gameHandler = ServiceLocator.GetService<IGameHandler>();
-        if (gameHandler != null)
+        if (GameHandler.instance != null)
         {
-            if(gameHandler.saveProgress)
+            if(GameHandler.instance.saveProgress)
                 LoadLastSavedProgress();
             else
                 PlayerPrefs.SetInt("StitchedCount", 0);
@@ -159,6 +157,19 @@ public class LevelsHandler : Singleton<LevelsHandler>, ILevelHandler
         if (coinHandler != null) coinHandler.StopCoinSound();
 
         once = true;
+    }
+    public void SwitchScreen()
+    {
+        int levelUp = PlayerPrefs.GetInt("LevelUp");
+        if(levelUp == 1)
+        {
+            GameHandler.instance.Home("HomeScreen");
+        }
+        else
+        {
+            canvasHandler.EnableDisablePlushieInventoryScreen(true);
+            canvasHandler.EnableDisableGameCompleteScreen(false);
+        }
     }
     public void SetLevel()
     {

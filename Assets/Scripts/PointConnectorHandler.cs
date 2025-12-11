@@ -429,12 +429,6 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
             if (dynamicStitch)
             {
                 Vector3 avrOffset = Vector3.zero;
-                //for (int i = 0; i < info1.connectPoints.Count; i++)
-                //{
-                //    Vector3 offset = info2.connectPoints[i].transform.position - info1.connectPoints[i].transform.position;
-                //    avrOffset += offset;
-                //}
-                //avrOffset /= info1.connectPoints.Count;
 
                 avrOffset = GetAverageOffset(info1, info2);
 
@@ -448,53 +442,6 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
                     targetPos.x = 0;
                 UpdateConnectedPointsInfo(info1, info2, sp1, sp2, moveAbleTransform);
 
-                //if (info1.stitchData != null)
-                //    info1.stitchData.movedPositions.Add(moveAbleTransform.position);
-                //if (info2.stitchData != null)
-                //    info2.stitchData.movedPositions.Add(moveAbleTransform.position);
-
-                //info1.IncementConnection();
-                //info2.IncementConnection();
-
-                //sp1.IsConnected(true, 1, moveAbleTransform.position, info1.partType.ToString());
-                //sp2.IsConnected(true, 1, moveAbleTransform.position, info2.partType.ToString());
-                //if (info1.stitchData.noOfConnections.Equals(info1.totalConnections) && info2.stitchData.noOfConnections.Equals(info2.totalConnections))
-                //{
-                //    LevelsHandler.instance.currentLevelMeta.noOfStitchedPart++;
-                //}
-                //if (info1.partType.Equals(PlushieActiveStitchPart.lefteye) || info1.partType.Equals(PlushieActiveStitchPart.righteye))
-                //{
-                //    if (info1.stitchData.noOfConnections.Equals(info1.totalConnections))
-                //    {
-                //        info1.transform.DOMove(info1.movedPosition, 0.5f).SetEase(Ease.Linear).OnUpdate(() =>
-                //        {
-
-                //            UpdateConnections();
-                //            var threadHandler = ServiceLocator.GetService<IThreadManager>();
-                //            if (threadHandler != null)
-                //            {
-                //                if (threadHandler.prevLine)
-                //                    threadHandler.prevLine.SetPosition(0, threadHandler.detectedPoints[0].position);
-                //                if (threadHandler.instantiatedLine)
-                //                    threadHandler.instantiatedLine.SetPosition(threadHandler.instantiatedLine.positionCount - 1, sp1.transform.position);
-                //            }
-                //        }).OnComplete(() =>
-                //        {
-                //            //Debug.LogError(" " + info1.transform.position + "" + info1.movedPosition);
-                //            info1.transform.localPosition = info1.movedPosition;
-                //            SewPoint sp1 = p1.GetComponent<SewPoint>();
-                //            SewPoint sp2 = p2.GetComponent<SewPoint>();
-                //            //create eye connections
-                //            //LevelsHandler.instance.currentLevelMeta.Connection(info1.connectPoints[0], info2.connectPoints[info2.connectPoints.Count - 1]);
-                //            //LevelsHandler.instance.currentLevelMeta.Connection(info1.connectPoints[1], info2.connectPoints[info2.connectPoints.Count - 2]);
-                //            CheckIfLastConnectionUpdated(sp1, sp2, p1, p2, info1, info2);
-
-                //            info1.DOPause();
-                //        });
-                //    }
-
-                //    return;
-                //}
                 if (info1.partType.Equals(PlushieActiveStitchPart.lefteye) || info1.partType.Equals(PlushieActiveStitchPart.righteye))
                 {
                     EyePartStitching(info1, info2, sp1, sp2);
@@ -515,13 +462,7 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
             if (dynamicStitch)
             {
                 Vector3 avrOffset = Vector3.zero;
-                //for (int i = 0; i < info2.connectPoints.Count; i++)
-                //{
-                //    Vector3 offset = info1.connectPoints[i].transform.position - info2.connectPoints[i].transform.position;
-                //    avrOffset += offset;
-                //}
-                //avrOffset /= info2.connectPoints.Count;
-
+             
                 avrOffset = GetAverageOffset(info2, info1);
 
                 Transform moveAbleTransform = null;
@@ -535,59 +476,6 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
                     targetPos.x = 0;
                 UpdateConnectedPointsInfo(info2, info1, sp1, sp2, moveAbleTransform);
 
-                //if (info1.stitchData != null)
-                //    info1.stitchData.movedPositions.Add(moveAbleTransform.position);
-                //if (info2.stitchData != null)
-                //    info2.stitchData.movedPositions.Add(moveAbleTransform.position);
-
-                //info1.IncementConnection();
-                //info2.IncementConnection();
-
-                //sp1.IsConnected(true, 1, moveAbleTransform.position, info1.partType.ToString());
-                //sp2.IsConnected(true,1, moveAbleTransform.position, info2.partType.ToString());
-
-
-                //if (info1.stitchData.noOfConnections.Equals(info1.totalConnections) && info2.stitchData.noOfConnections.Equals(info2.totalConnections))
-                //{
-                //    LevelsHandler.instance.currentLevelMeta.noOfStitchedPart++;
-                //}
-
-                //if (info2.partType.Equals(PlushieActiveStitchPart.lefteye) || info2.partType.Equals(PlushieActiveStitchPart.righteye))
-                //{
-                //    if (info2.stitchData.noOfConnections.Equals(info2.totalConnections))
-                //    {
-                //        info2.transform.DOMove(info2.movedPosition, 0.5f).SetEase(Ease.Linear).OnUpdate(() =>
-                //        {
-                //            UpdateConnections();
-                //            var threadHandler = ServiceLocator.GetService<IThreadManager>();
-                //            if (threadHandler != null)
-                //            {
-                //                if (threadHandler.prevLine)
-                //                    threadHandler.prevLine.SetPosition(0, threadHandler.detectedPoints[0].position);
-                //                if (threadHandler.instantiatedLine)
-                //                    threadHandler.instantiatedLine.SetPosition(threadHandler.instantiatedLine.positionCount - 1, sp2.transform.position);
-                //            }
-
-                //        }).OnComplete(() =>
-                //        {
-                //            //Debug.LogError(" " + info2.transform.position + "" + info2.movedPosition);
-
-                //            info2.transform.position = info2.movedPosition;
-
-                //            SewPoint sp1 = p1.GetComponent<SewPoint>();
-                //            SewPoint sp2 = p2.GetComponent<SewPoint>();
-                //            //LevelsHandler.instance.currentLevelMeta.Connection(info1.connectPoints[0], info2.connectPoints[info2.connectPoints.Count - 1]);
-                //            //LevelsHandler.instance.currentLevelMeta.Connection(info1.connectPoints[1], info2.connectPoints[info2.connectPoints.Count - 2]);
-
-                //            CheckIfLastConnectionUpdated(sp1, sp2, p1, p2, info1, info2);
-                //            //create eye connections
-
-                //            info2.DOPause();
-                //        });
-                //    }
-
-                //    return;
-                //}
                 
                 if (info2.partType.Equals(PlushieActiveStitchPart.lefteye) || info2.partType.Equals(PlushieActiveStitchPart.righteye))
                 {

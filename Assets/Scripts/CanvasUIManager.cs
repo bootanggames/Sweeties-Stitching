@@ -21,6 +21,7 @@ public class CanvasUIManager : MonoBehaviour, ICanvasUIManager
     [field: SerializeField] public AudioSource audioSourceForBG { get; private set; }
     //[field: SerializeField] public Image spoolImg { get; private set; }
     [field: SerializeField] public GameObject mainCanvas { get; private set; }
+    [field: SerializeField] public GameObject plushiesInventoryScreen { get; private set; }
 
     private void Start()
     {
@@ -101,9 +102,16 @@ public class CanvasUIManager : MonoBehaviour, ICanvasUIManager
         }
             
     }
-
     public void TimeScale()
     {
         Time.timeScale = 1;
+    }
+    public void EnableDisablePlushieInventoryScreen(bool active)
+    {
+        plushiesInventoryScreen.SetActive(active);
+    }
+    public void EnableDisableGameCompleteScreen(bool active)
+    {
+        gameCompletePanel.SetActive(active);
     }
 }

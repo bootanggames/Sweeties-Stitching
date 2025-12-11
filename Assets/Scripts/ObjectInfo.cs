@@ -47,10 +47,9 @@ public class ObjectInfo : MonoBehaviour
  
     void LoadSavedData()
     {
-        var gameHandler = ServiceLocator.GetService<IGameHandler>();
-        if (gameHandler != null)
+        if (GameHandler.instance != null)
         {
-            if (gameHandler.saveProgress)
+            if (GameHandler.instance.saveProgress)
             {
                 if (SaveDataUsingJson.instance)
                     stitchData = SaveDataUsingJson.instance.LoadData<PlushiePartStitchData>(LevelsHandler.instance.currentLevelMeta.levelScriptable.levelName + "_" + partType, "Stitching_BackUpFiles");
@@ -233,7 +232,7 @@ public class ObjectInfo : MonoBehaviour
                 var coinHandler = ServiceLocator.GetService<ICoinsHandler>();
                 if (coinHandler != null)
                 {
-                    coinHandler.InstantiateCoins(coinHandler.coinSpritePrefab, 1, coinsObj, connectPoints[confettiIndex].transform);
+                    coinHandler.InstantiateCoins(coinHandler.coinSpritePrefab, 3, coinsObj, connectPoints[confettiIndex].transform);
                     foreach(GameObject c in coinsObj)
                     {
                         c.transform.SetParent(this.transform);

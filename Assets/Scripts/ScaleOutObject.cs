@@ -38,7 +38,7 @@ public class ScaleOutObject : MonoBehaviour
                 if (startGame)
                     Invoke("StartGame", 0.25f);
                 else if (levelUp)
-                    OnLevelUp();
+                        Invoke(nameof(LevelIntroScreen), 1.5f);
                 else if (levelIntro)
                     LevelIntroScreen();
                 else
@@ -92,27 +92,28 @@ public class ScaleOutObject : MonoBehaviour
         SoundManager.instance.PlaySound(_source, _clip, false, false, 1, false);
     }
 
-    void OnLevelUp()
-    {
-        if (levelUpScreen != null)
-        {
-            //levelUpScreen.PlayLevelUpSound();
-            levelUpScreen.confettiCameraRenderObj.SetActive(true);
-        }
-        GameEvents.EffectHandlerEvents.onSewnCompletely.Raise();
-        Invoke(nameof(ConfettiEffect),0.5f);
-    }
-    void ConfettiEffect()
-    {
-        if (levelUpScreen != null)
-            levelUpScreen.levelUpCamera.SetActive(false);
-        //Invoke(nameof(LevelUpScreenActivation), 3.0f);
-        StartCoroutine(LevelUpScreenActivation());
-    }
+    //void OnLevelUp()
+    //{
+    //    if (levelUpScreen != null)
+    //    {
+    //        //levelUpScreen.PlayLevelUpSound();
+    //        levelUpScreen.confettiCameraRenderObj.SetActive(true);
+    //    }
+    //    GameEvents.EffectHandlerEvents.onSewnCompletely.Raise();
+    //    Invoke(nameof(ConfettiEffect),0.5f);
+    //}
+    //void ConfettiEffect()
+    //{
+    //    if (levelUpScreen != null)
+    //        levelUpScreen.levelUpCamera.SetActive(false);
+    //    //Invoke(nameof(LevelUpScreenActivation), 3.0f);
+    //    StartCoroutine(LevelUpScreenActivation());
+    //}
     IEnumerator LevelUpScreenActivation()
     {
         yield return new WaitForSeconds(5);
         this.transform.GetComponent<Image>().enabled = false;
+        this.transform.localScale = Vector3.zero;
         if (levelUpScreen != null)
         {
             levelUpScreen.PlayCelebrationSound();

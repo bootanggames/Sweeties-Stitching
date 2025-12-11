@@ -189,10 +189,9 @@ public class Level_Metadata : MonoBehaviour
     }
     void EnableDetection()
     {
-        var gameHandler = ServiceLocator.GetService<IGameHandler>();
-        if (gameHandler != null)
+        if (GameHandler.instance != null)
         {
-            if (gameHandler.saveProgress)
+            if (GameHandler.instance.saveProgress)
             {
                 var threadHandler = ServiceLocator.GetService<IThreadManager>();
                 if (threadHandler != null)

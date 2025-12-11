@@ -45,7 +45,7 @@ public class LevelUpScreen : MonoBehaviour, ILevelUpScreen
     }
     private void Start()
     {
-        Invoke(nameof(GetLevel), 0.2f);
+        Invoke(nameof(GetLevel), 0.3f);
     }
     void GetLevel()
     {

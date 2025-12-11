@@ -7,7 +7,7 @@ public class LevelUpPlushieInfo : MonoBehaviour
     public Image plushie;
     public TextMeshProUGUI plushieName;
     [SerializeField] AudioSource source;
-
+    public GameObject effect;
     private void OnEnable()
     {
         PlaySound();

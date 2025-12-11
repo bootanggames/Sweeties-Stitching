@@ -14,6 +14,7 @@ public interface ICanvasUIManager:IGameService
     GameObject sewnTextImage { get; }
     GameObject undoHighLight { get; }
     GameObject confettiEffectCanvas { get; }
+    GameObject plushiesInventoryScreen { get; }
     //Image spoolImg { get; }
     TextMeshProUGUI stitchCountText {  get; }
     TextMeshProUGUI stitchProgress {  get; }
@@ -24,4 +25,6 @@ public interface ICanvasUIManager:IGameService
     void UpdatePlushieStitchProgress(int totalParts, int completedParts);
     void PlayBgMusic();
     void StopBgMusic();
+    void EnableDisablePlushieInventoryScreen(bool active);
+    void EnableDisableGameCompleteScreen(bool active);
 }

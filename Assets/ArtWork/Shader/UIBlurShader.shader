@@ -1,82 +1,147 @@
-Shader "UI/SmoothUIBlur_PreserveShade"
+Shader "UI/FrostedUIBlur"
 {
     Properties
     {
         _MainTex("Texture", 2D) = "white" {}
-        _BlurSize("Blur Size", Range(0, 30)) = 12
+        _TempBlurredTex("Temp Blurred Texture", 2D) = "white" {}
+        _BlurSize("Blur Radius", Range(0,50)) = 12
         _BlendAmount("Blur Blend Amount", Range(0,1)) = 1
+        _Strength("Blur Strength", Range(1,5)) = 2.5
+        _Brightness("Brightness", Range(0,2)) = 1.1
+        _Contrast("Contrast", Range(0,2)) = 1.15
     }
 
     SubShader
     {
-        Tags { "Queue"="Transparent" "RenderType"="Transparent" "IgnoreProjector"="True" }
-        LOD 100
+        Tags
+        {
+            "Queue"="Transparent"
+            "RenderType"="Transparent"
+            "IgnoreProjector"="True"
+            "CanUseSpriteAtlas"="True"
+        }
 
+        Cull Off
+        ZWrite Off
+
+        //---------------------------------------------------------------------
+        // PASS 1 — HORIZONTAL BLUR
+        //---------------------------------------------------------------------
         Pass
         {
-            Name "EnhancedBlur"
-            ZWrite Off
-            Cull Off
-            Blend SrcAlpha OneMinusSrcAlpha
+            Name "HBlur"
+            Blend One OneMinusSrcAlpha
 
             CGPROGRAM
             #pragma vertex vert
-            #pragma fragment frag
+            #pragma fragment fragH
             #include "UnityCG.cginc"
 
             sampler2D _MainTex;
             float4 _MainTex_TexelSize;
             float _BlurSize;
-            float _BlendAmount; // how much blur to apply on top
 
             struct appdata { float4 vertex : POSITION; float2 uv : TEXCOORD0; };
-            struct v2f { float2 uv : TEXCOORD0; float4 vertex : SV_POSITION; };
+            struct v2f { float4 pos : SV_POSITION; float2 uv : TEXCOORD0; };
+
+            static const float GAUSS[5] = {0.227027, 0.1945946, 0.1216216, 0.054054, 0.016216};
 
             v2f vert(appdata v)
             {
                 v2f o;
-                o.vertex = UnityObjectToClipPos(v.vertex);
+                o.pos = UnityObjectToClipPos(v.vertex);
                 o.uv = v.uv;
                 return o;
             }
 
-            float4 frag(v2f i) : SV_Target
+            float4 fragH(v2f i) : SV_Target
             {
                 float2 uv = i.uv;
+                float alpha = tex2D(_MainTex, uv).a;
 
-                // Original pixel
-                float4 original = tex2D(_MainTex, uv);
+                float4 col = tex2D(_MainTex, uv) * GAUSS[0];
+                float stepX = _MainTex_TexelSize.x * _BlurSize;
 
-                // If blur size is zero or blend amount is 0, return original
-                if (_BlurSize <= 0.001 || _BlendAmount <= 0.001)
-                    return original;
-
-                float4 col = float4(0,0,0,0);
-
-                // 16-directional offsets for smooth merge
-                float2 offsets[16] = {
-                    float2(1,0), float2(-1,0), float2(0,1), float2(0,-1),
-                    float2(1,1), float2(-1,1), float2(1,-1), float2(-1,-1),
-                    float2(2,0), float2(-2,0), float2(0,2), float2(0,-2),
-                    float2(2,2), float2(-2,2), float2(2,-2), float2(-2,-2)
-                };
-
-                // Center sample
-                col += tex2D(_MainTex, saturate(uv)) * 0.125;
-
-                // Surrounding samples
-                for(int k = 0; k < 16; k++)
+                for (int k = 1; k < 5; k++)
                 {
-                    float2 sampleUV = saturate(uv + offsets[k] * (_BlurSize * _MainTex_TexelSize.xy * 0.5));
-                    col += tex2D(_MainTex, sampleUV) * 0.046875;
+                    float off = stepX * k;
+                    col += tex2D(_MainTex, uv + float2(off,0)) * GAUSS[k];
+                    col += tex2D(_MainTex, uv - float2(off,0)) * GAUSS[k];
                 }
 
-                // Normalize weight
-                float totalWeight = 0.125 + 16 * 0.046875;
-                col /= totalWeight;
+                col.a = alpha;
+                col.rgb *= col.a; // premultiply alpha
+                return col;
+            }
+            ENDCG
+        }
 
-                // Mix blurred result with original color to preserve shade
-                float4 finalColor = lerp(original, col, _BlendAmount);
+        //---------------------------------------------------------------------
+        // PASS 2 — VERTICAL BLUR + FROSTED GLASS EFFECT
+        //---------------------------------------------------------------------
+        Pass
+        {
+            Name "VBlur"
+            Blend One OneMinusSrcAlpha
+
+            CGPROGRAM
+            #pragma vertex vert
+            #pragma fragment fragV
+            #include "UnityCG.cginc"
+
+            sampler2D _MainTex;
+            sampler2D _TempBlurredTex;
+            float4 _MainTex_TexelSize;
+            float _BlurSize;
+            float _BlendAmount;
+            float _Strength;
+            float _Brightness;
+            float _Contrast;
+
+            struct appdata { float4 vertex : POSITION; float2 uv : TEXCOORD0; };
+            struct v2f { float4 pos : SV_POSITION; float2 uv : TEXCOORD0; };
+
+            static const float GAUSS[5] = {0.227027, 0.1945946, 0.1216216, 0.054054, 0.016216};
+
+            v2f vert(appdata v)
+            {
+                v2f o;
+                o.pos = UnityObjectToClipPos(v.vertex);
+                o.uv = v.uv;
+                return o;
+            }
+
+            float4 fragV(v2f i) : SV_Target
+            {
+                float2 uv = i.uv;
+                float4 original = tex2D(_MainTex, uv);
+                float alpha = original.a;
+
+                // Vertical blur
+                float4 blur = tex2D(_TempBlurredTex, uv) * GAUSS[0];
+                float stepY = _MainTex_TexelSize.y * _BlurSize;
+
+                for (int k = 1; k < 5; k++)
+                {
+                    float off = stepY * k;
+                    blur += tex2D(_TempBlurredTex, uv + float2(0, off)) * GAUSS[k];
+                    blur += tex2D(_TempBlurredTex, uv - float2(0, off)) * GAUSS[k];
+                }
+
+                // Stronger blur
+                blur = original + (blur - original) * _Strength;
+
+                // Frosted glass adjustments
+                blur.rgb = (blur.rgb - 0.5) * _Contrast + 0.5; // contrast
+                blur.rgb *= _Brightness;                        // brightness
+
+                // Smooth blend with original
+                float blendAmt = saturate(_BlendAmount * 1.5);
+                float4 finalColor = lerp(original, blur, blendAmt);
+
+                // Preserve alpha and premultiply
+                finalColor.a = alpha;
+                finalColor.rgb *= finalColor.a;
 
                 return finalColor;
             }

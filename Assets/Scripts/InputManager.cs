@@ -23,9 +23,8 @@ public class InputManager : MonoBehaviour
     }
     private void Update()
     {
-        var gameHandler = ServiceLocator.GetService<IGameHandler>();
-        if (gameHandler == null) return;
-        if (!gameHandler.gameStates.Equals(GameStates.Gamestart)) return;
+        if (GameHandler.instance == null) return;
+        if (!GameHandler.instance.gameStates.Equals(GameStates.Gamestart)) return;
         else
             if (IsPointerOverUIElement()) return;
 

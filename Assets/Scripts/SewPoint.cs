@@ -33,10 +33,9 @@ public class SewPoint : MonoBehaviour, ISewPoint
 
     public void LoadSavedData()
     {
-        var gameHandler = ServiceLocator.GetService<IGameHandler>();
-        if (gameHandler != null)
+        if (GameHandler.instance != null)
         {
-            if (gameHandler.saveProgress)
+            if (GameHandler.instance.saveProgress)
             {
                 int plushieIndex = PlayerPrefs.GetInt("Level_" + LevelsHandler.instance.levelIndex + "_Plushie");
                 string bodyPart = parentInfo.partType.ToString();

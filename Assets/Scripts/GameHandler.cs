@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GameHandler : Singleton<GameHandler>, IGameHandler
+public class GameHandler : Singleton<GameHandler>
 {
     [field: SerializeField] public GameStates gameStates {  get; private set; }
     [field: SerializeField] public bool saveProgress {  get; private set; }
@@ -10,7 +10,6 @@ public class GameHandler : Singleton<GameHandler>, IGameHandler
     {
         Time.timeScale = 1;
         base.SingletonAwake();
-        RegisterService();
         int saveState = PlayerPrefs.GetInt("SaveProgress");
         if(saveState == 1)
             saveProgress = true;
@@ -20,7 +19,6 @@ public class GameHandler : Singleton<GameHandler>, IGameHandler
     public override void SingletonOnDestroy()
     {
         base.SingletonOnDestroy();
-        UnRegisterService();
     }
 
     public void Home(string sceneName)
@@ -67,16 +65,6 @@ public class GameHandler : Singleton<GameHandler>, IGameHandler
         AudioSource _source = SoundManager.instance.audioSource;
         AudioClip _clip = SoundManager.instance.audioClips.completed;
         SoundManager.instance.PlaySound(_source, _clip, false, false, 1, false);
-    }
-
-    public void RegisterService()
-    {
-        ServiceLocator.RegisterService<IGameHandler>(this);
-    }
-
-    public void UnRegisterService()
-    {
-        ServiceLocator.UnRegisterService<IGameHandler>(this);
     }
 
     public void DontSaveProgress()

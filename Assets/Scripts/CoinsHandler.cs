@@ -116,6 +116,7 @@ public class CoinsHandler : MonoBehaviour,ICoinsHandler
                 GameEvents.DoTweenAnimationHandlerEvents.onScaleTransform
                     .Raise(coinObj.transform, targetScaleDown, moveSpeed, Ease.Linear).SetDelay(delay)
             );
+            yield return new WaitForSeconds(0.1f);
         }
 
         seq.OnComplete(() =>
@@ -129,7 +130,8 @@ public class CoinsHandler : MonoBehaviour,ICoinsHandler
 
             bar.OnComplete(() =>
             {
-                bar.Kill();
+            bar.Kill();
+            StopCoroutine(MoveCoins(coinList, _target, coinsBarObj, moveSpeed, moveEase, delay));
                 GameEvents.DoTweenAnimationHandlerEvents.onScaleTransform
                     .Raise(coinsBarObj.transform, Vector3.one, 0.1f, Ease.InOutFlash);
             });

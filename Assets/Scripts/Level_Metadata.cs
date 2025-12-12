@@ -28,17 +28,30 @@ public class Level_Metadata : MonoBehaviour
     List<Connections> cleanThreads = new List<Connections>();
     [HideInInspector]public GameObject currentSpool;
     ISpoolManager spoolManager;
+    IThreadManager threadHandler;
+    INeedleDetector needleDetecto;
+    ICameraManager cameraManager;
+    IPointConnectionHandler pointsHandler;
+    ICanvasUIManager canvasManager;
+    INeedleMovement needleHandler;
     private void Start()
     {
         Time.timeScale = 1;
-        spoolManager = ServiceLocator.GetService<ISpoolManager>();
+        spoolManager  = ServiceLocator.GetService<ISpoolManager>();
+        threadHandler = ServiceLocator.GetService<IThreadManager>();
+        needleDetecto = ServiceLocator.GetService<INeedleDetector>();
+        cameraManager = ServiceLocator.GetService<ICameraManager>();
+        pointsHandler = ServiceLocator.GetService<IPointConnectionHandler>();
+        canvasManager = ServiceLocator.GetService<ICanvasUIManager>();
+        needleHandler = ServiceLocator.GetService<INeedleMovement>();
+
         AssignAndUpdateSpools();
         LevelInitialisation();
+
     }
 
     void AssignAndUpdateSpools()
     {
-        var IthreadManage = ServiceLocator.GetService<IThreadManager>();
         
         if (spoolManager != null)
         {
@@ -65,8 +78,8 @@ public class Level_Metadata : MonoBehaviour
             s_Info.UpdateThreadProgress(totalThread);
 
         }
-        if (IthreadManage != null)
-            IthreadManage.UpdateCurrentActiveSpoolReference();
+        if (threadHandler != null)
+            threadHandler.UpdateCurrentActiveSpoolReference();
     }
     void LoadSpoolDataIfSaved(ISpoolManager spoolManager)
     {
@@ -92,18 +105,17 @@ public class Level_Metadata : MonoBehaviour
     }
     void RepositionCameras()
     {
-        var cameraHandler = ServiceLocator.GetService<ICameraManager>();
-        if(cameraHandler != null )
+        if(cameraManager != null )
         {
-            cameraHandler.RepositionCamera(cameraHandler.neckCamera.transform, levelScriptable.neckCameraPos);
-            cameraHandler.RepositionCamera(cameraHandler.leftEyeCamera.transform, levelScriptable.leftEyeCameraPos);
-            cameraHandler.RepositionCamera(cameraHandler.leftEarCamera.transform, levelScriptable.leftEarCameraPos);
-            cameraHandler.RepositionCamera(cameraHandler.rightEarCamera.transform, levelScriptable.rightEarCameraPos);
-            cameraHandler.RepositionCamera(cameraHandler.rightEyeCamera.transform, levelScriptable.rightEyeCameraPos);
-            cameraHandler.RepositionCamera(cameraHandler.rightArmCamera.transform, levelScriptable.rightArmCameraPos);
-            cameraHandler.RepositionCamera(cameraHandler.rightLegCamera.transform, levelScriptable.rightLegCameraPos);
-            cameraHandler.RepositionCamera(cameraHandler.leftLegCamera.transform, levelScriptable.leftLegCameraPos);
-            cameraHandler.RepositionCamera(cameraHandler.leftArmCamera.transform, levelScriptable.leftArmCameraPos);
+            cameraManager.RepositionCamera(cameraManager.neckCamera.transform, levelScriptable.neckCameraPos);
+            cameraManager.RepositionCamera(cameraManager.leftEyeCamera.transform, levelScriptable.leftEyeCameraPos);
+            cameraManager.RepositionCamera(cameraManager.leftEarCamera.transform, levelScriptable.leftEarCameraPos);
+            cameraManager.RepositionCamera(cameraManager.rightEarCamera.transform, levelScriptable.rightEarCameraPos);
+            cameraManager.RepositionCamera(cameraManager.rightEyeCamera.transform, levelScriptable.rightEyeCameraPos);
+            cameraManager.RepositionCamera(cameraManager.rightArmCamera.transform, levelScriptable.rightArmCameraPos);
+            cameraManager.RepositionCamera(cameraManager.rightLegCamera.transform, levelScriptable.rightLegCameraPos);
+            cameraManager.RepositionCamera(cameraManager.leftLegCamera.transform, levelScriptable.leftLegCameraPos);
+            cameraManager.RepositionCamera(cameraManager.leftArmCamera.transform, levelScriptable.leftArmCameraPos);
         }
     }
     void EnableDisableSewPoints(List<SewPoint> points, bool val)
@@ -161,7 +173,6 @@ public class Level_Metadata : MonoBehaviour
     }
     void NextPartActivation(/*bool start,*/ObjectInfo currentActivePart)
     {
-        var needleDetecto = ServiceLocator.GetService<INeedleDetector>();
         if (needleDetecto != null)
             needleDetecto.detect = false;
 
@@ -180,7 +191,6 @@ public class Level_Metadata : MonoBehaviour
 
     IEnumerator CheckProgress(ObjectInfo o_info)
     {
-        var cameraManager = ServiceLocator.GetService<ICameraManager>();
         if (cameraManager != null)
             GameEvents.CameraManagerEvents.onAddingCamera.Raise(cameraManager.gameHalfProgressCamera);
         yield return new WaitForSeconds(2);
@@ -193,12 +203,10 @@ public class Level_Metadata : MonoBehaviour
         {
             if (GameHandler.instance.saveProgress)
             {
-                var threadHandler = ServiceLocator.GetService<IThreadManager>();
                 if (threadHandler != null)
                 {
                     threadHandler.ResetList(threadHandler.detectedPoints.OrderBy(t => t.GetComponent<SewPoint>().attachmentId).ToList());
                 }
-                var pointsHandler = ServiceLocator.GetService<IPointConnectionHandler>();
                 if (pointsHandler != null)
                 {
                     if (pointsHandler.points.Count > 0)
@@ -215,33 +223,28 @@ public class Level_Metadata : MonoBehaviour
                 }
             }
         }
-        var needleDetecto = ServiceLocator.GetService<INeedleDetector>();
+       
         if (needleDetecto != null)
         {
             needleDetecto.detect = true;
-        }
-       
-        var needleDetector = ServiceLocator.GetService<INeedleDetector>();
-        if (needleDetector != null)
-        {
-            if (needleDetector.pointsDetected.Count > 0)
-                needleDetector.ResetDetectedPointsList(needleDetector.pointsDetected.OrderBy(p => p.attachmentId).ToList());
+
+            if (needleDetecto.pointsDetected.Count > 0)
+                needleDetecto.ResetDetectedPointsList(needleDetecto.pointsDetected.OrderBy(p => p.attachmentId).ToList());
         }
         CancelInvoke("EnableDetection");
     }
  
     public void UpdateLevelProgress(/*SequenceType sequence*/)
     {
-        var IthreadHandler = ServiceLocator.GetService<IThreadManager>();
 
-        var canvasManager = ServiceLocator.GetService<ICanvasUIManager>();
         if (canvasManager != null)
             canvasManager.UpdatePlushieStitchProgress(levelScriptable.totalParts, noOfStitchedPart);
         
         if (noOfStitchedPart.Equals(levelScriptable.totalParts))
         {
             Time.timeScale = 1.2f;
-            var cameraManager = ServiceLocator.GetService<ICameraManager>();
+            //PlaySewnSound();
+
             if (cameraManager != null)
                 GameEvents.CameraManagerEvents.onAddingCamera.Raise(cameraManager.gameCompleteCamera);
 
@@ -252,16 +255,15 @@ public class Level_Metadata : MonoBehaviour
             }
             
             GameHandler.instance.SwitchGameState(GameStates.Gamecomplete);
-           if(IthreadHandler != null)
-                IthreadHandler.SetUndoValue(false);
-            PlaySewnSound();
+           if(threadHandler != null)
+                threadHandler.SetUndoValue(false);
             //WinEffect();
             Invoke("WinEffect",0.5f);
         }
         else
         {
-            if (IthreadHandler != null)
-                IthreadHandler.SetUndoValue(true);
+            if (threadHandler != null)
+                threadHandler.SetUndoValue(true);
             //NextPartActivation(/*false, */null);
             NextPartActivation(current_ObjectInfor);
         }
@@ -270,6 +272,7 @@ public class Level_Metadata : MonoBehaviour
     {
         Time.timeScale = 1.0f;
         GameEvents.GameCompleteEvents.onPlushieComplete.Raise();
+        HepticManager.instance.HapticEffect();
         Invoke(nameof(DisableLevel), 0.5f);
         CancelInvoke(nameof(WinEffect));
     }
@@ -279,7 +282,7 @@ public class Level_Metadata : MonoBehaviour
         gameObject.SetActive(false);
         CancelInvoke(nameof(DisableLevel));
     }
-    void PlaySewnSound()
+    public void PlaySewnSound()
     {
         SoundManager.instance.ResetAudioSource();
 
@@ -297,15 +300,11 @@ public class Level_Metadata : MonoBehaviour
   
     public void UpdateAllStitchesOfPlushie()
     {
-        var canvasManager = ServiceLocator.GetService<ICanvasUIManager>();
         if (canvasManager != null)
             canvasManager.UpdateStitchCount(levelScriptable.totalStitches, noOfStitchesDone);
     }
     public void CameraFocus(PlushieActiveStitchPart currentActivePart)
     {
-        var cameraManager = ServiceLocator.GetService<ICameraManager>();
-        INeedleMovement needleHandler = ServiceLocator.GetService<INeedleMovement>();
-
         if (cameraManager != null)
         {
             switch (currentActivePart)
@@ -398,8 +397,7 @@ public class Level_Metadata : MonoBehaviour
     }
     public void UpdateLinks()
     {
-        var sewPointHandler = ServiceLocator.GetService<IPointConnectionHandler>();
-        if( sewPointHandler != null)
+        if( pointsHandler != null)
         {
             foreach (GameObject g in bodyParts)
             {
@@ -408,7 +406,7 @@ public class Level_Metadata : MonoBehaviour
                 {
                     if (ob_info.Equals(current_ObjectInfor))
                     {
-                        noOfStitchesDone -= sewPointHandler.connections.Count;
+                        noOfStitchesDone -= pointsHandler.connections.Count;
                         break;
                     }
                 }
@@ -457,7 +455,6 @@ public class Level_Metadata : MonoBehaviour
     }
     void ResetNeedleAndThread(Vector3 position)
     {
-        var threadHandler = ServiceLocator.GetService<IThreadManager>();
         Vector3 threadPos = Vector3.zero;
 
         if (threadHandler != null && threadHandler.instantiatedLine != null)
@@ -489,7 +486,6 @@ public class Level_Metadata : MonoBehaviour
             connection.line.gameObject.SetActive(false);
             connection.isLocked = true;
             cleanThreads.Add(connection);
-            Debug.LogError("connection");
         }
        
     }

@@ -1,5 +1,4 @@
 using DG.Tweening;
-using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -243,7 +242,7 @@ public class ObjectInfo : MonoBehaviour
                     Vector3 worldPos = Camera.main.ScreenToWorldPoint(screenPos);
                     Transform targetPos = new GameObject("Temp").transform;
                     targetPos.position = worldPos;
-                    StartCoroutine(coinHandler.MoveCoins(coinsObj, targetPos, coinHandler.coinBarForGameplayScreen, coinHandler.coinMoveSpeed, Ease.Linear,0));
+                    StartCoroutine(coinHandler.MoveCoins(coinsObj, targetPos, coinHandler.coinBarForGameplayScreen, coinHandler.coinMoveSpeed, Ease.Linear,0, true));
                     //Debug.LogError(" " + (confettiIndex + 1));
                 }
                 if (!partType.Equals(PlushieActiveStitchPart.lefteye) && !partType.Equals(PlushieActiveStitchPart.righteye))
@@ -296,8 +295,8 @@ public class ObjectInfo : MonoBehaviour
                 int plushieIndex = PlayerPrefs.GetInt("Level_" + levelIndex + "_Plushie");
                 LevelsHandler.instance.UpdatePlushieInventory(levelIndex, plushieIndex);
             }
-               
-            Invoke("UpdateProgress", 1.5f);
+
+            Invoke("UpdateProgress", 0.5f);
         }
     }
 
@@ -309,7 +308,7 @@ public class ObjectInfo : MonoBehaviour
             Destroy(g);
         }
         confettiObj.Clear();
-        SewPoint sp = null;
+        //SewPoint sp = null;
 
         IThreadManager threadManager = ServiceLocator.GetService<IThreadManager>();
         if (threadManager != null)
@@ -327,6 +326,7 @@ public class ObjectInfo : MonoBehaviour
                     //}
                     //LevelsHandler.instance.currentLevelMeta.cleanConnection.Clear();
                     LevelsHandler.instance.currentLevelMeta.UpdateLevelProgress(/*sp.sequenceType*/);
+
                 }
 
 

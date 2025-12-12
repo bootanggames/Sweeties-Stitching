@@ -2,6 +2,7 @@ using Nova;
 using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 namespace NovaSamples.Effects
 {
@@ -59,7 +60,7 @@ namespace NovaSamples.Effects
 
         [Header("Texture To Blur")]
         [Tooltip("This is the texture to blur and assign to the attached UI Block.\n\nThis texture will be copied before the blur is applied and will not be modified directly.")]
-        public Texture InputTexture = null;
+        public Texture InputTexture ;
 
         [Header("Blur Options")]
         [SerializeField, Min(0), Tooltip("Effectively the blur strength. Higher values means \"more blurred\".")]

@@ -14,7 +14,6 @@ public class LevelUpScreen : MonoBehaviour, ILevelUpScreen
     [field: SerializeField] public GameObject confettiCameraRenderObj { get; private set; }
     [SerializeField] PageScroller pageScroller;
     [SerializeField] PageSlider pageSlider;
-    [field: SerializeField] public List<PlushieSpriteContainer> pageSliderContainer {  get; private set; }
     [SerializeField] LevelUpPlushieInfo[] plushieInfo;
     [SerializeField] AudioSource audioSource;
     [field: SerializeField]public HomeScreenSound homeScreen {  get; private set; }
@@ -50,7 +49,7 @@ public class LevelUpScreen : MonoBehaviour, ILevelUpScreen
     void GetLevel()
     {
         int levelIndex = PlayerPrefs.GetInt("Level");
-        levelNumber.text = levelIndex.ToString();
+        levelNumber.text = (levelIndex + 1).ToString();
         int levelUp = PlayerPrefs.GetInt("LevelUp");
 
         if (levelUp == 1)
@@ -58,18 +57,7 @@ public class LevelUpScreen : MonoBehaviour, ILevelUpScreen
             levelScreenText.text = "Level" + levelIndex;
             levelUpScreen.SetActive(true);
             PlayLevelUpSound();
-            foreach (PlushieSpriteContainer container in pageSliderContainer)
-            {
-                if(container.levelId.Equals(levelIndex + 1))
-                {
-                    for(int i=0;i<plushieInfo.Length;i++)
-                    {
-                        plushieInfo[i].plushie.sprite = container.plushieDetail[i].plushie;
-                        plushieInfo[i].plushieName.text = container.plushieDetail[i].plushieName;
-                    }
-                    break;
-                }
-            }
+          
             CameraShake2D();
             PlayerPrefs.SetInt("LevelUp", 0);
             renderTextureImageObj.SetActive(true);
@@ -84,16 +72,16 @@ public class LevelUpScreen : MonoBehaviour, ILevelUpScreen
      
     }
 
-    public void NextPage()
+    public void NextPage(int levelNmbr)
     {
         if (pageScroller != null)
         {
-            var page = pageScroller._currentPage;
-            page++;
-            if (page < pageSlider._pages.Count)
-                pageScroller.ScrollToPage(page);
+            //var page = pageScroller._currentPage;
+            //page++;
+            if (levelNmbr < pageSlider._pages.Count)
+                pageScroller.ScrollToPage(levelNmbr);
             else
-                page = pageSlider._pages.Count - 1;
+                levelNmbr = pageSlider._pages.Count - 1;
         }
     }
     public void PrevPage()

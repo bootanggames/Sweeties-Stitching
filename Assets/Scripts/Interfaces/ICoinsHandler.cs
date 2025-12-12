@@ -20,7 +20,7 @@ public interface ICoinsHandler : IGameService
     int GetCoins();
     void UpdateCoins(int amount);
     void CreateCoinsObjects();
-    IEnumerator MoveCoins(List<GameObject> coinList, Transform target, GameObject coinsBarObj, float moveSpeed, Ease moveEase, float delay);
+    IEnumerator MoveCoins(List<GameObject> coinList, Transform target, GameObject coinsBarObj, float moveSpeed, Ease moveEase, float delay, bool randomSpeed);
     void ResetCoinList();
     void InstantiateCoins(GameObject coinObj, int total, List<GameObject> coinList, Transform parent);
     void CoinIncrementAnimation(int targetAmount);

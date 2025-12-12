@@ -38,7 +38,7 @@ public class ScaleOutObject : MonoBehaviour
                 if (startGame)
                     Invoke("StartGame", 0.25f);
                 else if (levelUp)
-                        Invoke(nameof(LevelIntroScreen), 1.5f);
+                    StartCoroutine(LevelUpScreenActivation());
                 else if (levelIntro)
                     LevelIntroScreen();
                 else
@@ -92,26 +92,10 @@ public class ScaleOutObject : MonoBehaviour
         SoundManager.instance.PlaySound(_source, _clip, false, false, 1, false);
     }
 
-    //void OnLevelUp()
-    //{
-    //    if (levelUpScreen != null)
-    //    {
-    //        //levelUpScreen.PlayLevelUpSound();
-    //        levelUpScreen.confettiCameraRenderObj.SetActive(true);
-    //    }
-    //    GameEvents.EffectHandlerEvents.onSewnCompletely.Raise();
-    //    Invoke(nameof(ConfettiEffect),0.5f);
-    //}
-    //void ConfettiEffect()
-    //{
-    //    if (levelUpScreen != null)
-    //        levelUpScreen.levelUpCamera.SetActive(false);
-    //    //Invoke(nameof(LevelUpScreenActivation), 3.0f);
-    //    StartCoroutine(LevelUpScreenActivation());
-    //}
+
     IEnumerator LevelUpScreenActivation()
     {
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(1);
         this.transform.GetComponent<Image>().enabled = false;
         this.transform.localScale = Vector3.zero;
         if (levelUpScreen != null)
@@ -119,7 +103,7 @@ public class ScaleOutObject : MonoBehaviour
             levelUpScreen.PlayCelebrationSound();
             levelUpScreen.levelUpScreen.SetActive(false);
             levelUpScreen.levelUpFadeScreen.SetActive(true);
-            Invoke(nameof(NextLevelPanel), 1.0f);
+            Invoke(nameof(NextLevelPanel), 0.25f);
         }
         StopCoroutine(LevelUpScreenActivation());
         //CancelInvoke(nameof(LevelUpScreenActivation));
@@ -130,14 +114,11 @@ public class ScaleOutObject : MonoBehaviour
         {
             int levelIndex = PlayerPrefs.GetInt("Level");
 
-            if (levelIndex >= levelUpScreen.pageSliderContainer.Count || levelIndex == 0)
-                levelUpScreen.PrevPage();
-            else
-                levelUpScreen.NextPage();
+            levelUpScreen.NextPage(levelIndex);
 
         }
 
-        Invoke(nameof(EnableWordUnlockedPlushies), 2.5f);
+        Invoke(nameof(EnableWordUnlockedPlushies), 0.25f);
         //Invoke(nameof(LevelIntroScreen), 2.5f);
         CancelInvoke(nameof(NextLevelPanel));
     }

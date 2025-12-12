@@ -24,9 +24,22 @@ public class GameCompleteHandler : MonoBehaviour, IGameService
 
     [SerializeField] private GameObject _coinBurstParentObject;
     [SerializeField] private GameObject[] _coinBurstObject;
+    ICoinsHandler coinsHandler;
+    ICanvasUIManager canvasHandler;
+    IPlushieStoreHandler plushieInventory;
     private void OnEnable()
     {
         RegisterService();
+        coinsHandler = ServiceLocator.GetService<ICoinsHandler>();
+        canvasHandler = ServiceLocator.GetService<ICanvasUIManager>();
+        plushieInventory = ServiceLocator.GetService<IPlushieStoreHandler>();
+
+    }
+    private void Start()
+    {
+        coinsHandler = ServiceLocator.GetService<ICoinsHandler>();
+        canvasHandler = ServiceLocator.GetService<ICanvasUIManager>();
+        plushieInventory = ServiceLocator.GetService<IPlushieStoreHandler>();
     }
     private void OnDisable()
     {
@@ -79,12 +92,9 @@ public class GameCompleteHandler : MonoBehaviour, IGameService
             rt.sizeDelta = new Vector2(LevelsHandler.instance.currentLevelMeta.levelScriptable.plushieWidth, LevelsHandler.instance.currentLevelMeta.levelScriptable.plushieHeight);
             levelProgress.text = (LevelsHandler.instance.plushieIndex + 1) + "/3 Till Level 5";
         }
-        var plushieInventory = ServiceLocator.GetService<IPlushieStoreHandler>();
         if (plushieInventory != null)
             plushieInventory.GetPlushieCountUI();
 
-        var coinsHandler = ServiceLocator.GetService<ICoinsHandler>();
-        var canvasHandler = ServiceLocator.GetService<ICanvasUIManager>();
         if(canvasHandler != null)
         {
             canvasHandler.sewnScreen.SetActive(false);
@@ -132,18 +142,17 @@ public class GameCompleteHandler : MonoBehaviour, IGameService
             g.SetActive(true);
         }
         PlaySoundCoinBagExploding();
-        var icoinsHandler = ServiceLocator.GetService<ICoinsHandler>();
-        if (icoinsHandler != null)
-            icoinsHandler.CoinIncrementAnimation(LevelsHandler.instance.currentLevelMeta.levelScriptable.levelReward);
+        if (coinsHandler != null)
+            coinsHandler.CoinIncrementAnimation(LevelsHandler.instance.currentLevelMeta.levelScriptable.levelReward);
         gameplayBgObj.SetActive(false);
     }
    
     void SparkleEffectOnPlushieComplete()
     {
-        int _count = 10;
+        //int _count = 10;
         Invoke(nameof(CleanEnablePlushie), 0.5f);
         Sequence seq = DOTween.Sequence();
-        for (int i = 0; i < _count; i++)
+        //for (int i = 0; i < _count; i++)
         {
             GameObject g = GameEvents.EffectHandlerEvents.onSparkleTrailEffectOnCompletion.Raise(sparkleTrailAtCompletionStartPos);
 
@@ -152,23 +161,22 @@ public class GameCompleteHandler : MonoBehaviour, IGameService
             g.transform.SetParent(gameplayBgObj.transform);
             g.transform.localPosition = sparkleTrailAtCompletionStartPos.localPosition;
             Vector3 startPos = g.transform.position;
-            
-           
             Vector3 targetPos = sparkleTrailAtCompletionTargetPos.localPosition;
-            if (i != 0)
-            {
-                if (sparkleEffectListOnComplete.Count % 2 == 0)
-                {
-                    startPos.y += 2f;
-                    targetPos.y += 2f;
-                }
-                else
-                {
-                    startPos.y -= 2f;
-                    targetPos.y -= 2f;
 
-                }
-            }
+            //if (i != 0)
+            //{
+            //    if (sparkleEffectListOnComplete.Count % 2 == 0)
+            //    {
+            //        startPos.y += 2f;
+            //        targetPos.y += 2f;
+            //    }
+            //    else
+            //    {
+            //        startPos.y -= 2f;
+            //        targetPos.y -= 2f;
+
+            //    }
+            //}
             float distance = Vector3.Distance(startPos, targetPos);
 
             float baseSpeed = sparkleMoveSpeed;
@@ -177,12 +185,7 @@ public class GameCompleteHandler : MonoBehaviour, IGameService
             float speed = baseSpeed * speedVariation;
 
             float duration = distance / speed;
-            //if(sparkleEffectListOnComplete.Count % 2 == 0)
-            //{
-            //    Vector3 pos = sparkleEffectListOnComplete[i].transform.localPosition;
-            //    pos.y += 10;
-            //    sparkleEffectListOnComplete[i].transform.localPosition = pos;
-            //}
+          
             seq.Join( GameEvents.DoTweenAnimationHandlerEvents.onMoveToTargetAnimation.Raise(g.transform, targetPos, duration, Ease.Linear));
             seq.Join(GameEvents.DoTweenAnimationHandlerEvents.onScaleTransform.Raise(g.transform, Vector3.zero, 3.5f, Ease.Linear));
 
@@ -193,7 +196,8 @@ public class GameCompleteHandler : MonoBehaviour, IGameService
                 Destroy(g);
             });
         }
-        Invoke(nameof(WinEffect), 0f);
+        WinEffect();
+        //Invoke(nameof(WinEffect), 0f);
     }
 
     void CleanEnablePlushie()
@@ -213,8 +217,6 @@ public class GameCompleteHandler : MonoBehaviour, IGameService
     void WinEffect()
     {
         Time.timeScale = 1.0f;
-
-        var canvasHandler = ServiceLocator.GetService<ICanvasUIManager>();
         if (canvasHandler != null)
         {
             canvasHandler.confettiEffectCanvas.SetActive(true);

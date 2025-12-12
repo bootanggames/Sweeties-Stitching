@@ -97,16 +97,19 @@ public class CoinsHandler : MonoBehaviour,ICoinsHandler
         coinsRewarded = LevelsHandler.instance.currentLevelMeta.levelScriptable.levelReward;
         coinsEarned.text = coinsRewarded.ToString();
     }
-    public IEnumerator MoveCoins(List<GameObject> coinList,Transform _target, GameObject coinsBarObj, float moveSpeed, Ease moveEase,float delay)
+    public IEnumerator MoveCoins(List<GameObject> coinList,Transform _target, GameObject coinsBarObj, float moveSpeed, Ease moveEase,float delay,bool randomSpeed)
     {
         Sequence seq = DOTween.Sequence();
 
         for (int i = 0; i < coinList.Count; i++)
         {
+            if (randomSpeed)
+            {
+                float speed = Random.Range(0.15f, 1.0f);
+                moveSpeed = speed;
+            }
+
             GameObject coinObj = coinList[i];
-
-            PlayCoinSound();
-
             seq.Join(
                 GameEvents.DoTweenAnimationHandlerEvents.onMoveToTargetAnimation
                     .Raise(coinObj.transform, _target.position, moveSpeed, moveEase).SetDelay(delay)
@@ -116,12 +119,13 @@ public class CoinsHandler : MonoBehaviour,ICoinsHandler
                 GameEvents.DoTweenAnimationHandlerEvents.onScaleTransform
                     .Raise(coinObj.transform, targetScaleDown, moveSpeed, Ease.Linear).SetDelay(delay)
             );
-            yield return new WaitForSeconds(0.1f);
+
         }
 
         seq.OnComplete(() =>
         {
             SaveCoins(1);
+            PlayCoinSound();
 
             Vector3 target = new Vector3(1.2f, 1.2f, 1.2f);
 
@@ -131,7 +135,7 @@ public class CoinsHandler : MonoBehaviour,ICoinsHandler
             bar.OnComplete(() =>
             {
             bar.Kill();
-            StopCoroutine(MoveCoins(coinList, _target, coinsBarObj, moveSpeed, moveEase, delay));
+            StopCoroutine(MoveCoins(coinList, _target, coinsBarObj, moveSpeed, moveEase, delay, randomSpeed));
                 GameEvents.DoTweenAnimationHandlerEvents.onScaleTransform
                     .Raise(coinsBarObj.transform, Vector3.one, 0.1f, Ease.InOutFlash);
             });
@@ -175,6 +179,7 @@ public class CoinsHandler : MonoBehaviour,ICoinsHandler
         {
             coinIncrementTween.OnUpdate(() =>
             {
+                Invoke(nameof(PlayCoinSound), 0.1f);
             });
         }
        
@@ -183,6 +188,7 @@ public class CoinsHandler : MonoBehaviour,ICoinsHandler
             coinIncrementTween.Kill();
             coinIncrementTween = null;
         });
-        InvokeRepeating(nameof(PlayCoinSound), 0, 0.1f);
+        //PlayCoinSound();
+        //InvokeRepeating(nameof(PlayCoinSound), 0, 0.12f);
     }
 }

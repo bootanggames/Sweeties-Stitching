@@ -16,8 +16,7 @@ public interface ILevelUpScreen : IGameService
     GameObject unlockedPlushieWord { get; }
     TextMeshProUGUI levelNumber { get; }
 
-    List<PlushieSpriteContainer> pageSliderContainer {  get; }
-    void NextPage();
+    void NextPage(int levelNmbr);
     void PrevPage();
     void PlayLevelUpSound();
     void PlayCelebrationSound();

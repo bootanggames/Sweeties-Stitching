@@ -1,4 +1,5 @@
 using DG.Tweening;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -12,6 +13,8 @@ public class LevelUpIntroScreen : MonoBehaviour
     [SerializeField]int index = 0;
     GameObject currentPlushie;
     Tween currentTween;
+    [field: SerializeField] public List<PlushieSpriteContainer> pageSliderContainer { get; private set; }
+
     private void OnEnable()
     {
         int levelIndex = PlayerPrefs.GetInt("Level");
@@ -19,6 +22,19 @@ public class LevelUpIntroScreen : MonoBehaviour
         levelUpScreen = ServiceLocator.GetService<ILevelUpScreen>();
         renderTexture.SetActive(true);
         levelUpScreen.homeScreen.SetVolumeForBgMusic(0.5f);
+        foreach (PlushieSpriteContainer container in pageSliderContainer)
+        {
+            if (container.levelId.Equals(levelIndex + 1))
+            {
+                for (int i = 0; i < plishieObj.Length; i++)
+                {
+                    LevelUpPlushieInfo plushieInfo = plishieObj[i].GetComponent<LevelUpPlushieInfo>();
+                    plushieInfo.plushie.sprite = container.plushieDetail[i].plushie;
+                    plushieInfo.plushieName.text = container.plushieDetail[i].plushieName;
+                }
+                break;
+            }
+        }
         EnableInSequence();
     }
     void ResetScreen()
@@ -37,6 +53,7 @@ public class LevelUpIntroScreen : MonoBehaviour
                 g.SetActive(false);
                 g.transform.localScale = Vector3.zero;
             }
+            index = 0;
         }
     }
     void EnableInSequence()
@@ -48,19 +65,24 @@ public class LevelUpIntroScreen : MonoBehaviour
         }
         currentPlushie = plishieObj[index];
         currentPlushie.SetActive(true);
-        currentTween = GameEvents.DoTweenAnimationHandlerEvents.onScaleTransform.Raise(currentPlushie.transform, Vector3.one, speed, Ease.Linear);
+        currentTween = GameEvents.DoTweenAnimationHandlerEvents.onScaleTransform.Raise(currentPlushie.transform, new Vector3(1.5f,1.5f,1.5f), speed, Ease.Linear);
         
         if(currentTween != null )
         {
             currentTween.OnComplete(() =>
             {
-                LevelUpPlushieInfo plushie = currentPlushie.GetComponent<LevelUpPlushieInfo>();
-                plushie.effect.SetActive(true);
-                plushie.effect.GetComponent<ParticleSystem>().Play();
                 currentTween.Kill();
                 currentTween = null;
-                index++;
-                EnableInSequence();
+                plishieObj[index].transform.DOScale(Vector3.one, 0.25f).SetEase(Ease.Linear).OnComplete(() =>
+                {
+                    LevelUpPlushieInfo plushie = currentPlushie.GetComponent<LevelUpPlushieInfo>();
+                    plushie.effect.SetActive(true);
+                    plushie.effect.GetComponent<ParticleSystem>().Play();
+                    plushie.PlaySound();
+                    index++;
+                    EnableInSequence();
+                });
+               
             });
            
         }

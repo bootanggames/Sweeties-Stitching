@@ -87,7 +87,7 @@ public class ScaleOutObject : MonoBehaviour
         SoundManager.instance.ResetAudioSource();
 
         AudioSource _source = SoundManager.instance.audioSource;
-        AudioClip _clip = SoundManager.instance.audioClips.completed;
+        AudioClip _clip = SoundManager.instance.audioClips.plushieSewnVoice;
         SoundManager.instance.PlaySound(_source, _clip, false, false, 1, false);
         this.AddComponent<AudioSource>();
         AudioSource sewnWordAudio = this.GetComponent<AudioSource>();
@@ -97,7 +97,7 @@ public class ScaleOutObject : MonoBehaviour
 
     IEnumerator LevelUpScreenActivation()
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(2);
         this.transform.GetComponent<Image>().enabled = false;
         this.transform.localScale = Vector3.zero;
         if (levelUpScreen != null)

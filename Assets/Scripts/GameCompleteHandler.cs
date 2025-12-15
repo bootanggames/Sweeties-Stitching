@@ -107,9 +107,8 @@ public class GameCompleteHandler : MonoBehaviour, IGameService
             canvasHandler.audioSourceForBG.volume = 0.5f;
             LevelsHandler.instance.currentLevelMeta.sewnPlushie.SetActive(false);
             canvasHandler.gameCompletePanel.gameObject.SetActive(true);
-            canvasHandler.gameCompletePanel.gameObject.AddComponent<AudioSource>();
-            AudioSource source = canvasHandler.gameCompletePanel.gameObject.GetComponent<AudioSource>();
-            PlaySparkleSound(source);
+ 
+            Invoke(nameof( PlaySparkleSound),0.15f);
             Invoke(nameof(TreasureBoxAppearance), 0.45f);
             canvasHandler.completeStitchedPlushie.SetActive(true);
             PlayGiggleSound();
@@ -134,12 +133,15 @@ public class GameCompleteHandler : MonoBehaviour, IGameService
     void PlayCelebrationTrumpetSound()
     {
         AudioClip _clip = SoundManager.instance.audioClips.celebrationJingleTrumpets;
-        SoundManager.instance.PlaySound(_audioSource, _clip, false, false, 1, false);
+        SoundManager.instance.PlaySound(_audioSource, _clip, false, false, 0.5f, false);
     }
-    void PlaySparkleSound(AudioSource source)
+    void PlaySparkleSound()
     {
+        canvasHandler.gameCompletePanel.gameObject.AddComponent<AudioSource>();
+        AudioSource source = canvasHandler.gameCompletePanel.gameObject.GetComponent<AudioSource>();
         AudioClip _clip = SoundManager.instance.audioClips.plushieCompletedSparkle;
         SoundManager.instance.PlaySound(source, _clip, false, false, 1, false);
+        CancelInvoke(nameof(PlaySparkleEffect));
     }
     void PlaySoundCoinBagExploding()
     {
@@ -238,14 +240,12 @@ public class GameCompleteHandler : MonoBehaviour, IGameService
         CancelInvoke(nameof(CleanEnablePlushie));
     }
    
-    AudioSource sewnWordAudio;
     void EnableSewnWord()
     {
         Time.timeScale = 1.0f;
         if (canvasHandler != null)
         {
             canvasHandler.confettiEffectCanvas.SetActive(true);
-        
             canvasHandler.sewnScreen.SetActive(true);
         }
         CancelInvoke(nameof( EnableSewnWord));

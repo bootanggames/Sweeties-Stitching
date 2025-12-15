@@ -4,7 +4,9 @@ using UnityEngine.UI;
 
 public interface IRoomdecorStore : IGameService
 {
-    GameObject changeRoomButtonParent {  get; }        
+    GameObject myItemsScreen {  get; }        
+    GameObject changeMyRoomScreen {  get; }        
+    GameObject myRoomScreen {  get; }        
     Canvas canvas {  get; }
     List<StoreItemData> itemSpriteData { get; }
     bool repositionItem { get; }

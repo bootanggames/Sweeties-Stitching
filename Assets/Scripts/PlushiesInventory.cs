@@ -1,6 +1,7 @@
 using TMPro;
 using TS.PageSlider;
 using UnityEngine;
+using static Unity.VisualScripting.Member;
 
 public class PlushiesInventory : MonoBehaviour,IPlushieInventory
 {
@@ -10,20 +11,32 @@ public class PlushiesInventory : MonoBehaviour,IPlushieInventory
     [SerializeField] PageScroller pageScroller;
     [SerializeField] PageSlider pageSlider;
     [field: SerializeField] public int noOfPlushieEnabled {  get; private set; }
-    [SerializeField] AudioSource source;
-    [SerializeField] AudioSource mainMenuSource;
     private void OnEnable()
     {
         int c = PlayerPrefs.GetInt("Coins");
         coinUi.text = c.ToString();
         RegisterService();
-        if(mainMenuSource)
-            SoundManager.instance.StopSound(mainMenuSource);
-        SoundManager.instance.PlaySound(source, SoundManager.instance.audioClips.plushieInventoryScreenBgSound, true, false, 1.0f, true);
+        if (AudiosSourceContainer.instance)
+        {
+            SoundManager.instance.StopSound(AudiosSourceContainer.instance.homeScreen);
+            SoundManager.instance.PlaySound(AudiosSourceContainer.instance.plushieInventoryScreen, SoundManager.instance.audioClips.plushieInventoryScreenBgSound, true, false, 1.0f, true);
+        }
+            
     }
     private void OnDisable()
     {
         UnRegisterService();
+    }
+    public void BackButton()
+    {
+        if (AudiosSourceContainer.instance)
+        {
+            SoundManager.instance.StopSound(AudiosSourceContainer.instance.plushieInventoryScreen);
+
+            if (AudiosSourceContainer.instance.homeScreen)
+                SoundManager.instance.PlaySound(AudiosSourceContainer.instance.homeScreen, SoundManager.instance.audioClips.bgMusic, true, false, 1.0f, true);
+        }
+
     }
     public void NoPlushieIncrement(int c)
     {

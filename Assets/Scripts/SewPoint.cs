@@ -13,7 +13,7 @@ public class SewPoint : MonoBehaviour, ISewPoint
     public SequenceType sequenceType;
     [HideInInspector] TextMeshPro textObj;
     [HideInInspector]public MeshRenderer pointMesh;
-    public bool selected {  get; private set; }
+    [field:SerializeField]public bool selected {  get; private set; }
     //[field: SerializeField] public List<Transform> stitchEffect_ThreadPoints {  get; private set; }
     [field: SerializeField] public bool startFlag { get; private set; }
     [HideInInspector]public Vector3 originalScale;
@@ -166,12 +166,13 @@ public class SewPoint : MonoBehaviour, ISewPoint
                 totalThread = currentLevel.levelScriptable.totalStitches;
 
             s_Info.UpdateThreadProgress(totalThread);
-            if (SaveDataUsingJson.instance)
-            {
-                int levelIndex = LevelsHandler.instance.levelIndex;
-                string _plushieName = LevelsHandler.instance.currentLevelMeta.levelScriptable.levelName;
-                SaveDataUsingJson.instance.SaveData(s_Info._spoolData.spoolId + "_"+levelIndex + "_" + _plushieName, s_Info._spoolData, "SpoolData");
-            }
+            LevelsHandler.instance.currentLevelMeta.SaveSpoolData();
+            //if (SaveDataUsingJson.instance)
+            //{
+            //    int levelIndex = LevelsHandler.instance.levelIndex;
+            //    string _plushieName = LevelsHandler.instance.currentLevelMeta.levelScriptable.levelName;
+            //    SaveDataUsingJson.instance.SaveData(s_Info._spoolData.spoolId + "_"+levelIndex + "_" + _plushieName, s_Info._spoolData, "SpoolData");
+            //}
         }
     }
     public void UnRegisterService()

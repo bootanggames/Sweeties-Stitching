@@ -22,6 +22,7 @@ public class CanvasUIManager : MonoBehaviour, ICanvasUIManager
     //[field: SerializeField] public Image spoolImg { get; private set; }
     [field: SerializeField] public GameObject mainCanvas { get; private set; }
     [field: SerializeField] public GameObject plushiesInventoryScreen { get; private set; }
+    [field: SerializeField] public GameObject alertTextObj { get; private set; }
 
     private void Start()
     {

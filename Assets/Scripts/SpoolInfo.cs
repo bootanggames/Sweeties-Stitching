@@ -6,13 +6,16 @@ using UnityEngine.UI;
 
 public class SpoolInfo : MonoBehaviour
 {
-    public SpoolData _spoolData;
+    public SpoolData _spoolData = new SpoolData();
     public RectTransform undoPosition;
     public Image spoolImage;
    
     public void UpdateThreadProgress(int totalThreads)
     {
-        _spoolData.totalThreadsInSpool = totalThreads;
+        if (_spoolData != null)
+            _spoolData.totalThreadsInSpool = totalThreads;
+        else
+            _spoolData = new SpoolData();
         int remainigThreads = _spoolData.totalThreadsInSpool - _spoolData.noOfStitchedDone;
         float fillBarPercent = (float)remainigThreads / totalThreads;
         //Debug.LogError(" " + fillBarPercent);

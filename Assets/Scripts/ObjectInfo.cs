@@ -30,13 +30,15 @@ public class ObjectInfo : MonoBehaviour
     public CleanStitch c_Stitch;
     [SerializeField] bool enableConnection;
     List<GameObject> coinsObj = new List<GameObject>();
- 
+    ICoinsHandler coinHandler;
+
     private void Start()
     {
         c_Stitch = GetComponent<CleanStitch>();
     }
     private void OnEnable()
     {
+        coinHandler = ServiceLocator.GetService<ICoinsHandler>();
         if (completeStitchTextObj != null)
             wrongSequenceAlert = completeStitchTextObj;
         stitchData = new PlushiePartStitchData();
@@ -228,7 +230,6 @@ public class ObjectInfo : MonoBehaviour
             g.SetActive(true);
             if (!moveable)
             {
-                var coinHandler = ServiceLocator.GetService<ICoinsHandler>();
                 if (coinHandler != null)
                 {
                     coinHandler.InstantiateCoins(coinHandler.coinSpritePrefab, 3, coinsObj, connectPoints[confettiIndex].transform);
@@ -308,25 +309,16 @@ public class ObjectInfo : MonoBehaviour
             Destroy(g);
         }
         confettiObj.Clear();
-        //SewPoint sp = null;
 
         IThreadManager threadManager = ServiceLocator.GetService<IThreadManager>();
         if (threadManager != null)
         {
             if (threadManager.detectedPoints != null && threadManager.detectedPoints.Count > 0)
             {
-                //sp = threadManager.detectedPoints[threadManager.detectedPoints.Count - 1].GetComponent<SewPoint>();
-                //sp.name = sp.sequenceType.ToString();
                 GameEvents.ThreadEvents.onResetThreadInput.Raise();
                 if (LevelsHandler.instance.currentLevelMeta)
                 {
-                    //foreach (Connections c in LevelsHandler.instance.currentLevelMeta.cleanConnection)
-                    //{
-                    //    Destroy(c.line.gameObject);
-                    //}
-                    //LevelsHandler.instance.currentLevelMeta.cleanConnection.Clear();
                     LevelsHandler.instance.currentLevelMeta.UpdateLevelProgress(/*sp.sequenceType*/);
-
                 }
 
 

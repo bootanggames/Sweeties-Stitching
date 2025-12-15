@@ -15,6 +15,7 @@ public interface ICanvasUIManager:IGameService
     GameObject undoHighLight { get; }
     GameObject confettiEffectCanvas { get; }
     GameObject plushiesInventoryScreen { get; }
+    GameObject alertTextObj { get; }
     //Image spoolImg { get; }
     TextMeshProUGUI stitchCountText {  get; }
     TextMeshProUGUI stitchProgress {  get; }

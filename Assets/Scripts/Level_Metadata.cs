@@ -26,7 +26,7 @@ public class Level_Metadata : MonoBehaviour
     [HideInInspector] public int cleanThreadIndex = 0;
     [HideInInspector] public List<GameObject> crissCrossObjList = new List<GameObject>();
     List<Connections> cleanThreads = new List<Connections>();
-    [HideInInspector]public GameObject currentSpool;
+    /*[HideInInspector]*/public GameObject currentSpool;
     ISpoolManager spoolManager;
     IThreadManager threadHandler;
     INeedleDetector needleDetecto;
@@ -72,7 +72,7 @@ public class Level_Metadata : MonoBehaviour
                 totalThread = levelScriptable.totalStitches;
             if (GameHandler.instance.saveProgress)
             {
-                LoadSpoolDataIfSaved(spoolManager);
+                LoadSpoolDataIfSaved();
             }
 
             s_Info.UpdateThreadProgress(totalThread);
@@ -81,7 +81,7 @@ public class Level_Metadata : MonoBehaviour
         if (threadHandler != null)
             threadHandler.UpdateCurrentActiveSpoolReference();
     }
-    void LoadSpoolDataIfSaved(ISpoolManager spoolManager)
+    void LoadSpoolDataIfSaved()
     {
         if (SaveDataUsingJson.instance)
         {
@@ -95,6 +95,27 @@ public class Level_Metadata : MonoBehaviour
                     s_Info.UpdateThreadProgress(s_Info._spoolData.totalThreadsInSpool);
             }
           
+        }
+    }
+
+    public void SaveSpoolData()
+    {
+        if (SaveDataUsingJson.instance)
+        {
+            SpoolInfo prevSpool = spoolManager.spoolList[spoolManager.spoolList.Count - 2].GetComponent<SpoolInfo>();
+            SpoolInfo lastSpool = spoolManager.spoolList[spoolManager.spoolList.Count - 1].GetComponent<SpoolInfo>();
+            float total = (levelScriptable.totalStitches - prevSpool._spoolData.totalThreadsInSpool);
+            int totalThread = (int)total;
+            lastSpool._spoolData.totalThreadsInSpool = totalThread;
+            int levelIndex = LevelsHandler.instance.levelIndex;
+            string _plushieName = LevelsHandler.instance.currentLevelMeta.levelScriptable.levelName;
+       
+            for (int i = 0; i < spoolManager.spoolList.Count; i++)
+            {
+                SpoolInfo s_Info = spoolManager.spoolList[i].GetComponent<SpoolInfo>();
+              
+                SaveDataUsingJson.instance.SaveData(s_Info._spoolData.spoolId + "_" + levelIndex + "_" + _plushieName, s_Info._spoolData, "SpoolData");
+            }
         }
     }
     public void LevelInitialisation()

@@ -21,7 +21,7 @@ public class SpoolManager : MonoBehaviour,ISpoolManager
         sp.transform.SetParent(spoolParent.transform);
         SpoolInfo s_Info = sp.GetComponent<SpoolInfo>();
         s_Info._spoolData.spoolId = (index + 1);
-        Debug.LogError(" " + index + " " + s_Info._spoolData.spoolId);
+        //Debug.LogError(" " + index + " " + s_Info._spoolData.spoolId);
         sp.transform.localPosition = Vector3.zero;
         sp.transform.localRotation = Quaternion.identity;
         sp.transform.localScale = Vector3.one;

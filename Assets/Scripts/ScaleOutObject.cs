@@ -66,11 +66,10 @@ public class ScaleOutObject : MonoBehaviour
         tween = null;
         PlaySound();
         //FireworksParticles();
-   
-        Invoke(nameof(FireworksParticles), 0.25f);
+        Invoke(nameof(ScaleIn), 0.25f);
     }
 
-    void FireworksParticles()
+    void ScaleIn()
     {
         tween = GameEvents.DoTweenAnimationHandlerEvents.onScaleTransform.Raise(this.transform, Vector3.zero, speed, ease);
         if (tween != null)
@@ -81,7 +80,7 @@ public class ScaleOutObject : MonoBehaviour
                 
             });
         }
-        CancelInvoke(nameof(FireworksParticles));
+        CancelInvoke(nameof(ScaleIn));
     }
     void PlaySound()
     {
@@ -90,6 +89,9 @@ public class ScaleOutObject : MonoBehaviour
         AudioSource _source = SoundManager.instance.audioSource;
         AudioClip _clip = SoundManager.instance.audioClips.completed;
         SoundManager.instance.PlaySound(_source, _clip, false, false, 1, false);
+        this.AddComponent<AudioSource>();
+        AudioSource sewnWordAudio = this.GetComponent<AudioSource>();
+        SoundManager.instance.PlaySound(sewnWordAudio, _clip, false, false, 1, false);
     }
 
 

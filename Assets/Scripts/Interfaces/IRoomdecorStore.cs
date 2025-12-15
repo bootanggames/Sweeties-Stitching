@@ -4,6 +4,7 @@ using UnityEngine.UI;
 
 public interface IRoomdecorStore : IGameService
 {
+    GameObject changeRoomButtonParent {  get; }        
     Canvas canvas {  get; }
     List<StoreItemData> itemSpriteData { get; }
     bool repositionItem { get; }
@@ -11,4 +12,5 @@ public interface IRoomdecorStore : IGameService
     void RepositionItem(bool val);
     void ChangeItemSprite(Image item, Sprite sprite);
     void ChangeItem(bool val);
+    void EnableDisableChangeRoomUiParent(bool val);
 }

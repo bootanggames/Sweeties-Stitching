@@ -32,21 +32,9 @@ public class Item : MonoBehaviour,IPointerDownHandler,IDragHandler,IPointerUpHan
     {
         if (_store == null) return;
         if (_store.repositionItem) return;
-            //if (!_store.changeItem) return;
+        //if (!_store.changeItem) return;
+        _store.EnableDisableChangeRoomUiParent(true);
        GameEvents.UIEvents.ShowDecorItemsInventory.Raise(roomItem._decorItemType);
-
-        //foreach(StoreItemData sd in _store.itemSpriteData)
-        //{
-        //    if (sd.ItemName.Equals(ItemName))
-        //    {
-        //        Image itemImage = this.GetComponent<Image>();
-        //        int r = Random.Range(0, sd._itemSprites.itemSprite.Length);
-        //        Sprite sprite = sd._itemSprites.itemSprite[r];
-        //        _store.ChangeItemSprite(itemImage, sprite);
-        //    }
-        //}
-
-        Debug.Log("onPointerDown");
     }
 
     public void OnPointerUp(PointerEventData eventData)

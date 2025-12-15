@@ -29,3 +29,4 @@ MonoBehaviour:
   levelUpSong: {fileID: 8300000, guid: 698d0ffe6722acd49b2c596376c213a9, type: 3}
   celebrationJingleTrumpets: {fileID: 8300000, guid: e466523c655e9ed4c811d579ede31694, type: 3}
   ting: {fileID: 8300000, guid: 8f3c9e4f4ceabce448195eb905c61777, type: 3}
+  plushieCompletedSparkle: {fileID: 8300000, guid: e9e6a9d9c4b93504d8e702919973e25b, type: 3}

@@ -20,4 +20,5 @@ public class SoundScriptable : ScriptableObject
     public AudioClip levelUpSong;
     public AudioClip celebrationJingleTrumpets;
     public AudioClip ting;
+    public AudioClip plushieCompletedSparkle;
 }

@@ -258,7 +258,7 @@ public class Level_Metadata : MonoBehaviour
            if(threadHandler != null)
                 threadHandler.SetUndoValue(false);
             //WinEffect();
-            Invoke("WinEffect",0.5f);
+            Invoke(nameof(WinEffect),0.5f);
         }
         else
         {

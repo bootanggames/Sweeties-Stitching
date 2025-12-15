@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using static Unity.VisualScripting.Member;
 
 public class GameCompleteHandler : MonoBehaviour, IGameService
 {
@@ -14,6 +15,7 @@ public class GameCompleteHandler : MonoBehaviour, IGameService
 
     [SerializeField] TextMeshProUGUI levelProgress;
     [SerializeField] GameObject gameplayBgObj;
+    [SerializeField] AudioSource _audioSource;
 
     [Header("-------------Sparkle Trail On Completion--------------")]
     [SerializeField] Transform sparkleTrailAtCompletionStartPos;
@@ -97,6 +99,7 @@ public class GameCompleteHandler : MonoBehaviour, IGameService
 
         if(canvasHandler != null)
         {
+            PlayCelebrationTrumpetSound();
             canvasHandler.sewnScreen.SetActive(false);
             canvasHandler.sewnTextImage.transform.localScale = Vector3.zero;
             canvasHandler.confettiEffectCanvas.SetActive(false);
@@ -104,6 +107,9 @@ public class GameCompleteHandler : MonoBehaviour, IGameService
             canvasHandler.audioSourceForBG.volume = 0.5f;
             LevelsHandler.instance.currentLevelMeta.sewnPlushie.SetActive(false);
             canvasHandler.gameCompletePanel.gameObject.SetActive(true);
+            canvasHandler.gameCompletePanel.gameObject.AddComponent<AudioSource>();
+            AudioSource source = canvasHandler.gameCompletePanel.gameObject.GetComponent<AudioSource>();
+            PlaySparkleSound(source);
             Invoke(nameof(TreasureBoxAppearance), 0.45f);
             canvasHandler.completeStitchedPlushie.SetActive(true);
             PlayGiggleSound();
@@ -124,6 +130,16 @@ public class GameCompleteHandler : MonoBehaviour, IGameService
     void EnhanceGiggleSoundVolume()
     {
         SoundManager.instance.audioSource.volume = 1;
+    }
+    void PlayCelebrationTrumpetSound()
+    {
+        AudioClip _clip = SoundManager.instance.audioClips.celebrationJingleTrumpets;
+        SoundManager.instance.PlaySound(_audioSource, _clip, false, false, 1, false);
+    }
+    void PlaySparkleSound(AudioSource source)
+    {
+        AudioClip _clip = SoundManager.instance.audioClips.plushieCompletedSparkle;
+        SoundManager.instance.PlaySound(source, _clip, false, false, 1, false);
     }
     void PlaySoundCoinBagExploding()
     {
@@ -150,6 +166,9 @@ public class GameCompleteHandler : MonoBehaviour, IGameService
     void SparkleEffectOnPlushieComplete()
     {
         //int _count = 10;
+        PlaySparkleEffect();
+        GameEvents.EffectHandlerEvents.onSewnCompletely.Raise();
+
         Invoke(nameof(CleanEnablePlushie), 0.5f);
         Sequence seq = DOTween.Sequence();
         //for (int i = 0; i < _count; i++)
@@ -192,14 +211,18 @@ public class GameCompleteHandler : MonoBehaviour, IGameService
             seq.OnComplete(() =>
             {
                 sparkleEffectListOnComplete.Remove(g);
-                //WinEffect();
                 Destroy(g);
             });
         }
-        WinEffect();
-        //Invoke(nameof(WinEffect), 0f);
+        EnableSewnWord();
     }
+    void PlaySparkleEffect()
+    {
+        SoundManager.instance.ResetAudioSource();
 
+        AudioClip _clip = SoundManager.instance.audioClips.sparklesSound;
+        SoundManager.instance.PlaySound(_audioSource, _clip, false, false, 0.5f, false);
+    }
     void CleanEnablePlushie()
     {
         foreach (Connections c in LevelsHandler.instance.currentLevelMeta.cleanConnection)
@@ -214,15 +237,17 @@ public class GameCompleteHandler : MonoBehaviour, IGameService
         LevelsHandler.instance.currentLevelMeta.crissCrossObjList.Clear();
         CancelInvoke(nameof(CleanEnablePlushie));
     }
-    void WinEffect()
+   
+    AudioSource sewnWordAudio;
+    void EnableSewnWord()
     {
         Time.timeScale = 1.0f;
         if (canvasHandler != null)
         {
             canvasHandler.confettiEffectCanvas.SetActive(true);
+        
             canvasHandler.sewnScreen.SetActive(true);
-            GameEvents.EffectHandlerEvents.onSewnCompletely.Raise();
         }
-        CancelInvoke(nameof( WinEffect));
+        CancelInvoke(nameof( EnableSewnWord));
     }
 }

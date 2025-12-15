@@ -92,7 +92,7 @@ Material:
     - _Blend: 0
     - _BlendAmount: 1
     - _BlendModePreserveSpecular: 1
-    - _BlurSize: 14.3
+    - _BlurSize: 20
     - _Brightness: 0
     - _BumpScale: 1
     - _ClearCoatMask: 0

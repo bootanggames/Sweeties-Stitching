@@ -10,6 +10,7 @@ public class RoomdecorStore : MonoBehaviour, IRoomdecorStore
     [field: SerializeField] public bool repositionItem { get; private set; }
     [field: SerializeField] public bool changeItem { get; private set; }
     [field: SerializeField] public List<StoreItemData> itemSpriteData { get; private set; }
+    [field: SerializeField] public GameObject changeRoomButtonParent {  get; private set; }
 
     private void OnEnable()
     {
@@ -36,7 +37,10 @@ public class RoomdecorStore : MonoBehaviour, IRoomdecorStore
     {
         changeItem = val;
     }
-
+    public void EnableDisableChangeRoomUiParent(bool val)
+    {
+        changeRoomButtonParent.SetActive(val);
+    }
     public void RegisterService()
     {
         ServiceLocator.RegisterService<IRoomdecorStore>(this);

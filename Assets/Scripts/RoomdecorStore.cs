@@ -42,7 +42,8 @@ public class RoomdecorStore : MonoBehaviour, IRoomdecorStore
         repositionItem = val;
         GameEvents.RoomDecorEvents.SetRoomDecorPermissionStatus.Raise(!val);
     }
-    public void CheckBackButtonEnableDisable()
+
+    public void MyItemsBackButton()
     {
         if (repositionItem)
         {
@@ -55,6 +56,25 @@ public class RoomdecorStore : MonoBehaviour, IRoomdecorStore
             backButton_MyItemScreen_IfRepositionTrue.SetActive(false);
         }
     }
+    public void MyItemsButton(bool val)
+    {
+        if (repositionItem)
+        {
+            //backButton_MyItemScreen_IfRepositionTrue.SetActive(true);
+            //backButton_MyItemScreen.SetActive(false);
+            //EnableDisableMyRoomScreen(!val);
+            EnableDisableMItemsScreen(val);
+            EnableDisableChangeRoomUiParent(!val);
+        }
+        else
+        {
+            //backButton_MyItemScreen.SetActive(true);
+            //backButton_MyItemScreen_IfRepositionTrue.SetActive(false);
+            //EnableDisableChangeRoomUiParent(!val);
+            EnableDisableMyRoomScreen(!val);
+            EnableDisableMItemsScreen(val);
+        }
+    }
     public void ChangeItem(bool val)
     {
         changeItem = val;
@@ -65,10 +85,9 @@ public class RoomdecorStore : MonoBehaviour, IRoomdecorStore
     }
     public void EnableDisableMItemsScreen(bool val)
     {
-        storeButton.SetActive(!val);
-        myItemButton.SetActive(!val);
+        //storeButton.SetActive(val);
+        //myItemButton.SetActive(val);
         myItemsScreen.SetActive(val);
-        CheckBackButtonEnableDisable();
     }
     public void EnableDisableMyRoomScreen(bool val)
     {

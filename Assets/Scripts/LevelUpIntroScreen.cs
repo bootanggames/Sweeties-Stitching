@@ -73,7 +73,7 @@ public class LevelUpIntroScreen : MonoBehaviour
             {
                 currentTween.Kill();
                 currentTween = null;
-                plishieObj[index].transform.DOScale(Vector3.one, 0.15f).SetEase(Ease.Linear).OnComplete(() =>
+                plishieObj[index].transform.DOScale(Vector3.one, 0.1f).SetEase(Ease.Linear).OnComplete(() =>
                 {
                     LevelUpPlushieInfo plushie = currentPlushie.GetComponent<LevelUpPlushieInfo>();
                     plushie.effect.SetActive(true);

@@ -5645,9 +5645,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 422949240}
-        m_TargetAssemblyTypeName: RoomdecorStore, Assembly-CSharp
-        m_MethodName: EnableDisableMItemsScreen
+      - m_Target: {fileID: 985978599}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5656,6 +5656,30 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1044571143}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 422949240}
+        m_TargetAssemblyTypeName: RoomdecorStore, Assembly-CSharp
+        m_MethodName: MyItemsButton
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &28039593
 MonoBehaviour:
@@ -27772,8 +27796,8 @@ RectTransform:
   - {fileID: 1025235437}
   - {fileID: 517412715}
   - {fileID: 1044571144}
-  - {fileID: 985978600}
   - {fileID: 1141564397}
+  - {fileID: 985978600}
   - {fileID: 1159854924}
   - {fileID: 1246236938}
   - {fileID: 1928683438}
@@ -75927,7 +75951,7 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 355003804}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -75992,9 +76016,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 422949240}
-        m_TargetAssemblyTypeName: RoomdecorStore, Assembly-CSharp
-        m_MethodName: EnableDisableChangeRoomUiParent
+      - m_Target: {fileID: 985978599}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1044571143}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -76006,19 +76042,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 422949240}
         m_TargetAssemblyTypeName: RoomdecorStore, Assembly-CSharp
-        m_MethodName: EnableDisableMyRoomScreen
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 422949240}
-        m_TargetAssemblyTypeName: RoomdecorStore, Assembly-CSharp
-        m_MethodName: EnableDisableMItemsScreen
+        m_MethodName: MyItemsButton
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -112560,6 +112584,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 985978599}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1239138166
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -148253,7 +148289,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1482094803
 RectTransform:
   m_ObjectHideFlags: 0
@@ -148346,18 +148382,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 422949240}
-        m_TargetAssemblyTypeName: RoomdecorStore, Assembly-CSharp
-        m_MethodName: RepositionItem
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 1650698026}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
@@ -148406,42 +148430,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 422949240}
-        m_TargetAssemblyTypeName: RoomdecorStore, Assembly-CSharp
-        m_MethodName: EnableDisableChangeRoomUiParent
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 422949240}
-        m_TargetAssemblyTypeName: RoomdecorStore, Assembly-CSharp
-        m_MethodName: EnableDisableMItemsScreen
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 422949240}
-        m_TargetAssemblyTypeName: RoomdecorStore, Assembly-CSharp
-        m_MethodName: EnableDisableMyRoomScreen
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
       - m_Target: {fileID: 1141564396}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
@@ -148453,6 +148441,30 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 985978599}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 422949240}
+        m_TargetAssemblyTypeName: RoomdecorStore, Assembly-CSharp
+        m_MethodName: MyItemsButton
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1482094806
 MonoBehaviour:
@@ -219907,7 +219919,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 647473957495523122, guid: 4b3c5cb2312ecd943bc00793ffa003b9, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 929.0659
+      value: 1114.8792
       objectReference: {fileID: 0}
     - target: {fileID: 647473957495523122, guid: 4b3c5cb2312ecd943bc00793ffa003b9, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -220067,7 +220079,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2959628640875778902, guid: 4b3c5cb2312ecd943bc00793ffa003b9, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 309.68866
+      value: 371.62634
       objectReference: {fileID: 0}
     - target: {fileID: 2959628640875778902, guid: 4b3c5cb2312ecd943bc00793ffa003b9, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -220117,6 +220129,10 @@ PrefabInstance:
       propertyPath: _audiosSource
       value: 
       objectReference: {fileID: 1551249228}
+    - target: {fileID: 4203810264582576630, guid: 4b3c5cb2312ecd943bc00793ffa003b9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4260386972520676699, guid: 4b3c5cb2312ecd943bc00793ffa003b9, type: 3}
       propertyPath: m_Name
       value: DecorInventory
@@ -220167,7 +220183,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5465743444857764915, guid: 4b3c5cb2312ecd943bc00793ffa003b9, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 722.6068
+      value: 867.1282
       objectReference: {fileID: 0}
     - target: {fileID: 5465743444857764915, guid: 4b3c5cb2312ecd943bc00793ffa003b9, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -220319,7 +220335,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8521189899841769221, guid: 4b3c5cb2312ecd943bc00793ffa003b9, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 516.1477
+      value: 619.37726
       objectReference: {fileID: 0}
     - target: {fileID: 8521189899841769221, guid: 4b3c5cb2312ecd943bc00793ffa003b9, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -220335,7 +220351,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8927209351613535382, guid: 4b3c5cb2312ecd943bc00793ffa003b9, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 103.229546
+      value: 123.87546
       objectReference: {fileID: 0}
     - target: {fileID: 8927209351613535382, guid: 4b3c5cb2312ecd943bc00793ffa003b9, type: 3}
       propertyPath: m_AnchoredPosition.y

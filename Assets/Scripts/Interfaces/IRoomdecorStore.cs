@@ -15,4 +15,6 @@ public interface IRoomdecorStore : IGameService
     void ChangeItemSprite(Image item, Sprite sprite);
     void ChangeItem(bool val);
     void EnableDisableChangeRoomUiParent(bool val);
+    void EnableDisableMItemsScreen(bool val);
+    void EnableDisableMyRoomScreen(bool val);
 }

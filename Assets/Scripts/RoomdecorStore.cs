@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -15,9 +16,15 @@ public class RoomdecorStore : MonoBehaviour, IRoomdecorStore
     [field: SerializeField] public GameObject myRoomScreen {  get; private set; }
     [SerializeField] GameObject backButton_MyItemScreen;
     [SerializeField] GameObject backButton_MyItemScreen_IfRepositionTrue;
+    [SerializeField] GameObject myItemButton;
+    [SerializeField] GameObject storeButton;
+    [SerializeField] TextMeshProUGUI coinText;
+
     private void OnEnable()
     {
         RegisterService();
+        int c = PlayerPrefs.GetInt("Coins");
+        coinText.text = c.ToString();
     }
 
     private void OnDisable()
@@ -58,7 +65,10 @@ public class RoomdecorStore : MonoBehaviour, IRoomdecorStore
     }
     public void EnableDisableMItemsScreen(bool val)
     {
+        storeButton.SetActive(!val);
+        myItemButton.SetActive(!val);
         myItemsScreen.SetActive(val);
+        CheckBackButtonEnableDisable();
     }
     public void EnableDisableMyRoomScreen(bool val)
     {

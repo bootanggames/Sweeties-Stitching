@@ -183,6 +183,7 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
         o_info1 = sp1.transform.parent.parent.GetComponent<ObjectInfo>();
         o_info2 = sp2.transform.parent.parent.GetComponent<ObjectInfo>();
         sp2.pointMesh.material = correctPointMaterial;
+
         if (points.Count > 1)
         {
             if (sp1.transform.parent.parent.parent == sp2.transform.parent.parent.parent)
@@ -226,7 +227,8 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
                 if (!sp1.metaData.connected) sp1.pointMesh.material = wrongPointMaterial;
             }
         }
-
+       if(wrongConnectPoint.Count > 0)
+            s_FirstOne.pointMesh.material = wrongPointMaterial;
         if (wrongConnectPoint == null && wrongConnectPoint.Count == 0)
             CheckIfLastConnectionUpdated(sp1, sp2, sp1.transform, sp2.transform, o_info1, o_info2);
 

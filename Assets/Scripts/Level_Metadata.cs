@@ -102,11 +102,22 @@ public class Level_Metadata : MonoBehaviour
     {
         if (SaveDataUsingJson.instance)
         {
-            SpoolInfo prevSpool = spoolManager.spoolList[spoolManager.spoolList.Count - 2].GetComponent<SpoolInfo>();
+            SpoolInfo prevSpool = null;
             SpoolInfo lastSpool = spoolManager.spoolList[spoolManager.spoolList.Count - 1].GetComponent<SpoolInfo>();
-            float total = (levelScriptable.totalStitches - prevSpool._spoolData.totalThreadsInSpool);
-            int totalThread = (int)total;
-            lastSpool._spoolData.totalThreadsInSpool = totalThread;
+            float total = 0;
+            if (spoolManager.spoolList.Count > 1)
+            {
+                prevSpool = spoolManager.spoolList[spoolManager.spoolList.Count - 2].GetComponent<SpoolInfo>();
+                total = (levelScriptable.totalStitches - prevSpool._spoolData.totalThreadsInSpool);
+                int totalThread = (int)total;
+                lastSpool._spoolData.totalThreadsInSpool = totalThread;
+            }
+            else
+            {
+                total = (levelScriptable.totalStitches / spoolManager.spoolList.Count);
+                int totalThread = (int)total;
+                lastSpool._spoolData.totalThreadsInSpool = totalThread;
+            }
             int levelIndex = LevelsHandler.instance.levelIndex;
             string _plushieName = LevelsHandler.instance.currentLevelMeta.levelScriptable.levelName;
        

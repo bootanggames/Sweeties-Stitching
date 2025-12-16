@@ -1,10 +1,8 @@
 using DG.Tweening;
-using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using static Unity.VisualScripting.Member;
 
 public class GameCompleteHandler : MonoBehaviour, IGameService
 {
@@ -52,6 +50,8 @@ public class GameCompleteHandler : MonoBehaviour, IGameService
         GameEvents.GameCompleteEvents.onGameComplete.Register(GameComplete);
         GameEvents.GameCompleteEvents.onGameWin.Register(WinConfettiEffect);
         GameEvents.GameCompleteEvents.onPlushieComplete.Register(SparkleEffectOnPlushieComplete);
+        GameEvents.GameCompleteEvents.onFinishCoinBurstAnimation.Register(StopCoinBurstSound);
+        
     }
 
     public void UnRegisterService()
@@ -59,6 +59,7 @@ public class GameCompleteHandler : MonoBehaviour, IGameService
         GameEvents.GameCompleteEvents.onGameComplete.UnRegister(GameComplete);
         GameEvents.GameCompleteEvents.onGameWin.UnRegister(WinConfettiEffect);
         GameEvents.GameCompleteEvents.onPlushieComplete.UnRegister(SparkleEffectOnPlushieComplete);
+        GameEvents.GameCompleteEvents.onFinishCoinBurstAnimation.UnRegister(StopCoinBurstSound);
     }
 
     void WinConfettiEffect()
@@ -142,6 +143,11 @@ public class GameCompleteHandler : MonoBehaviour, IGameService
         AudioClip _clip = SoundManager.instance.audioClips.plushieCompletedSparkle;
         SoundManager.instance.PlaySound(source, _clip, false, false, 1, false);
         CancelInvoke(nameof(PlaySparkleEffect));
+    }
+    public void StopCoinBurstSound()
+    {
+        AudioSource source = _coinBurstParentObject.GetComponent<AudioSource>();
+        SoundManager.instance.StopSound(source);
     }
     void PlaySoundCoinBagExploding()
     {

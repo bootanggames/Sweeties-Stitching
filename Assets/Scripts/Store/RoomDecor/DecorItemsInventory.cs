@@ -98,5 +98,6 @@ public class DecorItemsInventory : ScreenWithSelectableButtons<DecoreItemStoreBu
         GameEvents.RoomDecorEvents.DecorItemSelected.Raise(itemName, _itemType);
         useButtonObj.SetActive(false);
         _container.SetActive(false);
+
     }
 }

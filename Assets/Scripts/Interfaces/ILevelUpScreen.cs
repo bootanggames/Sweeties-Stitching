@@ -22,4 +22,5 @@ public interface ILevelUpScreen : IGameService
     void PlayCelebrationSound();
     void PlayLevelUpSongSound();
     void StopSound();
+    void DisableParticleEffects();
 }

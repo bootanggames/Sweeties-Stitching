@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -155,8 +156,9 @@ public class LevelsHandler : Singleton<LevelsHandler>, ILevelHandler
         }
         if(IThreadHandler != null) IThreadHandler.SetUndoValue(true);
         if (coinHandler != null) coinHandler.StopCoinSound();
-
-        once = true;
+        GameEvents.GameCompleteEvents.onFinishCoinBurstAnimation.Raise();
+        DOTween.KillAll();
+       once = true;
     }
     public void SwitchScreen()
     {

@@ -105,6 +105,7 @@ public class ScaleOutObject : MonoBehaviour
             levelUpScreen.PlayCelebrationSound();
             levelUpScreen.levelUpScreen.SetActive(false);
             levelUpScreen.levelUpFadeScreen.SetActive(true);
+            levelUpScreen.DisableParticleEffects();
             Invoke(nameof(NextLevelPanel), 0.25f);
         }
         StopCoroutine(LevelUpScreenActivation());

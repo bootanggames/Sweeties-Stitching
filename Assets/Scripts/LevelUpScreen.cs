@@ -71,7 +71,13 @@ public class LevelUpScreen : MonoBehaviour, ILevelUpScreen
         }
      
     }
-
+    public void DisableParticleEffects()
+    {
+        foreach (ParticleSystem ps in levelUpEffect)
+        {
+            ps.gameObject.SetActive(true);
+        }
+    }
     public void NextPage(int levelNmbr)
     {
         if (pageScroller != null)

@@ -23,6 +23,8 @@ public class LevelUpScreen : MonoBehaviour, ILevelUpScreen
     [field: SerializeField] public GameObject unlockedPlushieWord { get; private set; }
     [field: SerializeField] public TextMeshProUGUI levelNumber { get; private set; }
 
+    [field: SerializeField] public GameObject homeCanvas { get; private set; }
+
     [SerializeField] ShakerInstance _shakerInstance;
     [SerializeField] ShakeData shakeData;
     private void OnEnable()
@@ -69,7 +71,7 @@ public class LevelUpScreen : MonoBehaviour, ILevelUpScreen
                 ps.Play();
             }
         }
-     
+        CancelInvoke(nameof(GetLevel));
     }
     public void DisableParticleEffects()
     {

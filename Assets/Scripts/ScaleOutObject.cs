@@ -136,6 +136,7 @@ public class ScaleOutObject : MonoBehaviour
         {
             levelUpScreen.levelUpFadeScreen.SetActive(false);
             levelUpScreen.levelUpIntroScreen.SetActive(true);
+            levelUpScreen.homeCanvas.SetActive(false);
             levelUpScreen.PlayLevelUpSongSound();
             this.GetComponent<Image>().enabled = true;
             this.gameObject.SetActive(false);

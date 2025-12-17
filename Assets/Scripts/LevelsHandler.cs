@@ -156,7 +156,7 @@ public class LevelsHandler : Singleton<LevelsHandler>, ILevelHandler
         }
         if(IThreadHandler != null) IThreadHandler.SetUndoValue(true);
         if (coinHandler != null) coinHandler.StopCoinSound();
-        GameEvents.GameCompleteEvents.onFinishCoinBurstAnimation.Raise();
+        //GameEvents.GameCompleteEvents.onFinishCoinBurstAnimation.Raise();
         DOTween.KillAll();
        once = true;
     }

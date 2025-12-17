@@ -21,7 +21,7 @@ public class PlushiesInventory : MonoBehaviour,IPlushieInventory
             SoundManager.instance.StopSound(AudiosSourceContainer.instance.homeScreen);
             SoundManager.instance.PlaySound(AudiosSourceContainer.instance.plushieInventoryScreen, SoundManager.instance.audioClips.plushieInventoryScreenBgSound, true, false, 1.0f, true);
         }
-            
+
     }
     private void OnDisable()
     {
@@ -37,6 +37,24 @@ public class PlushiesInventory : MonoBehaviour,IPlushieInventory
                 SoundManager.instance.PlaySound(AudiosSourceContainer.instance.homeScreen, SoundManager.instance.audioClips.bgMusic, true, false, 1.0f, true);
         }
 
+    }
+    public void BackButtonScreenActivation()
+    {
+        if (MainMenuHandler.instance)
+        {
+            if (MainMenuHandler.instance.activeScreen.Equals(MainMenuActiveScreen.roomDecorScreen))
+            {
+                MainMenuHandler.instance.mainMenuBg.SetActive(false);
+                MainMenuHandler.instance.roomDecorScreen.SetActive(true);
+                MainMenuHandler.instance.plushieInventoryScreen.SetActive(false);
+            }
+            else
+            {
+                MainMenuHandler.instance.homeScreen.SetActive(true);
+                MainMenuHandler.instance.plushieInventoryScreen.SetActive(false);
+
+            }
+        }
     }
     public void NoPlushieIncrement(int c)
     {

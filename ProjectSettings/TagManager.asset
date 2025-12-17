@@ -6,6 +6,7 @@ TagManager:
   tags:
   - StitchPoint
   - needle
+  - FxTemporaire
   layers:
   - Default
   - TransparentFX

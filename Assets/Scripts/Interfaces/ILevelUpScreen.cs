@@ -4,6 +4,7 @@ using UnityEngine;
 
 public interface ILevelUpScreen : IGameService
 {
+    GameObject homeCanvas {  get; }
     GameObject levelUpScreen {  get; }
     GameObject levelUpFadeScreen {  get; }
     GameObject levelUpIntroScreen {  get; }

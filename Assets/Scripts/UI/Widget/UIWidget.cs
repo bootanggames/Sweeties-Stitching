@@ -11,6 +11,7 @@ public class UIWidget : MonoBehaviour
     [Header("UI Elements")]
     
     [SerializeField] protected Image _imageComponent;
+    [SerializeField] protected Outline imgOutline;
     [SerializeField] protected TextMeshProUGUI _labelComponent;
 
     protected UIContext _uiContext;
@@ -30,7 +31,10 @@ public class UIWidget : MonoBehaviour
             component.SetUIContext(_uiContext);
         }
     }
-
+    public int GetContextID()
+    {
+        return _uiContext.ID;
+    }
     public void SetActive(bool status)
     {
         if (_widgetContainer == null)
@@ -66,5 +70,11 @@ public class UIWidget : MonoBehaviour
             return;
         
         _labelComponent.text = labelText;
+    }
+
+    public void EnableDisableOutline(bool val)
+    {
+        //if (_imageComponent.GetComponent<Outline>())
+        imgOutline.enabled = val;
     }
 }

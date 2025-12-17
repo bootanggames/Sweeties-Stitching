@@ -222,6 +222,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -536,6 +537,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 1
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -2227,6 +2229,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -2362,6 +2365,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 1
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -2497,6 +2501,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -3065,6 +3070,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -3290,6 +3296,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 1
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 1
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -3571,6 +3578,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -3885,6 +3893,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -4020,6 +4029,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 1
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -4155,6 +4165,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -4469,6 +4480,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -4604,6 +4616,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -4918,6 +4931,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 1
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -5053,6 +5067,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 1
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -5188,6 +5203,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 1
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -5860,6 +5876,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 1
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -5995,6 +6012,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -6715,6 +6733,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 1
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -7046,6 +7065,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -7181,6 +7201,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -7674,6 +7695,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 1
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -7988,6 +8010,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -8123,6 +8146,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 1
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -8633,6 +8657,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -8947,6 +8972,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 1
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -9171,6 +9197,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 1
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -9502,6 +9529,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -9906,6 +9934,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 1
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -10220,6 +10249,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -10534,6 +10564,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -10848,6 +10879,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 1
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -10983,6 +11015,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -11118,6 +11151,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -11744,6 +11778,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 1
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -12941,6 +12976,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 1
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 1
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -13076,6 +13112,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 1
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -13765,6 +13802,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 1
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -13990,6 +14028,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -14522,6 +14561,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -14853,6 +14893,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -15078,7 +15119,7 @@ Transform:
   m_GameObject: {fileID: 3067445682976149592}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.66, y: 0.67, z: 0}
+  m_LocalPosition: {x: -0.66, y: 0.67, z: 0.24}
   m_LocalScale: {x: 1.2822864, y: 1.4098964, z: 1.7180172}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -15274,6 +15315,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -15409,6 +15451,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 1
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -15544,6 +15587,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -15988,6 +16032,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 1
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -16212,6 +16257,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 1
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -16347,6 +16393,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -16841,6 +16888,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 1
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -17193,6 +17241,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 1
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -17328,6 +17377,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -17357,7 +17407,7 @@ Transform:
   m_GameObject: {fileID: 3652154926874848594}
   serializedVersion: 2
   m_LocalRotation: {x: -0.012623946, y: -0.02878506, z: -0.1713111, w: 0.98471546}
-  m_LocalPosition: {x: 11.5, y: 20.3, z: 0}
+  m_LocalPosition: {x: 11.5, y: 20.3, z: 0.24}
   m_LocalScale: {x: 2.1317124, y: 2.0633104, z: 0.6270244}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -18469,6 +18519,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -19118,6 +19169,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -19253,6 +19305,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -19388,6 +19441,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 1
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -20077,6 +20131,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 1
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 1
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -21005,6 +21060,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -21460,6 +21516,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -21595,6 +21652,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -22511,6 +22569,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -22856,6 +22915,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 1
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -22991,6 +23051,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -23126,6 +23187,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -23261,6 +23323,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 1
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -23396,6 +23459,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -23531,6 +23595,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 1
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -24243,6 +24308,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -24378,6 +24444,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 1
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -25229,6 +25296,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -25364,6 +25432,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 1
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 1
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -25499,6 +25568,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -26316,6 +26386,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 1
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -27730,6 +27801,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 1
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -28044,6 +28116,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -28179,6 +28252,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -28582,6 +28656,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 1
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -28913,6 +28988,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 1
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -29048,6 +29124,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -29278,6 +29355,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -29449,6 +29527,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 1
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -29794,6 +29873,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -29929,6 +30009,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -30601,6 +30682,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -30736,6 +30818,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 1
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -30969,6 +31052,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 1
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -31104,6 +31188,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -31543,6 +31628,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -32215,6 +32301,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -32935,6 +33022,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -34121,6 +34209,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 1
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -34291,6 +34380,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 1
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -34605,6 +34695,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -35098,6 +35189,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 1
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -35661,6 +35753,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 1
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -35796,6 +35889,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 1
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -35931,6 +36025,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -37051,6 +37146,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -37723,6 +37819,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -37858,6 +37955,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 1
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -37993,6 +38091,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 1
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -38128,6 +38227,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -39848,6 +39948,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -40358,6 +40459,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 1
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -40493,6 +40595,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 1
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -40824,6 +40927,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -41049,6 +41153,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -41184,6 +41289,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -42747,6 +42853,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -43330,6 +43437,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -43465,6 +43573,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -43882,6 +43991,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -44017,6 +44127,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 1
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -44689,6 +44800,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}

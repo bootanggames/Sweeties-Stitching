@@ -9,7 +9,7 @@ public abstract class ScreenWithSelectableButtons<T> : MonoBehaviour where T : B
     [SerializeField] protected T _buttonPrefab;
     [SerializeField] private Transform _containerRect;
 
-    private List<T> _buttons = new();
+    protected List<T> _buttons = new();
 
     public void Refresh()
     {
@@ -42,6 +42,5 @@ public abstract class ScreenWithSelectableButtons<T> : MonoBehaviour where T : B
     {
         
     }
-    
     protected abstract void OnItemButtonClicked(UIContext context);
 }

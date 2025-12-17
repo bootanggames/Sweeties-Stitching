@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class DecorItemsInventory : ScreenWithSelectableButtons<DecoreItemStoreButton>
 {
@@ -84,11 +86,22 @@ public class DecorItemsInventory : ScreenWithSelectableButtons<DecoreItemStoreBu
             SpawnButton(context);
         }
     }
-
+    public void DisableButtonOutline(UIContext context)
+    {
+        foreach (DecoreItemStoreButton b in  _buttons)
+        {
+            UIWidget uIWidget = b.GetComponent<UIWidget>();
+            if (!context.ID.Equals(uIWidget.GetContextID()))
+                   uIWidget.EnableDisableOutline(false);
+            else
+                uIWidget.EnableDisableOutline(true);
+        }
+    }
     protected override void OnItemButtonClicked(UIContext context)
     {
         itemName = (DecorItemName)context.ID;
         useButtonObj.SetActive(true);
+        DisableButtonOutline(context);
         //GameEvents.RoomDecorEvents.DecorItemSelected.Raise(itemName, _itemType);
         //_container.SetActive(false);
     }

@@ -4,7 +4,7 @@ public class Plushie_ShelfContainer : MonoBehaviour
 {
     public PlushieContainer[] plushieShelf;
     IPlushieInventory inventory;
-    public DecorItemName itemName;
+    public ItemName itemName;
     private void OnEnable()
     {
         inventory = ServiceLocator.GetService<IPlushieInventory>();

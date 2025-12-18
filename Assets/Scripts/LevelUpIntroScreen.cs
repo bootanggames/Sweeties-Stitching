@@ -24,7 +24,7 @@ public class LevelUpIntroScreen : MonoBehaviour
         levelNumberText.text = "Level "+(levelIndex + 1).ToString();
         levelUpScreen = ServiceLocator.GetService<ILevelUpScreen>();
         //renderTexture.SetActive(true);
-        levelUpScreen.levelUpCamera.SetActive(false);
+        //levelUpScreen.levelUpCamera.SetActive(false);
         levelUpScreen.homeScreen.SetVolumeForBgMusic(0.5f);
         foreach (PlushieSpriteContainer container in pageSliderContainer)
         {
@@ -32,7 +32,7 @@ public class LevelUpIntroScreen : MonoBehaviour
             {
                 for (int i = 0; i < plishieObj.Length; i++)
                 {
-                    LevelUpPlushieInfo plushieInfo = plishieObj[i].GetComponent<LevelUpPlushieInfo>();
+                    LevelUpPlushieInfo plushieInfo = plishieObj[i].GetComponentInChildren<LevelUpPlushieInfo>();
                     plushieInfo.plushie.sprite = container.plushieDetail[i].plushie;
                     plushieInfo.plushieName.text = container.plushieDetail[i].plushieName;
                 }
@@ -56,11 +56,10 @@ public class LevelUpIntroScreen : MonoBehaviour
             //this.gameObject.SetActive(false);
             foreach (GameObject g in plishieObj)
             {
-                LevelUpPlushieInfo plushie = g.GetComponent<LevelUpPlushieInfo>();
-                plushie.effect.SetActive(false);
+                LevelUpPlushieInfo plushie = g.GetComponentInChildren<LevelUpPlushieInfo>();
+                //plushie.effect.SetActive(false);
+                plushie.transform.localScale = Vector3.zero;
                 g.SetActive(false);
-                g.transform.localScale = Vector3.zero;
-
             }
             index = 0;
         }
@@ -72,12 +71,13 @@ public class LevelUpIntroScreen : MonoBehaviour
             Invoke(nameof(ResetScreen), 1.5f);
             return;
         }
-       
+       if(index > 0)
+            plishieObj[index - 1].GetComponentInChildren<LevelUpPlushieInfo>().effect.SetActive(false);
         currentPlushie = plishieObj[index];
         currentPlushie.SetActive(true);
-        LevelUpPlushieInfo plushie = currentPlushie.GetComponent<LevelUpPlushieInfo>();
+        LevelUpPlushieInfo plushie = currentPlushie.GetComponentInChildren<LevelUpPlushieInfo>();
 
-        currentTween = GameEvents.DoTweenAnimationHandlerEvents.onScaleTransform.Raise(currentPlushie.transform, new Vector3(1.5f,1.5f,1.5f), speed, Ease.Linear);
+        currentTween = GameEvents.DoTweenAnimationHandlerEvents.onScaleTransform.Raise(plushie.transform, new Vector3(1.5f,1.5f,1.5f), speed, Ease.Linear);
 
         if (currentTween != null )
         {
@@ -90,8 +90,9 @@ public class LevelUpIntroScreen : MonoBehaviour
                 plushie.effect.GetComponent<ParticleSystem>().Play();
                 plushie.PlaySound();
 
-                plishieObj[index].transform.DOScale(Vector3.one, speed).SetEase(Ease.Linear).OnComplete(() =>
+                plushie.transform.DOScale(Vector3.one, speed).SetEase(Ease.Linear).OnComplete(() =>
                 {
+                    //plushie.effect.SetActive(false);
                     index++;
                     EnableInSequence();
                 });
@@ -102,17 +103,5 @@ public class LevelUpIntroScreen : MonoBehaviour
 
     }
 
-    //IEnumerator EnableEffect(LevelUpPlushieInfo plushie, float delay)
-    //{
-    //    yield return new WaitForSeconds(delay);
-    //    if (plushie.effect)
-    //    {
-    //        plushie.effect.SetActive(true);
-    //        plushie.effect.GetComponent<ParticleSystem>().Play();
-    //        yield return new WaitForSeconds(delay);
-    //        plushie.effect.SetActive(false);
-    //    }
-
-    //    StopCoroutine(EnableEffect(plushie, delay ));
-    //}
+   
 }

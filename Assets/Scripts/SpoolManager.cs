@@ -43,7 +43,7 @@ public class SpoolManager : MonoBehaviour,ISpoolManager
         foreach(GameObject g in spoolList)
         {
             SpoolInfo sInfo = g.GetComponent<SpoolInfo>();
-            g.GetComponent<Image>().sprite = sp;
+            //g.GetComponent<Image>().sprite = sp;
             Image spImage = sInfo.spoolImage;
             spImage.sprite = sp;
         }

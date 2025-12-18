@@ -10,7 +10,6 @@ public class RoomdecorStore : MonoBehaviour, IRoomdecorStore
     [field: SerializeField] public Canvas canvas { get; private set; }
     [field: SerializeField] public bool repositionItem { get; private set; }
     [field: SerializeField] public bool changeItem { get; private set; }
-    [field: SerializeField] public List<StoreItemData> itemSpriteData { get; private set; }
     [field: SerializeField] public GameObject myItemsScreen {  get; private set; }
     [field: SerializeField] public GameObject changeMyRoomScreen {  get; private set; }
     [field: SerializeField] public GameObject myRoomScreen {  get; private set; }

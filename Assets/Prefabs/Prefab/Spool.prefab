@@ -26,7 +26,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6484686384905663230}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -60,14 +60,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 0.3207547, g: 0.31318974, b: 0.31318974, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 9e89b62fb6e939542b7657c12c83ad5f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: fa2ff5bf3159c7740b61b72f078b348c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -89,8 +89,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34e6ceba2bfd8b5438eeecf108670a83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  remainigThreads: 0
-  totalThreadsInSpool: 0
+  _spoolData:
+    spoolId: 0
+    totalThreadsInSpool: 0
+    noOfStitchedDone: 0
   undoPosition: {fileID: 2406434579186121036}
   spoolImage: {fileID: 2989242325390068633}
 --- !u!1 &7418767833568391565

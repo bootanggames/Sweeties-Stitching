@@ -7,8 +7,8 @@ public class RoomItem : MonoBehaviour
    //[SerializeField] private Button _decorButton;
    [SerializeField] private Image _decorImage;
 
-   [field:SerializeField] public DecorItemType _decorItemType {  get; private set; }
-   [SerializeField] private DecorItemRepositorySO _repository;
+   [field:SerializeField] public ItemType _decorItemType {  get; private set; }
+   [SerializeField] private ItemRepository _repository;
 
    private bool _canChange = false;
     UpdateRoom upgradeRoom;
@@ -40,21 +40,21 @@ public class RoomItem : MonoBehaviour
         _decorImage.sprite = itemSprite;
 
     }
-    private void OnDecorItemSelected(DecorItemName decorItemName, DecorItemType decorItemType)
+    private void OnDecorItemSelected(ItemName decorItemName, ItemType decorItemType)
    {
       Debug.Log($"OnDecorItemSelected {decorItemType}");
       if (decorItemType != _decorItemType)
          return;
-        if (!decorItemType.Equals(DecorItemType.SHELF))
+        if (!decorItemType.Equals(ItemType.SHELF))
             _decorImage.sprite = _repository.GetItem(decorItemName).ItemSprite;
         else
             upgradeRoom.UpdateShelf(decorItemName);
         SaveItems(decorItemType, decorItemName.ToString());
     }
 
-    public void SaveItems(DecorItemType itemType, string itemName)
+    public void SaveItems(ItemType itemType, string itemName)
     {
-        foreach (DecorIteamMetaDataSO metaData in _repository.GetItemsByType(itemType))
+        foreach (ItemsMetaData metaData in _repository.GetItemsByType(itemType))
         {
             PlayerPrefs.SetInt(metaData.ItemName.ToString(), 0);
         }

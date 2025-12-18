@@ -22888,7 +22888,7 @@ SpriteRenderer:
   m_Size: {x: 8.06, y: 10.24}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &248213931
@@ -86799,6 +86799,7 @@ MonoBehaviour:
   startGame: 1
   levelUp: 0
   levelIntro: 0
+  jackPotWord: 0
 --- !u!1 &773063505
 GameObject:
   m_ObjectHideFlags: 0
@@ -107437,6 +107438,7 @@ MonoBehaviour:
   startGame: 0
   levelUp: 0
   levelIntro: 0
+  jackPotWord: 0
 --- !u!1 &860868806 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 22016787045833480, guid: 5218fcc80a0822d46a8fcace1752dc11, type: 3}

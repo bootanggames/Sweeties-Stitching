@@ -2,10 +2,10 @@ using UnityEngine;
 
 public class DecoreItemStoreButton : GameStoreButton
 {
-    public DecorItemName DecorItemName { get; private set; }
-    public DecorItemType DecorItemType { get; private set; }
+    public ItemName DecorItemName { get; private set; }
+    public ItemType DecorItemType { get; private set; }
     
-    public void SetDecorItemData(DecorItemName decorItemName,DecorItemType decorItemType)
+    public void SetDecorItemData(ItemName decorItemName, ItemType decorItemType)
     {
         DecorItemName = decorItemName;
         DecorItemType = decorItemType;

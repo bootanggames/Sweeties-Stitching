@@ -14,7 +14,7 @@ public class LevelUpScreen : MonoBehaviour, ILevelUpScreen
     [field: SerializeField] public GameObject confettiCameraRenderObj { get; private set; }
     [SerializeField] PageScroller pageScroller;
     [SerializeField] PageSlider pageSlider;
-    [SerializeField] LevelUpPlushieInfo[] plushieInfo;
+    //[SerializeField] LevelUpPlushieInfo[] plushieInfo;
     [SerializeField] AudioSource audioSource;
     [field: SerializeField]public HomeScreenSound homeScreen {  get; private set; }
     [field: SerializeField] public GameObject renderTextureImageObj { get; private set; }

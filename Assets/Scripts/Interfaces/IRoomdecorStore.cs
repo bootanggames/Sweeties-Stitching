@@ -8,7 +8,6 @@ public interface IRoomdecorStore : IGameService
     GameObject changeMyRoomScreen {  get; }        
     GameObject myRoomScreen {  get; }        
     Canvas canvas {  get; }
-    List<StoreItemData> itemSpriteData { get; }
     bool repositionItem { get; }
     bool changeItem { get; }
     void RepositionItem(bool val);

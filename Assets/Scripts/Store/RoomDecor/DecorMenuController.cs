@@ -16,16 +16,16 @@ public class DecorMenuController : MonoBehaviour
 
   private void Start()
   {
-    _bedsButton.onClick.AddListener(() => ShowInventory(DecorItemType.BED));
-    _shelfButton.onClick.AddListener(() => ShowInventory(DecorItemType.SHELF));
-    _machineButton.onClick.AddListener(() => ShowInventory(DecorItemType.SEWING_MACHINE));
+    _bedsButton.onClick.AddListener(() => ShowInventory(ItemType.BED));
+    _shelfButton.onClick.AddListener(() => ShowInventory(ItemType.SHELF));
+    _machineButton.onClick.AddListener(() => ShowInventory(ItemType.SEWING_MACHINE));
     
-    _ceilingButton.onClick.AddListener(() => ShowInventory(DecorItemType.ROOF));
-    _wallsButton.onClick.AddListener(() => ShowInventory(DecorItemType.WALL));
-    _floorsButton.onClick.AddListener(() => ShowInventory(DecorItemType.FLOOR));
+    _ceilingButton.onClick.AddListener(() => ShowInventory(ItemType.ROOF));
+    _wallsButton.onClick.AddListener(() => ShowInventory(ItemType.WALL));
+    _floorsButton.onClick.AddListener(() => ShowInventory(ItemType.FLOOR));
   }
 
-  void ShowInventory(DecorItemType itemType)
+  void ShowInventory(ItemType itemType)
   {
     _decorItemsInventory.ShowByType(itemType);
   }

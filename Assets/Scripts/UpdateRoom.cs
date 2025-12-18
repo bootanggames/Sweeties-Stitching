@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class UpdateRoom : MonoBehaviour
 {
-    [SerializeField] private DecorItemRepositorySO _repository;
+    [SerializeField] private ItemRepository _repository;
     [SerializeField] List<RoomItem> roomitem;
 
     [field: SerializeField] public bool saveRoom {  get; private set; }
@@ -25,10 +25,10 @@ public class UpdateRoom : MonoBehaviour
     {
         foreach (RoomItem item in roomitem)
         {
-            foreach (DecorIteamMetaDataSO metaData in _repository.GetItemsByType(item._decorItemType))
+            foreach (ItemsMetaData metaData in _repository.GetItemsByType(item._decorItemType))
             {
                 int state = PlayerPrefs.GetInt(metaData.ItemName.ToString());
-                if (!item._decorItemType.Equals(DecorItemType.SHELF))
+                if (!item._decorItemType.Equals(ItemType.SHELF))
                 {
                     if (state == 1)
                         item.ChangeItemImage(_repository.GetItem(metaData.ItemName).ItemSprite);
@@ -44,7 +44,7 @@ public class UpdateRoom : MonoBehaviour
         }
        
     }
-    public void UpdateShelf(DecorItemName _itemName)
+    public void UpdateShelf(ItemName _itemName)
     {
         foreach (GameObject g in shelf)
         {

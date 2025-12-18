@@ -8,11 +8,11 @@ using UnityEngine.UI;
 public class DecorItemsInventory : ScreenWithSelectableButtons<DecoreItemStoreButton>
 {
     [SerializeField] private GameObject _container;
-    [SerializeField] private DecorItemRepositorySO _decorItemRepository;
+    [SerializeField] private ItemRepository _decorItemRepository;
     [SerializeField] AudioSource _audiosSource;
-    DecorItemName itemName;
+    ItemName itemName;
     [SerializeField] GameObject useButtonObj;
-    private DecorItemType _itemType = DecorItemType.BED;
+    private ItemType _itemType = ItemType.BED;
 
     private void Start()
     {
@@ -46,13 +46,13 @@ public class DecorItemsInventory : ScreenWithSelectableButtons<DecoreItemStoreBu
     }
     public void ShowWithBeds()
     {
-        OnShowDecorItemsInventory(DecorItemType.BED);
+        OnShowDecorItemsInventory(ItemType.BED);
     }
     public void ShowWithFloor()
     {
-        OnShowDecorItemsInventory(DecorItemType.FLOOR);
+        OnShowDecorItemsInventory(ItemType.FLOOR);
     }
-    private void OnShowDecorItemsInventory(DecorItemType decorItemType)
+    private void OnShowDecorItemsInventory(ItemType decorItemType)
     {
         _itemType = decorItemType;
         Debug.LogError($"OnShowDecorItemsInventory {decorItemType}");
@@ -66,15 +66,15 @@ public class DecorItemsInventory : ScreenWithSelectableButtons<DecoreItemStoreBu
         SpawnButtons(_itemType);
     }
 
-    public void ShowByType(DecorItemType decorItemType)
+    public void ShowByType(ItemType decorItemType)
     {
         OnShowDecorItemsInventory(decorItemType);
     }
     
-    private void SpawnButtons(DecorItemType decorItemType)
+    private void SpawnButtons(ItemType decorItemType)
     {
-        List<DecorIteamMetaDataSO> items = _decorItemRepository.GetItemsByType(decorItemType);
-        foreach (DecorIteamMetaDataSO item in items)
+        List<ItemsMetaData> items = _decorItemRepository.GetItemsByType(decorItemType);
+        foreach (ItemsMetaData item in items)
         {
             UIContext context = new()
             {
@@ -99,7 +99,7 @@ public class DecorItemsInventory : ScreenWithSelectableButtons<DecoreItemStoreBu
     }
     protected override void OnItemButtonClicked(UIContext context)
     {
-        itemName = (DecorItemName)context.ID;
+        itemName = (ItemName)context.ID;
         useButtonObj.SetActive(true);
         DisableButtonOutline(context);
         //GameEvents.RoomDecorEvents.DecorItemSelected.Raise(itemName, _itemType);

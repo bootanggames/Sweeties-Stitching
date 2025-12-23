@@ -13,8 +13,9 @@ public class RoomdecorStore : MonoBehaviour, IRoomdecorStore
     [field: SerializeField] public GameObject myItemsScreen {  get; private set; }
     [field: SerializeField] public GameObject changeMyRoomScreen {  get; private set; }
     [field: SerializeField] public GameObject myRoomScreen {  get; private set; }
+    [field: SerializeField] public GameObject bedroom { get; private set; }
+
     [SerializeField] GameObject backButton_MyItemScreen;
-    [SerializeField] GameObject backButton_MyItemScreen_IfRepositionTrue;
     [SerializeField] GameObject myItemButton;
     [SerializeField] GameObject storeButton;
     [SerializeField] TextMeshProUGUI coinText;
@@ -42,34 +43,20 @@ public class RoomdecorStore : MonoBehaviour, IRoomdecorStore
         GameEvents.RoomDecorEvents.SetRoomDecorPermissionStatus.Raise(!val);
     }
 
-    public void MyItemsBackButton()
-    {
-        if (repositionItem)
-        {
-            backButton_MyItemScreen_IfRepositionTrue.SetActive(true);
-            backButton_MyItemScreen.SetActive(false);
-        }
-        else
-        {
-            backButton_MyItemScreen.SetActive(true);
-            backButton_MyItemScreen_IfRepositionTrue.SetActive(false);
-        }
-    }
+    
     public void MyItemsButton(bool val)
     {
+        UpdateRoom room = bedroom.GetComponent<UpdateRoom>();
+
         if (repositionItem)
         {
-            //backButton_MyItemScreen_IfRepositionTrue.SetActive(true);
-            //backButton_MyItemScreen.SetActive(false);
-            //EnableDisableMyRoomScreen(!val);
+            room.UpdateRoomState("move");
             EnableDisableMItemsScreen(val);
             EnableDisableChangeRoomUiParent(!val);
         }
         else
         {
-            //backButton_MyItemScreen.SetActive(true);
-            //backButton_MyItemScreen_IfRepositionTrue.SetActive(false);
-            //EnableDisableChangeRoomUiParent(!val);
+            room.UpdateRoomState("decor");
             EnableDisableMyRoomScreen(!val);
             EnableDisableMItemsScreen(val);
         }
@@ -100,5 +87,17 @@ public class RoomdecorStore : MonoBehaviour, IRoomdecorStore
     public void UnRegisterService()
     {
         ServiceLocator.UnRegisterService<IRoomdecorStore>(this);
+    }
+
+    public void ChangeBedroomComponents(bool val)
+    {
+        UpdateRoom room = bedroom.GetComponent<UpdateRoom>();       
+        if (room != null)
+        {
+            foreach(RoomItem g in room.roomitem)
+            {
+                g.EnableDisableItemComponents(val);
+            }
+        }
     }
 }

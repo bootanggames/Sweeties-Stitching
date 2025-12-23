@@ -27,19 +27,21 @@ public class GameCompleteHandler : MonoBehaviour, IGameService
     ICoinsHandler coinsHandler;
     ICanvasUIManager canvasHandler;
     IPlushieStoreHandler plushieInventory;
+    //IJackpotHandler jackpotHandler;
     private void OnEnable()
     {
         RegisterService();
         coinsHandler = ServiceLocator.GetService<ICoinsHandler>();
         canvasHandler = ServiceLocator.GetService<ICanvasUIManager>();
         plushieInventory = ServiceLocator.GetService<IPlushieStoreHandler>();
-
+        //jackpotHandler = ServiceLocator.GetService<IJackpotHandler>();
     }
     private void Start()
     {
         coinsHandler = ServiceLocator.GetService<ICoinsHandler>();
         canvasHandler = ServiceLocator.GetService<ICanvasUIManager>();
         plushieInventory = ServiceLocator.GetService<IPlushieStoreHandler>();
+        //jackpotHandler = ServiceLocator.GetService<IJackpotHandler>();
     }
     private void OnDisable()
     {
@@ -117,6 +119,7 @@ public class GameCompleteHandler : MonoBehaviour, IGameService
             rt.DOScale(1, speed).SetEase(Ease.Linear).OnComplete(() =>
             {
                 canvasHandler.PlayBgMusic();
+                GameHandler.instance.SwitchGameState(GameStates.jackpotScreen);
                 //if (coinsHandler != null)
                 //{
                 //    coinsHandler.CreateCoinsObjects();
@@ -130,6 +133,7 @@ public class GameCompleteHandler : MonoBehaviour, IGameService
     void EnhanceGiggleSoundVolume()
     {
         SoundManager.instance.audioSource.volume = 1;
+        //jackpotHandler.ShowJackPotScreen();
     }
     void PlayCelebrationTrumpetSound()
     {
@@ -152,7 +156,7 @@ public class GameCompleteHandler : MonoBehaviour, IGameService
     void PlaySoundCoinBagExploding()
     {
         //SoundManager.instance.ResetAudioSource();
-        SoundManager.instance.audioSource.volume = 0.6f;
+        SoundManager.instance.audioSource.volume = 1.0f;
         _coinBurstParentObject.AddComponent<AudioSource>();
         AudioSource source = _coinBurstParentObject.GetComponent<AudioSource>();
         AudioClip _clip = SoundManager.instance.audioClips.coinBagExploding;
@@ -256,4 +260,6 @@ public class GameCompleteHandler : MonoBehaviour, IGameService
         }
         CancelInvoke(nameof( EnableSewnWord));
     }
+
+  
 }

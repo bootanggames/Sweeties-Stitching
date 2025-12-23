@@ -43,7 +43,7 @@ public class ScaleOutObject : MonoBehaviour
                 else if (levelIntro)
                     LevelIntroScreen();
                 else if (jackPotWord)
-                    JackPot();
+                    Invoke(nameof(JackPot), 1);
                 else
                     GameComplete();
             });
@@ -109,7 +109,7 @@ public class ScaleOutObject : MonoBehaviour
             levelUpScreen.levelUpScreen.SetActive(false);
             levelUpScreen.levelUpFadeScreen.SetActive(true);
             levelUpScreen.DisableParticleEffects();
-            Invoke(nameof(NextLevelPanel), 0.25f);
+            Invoke(nameof(NextLevelPanel), 0.2f);
         }
         StopCoroutine(LevelUpScreenActivation());
         //CancelInvoke(nameof(LevelUpScreenActivation));
@@ -124,7 +124,7 @@ public class ScaleOutObject : MonoBehaviour
 
         }
 
-        Invoke(nameof(EnableWordUnlockedPlushies), 0.25f);
+        Invoke(nameof(EnableWordUnlockedPlushies), 0.2f);
         //Invoke(nameof(LevelIntroScreen), 2.5f);
         CancelInvoke(nameof(NextLevelPanel));
     }
@@ -149,6 +149,10 @@ public class ScaleOutObject : MonoBehaviour
 
     void JackPot()
     {
-
+        JackpotMachine j_machine = gameObject.GetComponentInParent<JackpotMachine>();
+        j_machine.UIObject.SetActive(true);
+        j_machine.jackPotMachineObject.SetActive(true);
+        j_machine.jackpotWord.SetActive(false);
+        //GameHandler.instance.SwitchGameState(GameStates.Gamecomplete);
     }
 }

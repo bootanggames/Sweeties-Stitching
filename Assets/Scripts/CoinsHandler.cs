@@ -76,12 +76,20 @@ public class CoinsHandler : MonoBehaviour,ICoinsHandler
     {
         for (int i = 0; i < total; i++)
         {
-            GameObject g = Instantiate(coinObj, parent, false);
-            if (!coinList.Contains(g)) coinList.Add(g);
-            g.transform.SetParent(parent);
-            g.transform.localPosition = new Vector3(0, 0, -1);
-            g.transform.localEulerAngles = Vector3.zero;
+            InstantiateSingleCoin(coinObj, coinList, parent);
+
         }
+    }
+
+    public void InstantiateSingleCoin(GameObject coinObj,List<GameObject> coinList, Transform parent)
+    {
+        GameObject g = Instantiate(coinObj, parent, false);
+        if (!coinList.Contains(g)) coinList.Add(g);
+        g.transform.SetParent(parent);
+        g.transform.localPosition = new Vector3(0, 0, -1);
+        g.transform.localEulerAngles = Vector3.zero;
+        //coinList.AddRange(coinsObjList);
+        //Debug.LogError(" " + coinList.Count);
     }
     public void CreateCoinsObjects()
     {
@@ -100,16 +108,20 @@ public class CoinsHandler : MonoBehaviour,ICoinsHandler
     public IEnumerator MoveCoins(List<GameObject> coinList,Transform _target, GameObject coinsBarObj, float moveSpeed, Ease moveEase,float delay,bool randomSpeed)
     {
         Sequence seq = DOTween.Sequence();
-
+        GameObject coinObj = null;
         for (int i = 0; i < coinList.Count; i++)
         {
             if (randomSpeed)
             {
-                float speed = Random.Range(0.15f, 1.0f);
+                float speed = Random.Range(0.01f, 1.0f);
                 moveSpeed = speed;
             }
 
-            GameObject coinObj = coinList[i];
+            coinObj = coinList[i];
+            //coinObj.AddComponent<AudioSource>();
+            //AudioSource s = coinObj.GetComponent<AudioSource>();
+            //PlayCoinSound(s);
+            //Debug.LogError("coin movement" + coinList.Count);
             seq.Join(
                 GameEvents.DoTweenAnimationHandlerEvents.onMoveToTargetAnimation
                     .Raise(coinObj.transform, _target.position, moveSpeed, moveEase).SetDelay(delay)
@@ -119,38 +131,54 @@ public class CoinsHandler : MonoBehaviour,ICoinsHandler
                 GameEvents.DoTweenAnimationHandlerEvents.onScaleTransform
                     .Raise(coinObj.transform, targetScaleDown, moveSpeed, Ease.Linear).SetDelay(delay)
             );
-
         }
 
         seq.OnComplete(() =>
         {
-            SaveCoins(1);
-            PlayCoinSound();
+            //SaveCoins(1);
+            //if (coinObj != null)
+            //{
+            //    coinObj.AddComponent<AudioSource>();
+            //    AudioSource s = coinObj.GetComponent<AudioSource>();
+            //    PlayCoinSound(s);
+            //}
+            //Debug.LogError("Seq complete");
+            //Vector3 target = new Vector3(1.2f, 1.2f, 1.2f);
 
-            Vector3 target = new Vector3(1.2f, 1.2f, 1.2f);
+            //Tween bar = GameEvents.DoTweenAnimationHandlerEvents.onScaleTransform
+            //    .Raise(coinsBarObj.transform, target, 0.1f, Ease.InOutFlash);
 
-            Tween bar = GameEvents.DoTweenAnimationHandlerEvents.onScaleTransform
-                .Raise(coinsBarObj.transform, target, 0.1f, Ease.InOutFlash);
-
-            bar.OnComplete(() =>
-            {
-            bar.Kill();
-            StopCoroutine(MoveCoins(coinList, _target, coinsBarObj, moveSpeed, moveEase, delay, randomSpeed));
-                GameEvents.DoTweenAnimationHandlerEvents.onScaleTransform
-                    .Raise(coinsBarObj.transform, Vector3.one, 0.1f, Ease.InOutFlash);
-            });
+            //bar.OnComplete(() =>
+            //{
+            //    bar.Kill();
+            //    StopCoroutine(MoveCoins(coinList, _target, coinsBarObj, moveSpeed, moveEase, delay, randomSpeed));
+            //    GameEvents.DoTweenAnimationHandlerEvents.onScaleTransform
+            //        .Raise(coinsBarObj.transform, Vector3.one, 0.1f, Ease.InOutFlash);
+            //});
         });
 
         yield return seq.WaitForCompletion();
     }
 
-    void PlayCoinSound()
+   public void PlayCoinSound(AudioSource s)
     {
         //audioSource.Stop();
-        SoundManager.instance.StopSound(audioSource);
-        SoundManager.instance.PlaySound(audioSource, SoundManager.instance.audioClips.coinCollection, false, false, 1, false);
+        //SoundManager.instance.StopSound(s);
+        SoundManager.instance.PlaySound(s, SoundManager.instance.audioClips.coinCollection, false, false, 1, false);
         HepticManager.instance.HapticEffect();
-        Invoke(nameof(StopCoinSound), 4);
+        Vector3 target = new Vector3(1.2f, 1.2f, 1.2f);
+
+        Tween bar = GameEvents.DoTweenAnimationHandlerEvents.onScaleTransform
+            .Raise(coinBarForGameplayScreen.transform, target, 0.1f, Ease.InOutFlash);
+
+        bar.OnComplete(() =>
+        {
+            GameEvents.DoTweenAnimationHandlerEvents.onScaleTransform
+            .Raise(coinBarForGameplayScreen.transform, Vector3.one, 0.1f, Ease.InOutFlash);
+            bar.Kill();
+
+        });
+        Invoke(nameof(StopCoinSound), 1);
     }
     public void StopCoinSound()
     {
@@ -179,7 +207,7 @@ public class CoinsHandler : MonoBehaviour,ICoinsHandler
         {
             coinIncrementTween.OnUpdate(() =>
             {
-                Invoke(nameof(PlayCoinSound), 0.1f);
+                //Invoke(nameof(PlayCoinSound), 0.1f);
             });
         }
        
@@ -189,6 +217,21 @@ public class CoinsHandler : MonoBehaviour,ICoinsHandler
             coinIncrementTween = null;
         });
         //PlayCoinSound();
-        //InvokeRepeating(nameof(PlayCoinSound), 0, 0.12f);
+        //PlayCoinSoundOnComplete();
+
+        InvokeRepeating(nameof(PlayCoinSoundOnComplete), 0, 0.1f);
+    }
+
+    public void PlayCoinSoundOnComplete()
+    {
+        //audioSource.Stop();
+        SoundManager.instance.StopSound(audioSource);
+        SoundManager.instance.PlaySound(audioSource, SoundManager.instance.audioClips.coinCollection, false, false, 1, false);
+        HepticManager.instance.HapticEffect();
+        Invoke(nameof(StopCoinSoundOnComplete), 3);
+    }
+    public void StopCoinSoundOnComplete()
+    {
+        CancelInvoke(nameof(PlayCoinSoundOnComplete));
     }
 }

@@ -26,6 +26,7 @@ public class NeedleMovement : MonoBehaviour,INeedleMovement
         GameEvents.NeedleEvents.onGettingNeedleTransform.Register(GetNeedle);
         GameEvents.NeedleEvents.onNeedleActiveStatusUpdate.Register(HandleNeedleActiveStatus);
         GameEvents.NeedleEvents.onNeedleRotation.Register(NeedleRotation);
+        GameEvents.NeedleEvents.onResetNeedle.Register(ResetNeedlePositionAndRotation);
     }
 
     public void UnRegisterService()
@@ -36,14 +37,18 @@ public class NeedleMovement : MonoBehaviour,INeedleMovement
         GameEvents.NeedleEvents.onGettingNeedleTransform.UnRegister(GetNeedle);
         GameEvents.NeedleEvents.onNeedleActiveStatusUpdate.UnRegister(HandleNeedleActiveStatus);
         GameEvents.NeedleEvents.onNeedleRotation.UnRegister(NeedleRotation);
-
+        GameEvents.NeedleEvents.onResetNeedle.UnRegister(ResetNeedlePositionAndRotation);
     }
 
     public void MoveNeedle(Vector3 pos)
     {
         needleParent.position = pos;
     }
-
+    public void ResetNeedlePositionAndRotation(Vector3 pos, Vector3 rotation)
+    {
+        needleParent.position = pos;
+        needleParent.eulerAngles = rotation;
+    }
     public Vector3 GetPosition()
     {
         return needleParent.position;

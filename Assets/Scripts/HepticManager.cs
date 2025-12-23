@@ -1,5 +1,4 @@
 using MoreMountains.NiceVibrations;
-using UnityEngine;
 
 public class HepticManager : Singleton<HepticManager>
 {
@@ -18,5 +17,9 @@ public class HepticManager : Singleton<HepticManager>
     {
         MMVibrationManager.SetHapticsActive(true);
         MMVibrationManager.Haptic(HapticTypes.Success, false, true, this);
+    }
+    public void StopHaptics()
+    {
+        MMVibrationManager.SetHapticsActive(false);
     }
 }

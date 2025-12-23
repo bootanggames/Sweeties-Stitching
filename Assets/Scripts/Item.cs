@@ -33,10 +33,10 @@ public class Item : MonoBehaviour,IPointerDownHandler,IDragHandler,IPointerUpHan
         if (_store == null) return;
         if (_store.repositionItem) return;
         //if (!_store.changeItem) return;
-        _store.EnableDisableMyRoomScreen(false);
-        _store.EnableDisableChangeRoomUiParent(false);
-        _store.EnableDisableMItemsScreen(true);
-        GameEvents.UIEvents.ShowDecorItemsInventory.Raise(roomItem._decorItemType);
+        //_store.EnableDisableMyRoomScreen(false);
+        //_store.EnableDisableChangeRoomUiParent(false);
+        //_store.EnableDisableMItemsScreen(true);
+        //GameEvents.UIEvents.ShowDecorItemsInventory.Raise(roomItem._decorItemType);
     }
 
     public void OnPointerUp(PointerEventData eventData)

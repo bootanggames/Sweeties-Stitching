@@ -136,6 +136,7 @@ public class LevelsHandler : Singleton<LevelsHandler>, ILevelHandler
     bool once = false;
     public void NextPlushie()
     {
+        if (GameHandler.instance.gameStates.Equals(GameStates.jackpotScreen)) return;
         if (once) return;
         if (connectionHandler != null) connectionHandler.DeleteAllThreadLinks();
 
@@ -155,8 +156,10 @@ public class LevelsHandler : Singleton<LevelsHandler>, ILevelHandler
             canvasHandler.stitchCountText.text = currentLevelMeta.noOfStitchesDone + " OF " + currentLevelMeta.levelScriptable.totalStitches;
         }
         if(IThreadHandler != null) IThreadHandler.SetUndoValue(true);
-        if (coinHandler != null) coinHandler.StopCoinSound();
+        if (coinHandler != null) coinHandler.StopCoinSoundOnComplete();
         //GameEvents.GameCompleteEvents.onFinishCoinBurstAnimation.Raise();
+        SoundManager.instance.StopSound(coinHandler.audioSource);
+        HepticManager.instance.StopHaptics();
         DOTween.KillAll();
        once = true;
     }

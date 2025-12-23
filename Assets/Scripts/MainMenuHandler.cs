@@ -12,6 +12,7 @@ public class MainMenuHandler : Singleton<MainMenuHandler>
     public GameObject homeScreen;
     public GameObject plushieInventoryScreen;
     public GameObject mainMenuBg;
+    public GameObject blurEffect;
     public override void SingletonAwake()
     {
         base.SingletonAwake();
@@ -34,8 +35,54 @@ public class MainMenuHandler : Singleton<MainMenuHandler>
     {
        activeScreen = MainMenuActiveScreen.plushieInventoryScreen;
     }
-   public void RoomDecorScreen()
+    
+   public void UpdateScreen(string screen)
     {
-      activeScreen = MainMenuActiveScreen.roomDecorScreen;
+        switch (screen)
+        {
+            case "home":
+                activeScreen = MainMenuActiveScreen.homeScreen;
+                break;
+            case "roomdecor":
+                activeScreen = MainMenuActiveScreen.roomDecorScreen;
+                break;
+            case "roominventory":
+                activeScreen = MainMenuActiveScreen.roomInventoryScreen;
+                break;
+            case "plushieinventory":
+                activeScreen = MainMenuActiveScreen.plushieInventoryScreen;
+                break;
+        }
+        ChangeActiveScreen();
+    }
+    public void ChangeActiveScreen()
+    {
+        switch(activeScreen)
+        {
+            case MainMenuActiveScreen.homeScreen:  
+                homeScreen.SetActive(true);
+                roomDecorScreen.SetActive(false);
+                plushieInventoryScreen.SetActive(false);
+                blurEffect.SetActive(true);
+                break;
+            case MainMenuActiveScreen.roomDecorScreen:
+                homeScreen.SetActive(false);
+                roomDecorScreen.SetActive(true);
+                plushieInventoryScreen.SetActive(false);
+                blurEffect.SetActive(false);
+                break;
+            case MainMenuActiveScreen.plushieInventoryScreen:
+                homeScreen.SetActive(false);
+                roomDecorScreen.SetActive(false);
+                plushieInventoryScreen.SetActive(true);
+                blurEffect.SetActive(true);
+                break;
+            case MainMenuActiveScreen.roomInventoryScreen:
+                homeScreen.SetActive(false);
+                //roomDecorScreen.SetActive(false);
+                plushieInventoryScreen.SetActive(false);
+                blurEffect.SetActive(false);
+                break;
+        }
     }
 }

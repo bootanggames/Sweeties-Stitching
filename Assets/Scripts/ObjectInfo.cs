@@ -29,7 +29,7 @@ public class ObjectInfo : MonoBehaviour
     public GameObject partWithOutHoles;
     public CleanStitch c_Stitch;
     [SerializeField] bool enableConnection;
-    List<GameObject> coinsObj = new List<GameObject>();
+    [SerializeField]List<GameObject> coinsObj = new List<GameObject>();
     ICoinsHandler coinHandler;
 
     private void Start()
@@ -232,11 +232,14 @@ public class ObjectInfo : MonoBehaviour
             {
                 if (coinHandler != null)
                 {
-                    coinHandler.InstantiateCoins(coinHandler.coinSpritePrefab, 3, coinsObj, connectPoints[confettiIndex].transform);
+                    coinHandler.InstantiateCoins(coinHandler.coinSpritePrefab,5,coinsObj, connectPoints[confettiIndex].transform);
                     foreach(GameObject c in coinsObj)
                     {
                         c.transform.SetParent(this.transform);
                         GameEvents.EffectHandlerEvents.onSparkleTrailEffect.Raise(c.transform);
+                        c.AddComponent<AudioSource>();
+                        AudioSource s = c.GetComponent<AudioSource>();
+                        coinHandler.PlayCoinSound(s);
                     }
                     //coinHandler.SaveCoins((confettiIndex + 1));
                     Vector3 screenPos = RectTransformUtility.WorldToScreenPoint(null, coinHandler.coinsGameplayTarget.position);
@@ -245,6 +248,7 @@ public class ObjectInfo : MonoBehaviour
                     targetPos.position = worldPos;
                     StartCoroutine(coinHandler.MoveCoins(coinsObj, targetPos, coinHandler.coinBarForGameplayScreen, coinHandler.coinMoveSpeed, Ease.Linear,0, true));
                     //Debug.LogError(" " + (confettiIndex + 1));
+                    coinHandler.SaveCoins(1);
                 }
                 if (!partType.Equals(PlushieActiveStitchPart.lefteye) && !partType.Equals(PlushieActiveStitchPart.righteye))
                 {

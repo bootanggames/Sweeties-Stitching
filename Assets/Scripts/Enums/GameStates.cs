@@ -8,5 +8,6 @@ public enum GameStates
    Gamepause,
    Gamecomplete,
    ThreadSpoolBuyScreen,
-   Gamefail
+   Gamefail,
+   jackpotScreen
 }

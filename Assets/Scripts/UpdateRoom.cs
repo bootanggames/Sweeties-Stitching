@@ -5,10 +5,12 @@ using UnityEngine;
 public class UpdateRoom : MonoBehaviour
 {
     [SerializeField] private ItemRepository _repository;
-    [SerializeField] List<RoomItem> roomitem;
+    [field: SerializeField] public List<RoomItem> roomitem {  get; private set; }
 
     [field: SerializeField] public bool saveRoom {  get; private set; }
-    [SerializeField] List<GameObject> shelf;
+    [field: SerializeField]public List<GameObject> shelf {  get; private set; }
+    public BedroomStates bedroomState;
+
     void OnEnable()
     {
         int val = PlayerPrefs.GetInt("SaveRoom");
@@ -28,6 +30,8 @@ public class UpdateRoom : MonoBehaviour
             foreach (ItemsMetaData metaData in _repository.GetItemsByType(item._decorItemType))
             {
                 int state = PlayerPrefs.GetInt(metaData.ItemName.ToString());
+                //if (state == 1)
+                //    item.ChangeItemImage(_repository.GetItem(metaData.ItemName).ItemSprite);
                 if (!item._decorItemType.Equals(ItemType.SHELF))
                 {
                     if (state == 1)
@@ -35,7 +39,7 @@ public class UpdateRoom : MonoBehaviour
                 }
                 else
                 {
-                    if(state == 1)
+                    if (state == 1)
                     {
                         UpdateShelf(metaData.ItemName);
                     }
@@ -64,5 +68,20 @@ public class UpdateRoom : MonoBehaviour
     public void SaveRoom(int val)
     {
         PlayerPrefs.SetInt("SaveRoom", val);
+    }
+    public void UpdateRoomState(string state)
+    {
+        switch (state)
+        {
+            case "home":
+                bedroomState = BedroomStates.home;
+                break;
+            case "decor":
+                bedroomState = BedroomStates.decor;
+                break;
+            case "move":
+                bedroomState = BedroomStates.move;
+                break;
+        }
     }
 }

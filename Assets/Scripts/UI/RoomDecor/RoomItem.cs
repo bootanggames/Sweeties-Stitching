@@ -5,14 +5,16 @@ using UnityEngine.UI;
 public class RoomItem : MonoBehaviour
 {
    //[SerializeField] private Button _decorButton;
-   [SerializeField] private Image _decorImage;
+    [SerializeField] private Image _decorImage;
 
-   [field:SerializeField] public ItemType _decorItemType {  get; private set; }
-   [SerializeField] private ItemRepository _repository;
+    [field:SerializeField] public ItemType _decorItemType {  get; private set; }
+    [SerializeField] private ItemRepository _repository;
 
-   private bool _canChange = false;
+    private bool _canChange = false;
     UpdateRoom upgradeRoom;
-   private void Start()
+    [SerializeField] Item _itemComponent;
+    [SerializeField] AlphaClickFilter _alphaClickFilter;
+    private void Start()
    {
         upgradeRoom = GetComponentInParent<UpdateRoom>();
         //_decorButton.onClick.AddListener(OnButtonPress);
@@ -38,13 +40,14 @@ public class RoomItem : MonoBehaviour
     public void ChangeItemImage(Sprite itemSprite)
     {
         _decorImage.sprite = itemSprite;
-
     }
     private void OnDecorItemSelected(ItemName decorItemName, ItemType decorItemType)
-   {
-      Debug.Log($"OnDecorItemSelected {decorItemType}");
-      if (decorItemType != _decorItemType)
-         return;
+    {
+        Debug.Log($"OnDecorItemSelected {decorItemType}");
+        if (decorItemType != _decorItemType)
+            return;
+        //_decorImage.sprite = _repository.GetItem(decorItemName).ItemSprite;
+
         if (!decorItemType.Equals(ItemType.SHELF))
             _decorImage.sprite = _repository.GetItem(decorItemName).ItemSprite;
         else
@@ -60,13 +63,10 @@ public class RoomItem : MonoBehaviour
         }
         PlayerPrefs.SetInt(itemName, 1);
     }
-    private void OnButtonPress()
-   {
-      Debug.LogError("OnButtonPress");
-      
-      if (!_canChange)
-         return;
-      
-      GameEvents.UIEvents.ShowDecorItemsInventory.Raise(_decorItemType);
-   }
+   
+    public void EnableDisableItemComponents(bool val)
+    {
+        _itemComponent.enabled = val;
+        if(_alphaClickFilter) _alphaClickFilter.enabled = val;
+    }
 }

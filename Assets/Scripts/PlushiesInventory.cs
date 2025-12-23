@@ -44,7 +44,7 @@ public class PlushiesInventory : MonoBehaviour,IPlushieInventory
         {
             if (MainMenuHandler.instance.activeScreen.Equals(MainMenuActiveScreen.roomDecorScreen))
             {
-                MainMenuHandler.instance.mainMenuBg.SetActive(false);
+                //MainMenuHandler.instance.mainMenuBg.SetActive(false);
                 MainMenuHandler.instance.roomDecorScreen.SetActive(true);
                 MainMenuHandler.instance.plushieInventoryScreen.SetActive(false);
             }

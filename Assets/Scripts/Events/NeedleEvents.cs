@@ -9,6 +9,7 @@ public static partial class GameEvents
         public static readonly GameQuery<Transform> onGettingNeedleTransform = new();
         public static readonly GameEvent<bool> onNeedleActiveStatusUpdate = new();
         public static readonly GameEvent<float, Vector3> onNeedleRotation = new();
+        public static readonly GameEvent<Vector3, Vector3> onResetNeedle = new();
     }
 }
 

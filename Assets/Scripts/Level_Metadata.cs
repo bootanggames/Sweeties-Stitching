@@ -22,6 +22,7 @@ public class Level_Metadata : MonoBehaviour
     [SerializeField] ObjectInfo stitchStartingPart;
     [HideInInspector] public ObjectInfo current_ObjectInfor = null;
     [HideInInspector] public Transform needleUndoPosition;
+    [field: SerializeField] public Vector3 needleUndoRotation {  get; private set; }
     [HideInInspector] public List<Connections> cleanConnection;
     [HideInInspector] public int cleanThreadIndex = 0;
     [HideInInspector] public List<GameObject> crissCrossObjList = new List<GameObject>();
@@ -483,16 +484,17 @@ public class Level_Metadata : MonoBehaviour
     {
         Vector3 pos = RectTransformUtility.WorldToScreenPoint(null, needleUndoPosition.position);
         Vector3 worldPos = Camera.main.ScreenToWorldPoint(pos);
-        ResetNeedleAndThread(worldPos);
+        Vector3 rotation = needleUndoRotation;
+        ResetNeedleAndThread(worldPos, rotation);
     }
-    void ResetNeedleAndThread(Vector3 position)
+    void ResetNeedleAndThread(Vector3 position, Vector3 rotation)
     {
         Vector3 threadPos = Vector3.zero;
 
         if (threadHandler != null && threadHandler.instantiatedLine != null)
         {
             position.z = threadHandler.zVal;
-            GameEvents.NeedleEvents.OnNeedleMovement.Raise(position);
+            GameEvents.NeedleEvents.onResetNeedle.Raise(position, rotation);
             threadPos = position;
             threadPos.z = threadHandler.zVal;
             threadHandler.instantiatedLine.SetPosition(0, threadPos);

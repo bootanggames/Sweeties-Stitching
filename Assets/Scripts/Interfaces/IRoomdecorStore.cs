@@ -4,7 +4,8 @@ using UnityEngine.UI;
 
 public interface IRoomdecorStore : IGameService
 {
-    GameObject myItemsScreen {  get; }        
+    GameObject bedroom {  get; }        
+    GameObject myItemsScreen {  get; }
     GameObject changeMyRoomScreen {  get; }        
     GameObject myRoomScreen {  get; }        
     Canvas canvas {  get; }

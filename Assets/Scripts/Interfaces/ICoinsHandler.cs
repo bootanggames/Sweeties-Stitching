@@ -25,4 +25,8 @@ public interface ICoinsHandler : IGameService
     void InstantiateCoins(GameObject coinObj, int total, List<GameObject> coinList, Transform parent);
     void CoinIncrementAnimation(int targetAmount);
     void StopCoinSound();
+    void PlayCoinSoundOnComplete();
+    void InstantiateSingleCoin(GameObject coinObj, List<GameObject> coinList, Transform parent);
+    void PlayCoinSound(AudioSource s);
+    void StopCoinSoundOnComplete();
 }

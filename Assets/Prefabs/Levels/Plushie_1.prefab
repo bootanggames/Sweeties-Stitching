@@ -975,6 +975,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 1
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -1127,6 +1128,7 @@ MonoBehaviour:
   partWithOutHoles: {fileID: 0}
   c_Stitch: {fileID: 0}
   enableConnection: 0
+  coinsObj: []
   noOfCleanThreadConnections: 0
 --- !u!114 &1819898937953285636
 MonoBehaviour:
@@ -1276,6 +1278,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -1411,6 +1414,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 1
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -1725,6 +1729,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -1860,6 +1865,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -2174,6 +2180,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -2436,6 +2443,7 @@ MonoBehaviour:
   partWithOutHoles: {fileID: 5676232983929764216}
   c_Stitch: {fileID: 0}
   enableConnection: 1
+  coinsObj: []
   noOfCleanThreadConnections: 5
 --- !u!114 &5414622958900335596
 MonoBehaviour:
@@ -3069,6 +3077,7 @@ MonoBehaviour:
   partWithOutHoles: {fileID: 0}
   c_Stitch: {fileID: 0}
   enableConnection: 0
+  coinsObj: []
   noOfCleanThreadConnections: 0
 --- !u!114 &1372177567916645974
 MonoBehaviour:
@@ -3523,6 +3532,7 @@ MonoBehaviour:
   partWithOutHoles: {fileID: 0}
   c_Stitch: {fileID: 0}
   enableConnection: 1
+  coinsObj: []
   noOfCleanThreadConnections: 5
 --- !u!114 &858301759045543114
 MonoBehaviour:
@@ -3711,6 +3721,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 1
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -3846,6 +3857,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -4160,6 +4172,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 1
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -4295,6 +4308,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -4788,6 +4802,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -4885,6 +4900,7 @@ MonoBehaviour:
   stitchStartingPart: {fileID: 9099363760956503711}
   current_ObjectInfor: {fileID: 0}
   needleUndoPosition: {fileID: 0}
+  <needleUndoRotation>k__BackingField: {x: 0, y: 0, z: 90}
   cleanConnection: []
   cleanThreadIndex: 0
   crissCrossObjList: []
@@ -5723,14 +5739,14 @@ RectTransform:
   m_GameObject: {fileID: 1554397624031681998}
   m_LocalRotation: {x: -0, y: -0, z: 0.21643952, w: 0.97629607}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 8068411004408043811}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.28, y: 0.34}
+  m_AnchoredPosition: {x: -0.211, y: 0.34}
   m_SizeDelta: {x: 3.712, y: 1.203}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &3296535353081966052
@@ -5888,8 +5904,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.5
-  targetScale: 0.8
-  orignalScale: 0.6
+  targetScale: 0.6
+  orignalScale: 0.5
   ease: 1
 --- !u!1 &1558079176118311214
 GameObject:
@@ -6240,6 +6256,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -6381,6 +6398,7 @@ MonoBehaviour:
   partWithOutHoles: {fileID: 8810961766846609200}
   c_Stitch: {fileID: 0}
   enableConnection: 1
+  coinsObj: []
   noOfCleanThreadConnections: 5
 --- !u!114 &6202646856064295090
 MonoBehaviour:
@@ -6888,6 +6906,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -7023,6 +7042,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -7103,6 +7123,7 @@ MonoBehaviour:
   partWithOutHoles: {fileID: 0}
   c_Stitch: {fileID: 0}
   enableConnection: 0
+  coinsObj: []
   noOfCleanThreadConnections: 0
 --- !u!114 &3860921874884047576
 MonoBehaviour:
@@ -7607,6 +7628,7 @@ MonoBehaviour:
   partWithOutHoles: {fileID: 0}
   c_Stitch: {fileID: 0}
   enableConnection: 0
+  coinsObj: []
   noOfCleanThreadConnections: 2
 --- !u!114 &7735700441596682308
 MonoBehaviour:
@@ -7756,6 +7778,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -8070,6 +8093,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 1
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -8473,6 +8497,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -8608,6 +8633,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -8774,6 +8800,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -9298,6 +9325,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 1
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -9433,6 +9461,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -9464,14 +9493,14 @@ RectTransform:
   m_GameObject: {fileID: 2232383390226311877}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_LocalScale: {x: 1.0048176, y: 1.0048176, z: 1.0048176}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1358015270786079295}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -7.75, y: -0.68}
+  m_AnchoredPosition: {x: -7.191, y: -0.68}
   m_SizeDelta: {x: 3.712, y: 1.203}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &8164279098849307067
@@ -9499,7 +9528,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 79459efec17a4d00a321bdcc27bbc385, type: 2}
+  - {fileID: 2180264, guid: 3eef0d716748f354ba582b229fcd6468, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -9545,7 +9574,7 @@ MonoBehaviour:
   m_text: well done !
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3eef0d716748f354ba582b229fcd6468, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 3eef0d716748f354ba582b229fcd6468, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -9613,7 +9642,7 @@ MonoBehaviour:
   _SortingLayer: 0
   _SortingLayerID: 0
   _SortingOrder: 0
-  m_hasFontAssetChanged: 1
+  m_hasFontAssetChanged: 0
   m_renderer: {fileID: 8164279098849307067}
   m_maskType: 0
 --- !u!114 &3833602633881748644
@@ -9629,8 +9658,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.5
-  targetScale: 1.5
-  orignalScale: 1.3
+  targetScale: 1.1
+  orignalScale: 1
   ease: 1
 --- !u!1 &2262108210180049716
 GameObject:
@@ -9943,6 +9972,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -10078,6 +10108,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -10378,14 +10409,14 @@ RectTransform:
   m_GameObject: {fileID: 2340329828915883237}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1870512919531178372}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 2.45, y: 3.238}
+  m_AnchoredPosition: {x: 2.373, y: 3.313}
   m_SizeDelta: {x: 3.712, y: 1.203}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &2979672652343038647
@@ -10543,7 +10574,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.5
-  targetScale: 0.7
+  targetScale: 0.6
   orignalScale: 0.5
   ease: 1
 --- !u!1 &2366045413281202745
@@ -10678,6 +10709,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 1
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -10813,6 +10845,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -10948,6 +10981,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 1
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -11173,6 +11207,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 1
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -11508,7 +11543,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 79459efec17a4d00a321bdcc27bbc385, type: 2}
+  - {fileID: 2180264, guid: 3eef0d716748f354ba582b229fcd6468, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -11554,7 +11589,7 @@ MonoBehaviour:
   m_text: well done !
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3eef0d716748f354ba582b229fcd6468, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 3eef0d716748f354ba582b229fcd6468, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -11622,7 +11657,7 @@ MonoBehaviour:
   _SortingLayer: 0
   _SortingLayerID: 0
   _SortingOrder: 0
-  m_hasFontAssetChanged: 1
+  m_hasFontAssetChanged: 0
   m_renderer: {fileID: 1957343586582185936}
   m_maskType: 0
 --- !u!114 &5325106357042248367
@@ -12148,6 +12183,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -12283,6 +12319,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 1
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -12508,6 +12545,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -12733,6 +12771,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -12868,6 +12907,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -13003,6 +13043,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -13752,7 +13793,7 @@ RectTransform:
   m_GameObject: {fileID: 3124642815660432023}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3.5, y: 3.5, z: 3.5}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 2875234914369980376}
@@ -13787,7 +13828,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 79459efec17a4d00a321bdcc27bbc385, type: 2}
+  - {fileID: 2180264, guid: 3eef0d716748f354ba582b229fcd6468, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -13917,8 +13958,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.5
-  targetScale: 3.5
-  orignalScale: 3.2
+  targetScale: 2.1
+  orignalScale: 2
   ease: 1
 --- !u!1 &3127360278959824216
 GameObject:
@@ -14052,6 +14093,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -14187,6 +14229,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 1
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -14680,6 +14723,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 1
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -15729,6 +15773,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 1
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -16082,6 +16127,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 1
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 1
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -16396,6 +16442,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 1
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -16531,6 +16578,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -16935,6 +16983,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -17145,7 +17194,7 @@ RectTransform:
   m_GameObject: {fileID: 3605760562212790963}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
+  m_LocalScale: {x: 0.82376, y: 0.82376, z: 0.82376}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 2923958516931036632}
@@ -17180,7 +17229,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 79459efec17a4d00a321bdcc27bbc385, type: 2}
+  - {fileID: 2180264, guid: 3eef0d716748f354ba582b229fcd6468, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -17310,8 +17359,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.5
-  targetScale: 1.2
-  orignalScale: 1
+  targetScale: 0.9
+  orignalScale: 0.8
   ease: 1
 --- !u!1 &3609792412011688216
 GameObject:
@@ -17624,6 +17673,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -17759,6 +17809,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -17929,6 +17980,7 @@ MonoBehaviour:
   partWithOutHoles: {fileID: 0}
   c_Stitch: {fileID: 0}
   enableConnection: 1
+  coinsObj: []
   noOfCleanThreadConnections: 2
 --- !u!114 &1812237908767560758
 MonoBehaviour:
@@ -18667,6 +18719,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 1
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -18802,6 +18855,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -19116,6 +19170,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 1
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -19651,14 +19706,14 @@ RectTransform:
   m_GameObject: {fileID: 4188293391931191254}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.7999999, y: 0.79999983, z: 0.7999999}
+  m_LocalScale: {x: 0.438822, y: 0.43882194, z: 0.438822}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 29487803954544985}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.044999957, y: -2.23}
+  m_AnchoredPosition: {x: -0.05, y: -2.16}
   m_SizeDelta: {x: 3.712, y: 1.203}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &5801828304288906179
@@ -19686,7 +19741,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 79459efec17a4d00a321bdcc27bbc385, type: 2}
+  - {fileID: 2180264, guid: 3eef0d716748f354ba582b229fcd6468, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -19816,8 +19871,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.5
-  targetScale: 1
-  orignalScale: 0.8
+  targetScale: 0.5
+  orignalScale: 0.4
   ease: 1
 --- !u!1 &4218300617873981495
 GameObject:
@@ -20130,6 +20185,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 1
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -20354,6 +20410,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 1
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -20827,6 +20884,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 1
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -21147,6 +21205,7 @@ MonoBehaviour:
   partWithOutHoles: {fileID: 1515403374597503001}
   c_Stitch: {fileID: 0}
   enableConnection: 1
+  coinsObj: []
   noOfCleanThreadConnections: 5
 --- !u!114 &1614722268041752158
 MonoBehaviour:
@@ -21475,6 +21534,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 1
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -21610,6 +21670,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -21745,6 +21806,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -21880,6 +21942,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -22490,6 +22553,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 1
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -22983,6 +23047,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 1
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -23297,6 +23362,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -23432,6 +23498,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 1
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -23567,6 +23634,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 1
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 1
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -23970,6 +24038,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -24499,6 +24568,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -24758,6 +24828,7 @@ MonoBehaviour:
   partWithOutHoles: {fileID: 0}
   c_Stitch: {fileID: 0}
   enableConnection: 0
+  coinsObj: []
   noOfCleanThreadConnections: 2
 --- !u!114 &1860162870203172118
 MonoBehaviour:
@@ -24907,6 +24978,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -25117,6 +25189,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 1
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 1
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -25252,6 +25325,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -25387,6 +25461,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 1
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -25986,6 +26061,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -26060,7 +26136,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 2.54, y: 0.15}
+  m_AnchoredPosition: {x: 2.739, y: 0.15}
   m_SizeDelta: {x: 3.712, y: 1.203}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &7181964156838908395
@@ -26532,6 +26608,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 1
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -27056,6 +27133,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 1
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -27714,6 +27792,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -28028,6 +28107,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -28163,6 +28243,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 1
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -28298,6 +28379,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 1
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -28791,6 +28873,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -28926,6 +29009,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 1
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -29240,6 +29324,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -29375,6 +29460,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 1
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -29901,6 +29987,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 1
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -29983,6 +30070,7 @@ MonoBehaviour:
   partWithOutHoles: {fileID: 0}
   c_Stitch: {fileID: 0}
   enableConnection: 0
+  coinsObj: []
   noOfCleanThreadConnections: 0
 --- !u!114 &1333413170687064378
 MonoBehaviour:
@@ -30386,14 +30474,14 @@ RectTransform:
   m_GameObject: {fileID: 6493874249854405753}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 8344718990221137000}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1, y: 3.27}
+  m_AnchoredPosition: {x: 0.33, y: 2}
   m_SizeDelta: {x: 3.712, y: 1.203}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &3109473196626461564
@@ -30551,8 +30639,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.5
-  targetScale: 1.1
-  orignalScale: 1
+  targetScale: 1.3
+  orignalScale: 1.2
   ease: 1
 --- !u!1 &6495847295407532255
 GameObject:
@@ -30686,6 +30774,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -31000,6 +31089,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 1
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -31135,6 +31225,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 1
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -31275,6 +31366,7 @@ MonoBehaviour:
   partWithOutHoles: {fileID: 3308634770964137582}
   c_Stitch: {fileID: 0}
   enableConnection: 1
+  coinsObj: []
   noOfCleanThreadConnections: 4
 --- !u!114 &2722552401465861473
 MonoBehaviour:
@@ -31620,6 +31712,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -31755,6 +31848,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 1
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -32069,6 +32163,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 1
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -32504,6 +32599,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 1
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -33839,6 +33935,7 @@ MonoBehaviour:
   partWithOutHoles: {fileID: 0}
   c_Stitch: {fileID: 0}
   enableConnection: 0
+  coinsObj: []
   noOfCleanThreadConnections: 0
 --- !u!114 &3452848100426965025
 MonoBehaviour:
@@ -34202,6 +34299,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -34337,6 +34435,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 1
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -34726,14 +34825,14 @@ RectTransform:
   m_GameObject: {fileID: 7336375616611919636}
   m_LocalRotation: {x: -0, y: -0, z: -0.18223555, w: 0.9832549}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.69999987, y: 0.69999987, z: 0.7}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1861762780811453769}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.36, y: 0.63}
+  m_AnchoredPosition: {x: -0.471, y: 0.63}
   m_SizeDelta: {x: 3.712, y: 1.203}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &6373501797440283392
@@ -34891,7 +34990,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.5
-  targetScale: 0.7
+  targetScale: 0.6
   orignalScale: 0.5
   ease: 1
 --- !u!1 &7343272966978045475
@@ -35474,6 +35573,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -35967,6 +36067,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 1
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -36102,6 +36203,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 1
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -36416,6 +36518,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -36551,6 +36654,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 1
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -36865,6 +36969,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -36962,14 +37067,14 @@ RectTransform:
   m_GameObject: {fileID: 7787523623915984607}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.3878369, y: 1.3878369, z: 1.3878369}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 5852078406813710329}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.88, y: -2.16}
+  m_AnchoredPosition: {x: -0.49, y: -2.49}
   m_SizeDelta: {x: 3.712, y: 1.203}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &1857368850754310568
@@ -36997,7 +37102,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 79459efec17a4d00a321bdcc27bbc385, type: 2}
+  - {fileID: 2180264, guid: 3eef0d716748f354ba582b229fcd6468, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -37043,7 +37148,7 @@ MonoBehaviour:
   m_text: well done !
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3eef0d716748f354ba582b229fcd6468, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 3eef0d716748f354ba582b229fcd6468, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -37111,7 +37216,7 @@ MonoBehaviour:
   _SortingLayer: 0
   _SortingLayerID: 0
   _SortingOrder: 0
-  m_hasFontAssetChanged: 1
+  m_hasFontAssetChanged: 0
   m_renderer: {fileID: 1857368850754310568}
   m_maskType: 0
 --- !u!114 &8059160140625618033
@@ -37127,8 +37232,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.5
-  targetScale: 1.1
-  orignalScale: 1
+  targetScale: 1.2
+  orignalScale: 1.3
   ease: 1
 --- !u!1 &7795787687166274079
 GameObject:
@@ -37625,6 +37730,7 @@ MonoBehaviour:
   partWithOutHoles: {fileID: 2306417515340000397}
   c_Stitch: {fileID: 0}
   enableConnection: 1
+  coinsObj: []
   noOfCleanThreadConnections: 4
 --- !u!114 &6601720814459301280
 MonoBehaviour:
@@ -37774,6 +37880,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -38178,6 +38285,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -38850,6 +38958,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -38985,6 +39094,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 1
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -39299,6 +39409,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 1
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -39613,6 +39724,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 1
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -39740,7 +39852,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -6.272222, y: -6.11}
+  m_AnchoredPosition: {x: -6.06, y: -6.54}
   m_SizeDelta: {x: 3.712, y: 1.203}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &4991694146039986110
@@ -40039,6 +40151,7 @@ MonoBehaviour:
   partWithOutHoles: {fileID: 2999929783784602888}
   c_Stitch: {fileID: 0}
   enableConnection: 1
+  coinsObj: []
   noOfCleanThreadConnections: 5
 --- !u!114 &3934473565655580697
 MonoBehaviour:
@@ -40188,6 +40301,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -40591,6 +40705,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 1
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -40816,6 +40931,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -41309,6 +41425,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -41444,6 +41561,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 1
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -41579,6 +41697,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 1
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -42072,6 +42191,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 1
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -42103,7 +42223,7 @@ Transform:
   m_GameObject: {fileID: 8781973318632296159}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.13, y: 2.6410003, z: 0}
+  m_LocalPosition: {x: -1.13, y: 2.746, z: 0}
   m_LocalScale: {x: 0.05850001, y: 0.0585, z: 0.0585}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -42211,6 +42331,7 @@ MonoBehaviour:
   partWithOutHoles: {fileID: 0}
   c_Stitch: {fileID: 0}
   enableConnection: 1
+  coinsObj: []
   noOfCleanThreadConnections: 2
 --- !u!114 &151824669672767360
 MonoBehaviour:
@@ -42450,6 +42571,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -42585,6 +42707,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -42989,6 +43112,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -43124,6 +43248,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 1
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -43259,6 +43384,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -43394,6 +43520,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -43529,6 +43656,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 1
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 1
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -43609,6 +43737,7 @@ MonoBehaviour:
   partWithOutHoles: {fileID: 0}
   c_Stitch: {fileID: 0}
   enableConnection: 0
+  coinsObj: []
   noOfCleanThreadConnections: 0
 --- !u!114 &4495242893400670905
 MonoBehaviour:
@@ -44116,6 +44245,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -44326,8 +44456,8 @@ RectTransform:
   m_GameObject: {fileID: 9165047687806943161}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 3293734787776554091}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -44491,8 +44621,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.5
-  targetScale: 0.9
-  orignalScale: 0.7
+  targetScale: 0.6
+  orignalScale: 0.5
   ease: 1
 --- !u!1 &9165292081298256187
 GameObject:
@@ -44752,6 +44882,7 @@ MonoBehaviour:
   partWithOutHoles: {fileID: 0}
   c_Stitch: {fileID: 0}
   enableConnection: 0
+  coinsObj: []
   noOfCleanThreadConnections: 5
 --- !u!114 &4104830135398892097
 MonoBehaviour:

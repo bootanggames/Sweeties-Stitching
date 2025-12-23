@@ -132,6 +132,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 1
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 1
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -267,6 +268,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -402,6 +404,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 1
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -537,6 +540,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -766,6 +770,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 1
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -1473,6 +1478,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -1608,6 +1614,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -1922,6 +1929,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -2057,6 +2065,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -2192,6 +2201,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 1
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -2358,6 +2368,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 1
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -2672,6 +2683,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -2807,6 +2819,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 1
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -2971,7 +2984,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  - {fileID: 2180264, guid: 3eef0d716748f354ba582b229fcd6468, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3016,8 +3029,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: well done !
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 3eef0d716748f354ba582b229fcd6468, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 3eef0d716748f354ba582b229fcd6468, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3326,6 +3339,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -3729,6 +3743,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 1
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -4045,6 +4060,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -4854,14 +4870,14 @@ RectTransform:
   m_GameObject: {fileID: 1312083145693772967}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
+  m_LocalScale: {x: 0.95, y: 0.95, z: 0.95}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8114182554977368137}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -8.18, y: -1.07}
+  m_AnchoredPosition: {x: -8.55, y: -0.76}
   m_SizeDelta: {x: 3.712, y: 1.203}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &3893994299812385485
@@ -4889,7 +4905,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  - {fileID: 2180264, guid: 3eef0d716748f354ba582b229fcd6468, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4934,8 +4950,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: well done !
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 3eef0d716748f354ba582b229fcd6468, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 3eef0d716748f354ba582b229fcd6468, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -5019,8 +5035,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.5
-  targetScale: 1.1
-  orignalScale: 1.2
+  targetScale: 1
+  orignalScale: 0.95
   ease: 1
 --- !u!1 &1335958829489797083
 GameObject:
@@ -5512,6 +5528,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 1
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -5678,6 +5695,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 1
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -6460,7 +6478,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  - {fileID: 2180264, guid: 3eef0d716748f354ba582b229fcd6468, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -6505,8 +6523,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: well done !
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 3eef0d716748f354ba582b229fcd6468, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 3eef0d716748f354ba582b229fcd6468, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -6815,6 +6833,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 1
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -6950,6 +6969,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -7264,6 +7284,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 1
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -7399,6 +7420,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 1
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 1
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -7534,6 +7556,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 1
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -7669,6 +7692,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 1
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -7804,6 +7828,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -7939,6 +7964,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -8074,6 +8100,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 1
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -8366,6 +8393,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 1
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -8501,6 +8529,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 1
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -8636,6 +8665,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -9219,6 +9249,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -9787,6 +9818,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -10280,6 +10312,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 1
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -10415,6 +10448,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -10768,6 +10802,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -11199,6 +11234,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 1
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -11334,6 +11370,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -11827,6 +11864,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 1
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -12052,6 +12090,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -12545,6 +12584,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 1
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -12859,6 +12899,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -13173,6 +13214,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -13487,6 +13529,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -13622,6 +13665,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 1
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -14034,6 +14078,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -14617,6 +14662,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -15355,7 +15401,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: well done !
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 3eef0d716748f354ba582b229fcd6468, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -15424,7 +15470,7 @@ MonoBehaviour:
   _SortingLayer: 0
   _SortingLayerID: 0
   _SortingOrder: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_renderer: {fileID: 4892759264389023199}
   m_maskType: 0
 --- !u!114 &6737567567353071187
@@ -15685,7 +15731,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  - {fileID: 2180264, guid: 3eef0d716748f354ba582b229fcd6468, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -15730,8 +15776,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: well done !
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 3eef0d716748f354ba582b229fcd6468, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 3eef0d716748f354ba582b229fcd6468, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -16129,6 +16175,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -16264,6 +16311,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -16757,6 +16805,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -16892,6 +16941,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -17083,8 +17133,8 @@ RectTransform:
   m_GameObject: {fileID: 3685471740046190221}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.9476809, y: 1.1444639, z: 1.0437261}
-  m_ConstrainProportionsScale: 1
+  m_LocalScale: {x: 1.3, y: 1.3, z: 1.3}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2547932316296556637}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -17163,7 +17213,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: well done !
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 3eef0d716748f354ba582b229fcd6468, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -17232,7 +17282,7 @@ MonoBehaviour:
   _SortingLayer: 0
   _SortingLayerID: 0
   _SortingOrder: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_renderer: {fileID: 8049404198302448845}
   m_maskType: 0
 --- !u!114 &3979307295457110104
@@ -17248,8 +17298,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.5
-  targetScale: 1.1
-  orignalScale: 1
+  targetScale: 1.2
+  orignalScale: 1.3
   ease: 1
 --- !u!1 &3687256252156169218
 GameObject:
@@ -17279,7 +17329,7 @@ RectTransform:
   m_GameObject: {fileID: 3687256252156169218}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
+  m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 896635710211504944}
@@ -17314,7 +17364,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  - {fileID: 2180264, guid: 3eef0d716748f354ba582b229fcd6468, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -17359,8 +17409,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: well done !
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 3eef0d716748f354ba582b229fcd6468, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 3eef0d716748f354ba582b229fcd6468, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -17444,8 +17494,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.5
-  targetScale: 0.9
-  orignalScale: 0.7
+  targetScale: 0.7
+  orignalScale: 0.6
   ease: 1
 --- !u!1 &3714361385733960025
 GameObject:
@@ -17579,6 +17629,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -17750,6 +17801,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 1
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -17958,7 +18010,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: well done !
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 3eef0d716748f354ba582b229fcd6468, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -18027,7 +18079,7 @@ MonoBehaviour:
   _SortingLayer: 0
   _SortingLayerID: 0
   _SortingOrder: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_renderer: {fileID: 415669405903038350}
   m_maskType: 0
 --- !u!114 &8860376432871267564
@@ -18357,6 +18409,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -18863,6 +18916,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -19966,6 +20020,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -20190,6 +20245,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -20504,6 +20560,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 1
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -20639,6 +20696,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 1
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -20953,6 +21011,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -22162,6 +22221,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 1
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 1
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -22391,6 +22451,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -22705,6 +22766,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -22840,6 +22902,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -23339,6 +23402,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 1
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -23474,6 +23538,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -23609,6 +23674,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 1
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 1
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -23834,6 +23900,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 1
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -25677,6 +25744,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 1
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -26349,6 +26417,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -26665,6 +26734,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -26800,6 +26870,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -27293,6 +27364,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -27428,6 +27500,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 1
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -27719,6 +27792,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 1
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -28009,7 +28083,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: well done !
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 3eef0d716748f354ba582b229fcd6468, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -28078,7 +28152,7 @@ MonoBehaviour:
   _SortingLayer: 0
   _SortingLayerID: 0
   _SortingOrder: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_renderer: {fileID: 1748083023938448932}
   m_maskType: 0
 --- !u!114 &6558304923732139550
@@ -28408,6 +28482,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -29117,6 +29192,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 1
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -29445,6 +29521,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -29947,6 +30024,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 1
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -30082,6 +30160,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -30217,6 +30296,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 1
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -30328,7 +30408,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: well done !
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 3eef0d716748f354ba582b229fcd6468, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -30397,7 +30477,7 @@ MonoBehaviour:
   _SortingLayer: 0
   _SortingLayerID: 0
   _SortingOrder: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_renderer: {fileID: 274122744715247773}
   m_maskType: 0
 --- !u!114 &601378873779445784
@@ -30856,6 +30936,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 1
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -30991,6 +31072,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 1
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -31550,6 +31632,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -31685,6 +31768,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 1
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -31716,14 +31800,14 @@ RectTransform:
   m_GameObject: {fileID: 6158731432180004782}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
+  m_LocalScale: {x: 0.9348361, y: 0.9348361, z: 0.9348361}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 9002969156167204271}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -5.31, y: -5.44}
+  m_AnchoredPosition: {x: -5.633, y: -5.506}
   m_SizeDelta: {x: 3.712, y: 1.203}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &1751989790409602957
@@ -31751,7 +31835,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  - {fileID: 2180264, guid: 3eef0d716748f354ba582b229fcd6468, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -31796,8 +31880,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: well done !
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 3eef0d716748f354ba582b229fcd6468, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 3eef0d716748f354ba582b229fcd6468, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -31881,8 +31965,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.5
-  targetScale: 1.4
-  orignalScale: 1.2
+  targetScale: 1
+  orignalScale: 0.9
   ease: 1
 --- !u!1 &6257362764099220755
 GameObject:
@@ -32016,6 +32100,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 1
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -32151,6 +32236,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 1
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -32682,6 +32768,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -32817,6 +32904,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -32990,6 +33078,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -33200,14 +33289,14 @@ RectTransform:
   m_GameObject: {fileID: 6604480579154766616}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.7999999, y: 0.79999983, z: 0.7999999}
+  m_LocalScale: {x: 0.5737279, y: 0.57372785, z: 0.5737279}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 289554949027426778}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.044999957, y: -2.23}
+  m_AnchoredPosition: {x: -0.014, y: -2.261}
   m_SizeDelta: {x: 3.712, y: 1.203}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &8109126681298527842
@@ -33235,7 +33324,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  - {fileID: 2180264, guid: 3eef0d716748f354ba582b229fcd6468, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -33280,8 +33369,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: well done !
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 3eef0d716748f354ba582b229fcd6468, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 3eef0d716748f354ba582b229fcd6468, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -33365,8 +33454,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.5
-  targetScale: 1
-  orignalScale: 0.8
+  targetScale: 0.6
+  orignalScale: 0.5
   ease: 1
 --- !u!1 &6652445851348813485
 GameObject:
@@ -33858,6 +33947,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 1
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -33993,6 +34083,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -34128,6 +34219,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -34418,7 +34510,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: well done !
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 3eef0d716748f354ba582b229fcd6468, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -34487,7 +34579,7 @@ MonoBehaviour:
   _SortingLayer: 0
   _SortingLayerID: 0
   _SortingOrder: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_renderer: {fileID: 7341495294672203258}
   m_maskType: 0
 --- !u!114 &7668598463380896166
@@ -34638,6 +34730,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -35199,6 +35292,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -35310,7 +35404,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: well done !
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 3eef0d716748f354ba582b229fcd6468, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -35379,7 +35473,7 @@ MonoBehaviour:
   _SortingLayer: 0
   _SortingLayerID: 0
   _SortingOrder: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_renderer: {fileID: 3600921207602390898}
   m_maskType: 0
 --- !u!114 &423575133558052015
@@ -35888,6 +35982,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 1
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -36560,6 +36655,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 1
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -37031,6 +37127,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 1
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -37890,6 +37987,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 1
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -38025,6 +38123,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -39091,6 +39190,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -39764,6 +39864,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 1
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -40345,6 +40446,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -40511,6 +40613,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -40646,6 +40749,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -41139,6 +41243,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -41474,7 +41579,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  - {fileID: 2180264, guid: 3eef0d716748f354ba582b229fcd6468, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -41519,8 +41624,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: well done !
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 3eef0d716748f354ba582b229fcd6468, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 3eef0d716748f354ba582b229fcd6468, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -41774,6 +41879,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -42402,7 +42508,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: well done !
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 3eef0d716748f354ba582b229fcd6468, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -42471,7 +42577,7 @@ MonoBehaviour:
   _SortingLayer: 0
   _SortingLayerID: 0
   _SortingOrder: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_renderer: {fileID: 6247003038208813663}
   m_maskType: 0
 --- !u!114 &3605352019271788163
@@ -43045,7 +43151,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: well done !
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 3eef0d716748f354ba582b229fcd6468, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -43114,7 +43220,7 @@ MonoBehaviour:
   _SortingLayer: 0
   _SortingLayerID: 0
   _SortingOrder: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_renderer: {fileID: 8102263794724085191}
   m_maskType: 0
 --- !u!114 &3011301955415841911
@@ -43638,7 +43744,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: well done !
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 3eef0d716748f354ba582b229fcd6468, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -43707,7 +43813,7 @@ MonoBehaviour:
   _SortingLayer: 0
   _SortingLayerID: 0
   _SortingOrder: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_renderer: {fileID: 619083859827412870}
   m_maskType: 0
 --- !u!114 &1561190764706256758
@@ -43893,6 +43999,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 1
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -44028,6 +44135,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 1
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -44342,6 +44450,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -44477,6 +44586,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -44651,6 +44761,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}
@@ -44786,6 +44897,7 @@ MonoBehaviour:
     connected: 0
   sequenceType: 2
   pointMesh: {fileID: 0}
+  <selected>k__BackingField: 0
   <startFlag>k__BackingField: 0
   originalScale: {x: 0, y: 0, z: 0}
   cleanStitchPoint: {fileID: 0}

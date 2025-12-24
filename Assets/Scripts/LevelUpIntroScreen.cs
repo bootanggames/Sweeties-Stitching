@@ -3,9 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LevelUpIntroScreen : MonoBehaviour
 {
+    [SerializeField] GameObject explosionEffectParent;
+    [SerializeField] ParticleSystem[] explosionEffect;
     [SerializeField] GameObject[] plishieObj;
     [SerializeField] float speed;
     [SerializeField] TextMeshProUGUI levelNumberText;
@@ -54,6 +57,8 @@ public class LevelUpIntroScreen : MonoBehaviour
             levelUpScreen.confettiCameraRenderObj.SetActive(false);
             levelUpScreen.homeCanvas.SetActive(true);
             levelUpScreen.levelUpIntroScreen.SetActive(false);
+            this.GetComponent<Image>().enabled = true;
+
             //this.gameObject.SetActive(false);
             //foreach (GameObject g in plishieObj)
             //{
@@ -96,17 +101,9 @@ public class LevelUpIntroScreen : MonoBehaviour
             //seq.Join(GameEvents.DoTweenAnimationHandlerEvents.onMoveToTargetAnimation.Raise(plushieIcon.transform, target, speed, Ease.Linear));
             seq.Join(GameEvents.DoTweenAnimationHandlerEvents.onScaleTransform.Raise(plushieIcon.transform, new Vector3(0.75f, 0.75f, 0.75f), speed, Ease.Linear));
         }
-        yield return new WaitForSeconds(0.2f);
-
-        foreach (GameObject g in plishieObj)
-        {
-            g.SetActive(false);
-        }
-        yield return new WaitForSeconds(0.5f);
-
         seq.OnComplete(() =>
         {
-           
+            
             for (int i = plushieIcons.Count - 1; i >= 0; i--)
             {
                 GameObject currentLevelObj = objectivePage.levelDetail[i].levelObject;
@@ -120,9 +117,33 @@ public class LevelUpIntroScreen : MonoBehaviour
                 if (index >= plishieObj.Length - 1)
                     index = plishieObj.Length - 1;
             }
+
         });
+       
+        //yield return new WaitForSeconds(0.5f);
+       
         yield return seq.WaitForCompletion();
-        ResetScreen();
+        explosionEffectParent.SetActive(true);
+
+        MainMenuHandler.instance.levels.transform.DOScale(new Vector3(1.05f, 1.05f, 1.05f), 0.25f).SetEase(Ease.Linear).OnComplete(() =>
+        {
+            foreach (ParticleSystem p in explosionEffect)
+            {
+                p.Play();
+            }
+            MainMenuHandler.instance.levels.transform.DOScale(Vector3.one, 0.3f).SetEase(Ease.Linear).OnComplete(() =>
+            {
+                foreach (GameObject g in plishieObj)
+                {
+                    g.SetActive(false);
+                }
+            });
+
+        });
+        //yield return new WaitForSeconds(0.2f);
+
+       
+        //ResetScreen();
         //Invoke(nameof(ResetScreen), 2.5f);
     }
     void EnableInSequence()
@@ -130,6 +151,7 @@ public class LevelUpIntroScreen : MonoBehaviour
      
         if (index >= plishieObj.Length)
         {
+            this.GetComponent<Image>().enabled = false;
             StartCoroutine(PlushieSequence());
             return;
         }

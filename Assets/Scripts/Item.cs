@@ -4,10 +4,12 @@ using UnityEngine.UI;
 
 public class Item : MonoBehaviour,IPointerDownHandler,IDragHandler,IPointerUpHandler,IBeginDragHandler,IEndDragHandler
 {
+    [SerializeField] MyRoomItemData m_ItemData;
     [SerializeField] RectTransform itemRect;
     IRoomdecorStore _store;
     [SerializeField] string ItemName;
     [SerializeField] RoomItem roomItem;
+    [SerializeField] bool moveable = false;
     private void Start()
     {
         _store = ServiceLocator.GetService<IRoomdecorStore>();
@@ -19,8 +21,18 @@ public class Item : MonoBehaviour,IPointerDownHandler,IDragHandler,IPointerUpHan
     public void OnDrag(PointerEventData eventData)
     {
         if (_store == null) return;
-        if(_store.repositionItem)
-            itemRect.anchoredPosition += eventData.delta / _store.canvas.scaleFactor;
+        if (_store.repositionItem)
+        {
+            if (moveable)
+            {
+                itemRect.anchoredPosition += eventData.delta / _store.canvas.scaleFactor;
+                m_ItemData.posX = itemRect.anchoredPosition.x;
+                m_ItemData.posY = itemRect.anchoredPosition.y;
+                SaveDataUsingJson.instance.SaveData(ItemName + "ItemPosition", m_ItemData, "MyRoom");
+            }
+
+        }
+
     }
 
     public void OnEndDrag(PointerEventData eventData)

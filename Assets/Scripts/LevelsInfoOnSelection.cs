@@ -5,7 +5,7 @@ using UnityEngine;
 public class LevelsInfoOnSelection : MonoBehaviour
 {
     public List<LevelObjectivePageDetail> levelPage;
-    [SerializeField] PageScroller pageScroller;
+    [field: SerializeField]public PageScroller pageScroller {  get; private set; }
     [SerializeField] PageSlider pageSlider;
     private void Start()
     {

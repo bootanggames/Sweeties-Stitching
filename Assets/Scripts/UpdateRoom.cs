@@ -53,13 +53,17 @@ public class UpdateRoom : MonoBehaviour
         foreach (GameObject g in shelf)
         {
             Plushie_ShelfContainer _shelf = g.GetComponent<Plushie_ShelfContainer>();
+            RoomItem _item = g.GetComponent<RoomItem>();
             if (_shelf.itemName.Equals(_itemName))
             {
                 foreach (GameObject s in shelf)
                 {
                     s.SetActive(false);
+                    RoomItem roomItem = s.GetComponent<RoomItem>();
+                    roomItem.EnableDisableItemComponents(false);
                 }
                 g.SetActive(true);
+                _item.EnableDisableItemComponents(true);
                 break;
             }
 

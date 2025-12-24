@@ -55,13 +55,13 @@ public class LevelUpIntroScreen : MonoBehaviour
             levelUpScreen.homeCanvas.SetActive(true);
             levelUpScreen.levelUpIntroScreen.SetActive(false);
             //this.gameObject.SetActive(false);
-            foreach (GameObject g in plishieObj)
-            {
-                LevelUpPlushieInfo plushie = g.GetComponentInChildren<LevelUpPlushieInfo>();
-                //plushie.effect.SetActive(false);
-                plushie.transform.localScale = Vector3.zero;
-                g.SetActive(false);
-            }
+            //foreach (GameObject g in plishieObj)
+            //{
+            //    LevelUpPlushieInfo plushie = g.GetComponentInChildren<LevelUpPlushieInfo>();
+            //    plushie.effect.SetActive(false);
+            //    plushie.transform.localScale = Vector3.zero;
+            //    g.SetActive(false);
+            //}
             jackpotHandler.ShowJackPotScreen();
             index = 0;
         }
@@ -71,17 +71,66 @@ public class LevelUpIntroScreen : MonoBehaviour
     {
         SoundManager.instance.PlaySound(source, SoundManager.instance.audioClips.coinBagExploding, false, false, 1, false);
     }
-    bool once = false;
+
+    IEnumerator PlushieSequence()
+    {
+        Sequence seq = DOTween.Sequence();
+        int total = plishieObj.Length;
+        int currentLevel = PlayerPrefs.GetInt("Level");
+        LevelObjectivePageDetail objectivePage = MainMenuHandler.instance.levels.levelPage[currentLevel];
+        List<GameObject> plushieIcons = new List<GameObject>();
+        int index = 0;
+        for (int i = total - 1; i >= 0; i--)
+        {
+
+            GameObject currentLevelObj = objectivePage.levelDetail[i].levelObject;
+            LevelDetail ld = currentLevelObj.GetComponent<LevelDetail>();
+            Transform parent = MainMenuHandler.instance.levels.GetComponentInParent<HomeScreenSound>().transform;
+            ld.plushieImage.transform.SetParent(parent);
+            Vector3 target = ld.plushieImage.GetComponent<RectTransform>().anchoredPosition3D;
+            GameObject plushieIcon = plishieObj[i].GetComponentInChildren<LevelUpPlushieInfo>().gameObject;
+            if (!plushieIcons.Contains(plushieIcon))
+                plushieIcons.Add(plushieIcon);
+            plushieIcon.transform.SetParent(parent);
+            seq.Join(plushieIcon.transform.DOLocalMove(target, speed).SetEase(Ease.Linear));
+            //seq.Join(GameEvents.DoTweenAnimationHandlerEvents.onMoveToTargetAnimation.Raise(plushieIcon.transform, target, speed, Ease.Linear));
+            seq.Join(GameEvents.DoTweenAnimationHandlerEvents.onScaleTransform.Raise(plushieIcon.transform, new Vector3(0.75f, 0.75f, 0.75f), speed, Ease.Linear));
+        }
+        yield return new WaitForSeconds(0.2f);
+
+        foreach (GameObject g in plishieObj)
+        {
+            g.SetActive(false);
+        }
+        yield return new WaitForSeconds(0.5f);
+
+        seq.OnComplete(() =>
+        {
+           
+            for (int i = plushieIcons.Count - 1; i >= 0; i--)
+            {
+                GameObject currentLevelObj = objectivePage.levelDetail[i].levelObject;
+                LevelDetail ld = currentLevelObj.GetComponent<LevelDetail>();
+                ld.plushieImage.transform.SetParent(ld.transform);
+                plushieIcons[i].transform.SetParent(plishieObj[index].transform);
+                plushieIcons[i].transform.localScale = Vector3.zero;
+                //plushieIcons[i].SetActive(false);
+                //plishieObj[index].SetActive(false);
+                index++;
+                if (index >= plishieObj.Length - 1)
+                    index = plishieObj.Length - 1;
+            }
+        });
+        yield return seq.WaitForCompletion();
+        ResetScreen();
+        //Invoke(nameof(ResetScreen), 2.5f);
+    }
     void EnableInSequence()
     {
-        //if (!once)
-        //{
-        //    CoinBagExplodeSound();
-        //    once = true;
-        //}
+     
         if (index >= plishieObj.Length)
         {
-            Invoke(nameof(ResetScreen), 1.5f);
+            StartCoroutine(PlushieSequence());
             return;
         }
     
@@ -97,7 +146,6 @@ public class LevelUpIntroScreen : MonoBehaviour
         {
             currentTween.OnComplete(() =>
             {
-                once = false;
 
                 currentTween.Kill();
                 currentTween = null;

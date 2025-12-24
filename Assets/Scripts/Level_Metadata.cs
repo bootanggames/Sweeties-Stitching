@@ -79,8 +79,8 @@ public class Level_Metadata : MonoBehaviour
             s_Info.UpdateThreadProgress(totalThread);
 
         }
-        if (threadHandler != null)
-            threadHandler.UpdateCurrentActiveSpoolReference();
+        //if (threadHandler != null)
+        //    threadHandler.UpdateCurrentActiveSpoolReference();
     }
     void LoadSpoolDataIfSaved()
     {

@@ -244,7 +244,7 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
         GetObjectInfoWrongAlertTextDisableOfPart(LevelsHandler.instance.currentLevelMeta.bodyParts);
         GetObjectInfoWrongAlertTextDisableOfPart(LevelsHandler.instance.currentLevelMeta.immoveablePart.GetComponent<Part_Info>().joints);
         GetObjectInfoWrongAlertTextDisableOfPart(LevelsHandler.instance.currentLevelMeta.head.joints);
-     
+        //LevelsHandler.instance.ChangeText("Uh oh! Stitching Pattern is OFF", 30, ob_info.partType);
         ob_info.WrongSequenceAlertText("Uh oh! Stitching Pattern is OFF", 2);
         var canvasHandler = ServiceLocator.GetService<ICanvasUIManager>();
         if(canvasHandler != null)
@@ -274,13 +274,7 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
         }
         if (dynamicStitch)
             NewConnection(point1.transform, point2.transform, true, false, threadStitchCount);
-        //else
-        //{
-        //    if (threadStitchCount == 1)
-        //        NewConnection(point1.transform, point2.transform, true, false, threadStitchCount);
-        //    else
-        //        NewConnection(point1.transform, point2.transform, true, true, threadStitchCount);
-        //}
+     
     }
 
     void NewConnection(Transform p1, Transform p2, bool applyPullForce, bool multiple, int stitchCount)

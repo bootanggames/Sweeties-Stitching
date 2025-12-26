@@ -225,7 +225,6 @@ namespace Mkey
             for (int i = 0; i < rayCasters.Length; i++)
             {
                 s = rayCasters[i].GetSymbol();
-                //Debug.Log(s.iconID);
                 if (payLine.line[i] >= 0 && s.IconID != payLine.line[i])
                 {
                     return null;
@@ -233,6 +232,7 @@ namespace Mkey
                 else if (payLine.line[i] >= 0 && s.IconID == payLine.line[i])
                 {
                     winnSymbols.Add(s);
+                    Debug.LogError(s.IconID + " " + winnSymbols.Count);
                 }
             }
             return new WinData(winnSymbols, payLine.freeSpins, payLine.pay, payLine.payMult, payLine.freeSpinsMult, payLine.LineEvent);

@@ -26,4 +26,14 @@ public class LevelDataScriptable : ScriptableObject
     public Vector3 rightLegCameraPos;
     public Vector3 rightArmCameraPos;
     public Vector3 gameCompleteCameraPos;
+
+    public AlertTextPosition neckTextPos;
+    public AlertTextPosition rightEyeTextPos;
+    public AlertTextPosition rightEarTextPos;
+    public AlertTextPosition leftEarTextPos;
+    public AlertTextPosition leftEyeTextPos;
+    public AlertTextPosition leftArmTextPos;
+    public AlertTextPosition leftLegTextPos;
+    public AlertTextPosition rightLegTextPos;
+    public AlertTextPosition rightArmTextPos;
 }

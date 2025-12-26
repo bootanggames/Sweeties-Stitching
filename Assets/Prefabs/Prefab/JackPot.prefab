@@ -2028,7 +2028,7 @@ MonoBehaviour:
   useLineBetMultiplier: 1
   useLineBetFreeSpinMultiplier: 0
   debugPredictSymbols: 0
-  jp_symbol_id: 13
+  jp_symbol_id: 5
   useMiniJacPot: 0
   miniJackPotCount: 7
   useMaxiJacPot: 0
@@ -10671,6 +10671,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: SoundMaster
       objectReference: {fileID: 0}
+    - target: {fileID: 3129708964189078926, guid: 3e12f475e288ef4489ca1cf6d968d101, type: 3}
+      propertyPath: winCoins
+      value: 
+      objectReference: {fileID: 8300000, guid: ed010ca3d7fc6d842b4a8b29c05e58e7, type: 3}
+    - target: {fileID: 3129708964189078926, guid: 3e12f475e288ef4489ca1cf6d968d101, type: 3}
+      propertyPath: buttonClick
+      value: 
+      objectReference: {fileID: 8300000, guid: b39a2f7d91550a94eb1b771038eb7fed, type: 3}
+    - target: {fileID: 3129708964189078926, guid: 3e12f475e288ef4489ca1cf6d968d101, type: 3}
+      propertyPath: slotRotation
+      value: 
+      objectReference: {fileID: 8300000, guid: aa61e7f34df46a24787c6f378e761afa, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

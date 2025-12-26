@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 using UnityEngine;
 
 public class Level_Metadata : MonoBehaviour
@@ -540,5 +541,5 @@ public class Level_Metadata : MonoBehaviour
             connections.line.gameObject.SetActive(false);
         }
     }
-
+  
 }

@@ -22,7 +22,8 @@ public class JackpotMachine : MonoBehaviour
     public void ShowRewardScreen()
     {
         //Debug.LogError("reward screen");
-        UIObject.SetActive(false);
+        if(UIObject)
+            UIObject.SetActive(false);
         jackPotMachineObject.SetActive(false);
         congratulationsScreen.gameObject.SetActive(true);
         Invoke(nameof(CloseRewardedScreen), 1.0f);

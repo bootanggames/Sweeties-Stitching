@@ -14,7 +14,7 @@ namespace Mkey
         private float speed = 0;
 
         public SlotIcon Icon { get; private set; }
-        public int IconID { get; private set; }
+        [field:SerializeField]public int IconID { get; private set; }
 
         #region temp vars
         private int defaultSortingOrder = 10;

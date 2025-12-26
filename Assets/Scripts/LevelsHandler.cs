@@ -1,6 +1,8 @@
 using DG.Tweening;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using static UnityEditor.PlayerSettings;
 
 public class LevelsHandler : Singleton<LevelsHandler>, ILevelHandler
 {
@@ -193,6 +195,72 @@ public class LevelsHandler : Singleton<LevelsHandler>, ILevelHandler
             currentLevelMeta.noOfStitchesDone = stitchedCountOfCurrentLevel;
             currentLevelMeta.noOfStitchedPart = PlayerPrefs.GetInt("StitchedPartCount");
             currentLevelMeta.CheckIfStitchedBeforeCompleteScreen();
+        }
+    }
+    void ChangeTextPosition(TextMeshProUGUI textMesh, AlertTextPosition pos)
+    {
+        textMesh.rectTransform.anchoredPosition = pos.textanchorPos;
+        Rect r = new Rect();
+        r.xMin = pos.minX; 
+        r.xMax = pos.maxX;
+        r.yMin = pos.minY;
+        r.yMax = pos.maxY;
+        textMesh.rectTransform.anchorMin = new Vector2(r.xMin, r.yMin);
+        textMesh.rectTransform.anchorMax = new Vector2(r.xMax, r.yMax);
+        textMesh.rectTransform.pivot = new Vector2(pos.pivotX, pos.pivotY);
+    }
+    public void ChangeText(string _text, float _fontSize, PlushieActiveStitchPart partInfo)
+    {
+        GameObject textObj = null;
+        textObj = canvasHandler.alertTextObj;
+
+        if (textObj != null)
+        {
+            TextMeshProUGUI textMesh = textObj.GetComponent<TextMeshProUGUI>();
+            AlertTextPosition pos = null;
+            switch (partInfo)
+            {
+                case PlushieActiveStitchPart.neck:
+                    pos = currentLevelMeta.levelScriptable.neckTextPos;
+                    ChangeTextPosition(textMesh, pos);
+                    break;
+                case PlushieActiveStitchPart.righteye:
+                    pos = currentLevelMeta.levelScriptable.rightEyeTextPos;
+                    ChangeTextPosition(textMesh, pos);
+                    break;
+                case PlushieActiveStitchPart.rightear:
+                    pos = currentLevelMeta.levelScriptable.rightEarTextPos;
+                    ChangeTextPosition(textMesh, pos);
+                    break;
+                case PlushieActiveStitchPart.leftear:
+                    pos = currentLevelMeta.levelScriptable.leftEarTextPos;
+                    ChangeTextPosition(textMesh, pos);
+                    break;
+                case PlushieActiveStitchPart.lefteye:
+                    pos = currentLevelMeta.levelScriptable.leftEyeTextPos;
+                    ChangeTextPosition(textMesh, pos);
+                    break;
+                case PlushieActiveStitchPart.leftarm:
+                    pos = currentLevelMeta.levelScriptable.leftArmTextPos;
+                    ChangeTextPosition(textMesh, pos);
+                    break;
+                case PlushieActiveStitchPart.leftleg:
+                    pos = currentLevelMeta.levelScriptable.leftLegTextPos;
+                    ChangeTextPosition(textMesh, pos);
+                    break;
+                case PlushieActiveStitchPart.rightleg:
+                    pos = currentLevelMeta.levelScriptable.rightLegTextPos;
+                    ChangeTextPosition(textMesh, pos);
+                    break;
+                case PlushieActiveStitchPart.rightarm:
+                    pos = currentLevelMeta.levelScriptable.rightArmTextPos;
+                    ChangeTextPosition(textMesh, pos);
+                    break;
+            }
+            
+            textMesh.fontSize = _fontSize;
+            textMesh.text = _text;
+            textObj.SetActive(true);
         }
     }
 }

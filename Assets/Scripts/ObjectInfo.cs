@@ -170,6 +170,7 @@ public class ObjectInfo : MonoBehaviour
         if(c_Stitch) c_Stitch.UnParentPoints();
 
         PlaySound();
+        //LevelsHandler.instance.ChangeText(text, 30, partType);
         ChangeText(completeStitchTextObj, text, 4);
         var pointHandler = ServiceLocator.GetService<IPointConnectionHandler>();
         if (pointHandler != null)

@@ -58,6 +58,7 @@ public class LevelUpIntroScreen : MonoBehaviour
             levelUpScreen.homeCanvas.SetActive(true);
             levelUpScreen.levelUpIntroScreen.SetActive(false);
             this.GetComponent<Image>().enabled = true;
+            explosionEffectParent.SetActive(false);
 
             //this.gameObject.SetActive(false);
             //foreach (GameObject g in plishieObj)
@@ -75,6 +76,10 @@ public class LevelUpIntroScreen : MonoBehaviour
     void CoinBagExplodeSound()
     {
         SoundManager.instance.PlaySound(source, SoundManager.instance.audioClips.coinBagExploding, false, false, 1, false);
+    }
+    void ExplodeSound()
+    {
+        SoundManager.instance.PlaySound(source, SoundManager.instance.audioClips.blast, false, false, 1, false);
     }
 
     IEnumerator PlushieSequence()
@@ -124,6 +129,8 @@ public class LevelUpIntroScreen : MonoBehaviour
        
         yield return seq.WaitForCompletion();
         explosionEffectParent.SetActive(true);
+      
+        ExplodeSound();
 
         MainMenuHandler.instance.levels.transform.DOScale(new Vector3(1.05f, 1.05f, 1.05f), 0.25f).SetEase(Ease.Linear).OnComplete(() =>
         {
@@ -140,10 +147,8 @@ public class LevelUpIntroScreen : MonoBehaviour
             });
 
         });
-        //yield return new WaitForSeconds(0.2f);
-
-       
-        //ResetScreen();
+        yield return new WaitForSeconds(2.5f);
+        ResetScreen();
         //Invoke(nameof(ResetScreen), 2.5f);
     }
     void EnableInSequence()
@@ -163,6 +168,7 @@ public class LevelUpIntroScreen : MonoBehaviour
         LevelUpPlushieInfo plushie = currentPlushie.GetComponentInChildren<LevelUpPlushieInfo>();
 
         currentTween = GameEvents.DoTweenAnimationHandlerEvents.onScaleTransform.Raise(plushie.transform, new Vector3(1.5f,1.5f,1.5f), speed, Ease.Linear);
+        CoinBagExplodeSound();
 
         if (currentTween != null )
         {
@@ -174,7 +180,6 @@ public class LevelUpIntroScreen : MonoBehaviour
                 plushie.effect.SetActive(true);
                 plushie.effect.GetComponent<ParticleSystem>().Play();
                 plushie.PlaySound();
-                CoinBagExplodeSound();
                 //Debug.LogError("sound");
 
                 plushie.transform.DOScale(Vector3.one, speed).SetEase(Ease.Linear).OnComplete(() =>

@@ -23,4 +23,5 @@ public class SoundScriptable : ScriptableObject
     public AudioClip plushieCompletedSparkle;
     public AudioClip roomInventoryScreenSound;
     public AudioClip plushieSewnVoice;
+    public AudioClip blast;
 }

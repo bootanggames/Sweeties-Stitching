@@ -32,3 +32,4 @@ MonoBehaviour:
   plushieCompletedSparkle: {fileID: 8300000, guid: e9e6a9d9c4b93504d8e702919973e25b, type: 3}
   roomInventoryScreenSound: {fileID: 8300000, guid: ddcf13c93ba05a94a8883182b5d3f523, type: 3}
   plushieSewnVoice: {fileID: 8300000, guid: 7bc8e6545c449af49a5abd199ef06c30, type: 3}
+  blast: {fileID: 8300000, guid: 8b6932c0212659d40b506ba1eacb707d, type: 3}

@@ -136,7 +136,7 @@ public class ThreadManager : MonoBehaviour, IThreadManager
        
         if (instantiatedLine == null)
         {
-            if (detectedPoints.Count > 0)
+            if (detectedPoints.Count > 0 && prevLine == null)
             {
                 Transform firstDetectedPoint = detectedPoints[0];
                 startPos.z = zVal;
@@ -376,7 +376,6 @@ public class ThreadManager : MonoBehaviour, IThreadManager
     public void UndoThread()
     {
         if (!canUndo) return;
-       
      
         if (connectHandler != null)
         {
@@ -478,8 +477,28 @@ public class ThreadManager : MonoBehaviour, IThreadManager
                 }
                 else
                     SetLastConnectedPosition(null);
-               
-          
+
+                if ( prevLine == null)
+                {
+                    Transform firstDetectedPoint = detectedPoints[0];
+                    startPos.z = zVal;
+                    Vector3 endPos = firstDetectedPoint.position;
+                    endPos.z = zVal;
+                    InstantiateMainThread(true, endPos);
+                    prevLine = instantiatedLine;
+                    prevLine.positionCount = threadMaxLength / 5;
+                    for(int i=0;i<prevLine.positionCount;i++)
+                    {
+                        prevLine.SetPosition(i, endPos);
+                    }
+                    UpdateStartPositionFromSpool();
+
+                    prevLine.SetPosition(0, startPos);
+                    instantiatedLine = null;
+                    lastConnectedPoint = detectedPoints[detectedPoints.Count - 1];
+
+                    InstantiateMainThread(true, lastConnectedPoint.position);
+                }
             }
             else
                 SetLastConnectedPosition(null);

@@ -244,8 +244,8 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
         GetObjectInfoWrongAlertTextDisableOfPart(LevelsHandler.instance.currentLevelMeta.bodyParts);
         GetObjectInfoWrongAlertTextDisableOfPart(LevelsHandler.instance.currentLevelMeta.immoveablePart.GetComponent<Part_Info>().joints);
         GetObjectInfoWrongAlertTextDisableOfPart(LevelsHandler.instance.currentLevelMeta.head.joints);
-        //LevelsHandler.instance.ChangeText("Uh oh! Stitching Pattern is OFF", 30, ob_info.partType);
-        ob_info.WrongSequenceAlertText("Uh oh! Stitching Pattern is OFF", 2);
+        LevelsHandler.instance.ChangeText("Uh oh! Stitching Pattern is OFF", 35, ob_info.partType, true);
+        //ob_info.WrongSequenceAlertText("Uh oh! Stitching Pattern is OFF", 2);
         var canvasHandler = ServiceLocator.GetService<ICanvasUIManager>();
         if(canvasHandler != null)
             canvasHandler.undoHighLight.SetActive(true);
@@ -256,7 +256,8 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
         foreach (GameObject g in list)
         {
             ObjectInfo o = g.GetComponent<ObjectInfo>();
-            o.DisableWrongAlertText();
+            //o.DisableWrongAlertText();
+            LevelsHandler.instance.ChangeText("", 35, o.partType, false);
         }
     }
     public void CreateLinkBetweenPoints(SewPoint point1, SewPoint point2)
@@ -386,9 +387,13 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
                 info1 = p1.parent.parent.GetComponent<ObjectInfo>();
                 info2 = p2.parent.parent.GetComponent<ObjectInfo>();
                 if (p1.parent.parent.parent == p2.parent.parent.parent) return;
+                if (info1.moveable)
+                    LevelsHandler.instance.ChangeText("", 35, info1.partType, false);
+                if (info2.moveable)
+                    LevelsHandler.instance.ChangeText("", 35, info2.partType, false);
 
-                info1.DisableWrongAlertText();
-                info2.DisableWrongAlertText();
+                //info1.DisableWrongAlertText();
+                //info2.DisableWrongAlertText();
             }
             else
                 return;

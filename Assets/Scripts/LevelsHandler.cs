@@ -209,7 +209,7 @@ public class LevelsHandler : Singleton<LevelsHandler>, ILevelHandler
         textMesh.rectTransform.anchorMax = new Vector2(r.xMax, r.yMax);
         textMesh.rectTransform.pivot = new Vector2(pos.pivotX, pos.pivotY);
     }
-    public void ChangeText(string _text, float _fontSize, PlushieActiveStitchPart partInfo)
+    public void ChangeText(string _text, float _fontSize, PlushieActiveStitchPart partInfo, bool val)
     {
         GameObject textObj = null;
         textObj = canvasHandler.alertTextObj;
@@ -260,7 +260,16 @@ public class LevelsHandler : Singleton<LevelsHandler>, ILevelHandler
             
             textMesh.fontSize = _fontSize;
             textMesh.text = _text;
-            textObj.SetActive(true);
+            textObj.SetActive(val);
+            WrongSelectedPointSound();
         }
+    }
+
+    void WrongSelectedPointSound()
+    {
+        SoundManager.instance.ResetAudioSource();
+        AudioSource _source = SoundManager.instance.audioSource;
+        AudioClip _clip = SoundManager.instance.audioClips.wrongStitchSound;
+        SoundManager.instance.PlaySound(_source, _clip, false, false, 1, false);
     }
 }

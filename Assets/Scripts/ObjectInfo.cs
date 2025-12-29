@@ -170,8 +170,9 @@ public class ObjectInfo : MonoBehaviour
         if(c_Stitch) c_Stitch.UnParentPoints();
 
         PlaySound();
-        //LevelsHandler.instance.ChangeText(text, 30, partType);
-        ChangeText(completeStitchTextObj, text, 4);
+        if(!moveable)
+            LevelsHandler.instance.ChangeText(text, 70, partType, true);
+        //ChangeText(completeStitchTextObj, text, 4);
         var pointHandler = ServiceLocator.GetService<IPointConnectionHandler>();
         if (pointHandler != null)
         {
@@ -308,8 +309,10 @@ public class ObjectInfo : MonoBehaviour
 
     void UpdateProgress()
     {
-        DisableWellDoneText();
-        foreach(GameObject g in confettiObj)
+        //DisableWellDoneText();
+        LevelsHandler.instance.ChangeText("", 50, partType, false);
+
+        foreach (GameObject g in confettiObj)
         {
             Destroy(g);
         }
@@ -331,51 +334,51 @@ public class ObjectInfo : MonoBehaviour
         }
         CancelInvoke("UpdateProgress");
     }
-    public void DisableWellDoneText()
-    {
-        if (completeStitchTextObj)
-        {
-            completeStitchTextObj.SetActive(false);
-            Destroy(completeStitchTextObj);
-        }
-        CancelInvoke("DisableWellDoneText");
-    }
+    //public void DisableWellDoneText()
+    //{
+    //    if (completeStitchTextObj)
+    //    {
+    //        completeStitchTextObj.SetActive(false);
+    //        Destroy(completeStitchTextObj);
+    //    }
+    //    CancelInvoke("DisableWellDoneText");
+    //}
 
-    void ChangeText(GameObject textObj, string _text, float _fontSize)
-    {
-        if (textObj != null)
-        {
-            TextMeshPro textMesh = textObj.GetComponent<TextMeshPro>();
-            textMesh.fontSize = _fontSize;
-            textMesh.text = _text;
-            textObj.SetActive(true);
-        }
-    }
-    public void DisableWrongAlertText()
-    {
-        if (wrongSequenceAlert != null)
-            wrongSequenceAlert.SetActive(false);
-    }
-    public void WrongSequenceAlertText(string _text, float _fontSize)
-    {
-        if (wrongSequenceAlert)
-        {
-            TextMeshPro textMesh = wrongSequenceAlert.GetComponent<TextMeshPro>();
-            textMesh.fontSize = _fontSize;
-            textMesh.text = _text;
-            wrongSequenceAlert.SetActive(true);
-            WrongSelectedPointSound();
-        }
+    //void ChangeText(GameObject textObj, string _text, float _fontSize)
+    //{
+    //    if (textObj != null)
+    //    {
+    //        TextMeshPro textMesh = textObj.GetComponent<TextMeshPro>();
+    //        textMesh.fontSize = _fontSize;
+    //        textMesh.text = _text;
+    //        textObj.SetActive(true);
+    //    }
+    //}
+    //public void DisableWrongAlertText()
+    //{
+    //    if (wrongSequenceAlert != null)
+    //        wrongSequenceAlert.SetActive(false);
+    //}
+    //public void WrongSequenceAlertText(string _text, float _fontSize)
+    //{
+    //    if (wrongSequenceAlert)
+    //    {
+    //        TextMeshPro textMesh = wrongSequenceAlert.GetComponent<TextMeshPro>();
+    //        textMesh.fontSize = _fontSize;
+    //        textMesh.text = _text;
+    //        wrongSequenceAlert.SetActive(true);
+    //        WrongSelectedPointSound();
+    //    }
        
-    }
+    //}
 
-    void WrongSelectedPointSound()
-    {
-        SoundManager.instance.ResetAudioSource();
-        AudioSource _source = SoundManager.instance.audioSource;
-        AudioClip _clip = SoundManager.instance.audioClips.wrongStitchSound;
-        SoundManager.instance.PlaySound(_source, _clip, false, false, 1, false);
-    }
+    //void WrongSelectedPointSound()
+    //{
+    //    SoundManager.instance.ResetAudioSource();
+    //    AudioSource _source = SoundManager.instance.audioSource;
+    //    AudioClip _clip = SoundManager.instance.audioClips.wrongStitchSound;
+    //    SoundManager.instance.PlaySound(_source, _clip, false, false, 1, false);
+    //}
     void PlaySound()
     {
         SoundManager.instance.ResetAudioSource();

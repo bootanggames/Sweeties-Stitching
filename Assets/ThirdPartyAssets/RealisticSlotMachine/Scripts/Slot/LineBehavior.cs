@@ -225,15 +225,25 @@ namespace Mkey
             for (int i = 0; i < rayCasters.Length; i++)
             {
                 s = rayCasters[i].GetSymbol();
-                if (payLine.line[i] >= 0 && s.IconID != payLine.line[i])
+                if(payLine.line[i] >= 0)
                 {
-                    return null;
+                    if(s.IconID != payLine.line[i])
+                        return null;
+                    else
+                    {
+                        winnSymbols.Add(s);
+                        Debug.LogError(s.IconID+" -- "+ payLine.line[i] + " -- " + winnSymbols.Count);
+                    }
                 }
-                else if (payLine.line[i] >= 0 && s.IconID == payLine.line[i])
-                {
-                    winnSymbols.Add(s);
-                    Debug.LogError(s.IconID + " " + winnSymbols.Count);
-                }
+                //if (payLine.line[i] >= 0 && s.IconID != payLine.line[i])
+                //{
+                //    return null;
+                //}
+                //else if (payLine.line[i] >= 0 && s.IconID == payLine.line[i])
+                //{
+                //    winnSymbols.Add(s);
+                //    Debug.LogError(s.IconID + " " + winnSymbols.Count);
+                //}
             }
             return new WinData(winnSymbols, payLine.freeSpins, payLine.pay, payLine.payMult, payLine.freeSpinsMult, payLine.LineEvent);
         }

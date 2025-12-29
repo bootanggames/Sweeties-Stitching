@@ -265,6 +265,30 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4185005226590887240, guid: 8aeddea871aaaa342b459a4e95c45ee2, type: 3}
+      propertyPath: payTable.Array.data[0].line.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4185005226590887240, guid: 8aeddea871aaaa342b459a4e95c45ee2, type: 3}
+      propertyPath: payTable.Array.data[1].line.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4185005226590887240, guid: 8aeddea871aaaa342b459a4e95c45ee2, type: 3}
+      propertyPath: payTable.Array.data[2].line.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4185005226590887240, guid: 8aeddea871aaaa342b459a4e95c45ee2, type: 3}
+      propertyPath: payTable.Array.data[3].line.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4185005226590887240, guid: 8aeddea871aaaa342b459a4e95c45ee2, type: 3}
+      propertyPath: payTable.Array.data[4].line.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4185005226590887240, guid: 8aeddea871aaaa342b459a4e95c45ee2, type: 3}
+      propertyPath: payTable.Array.data[5].line.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4185005226590887240, guid: 8aeddea871aaaa342b459a4e95c45ee2, type: 3}
       propertyPath: slotIcons.Array.data[0].useWildSubstitute
       value: 1
       objectReference: {fileID: 0}

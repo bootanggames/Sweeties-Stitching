@@ -261,7 +261,8 @@ public class LevelsHandler : Singleton<LevelsHandler>, ILevelHandler
             textMesh.fontSize = _fontSize;
             textMesh.text = _text;
             textObj.SetActive(val);
-            WrongSelectedPointSound();
+            if(val == true)
+                WrongSelectedPointSound();
         }
     }
 

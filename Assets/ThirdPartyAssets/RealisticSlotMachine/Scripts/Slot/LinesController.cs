@@ -30,7 +30,7 @@ namespace Mkey
 
         #region properties
         public int LinesCount { get { return (Lines!=null)? Lines.Count : 0; } }
-        public List<LineBehavior> Lines { get; private set; }
+        [field: SerializeField]public List<LineBehavior> Lines { get; private set; }
         #endregion properties
 
         #region temp vars

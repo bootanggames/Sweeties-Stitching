@@ -96,10 +96,10 @@ namespace Mkey
         }
         #endregion regular
 
-        public float[] SymbProbabilities
-        {
-            get; private set;
-        }
+        //public float[] SymbProbabilities
+        //{
+        //    get; private set;
+        //}
 
         /// <summary>
         /// Instantiate slot tiles 
@@ -162,9 +162,10 @@ namespace Mkey
                 slotSymbols[i] = Instantiate(tilePrefab, transform.position, Quaternion.identity).GetComponent<SlotSymbol>();
                 slotSymbols[i].transform.parent = TilesGroup;
                 slotSymbols[i].transform.localPosition = new Vector3(0, radius * Mathf.Sin(tileAngleRad), -radius * Mathf.Cos(tileAngleRad));
-                //slotSymbols[i].transform.localScale = Vector3.one;
+                //slotSymbols[i].transform.localScale = Vector3.one; //--commentd
                 slotSymbols[i].transform.localEulerAngles = new Vector3(tileAngleDeg, 0, 0);
                 slotSymbols[i].name = "SlotSymbol: " + String.Format("{0:00}", i);
+                
             }
 
             //set symbols
@@ -175,7 +176,8 @@ namespace Mkey
             }
             lastChanged = tileCount - 1;
 
-            SymbProbabilities = GetReelSymbHitPropabilities(sprites);
+            //SymbProbabilities = GetReelSymbHitPropabilities(sprites);
+           
             CurrOrderPosition = 0; // offset  '- anglePerTileRad' - 
 
             // set random start position
@@ -416,6 +418,7 @@ namespace Mkey
             for (int i = 0; i < probs.Length; i++)
             {
                 probs[i] = probs[i] / (float)length;
+
             }
             return probs;
         }

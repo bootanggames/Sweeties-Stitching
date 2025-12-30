@@ -401,7 +401,7 @@ namespace Mkey
                 winController.WinSymbolShow(winLineFlashing == WinLineFlashing.Sequenced,
                        (windata) => //linewin
                        {
-                           winController.jackpotMachine.ShowRewardScreen();
+                           winController.jackpotMachine.ShowRewardScreen(windata.Symbols[0].type);
                            //event can be interrupted by player
                            if (windata!=null)  Debug.Log("lineWin : " +  windata.ToString());
                        },
@@ -445,12 +445,12 @@ namespace Mkey
 
         private void IncreaseJackPots()
         {
-            //if (useMiniJacPot) controls.AddMiniJackPot((jackPotIncType == JackPotIncType.Const) ?
-            //         jackPotIncValue : (int)((float)controls.MiniJackPotStart * (float)jackPotIncValue / 100f));
-            //if (useMaxiJacPot) controls.AddMaxiJackPot((jackPotIncType == JackPotIncType.Const) ?
-            //      jackPotIncValue : (int)((float)controls.MaxiJackPotStart * (float)jackPotIncValue / 100f));
-            //if (useMegaJacPot) controls.AddMegaJackPot((jackPotIncType == JackPotIncType.Const) ?
-            //      jackPotIncValue : (int)((float)controls.MegaJackPotStart * (float)jackPotIncValue / 100f));
+            if (useMiniJacPot) controls.AddMiniJackPot((jackPotIncType == JackPotIncType.Const) ?
+                     jackPotIncValue : (int)((float)controls.MiniJackPotStart * (float)jackPotIncValue / 100f));
+            if (useMaxiJacPot) controls.AddMaxiJackPot((jackPotIncType == JackPotIncType.Const) ?
+                  jackPotIncValue : (int)((float)controls.MaxiJackPotStart * (float)jackPotIncValue / 100f));
+            if (useMegaJacPot) controls.AddMegaJackPot((jackPotIncType == JackPotIncType.Const) ?
+                  jackPotIncValue : (int)((float)controls.MegaJackPotStart * (float)jackPotIncValue / 100f));
         }
 
         private void RotateSlots(Action rotCallBack)
@@ -773,7 +773,7 @@ namespace Mkey
         {
             Measure("calc time", () =>
             {
-                LineBehavior[] lbs = FindObjectsOfType<LineBehavior>();
+                LineBehavior[] lbs = FindObjectsByType<LineBehavior>(FindObjectsSortMode.InstanceID);
                 winController.InitCalc();
                 Debug.Log("lines count: " + lbs.Length);
                 int linesCount = lbs.Length;
@@ -1081,7 +1081,7 @@ namespace Mkey
     [Serializable]
     public class PayLine
     {
-        private const int maxLength = 5;
+        private const int maxLength = 3;
         public int[] line;
         public int pay;
         public int freeSpins;

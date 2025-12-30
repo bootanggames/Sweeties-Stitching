@@ -1824,7 +1824,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ed5f6f6bb361ad42a35a54158a33d9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  symbOrder: 000000000100000002000000030000000400000005000000
+  symbOrder: 0000000001000000000000000000000002000000000000000000000000000000
   triples: []
   rayCasters:
   - {fileID: 6033868757915901284}
@@ -1891,100 +1891,61 @@ MonoBehaviour:
   winController: {fileID: 4495317240259903790}
   slotIcons:
   - name: 
-    iconSprite: {fileID: 21300000, guid: 48fa1a5c562ddeb49ab3f242171b6f92, type: 3}
-    useWildSubstitute: 1
-    iconBlur: {fileID: 21300000, guid: 48fa1a5c562ddeb49ab3f242171b6f92, type: 3}
+    ItemName: 0
+    iconSprite: {fileID: 21300000, guid: d307e28ac6ff0ed4aa2252445726b5f3, type: 3}
+    useWildSubstitute: 0
+    iconBlur: {fileID: 21300000, guid: d307e28ac6ff0ed4aa2252445726b5f3, type: 3}
     privateWinBehaviors: []
   - name: 
-    iconSprite: {fileID: 21300000, guid: d75a8539e3168754b8178ad08f2a02dc, type: 3}
-    useWildSubstitute: 1
-    iconBlur: {fileID: 21300000, guid: d75a8539e3168754b8178ad08f2a02dc, type: 3}
+    ItemName: 1
+    iconSprite: {fileID: 21300000, guid: 4adf82e13192790459ee1f7cd78f2fe7, type: 3}
+    useWildSubstitute: 0
+    iconBlur: {fileID: 21300000, guid: 4adf82e13192790459ee1f7cd78f2fe7, type: 3}
     privateWinBehaviors: []
   - name: 
-    iconSprite: {fileID: 21300000, guid: d390f0a1c6144e84ca817f74b3103279, type: 3}
+    ItemName: 3
+    iconSprite: {fileID: 21300000, guid: 1359cc5d80682164a9920875cf87f023, type: 3}
     useWildSubstitute: 1
-    iconBlur: {fileID: 21300000, guid: d390f0a1c6144e84ca817f74b3103279, type: 3}
-    privateWinBehaviors: []
-  - name: 
-    iconSprite: {fileID: 21300000, guid: 9dc6b1067dedec94588eb678bf213adb, type: 3}
-    useWildSubstitute: 1
-    iconBlur: {fileID: 21300000, guid: 9dc6b1067dedec94588eb678bf213adb, type: 3}
-    privateWinBehaviors: []
-  - name: 
-    iconSprite: {fileID: 21300000, guid: ce636d477e25af64bb891e0dd48ac5df, type: 3}
-    useWildSubstitute: 1
-    iconBlur: {fileID: 21300000, guid: ce636d477e25af64bb891e0dd48ac5df, type: 3}
-    privateWinBehaviors: []
-  - name: 
-    iconSprite: {fileID: 21300000, guid: 6edbee4c46712384faad6116e4dfecd4, type: 3}
-    useWildSubstitute: 1
-    iconBlur: {fileID: 21300000, guid: 6edbee4c46712384faad6116e4dfecd4, type: 3}
+    iconBlur: {fileID: 21300000, guid: 1359cc5d80682164a9920875cf87f023, type: 3}
     privateWinBehaviors: []
   winSymbolBehaviors:
   - {fileID: 468458813477629063, guid: 0763a001c68f1a04bb6ac9a7d19dfea0, type: 3}
   - {fileID: 6507799012853428038, guid: 22a79e95d1525f245ac69a3db7885666, type: 3}
   - {fileID: 6671384726872860937, guid: 6b42cb36a1c76b04f98b558dcbfd1ba0, type: 3}
   payTable:
-  - line: 000000000000000000000000ffffffffffffffff
-    pay: 25
-    freeSpins: 0
-    showEvent: 0
-    LineEvent:
-      m_PersistentCalls:
-        m_Calls: []
-    payMult: 1
-    freeSpinsMult: 1
-  - line: 010000000100000001000000ffffffffffffffff
+  - line: 000000000000000000000000
     pay: 50
-    freeSpins: 0
+    freeSpins: 1
     showEvent: 0
     LineEvent:
       m_PersistentCalls:
         m_Calls: []
     payMult: 1
     freeSpinsMult: 1
-  - line: 020000000200000002000000ffffffffffffffff
-    pay: 15
-    freeSpins: 0
+  - line: 010000000100000001000000
+    pay: 25
+    freeSpins: 1
     showEvent: 0
     LineEvent:
       m_PersistentCalls:
         m_Calls: []
     payMult: 1
     freeSpinsMult: 1
-  - line: 030000000300000003000000ffffffffffffffff
-    pay: 10
-    freeSpins: 0
+  - line: 020000000200000002000000
+    pay: 1500
+    freeSpins: 1
     showEvent: 0
     LineEvent:
       m_PersistentCalls:
         m_Calls: []
     payMult: 1
     freeSpinsMult: 1
-  - line: 040000000400000004000000ffffffffffffffff
-    pay: 150
-    freeSpins: 0
-    showEvent: 0
-    LineEvent:
-      m_PersistentCalls:
-        m_Calls: []
-    payMult: 1
-    freeSpinsMult: 1
-  - line: 050000000500000005000000ffffffffffffffff
-    pay: 250
-    freeSpins: 0
-    showEvent: 0
-    LineEvent:
-      m_PersistentCalls:
-        m_Calls: []
-    payMult: 1
-    freeSpinsMult: 1
-  scatter_id: 4
-  wild_id: 5
+  scatter_id: 3
+  wild_id: 2
   useWild: 1
-  useScatter: 1
+  useScatter: 0
   scatterPayTable:
-  - scattersCount: 5
+  - scattersCount: 3
     pay: 0
     freeSpins: 0
     payMult: 1
@@ -1994,7 +1955,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 2988679417815653393}
           m_TargetAssemblyTypeName: Mkey.SlotEvents, Assembly-CSharp
-          m_MethodName: Scatter_5
+          m_MethodName: Scatter_3
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -2025,16 +1986,16 @@ MonoBehaviour:
   winLineFlashing: 1
   winSymbolParticles: 1
   RandomGenerator: 1
-  useLineBetMultiplier: 1
+  useLineBetMultiplier: 0
   useLineBetFreeSpinMultiplier: 0
   debugPredictSymbols: 0
-  jp_symbol_id: 5
-  useMiniJacPot: 0
+  jp_symbol_id: 2
+  useMiniJacPot: 1
   miniJackPotCount: 7
   useMaxiJacPot: 0
   maxiJackPotCount: 9
-  useMegaJacPot: 1
-  megaJackPotCount: 7
+  useMegaJacPot: 0
+  megaJackPotCount: 10
   jackPotIncValue: 1
   jpController: {fileID: 2787393766885265586}
   useLineBetProgressMultiplier: 1
@@ -2685,6 +2646,7 @@ MonoBehaviour:
   burnLinesAtStart: 0
   winTextPrefab: {fileID: 8926346985218651197, guid: 5aa169e5f1548de4b9c8db04ab451e78, type: 3}
   showWinText: 1
+  <Lines>k__BackingField: []
 --- !u!1 &2303511025021431123
 GameObject:
   m_ObjectHideFlags: 0
@@ -7479,6 +7441,7 @@ GameObject:
   - component: {fileID: 8061292269122134813}
   - component: {fileID: 1838472290746876261}
   - component: {fileID: 3134675899952352361}
+  - component: {fileID: 9070759783531290596}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -7590,6 +7553,20 @@ MonoBehaviour:
   <UIObject>k__BackingField: {fileID: 8273919612686355790}
   <rewardedItem>k__BackingField: {fileID: 9211703580943920767}
   <itemRepository>k__BackingField: {fileID: 11400000, guid: 98f644c9e8b4cd040ae2af9f0d5278a1, type: 2}
+  <jackPotRewardsystem>k__BackingField: {fileID: 9070759783531290596}
+--- !u!114 &9070759783531290596
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6397343806948899074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 747ce375933f6db48ab8754db022203c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  <jackPotRewardsScriptable>k__BackingField: {fileID: 0}
 --- !u!1 &6400536082065382170
 GameObject:
   m_ObjectHideFlags: 0
@@ -8229,6 +8206,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   imageComponent: {fileID: 3109980937290339466}
+  rewardAmountText: {fileID: 22071312568726143}
 --- !u!1 &7050291714570049260
 GameObject:
   m_ObjectHideFlags: 0
@@ -9393,7 +9371,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ed5f6f6bb361ad42a35a54158a33d9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  symbOrder: 000000000100000002000000030000000400000005000000
+  symbOrder: 0000000000000000000000000200000001000000000000000000000000000000
   triples: []
   rayCasters:
   - {fileID: 5006921537873272489}
@@ -9890,7 +9868,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ed5f6f6bb361ad42a35a54158a33d9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  symbOrder: 000000000100000002000000030000000400000005000000
+  symbOrder: 0000000000000000010000000000000000000000020000000000000000000000
   triples: []
   rayCasters:
   - {fileID: 8729340479066425615}

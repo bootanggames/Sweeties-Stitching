@@ -46,6 +46,11 @@ namespace Mkey
             Debug.Log("-------------- Scatter 4 win --------------------");
             MGUI.ShowPopUp(chestsPrefab);
         }
+        public void Scatter_3()
+        {
+            Debug.Log("-------------- Scatter 3 win --------------------");
+            MGUI.ShowPopUp(chestsPrefab);
+        }
 
         public void LineEvent_AAA()
         {

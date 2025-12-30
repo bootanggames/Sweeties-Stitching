@@ -12,7 +12,7 @@ namespace Mkey
         private bool useDeformer;
         [SerializeField]
         private float speed = 0;
-
+        public RewardType type;
         public SlotIcon Icon { get; private set; }
         [field:SerializeField]public int IconID { get; private set; }
 
@@ -58,6 +58,27 @@ namespace Mkey
         {
             this.IconID = iconID;
             this.Icon = icon;
+            switch (icon.ItemName)
+            {
+                case JackpotItemName.coins:
+                    this.type = RewardType.coins;
+                    break;
+                case JackpotItemName.decorItem:
+                    this.type = RewardType.decorItem;
+                    break;
+                case JackpotItemName.plushie:
+                    this.type = RewardType.plushie;
+                    break;
+                case JackpotItemName.thread:
+                    this.type = RewardType.threadSpool;
+                    break;
+                case JackpotItemName.mysterybox:
+                    this.type = RewardType.coins;
+                    break;
+                case JackpotItemName.star:
+                    this.type = RewardType.coins;
+                    break;
+            }
             SetIcon(speed>0);
         }
 

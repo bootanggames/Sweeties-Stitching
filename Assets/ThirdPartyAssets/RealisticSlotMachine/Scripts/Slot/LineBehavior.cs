@@ -1,8 +1,9 @@
-﻿using UnityEngine;
-using System.Collections.Generic;
-using System;
+﻿using System;
 using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Playables;
 
 namespace Mkey
 {
@@ -224,27 +225,26 @@ namespace Mkey
             SlotSymbol s;
             for (int i = 0; i < rayCasters.Length; i++)
             {
+                //Debug.LogError("aa " + rayCasters.Length+" "+i);
+
                 s = rayCasters[i].GetSymbol();
-                if(payLine.line[i] >= 0)
+
+                if (payLine.line[i] >= 0)
                 {
-                    if(s.IconID != payLine.line[i])
+                    if (s.IconID != payLine.line[i])
+                    {
+                        Debug.LogError(s.IconID + "if -- " + payLine.line[i] + "if -- " + winnSymbols.Count);
                         return null;
+                    }
                     else
                     {
                         winnSymbols.Add(s);
-                        Debug.LogError(s.IconID+" -- "+ payLine.line[i] + " -- " + winnSymbols.Count);
+                        Debug.LogError(s.IconID + " -- " + payLine.line[i] + " -- " + winnSymbols.Count + " -- " + rayCasters.Length);
                     }
                 }
-                //if (payLine.line[i] >= 0 && s.IconID != payLine.line[i])
-                //{
-                //    return null;
-                //}
-                //else if (payLine.line[i] >= 0 && s.IconID == payLine.line[i])
-                //{
-                //    winnSymbols.Add(s);
-                //    Debug.LogError(s.IconID + " " + winnSymbols.Count);
-                //}
+
             }
+
             return new WinData(winnSymbols, payLine.freeSpins, payLine.pay, payLine.payMult, payLine.freeSpinsMult, payLine.LineEvent);
         }
 
@@ -411,9 +411,10 @@ namespace Mkey
         public WinData(List<SlotSymbol> symbols, int freeSpins, int pay, int payMult, int freeSpinsMult, UnityEvent lineEvent)
         {
             this.symbols = symbols;
+
             this.freeSpins = freeSpins;
             this.pay = pay;
-            this.payMult = payMult;
+            this.payMult = payMult;  //pay multiplier
             this.freeSpinsMult = freeSpinsMult;
             this.winEvent = lineEvent;
         }

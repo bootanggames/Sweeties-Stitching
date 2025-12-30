@@ -10,13 +10,13 @@ namespace Mkey
         [HideInInspector]
         [SerializeField]
         public string name = "eee";
+        public JackpotItemName ItemName;
         public Sprite iconSprite;
         public bool useWildSubstitute = true;
         public Sprite iconBlur;
         [Space(8)]
         [SerializeField]
         private List<WinSymbolBehavior> privateWinBehaviors;
-
         public string Name
         {
             get { return name; }

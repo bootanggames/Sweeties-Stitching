@@ -76,7 +76,7 @@ namespace Mkey
             EditorGUILayout.BeginVertical("box");
             EditorGUI.indentLevel += 1;
             EditorGUILayout.Space();
-  
+
             if (showSimul = EditorGUILayout.Foldout(showSimul, "Base line simulation"))
             {
                 EditorGUILayout.BeginHorizontal();
@@ -86,7 +86,7 @@ namespace Mkey
                 ShowOrderChoiseLO(orderChoises);
                 EditorGUILayout.EndHorizontal();
             }
- 
+
             EditorGUILayout.Space();
             EditorGUI.indentLevel -= 1;
             EditorGUILayout.EndVertical();
@@ -121,7 +121,7 @@ namespace Mkey
 
         private void OnChangeCallBack(ReorderableList list)
         {
-           // Debug.Log("onchange");
+            // Debug.Log("onchange");
         }
 
         private void DrawHeaderCallBack(Rect rect)
@@ -138,12 +138,12 @@ namespace Mkey
             if (slotGroupBehavior == null || slotGroupBehavior.symbOrder == null) return;
             if (slotGroupBehavior.symbOrder != null && slotGroupBehavior.symbOrder.Count > 0)
             {
-                slotGroupBehavior.symbOrder.Add(slotGroupBehavior.symbOrder[slotGroupBehavior.symbOrder.Count-1]);
+                slotGroupBehavior.symbOrder.Add(slotGroupBehavior.symbOrder[slotGroupBehavior.symbOrder.Count - 1]);
             }
             else
                 slotGroupBehavior.symbOrder.Add(0);
             EditorSceneManager.MarkSceneDirty(SceneManager.GetActiveScene());
-           // Debug.Log("OnAddCallBack");
+            // Debug.Log("OnAddCallBack");
         }
 
         private void OnDrawCallback(Rect rect, int index, bool isActive, bool isFocused)
@@ -152,7 +152,7 @@ namespace Mkey
             var element = symbOrderList.serializedProperty.GetArrayElementAtIndex(index);
             rect.y += 2;
             rect.x += 20;
-            ShowChoise( iconChoises, rect, 80, 20, 0, 0, index);
+            ShowChoise(iconChoises, rect, 80, 20, 0, 0, index);
         }
 
         private void RemoveCallback(ReorderableList list)
@@ -166,9 +166,9 @@ namespace Mkey
         #endregion reordList  CallBacks
 
         #region showProperties
-        private void ShowProperties(string [] properties, bool showHierarchy)
+        private void ShowProperties(string[] properties, bool showHierarchy)
         {
-            for (int i = 0; i <properties.Length; i++)
+            for (int i = 0; i < properties.Length; i++)
             {
                 EditorGUILayout.PropertyField(serializedObject.FindProperty(properties[i]), showHierarchy);
             }
@@ -185,7 +185,7 @@ namespace Mkey
             EditorGUILayout.EndVertical();
         }
 
-        private void ShowPropertiesBoxFoldOut(string bName,string[] properties, ref bool fOut, bool showHierarchy)
+        private void ShowPropertiesBoxFoldOut(string bName, string[] properties, ref bool fOut, bool showHierarchy)
         {
             EditorGUILayout.BeginVertical("box");
             EditorGUI.indentLevel += 1;
@@ -241,10 +241,10 @@ namespace Mkey
         #endregion array
 
         #region showChoise EditorGuiLayOut
-        private void ShowChoiseLO(string [] choise)
+        private void ShowChoiseLO(string[] choise)
         {
             int _choiceIndex = 0;
-            if (choise == null || choise.Length==0) return;
+            if (choise == null || choise.Length == 0) return;
             _choiceIndex = EditorGUILayout.Popup(_choiceIndex, choise);
             Debug.Log("choice: " + _choiceIndex);
             EditorUtility.SetDirty(target);
@@ -277,15 +277,15 @@ namespace Mkey
         #endregion showChoise EditorGuiLayOut
 
         #region showChoise EditorGui
-        private void ShowChoise(string[] choises, Rect rect, float width, float height, float dx, float dy,  int index)
+        private void ShowChoise(string[] choises, Rect rect, float width, float height, float dx, float dy, int index)
         {
-            if (choises == null || choises.Length == 0 ) return;
+            if (choises == null || choises.Length == 0) return;
             int choiseIndex = symbOrder[index];
             int oldIndex = choiseIndex;
             choiseIndex = EditorGUI.Popup(new
-                Rect(rect.x + dx, rect.y+dy, width, height),
+                Rect(rect.x + dx, rect.y + dy, width, height),
                 choiseIndex, choises);
-           symbOrder[index] = choiseIndex;
+            symbOrder[index] = choiseIndex;
             if (oldIndex != choiseIndex) EditorSceneManager.MarkSceneDirty(SceneManager.GetActiveScene());
         }
         #endregion showChoise EditorGui
@@ -323,7 +323,7 @@ namespace Mkey
                 {
                     float[] floats = heights.ToArray();
                     Array.Resize(ref floats, prop.arraySize);
-                    heights = new List<float> (floats);
+                    heights = new List<float>(floats);
                 }
 
                 float margin = height / 10;

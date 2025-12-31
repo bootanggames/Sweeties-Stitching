@@ -12,6 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56b9a870209365f4684501c6905b0338, type: 3}
   m_Name: Gems
   m_EditorClassIdentifier: Assembly-CSharp::JackpotRewardSystem
+  <rewardID>k__BackingField: 4
   <rewardType>k__BackingField: 1
+  <rewardIcon>k__BackingField: {fileID: 0}
   <rewardAmount>k__BackingField: 10
   <rewardProbability>k__BackingField: 50
+  <items>k__BackingField: []

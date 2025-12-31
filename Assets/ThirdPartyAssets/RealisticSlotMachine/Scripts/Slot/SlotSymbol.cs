@@ -73,7 +73,7 @@ namespace Mkey
                     this.type = RewardType.threadSpool;
                     break;
                 case JackpotItemName.mysterybox:
-                    this.type = RewardType.coins;
+                    this.type = RewardType.mysteryBox;
                     break;
                 case JackpotItemName.star:
                     this.type = RewardType.coins;

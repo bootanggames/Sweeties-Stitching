@@ -6,6 +6,8 @@ namespace Mkey
 {
     public class SlotGroupBehavior : MonoBehaviour
     {
+        [SerializeField]
+        JackpotRewardSystem jackpotItems;
         public List<int> symbOrder;
         public List<Triple> triples;
         [SerializeField]
@@ -74,17 +76,25 @@ namespace Mkey
         public int NextOrderPosition { get; private set; }
         public int CurrOrderPosition { get; private set; }
         public RayCaster[] RayCasters { get { return rayCasters; } }
+        
         #endregion properties 
 
+
         #region regular
+
         private void OnValidate()
         {
             spinStartRandomize = (int)Mathf.Clamp(spinStartRandomize, 0, 20);
             spinStartDelay = Mathf.Max(0,spinStartDelay);
             spinSpeedMultiplier = Mathf.Max(0, spinSpeedMultiplier);
             addRotateTime = Mathf.Max(0, addRotateTime);
+            
         }
+        private void Awake()
+        {
+            GetItemsAccordingToProbability(); ///custom function for symOrder--updated through scriptable
 
+        }
         private void OnDestroy()
         {
             CancelRotation();
@@ -96,6 +106,34 @@ namespace Mkey
         }
         #endregion regular
 
+        #region Updat_SymbOrder_List_using_Jackpot_items_Scriptable
+        public void GetItemsAccordingToProbability()
+        {
+            symbOrder.Clear();
+            List<JackpotReward> s_items = new List<JackpotReward>();
+            s_items.AddRange(jackpotItems.jackPotRewardsScriptable.GetAllItems());
+            HashSet<int> checkedItems = new HashSet<int>();
+            foreach (JackpotReward item in s_items)
+            {
+                if ((checkedItems.Contains(item.rewardID))) continue;
+                for (int i = 0; i < item.rewardProbability; i++)
+                {
+                    symbOrder.Add(item.rewardID);
+                }
+                checkedItems.Add(item.rewardID);
+
+            }
+            Shuffle(symbOrder);
+        }
+        private void Shuffle(List<int> list)
+        {
+            for (int i = 0; i < list.Count; i++)
+            {
+                int r = UnityEngine.Random.Range(i, list.Count);
+                (list[i], list[r]) = (list[r], list[i]);
+            }
+        }
+        #endregion
         //public float[] SymbProbabilities
         //{
         //    get; private set;
@@ -179,7 +217,6 @@ namespace Mkey
             //SymbProbabilities = GetReelSymbHitPropabilities(sprites);
            
             CurrOrderPosition = 0; // offset  '- anglePerTileRad' - 
-
             // set random start position
             if (randomStartPosition)
             {

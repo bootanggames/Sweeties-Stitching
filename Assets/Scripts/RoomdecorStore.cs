@@ -20,6 +20,7 @@ public class RoomdecorStore : MonoBehaviour, IRoomdecorStore
     [SerializeField] GameObject storeButton;
     [SerializeField] TextMeshProUGUI coinText;
 
+    [SerializeField] List<GameObject> roomScreenButtons;
     private void OnEnable()
     {
         RegisterService();
@@ -98,6 +99,40 @@ public class RoomdecorStore : MonoBehaviour, IRoomdecorStore
             {
                 g.EnableDisableItemComponents(val);
             }
+        }
+    }
+    public void StopSound()
+    {
+        if (AudiosSourceContainer.instance)
+        {
+            SoundManager.instance.StopSound(AudiosSourceContainer.instance.roomInventoryScreen);
+            AudioClip clip = SoundManager.instance.audioClips.bgMusic;
+            SoundManager.instance.PlaySound(AudiosSourceContainer.instance.homeScreen, clip, true, false, 1, true);
+        }
+    }
+    public void PlaySound()
+    {
+        if (AudiosSourceContainer.instance)
+        {
+            SoundManager.instance.StopSound(AudiosSourceContainer.instance.homeScreen);
+            SoundManager.instance.StopSound(AudiosSourceContainer.instance.plushieInventoryScreen);
+            AudioClip clip = SoundManager.instance.audioClips.roomInventoryScreenSound;
+            SoundManager.instance.PlaySound(AudiosSourceContainer.instance.roomInventoryScreen, clip, true, false, 1, true);
+        }
+    }
+    public void MyRoomButton()
+    {
+        UpdateRoom room = bedroom.GetComponent<UpdateRoom>();
+        PlaySound();
+        EnableDisableMyRoomScreen(true);
+        EnableDisableMItemsScreen(false);
+        EnableDisableChangeRoomUiParent(false);
+        ChangeBedroomComponents(true);
+        room.UpdateRoomState("decor");
+        MainMenuHandler.instance.UpdateScreen("roomdecor");
+        foreach(GameObject g in roomScreenButtons)
+        {
+            g.SetActive(true);
         }
     }
 }

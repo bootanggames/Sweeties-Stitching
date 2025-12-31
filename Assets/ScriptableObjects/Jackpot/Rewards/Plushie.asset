@@ -12,7 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56b9a870209365f4684501c6905b0338, type: 3}
   m_Name: Plushie
   m_EditorClassIdentifier: Assembly-CSharp::JackpotRewardSystem
+  <rewardID>k__BackingField: 3
   <rewardType>k__BackingField: 2
   <rewardIcon>k__BackingField: {fileID: 21300000, guid: 4d0797c7eba479e4eb28128d969415da, type: 3}
   <rewardAmount>k__BackingField: 1
-  <rewardProbability>k__BackingField: 1
+  <rewardProbability>k__BackingField: 2
+  <items>k__BackingField:
+  - {fileID: 11400000, guid: 68e850ba0bfdd4a4b9f2cd7cf10d704b, type: 2}
+  - {fileID: 11400000, guid: ef0d0afc7b560964dbc35e1b4d95459c, type: 2}

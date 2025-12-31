@@ -10,6 +10,10 @@ public class JackpotMachine : MonoBehaviour
     [field: SerializeField] public ItemRepository itemRepository { get; private set; }
     IJackpotHandler jackpotHandler;
     [field: SerializeField] public JackpotRewardSystem jackPotRewardsystem {  get; private set; }
+    private void OnEnable()
+    {
+        jackpotHandler = ServiceLocator.GetService<IJackpotHandler>();
+    }
     private void Start()
     {
         HepticManager.instance.StopHaptics();
@@ -28,13 +32,13 @@ public class JackpotMachine : MonoBehaviour
         jackPotMachineObject.SetActive(false);
         congratulationsScreen.gameObject.SetActive(true);
         UpdateRewardItemScreen(type);
-        Invoke(nameof(CloseRewardedScreen), 1.0f);
+        //Invoke(nameof(CloseRewardedScreen), 1.0f);
     }
     public void CloseRewardedScreen()
     {
         UIObject.SetActive(true);
         jackPotMachineObject.SetActive(true);
-        jackpotHandler.CloseRewardScreen();
+        jackpotHandler.CloseRewardScreen(); 
         CancelInvoke(nameof(CloseRewardedScreen));
     }
     public void EnableCongratulationsScreen(bool val)
@@ -45,8 +49,11 @@ public class JackpotMachine : MonoBehaviour
 
     public void UpdateRewardItemScreen(RewardType type)
     {
-        JackpotReward item = jackPotRewardsystem.jackPotRewardsScriptable.GetRewardItem(type);
-        rewardedItem.imageComponent.sprite = item.rewardIcon;
-        rewardedItem.rewardAmountText.text = item.rewardAmount.ToString();
+        JackpotReward rewardItem = jackPotRewardsystem.jackPotRewardsScriptable.GetRewardItem(type);
+        ItemsMetaData item = rewardItem.GetItem();
+        rewardedItem.imageComponent.sprite = item.ItemIcon;
+        rewardedItem.rewardAmountText.text = rewardItem.rewardAmount.ToString();
+        if(!jackpotHandler.earnedItems.Contains(item))
+            jackpotHandler.earnedItems.Add(item);
     }
 }

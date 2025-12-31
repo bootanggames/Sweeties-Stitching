@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f3690013b31f1e744baa63a453e036d0, type: 3}
-  m_Name: DecorItems Repository
+  m_Name: Items Repository
   m_EditorClassIdentifier: Assembly-CSharp::DecorItemRepositorySO
   _decorItems:
   - {fileID: 11400000, guid: 8c5c65daedb3a014290e8f5c1c99e01f, type: 2}

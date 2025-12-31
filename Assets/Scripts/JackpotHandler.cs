@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class JackpotHandler : MonoBehaviour, IJackpotHandler
@@ -8,9 +9,11 @@ public class JackpotHandler : MonoBehaviour, IJackpotHandler
     [field: SerializeField] public GameObject gameplayCanvas {  get; private set; }
     [field: SerializeField] public GameObject gameCompleteCanvas {  get; private set; }
     [field: SerializeField] public GameObject plushieInventoryCanvas {  get; private set; }
+    public List<ItemsMetaData> earnedItems { get; private set; }
 
     GameObject jackpotScreen = null;
     ICoinsHandler coinsHandler;
+    IRoomdecorStore _roomdecorScreen;
     private void OnEnable()
     {
         RegisterService();
@@ -18,6 +21,8 @@ public class JackpotHandler : MonoBehaviour, IJackpotHandler
     private void Start()
     {
         coinsHandler = ServiceLocator.GetService<ICoinsHandler>();
+        _roomdecorScreen = ServiceLocator.GetService<IRoomdecorStore>();
+        earnedItems = new List<ItemsMetaData>();
     }
     private void OnDisable()
     {
@@ -54,10 +59,10 @@ public class JackpotHandler : MonoBehaviour, IJackpotHandler
     }
     public void CloseRewardScreen()
     {
-        Debug.LogError("close");
         gameplayCamera.SetActive(true);
         gameplayCanvas.SetActive(true);
-        plushieInventoryCanvas.SetActive(true);
+        //plushieInventoryCanvas.SetActive(true);//----
+        _roomdecorScreen.MyRoomButton();
         gameplayBg.SetActive(false);
         MainMenuHandler.instance.mainMenuBg.SetActive(true);
 

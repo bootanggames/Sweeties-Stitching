@@ -8,4 +8,6 @@ public class JackpotAllRewards : ScriptableObject
 
     public JackpotReward GetRewardItem(RewardType type) =>
        rewardList.Find(x => x.rewardType == type);
+
+    public List<JackpotReward> GetAllItems() => rewardList;
 }

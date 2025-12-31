@@ -163,6 +163,56 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1286449713
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1286449715}
+  - component: {fileID: 1286449714}
+  m_Layer: 0
+  m_Name: JackpotHandler
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1286449714
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1286449713}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5bf701a5a635fb45a3c58913952eb9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::JackpotHandler
+  <jackpotPrefab>k__BackingField: {fileID: 0}
+  <gameplayCamera>k__BackingField: {fileID: 0}
+  <gameplayBg>k__BackingField: {fileID: 0}
+  <gameplayCanvas>k__BackingField: {fileID: 0}
+  <gameCompleteCanvas>k__BackingField: {fileID: 0}
+  <plushieInventoryCanvas>k__BackingField: {fileID: 0}
+--- !u!4 &1286449715
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1286449713}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.79181, y: -1.80585, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!850595691 &1522619613
 LightingSettings:
   m_ObjectHideFlags: 0
@@ -232,10 +282,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1350767093872100554, guid: 8aeddea871aaaa342b459a4e95c45ee2, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2350804235551063515, guid: 8aeddea871aaaa342b459a4e95c45ee2, type: 3}
       propertyPath: m_Name
       value: JackPot
@@ -280,10 +326,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8273919612686355790, guid: 8aeddea871aaaa342b459a4e95c45ee2, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -295,3 +337,4 @@ SceneRoots:
   m_Roots:
   - {fileID: 3190721651237732180}
   - {fileID: 226201050}
+  - {fileID: 1286449715}

@@ -26,7 +26,10 @@ namespace Mkey
         {
             name = (iconSprite) ? iconSprite.name : "null";
         }
+        public SlotIcon()
+        {
 
+        }
         public SlotIcon(Sprite iconSprite, List<WinSymbolBehavior> privateWinBehaviors, bool useWildSubstitute)
         {
             this.iconSprite = iconSprite;

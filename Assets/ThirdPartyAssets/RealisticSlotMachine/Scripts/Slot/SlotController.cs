@@ -20,6 +20,8 @@ namespace Mkey
         private SlotControls controls;
         [SerializeField]
         private WinController winController;
+        
+
         #endregion main reference
 
         #region icons
@@ -172,6 +174,45 @@ namespace Mkey
         public bool useWildInFirstPosition = false;
 
         #region regular
+
+        public void UpdateSlotIcons()
+        {
+            JackpotAllRewards rewardList = winController.jackpotMachine.GetComponent<JackpotRewardSystem>().jackPotRewardsScriptable;
+            int count = rewardList.GetAllItems().Count;
+            List<JackpotReward> itemList = new List<JackpotReward>();
+            itemList.AddRange(rewardList.GetAllItems());
+            slotIcons = new SlotIcon[count];
+            for (int i = 0; i < count; i++)
+            {
+                SlotIcon s = new SlotIcon();
+                s.iconSprite = itemList[i].rewardIcon;
+                s.iconBlur = itemList[i].rewardIcon;
+                s.useWildSubstitute = false;
+
+                switch(itemList[i].rewardType)
+                {
+                    case RewardType.coins:
+                        s.ItemName = JackpotItemName.coins;
+                        break;
+                    case RewardType.threadSpool:
+                        s.ItemName = JackpotItemName.thread;
+                        break;
+                    case RewardType.plushie:
+                        s.ItemName = JackpotItemName.plushie;
+                        break;
+                    case RewardType.gems:
+                        s.ItemName = JackpotItemName.star;
+                        break;
+                    case RewardType.mysteryBox:
+                        s.ItemName = JackpotItemName.mysterybox;
+                        break;
+                    case RewardType.decorItem:
+                        s.ItemName = JackpotItemName.decorItem;
+                        break;
+                }
+                slotIcons[i] = s;
+            }
+        }
         private void OnValidate()
         {
             Validate();
@@ -202,7 +243,10 @@ namespace Mkey
                 }
             }
         }
-      
+        private void Awake()
+        {
+            UpdateSlotIcons();
+        }
         void Start()
         {
             wfs1_0 = new WaitForSeconds(1.0f);

@@ -6,5 +6,6 @@ public enum RewardType
    gems,
    plushie,
    threadSpool,
-   decorItem
+   decorItem,
+   mysteryBox
 }

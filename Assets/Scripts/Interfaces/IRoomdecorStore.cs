@@ -17,4 +17,5 @@ public interface IRoomdecorStore : IGameService
     void EnableDisableChangeRoomUiParent(bool val);
     void EnableDisableMItemsScreen(bool val);
     void EnableDisableMyRoomScreen(bool val);
+    void MyRoomButton();
 }

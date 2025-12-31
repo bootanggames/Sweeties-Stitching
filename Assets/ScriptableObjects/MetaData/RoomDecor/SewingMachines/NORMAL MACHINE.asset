@@ -18,4 +18,6 @@ MonoBehaviour:
   <ItemIcon>k__BackingField: {fileID: 1073716762, guid: d403274cd16fae54cbd16cae2f76800e, type: 3}
   <ItemSprite>k__BackingField: {fileID: 1073716762, guid: d403274cd16fae54cbd16cae2f76800e, type: 3}
   <Price>k__BackingField:
-    _currencyEntities: []
+    _currencyEntities:
+    - <ResourceName>k__BackingField: 0
+      <Value>k__BackingField: 2000

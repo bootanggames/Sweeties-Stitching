@@ -15,7 +15,7 @@ public class UIWidget : MonoBehaviour
     [SerializeField] protected TextMeshProUGUI _labelComponent;
 
     protected UIContext _uiContext;
-    
+    [SerializeField] ItemInfo _itemInfo;
     public virtual void SetContext(UIContext uiContext)
     {
         _uiContext = uiContext;
@@ -23,7 +23,12 @@ public class UIWidget : MonoBehaviour
         SetImage(uiContext.ImageToSet);
         SetLabel(uiContext.LabelToSet);
         SetImageColor(uiContext.Color);
-
+        if (_itemInfo)
+        {
+            _itemInfo.CheckLockUnlockItems(uiContext.Cost); //----
+            _itemInfo.SetUnlock(uiContext.LabelToSet); //----
+        }
+     
         IWidgetComponent[] widgets = GetComponentsInChildren<IWidgetComponent>();
 
         foreach (IWidgetComponent component in widgets)
@@ -76,5 +81,15 @@ public class UIWidget : MonoBehaviour
     {
         //if (_imageComponent.GetComponent<Outline>())
         imgOutline.enabled = val;
+    }
+    public int GetItemPrice()
+    {
+        if(_uiContext != null)
+            return _uiContext.Cost;
+        else return 0;
+    }
+    public void SetItemForPurchase()
+    {
+        _itemInfo.CheckLockUnlockItems(GetItemPrice());
     }
 }

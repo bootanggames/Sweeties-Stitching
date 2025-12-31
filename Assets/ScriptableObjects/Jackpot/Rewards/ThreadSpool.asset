@@ -12,7 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56b9a870209365f4684501c6905b0338, type: 3}
   m_Name: ThreadSpool
   m_EditorClassIdentifier: Assembly-CSharp::JackpotRewardSystem
+  <rewardID>k__BackingField: 5
   <rewardType>k__BackingField: 3
   <rewardIcon>k__BackingField: {fileID: 21300000, guid: 9194e17886413684092fa508fe3c266a, type: 3}
   <rewardAmount>k__BackingField: 1
   <rewardProbability>k__BackingField: 20
+  <items>k__BackingField:
+  - {fileID: 11400000, guid: 5bac8f1897858144db332d2cebe1ee93, type: 2}
+  - {fileID: 11400000, guid: f9de4d5b10fefd043b527e133de4a4dc, type: 2}
+  - {fileID: 11400000, guid: aad85685e5cd5d041845fd1d5c152c6f, type: 2}

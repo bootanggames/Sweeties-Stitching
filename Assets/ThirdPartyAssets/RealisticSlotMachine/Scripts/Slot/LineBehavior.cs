@@ -232,15 +232,11 @@ namespace Mkey
                 if (payLine.line[i] >= 0)
                 {
                     if (s.IconID != payLine.line[i])
-                    {
-                        Debug.LogError(s.IconID + "if -- " + payLine.line[i] + "if -- " + winnSymbols.Count);
                         return null;
-                    }
                     else
-                    {
                         winnSymbols.Add(s);
-                        Debug.LogError(s.IconID + " -- " + payLine.line[i] + " -- " + winnSymbols.Count + " -- " + rayCasters.Length);
-                    }
+                    //Debug.LogError(s.IconID + " -- " + payLine.line[i] + " -- " + winnSymbols.Count + " -- " + rayCasters.Length);
+
                 }
 
             }

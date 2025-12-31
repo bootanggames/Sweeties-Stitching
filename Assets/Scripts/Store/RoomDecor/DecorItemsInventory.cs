@@ -12,11 +12,9 @@ public class DecorItemsInventory : ScreenWithSelectableButtons<DecoreItemStoreBu
     ItemName itemName;
     [SerializeField] GameObject useButtonObj;
     private ItemType _itemType = ItemType.BED;
-
     private void Start()
     {
         GameEvents.UIEvents.ShowDecorItemsInventory.Register(OnShowDecorItemsInventory);
-
     }
 
     void OnDestroy()
@@ -24,25 +22,8 @@ public class DecorItemsInventory : ScreenWithSelectableButtons<DecoreItemStoreBu
         GameEvents.UIEvents.ShowDecorItemsInventory.UnRegister(OnShowDecorItemsInventory);
     }
 
-    public void PlaySound() 
-    {
-        if (AudiosSourceContainer.instance)
-        {
-            SoundManager.instance.StopSound(AudiosSourceContainer.instance.homeScreen);
-            SoundManager.instance.StopSound(AudiosSourceContainer.instance.plushieInventoryScreen);
-            AudioClip clip = SoundManager.instance.audioClips.roomInventoryScreenSound;
-            SoundManager.instance.PlaySound(AudiosSourceContainer.instance.roomInventoryScreen, clip, true, false, 1, true);
-        }
-    }
-    public void StopSound()
-    {
-        if (AudiosSourceContainer.instance)
-        {
-            SoundManager.instance.StopSound(AudiosSourceContainer.instance.roomInventoryScreen);
-            AudioClip clip = SoundManager.instance.audioClips.bgMusic;
-            SoundManager.instance.PlaySound(AudiosSourceContainer.instance.homeScreen, clip, true, false, 1, true);
-        }
-    }
+   
+    
     public void ShowWithBeds()
     {
         OnShowDecorItemsInventory(ItemType.BED);
@@ -80,8 +61,8 @@ public class DecorItemsInventory : ScreenWithSelectableButtons<DecoreItemStoreBu
                 ImageToSet = item.ItemIcon,
                 LabelToSet = item.DisplayName,
                 ID = (int)item.ItemName,
+                Cost = (int)item.Price.CurrencyEntities[0].Value//----
             };
-
             SpawnButton(context);
         }
     }

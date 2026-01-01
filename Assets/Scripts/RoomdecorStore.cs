@@ -20,7 +20,7 @@ public class RoomdecorStore : MonoBehaviour, IRoomdecorStore
     [SerializeField] GameObject storeButton;
     [SerializeField] TextMeshProUGUI coinText;
 
-    [SerializeField] List<GameObject> roomScreenButtons;
+    [field:SerializeField] public List<GameObject> roomScreenButtons {  get; private set; }
     private void OnEnable()
     {
         RegisterService();

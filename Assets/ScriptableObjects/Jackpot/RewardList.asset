@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: RewardList
   m_EditorClassIdentifier: Assembly-CSharp::JackpotAllRewards
   rewardList:
-  - {fileID: 11400000, guid: e9bebdd39b024f8479d1656dd33a2607, type: 2}
-  - {fileID: 11400000, guid: 84c6dee85c430784ca61d3616ad8e831, type: 2}
+  - {fileID: 11400000, guid: f6511573eb3c9e8499b31d4eec1f9f82, type: 2}
+  - {fileID: 11400000, guid: f6511573eb3c9e8499b31d4eec1f9f82, type: 2}
   - {fileID: 11400000, guid: f6511573eb3c9e8499b31d4eec1f9f82, type: 2}

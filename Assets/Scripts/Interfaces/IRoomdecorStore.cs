@@ -18,4 +18,6 @@ public interface IRoomdecorStore : IGameService
     void EnableDisableMItemsScreen(bool val);
     void EnableDisableMyRoomScreen(bool val);
     void MyRoomButton();
+    void MyItemsButton(bool val);
+    List<GameObject> roomScreenButtons {  get; }
 }

@@ -23,6 +23,7 @@ public class CanvasUIManager : MonoBehaviour, ICanvasUIManager
     [field: SerializeField] public GameObject mainCanvas { get; private set; }
     [field: SerializeField] public GameObject plushiesInventoryScreen { get; private set; }
     [field: SerializeField] public GameObject alertTextObj { get; private set; }
+    [field: SerializeField] public GameObject gameCompleteBGCanvas { get; private set; }
 
     private void Start()
     {
@@ -113,6 +114,7 @@ public class CanvasUIManager : MonoBehaviour, ICanvasUIManager
     }
     public void EnableDisableGameCompleteScreen(bool active)
     {
+        gameCompleteBGCanvas.SetActive(active);
         gameCompletePanel.SetActive(active);
     }
 }

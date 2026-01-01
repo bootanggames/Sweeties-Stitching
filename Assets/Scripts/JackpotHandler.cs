@@ -4,12 +4,13 @@ using UnityEngine;
 public class JackpotHandler : MonoBehaviour, IJackpotHandler
 {
     [field: SerializeField] public GameObject jackpotPrefab {  get; private set; }
-    [field: SerializeField] public GameObject gameplayCamera {  get; private set; }
-    [field: SerializeField] public GameObject gameplayBg {  get; private set; }
-    [field: SerializeField] public GameObject gameplayCanvas {  get; private set; }
-    [field: SerializeField] public GameObject gameCompleteCanvas {  get; private set; }
+    [field: SerializeField] public GameObject mainCamera {  get; private set; }
+    [field: SerializeField] public GameObject mainMenu {  get; private set; }
+    [field: SerializeField] public GameObject mainMenuCanvas {  get; private set; }
+    [field: SerializeField] public GameObject roomDecorCanvas {  get; private set; }
     [field: SerializeField] public GameObject plushieInventoryCanvas {  get; private set; }
     public List<ItemsMetaData> earnedItems { get; private set; }
+    [field: SerializeField] public GameObject roomBg { get; private set; }
 
     GameObject jackpotScreen = null;
     ICoinsHandler coinsHandler;
@@ -36,35 +37,29 @@ public class JackpotHandler : MonoBehaviour, IJackpotHandler
     {
         jackpotScreen = Instantiate(jackpotPrefab);
         jackpotScreen.SetActive(true);
-        gameplayCamera.SetActive(false);
-        gameplayCanvas.SetActive(false);
-        gameCompleteCanvas.SetActive(false);
+        mainCamera.SetActive(false);
+        mainMenuCanvas.SetActive(false);
+        roomDecorCanvas.SetActive(false);
         plushieInventoryCanvas.SetActive(false);
-        MainMenuHandler.instance.mainMenuBg.SetActive(false);
+        roomBg.SetActive(false);
         CancelInvoke(nameof(ShowWithDelay));
-        //CancelInvoke(nameof(coinsHandler.PlayCoinSoundOnComplete));
-        //SoundManager.instance.StopSound(coinsHandler.audioSource);
-        //coinsHandler.audioSource.enabled = false;
     }
     public void CloseJackpotScreen()
     {
-        gameplayCamera.SetActive(true);
-        gameplayCanvas.SetActive(true);
-        MainMenuHandler.instance.mainMenuBg.SetActive(true);
-
-        //if(gameplayBg) gameplayBg.SetActive(true);
-        //gameCompleteCanvas.SetActive(true);
+        mainCamera.SetActive(true);
+        mainMenuCanvas.SetActive(true);
+        roomBg.SetActive(true);
         if (jackpotScreen != null)
             Destroy(jackpotScreen);
     }
     public void CloseRewardScreen()
     {
-        gameplayCamera.SetActive(true);
-        gameplayCanvas.SetActive(true);
+        mainCamera.SetActive(true);
+        mainMenuCanvas.SetActive(true);
         //plushieInventoryCanvas.SetActive(true);//----
         _roomdecorScreen.MyRoomButton();
-        gameplayBg.SetActive(false);
-        MainMenuHandler.instance.mainMenuBg.SetActive(true);
+        mainMenu.SetActive(false);
+        roomBg.SetActive(true);
 
         if (jackpotScreen != null)
             Destroy(jackpotScreen);

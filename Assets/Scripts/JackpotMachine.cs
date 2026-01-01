@@ -6,10 +6,13 @@ public class JackpotMachine : MonoBehaviour
     [field:SerializeField]  public GameObject jackPotMachineObject {  get; private set; }
     [field: SerializeField] public GameObject congratulationsScreen { get; private set; }
     [field: SerializeField] public GameObject UIObject { get; private set; }
+    [field: SerializeField] public GameObject AddToCollectionButton { get; private set; }
     [field: SerializeField] public RewardItem rewardedItem { get; private set; }
     [field: SerializeField] public ItemRepository itemRepository { get; private set; }
     IJackpotHandler jackpotHandler;
     [field: SerializeField] public JackpotRewardSystem jackPotRewardsystem {  get; private set; }
+    [field: SerializeField] public GameObject jackpotCamera { get; private set; }
+
     private void OnEnable()
     {
         jackpotHandler = ServiceLocator.GetService<IJackpotHandler>();
@@ -32,7 +35,14 @@ public class JackpotMachine : MonoBehaviour
         jackPotMachineObject.SetActive(false);
         congratulationsScreen.gameObject.SetActive(true);
         UpdateRewardItemScreen(type);
+
         //Invoke(nameof(CloseRewardedScreen), 1.0f);
+    }
+    public void EnableRoomBg(bool val)
+    {
+        jackpotCamera.SetActive(!val);
+        jackpotHandler.mainCamera.SetActive(val);
+        jackpotHandler.roomBg.SetActive(val);
     }
     public void CloseRewardedScreen()
     {
@@ -53,7 +63,7 @@ public class JackpotMachine : MonoBehaviour
         ItemsMetaData item = rewardItem.GetItem();
         rewardedItem.imageComponent.sprite = item.ItemIcon;
         rewardedItem.rewardAmountText.text = rewardItem.rewardAmount.ToString();
-        if(!jackpotHandler.earnedItems.Contains(item))
+        if (!jackpotHandler.earnedItems.Contains(item))
             jackpotHandler.earnedItems.Add(item);
     }
 }

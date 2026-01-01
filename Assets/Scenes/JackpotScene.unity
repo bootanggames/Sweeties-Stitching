@@ -119,6 +119,50 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &181054963
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 181054965}
+  - component: {fileID: 181054964}
+  m_Layer: 0
+  m_Name: DotweenHandler
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &181054964
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 181054963}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24e935aa0065e60408620cc003b2f6a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DoTweenAnimationHandler
+--- !u!4 &181054965
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 181054963}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -3.98422, y: 2.75174, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &226201048
 GameObject:
   m_ObjectHideFlags: 0
@@ -193,11 +237,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::JackpotHandler
   <jackpotPrefab>k__BackingField: {fileID: 0}
-  <gameplayCamera>k__BackingField: {fileID: 0}
-  <gameplayBg>k__BackingField: {fileID: 0}
-  <gameplayCanvas>k__BackingField: {fileID: 0}
-  <gameCompleteCanvas>k__BackingField: {fileID: 0}
+  <mainCamera>k__BackingField: {fileID: 0}
+  <mainMenu>k__BackingField: {fileID: 0}
+  <mainMenuCanvas>k__BackingField: {fileID: 0}
+  <roomDecorCanvas>k__BackingField: {fileID: 0}
   <plushieInventoryCanvas>k__BackingField: {fileID: 0}
+  <roomBg>k__BackingField: {fileID: 0}
 --- !u!4 &1286449715
 Transform:
   m_ObjectHideFlags: 0
@@ -338,3 +383,4 @@ SceneRoots:
   - {fileID: 3190721651237732180}
   - {fileID: 226201050}
   - {fileID: 1286449715}
+  - {fileID: 181054965}

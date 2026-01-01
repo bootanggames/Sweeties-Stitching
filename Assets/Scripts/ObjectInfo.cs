@@ -171,7 +171,7 @@ public class ObjectInfo : MonoBehaviour
 
         PlaySound();
         if(!moveable)
-            LevelsHandler.instance.ChangeText(text, 70, partType, true);
+            LevelsHandler.instance.ChangeText(text, 70, partType, false);
         //ChangeText(completeStitchTextObj, text, 4);
         var pointHandler = ServiceLocator.GetService<IPointConnectionHandler>();
         if (pointHandler != null)

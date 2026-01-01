@@ -123,8 +123,8 @@ public class ScaleOutObject : MonoBehaviour
             levelUpScreen.NextPage(levelIndex);
 
         }
-
-        Invoke(nameof(EnableWordUnlockedPlushies), 0.2f);
+        EnableWordUnlockedPlushies();
+        //Invoke(nameof(EnableWordUnlockedPlushies), 0.2f);
         //Invoke(nameof(LevelIntroScreen), 2.5f);
         CancelInvoke(nameof(NextLevelPanel));
     }

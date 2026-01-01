@@ -34,6 +34,7 @@ public class CoinsHandler : MonoBehaviour,ICoinsHandler
     [SerializeField] int amountToTest = 0;
     [SerializeField]float timeDuration = 0;
     [SerializeField] float waitTime;
+    [SerializeField] float coinSoundPitchValue;
     private void Start()
     {
         timeDuration = Time.time;
@@ -164,6 +165,7 @@ public class CoinsHandler : MonoBehaviour,ICoinsHandler
     {
         //audioSource.Stop();
         //SoundManager.instance.StopSound(s);
+        s.pitch = coinSoundPitchValue;
         SoundManager.instance.PlaySound(s, SoundManager.instance.audioClips.coinCollection, false, false, 1, false);
         HepticManager.instance.HapticEffect();
         Vector3 target = new Vector3(1.2f, 1.2f, 1.2f);

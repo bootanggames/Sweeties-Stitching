@@ -12,9 +12,12 @@ public class DecorItemsInventory : ScreenWithSelectableButtons<DecoreItemStoreBu
     ItemName itemName;
     [SerializeField] GameObject useButtonObj;
     private ItemType _itemType = ItemType.BED;
+
+    IRoomdecorStore roomdecorStore;
     private void Start()
     {
         GameEvents.UIEvents.ShowDecorItemsInventory.Register(OnShowDecorItemsInventory);
+        roomdecorStore = ServiceLocator.GetService<IRoomdecorStore>();
     }
 
     void OnDestroy()
@@ -91,6 +94,13 @@ public class DecorItemsInventory : ScreenWithSelectableButtons<DecoreItemStoreBu
         GameEvents.RoomDecorEvents.DecorItemSelected.Raise(itemName, _itemType);
         useButtonObj.SetActive(false);
         _container.SetActive(false);
-
+        if (roomdecorStore != null)
+        {
+            roomdecorStore.MyItemsButton(false);
+            foreach(GameObject g in roomdecorStore.roomScreenButtons)
+            {
+                g.SetActive(true);
+            }
+        }
     }
 }

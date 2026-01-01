@@ -118,6 +118,7 @@ namespace Mkey
                 if ((checkedItems.Contains(item.rewardID))) continue;
                 for (int i = 0; i < item.rewardProbability; i++)
                 {
+                    Debug.LogError(" " + item.rewardID);
                     symbOrder.Add(item.rewardID);
                 }
                 checkedItems.Add(item.rewardID);

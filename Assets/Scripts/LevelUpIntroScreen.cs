@@ -20,6 +20,7 @@ public class LevelUpIntroScreen : MonoBehaviour
     [SerializeField] AudioSource source;
     [field: SerializeField] public List<PlushieSpriteContainer> pageSliderContainer { get; private set; }
     IJackpotHandler jackpotHandler;
+    [SerializeField] Vector3 plushieTargetScaleIn;
     private void OnEnable()
     {
 
@@ -167,30 +168,40 @@ public class LevelUpIntroScreen : MonoBehaviour
             plishieObj[index - 1].GetComponentInChildren<LevelUpPlushieInfo>().effect.SetActive(false);
         LevelUpPlushieInfo plushie = currentPlushie.GetComponentInChildren<LevelUpPlushieInfo>();
 
-        currentTween = GameEvents.DoTweenAnimationHandlerEvents.onScaleTransform.Raise(plushie.transform, new Vector3(1.5f,1.5f,1.5f), speed, Ease.Linear);
-        CoinBagExplodeSound();
-
-        if (currentTween != null )
+        currentTween = GameEvents.DoTweenAnimationHandlerEvents.onScaleTransform.Raise(plushie.transform, new Vector3(0.5f,0.5f,0.5f), speed, Ease.Linear);
+        if (currentTween != null)
         {
             currentTween.OnComplete(() =>
             {
-
                 currentTween.Kill();
                 currentTween = null;
-                plushie.effect.SetActive(true);
-                plushie.effect.GetComponent<ParticleSystem>().Play();
-                plushie.PlaySound();
-                //Debug.LogError("sound");
+                currentTween = GameEvents.DoTweenAnimationHandlerEvents.onScaleTransform.Raise(plushie.transform, plushieTargetScaleIn, speed, Ease.Linear);
+                CoinBagExplodeSound();
 
-                plushie.transform.DOScale(Vector3.one, speed).SetEase(Ease.Linear).OnComplete(() =>
+                if (currentTween != null)
                 {
-                    //plushie.effect.SetActive(false);
-                    index++;
-                    EnableInSequence();
-                });
-               
+                    currentTween.OnComplete(() =>
+                    {
+
+                        currentTween.Kill();
+                        currentTween = null;
+                        plushie.effect.SetActive(true);
+                        plushie.effect.GetComponent<ParticleSystem>().Play();
+                        plushie.PlaySound();
+                        //Debug.LogError("sound");
+
+                        plushie.transform.DOScale(Vector3.one, speed).SetEase(Ease.Linear).OnComplete(() =>
+                        {
+                            //plushie.effect.SetActive(false);
+                            index++;
+                            EnableInSequence();
+                        });
+
+                    });
+                }
             });
         }
+        
     }
    
 }

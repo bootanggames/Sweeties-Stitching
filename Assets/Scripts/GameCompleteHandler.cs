@@ -109,7 +109,7 @@ public class GameCompleteHandler : MonoBehaviour, IGameService
             canvasHandler.mainCanvas.SetActive(false);
             canvasHandler.audioSourceForBG.volume = 0.5f;
             LevelsHandler.instance.currentLevelMeta.sewnPlushie.SetActive(false);
-            canvasHandler.gameCompletePanel.gameObject.SetActive(true);
+            canvasHandler.EnableDisableGameCompleteScreen(true);
  
             Invoke(nameof( PlaySparkleSound),0.15f);
             Invoke(nameof(TreasureBoxAppearance), 0.45f);

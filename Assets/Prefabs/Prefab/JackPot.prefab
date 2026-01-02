@@ -2435,7 +2435,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -1.22, z: 0}
-  m_LocalScale: {x: 1.2216667, y: 1.2216667, z: 1.2216667}
+  m_LocalScale: {x: 1.6896296, y: 1.6896296, z: 1.6896296}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 4189719920538660012}
@@ -2522,7 +2522,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseRatio: 0.3
   baseRatioOld: 0.3
-  Height_Width: 0.045
+  Height_Width: 0.14
   Height_WidthOld: 0.045
   additionalScale: 1
   additionalScaleOld: 1
@@ -9914,6 +9914,7 @@ GameObject:
   - component: {fileID: 1838472290746876261}
   - component: {fileID: 3134675899952352361}
   - component: {fileID: 9070759783531290596}
+  - component: {fileID: 4318015698609282202}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -10028,6 +10029,11 @@ MonoBehaviour:
   <itemRepository>k__BackingField: {fileID: 11400000, guid: 98f644c9e8b4cd040ae2af9f0d5278a1, type: 2}
   <jackPotRewardsystem>k__BackingField: {fileID: 9070759783531290596}
   <jackpotCamera>k__BackingField: {fileID: 3384788673099440316}
+  jackpotHandle: {fileID: 2174750371475379070}
+  jackpotHandleCircle: {fileID: 3528859586986209343}
+  handleStartPosition: {x: 3.51, y: 2.08, z: 0}
+  handleEndPosition: {x: 3.51, y: 0.34, z: 0}
+  source: {fileID: 4318015698609282202}
 --- !u!114 &9070759783531290596
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10041,6 +10047,103 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   <jackPotRewardsScriptable>k__BackingField: {fileID: 11400000, guid: 811b58cb957319345bbf9fb8ce272057, type: 2}
+--- !u!82 &4318015698609282202
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6397343806948899074}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &6400536082065382170
 GameObject:
   m_ObjectHideFlags: 0
@@ -11219,6 +11322,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 3134675899952352361}
+        m_TargetAssemblyTypeName: JackpotMachine, Assembly-CSharp
+        m_MethodName: StartSpin
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 7767682743253643929}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
@@ -11884,9 +11999,9 @@ RectTransform:
   - {fileID: 7203643951346865793}
   m_Father: {fileID: 7928833747980159608}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.6535209, y: 0.5582593}
-  m_AnchorMax: {x: 0.8624792, y: 0.725815}
-  m_AnchoredPosition: {x: 12.799988, y: 7.399994}
+  m_AnchorMin: {x: 0.71433324, y: 0.56562966}
+  m_AnchorMax: {x: 0.92300004, y: 0.73322237}
+  m_AnchoredPosition: {x: -1, y: -0.6000061}
   m_SizeDelta: {x: 1.0700073, y: 1.0700073}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5241362970355922990
@@ -13994,13 +14109,37 @@ PrefabInstance:
       value: SoundMaster
       objectReference: {fileID: 0}
     - target: {fileID: 3129708964189078926, guid: 3e12f475e288ef4489ca1cf6d968d101, type: 3}
+      propertyPath: music
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3129708964189078926, guid: 3e12f475e288ef4489ca1cf6d968d101, type: 3}
       propertyPath: winCoins
       value: 
       objectReference: {fileID: 8300000, guid: ed010ca3d7fc6d842b4a8b29c05e58e7, type: 3}
     - target: {fileID: 3129708964189078926, guid: 3e12f475e288ef4489ca1cf6d968d101, type: 3}
+      propertyPath: bonusGame
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3129708964189078926, guid: 3e12f475e288ef4489ca1cf6d968d101, type: 3}
+      propertyPath: slotLoose
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3129708964189078926, guid: 3e12f475e288ef4489ca1cf6d968d101, type: 3}
+      propertyPath: openWindow
+      value: 
+      objectReference: {fileID: 8300000, guid: 4b40af7e2a535c94d92c7bcbdf07c2a4, type: 3}
+    - target: {fileID: 3129708964189078926, guid: 3e12f475e288ef4489ca1cf6d968d101, type: 3}
       propertyPath: buttonClick
       value: 
       objectReference: {fileID: 8300000, guid: b39a2f7d91550a94eb1b771038eb7fed, type: 3}
+    - target: {fileID: 3129708964189078926, guid: 3e12f475e288ef4489ca1cf6d968d101, type: 3}
+      propertyPath: closeWindow
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3129708964189078926, guid: 3e12f475e288ef4489ca1cf6d968d101, type: 3}
+      propertyPath: winFreeSpin
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 3129708964189078926, guid: 3e12f475e288ef4489ca1cf6d968d101, type: 3}
       propertyPath: slotRotation
       value: 

@@ -33,3 +33,5 @@ MonoBehaviour:
   roomInventoryScreenSound: {fileID: 8300000, guid: ddcf13c93ba05a94a8883182b5d3f523, type: 3}
   plushieSewnVoice: {fileID: 8300000, guid: 7bc8e6545c449af49a5abd199ef06c30, type: 3}
   blast: {fileID: 8300000, guid: 8b6932c0212659d40b506ba1eacb707d, type: 3}
+  youHaveJackpot: {fileID: 8300000, guid: 4b40af7e2a535c94d92c7bcbdf07c2a4, type: 3}
+  jackpotPrize: {fileID: 8300000, guid: ed010ca3d7fc6d842b4a8b29c05e58e7, type: 3}

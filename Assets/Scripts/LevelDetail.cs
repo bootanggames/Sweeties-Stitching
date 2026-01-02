@@ -11,6 +11,8 @@ public class LevelDetail : MonoBehaviour
     public GameObject lockedImage;
     public bool locked;
     public int totalPlushies;
+    [ field:SerializeField ] public RectTransform startPosition {  get; private set; }
+
     private void Start()
     {
         int levelData = PlayerPrefs.GetInt("Level");

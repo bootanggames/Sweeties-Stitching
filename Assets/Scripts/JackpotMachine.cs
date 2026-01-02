@@ -13,6 +13,11 @@ public class JackpotMachine : MonoBehaviour
     [field: SerializeField] public JackpotRewardSystem jackPotRewardsystem {  get; private set; }
     [field: SerializeField] public GameObject jackpotCamera { get; private set; }
 
+    [SerializeField] GameObject jackpotHandle;
+    [SerializeField] GameObject jackpotHandleCircle;
+    [SerializeField] Vector3 handleStartPosition;
+    [SerializeField] Vector3 handleEndPosition;
+    [SerializeField] AudioSource source;
     private void OnEnable()
     {
         jackpotHandler = ServiceLocator.GetService<IJackpotHandler>();
@@ -22,6 +27,19 @@ public class JackpotMachine : MonoBehaviour
         HepticManager.instance.StopHaptics();
         jackpotHandler = ServiceLocator.GetService<IJackpotHandler>();
         jackpotWord.SetActive(true);
+        Invoke(nameof(JackPotScreenSound), 0.15f);
+    }
+    void JackPotScreenSound()
+    {
+        AudioClip clip = SoundManager.instance.audioClips.youHaveJackpot;
+        SoundManager.instance.PlaySound(source, clip, false, false, 1, false);
+        CancelInvoke(nameof(JackPotScreenSound));
+    }
+    void JackPotRewardScreenSound()
+    {
+        AudioClip clip = SoundManager.instance.audioClips.jackpotPrize;
+        SoundManager.instance.PlaySound(source, clip, false, false, 1, false);
+        CancelInvoke(nameof(JackPotScreenSound));
     }
     public void CloseScreen()
     {
@@ -34,6 +52,7 @@ public class JackpotMachine : MonoBehaviour
             UIObject.SetActive(false);
         jackPotMachineObject.SetActive(false);
         congratulationsScreen.gameObject.SetActive(true);
+        JackPotRewardScreenSound();
         UpdateRewardItemScreen(type);
 
         //Invoke(nameof(CloseRewardedScreen), 1.0f);
@@ -65,5 +84,19 @@ public class JackpotMachine : MonoBehaviour
         rewardedItem.rewardAmountText.text = rewardItem.rewardAmount.ToString();
         if (!jackpotHandler.earnedItems.Contains(item))
             jackpotHandler.earnedItems.Add(item);
+    }
+
+    public void StartSpin()
+    {
+        jackpotHandle.SetActive(false);
+        jackpotHandleCircle.transform.localPosition = handleEndPosition;
+        Invoke(nameof(ResetHandle), 0.5f);
+    }
+
+    void ResetHandle()
+    {
+        jackpotHandle.SetActive(true);
+        jackpotHandleCircle.transform.localPosition = handleStartPosition;
+        CancelInvoke(nameof(ResetHandle));
     }
 }

@@ -57,7 +57,6 @@ public class LevelUpIntroScreen : MonoBehaviour
             levelUpScreen.levelUpScreen.SetActive(false);
             levelUpScreen.confettiCameraRenderObj.SetActive(false);
             levelUpScreen.homeCanvas.SetActive(true);
-            levelUpScreen.levelUpIntroScreen.SetActive(false);
             this.GetComponent<Image>().enabled = true;
             explosionEffectParent.SetActive(false);
 
@@ -116,7 +115,13 @@ public class LevelUpIntroScreen : MonoBehaviour
                 LevelDetail ld = currentLevelObj.GetComponent<LevelDetail>();
                 ld.plushieImage.transform.SetParent(ld.transform);
                 plushieIcons[i].transform.SetParent(plishieObj[index].transform);
-                plushieIcons[i].transform.localScale = Vector3.zero;
+                int levelIndex = PlayerPrefs.GetInt("Level");
+                LevelObjectivePageDetail currenPage = MainMenuHandler.instance.levels.levelPage[levelIndex];
+                foreach (LevelSelectionObject s in currenPage.levelDetail)
+                {
+                    s.plushieObject.SetActive(false);
+                }
+                //plushieIcons[i].transform.localScale = Vector3.one;
                 //plushieIcons[i].SetActive(false);
                 //plishieObj[index].SetActive(false);
                 index++;
@@ -141,16 +146,32 @@ public class LevelUpIntroScreen : MonoBehaviour
             }
             MainMenuHandler.instance.levels.transform.DOScale(Vector3.one, 0.3f).SetEase(Ease.Linear).OnComplete(() =>
             {
-                foreach (GameObject g in plishieObj)
-                {
-                    g.SetActive(false);
-                }
+                //Invoke(nameof(DisablePlushies), 0.1f);
             });
 
         });
-        yield return new WaitForSeconds(2.5f);
+        yield return new WaitForSeconds(1.5f);
+        DisablePlushies();
         ResetScreen();
         //Invoke(nameof(ResetScreen), 2.5f);
+    }
+
+    void DisablePlushies()
+    {
+        int levelIndex = PlayerPrefs.GetInt("Level");
+        LevelObjectivePageDetail currenPage = MainMenuHandler.instance.levels.levelPage[levelIndex];
+        foreach (LevelSelectionObject s in currenPage.levelDetail)
+        {
+            s.plushieObject.SetActive(true);
+        }
+        foreach (GameObject g in plishieObj)
+        {
+            g.transform.localScale = Vector3.zero;
+            g.SetActive(false);
+        }
+        levelUpScreen.levelUpIntroScreen.SetActive(false);
+
+        CancelInvoke(nameof(DisablePlushies));
     }
     void EnableInSequence()
     {
@@ -177,7 +198,9 @@ public class LevelUpIntroScreen : MonoBehaviour
                 currentTween = null;
                 currentTween = GameEvents.DoTweenAnimationHandlerEvents.onScaleTransform.Raise(plushie.transform, plushieTargetScaleIn, speed, Ease.Linear);
                 CoinBagExplodeSound();
-
+                plushie.effect.SetActive(true);
+                plushie.effect.GetComponent<ParticleSystem>().Play();
+                plushie.PlaySound();
                 if (currentTween != null)
                 {
                     currentTween.OnComplete(() =>
@@ -185,9 +208,7 @@ public class LevelUpIntroScreen : MonoBehaviour
 
                         currentTween.Kill();
                         currentTween = null;
-                        plushie.effect.SetActive(true);
-                        plushie.effect.GetComponent<ParticleSystem>().Play();
-                        plushie.PlaySound();
+                        
                         //Debug.LogError("sound");
 
                         plushie.transform.DOScale(Vector3.one, speed).SetEase(Ease.Linear).OnComplete(() =>

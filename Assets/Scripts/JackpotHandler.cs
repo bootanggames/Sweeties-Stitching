@@ -13,7 +13,6 @@ public class JackpotHandler : MonoBehaviour, IJackpotHandler
     [field: SerializeField] public GameObject roomBg { get; private set; }
 
     GameObject jackpotScreen = null;
-    ICoinsHandler coinsHandler;
     IRoomdecorStore _roomdecorScreen;
     private void OnEnable()
     {
@@ -21,7 +20,6 @@ public class JackpotHandler : MonoBehaviour, IJackpotHandler
     }
     private void Start()
     {
-        coinsHandler = ServiceLocator.GetService<ICoinsHandler>();
         _roomdecorScreen = ServiceLocator.GetService<IRoomdecorStore>();
         earnedItems = new List<ItemsMetaData>();
     }
@@ -33,6 +31,8 @@ public class JackpotHandler : MonoBehaviour, IJackpotHandler
     {
         Invoke(nameof(ShowWithDelay), 0.5f);
     }
+
+  
     void ShowWithDelay()
     {
         jackpotScreen = Instantiate(jackpotPrefab);

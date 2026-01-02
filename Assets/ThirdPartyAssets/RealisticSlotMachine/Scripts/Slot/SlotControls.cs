@@ -270,9 +270,9 @@ namespace Mkey
             ChangeLineBetEvent += ChangeLineBetHandler;
             ChangeSelectedLinesEvent += ChangeSelectedLinesHandler;
 
-            MPlayer.ChangeCoinsEvent += ChangeBalanceHandler;
-            MPlayer.LoadCoinsEvent += LoadBalanceHandler;
-            MPlayer.ChangeWinCoinsEvent += ChangeWinCoinsHandler;
+            //MPlayer.ChangeCoinsEvent += ChangeBalanceHandler;
+            //MPlayer.LoadCoinsEvent += LoadBalanceHandler;
+            //MPlayer.ChangeWinCoinsEvent += ChangeWinCoinsHandler;
 
             ChangeMiniJackPotEvent += ChangeMiniJackPotHandler;
             ChangeMaxiJackPotEvent += ChangeMaxiJackPotHandler;
@@ -301,12 +301,12 @@ namespace Mkey
             ChangeSelectedLinesEvent -= ChangeSelectedLinesHandler;
 
             // remove player event handlers
-            if (MPlayer)
-            {
-                MPlayer.ChangeCoinsEvent -= ChangeBalanceHandler;
-                MPlayer.LoadCoinsEvent -= LoadBalanceHandler;
-                MPlayer.ChangeWinCoinsEvent -= ChangeWinCoinsHandler;
-            }
+            //if (MPlayer)
+            //{
+            //    MPlayer.ChangeCoinsEvent -= ChangeBalanceHandler;
+            //    MPlayer.LoadCoinsEvent -= LoadBalanceHandler;
+            //    MPlayer.ChangeWinCoinsEvent -= ChangeWinCoinsHandler;
+            //}
         }
 
         private void OnValidate()

@@ -21,11 +21,14 @@ public class RoomdecorStore : MonoBehaviour, IRoomdecorStore
     [SerializeField] TextMeshProUGUI coinText;
 
     [field:SerializeField] public List<GameObject> roomScreenButtons {  get; private set; }
+    UpdateRoom room;
     private void OnEnable()
     {
         RegisterService();
         int c = PlayerPrefs.GetInt("Coins");
         coinText.text = c.ToString();
+        room = bedroom.GetComponent<UpdateRoom>();
+
     }
 
     private void OnDisable()
@@ -47,7 +50,6 @@ public class RoomdecorStore : MonoBehaviour, IRoomdecorStore
     
     public void MyItemsButton(bool val)
     {
-        UpdateRoom room = bedroom.GetComponent<UpdateRoom>();
 
         if (repositionItem)
         {
@@ -92,7 +94,6 @@ public class RoomdecorStore : MonoBehaviour, IRoomdecorStore
 
     public void ChangeBedroomComponents(bool val)
     {
-        UpdateRoom room = bedroom.GetComponent<UpdateRoom>();       
         if (room != null)
         {
             foreach(RoomItem g in room.roomitem)
@@ -120,9 +121,17 @@ public class RoomdecorStore : MonoBehaviour, IRoomdecorStore
             SoundManager.instance.PlaySound(AudiosSourceContainer.instance.roomInventoryScreen, clip, true, false, 1, true);
         }
     }
+    public void CloseMyRoom()
+    {
+        StopSound();
+        MainMenuHandler.instance.UpdateScreen("home");
+        room.UpdateRoomState("home");
+        ChangeBedroomComponents(false);
+        RepositionItem(false);
+        ChangeItem(false);
+    }
     public void MyRoomButton()
     {
-        UpdateRoom room = bedroom.GetComponent<UpdateRoom>();
         PlaySound();
         EnableDisableMyRoomScreen(true);
         EnableDisableMItemsScreen(false);

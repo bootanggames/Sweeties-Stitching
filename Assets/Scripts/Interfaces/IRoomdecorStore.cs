@@ -19,5 +19,6 @@ public interface IRoomdecorStore : IGameService
     void EnableDisableMyRoomScreen(bool val);
     void MyRoomButton();
     void MyItemsButton(bool val);
+    void StopSound();
     List<GameObject> roomScreenButtons {  get; }
 }

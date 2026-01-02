@@ -166,6 +166,7 @@ public class CoinsHandler : MonoBehaviour,ICoinsHandler
         //audioSource.Stop();
         //SoundManager.instance.StopSound(s);
         s.pitch = coinSoundPitchValue;
+        s.volume = 0.8f;
         SoundManager.instance.PlaySound(s, SoundManager.instance.audioClips.coinCollection, false, false, 1, false);
         HepticManager.instance.HapticEffect();
         Vector3 target = new Vector3(1.2f, 1.2f, 1.2f);

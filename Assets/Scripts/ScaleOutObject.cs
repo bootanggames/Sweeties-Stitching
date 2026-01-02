@@ -4,6 +4,7 @@ using System.Runtime.Versioning;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using static Unity.VisualScripting.Member;
 
 public class ScaleOutObject : MonoBehaviour
 {
@@ -32,6 +33,7 @@ public class ScaleOutObject : MonoBehaviour
     void ScaleOut()
     {
         tween = GameEvents.DoTweenAnimationHandlerEvents.onScaleTransform.Raise(this.transform, targetScale, speed, ease);
+        
         if (tween != null)
         {
             tween.OnComplete(() =>
@@ -100,7 +102,7 @@ public class ScaleOutObject : MonoBehaviour
 
     IEnumerator LevelUpScreenActivation()
     {
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(0.5f);
         this.transform.GetComponent<Image>().enabled = false;
         this.transform.localScale = Vector3.zero;
         if (levelUpScreen != null)
@@ -109,7 +111,8 @@ public class ScaleOutObject : MonoBehaviour
             levelUpScreen.levelUpScreen.SetActive(false);
             levelUpScreen.levelUpFadeScreen.SetActive(true);
             levelUpScreen.DisableParticleEffects();
-            Invoke(nameof(NextLevelPanel), 0.2f);
+            NextLevelPanel();
+            //Invoke(nameof(NextLevelPanel), 0.2f);
         }
         StopCoroutine(LevelUpScreenActivation());
         //CancelInvoke(nameof(LevelUpScreenActivation));
@@ -155,4 +158,10 @@ public class ScaleOutObject : MonoBehaviour
         j_machine.jackpotWord.SetActive(false);
         //GameHandler.instance.SwitchGameState(GameStates.Gamecomplete);
     }
+
+    //public void JackPotScreenSound()
+    //{
+    //    AudioClip clip = SoundManager.instance.audioClips.youHaveJackpot;
+    //    SoundManager.instance.PlaySound(SoundManager.instance.audioSource, clip, false, false, 1, false);
+    //}
 }

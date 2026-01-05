@@ -90,6 +90,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 6
   plushieName: Rainbaby
+  startPosition: {fileID: 0}
+  targetPosition: {fileID: 0}
+  transitionSpeed: 0
+  sparkleEffectPrefab: {fileID: 0}
+  roomShelfPlushie: 1
 --- !u!1 &156816178260574814
 GameObject:
   m_ObjectHideFlags: 0
@@ -262,6 +267,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 2
   plushieName: Zellie
+  startPosition: {fileID: 0}
+  targetPosition: {fileID: 0}
+  transitionSpeed: 0
+  sparkleEffectPrefab: {fileID: 0}
+  roomShelfPlushie: 1
 --- !u!1 &213151344402438280
 GameObject:
   m_ObjectHideFlags: 0
@@ -352,6 +362,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 4
   plushieName: Bubble Gum
+  startPosition: {fileID: 0}
+  targetPosition: {fileID: 0}
+  transitionSpeed: 0
+  sparkleEffectPrefab: {fileID: 0}
+  roomShelfPlushie: 1
 --- !u!1 &253993972283288904
 GameObject:
   m_ObjectHideFlags: 0
@@ -385,10 +400,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 7989020022122771716}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: -24.625244}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 200.0748, y: 0}
+  m_SizeDelta: {x: 40, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1081280491445183781
 CanvasRenderer:
@@ -442,6 +457,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 5
   plushieName: Lovely
+  startPosition: {fileID: 0}
+  targetPosition: {fileID: 0}
+  transitionSpeed: 0
+  sparkleEffectPrefab: {fileID: 0}
+  roomShelfPlushie: 1
 --- !u!1 &328101694733523326
 GameObject:
   m_ObjectHideFlags: 0
@@ -520,12 +540,12 @@ MonoBehaviour:
   <saveRoom>k__BackingField: 0
   <shelf>k__BackingField:
   - {fileID: 6261634279006366544}
-  - {fileID: 5187143652994839199}
-  - {fileID: 8944506194891102140}
-  - {fileID: 1038815942215798592}
-  - {fileID: 2097327862874355340}
-  - {fileID: 6254866692966592400}
-  - {fileID: 8621272392765210578}
+  - {fileID: 5786761164350610779}
+  - {fileID: 1918915100075965360}
+  - {fileID: 2455089973392646252}
+  - {fileID: 4922178303954505977}
+  - {fileID: 4883546180872445473}
+  - {fileID: 4391594343996071367}
   bedroomState: 0
 --- !u!222 &5008871290810461411
 CanvasRenderer:
@@ -703,6 +723,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 3
   plushieName: Spicie
+  startPosition: {fileID: 0}
+  targetPosition: {fileID: 0}
+  transitionSpeed: 0
+  sparkleEffectPrefab: {fileID: 0}
+  roomShelfPlushie: 1
 --- !u!1 &394355057363437221
 GameObject:
   m_ObjectHideFlags: 0
@@ -793,6 +818,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 1
   plushieName: Brownie
+  startPosition: {fileID: 0}
+  targetPosition: {fileID: 0}
+  transitionSpeed: 0
+  sparkleEffectPrefab: {fileID: 0}
+  roomShelfPlushie: 1
 --- !u!1 &422588438404213854
 GameObject:
   m_ObjectHideFlags: 0
@@ -913,9 +943,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91eb4f1934a7e224793c0644870cf26e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  itemRect: {fileID: 2956263199691806343}
-  ItemName: Shelf
+  m_ItemData:
+    posX: 0
+    posY: 0
+    posZ: 0
+    ItemName: ROOF
+  itemRect: {fileID: 7427981900505196708}
+  ItemName: ROOF
   roomItem: {fileID: 493652816107823064}
+  moveable: 0
 --- !u!1 &454084717614897446
 GameObject:
   m_ObjectHideFlags: 0
@@ -1006,6 +1042,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 1
   plushieName: Shortcake
+  startPosition: {fileID: 0}
+  targetPosition: {fileID: 0}
+  transitionSpeed: 0
+  sparkleEffectPrefab: {fileID: 0}
+  roomShelfPlushie: 1
 --- !u!1 &465687155685694804
 GameObject:
   m_ObjectHideFlags: 0
@@ -1096,6 +1137,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 5
   plushieName: Lovely
+  startPosition: {fileID: 0}
+  targetPosition: {fileID: 0}
+  transitionSpeed: 0
+  sparkleEffectPrefab: {fileID: 0}
+  roomShelfPlushie: 1
 --- !u!1 &703646081413589815
 GameObject:
   m_ObjectHideFlags: 0
@@ -1221,10 +1267,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 8221838279502988710}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 126.29808, y: -35.460342}
+  m_SizeDelta: {x: 55, y: 55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7849261508707620805
 CanvasRenderer:
@@ -1278,6 +1324,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 4
   plushieName: Bubble Gum
+  startPosition: {fileID: 0}
+  targetPosition: {fileID: 0}
+  transitionSpeed: 0
+  sparkleEffectPrefab: {fileID: 0}
+  roomShelfPlushie: 1
 --- !u!1 &718787098723485251
 GameObject:
   m_ObjectHideFlags: 0
@@ -1368,6 +1419,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 3
   plushieName: Spicie
+  startPosition: {fileID: 0}
+  targetPosition: {fileID: 0}
+  transitionSpeed: 0
+  sparkleEffectPrefab: {fileID: 0}
+  roomShelfPlushie: 1
 --- !u!1 &755991148886897032
 GameObject:
   m_ObjectHideFlags: 0
@@ -1546,6 +1602,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 6
   plushieName: Rainbaby
+  startPosition: {fileID: 0}
+  targetPosition: {fileID: 0}
+  transitionSpeed: 0
+  sparkleEffectPrefab: {fileID: 0}
+  roomShelfPlushie: 1
 --- !u!1 &836104790392008974
 GameObject:
   m_ObjectHideFlags: 0
@@ -1636,6 +1697,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 2
   plushieName: Zellie
+  startPosition: {fileID: 0}
+  targetPosition: {fileID: 0}
+  transitionSpeed: 0
+  sparkleEffectPrefab: {fileID: 0}
+  roomShelfPlushie: 1
 --- !u!1 &936586824469308493
 GameObject:
   m_ObjectHideFlags: 0
@@ -1726,6 +1792,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 3
   plushieName: Bluemoo
+  startPosition: {fileID: 0}
+  targetPosition: {fileID: 0}
+  transitionSpeed: 0
+  sparkleEffectPrefab: {fileID: 0}
+  roomShelfPlushie: 1
 --- !u!1 &948439056455534941
 GameObject:
   m_ObjectHideFlags: 0
@@ -1759,10 +1830,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 7393371343851124457}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 197.6909, y: -35.46035}
-  m_SizeDelta: {x: 55, y: 55}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 126.29808, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &501285443140777110
 CanvasRenderer:
@@ -1816,6 +1887,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 4
   plushieName: Bubble Gum
+  startPosition: {fileID: 0}
+  targetPosition: {fileID: 0}
+  transitionSpeed: 0
+  sparkleEffectPrefab: {fileID: 0}
+  roomShelfPlushie: 1
 --- !u!1 &1038815942215798592
 GameObject:
   m_ObjectHideFlags: 0
@@ -1941,9 +2017,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91eb4f1934a7e224793c0644870cf26e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  m_ItemData:
+    posX: 0
+    posY: 0
+    posZ: 0
+    ItemName: SHELF
   itemRect: {fileID: 4368031359315353969}
   ItemName: Shelf
   roomItem: {fileID: 7106569271933402196}
+  moveable: 1
 --- !u!1 &1094198264286043541
 GameObject:
   m_ObjectHideFlags: 0
@@ -2034,6 +2116,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 3
   plushieName: Bluemoo
+  startPosition: {fileID: 0}
+  targetPosition: {fileID: 0}
+  transitionSpeed: 0
+  sparkleEffectPrefab: {fileID: 0}
+  roomShelfPlushie: 1
 --- !u!1 &1146966252957586454
 GameObject:
   m_ObjectHideFlags: 0
@@ -2067,10 +2154,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 102856291455842459}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 29.9281, y: -18.682396}
-  m_SizeDelta: {x: 40, y: 40}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 40.0748, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3458428726524115479
 CanvasRenderer:
@@ -2124,6 +2211,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 1
   plushieName: Brownie
+  startPosition: {fileID: 0}
+  targetPosition: {fileID: 0}
+  transitionSpeed: 0
+  sparkleEffectPrefab: {fileID: 0}
+  roomShelfPlushie: 1
 --- !u!1 &1274134355040188848
 GameObject:
   m_ObjectHideFlags: 0
@@ -2230,9 +2322,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91eb4f1934a7e224793c0644870cf26e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  m_ItemData:
+    posX: 0
+    posY: 0
+    posZ: 0
+    ItemName: BED
   itemRect: {fileID: 1951373650537165455}
   ItemName: Bed
   roomItem: {fileID: 857419708494288604}
+  moveable: 1
 --- !u!1 &1294439887686716298
 GameObject:
   m_ObjectHideFlags: 0
@@ -2323,6 +2421,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 4
   plushieName: Bubble Gum
+  startPosition: {fileID: 0}
+  targetPosition: {fileID: 0}
+  transitionSpeed: 0
+  sparkleEffectPrefab: {fileID: 0}
+  roomShelfPlushie: 1
 --- !u!1 &1393714697373196608
 GameObject:
   m_ObjectHideFlags: 0
@@ -2495,6 +2598,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 6
   plushieName: Rainbaby
+  startPosition: {fileID: 0}
+  targetPosition: {fileID: 0}
+  transitionSpeed: 0
+  sparkleEffectPrefab: {fileID: 0}
+  roomShelfPlushie: 1
 --- !u!1 &1594256669292706600
 GameObject:
   m_ObjectHideFlags: 0
@@ -2585,6 +2693,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 3
   plushieName: Bluemoo
+  startPosition: {fileID: 0}
+  targetPosition: {fileID: 0}
+  transitionSpeed: 0
+  sparkleEffectPrefab: {fileID: 0}
+  roomShelfPlushie: 1
 --- !u!1 &1650755041261692282
 GameObject:
   m_ObjectHideFlags: 0
@@ -2675,6 +2788,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 2
   plushieName: Creamie
+  startPosition: {fileID: 0}
+  targetPosition: {fileID: 0}
+  transitionSpeed: 0
+  sparkleEffectPrefab: {fileID: 0}
+  roomShelfPlushie: 1
 --- !u!1 &1851856987427790841
 GameObject:
   m_ObjectHideFlags: 0
@@ -2765,6 +2883,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 4
   plushieName: Bubble Gum
+  startPosition: {fileID: 0}
+  targetPosition: {fileID: 0}
+  transitionSpeed: 0
+  sparkleEffectPrefab: {fileID: 0}
+  roomShelfPlushie: 1
 --- !u!1 &1897317724904033171
 GameObject:
   m_ObjectHideFlags: 0
@@ -2855,6 +2978,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 1
   plushieName: Shortcake
+  startPosition: {fileID: 0}
+  targetPosition: {fileID: 0}
+  transitionSpeed: 0
+  sparkleEffectPrefab: {fileID: 0}
+  roomShelfPlushie: 1
 --- !u!1 &1918915100075965360
 GameObject:
   m_ObjectHideFlags: 0
@@ -2894,8 +3022,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 25, y: -413}
-  m_SizeDelta: {x: 430.0881, y: 246.04}
+  m_AnchoredPosition: {x: -34, y: -399}
+  m_SizeDelta: {x: 449.4287, y: 246.04}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1696780416459956534
 CanvasRenderer:
@@ -2980,9 +3108,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91eb4f1934a7e224793c0644870cf26e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  m_ItemData:
+    posX: 0
+    posY: 0
+    posZ: 0
+    ItemName: SHELF
   itemRect: {fileID: 1901062049147254414}
   ItemName: Shelf
   roomItem: {fileID: 1070157554912010209}
+  moveable: 1
 --- !u!1 &1987430588374379183
 GameObject:
   m_ObjectHideFlags: 0
@@ -3171,9 +3305,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91eb4f1934a7e224793c0644870cf26e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  m_ItemData:
+    posX: 0
+    posY: 0
+    posZ: 0
+    ItemName: SEWMACHINE
   itemRect: {fileID: 1726750000831537128}
   ItemName: Sewmachine
   roomItem: {fileID: 9139528740205376618}
+  moveable: 1
 --- !u!1 &2009419083985555278
 GameObject:
   m_ObjectHideFlags: 0
@@ -3207,10 +3347,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 5798573826352269840}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: -20.201195}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 200.0748, y: 0}
+  m_SizeDelta: {x: 40, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4610214327518273231
 CanvasRenderer:
@@ -3264,6 +3404,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 5
   plushieName: Lovely
+  startPosition: {fileID: 0}
+  targetPosition: {fileID: 0}
+  transitionSpeed: 0
+  sparkleEffectPrefab: {fileID: 0}
+  roomShelfPlushie: 1
 --- !u!1 &2097327862874355340
 GameObject:
   m_ObjectHideFlags: 0
@@ -3389,9 +3534,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91eb4f1934a7e224793c0644870cf26e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  m_ItemData:
+    posX: 0
+    posY: 0
+    posZ: 0
+    ItemName: SHELF
   itemRect: {fileID: 6161318597146587636}
   ItemName: Shelf
   roomItem: {fileID: 4891965212443745675}
+  moveable: 1
 --- !u!1 &2106420739941190601
 GameObject:
   m_ObjectHideFlags: 0
@@ -3482,6 +3633,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 1
   plushieName: Shortcake
+  startPosition: {fileID: 0}
+  targetPosition: {fileID: 0}
+  transitionSpeed: 0
+  sparkleEffectPrefab: {fileID: 0}
+  roomShelfPlushie: 1
 --- !u!1 &2116482523595864350
 GameObject:
   m_ObjectHideFlags: 0
@@ -3524,7 +3680,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 54.591103}
+  m_AnchoredPosition: {x: 0, y: 56.299995}
   m_SizeDelta: {x: -89.2791, y: -208.6752}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &7824610977228854975
@@ -3607,10 +3763,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 102856291455842459}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 229.9281, y: -18.682396}
-  m_SizeDelta: {x: 40, y: 40}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 240.0748, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2218324043442137136
 CanvasRenderer:
@@ -3664,6 +3820,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 6
   plushieName: Rainbaby
+  startPosition: {fileID: 0}
+  targetPosition: {fileID: 0}
+  transitionSpeed: 0
+  sparkleEffectPrefab: {fileID: 0}
+  roomShelfPlushie: 1
 --- !u!1 &2221823696266566303
 GameObject:
   m_ObjectHideFlags: 0
@@ -3754,6 +3915,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 1
   plushieName: Brownie
+  startPosition: {fileID: 0}
+  targetPosition: {fileID: 0}
+  transitionSpeed: 0
+  sparkleEffectPrefab: {fileID: 0}
+  roomShelfPlushie: 1
 --- !u!1 &2240932687422378357
 GameObject:
   m_ObjectHideFlags: 0
@@ -3844,6 +4010,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 4
   plushieName: Bubble Gum
+  startPosition: {fileID: 0}
+  targetPosition: {fileID: 0}
+  transitionSpeed: 0
+  sparkleEffectPrefab: {fileID: 0}
+  roomShelfPlushie: 1
 --- !u!1 &2294155383324427654
 GameObject:
   m_ObjectHideFlags: 0
@@ -3877,10 +4048,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 7393371343851124457}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 257.69092, y: -35.46035}
-  m_SizeDelta: {x: 55, y: 55}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 186.29808, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6082751644385451802
 CanvasRenderer:
@@ -3934,6 +4105,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 5
   plushieName: Lovely
+  startPosition: {fileID: 0}
+  targetPosition: {fileID: 0}
+  transitionSpeed: 0
+  sparkleEffectPrefab: {fileID: 0}
+  roomShelfPlushie: 1
 --- !u!1 &2332310071754410730
 GameObject:
   m_ObjectHideFlags: 0
@@ -4024,6 +4200,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 3
   plushieName: Spicie
+  startPosition: {fileID: 0}
+  targetPosition: {fileID: 0}
+  transitionSpeed: 0
+  sparkleEffectPrefab: {fileID: 0}
+  roomShelfPlushie: 1
 --- !u!1 &2447481375814437729
 GameObject:
   m_ObjectHideFlags: 0
@@ -4145,7 +4326,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 30.5, y: -405}
+  m_AnchoredPosition: {x: -76, y: -401}
   m_SizeDelta: {x: 514.88916, y: 246.03998}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &9217376590225886973
@@ -4231,9 +4412,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91eb4f1934a7e224793c0644870cf26e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  m_ItemData:
+    posX: 0
+    posY: 0
+    posZ: 0
+    ItemName: SHELF
   itemRect: {fileID: 3729827988570757463}
   ItemName: Shelf
   roomItem: {fileID: 5891940803369451706}
+  moveable: 1
 --- !u!1 &2659261299089114813
 GameObject:
   m_ObjectHideFlags: 0
@@ -4267,10 +4454,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 5798573826352269840}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: -20.201195}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 160.0748, y: 0}
+  m_SizeDelta: {x: 40, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3722871510074142799
 CanvasRenderer:
@@ -4324,6 +4511,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 4
   plushieName: Bubble Gum
+  startPosition: {fileID: 0}
+  targetPosition: {fileID: 0}
+  transitionSpeed: 0
+  sparkleEffectPrefab: {fileID: 0}
+  roomShelfPlushie: 1
 --- !u!1 &2715178319262148380
 GameObject:
   m_ObjectHideFlags: 0
@@ -4414,6 +4606,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 1
   plushieName: Shortcake
+  startPosition: {fileID: 0}
+  targetPosition: {fileID: 0}
+  transitionSpeed: 0
+  sparkleEffectPrefab: {fileID: 0}
+  roomShelfPlushie: 1
 --- !u!1 &2753478713026785414
 GameObject:
   m_ObjectHideFlags: 0
@@ -4504,6 +4701,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 6
   plushieName: Rainbaby
+  startPosition: {fileID: 0}
+  targetPosition: {fileID: 0}
+  transitionSpeed: 0
+  sparkleEffectPrefab: {fileID: 0}
+  roomShelfPlushie: 1
 --- !u!1 &2766516351675290506
 GameObject:
   m_ObjectHideFlags: 0
@@ -4537,10 +4739,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 5798573826352269840}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: -20.201195}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 240.0748, y: 0}
+  m_SizeDelta: {x: 40, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1307085960907965452
 CanvasRenderer:
@@ -4594,6 +4796,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 6
   plushieName: Rainbaby
+  startPosition: {fileID: 0}
+  targetPosition: {fileID: 0}
+  transitionSpeed: 0
+  sparkleEffectPrefab: {fileID: 0}
+  roomShelfPlushie: 1
 --- !u!1 &2875230477766703262
 GameObject:
   m_ObjectHideFlags: 0
@@ -4715,10 +4922,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 102856291455842459}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 309.9281, y: -18.682396}
-  m_SizeDelta: {x: 40, y: 40}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 320.0748, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6562590960905007239
 CanvasRenderer:
@@ -4772,6 +4979,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 3
   plushieName: Spicie
+  startPosition: {fileID: 0}
+  targetPosition: {fileID: 0}
+  transitionSpeed: 0
+  sparkleEffectPrefab: {fileID: 0}
+  roomShelfPlushie: 1
 --- !u!1 &3049763234570077746
 GameObject:
   m_ObjectHideFlags: 0
@@ -4944,6 +5156,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 4
   plushieName: Bubble Gum
+  startPosition: {fileID: 0}
+  targetPosition: {fileID: 0}
+  transitionSpeed: 0
+  sparkleEffectPrefab: {fileID: 0}
+  roomShelfPlushie: 1
 --- !u!1 &3089374178079988803
 GameObject:
   m_ObjectHideFlags: 0
@@ -4977,10 +5194,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 7989020022122771716}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: -24.625244}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 240.0748, y: 0}
+  m_SizeDelta: {x: 40, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5473065930356865934
 CanvasRenderer:
@@ -5034,6 +5251,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 6
   plushieName: Rainbaby
+  startPosition: {fileID: 0}
+  targetPosition: {fileID: 0}
+  transitionSpeed: 0
+  sparkleEffectPrefab: {fileID: 0}
+  roomShelfPlushie: 1
 --- !u!1 &3090339819343712210
 GameObject:
   m_ObjectHideFlags: 0
@@ -5124,6 +5346,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 4
   plushieName: Bubble Gum
+  startPosition: {fileID: 0}
+  targetPosition: {fileID: 0}
+  transitionSpeed: 0
+  sparkleEffectPrefab: {fileID: 0}
+  roomShelfPlushie: 1
 --- !u!1 &3245195373964055717
 GameObject:
   m_ObjectHideFlags: 0
@@ -5214,6 +5441,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 2
   plushieName: Zellie
+  startPosition: {fileID: 0}
+  targetPosition: {fileID: 0}
+  transitionSpeed: 0
+  sparkleEffectPrefab: {fileID: 0}
+  roomShelfPlushie: 1
 --- !u!1 &3282696524648777991
 GameObject:
   m_ObjectHideFlags: 0
@@ -5304,6 +5536,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 2
   plushieName: Zellie
+  startPosition: {fileID: 0}
+  targetPosition: {fileID: 0}
+  transitionSpeed: 0
+  sparkleEffectPrefab: {fileID: 0}
+  roomShelfPlushie: 1
 --- !u!1 &3316636033709898498
 GameObject:
   m_ObjectHideFlags: 0
@@ -5337,10 +5574,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 102856291455842459}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 109.9281, y: -18.682396}
-  m_SizeDelta: {x: 40, y: 40}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 120.0748, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2353774322697037754
 CanvasRenderer:
@@ -5394,6 +5631,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 3
   plushieName: Bluemoo
+  startPosition: {fileID: 0}
+  targetPosition: {fileID: 0}
+  transitionSpeed: 0
+  sparkleEffectPrefab: {fileID: 0}
+  roomShelfPlushie: 1
 --- !u!1 &3466031783844233293
 GameObject:
   m_ObjectHideFlags: 0
@@ -5484,6 +5726,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 4
   plushieName: Bubble Gum
+  startPosition: {fileID: 0}
+  targetPosition: {fileID: 0}
+  transitionSpeed: 0
+  sparkleEffectPrefab: {fileID: 0}
+  roomShelfPlushie: 1
 --- !u!1 &3584136504226863899
 GameObject:
   m_ObjectHideFlags: 0
@@ -5652,6 +5899,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 5
   plushieName: Lovely
+  startPosition: {fileID: 0}
+  targetPosition: {fileID: 0}
+  transitionSpeed: 0
+  sparkleEffectPrefab: {fileID: 0}
+  roomShelfPlushie: 1
 --- !u!1 &3656948894308600753
 GameObject:
   m_ObjectHideFlags: 0
@@ -5742,6 +5994,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 1
   plushieName: Brownie
+  startPosition: {fileID: 0}
+  targetPosition: {fileID: 0}
+  transitionSpeed: 0
+  sparkleEffectPrefab: {fileID: 0}
+  roomShelfPlushie: 1
 --- !u!1 &3764216623787228191
 GameObject:
   m_ObjectHideFlags: 0
@@ -5832,6 +6089,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 3
   plushieName: Spicie
+  startPosition: {fileID: 0}
+  targetPosition: {fileID: 0}
+  transitionSpeed: 0
+  sparkleEffectPrefab: {fileID: 0}
+  roomShelfPlushie: 1
 --- !u!1 &3824795932702240734
 GameObject:
   m_ObjectHideFlags: 0
@@ -5865,10 +6127,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 8221838279502988710}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 66.29808, y: -35.460342}
+  m_SizeDelta: {x: 55, y: 55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1274196549743885174
 CanvasRenderer:
@@ -5922,6 +6184,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 3
   plushieName: Bluemoo
+  startPosition: {fileID: 0}
+  targetPosition: {fileID: 0}
+  transitionSpeed: 0
+  sparkleEffectPrefab: {fileID: 0}
+  roomShelfPlushie: 1
 --- !u!1 &3887713581524618321
 GameObject:
   m_ObjectHideFlags: 0
@@ -5955,10 +6222,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 5798573826352269840}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: -20.201195}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 280.0748, y: 0}
+  m_SizeDelta: {x: 40, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &9166346680646771214
 CanvasRenderer:
@@ -6012,6 +6279,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 2
   plushieName: Zellie
+  startPosition: {fileID: 0}
+  targetPosition: {fileID: 0}
+  transitionSpeed: 0
+  sparkleEffectPrefab: {fileID: 0}
+  roomShelfPlushie: 1
 --- !u!1 &3907599574000354816
 GameObject:
   m_ObjectHideFlags: 0
@@ -6102,6 +6374,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 2
   plushieName: Zellie
+  startPosition: {fileID: 0}
+  targetPosition: {fileID: 0}
+  transitionSpeed: 0
+  sparkleEffectPrefab: {fileID: 0}
+  roomShelfPlushie: 1
 --- !u!1 &3910204087526944374
 GameObject:
   m_ObjectHideFlags: 0
@@ -6192,6 +6469,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 1
   plushieName: Shortcake
+  startPosition: {fileID: 0}
+  targetPosition: {fileID: 0}
+  transitionSpeed: 0
+  sparkleEffectPrefab: {fileID: 0}
+  roomShelfPlushie: 1
 --- !u!1 &3926163892214020303
 GameObject:
   m_ObjectHideFlags: 0
@@ -6303,10 +6585,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 7393371343851124457}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 137.6909, y: -35.46035}
-  m_SizeDelta: {x: 55, y: 55}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 66.29808, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7142623227672284259
 CanvasRenderer:
@@ -6360,6 +6642,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 3
   plushieName: Bluemoo
+  startPosition: {fileID: 0}
+  targetPosition: {fileID: 0}
+  transitionSpeed: 0
+  sparkleEffectPrefab: {fileID: 0}
+  roomShelfPlushie: 1
 --- !u!1 &3952268958835126668
 GameObject:
   m_ObjectHideFlags: 0
@@ -6402,7 +6689,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 72.46318}
+  m_AnchoredPosition: {x: 0, y: 69.8}
   m_SizeDelta: {x: -202.293, y: -175.1193}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &4491396364562515109
@@ -6542,6 +6829,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 5
   plushieName: Lovely
+  startPosition: {fileID: 0}
+  targetPosition: {fileID: 0}
+  transitionSpeed: 0
+  sparkleEffectPrefab: {fileID: 0}
+  roomShelfPlushie: 1
 --- !u!1 &3980712383540313547
 GameObject:
   m_ObjectHideFlags: 0
@@ -6632,6 +6924,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 3
   plushieName: Bluemoo
+  startPosition: {fileID: 0}
+  targetPosition: {fileID: 0}
+  transitionSpeed: 0
+  sparkleEffectPrefab: {fileID: 0}
+  roomShelfPlushie: 1
 --- !u!1 &4012576505277629610
 GameObject:
   m_ObjectHideFlags: 0
@@ -6650,7 +6947,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2636476154354206589
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6722,6 +7019,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 1
   plushieName: Shortcake
+  startPosition: {fileID: 0}
+  targetPosition: {fileID: 0}
+  transitionSpeed: 0
+  sparkleEffectPrefab: {fileID: 0}
+  roomShelfPlushie: 1
 --- !u!1 &4187010626208206795
 GameObject:
   m_ObjectHideFlags: 0
@@ -6755,10 +7057,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 7393371343851124457}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 77.6909, y: -35.46035}
-  m_SizeDelta: {x: 55, y: 55}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 6.2980804, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6071371826228827798
 CanvasRenderer:
@@ -6812,6 +7114,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 2
   plushieName: Creamie
+  startPosition: {fileID: 0}
+  targetPosition: {fileID: 0}
+  transitionSpeed: 0
+  sparkleEffectPrefab: {fileID: 0}
+  roomShelfPlushie: 1
 --- !u!1 &4368118359720281089
 GameObject:
   m_ObjectHideFlags: 0
@@ -6845,10 +7152,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 7989020022122771716}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: -24.625244}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 40.0748, y: 0}
+  m_SizeDelta: {x: 40, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1208304443339850024
 CanvasRenderer:
@@ -6902,6 +7209,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 1
   plushieName: Brownie
+  startPosition: {fileID: 0}
+  targetPosition: {fileID: 0}
+  transitionSpeed: 0
+  sparkleEffectPrefab: {fileID: 0}
+  roomShelfPlushie: 1
 --- !u!1 &4377396962345209792
 GameObject:
   m_ObjectHideFlags: 0
@@ -6944,7 +7256,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 64.69401}
+  m_AnchoredPosition: {x: 0, y: 66.8}
   m_SizeDelta: {x: -89.2791, y: -196.7895}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &3168474186529668876
@@ -7119,9 +7431,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91eb4f1934a7e224793c0644870cf26e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  m_ItemData:
+    posX: 0
+    posY: 0
+    posZ: 0
+    ItemName: SHELF
   itemRect: {fileID: 3875336836809382333}
   ItemName: Shelf
   roomItem: {fileID: 3006760532771655199}
+  moveable: 1
 --- !u!1 &4590448345785864830
 GameObject:
   m_ObjectHideFlags: 0
@@ -7155,10 +7473,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 8221838279502988710}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 306.2981, y: -35.460342}
+  m_SizeDelta: {x: 55, y: 55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4570208773962013275
 CanvasRenderer:
@@ -7212,6 +7530,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 2
   plushieName: Zellie
+  startPosition: {fileID: 0}
+  targetPosition: {fileID: 0}
+  transitionSpeed: 0
+  sparkleEffectPrefab: {fileID: 0}
+  roomShelfPlushie: 1
 --- !u!1 &4883546180872445473
 GameObject:
   m_ObjectHideFlags: 0
@@ -7251,8 +7574,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 25, y: -413}
-  m_SizeDelta: {x: 430.09, y: 246.04}
+  m_AnchoredPosition: {x: -32, y: -399}
+  m_SizeDelta: {x: 449.4287, y: 246.04}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2196789599659387512
 CanvasRenderer:
@@ -7337,9 +7660,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91eb4f1934a7e224793c0644870cf26e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  m_ItemData:
+    posX: 0
+    posY: 0
+    posZ: 0
+    ItemName: SHELF
   itemRect: {fileID: 5902020766629570378}
   ItemName: Shelf
   roomItem: {fileID: 6919601294946139454}
+  moveable: 1
 --- !u!1 &4905679996146761683
 GameObject:
   m_ObjectHideFlags: 0
@@ -7430,6 +7759,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 5
   plushieName: Lovely
+  startPosition: {fileID: 0}
+  targetPosition: {fileID: 0}
+  transitionSpeed: 0
+  sparkleEffectPrefab: {fileID: 0}
+  roomShelfPlushie: 1
 --- !u!1 &4922178303954505977
 GameObject:
   m_ObjectHideFlags: 0
@@ -7469,7 +7803,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 24, y: -406}
+  m_AnchoredPosition: {x: -43, y: -399}
   m_SizeDelta: {x: 449.4287, y: 246.04}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2031140201961542695
@@ -7555,9 +7889,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91eb4f1934a7e224793c0644870cf26e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  m_ItemData:
+    posX: 0
+    posY: 0
+    posZ: 0
+    ItemName: SHELF
   itemRect: {fileID: 1909258204386905070}
   ItemName: Shelf
   roomItem: {fileID: 1362106873094804787}
+  moveable: 1
 --- !u!1 &4928212355919662800
 GameObject:
   m_ObjectHideFlags: 0
@@ -7648,6 +7988,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 1
   plushieName: Brownie
+  startPosition: {fileID: 0}
+  targetPosition: {fileID: 0}
+  transitionSpeed: 0
+  sparkleEffectPrefab: {fileID: 0}
+  roomShelfPlushie: 1
 --- !u!1 &5027822723646661179
 GameObject:
   m_ObjectHideFlags: 0
@@ -7738,6 +8083,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 3
   plushieName: Bluemoo
+  startPosition: {fileID: 0}
+  targetPosition: {fileID: 0}
+  transitionSpeed: 0
+  sparkleEffectPrefab: {fileID: 0}
+  roomShelfPlushie: 1
 --- !u!1 &5073666192838015886
 GameObject:
   m_ObjectHideFlags: 0
@@ -7828,6 +8178,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 1
   plushieName: Brownie
+  startPosition: {fileID: 0}
+  targetPosition: {fileID: 0}
+  transitionSpeed: 0
+  sparkleEffectPrefab: {fileID: 0}
+  roomShelfPlushie: 1
 --- !u!1 &5099016002120675822
 GameObject:
   m_ObjectHideFlags: 0
@@ -7918,6 +8273,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 3
   plushieName: Bluemoo
+  startPosition: {fileID: 0}
+  targetPosition: {fileID: 0}
+  transitionSpeed: 0
+  sparkleEffectPrefab: {fileID: 0}
+  roomShelfPlushie: 1
 --- !u!1 &5115972114693191449
 GameObject:
   m_ObjectHideFlags: 0
@@ -8096,6 +8456,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 2
   plushieName: Creamie
+  startPosition: {fileID: 0}
+  targetPosition: {fileID: 0}
+  transitionSpeed: 0
+  sparkleEffectPrefab: {fileID: 0}
+  roomShelfPlushie: 1
 --- !u!1 &5187143652994839199
 GameObject:
   m_ObjectHideFlags: 0
@@ -8221,9 +8586,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91eb4f1934a7e224793c0644870cf26e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  m_ItemData:
+    posX: 0
+    posY: 0
+    posZ: 0
+    ItemName: SHELF
   itemRect: {fileID: 3449013356136283874}
   ItemName: Shelf
   roomItem: {fileID: 775559367131950587}
+  moveable: 1
 --- !u!1 &5418533641341407436
 GameObject:
   m_ObjectHideFlags: 0
@@ -8344,9 +8715,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91eb4f1934a7e224793c0644870cf26e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  itemRect: {fileID: 2956263199691806343}
-  ItemName: Shelf
+  m_ItemData:
+    posX: 0
+    posY: 0
+    posZ: 0
+    ItemName: FLOOR
+  itemRect: {fileID: 7557164405961827762}
+  ItemName: FLOOR
   roomItem: {fileID: 357402146073978241}
+  moveable: 0
 --- !u!1 &5453412344126169551
 GameObject:
   m_ObjectHideFlags: 0
@@ -8437,6 +8814,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 2
   plushieName: Creamie
+  startPosition: {fileID: 0}
+  targetPosition: {fileID: 0}
+  transitionSpeed: 0
+  sparkleEffectPrefab: {fileID: 0}
+  roomShelfPlushie: 1
 --- !u!1 &5549243618073734477
 GameObject:
   m_ObjectHideFlags: 0
@@ -8527,6 +8909,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 2
   plushieName: Zellie
+  startPosition: {fileID: 0}
+  targetPosition: {fileID: 0}
+  transitionSpeed: 0
+  sparkleEffectPrefab: {fileID: 0}
+  roomShelfPlushie: 1
 --- !u!1 &5577625175068239395
 GameObject:
   m_ObjectHideFlags: 0
@@ -8617,6 +9004,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 3
   plushieName: Bluemoo
+  startPosition: {fileID: 0}
+  targetPosition: {fileID: 0}
+  transitionSpeed: 0
+  sparkleEffectPrefab: {fileID: 0}
+  roomShelfPlushie: 1
 --- !u!1 &5655981759677286771
 GameObject:
   m_ObjectHideFlags: 0
@@ -8707,6 +9099,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 1
   plushieName: Shortcake
+  startPosition: {fileID: 0}
+  targetPosition: {fileID: 0}
+  transitionSpeed: 0
+  sparkleEffectPrefab: {fileID: 0}
+  roomShelfPlushie: 1
 --- !u!1 &5670831383802768992
 GameObject:
   m_ObjectHideFlags: 0
@@ -8797,6 +9194,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 1
   plushieName: Shortcake
+  startPosition: {fileID: 0}
+  targetPosition: {fileID: 0}
+  transitionSpeed: 0
+  sparkleEffectPrefab: {fileID: 0}
+  roomShelfPlushie: 1
 --- !u!1 &5752360634730233211
 GameObject:
   m_ObjectHideFlags: 0
@@ -8830,10 +9232,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 5798573826352269840}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: -20.201195}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 80.0748, y: 0}
+  m_SizeDelta: {x: 40, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &574330694735391192
 CanvasRenderer:
@@ -8887,6 +9289,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 2
   plushieName: Creamie
+  startPosition: {fileID: 0}
+  targetPosition: {fileID: 0}
+  transitionSpeed: 0
+  sparkleEffectPrefab: {fileID: 0}
+  roomShelfPlushie: 1
 --- !u!1 &5784024454646364204
 GameObject:
   m_ObjectHideFlags: 0
@@ -8920,10 +9327,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 7989020022122771716}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: -24.625244}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 160.0748, y: 0}
+  m_SizeDelta: {x: 40, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1921502617757354002
 CanvasRenderer:
@@ -8977,6 +9384,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 4
   plushieName: Bubble Gum
+  startPosition: {fileID: 0}
+  targetPosition: {fileID: 0}
+  transitionSpeed: 0
+  sparkleEffectPrefab: {fileID: 0}
+  roomShelfPlushie: 1
 --- !u!1 &5786761164350610779
 GameObject:
   m_ObjectHideFlags: 0
@@ -9016,7 +9428,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 30.5, y: -405}
+  m_AnchoredPosition: {x: -76, y: -405}
   m_SizeDelta: {x: 514.88916, y: 246.03998}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8268172258435381205
@@ -9102,9 +9514,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91eb4f1934a7e224793c0644870cf26e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  m_ItemData:
+    posX: 0
+    posY: 0
+    posZ: 0
+    ItemName: SHELF
   itemRect: {fileID: 5944567139535017704}
   ItemName: Shelf
   roomItem: {fileID: 3952803039529123911}
+  moveable: 1
 --- !u!1 &5791896277784520952
 GameObject:
   m_ObjectHideFlags: 0
@@ -9195,6 +9613,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 2
   plushieName: Zellie
+  startPosition: {fileID: 0}
+  targetPosition: {fileID: 0}
+  transitionSpeed: 0
+  sparkleEffectPrefab: {fileID: 0}
+  roomShelfPlushie: 1
 --- !u!1 &5808958728143911466
 GameObject:
   m_ObjectHideFlags: 0
@@ -9285,6 +9708,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 1
   plushieName: Brownie
+  startPosition: {fileID: 0}
+  targetPosition: {fileID: 0}
+  transitionSpeed: 0
+  sparkleEffectPrefab: {fileID: 0}
+  roomShelfPlushie: 1
 --- !u!1 &5856708157745954870
 GameObject:
   m_ObjectHideFlags: 0
@@ -9457,6 +9885,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 1
   plushieName: Shortcake
+  startPosition: {fileID: 0}
+  targetPosition: {fileID: 0}
+  transitionSpeed: 0
+  sparkleEffectPrefab: {fileID: 0}
+  roomShelfPlushie: 1
 --- !u!1 &6000503110896343581
 GameObject:
   m_ObjectHideFlags: 0
@@ -9490,10 +9923,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 102856291455842459}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 189.9281, y: -18.682396}
-  m_SizeDelta: {x: 40, y: 40}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 200.0748, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3636587083828641358
 CanvasRenderer:
@@ -9547,6 +9980,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 5
   plushieName: Lovely
+  startPosition: {fileID: 0}
+  targetPosition: {fileID: 0}
+  transitionSpeed: 0
+  sparkleEffectPrefab: {fileID: 0}
+  roomShelfPlushie: 1
 --- !u!1 &6038871195107061629
 GameObject:
   m_ObjectHideFlags: 0
@@ -9637,6 +10075,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 5
   plushieName: Lovely
+  startPosition: {fileID: 0}
+  targetPosition: {fileID: 0}
+  transitionSpeed: 0
+  sparkleEffectPrefab: {fileID: 0}
+  roomShelfPlushie: 1
 --- !u!1 &6055654137562695460
 GameObject:
   m_ObjectHideFlags: 0
@@ -9815,6 +10258,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 2
   plushieName: Creamie
+  startPosition: {fileID: 0}
+  targetPosition: {fileID: 0}
+  transitionSpeed: 0
+  sparkleEffectPrefab: {fileID: 0}
+  roomShelfPlushie: 1
 --- !u!1 &6254866692966592400
 GameObject:
   m_ObjectHideFlags: 0
@@ -9940,9 +10388,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91eb4f1934a7e224793c0644870cf26e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  m_ItemData:
+    posX: 0
+    posY: 0
+    posZ: 0
+    ItemName: SHELF
   itemRect: {fileID: 4813912211714640168}
   ItemName: Shelf
   roomItem: {fileID: 433705798367940281}
+  moveable: 1
 --- !u!1 &6261634279006366544
 GameObject:
   m_ObjectHideFlags: 0
@@ -10068,9 +10522,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91eb4f1934a7e224793c0644870cf26e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  m_ItemData:
+    posX: 0
+    posY: 0
+    posZ: 0
+    ItemName: SHELF
   itemRect: {fileID: 2956263199691806343}
   ItemName: Shelf
   roomItem: {fileID: 8019878062293805918}
+  moveable: 1
 --- !u!1 &6421490842730338221
 GameObject:
   m_ObjectHideFlags: 0
@@ -10161,6 +10621,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 5
   plushieName: Lovely
+  startPosition: {fileID: 0}
+  targetPosition: {fileID: 0}
+  transitionSpeed: 0
+  sparkleEffectPrefab: {fileID: 0}
+  roomShelfPlushie: 1
 --- !u!1 &6450411396391363074
 GameObject:
   m_ObjectHideFlags: 0
@@ -10194,10 +10659,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 8221838279502988710}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 366.2981, y: -35.460342}
+  m_SizeDelta: {x: 55, y: 55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6455843776630895479
 CanvasRenderer:
@@ -10251,6 +10716,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 3
   plushieName: Spicie
+  startPosition: {fileID: 0}
+  targetPosition: {fileID: 0}
+  transitionSpeed: 0
+  sparkleEffectPrefab: {fileID: 0}
+  roomShelfPlushie: 1
 --- !u!1 &6478308973534869788
 GameObject:
   m_ObjectHideFlags: 0
@@ -10284,10 +10754,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 102856291455842459}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 149.9281, y: -18.682396}
-  m_SizeDelta: {x: 40, y: 40}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 160.0748, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3867723386378677213
 CanvasRenderer:
@@ -10341,6 +10811,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 4
   plushieName: Bubble Gum
+  startPosition: {fileID: 0}
+  targetPosition: {fileID: 0}
+  transitionSpeed: 0
+  sparkleEffectPrefab: {fileID: 0}
+  roomShelfPlushie: 1
 --- !u!1 &6569496932102664406
 GameObject:
   m_ObjectHideFlags: 0
@@ -10431,6 +10906,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 3
   plushieName: Spicie
+  startPosition: {fileID: 0}
+  targetPosition: {fileID: 0}
+  transitionSpeed: 0
+  sparkleEffectPrefab: {fileID: 0}
+  roomShelfPlushie: 1
 --- !u!1 &6601084911559130555
 GameObject:
   m_ObjectHideFlags: 0
@@ -10552,10 +11032,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 7989020022122771716}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: -24.625244}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 320.0748, y: 0}
+  m_SizeDelta: {x: 40, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1090583501160678430
 CanvasRenderer:
@@ -10609,6 +11089,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 3
   plushieName: Spicie
+  startPosition: {fileID: 0}
+  targetPosition: {fileID: 0}
+  transitionSpeed: 0
+  sparkleEffectPrefab: {fileID: 0}
+  roomShelfPlushie: 1
 --- !u!1 &6731606624699260396
 GameObject:
   m_ObjectHideFlags: 0
@@ -10787,6 +11272,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 1
   plushieName: Brownie
+  startPosition: {fileID: 0}
+  targetPosition: {fileID: 0}
+  transitionSpeed: 0
+  sparkleEffectPrefab: {fileID: 0}
+  roomShelfPlushie: 1
 --- !u!1 &6775759905790271408
 GameObject:
   m_ObjectHideFlags: 0
@@ -10820,10 +11310,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 7989020022122771716}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: -24.625244}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 120.0748, y: 0}
+  m_SizeDelta: {x: 40, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2047796014820048002
 CanvasRenderer:
@@ -10877,6 +11367,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 3
   plushieName: Bluemoo
+  startPosition: {fileID: 0}
+  targetPosition: {fileID: 0}
+  transitionSpeed: 0
+  sparkleEffectPrefab: {fileID: 0}
+  roomShelfPlushie: 1
 --- !u!1 &6837716005239175334
 GameObject:
   m_ObjectHideFlags: 0
@@ -10967,6 +11462,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 3
   plushieName: Spicie
+  startPosition: {fileID: 0}
+  targetPosition: {fileID: 0}
+  transitionSpeed: 0
+  sparkleEffectPrefab: {fileID: 0}
+  roomShelfPlushie: 1
 --- !u!1 &6884266369071065871
 GameObject:
   m_ObjectHideFlags: 0
@@ -11057,6 +11557,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 3
   plushieName: Bluemoo
+  startPosition: {fileID: 0}
+  targetPosition: {fileID: 0}
+  transitionSpeed: 0
+  sparkleEffectPrefab: {fileID: 0}
+  roomShelfPlushie: 1
 --- !u!1 &6956654049049155835
 GameObject:
   m_ObjectHideFlags: 0
@@ -11235,6 +11740,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 1
   plushieName: Brownie
+  startPosition: {fileID: 0}
+  targetPosition: {fileID: 0}
+  transitionSpeed: 0
+  sparkleEffectPrefab: {fileID: 0}
+  roomShelfPlushie: 1
 --- !u!1 &6968726931298417438
 GameObject:
   m_ObjectHideFlags: 0
@@ -11268,10 +11778,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 102856291455842459}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 69.9281, y: -18.682396}
-  m_SizeDelta: {x: 40, y: 40}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 80.0748, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7992622311850745069
 CanvasRenderer:
@@ -11325,6 +11835,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 2
   plushieName: Creamie
+  startPosition: {fileID: 0}
+  targetPosition: {fileID: 0}
+  transitionSpeed: 0
+  sparkleEffectPrefab: {fileID: 0}
+  roomShelfPlushie: 1
 --- !u!1 &6998512070867047729
 GameObject:
   m_ObjectHideFlags: 0
@@ -11585,6 +12100,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 2
   plushieName: Creamie
+  startPosition: {fileID: 0}
+  targetPosition: {fileID: 0}
+  transitionSpeed: 0
+  sparkleEffectPrefab: {fileID: 0}
+  roomShelfPlushie: 1
 --- !u!1 &7134851538653683216
 GameObject:
   m_ObjectHideFlags: 0
@@ -11618,10 +12138,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 5798573826352269840}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: -20.201195}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 120.0748, y: 0}
+  m_SizeDelta: {x: 40, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8698140156421663739
 CanvasRenderer:
@@ -11675,6 +12195,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 3
   plushieName: Bluemoo
+  startPosition: {fileID: 0}
+  targetPosition: {fileID: 0}
+  transitionSpeed: 0
+  sparkleEffectPrefab: {fileID: 0}
+  roomShelfPlushie: 1
 --- !u!1 &7265969431909333154
 GameObject:
   m_ObjectHideFlags: 0
@@ -11795,9 +12320,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91eb4f1934a7e224793c0644870cf26e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  itemRect: {fileID: 2956263199691806343}
-  ItemName: Shelf
+  m_ItemData:
+    posX: 0
+    posY: 0
+    posZ: 0
+    ItemName: WALL
+  itemRect: {fileID: 8038348309861558675}
+  ItemName: WALL
   roomItem: {fileID: 5910865453634661946}
+  moveable: 0
 --- !u!1 &7412452470008156815
 GameObject:
   m_ObjectHideFlags: 0
@@ -11831,10 +12362,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 7393371343851124457}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 437.69092, y: -35.46035}
-  m_SizeDelta: {x: 55, y: 55}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 366.2981, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4909640346787553283
 CanvasRenderer:
@@ -11888,6 +12419,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 3
   plushieName: Spicie
+  startPosition: {fileID: 0}
+  targetPosition: {fileID: 0}
+  transitionSpeed: 0
+  sparkleEffectPrefab: {fileID: 0}
+  roomShelfPlushie: 1
 --- !u!1 &7439752621083390964
 GameObject:
   m_ObjectHideFlags: 0
@@ -11921,10 +12457,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 5798573826352269840}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: -20.201195}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 40.0748, y: 0}
+  m_SizeDelta: {x: 40, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1211611778848925891
 CanvasRenderer:
@@ -11978,6 +12514,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 1
   plushieName: Brownie
+  startPosition: {fileID: 0}
+  targetPosition: {fileID: 0}
+  transitionSpeed: 0
+  sparkleEffectPrefab: {fileID: 0}
+  roomShelfPlushie: 1
 --- !u!1 &7496029066040750717
 GameObject:
   m_ObjectHideFlags: 0
@@ -12068,6 +12609,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 6
   plushieName: Rainbaby
+  startPosition: {fileID: 0}
+  targetPosition: {fileID: 0}
+  transitionSpeed: 0
+  sparkleEffectPrefab: {fileID: 0}
+  roomShelfPlushie: 1
 --- !u!1 &7574927170020772374
 GameObject:
   m_ObjectHideFlags: 0
@@ -12158,6 +12704,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 1
   plushieName: Shortcake
+  startPosition: {fileID: 0}
+  targetPosition: {fileID: 0}
+  transitionSpeed: 0
+  sparkleEffectPrefab: {fileID: 0}
+  roomShelfPlushie: 1
 --- !u!1 &7591621470760718052
 GameObject:
   m_ObjectHideFlags: 0
@@ -12248,6 +12799,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 2
   plushieName: Creamie
+  startPosition: {fileID: 0}
+  targetPosition: {fileID: 0}
+  transitionSpeed: 0
+  sparkleEffectPrefab: {fileID: 0}
+  roomShelfPlushie: 1
 --- !u!1 &7686295597929097252
 GameObject:
   m_ObjectHideFlags: 0
@@ -12281,10 +12837,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 7393371343851124457}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 317.69092, y: -35.46035}
-  m_SizeDelta: {x: 55, y: 55}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 246.29808, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6624847755562257405
 CanvasRenderer:
@@ -12338,6 +12894,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 6
   plushieName: Rainbaby
+  startPosition: {fileID: 0}
+  targetPosition: {fileID: 0}
+  transitionSpeed: 0
+  sparkleEffectPrefab: {fileID: 0}
+  roomShelfPlushie: 1
 --- !u!1 &7686840334768735227
 GameObject:
   m_ObjectHideFlags: 0
@@ -12428,6 +12989,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 1
   plushieName: Shortcake
+  startPosition: {fileID: 0}
+  targetPosition: {fileID: 0}
+  transitionSpeed: 0
+  sparkleEffectPrefab: {fileID: 0}
+  roomShelfPlushie: 1
 --- !u!1 &7727717793531941946
 GameObject:
   m_ObjectHideFlags: 0
@@ -12518,6 +13084,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 2
   plushieName: Zellie
+  startPosition: {fileID: 0}
+  targetPosition: {fileID: 0}
+  transitionSpeed: 0
+  sparkleEffectPrefab: {fileID: 0}
+  roomShelfPlushie: 1
 --- !u!1 &7739022211740669220
 GameObject:
   m_ObjectHideFlags: 0
@@ -12608,6 +13179,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 6
   plushieName: Rainbaby
+  startPosition: {fileID: 0}
+  targetPosition: {fileID: 0}
+  transitionSpeed: 0
+  sparkleEffectPrefab: {fileID: 0}
+  roomShelfPlushie: 1
 --- !u!1 &7797351264498096947
 GameObject:
   m_ObjectHideFlags: 0
@@ -12641,10 +13217,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 8221838279502988710}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 186.29808, y: -35.460342}
+  m_SizeDelta: {x: 55, y: 55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8744392525663198519
 CanvasRenderer:
@@ -12698,6 +13274,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 5
   plushieName: Lovely
+  startPosition: {fileID: 0}
+  targetPosition: {fileID: 0}
+  transitionSpeed: 0
+  sparkleEffectPrefab: {fileID: 0}
+  roomShelfPlushie: 1
 --- !u!1 &7837076794402670064
 GameObject:
   m_ObjectHideFlags: 0
@@ -12813,10 +13394,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 8221838279502988710}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 6.2980804, y: -35.460342}
+  m_SizeDelta: {x: 55, y: 55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2680791987907630773
 CanvasRenderer:
@@ -12870,6 +13451,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 2
   plushieName: Creamie
+  startPosition: {fileID: 0}
+  targetPosition: {fileID: 0}
+  transitionSpeed: 0
+  sparkleEffectPrefab: {fileID: 0}
+  roomShelfPlushie: 1
 --- !u!1 &7943084502308644848
 GameObject:
   m_ObjectHideFlags: 0
@@ -12960,6 +13546,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 3
   plushieName: Spicie
+  startPosition: {fileID: 0}
+  targetPosition: {fileID: 0}
+  transitionSpeed: 0
+  sparkleEffectPrefab: {fileID: 0}
+  roomShelfPlushie: 1
 --- !u!1 &7963840488419697953
 GameObject:
   m_ObjectHideFlags: 0
@@ -13050,6 +13641,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 3
   plushieName: Spicie
+  startPosition: {fileID: 0}
+  targetPosition: {fileID: 0}
+  transitionSpeed: 0
+  sparkleEffectPrefab: {fileID: 0}
+  roomShelfPlushie: 1
 --- !u!1 &8039048043742813137
 GameObject:
   m_ObjectHideFlags: 0
@@ -13218,6 +13814,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 2
   plushieName: Creamie
+  startPosition: {fileID: 0}
+  targetPosition: {fileID: 0}
+  transitionSpeed: 0
+  sparkleEffectPrefab: {fileID: 0}
+  roomShelfPlushie: 1
 --- !u!1 &8084129765657394742
 GameObject:
   m_ObjectHideFlags: 0
@@ -13308,6 +13909,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 4
   plushieName: Bubble Gum
+  startPosition: {fileID: 0}
+  targetPosition: {fileID: 0}
+  transitionSpeed: 0
+  sparkleEffectPrefab: {fileID: 0}
+  roomShelfPlushie: 1
 --- !u!1 &8111987490028469319
 GameObject:
   m_ObjectHideFlags: 0
@@ -13398,6 +14004,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 5
   plushieName: Lovely
+  startPosition: {fileID: 0}
+  targetPosition: {fileID: 0}
+  transitionSpeed: 0
+  sparkleEffectPrefab: {fileID: 0}
+  roomShelfPlushie: 1
 --- !u!1 &8342652825513927223
 GameObject:
   m_ObjectHideFlags: 0
@@ -13488,6 +14099,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 2
   plushieName: Creamie
+  startPosition: {fileID: 0}
+  targetPosition: {fileID: 0}
+  transitionSpeed: 0
+  sparkleEffectPrefab: {fileID: 0}
+  roomShelfPlushie: 1
 --- !u!1 &8383522748054095854
 GameObject:
   m_ObjectHideFlags: 0
@@ -13521,10 +14137,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 8221838279502988710}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: -53.70192, y: -35.460342}
+  m_SizeDelta: {x: 55, y: 55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7721759917340073351
 CanvasRenderer:
@@ -13578,6 +14194,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 1
   plushieName: Brownie
+  startPosition: {fileID: 0}
+  targetPosition: {fileID: 0}
+  transitionSpeed: 0
+  sparkleEffectPrefab: {fileID: 0}
+  roomShelfPlushie: 1
 --- !u!1 &8454954621813988791
 GameObject:
   m_ObjectHideFlags: 0
@@ -13668,6 +14289,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 1
   plushieName: Shortcake
+  startPosition: {fileID: 0}
+  targetPosition: {fileID: 0}
+  transitionSpeed: 0
+  sparkleEffectPrefab: {fileID: 0}
+  roomShelfPlushie: 1
 --- !u!1 &8564525486724170367
 GameObject:
   m_ObjectHideFlags: 0
@@ -13758,6 +14384,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 5
   plushieName: Lovely
+  startPosition: {fileID: 0}
+  targetPosition: {fileID: 0}
+  transitionSpeed: 0
+  sparkleEffectPrefab: {fileID: 0}
+  roomShelfPlushie: 1
 --- !u!1 &8621272392765210578
 GameObject:
   m_ObjectHideFlags: 0
@@ -13883,9 +14514,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91eb4f1934a7e224793c0644870cf26e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  m_ItemData:
+    posX: 0
+    posY: 0
+    posZ: 0
+    ItemName: SHELF
   itemRect: {fileID: 4803335350821033179}
   ItemName: Shelf
   roomItem: {fileID: 2465840032056099008}
+  moveable: 1
 --- !u!1 &8637827812567992262
 GameObject:
   m_ObjectHideFlags: 0
@@ -13919,10 +14556,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 7989020022122771716}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: -24.625244}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 280.0748, y: 0}
+  m_SizeDelta: {x: 40, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5950804793616779277
 CanvasRenderer:
@@ -13976,6 +14613,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 2
   plushieName: Zellie
+  startPosition: {fileID: 0}
+  targetPosition: {fileID: 0}
+  transitionSpeed: 0
+  sparkleEffectPrefab: {fileID: 0}
+  roomShelfPlushie: 1
 --- !u!1 &8691525204448545911
 GameObject:
   m_ObjectHideFlags: 0
@@ -14066,6 +14708,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 6
   plushieName: Rainbaby
+  startPosition: {fileID: 0}
+  targetPosition: {fileID: 0}
+  transitionSpeed: 0
+  sparkleEffectPrefab: {fileID: 0}
+  roomShelfPlushie: 1
 --- !u!1 &8809073707827760292
 GameObject:
   m_ObjectHideFlags: 0
@@ -14099,10 +14746,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 102856291455842459}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 269.9281, y: -18.682396}
-  m_SizeDelta: {x: 40, y: 40}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 280.0748, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5876746923443157769
 CanvasRenderer:
@@ -14156,6 +14803,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 2
   plushieName: Zellie
+  startPosition: {fileID: 0}
+  targetPosition: {fileID: 0}
+  transitionSpeed: 0
+  sparkleEffectPrefab: {fileID: 0}
+  roomShelfPlushie: 1
 --- !u!1 &8847749860116250779
 GameObject:
   m_ObjectHideFlags: 0
@@ -14189,10 +14841,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 5798573826352269840}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: -20.201195}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 320.0748, y: 0}
+  m_SizeDelta: {x: 40, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1188806713084075748
 CanvasRenderer:
@@ -14246,6 +14898,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 3
   plushieName: Spicie
+  startPosition: {fileID: 0}
+  targetPosition: {fileID: 0}
+  transitionSpeed: 0
+  sparkleEffectPrefab: {fileID: 0}
+  roomShelfPlushie: 1
 --- !u!1 &8852086429732704492
 GameObject:
   m_ObjectHideFlags: 0
@@ -14371,10 +15028,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 8221838279502988710}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 246.29808, y: -35.460342}
+  m_SizeDelta: {x: 55, y: 55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8604387195100357
 CanvasRenderer:
@@ -14428,6 +15085,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 6
   plushieName: Rainbaby
+  startPosition: {fileID: 0}
+  targetPosition: {fileID: 0}
+  transitionSpeed: 0
+  sparkleEffectPrefab: {fileID: 0}
+  roomShelfPlushie: 1
 --- !u!1 &8944506194891102140
 GameObject:
   m_ObjectHideFlags: 0
@@ -14553,9 +15215,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91eb4f1934a7e224793c0644870cf26e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  m_ItemData:
+    posX: 0
+    posY: 0
+    posZ: 0
+    ItemName: SHELF
   itemRect: {fileID: 1024790184547956898}
   ItemName: Shelf
   roomItem: {fileID: 1396803965671527701}
+  moveable: 1
 --- !u!1 &8969506966241651615
 GameObject:
   m_ObjectHideFlags: 0
@@ -14589,10 +15257,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 7393371343851124457}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 377.69092, y: -35.46035}
-  m_SizeDelta: {x: 55, y: 55}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 306.2981, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7440742146038036907
 CanvasRenderer:
@@ -14646,6 +15314,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 2
   plushieName: Zellie
+  startPosition: {fileID: 0}
+  targetPosition: {fileID: 0}
+  transitionSpeed: 0
+  sparkleEffectPrefab: {fileID: 0}
+  roomShelfPlushie: 1
 --- !u!1 &8995138827539592311
 GameObject:
   m_ObjectHideFlags: 0
@@ -14736,6 +15409,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 6
   plushieName: Rainbaby
+  startPosition: {fileID: 0}
+  targetPosition: {fileID: 0}
+  transitionSpeed: 0
+  sparkleEffectPrefab: {fileID: 0}
+  roomShelfPlushie: 1
 --- !u!1 &9018610362629793432
 GameObject:
   m_ObjectHideFlags: 0
@@ -14769,10 +15447,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 7989020022122771716}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: -24.625244}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 80.0748, y: 0}
+  m_SizeDelta: {x: 40, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1194690302844665964
 CanvasRenderer:
@@ -14826,6 +15504,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 2
   plushieName: Creamie
+  startPosition: {fileID: 0}
+  targetPosition: {fileID: 0}
+  transitionSpeed: 0
+  sparkleEffectPrefab: {fileID: 0}
+  roomShelfPlushie: 1
 --- !u!1 &9114121275594747456
 GameObject:
   m_ObjectHideFlags: 0
@@ -14994,6 +15677,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 1
   plushieName: Shortcake
+  startPosition: {fileID: 0}
+  targetPosition: {fileID: 0}
+  transitionSpeed: 0
+  sparkleEffectPrefab: {fileID: 0}
+  roomShelfPlushie: 1
 --- !u!1 &9182278551566609685
 GameObject:
   m_ObjectHideFlags: 0
@@ -15027,10 +15715,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 7393371343851124457}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 17.690903, y: -35.46035}
-  m_SizeDelta: {x: 55, y: 55}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -53.70192, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2521607320536835440
 CanvasRenderer:
@@ -15084,3 +15772,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 1
   plushieName: Brownie
+  startPosition: {fileID: 0}
+  targetPosition: {fileID: 0}
+  transitionSpeed: 0
+  sparkleEffectPrefab: {fileID: 0}
+  roomShelfPlushie: 1

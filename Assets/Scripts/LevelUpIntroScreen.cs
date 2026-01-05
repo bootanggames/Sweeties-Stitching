@@ -60,14 +60,6 @@ public class LevelUpIntroScreen : MonoBehaviour
             this.GetComponent<Image>().enabled = true;
             explosionEffectParent.SetActive(false);
 
-            //this.gameObject.SetActive(false);
-            //foreach (GameObject g in plishieObj)
-            //{
-            //    LevelUpPlushieInfo plushie = g.GetComponentInChildren<LevelUpPlushieInfo>();
-            //    plushie.effect.SetActive(false);
-            //    plushie.transform.localScale = Vector3.zero;
-            //    g.SetActive(false);
-            //}
             jackpotHandler.ShowJackPotScreen();
             index = 0;
         }
@@ -104,7 +96,7 @@ public class LevelUpIntroScreen : MonoBehaviour
             plushieIcon.transform.SetParent(parent);
             seq.Join(plushieIcon.transform.DOLocalMove(target, speed).SetEase(Ease.Linear));
             //seq.Join(GameEvents.DoTweenAnimationHandlerEvents.onMoveToTargetAnimation.Raise(plushieIcon.transform, target, speed, Ease.Linear));
-            seq.Join(GameEvents.DoTweenAnimationHandlerEvents.onScaleTransform.Raise(plushieIcon.transform, new Vector3(0.75f, 0.75f, 0.75f), speed, Ease.Linear));
+            seq.Join(GameEvents.DoTweenAnimationHandlerEvents.onScaleTransform.Raise(plushieIcon.transform, new Vector3(0.5f, 0.5f, 0.5f), speed, Ease.Linear));
         }
         seq.OnComplete(() =>
         {

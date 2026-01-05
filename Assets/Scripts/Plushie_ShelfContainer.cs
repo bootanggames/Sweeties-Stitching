@@ -29,7 +29,6 @@ public class Plushie_ShelfContainer : MonoBehaviour
                 {
                     c++;
                     g.SetActive(true);
-                
                 }
                 else
                     g.SetActive(false);

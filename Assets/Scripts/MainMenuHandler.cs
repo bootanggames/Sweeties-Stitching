@@ -19,6 +19,7 @@ public class MainMenuHandler : Singleton<MainMenuHandler>
     public override void SingletonAwake()
     {
         base.SingletonAwake();
+        LockUnLock();
     }
     public override void SingletonOnDestroy()
     {
@@ -31,7 +32,16 @@ public class MainMenuHandler : Singleton<MainMenuHandler>
         activeScreen = MainMenuActiveScreen.homeScreen;
         int c = PlayerPrefs.GetInt("Coins");
         coinText.text = c.ToString();
-        LockUnLock();
+        int levelUp = PlayerPrefs.GetInt("LevelUp");
+        int completed = PlayerPrefs.GetInt("PlushieCompleted");
+        if (levelUp == 0)
+        {
+            if(completed == 1)
+            {
+                StartCoroutine(levels.AnimateCurrentUnlockedPlushie());
+                PlayerPrefs.SetInt("PlushieCompleted", 0);
+            }
+        }
     }
     public void LoadScene()
     {
@@ -101,15 +111,7 @@ public class MainMenuHandler : Singleton<MainMenuHandler>
             for (int j = 0; j < levels.levelPage[i].levelDetail.Count; j++)
             {
                 LevelDetail levelD = levels.levelPage[i].levelDetail[j].levelObject.GetComponent<LevelDetail>();
-                int lockState = PlayerPrefs.GetInt("Level_" + i + "Plushie_" + j);
-                if (lockState == 1)
-                    levelD.locked = false;
-                else
-                    levelD.locked = true;
-                if (levelD.locked)
-                    levelD.lockedImage.SetActive(true);
-                else
-                    levelD.lockedImage.SetActive(false);
+                levelD.CheckLevelLockeUnlocked(i, j);
             }
         }
     }

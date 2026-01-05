@@ -1,6 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Net.Sockets;
 using TMPro;
 using UnityEngine;
 
@@ -16,6 +13,13 @@ public class LevelObjectiveManager : MonoBehaviour
         LockUnLock();
         int c = PlayerPrefs.GetInt("Coins");
         coinText.text = c.ToString();
+        int levelUp = PlayerPrefs.GetInt("LevelUp");
+        if (levelUp == 0)
+            Invoke(nameof(NextPage), 0.5f);
+    }
+    void NextPage()
+    {
+        levels.GoToNextLevelPage();
     }
     public void UpdateTotalStitchesOfCurrentLevel()
     {
@@ -41,22 +45,12 @@ public class LevelObjectiveManager : MonoBehaviour
 
     void LockUnLock()
     {
-        //LevelsHandler.instance.SetLevelLockState(0, 0, 1);
-
         for (int i = 0; i < levels.levelPage.Count; i++)
         {
             for (int j=0; j< levels.levelPage[i].levelDetail.Count;j++)
             {
                 LevelDetail levelD = levels.levelPage[i].levelDetail[j].levelObject.GetComponent<LevelDetail>();
-                int lockState = PlayerPrefs.GetInt("Level_" + i + "Plushie_" + j);
-                if (lockState == 1)
-                    levelD.locked = false;
-                else
-                    levelD.locked = true;
-                if (levelD.locked)
-                    levelD.lockedImage.SetActive(true);
-                else
-                    levelD.lockedImage.SetActive(false);
+                levelD.CheckLevelLockeUnlocked(i, j);
             }
         }
     }

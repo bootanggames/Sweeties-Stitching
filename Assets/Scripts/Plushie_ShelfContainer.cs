@@ -5,6 +5,7 @@ public class Plushie_ShelfContainer : MonoBehaviour
     public PlushieContainer[] plushieShelf;
     IPlushieInventory inventory;
     public ItemName itemName;
+    [field: SerializeField] public RectTransform targetPos {  get; private set; }
     private void OnEnable()
     {
         inventory = ServiceLocator.GetService<IPlushieInventory>();

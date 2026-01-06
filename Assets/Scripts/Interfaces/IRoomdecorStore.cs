@@ -20,5 +20,6 @@ public interface IRoomdecorStore : IGameService
     void MyRoomButton();
     void MyItemsButton(bool val);
     void StopSound();
+    void OpenScreen();
     List<GameObject> roomScreenButtons {  get; }
 }

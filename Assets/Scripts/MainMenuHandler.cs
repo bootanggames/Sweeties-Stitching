@@ -13,6 +13,7 @@ public class MainMenuHandler : Singleton<MainMenuHandler>
     public GameObject plushieInventoryScreen;
     public GameObject mainMenuBg;
     public GameObject blurEffect;
+    public GameObject disableControlsScreen;
 
     [field:SerializeField] public LevelsInfoOnSelection levels {  get; private set; }
 
@@ -36,10 +37,16 @@ public class MainMenuHandler : Singleton<MainMenuHandler>
         int completed = PlayerPrefs.GetInt("PlushieCompleted");
         if (levelUp == 0)
         {
+            Debug.LogError(" " + completed);
             if(completed == 1)
             {
+                disableControlsScreen.SetActive(true);
                 StartCoroutine(levels.AnimateCurrentUnlockedPlushie());
                 PlayerPrefs.SetInt("PlushieCompleted", 0);
+            }
+            else
+            {
+                levels.NextLevelPage();
             }
         }
     }

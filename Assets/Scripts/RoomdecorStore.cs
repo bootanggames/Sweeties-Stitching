@@ -28,9 +28,17 @@ public class RoomdecorStore : MonoBehaviour, IRoomdecorStore
         int c = PlayerPrefs.GetInt("Coins");
         coinText.text = c.ToString();
         room = bedroom.GetComponent<UpdateRoom>();
-
+       
     }
-
+    public void OpenScreen()
+    {
+        int openDecor = PlayerPrefs.GetInt("OpenRoomDecor");
+        if (openDecor == 1)
+        {
+            MyRoomButton();
+            PlayerPrefs.SetInt("OpenRoomDecor", 0);
+        }
+    }
     private void OnDisable()
     {
         UnRegisterService();

@@ -529,6 +529,7 @@ GameObject:
   - component: {fileID: 1228887121333111253}
   - component: {fileID: 3505858852981662775}
   - component: {fileID: 3620903489817030006}
+  - component: {fileID: 1381343431279216407}
   m_Layer: 5
   m_Name: Fire
   m_TagString: Untagged
@@ -608,10 +609,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 3
   plushieName: Spicie
+--- !u!114 &1381343431279216407
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 631030529012775278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b6069e189002d245bf429f4a4f9d011, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
   startPosition: {fileID: 5047508387572764221}
   targetPosition: {fileID: 747234531487798806}
   transitionSpeed: 0.5
   sparkleEffectPrefab: {fileID: 6362121000527032735, guid: 5d2d17be889f56c4bac2b511df52831c, type: 3}
+  _plushieDetails: {fileID: 3620903489817030006}
 --- !u!1 &1013357771797021569
 GameObject:
   m_ObjectHideFlags: 0
@@ -624,6 +638,7 @@ GameObject:
   - component: {fileID: 2728678239595246231}
   - component: {fileID: 3593207385896004003}
   - component: {fileID: 2602320646804647881}
+  - component: {fileID: 4320815382020158147}
   m_Layer: 5
   m_Name: Pink
   m_TagString: Untagged
@@ -703,10 +718,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 4
   plushieName: Bubble Gum
+--- !u!114 &4320815382020158147
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1013357771797021569}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b6069e189002d245bf429f4a4f9d011, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
   startPosition: {fileID: 2580785220415262291}
   targetPosition: {fileID: 747234531487798806}
   transitionSpeed: 0.5
   sparkleEffectPrefab: {fileID: 6362121000527032735, guid: 5d2d17be889f56c4bac2b511df52831c, type: 3}
+  _plushieDetails: {fileID: 2602320646804647881}
 --- !u!1 &1017536834058593548
 GameObject:
   m_ObjectHideFlags: 0
@@ -1477,6 +1505,7 @@ GameObject:
   - component: {fileID: 909764115984323628}
   - component: {fileID: 1192194814219183867}
   - component: {fileID: 8770853517761686050}
+  - component: {fileID: 86066309912980850}
   m_Layer: 5
   m_Name: CreamPie
   m_TagString: Untagged
@@ -1556,10 +1585,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 2
   plushieName: Creamie
+--- !u!114 &86066309912980850
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1729536503317433986}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b6069e189002d245bf429f4a4f9d011, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
   startPosition: {fileID: 1015842759476800299}
   targetPosition: {fileID: 747234531487798806}
   transitionSpeed: 0.5
   sparkleEffectPrefab: {fileID: 6362121000527032735, guid: 5d2d17be889f56c4bac2b511df52831c, type: 3}
+  _plushieDetails: {fileID: 8770853517761686050}
 --- !u!1 &2184909824265538057
 GameObject:
   m_ObjectHideFlags: 0
@@ -1833,6 +1875,7 @@ GameObject:
   - component: {fileID: 7575822319282409117}
   - component: {fileID: 8868278358150924983}
   - component: {fileID: 5103307372916084837}
+  - component: {fileID: 7710695220495424481}
   m_Layer: 5
   m_Name: Bubble Gum
   m_TagString: Untagged
@@ -1912,10 +1955,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 3
   plushieName: Bluemoo
+--- !u!114 &7710695220495424481
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2547458988891894234}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b6069e189002d245bf429f4a4f9d011, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
   startPosition: {fileID: 6129783192689998068}
   targetPosition: {fileID: 747234531487798806}
   transitionSpeed: 0.5
   sparkleEffectPrefab: {fileID: 6362121000527032735, guid: 5d2d17be889f56c4bac2b511df52831c, type: 3}
+  _plushieDetails: {fileID: 5103307372916084837}
 --- !u!1 &2997390928813350134
 GameObject:
   m_ObjectHideFlags: 0
@@ -2018,6 +2074,7 @@ GameObject:
   - component: {fileID: 4164278489815575658}
   - component: {fileID: 4139914984261001429}
   - component: {fileID: 2303653880287114710}
+  - component: {fileID: 5227831269794861237}
   m_Layer: 5
   m_Name: Strawberry
   m_TagString: Untagged
@@ -2097,10 +2154,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 1
   plushieName: Shortcake
+--- !u!114 &5227831269794861237
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3326250083580542973}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b6069e189002d245bf429f4a4f9d011, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
   startPosition: {fileID: 8534990188913548258}
   targetPosition: {fileID: 747234531487798806}
   transitionSpeed: 0.5
   sparkleEffectPrefab: {fileID: 6362121000527032735, guid: 5d2d17be889f56c4bac2b511df52831c, type: 3}
+  _plushieDetails: {fileID: 2303653880287114710}
 --- !u!1 &3814660597887156626
 GameObject:
   m_ObjectHideFlags: 0
@@ -2177,7 +2247,6 @@ MonoBehaviour:
   - {fileID: 6866415654334583662}
   - {fileID: 5600354705577073259}
   itemName: 0
-  animate: 0
 --- !u!1 &3916076341480595277
 GameObject:
   m_ObjectHideFlags: 0
@@ -2886,6 +2955,7 @@ GameObject:
   - component: {fileID: 5337293185424461734}
   - component: {fileID: 4414201875651045538}
   - component: {fileID: 2963647809926229190}
+  - component: {fileID: 8971250441575827882}
   m_Layer: 5
   m_Name: PinkPolkaDots
   m_TagString: Untagged
@@ -2965,10 +3035,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 2
   plushieName: Zellie
+--- !u!114 &8971250441575827882
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5916517053271396308}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b6069e189002d245bf429f4a4f9d011, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
   startPosition: {fileID: 7031524296109730370}
   targetPosition: {fileID: 747234531487798806}
   transitionSpeed: 0.5
   sparkleEffectPrefab: {fileID: 6362121000527032735, guid: 5d2d17be889f56c4bac2b511df52831c, type: 3}
+  _plushieDetails: {fileID: 2963647809926229190}
 --- !u!1 &5947217246102577998
 GameObject:
   m_ObjectHideFlags: 0
@@ -3159,6 +3242,7 @@ GameObject:
   - component: {fileID: 1902869990509341690}
   - component: {fileID: 8616696369077683029}
   - component: {fileID: 1200096374279004190}
+  - component: {fileID: 3089780675758995538}
   m_Layer: 5
   m_Name: Rainbow
   m_TagString: Untagged
@@ -3238,10 +3322,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 6
   plushieName: Rainbaby
+--- !u!114 &3089780675758995538
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6253570490587689338}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b6069e189002d245bf429f4a4f9d011, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
   startPosition: {fileID: 3736690660075268543}
   targetPosition: {fileID: 747234531487798806}
   transitionSpeed: 0.5
   sparkleEffectPrefab: {fileID: 6362121000527032735, guid: 5d2d17be889f56c4bac2b511df52831c, type: 3}
+  _plushieDetails: {fileID: 1200096374279004190}
 --- !u!1 &6566918676464727046
 GameObject:
   m_ObjectHideFlags: 0
@@ -4012,6 +4109,7 @@ GameObject:
   - component: {fileID: 1017432780280563308}
   - component: {fileID: 5010617805590146518}
   - component: {fileID: 4340040590169530209}
+  - component: {fileID: 6308762353112531504}
   m_Layer: 5
   m_Name: Brownie
   m_TagString: Untagged
@@ -4091,10 +4189,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 1
   plushieName: Brownie
+--- !u!114 &6308762353112531504
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7602198348489525081}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b6069e189002d245bf429f4a4f9d011, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
   startPosition: {fileID: 2343757824275324986}
   targetPosition: {fileID: 747234531487798806}
   transitionSpeed: 0.5
   sparkleEffectPrefab: {fileID: 6362121000527032735, guid: 5d2d17be889f56c4bac2b511df52831c, type: 3}
+  _plushieDetails: {fileID: 4340040590169530209}
 --- !u!1 &7849052665749551839
 GameObject:
   m_ObjectHideFlags: 0
@@ -4107,6 +4218,7 @@ GameObject:
   - component: {fileID: 7019900107620904004}
   - component: {fileID: 285999188348966053}
   - component: {fileID: 2868760192393650371}
+  - component: {fileID: 7285906000277471798}
   m_Layer: 5
   m_Name: Orange
   m_TagString: Untagged
@@ -4186,10 +4298,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 5
   plushieName: Lovely
+--- !u!114 &7285906000277471798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7849052665749551839}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b6069e189002d245bf429f4a4f9d011, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
   startPosition: {fileID: 8161358826828410076}
   targetPosition: {fileID: 747234531487798806}
   transitionSpeed: 0.5
   sparkleEffectPrefab: {fileID: 6362121000527032735, guid: 5d2d17be889f56c4bac2b511df52831c, type: 3}
+  _plushieDetails: {fileID: 2868760192393650371}
 --- !u!1 &7873040293558236837
 GameObject:
   m_ObjectHideFlags: 0

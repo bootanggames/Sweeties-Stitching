@@ -13,17 +13,23 @@ public class LevelsInfoOnSelection : MonoBehaviour
     [SerializeField] GameObject sparkleEffectPrefab;
     [SerializeField] RectTransform targetPos;
     [SerializeField] float transitionSpeed;
+    IRoomdecorStore roomdecorStore;
     private void Start()
     {
+        roomdecorStore = ServiceLocator.GetService<IRoomdecorStore>();
         //int levelUp = PlayerPrefs.GetInt("LevelUp");
         //if (levelUp == 0)
-        //    Invoke(nameof(GoToNextLevelPage), 0.5f);
+        //    
             
     }
-    public void GoToNextLevelPage()
+    public void NextLevelPage()
+    {
+        Invoke(nameof(GoToNextLevelPage), 0.5f);
+    }
+    void GoToNextLevelPage()
     {
         int levelIndex = PlayerPrefs.GetInt("Level");
-        //Debug.LogError(" " + levelIndex);
+        Debug.LogError(" " + levelIndex);
         NextPage(levelIndex);
         CancelInvoke(nameof(GoToNextLevelPage));
     }
@@ -59,7 +65,7 @@ public class LevelsInfoOnSelection : MonoBehaviour
         LevelDetail ld = levelPage[levelIndex].levelDetail[plushieIndex].levelObject.GetComponent<LevelDetail>();
         ld.lockedImage.SetActive(true);
 
-        yield return new WaitForSeconds(0.35f);
+        yield return new WaitForSeconds(0.15f);
         GoToNextLevelPage();
 
         LevelObjectivePageDetail currentPage = levelPage[levelIndex];
@@ -80,7 +86,6 @@ public class LevelsInfoOnSelection : MonoBehaviour
         ld.startPosition.SetParent(this.transform);
 
         Vector3 startPos = ld.startPosition.anchoredPosition3D;
-        Debug.LogError(" " + startPos);
         Sequence seq1 = DOTween.Sequence();
         Sequence seq2 = DOTween.Sequence();
         seq1.Join(plushieRectTransform.DOAnchorPos(targetPos.localPosition, transitionSpeed).SetEase(Ease.Linear));
@@ -110,9 +115,11 @@ public class LevelsInfoOnSelection : MonoBehaviour
         effect.GetComponent<ParticleSystem>().Play();
         yield return new WaitForSeconds(1.5f);
         currentPlushie.transform.SetParent(ld.transform);
-      
+        MainMenuHandler.instance.disableControlsScreen.SetActive(false);
         Destroy(effect, 1);
         seq2.Kill();
+        if (roomdecorStore != null)
+            roomdecorStore.OpenScreen();
         StopCoroutine(AnimateCurrentUnlockedPlushie());
     }
 }

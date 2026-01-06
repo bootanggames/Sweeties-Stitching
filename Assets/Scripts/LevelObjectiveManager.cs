@@ -15,11 +15,12 @@ public class LevelObjectiveManager : MonoBehaviour
         coinText.text = c.ToString();
         int levelUp = PlayerPrefs.GetInt("LevelUp");
         if (levelUp == 0)
-            Invoke(nameof(NextPage), 0.5f);
+            levels.NextLevelPage();
+            //Invoke(nameof(NextPage), 0.5f);
     }
     void NextPage()
     {
-        levels.GoToNextLevelPage();
+        //levels.GoToNextLevelPage();
     }
     public void UpdateTotalStitchesOfCurrentLevel()
     {

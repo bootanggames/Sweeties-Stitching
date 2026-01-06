@@ -9,7 +9,9 @@ public class UpdateRoom : MonoBehaviour
 
     [field: SerializeField] public bool saveRoom {  get; private set; }
     [field: SerializeField]public List<GameObject> shelf {  get; private set; }
+    [field: SerializeField]public List<Plushie_ShelfContainer> plushieShelfsInfo {  get; private set; }
     public BedroomStates bedroomState;
+    [field: SerializeField] public Plushie_ShelfContainer currentActiveShelf { get; private set; }
 
     void OnEnable()
     {
@@ -20,6 +22,14 @@ public class UpdateRoom : MonoBehaviour
         //    saveRoom = false;
         //if(saveRoom)
             UpdateChanges();
+        if(currentActiveShelf == null)
+        {
+            foreach(GameObject g in shelf)
+            {
+                if (g.activeSelf)
+                    currentActiveShelf = g.GetComponent<Plushie_ShelfContainer>();
+            }
+        }
     }
    
 
@@ -64,6 +74,7 @@ public class UpdateRoom : MonoBehaviour
                 }
                 g.SetActive(true);
                 _item.EnableDisableItemComponents(true);
+                currentActiveShelf = _shelf;
                 break;
             }
 
@@ -88,4 +99,5 @@ public class UpdateRoom : MonoBehaviour
                 break;
         }
     }
+    public Plushie_ShelfContainer GetShelf(ItemName _itemName) => plushieShelfsInfo.Find(x => x.itemName == _itemName);
 }

@@ -18,9 +18,18 @@ public class PlushieShelfAnimation : MonoBehaviour
     [SerializeField] float shakeStrength;
     [SerializeField] int shakeVibrato;
     [SerializeField] float shakeRandomness;
+    IRoomdecorStore _roomdecorStore;
+    [SerializeField] PlushiesInventory _plushieInventoryScreen;
+    [SerializeField] GameObject homeBtn;
+    [SerializeField] GameObject backBtn;
+    public bool dontPlayAnimation = false;
     private void OnEnable()
     {
         Invoke(nameof(SetReferences), 0.5f);
+    }
+    private void Start()
+    {
+        _roomdecorStore = ServiceLocator.GetService<IRoomdecorStore>();
     }
     void SetReferences()
     {
@@ -29,7 +38,6 @@ public class PlushieShelfAnimation : MonoBehaviour
         targetPosition = room.currentActiveShelf.targetPos;
         rectSize.x = startPosition.rect.width;
         rectSize.y = startPosition.rect.height;
-        Debug.LogError(" " + startPosition.rect.width + " " + startPosition.rect.height);
         CancelInvoke("SetReferences");
     }
     public IEnumerator ShelfAnimation()
@@ -40,10 +48,11 @@ public class PlushieShelfAnimation : MonoBehaviour
         yield return new WaitForSeconds(0.7f);
         Sequence seq1 = DOTween.Sequence();
         rt.SetParent(room.GetComponent<RectTransform>());
-        rt.anchorMin = targetPosition.anchorMin;
-        rt.anchorMax = targetPosition.anchorMax;
-        rt.pivot = targetPosition.pivot;
- 
+        //rt.anchorMin = targetPosition.anchorMin;
+        //rt.anchorMax = targetPosition.anchorMax;
+        //rt.pivot = targetPosition.pivot;
+        SetAnchorsForShelfObject(rt, targetPosition);
+
         rt.sizeDelta = rectSize;
         rt.anchoredPosition3D = Vector3.zero;
         yield return new WaitForSeconds(0.5f);
@@ -55,17 +64,42 @@ public class PlushieShelfAnimation : MonoBehaviour
         seq1.Kill();
         this.gameObject.SetActive(false);
         rt.SetParent(shelfParent);
+        //rt.anchorMin = startPosition.anchorMin;
+        //rt.anchorMax = startPosition.anchorMax;
+        //rt.pivot = startPosition.pivot;
+     
+
+        //if (GameHandler.instance)
+        //    GameHandler.instance.Home("HomeScreen");
+        if (_roomdecorStore != null)
+        {
+            rt.gameObject.SetActive(true);
+            _roomdecorStore.MyRoomButton();
+            _plushieInventoryScreen.StopPlushieScreenSound();
+            _plushieInventoryScreen.gameObject.SetActive(false);
+            homeBtn.SetActive(true);
+            backBtn.SetActive(true);
+        }
+        //PlayerPrefs.SetInt("OpenRoomDecor", 1);
+        StopCoroutine(ShelfAnimation());
+    }
+
+    void SetAnchorsForShelfObject(RectTransform rt, RectTransform requiredTransform)
+    {
+        rt.anchorMin = requiredTransform.anchorMin;
+        rt.anchorMax = requiredTransform.anchorMax;
+        rt.pivot = requiredTransform.pivot;
+    }
+
+    public void ResetShelf()
+    {
+        RectTransform rt = this.GetComponent<RectTransform>();
+
         this.transform.localScale = Vector3.one;
-        rt.anchorMin = startPosition.anchorMin;
-        rt.anchorMax = startPosition.anchorMax;
-        rt.pivot = startPosition.pivot;
+        SetAnchorsForShelfObject(rt, startPosition);
         rt.right = startPosition.right;
         rt.offsetMin = startPosition.offsetMin;
         rt.offsetMax = startPosition.offsetMax;
-        //yield return new WaitForSeconds(0.3f);
-        if (GameHandler.instance)
-            GameHandler.instance.Home("HomeScreen");
-        PlayerPrefs.SetInt("OpenRoomDecor", 1);
-        StopCoroutine(ShelfAnimation());
+        dontPlayAnimation = true;
     }
 }

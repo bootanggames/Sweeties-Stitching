@@ -29,7 +29,7 @@ public class LevelsInfoOnSelection : MonoBehaviour
     void GoToNextLevelPage()
     {
         int levelIndex = PlayerPrefs.GetInt("Level");
-        Debug.LogError(" " + levelIndex);
+        //Debug.LogError(" " + levelIndex);
         NextPage(levelIndex);
         CancelInvoke(nameof(GoToNextLevelPage));
     }
@@ -118,8 +118,8 @@ public class LevelsInfoOnSelection : MonoBehaviour
         MainMenuHandler.instance.disableControlsScreen.SetActive(false);
         Destroy(effect, 1);
         seq2.Kill();
-        if (roomdecorStore != null)
-            roomdecorStore.OpenScreen();
+        //if (roomdecorStore != null)
+        //    roomdecorStore.OpenScreen();
         StopCoroutine(AnimateCurrentUnlockedPlushie());
     }
 }

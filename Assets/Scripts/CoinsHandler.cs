@@ -66,6 +66,8 @@ public class CoinsHandler : MonoBehaviour,ICoinsHandler
         int total = totalCoins + amount;
         PlayerPrefs.SetInt("Coins", total);
         UpdateCoins(total);
+        //AudioSource s = coinObj.GetComponent<AudioSource>();
+        //PlayCoinSound(s);
     }
     public void UpdateCoins(int amount)
     {
@@ -166,7 +168,7 @@ public class CoinsHandler : MonoBehaviour,ICoinsHandler
         //audioSource.Stop();
         //SoundManager.instance.StopSound(s);
         s.pitch = coinSoundPitchValue;
-        s.volume = 0.8f;
+        s.volume = 1.0f;
         SoundManager.instance.PlaySound(s, SoundManager.instance.audioClips.coinCollection, false, false, 1, false);
         HepticManager.instance.HapticEffect();
         Vector3 target = new Vector3(1.2f, 1.2f, 1.2f);

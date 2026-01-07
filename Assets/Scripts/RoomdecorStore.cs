@@ -18,6 +18,7 @@ public class RoomdecorStore : MonoBehaviour, IRoomdecorStore
     [SerializeField] GameObject backButton_MyItemScreen;
     [SerializeField] GameObject myItemButton;
     [SerializeField] GameObject storeButton;
+    [SerializeField] GameObject myDecorRoom;
     [SerializeField] TextMeshProUGUI coinText;
 
     [field:SerializeField] public List<GameObject> roomScreenButtons {  get; private set; }
@@ -110,11 +111,19 @@ public class RoomdecorStore : MonoBehaviour, IRoomdecorStore
             }
         }
     }
-    public void StopSound()
+
+    public void StopDecorScreenSound()
     {
         if (AudiosSourceContainer.instance)
         {
             SoundManager.instance.StopSound(AudiosSourceContainer.instance.roomInventoryScreen);
+        }
+    }
+    public void StopSound()
+    {
+        if (AudiosSourceContainer.instance)
+        {
+            StopDecorScreenSound();
             AudioClip clip = SoundManager.instance.audioClips.bgMusic;
             SoundManager.instance.PlaySound(AudiosSourceContainer.instance.homeScreen, clip, true, false, 1, true);
         }
@@ -141,12 +150,14 @@ public class RoomdecorStore : MonoBehaviour, IRoomdecorStore
     public void MyRoomButton()
     {
         PlaySound();
+        myDecorRoom.SetActive(true);
         EnableDisableMyRoomScreen(true);
         EnableDisableMItemsScreen(false);
         EnableDisableChangeRoomUiParent(false);
         ChangeBedroomComponents(true);
         room.UpdateRoomState("decor");
-        MainMenuHandler.instance.UpdateScreen("roomdecor");
+        if(MainMenuHandler.instance)
+            MainMenuHandler.instance.UpdateScreen("roomdecor");
         foreach(GameObject g in roomScreenButtons)
         {
             g.SetActive(true);

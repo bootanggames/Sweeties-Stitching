@@ -37,7 +37,6 @@ public class MainMenuHandler : Singleton<MainMenuHandler>
         int completed = PlayerPrefs.GetInt("PlushieCompleted");
         if (levelUp == 0)
         {
-            Debug.LogError(" " + completed);
             if(completed == 1)
             {
                 disableControlsScreen.SetActive(true);

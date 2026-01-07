@@ -27,12 +27,19 @@ public class PlushiesInventory : MonoBehaviour,IPlushieInventory
     {
         UnRegisterService();
     }
-    public void BackButton()
+    public void StopPlushieScreenSound()
     {
         if (AudiosSourceContainer.instance)
         {
             SoundManager.instance.StopSound(AudiosSourceContainer.instance.plushieInventoryScreen);
 
+        }
+    }
+    public void BackButton()
+    {
+        if (AudiosSourceContainer.instance)
+        {
+            StopPlushieScreenSound();
             if (AudiosSourceContainer.instance.homeScreen)
                 SoundManager.instance.PlaySound(AudiosSourceContainer.instance.homeScreen, SoundManager.instance.audioClips.bgMusic, true, false, 1.0f, true);
         }

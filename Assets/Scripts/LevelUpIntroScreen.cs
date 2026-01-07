@@ -82,9 +82,13 @@ public class LevelUpIntroScreen : MonoBehaviour
         LevelObjectivePageDetail objectivePage = MainMenuHandler.instance.levels.levelPage[currentLevel];
         List<GameObject> plushieIcons = new List<GameObject>();
         int index = 0;
+        foreach(GameObject g in plishieObj)
+        {
+            LevelUpPlushieInfo plushieInfo = g.GetComponentInChildren<LevelUpPlushieInfo>();
+            plushieInfo.plushieName.text = "";
+        }
         for (int i = total - 1; i >= 0; i--)
         {
-
             GameObject currentLevelObj = objectivePage.levelDetail[i].levelObject;
             LevelDetail ld = currentLevelObj.GetComponent<LevelDetail>();
             Transform parent = MainMenuHandler.instance.levels.GetComponentInParent<HomeScreenSound>().transform;
@@ -97,6 +101,7 @@ public class LevelUpIntroScreen : MonoBehaviour
             seq.Join(plushieIcon.transform.DOLocalMove(target, speed).SetEase(Ease.Linear));
             //seq.Join(GameEvents.DoTweenAnimationHandlerEvents.onMoveToTargetAnimation.Raise(plushieIcon.transform, target, speed, Ease.Linear));
             seq.Join(GameEvents.DoTweenAnimationHandlerEvents.onScaleTransform.Raise(plushieIcon.transform, new Vector3(0.5f, 0.5f, 0.5f), speed, Ease.Linear));
+       
         }
         seq.OnComplete(() =>
         {
@@ -113,6 +118,7 @@ public class LevelUpIntroScreen : MonoBehaviour
                 {
                     s.plushieObject.SetActive(false);
                 }
+           
                 //plushieIcons[i].transform.localScale = Vector3.one;
                 //plushieIcons[i].SetActive(false);
                 //plishieObj[index].SetActive(false);
@@ -127,7 +133,7 @@ public class LevelUpIntroScreen : MonoBehaviour
        
         yield return seq.WaitForCompletion();
         explosionEffectParent.SetActive(true);
-      
+        levelNumberText.text = "";
         ExplodeSound();
 
         MainMenuHandler.instance.levels.transform.DOScale(new Vector3(1.05f, 1.05f, 1.05f), 0.25f).SetEase(Ease.Linear).OnComplete(() =>

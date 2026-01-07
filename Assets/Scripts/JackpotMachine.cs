@@ -90,7 +90,7 @@ public class JackpotMachine : MonoBehaviour
     {
         jackpotHandle.SetActive(false);
         jackpotHandleCircle.transform.localPosition = handleEndPosition;
-        Invoke(nameof(ResetHandle), 0.5f);
+        Invoke(nameof(ResetHandle), 1.0f);
     }
 
     void ResetHandle()

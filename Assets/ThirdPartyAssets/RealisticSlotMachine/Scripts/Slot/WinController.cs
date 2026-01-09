@@ -404,7 +404,7 @@ namespace Mkey
                 {
                     if (item.scattersCount > 0 && item.scattersCount == scatterWinSymbols.Count)
                     {
-                        scatterWin = new WinData(scatterWinSymbols, item.freeSpins, item.pay, item.payMult, item.freeSpinsMult, item.WinEvent);
+                        scatterWin = new WinData(scatterWinSymbols, item.freeSpins, item.pay, item.payMult, item.freeSpinsMult,TierType.small, item.WinEvent);
                     }
                 }
             if (scatterWin == null) scatterWinSymbols = new List<SlotSymbol>();

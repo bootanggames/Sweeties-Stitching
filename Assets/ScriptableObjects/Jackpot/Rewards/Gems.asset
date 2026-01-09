@@ -16,5 +16,12 @@ MonoBehaviour:
   <rewardType>k__BackingField: 1
   <rewardIcon>k__BackingField: {fileID: 0}
   <rewardAmount>k__BackingField: 10
-  <rewardProbability>k__BackingField: 50
+  <slotRewardProbability>k__BackingField:
+  - <slotId>k__BackingField: 0
+    <rewardProbability>k__BackingField: 10
+  - <slotId>k__BackingField: 1
+    <rewardProbability>k__BackingField: 10
+  - <slotId>k__BackingField: 2
+    <rewardProbability>k__BackingField: 10
+  <rewardProbability>k__BackingField: 10
   <items>k__BackingField: []

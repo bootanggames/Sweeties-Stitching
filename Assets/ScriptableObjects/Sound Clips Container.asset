@@ -35,3 +35,4 @@ MonoBehaviour:
   blast: {fileID: 8300000, guid: 8b6932c0212659d40b506ba1eacb707d, type: 3}
   youHaveJackpot: {fileID: 8300000, guid: 4b40af7e2a535c94d92c7bcbdf07c2a4, type: 3}
   jackpotPrize: {fileID: 8300000, guid: ed010ca3d7fc6d842b4a8b29c05e58e7, type: 3}
+  jackpotSpinning: {fileID: 8300000, guid: aa61e7f34df46a24787c6f378e761afa, type: 3}

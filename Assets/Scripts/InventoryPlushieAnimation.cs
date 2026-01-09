@@ -1,6 +1,7 @@
 using Coffee.UIExtensions;
 using DG.Tweening;
 using System.Collections;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -14,10 +15,14 @@ public class InventoryPlushieAnimation : MonoBehaviour
     [SerializeField] PlushieShelfAnimation _shelfAnimation;
     Transform p_Transform;
     Transform parent;
+    [SerializeField]PlushiesInventory _plushieInventory;
+    [SerializeField]PlushieContainer p_Container;
     private void OnEnable()
     {
-        p_Transform = this.GetComponentInParent<PlushieContainer>().transform;
-        parent = this.GetComponentInParent<PlushiesInventory>().transform;
+        //_plushieInventory = this.GetComponentInParent<PlushiesInventory>();
+        //p_Container = this.GetComponentInParent<PlushieContainer>();
+        p_Transform = p_Container.transform;
+        parent = _plushieInventory.transform;
 
         PlayAnimation();
     }
@@ -33,6 +38,7 @@ public class InventoryPlushieAnimation : MonoBehaviour
                 string _plushieName = recentlyCompletedLevel.levelScriptable.levelName;
                 if (_plushieDetails.plushieName.Equals(_plushieName))
                 {
+                    StopCoroutine(ActivatePlushie());
                     StartCoroutine(ActivatePlushie());
                 }
             }
@@ -43,6 +49,20 @@ public class InventoryPlushieAnimation : MonoBehaviour
     {
 
         yield return new WaitForSeconds(0.25f);
+
+        //Plushie_ShelfContainer shelfContainer = _plushieInventory.plushies[0].GetPageViewContent().GetComponent<Plushie_ShelfContainer>();
+        //shelfContainer.CheckIfAllPlushiesStitched();
+        //int index = 0;
+        //if (shelfContainer.plushieShelf[index].plushie.Contains(_plushieDetails.gameObject))
+        //{
+        //    shelfContainer.EnablePlushies(index, _plushieDetails.id);
+        //}
+        //else
+        //{
+        //    index++;
+        //    if (shelfContainer.plushieShelf[index].plushie.Contains(_plushieDetails.gameObject))
+        //        shelfContainer.EnablePlushies(index, _plushieDetails.id);
+        //}
         this.gameObject.SetActive(true);
 
         if (!_shelfAnimation.dontPlayAnimation)

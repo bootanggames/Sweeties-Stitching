@@ -6,6 +6,7 @@ namespace Mkey
 {
     public class SlotGroupBehavior : MonoBehaviour
     {
+        [SerializeField] int slotId;
         [SerializeField]
         JackpotRewardSystem jackpotItems;
         public List<int> symbOrder;
@@ -113,13 +114,22 @@ namespace Mkey
             List<JackpotReward> s_items = new List<JackpotReward>();
             s_items.AddRange(jackpotItems.jackPotRewardsScriptable.GetAllItems());
             HashSet<int> checkedItems = new HashSet<int>();
-            foreach (JackpotReward item in s_items)
+            foreach (JackpotReward item in s_items) //s_item --> rewards like mystry box, coin, decor
             {
                 if ((checkedItems.Contains(item.rewardID))) continue;
-                for (int i = 0; i < item.rewardProbability; i++)
+                for (int j = 0; j < item.slotRewardProbability.Count; j++)
                 {
-                    Debug.LogError(" " + item.rewardID);
-                    symbOrder.Add(item.rewardID);
+                    if (slotId.Equals(item.slotRewardProbability[j].slotId))
+                    {
+                        Debug.LogError(" " + item.slotRewardProbability[j].slotId + "--" + slotId);
+
+                        for (int i = 0; i < item.slotRewardProbability[j].rewardProbability; i++)
+                        {
+                            Debug.LogError(" " + item.GetInstanceID()+" "+item.GetEntityId()+" "+item.GetHashCode());
+                            symbOrder.Add(item.rewardID);
+                        }
+                    }
+
                 }
                 checkedItems.Add(item.rewardID);
 

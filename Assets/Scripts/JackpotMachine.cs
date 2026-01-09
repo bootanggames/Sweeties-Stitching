@@ -18,6 +18,7 @@ public class JackpotMachine : MonoBehaviour
     [SerializeField] Vector3 handleStartPosition;
     [SerializeField] Vector3 handleEndPosition;
     [SerializeField] AudioSource source;
+    [SerializeField] Sprite coinIcon;
     private void OnEnable()
     {
         jackpotHandler = ServiceLocator.GetService<IJackpotHandler>();
@@ -45,17 +46,31 @@ public class JackpotMachine : MonoBehaviour
     {
         jackpotHandler.CloseJackpotScreen();
     }
-    public void ShowRewardScreen(RewardType type)
+    public void ShowHugeRewardScreen(RewardType type)
     {
-        //Debug.LogError("reward screen");
-        if(UIObject)
+        ShowRewardScreen();
+        UpdateRewardItemScreen(type);
+        //Invoke(nameof(CloseRewardedScreen), 1.0f);
+    }
+    public void ShowRewardScreen()
+    {
+        if (UIObject)
             UIObject.SetActive(false);
         jackPotMachineObject.SetActive(false);
         congratulationsScreen.gameObject.SetActive(true);
         JackPotRewardScreenSound();
-        UpdateRewardItemScreen(type);
-
-        //Invoke(nameof(CloseRewardedScreen), 1.0f);
+    }
+    public void ShowSmallReward(int rewardAmount)
+    {
+        ShowRewardScreen();
+        rewardedItem.imageComponent.sprite = coinIcon;
+        rewardedItem.rewardAmountText.text = rewardAmount.ToString();
+    }
+    public void ShowMediumReward(int rewardAmount)
+    {
+        ShowRewardScreen();
+        rewardedItem.imageComponent.sprite = coinIcon;
+        rewardedItem.rewardAmountText.text = rewardAmount.ToString();
     }
     public void EnableRoomBg(bool val)
     {
@@ -83,7 +98,7 @@ public class JackpotMachine : MonoBehaviour
         rewardedItem.imageComponent.sprite = item.ItemIcon;
         rewardedItem.rewardAmountText.text = rewardItem.rewardAmount.ToString();
         if (!jackpotHandler.earnedItems.Contains(item))
-            jackpotHandler.earnedItems.Add(item);
+                jackpotHandler.earnedItems.Add(item);
     }
 
     public void StartSpin()

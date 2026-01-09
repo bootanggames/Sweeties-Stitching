@@ -49,7 +49,7 @@ public class Level_Metadata : MonoBehaviour
 
         AssignAndUpdateSpools();
         LevelInitialisation();
-
+        sewnPlushie.GetComponent<SpriteRenderer>().sprite = levelScriptable.plushieSprite;
     }
 
     void AssignAndUpdateSpools()

@@ -26,4 +26,5 @@ public class SoundScriptable : ScriptableObject
     public AudioClip blast;
     public AudioClip youHaveJackpot;
     public AudioClip jackpotPrize;
+    public AudioClip jackpotSpinning;
 }

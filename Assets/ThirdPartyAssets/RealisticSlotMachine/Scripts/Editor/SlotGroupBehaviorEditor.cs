@@ -61,13 +61,13 @@ namespace Mkey
             symbOrder = slotGroupBehavior.symbOrder;
             iconChoises = slotController.GetIconNames(false);
             serializedObject.Update();
-
+         
             #region symbOrder
             ShowReordListBoxFoldOut("Symbol Order", symbOrderList, ref showSymbOrder);
             serializedObject.ApplyModifiedProperties();
             #endregion symbOrder
 
-            ShowPropertiesBox(new string[] { "rayCasters",
+            ShowPropertiesBox(new string[] { "rayCasters","slotId",
               "addRotateTime",  "spinStartDelay", "spinStartRandomize", "spinSpeedMultiplier", "randomStartPosition", "tileSizeY","gapY" ,"baseLink"}, true);
 
             serializedObject.ApplyModifiedProperties();

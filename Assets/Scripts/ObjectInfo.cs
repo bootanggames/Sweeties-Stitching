@@ -335,51 +335,7 @@ public class ObjectInfo : MonoBehaviour
         }
         CancelInvoke("UpdateProgress");
     }
-    //public void DisableWellDoneText()
-    //{
-    //    if (completeStitchTextObj)
-    //    {
-    //        completeStitchTextObj.SetActive(false);
-    //        Destroy(completeStitchTextObj);
-    //    }
-    //    CancelInvoke("DisableWellDoneText");
-    //}
-
-    //void ChangeText(GameObject textObj, string _text, float _fontSize)
-    //{
-    //    if (textObj != null)
-    //    {
-    //        TextMeshPro textMesh = textObj.GetComponent<TextMeshPro>();
-    //        textMesh.fontSize = _fontSize;
-    //        textMesh.text = _text;
-    //        textObj.SetActive(true);
-    //    }
-    //}
-    //public void DisableWrongAlertText()
-    //{
-    //    if (wrongSequenceAlert != null)
-    //        wrongSequenceAlert.SetActive(false);
-    //}
-    //public void WrongSequenceAlertText(string _text, float _fontSize)
-    //{
-    //    if (wrongSequenceAlert)
-    //    {
-    //        TextMeshPro textMesh = wrongSequenceAlert.GetComponent<TextMeshPro>();
-    //        textMesh.fontSize = _fontSize;
-    //        textMesh.text = _text;
-    //        wrongSequenceAlert.SetActive(true);
-    //        WrongSelectedPointSound();
-    //    }
-       
-    //}
-
-    //void WrongSelectedPointSound()
-    //{
-    //    SoundManager.instance.ResetAudioSource();
-    //    AudioSource _source = SoundManager.instance.audioSource;
-    //    AudioClip _clip = SoundManager.instance.audioClips.wrongStitchSound;
-    //    SoundManager.instance.PlaySound(_source, _clip, false, false, 1, false);
-    //}
+  
     void PlaySound()
     {
         SoundManager.instance.ResetAudioSource();

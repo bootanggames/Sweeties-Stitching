@@ -16,6 +16,13 @@ MonoBehaviour:
   <rewardType>k__BackingField: 5
   <rewardIcon>k__BackingField: {fileID: 21300000, guid: 1359cc5d80682164a9920875cf87f023, type: 3}
   <rewardAmount>k__BackingField: 1
+  <slotRewardProbability>k__BackingField:
+  - <slotId>k__BackingField: 0
+    <rewardProbability>k__BackingField: 8
+  - <slotId>k__BackingField: 1
+    <rewardProbability>k__BackingField: 1
+  - <slotId>k__BackingField: 2
+    <rewardProbability>k__BackingField: 1
   <rewardProbability>k__BackingField: 10
   <items>k__BackingField:
   - {fileID: 11400000, guid: 8c5c65daedb3a014290e8f5c1c99e01f, type: 2}

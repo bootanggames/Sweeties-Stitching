@@ -13,6 +13,277 @@ MonoBehaviour:
   m_Name: RewardList
   m_EditorClassIdentifier: Assembly-CSharp::JackpotAllRewards
   rewardList:
+  - {fileID: 11400000, guid: e9bebdd39b024f8479d1656dd33a2607, type: 2}
+  - {fileID: 11400000, guid: 84c6dee85c430784ca61d3616ad8e831, type: 2}
   - {fileID: 11400000, guid: f6511573eb3c9e8499b31d4eec1f9f82, type: 2}
-  - {fileID: 11400000, guid: f6511573eb3c9e8499b31d4eec1f9f82, type: 2}
-  - {fileID: 11400000, guid: f6511573eb3c9e8499b31d4eec1f9f82, type: 2}
+  payoutTable:
+  - line: 000000000000000000000000
+    pay: 2000
+    freeSpins: 1
+    showEvent: 0
+    LineEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    payMult: 1
+    freeSpinsMult: 1
+    tier: 2
+  - line: 010000000100000001000000
+    pay: 2000
+    freeSpins: 1
+    showEvent: 0
+    LineEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    payMult: 1
+    freeSpinsMult: 1
+    tier: 2
+  - line: 020000000200000002000000
+    pay: 1000
+    freeSpins: 1
+    showEvent: 0
+    LineEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    payMult: 1
+    freeSpinsMult: 1
+    tier: 2
+  - line: 000000000000000001000000
+    pay: 1000
+    freeSpins: 0
+    showEvent: 0
+    LineEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    payMult: 0
+    freeSpinsMult: 0
+    tier: 1
+  - line: 000000000000000002000000
+    pay: 1000
+    freeSpins: 0
+    showEvent: 0
+    LineEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    payMult: 0
+    freeSpinsMult: 0
+    tier: 1
+  - line: 000000000100000001000000
+    pay: 1000
+    freeSpins: 0
+    showEvent: 0
+    LineEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    payMult: 0
+    freeSpinsMult: 0
+    tier: 1
+  - line: 000000000200000002000000
+    pay: 1000
+    freeSpins: 0
+    showEvent: 0
+    LineEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    payMult: 0
+    freeSpinsMult: 0
+    tier: 1
+  - line: 010000000000000000000000
+    pay: 1000
+    freeSpins: 0
+    showEvent: 0
+    LineEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    payMult: 0
+    freeSpinsMult: 0
+    tier: 1
+  - line: 010000000200000002000000
+    pay: 1000
+    freeSpins: 0
+    showEvent: 0
+    LineEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    payMult: 0
+    freeSpinsMult: 0
+    tier: 1
+  - line: 010000000100000000000000
+    pay: 1000
+    freeSpins: 0
+    showEvent: 0
+    LineEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    payMult: 0
+    freeSpinsMult: 0
+    tier: 1
+  - line: 010000000100000002000000
+    pay: 1000
+    freeSpins: 0
+    showEvent: 0
+    LineEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    payMult: 0
+    freeSpinsMult: 0
+    tier: 1
+  - line: 020000000000000000000000
+    pay: 1000
+    freeSpins: 0
+    showEvent: 0
+    LineEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    payMult: 0
+    freeSpinsMult: 0
+    tier: 1
+  - line: 020000000100000001000000
+    pay: 1000
+    freeSpins: 0
+    showEvent: 0
+    LineEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    payMult: 0
+    freeSpinsMult: 0
+    tier: 1
+  - line: 020000000200000000000000
+    pay: 1000
+    freeSpins: 0
+    showEvent: 0
+    LineEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    payMult: 0
+    freeSpinsMult: 0
+    tier: 1
+  - line: 020000000200000001000000
+    pay: 1000
+    freeSpins: 0
+    showEvent: 0
+    LineEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    payMult: 0
+    freeSpinsMult: 0
+    tier: 1
+  - line: 000000000100000000000000
+    pay: 1000
+    freeSpins: 0
+    showEvent: 0
+    LineEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    payMult: 0
+    freeSpinsMult: 0
+    tier: 1
+  - line: 000000000200000000000000
+    pay: 1000
+    freeSpins: 0
+    showEvent: 0
+    LineEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    payMult: 0
+    freeSpinsMult: 0
+    tier: 1
+  - line: 010000000000000001000000
+    pay: 1000
+    freeSpins: 0
+    showEvent: 0
+    LineEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    payMult: 0
+    freeSpinsMult: 0
+    tier: 1
+  - line: 010000000200000001000000
+    pay: 1000
+    freeSpins: 0
+    showEvent: 0
+    LineEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    payMult: 0
+    freeSpinsMult: 0
+    tier: 1
+  - line: 020000000000000002000000
+    pay: 1000
+    freeSpins: 0
+    showEvent: 0
+    LineEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    payMult: 0
+    freeSpinsMult: 0
+    tier: 1
+  - line: 020000000100000002000000
+    pay: 1000
+    freeSpins: 0
+    showEvent: 0
+    LineEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    payMult: 0
+    freeSpinsMult: 0
+    tier: 1
+  - line: 000000000100000002000000
+    pay: 500
+    freeSpins: 0
+    showEvent: 0
+    LineEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    payMult: 0
+    freeSpinsMult: 0
+    tier: 0
+  - line: 020000000100000000000000
+    pay: 500
+    freeSpins: 0
+    showEvent: 0
+    LineEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    payMult: 0
+    freeSpinsMult: 0
+    tier: 0
+  - line: 020000000000000001000000
+    pay: 500
+    freeSpins: 0
+    showEvent: 0
+    LineEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    payMult: 0
+    freeSpinsMult: 0
+    tier: 0
+  - line: 010000000200000000000000
+    pay: 500
+    freeSpins: 0
+    showEvent: 0
+    LineEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    payMult: 0
+    freeSpinsMult: 0
+    tier: 0
+  - line: 000000000200000001000000
+    pay: 500
+    freeSpins: 0
+    showEvent: 0
+    LineEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    payMult: 0
+    freeSpinsMult: 0
+    tier: 0
+  - line: 010000000000000002000000
+    pay: 500
+    freeSpins: 0
+    showEvent: 0
+    LineEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    payMult: 0
+    freeSpinsMult: 0
+    tier: 0

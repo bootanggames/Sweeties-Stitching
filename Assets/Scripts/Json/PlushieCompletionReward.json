@@ -1,0 +1,2402 @@
+[
+  {
+    "PlushieNumber": 1,
+    "CoinsPerCompletion": "1000"
+  },
+  {
+    "PlushieNumber": 2,
+    "CoinsPerCompletion": "1180"
+  },
+  {
+    "PlushieNumber": 3,
+    "CoinsPerCompletion": "1392"
+  },
+  {
+    "PlushieNumber": 4,
+    "CoinsPerCompletion": "1643"
+  },
+  {
+    "PlushieNumber": 5,
+    "CoinsPerCompletion": "1939"
+  },
+  {
+    "PlushieNumber": 6,
+    "CoinsPerCompletion": "2288"
+  },
+  {
+    "PlushieNumber": 7,
+    "CoinsPerCompletion": "2700"
+  },
+  {
+    "PlushieNumber": 8,
+    "CoinsPerCompletion": "3186"
+  },
+  {
+    "PlushieNumber": 9,
+    "CoinsPerCompletion": "3759"
+  },
+  {
+    "PlushieNumber": 10,
+    "CoinsPerCompletion": "4436"
+  },
+  {
+    "PlushieNumber": 11,
+    "CoinsPerCompletion": "5234"
+  },
+  {
+    "PlushieNumber": 12,
+    "CoinsPerCompletion": "6176"
+  },
+  {
+    "PlushieNumber": 13,
+    "CoinsPerCompletion": "7288"
+  },
+  {
+    "PlushieNumber": 14,
+    "CoinsPerCompletion": "8600"
+  },
+  {
+    "PlushieNumber": 15,
+    "CoinsPerCompletion": "9804"
+  },
+  {
+    "PlushieNumber": 16,
+    "CoinsPerCompletion": "11177"
+  },
+  {
+    "PlushieNumber": 17,
+    "CoinsPerCompletion": "12742"
+  },
+  {
+    "PlushieNumber": 18,
+    "CoinsPerCompletion": "14526"
+  },
+  {
+    "PlushieNumber": 19,
+    "CoinsPerCompletion": "16560"
+  },
+  {
+    "PlushieNumber": 20,
+    "CoinsPerCompletion": "18878"
+  },
+  {
+    "PlushieNumber": 21,
+    "CoinsPerCompletion": "21521"
+  },
+  {
+    "PlushieNumber": 22,
+    "CoinsPerCompletion": "24534"
+  },
+  {
+    "PlushieNumber": 23,
+    "CoinsPerCompletion": "27969"
+  },
+  {
+    "PlushieNumber": 24,
+    "CoinsPerCompletion": "31885"
+  },
+  {
+    "PlushieNumber": 25,
+    "CoinsPerCompletion": "36349"
+  },
+  {
+    "PlushieNumber": 26,
+    "CoinsPerCompletion": "41438"
+  },
+  {
+    "PlushieNumber": 27,
+    "CoinsPerCompletion": "47239"
+  },
+  {
+    "PlushieNumber": 28,
+    "CoinsPerCompletion": "53852"
+  },
+  {
+    "PlushieNumber": 29,
+    "CoinsPerCompletion": "61391"
+  },
+  {
+    "PlushieNumber": 30,
+    "CoinsPerCompletion": "68758"
+  },
+  {
+    "PlushieNumber": 31,
+    "CoinsPerCompletion": "77009"
+  },
+  {
+    "PlushieNumber": 32,
+    "CoinsPerCompletion": "86250"
+  },
+  {
+    "PlushieNumber": 33,
+    "CoinsPerCompletion": "96600"
+  },
+  {
+    "PlushieNumber": 34,
+    "CoinsPerCompletion": "108192"
+  },
+  {
+    "PlushieNumber": 35,
+    "CoinsPerCompletion": "121175"
+  },
+  {
+    "PlushieNumber": 36,
+    "CoinsPerCompletion": "135716"
+  },
+  {
+    "PlushieNumber": 37,
+    "CoinsPerCompletion": "152002"
+  },
+  {
+    "PlushieNumber": 38,
+    "CoinsPerCompletion": "170242"
+  },
+  {
+    "PlushieNumber": 39,
+    "CoinsPerCompletion": "190671"
+  },
+  {
+    "PlushieNumber": 40,
+    "CoinsPerCompletion": "213552"
+  },
+  {
+    "PlushieNumber": 41,
+    "CoinsPerCompletion": "239178"
+  },
+  {
+    "PlushieNumber": 42,
+    "CoinsPerCompletion": "267879"
+  },
+  {
+    "PlushieNumber": 43,
+    "CoinsPerCompletion": "300024"
+  },
+  {
+    "PlushieNumber": 44,
+    "CoinsPerCompletion": "336027"
+  },
+  {
+    "PlushieNumber": 45,
+    "CoinsPerCompletion": "376350"
+  },
+  {
+    "PlushieNumber": 46,
+    "CoinsPerCompletion": "421512"
+  },
+  {
+    "PlushieNumber": 47,
+    "CoinsPerCompletion": "472093"
+  },
+  {
+    "PlushieNumber": 48,
+    "CoinsPerCompletion": "528744"
+  },
+  {
+    "PlushieNumber": 49,
+    "CoinsPerCompletion": "592193"
+  },
+  {
+    "PlushieNumber": 50,
+    "CoinsPerCompletion": "663256"
+  },
+  {
+    "PlushieNumber": 51,
+    "CoinsPerCompletion": "742847"
+  },
+  {
+    "PlushieNumber": 52,
+    "CoinsPerCompletion": "831989"
+  },
+  {
+    "PlushieNumber": 53,
+    "CoinsPerCompletion": "931828"
+  },
+  {
+    "PlushieNumber": 54,
+    "CoinsPerCompletion": "1043647"
+  },
+  {
+    "PlushieNumber": 55,
+    "CoinsPerCompletion": "1168885"
+  },
+  {
+    "PlushieNumber": 56,
+    "CoinsPerCompletion": "1309151"
+  },
+  {
+    "PlushieNumber": 57,
+    "CoinsPerCompletion": "1466249"
+  },
+  {
+    "PlushieNumber": 58,
+    "CoinsPerCompletion": "1642199"
+  },
+  {
+    "PlushieNumber": 59,
+    "CoinsPerCompletion": "1839263"
+  },
+  {
+    "PlushieNumber": 60,
+    "CoinsPerCompletion": "2059975"
+  },
+  {
+    "PlushieNumber": 61,
+    "CoinsPerCompletion": "2307172"
+  },
+  {
+    "PlushieNumber": 62,
+    "CoinsPerCompletion": "2584033"
+  },
+  {
+    "PlushieNumber": 63,
+    "CoinsPerCompletion": "2894117"
+  },
+  {
+    "PlushieNumber": 64,
+    "CoinsPerCompletion": "3241411"
+  },
+  {
+    "PlushieNumber": 65,
+    "CoinsPerCompletion": "3630380"
+  },
+  {
+    "PlushieNumber": 66,
+    "CoinsPerCompletion": "4066026"
+  },
+  {
+    "PlushieNumber": 67,
+    "CoinsPerCompletion": "4553949"
+  },
+  {
+    "PlushieNumber": 68,
+    "CoinsPerCompletion": "5100423"
+  },
+  {
+    "PlushieNumber": 69,
+    "CoinsPerCompletion": "5712474"
+  },
+  {
+    "PlushieNumber": 70,
+    "CoinsPerCompletion": "6397971"
+  },
+  {
+    "PlushieNumber": 71,
+    "CoinsPerCompletion": "7165728"
+  },
+  {
+    "PlushieNumber": 72,
+    "CoinsPerCompletion": "8025615"
+  },
+  {
+    "PlushieNumber": 73,
+    "CoinsPerCompletion": "8988689"
+  },
+  {
+    "PlushieNumber": 74,
+    "CoinsPerCompletion": "10067332"
+  },
+  {
+    "PlushieNumber": 75,
+    "CoinsPerCompletion": "11275412"
+  },
+  {
+    "PlushieNumber": 76,
+    "CoinsPerCompletion": "12628461"
+  },
+  {
+    "PlushieNumber": 77,
+    "CoinsPerCompletion": "14143876"
+  },
+  {
+    "PlushieNumber": 78,
+    "CoinsPerCompletion": "15841141"
+  },
+  {
+    "PlushieNumber": 79,
+    "CoinsPerCompletion": "17742078"
+  },
+  {
+    "PlushieNumber": 80,
+    "CoinsPerCompletion": "19871127"
+  },
+  {
+    "PlushieNumber": 81,
+    "CoinsPerCompletion": "22255662"
+  },
+  {
+    "PlushieNumber": 82,
+    "CoinsPerCompletion": "24926341"
+  },
+  {
+    "PlushieNumber": 83,
+    "CoinsPerCompletion": "27917502"
+  },
+  {
+    "PlushieNumber": 84,
+    "CoinsPerCompletion": "31267602"
+  },
+  {
+    "PlushieNumber": 85,
+    "CoinsPerCompletion": "35019714"
+  },
+  {
+    "PlushieNumber": 86,
+    "CoinsPerCompletion": "39222080"
+  },
+  {
+    "PlushieNumber": 87,
+    "CoinsPerCompletion": "43928730"
+  },
+  {
+    "PlushieNumber": 88,
+    "CoinsPerCompletion": "49200178"
+  },
+  {
+    "PlushieNumber": 89,
+    "CoinsPerCompletion": "55104199"
+  },
+  {
+    "PlushieNumber": 90,
+    "CoinsPerCompletion": "61716703"
+  },
+  {
+    "PlushieNumber": 91,
+    "CoinsPerCompletion": "69122707"
+  },
+  {
+    "PlushieNumber": 92,
+    "CoinsPerCompletion": "77417432"
+  },
+  {
+    "PlushieNumber": 93,
+    "CoinsPerCompletion": "86707524"
+  },
+  {
+    "PlushieNumber": 94,
+    "CoinsPerCompletion": "97112427"
+  },
+  {
+    "PlushieNumber": 95,
+    "CoinsPerCompletion": "108765918"
+  },
+  {
+    "PlushieNumber": 96,
+    "CoinsPerCompletion": "121817828"
+  },
+  {
+    "PlushieNumber": 97,
+    "CoinsPerCompletion": "136435967"
+  },
+  {
+    "PlushieNumber": 98,
+    "CoinsPerCompletion": "152808283"
+  },
+  {
+    "PlushieNumber": 99,
+    "CoinsPerCompletion": "171145277"
+  },
+  {
+    "PlushieNumber": 100,
+    "CoinsPerCompletion": "191682710"
+  },
+  {
+    "PlushieNumber": 101,
+    "CoinsPerCompletion": "214684635"
+  },
+  {
+    "PlushieNumber": 102,
+    "CoinsPerCompletion": "240446791"
+  },
+  {
+    "PlushieNumber": 103,
+    "CoinsPerCompletion": "269300406"
+  },
+  {
+    "PlushieNumber": 104,
+    "CoinsPerCompletion": "301616455"
+  },
+  {
+    "PlushieNumber": 105,
+    "CoinsPerCompletion": "337810430"
+  },
+  {
+    "PlushieNumber": 106,
+    "CoinsPerCompletion": "378347682"
+  },
+  {
+    "PlushieNumber": 107,
+    "CoinsPerCompletion": "423749404"
+  },
+  {
+    "PlushieNumber": 108,
+    "CoinsPerCompletion": "474599332"
+  },
+  {
+    "PlushieNumber": 109,
+    "CoinsPerCompletion": "531551252"
+  },
+  {
+    "PlushieNumber": 110,
+    "CoinsPerCompletion": "595337402"
+  },
+  {
+    "PlushieNumber": 111,
+    "CoinsPerCompletion": "666777890"
+  },
+  {
+    "PlushieNumber": 112,
+    "CoinsPerCompletion": "746791237"
+  },
+  {
+    "PlushieNumber": 113,
+    "CoinsPerCompletion": "836406185"
+  },
+  {
+    "PlushieNumber": 114,
+    "CoinsPerCompletion": "936774927"
+  },
+  {
+    "PlushieNumber": 115,
+    "CoinsPerCompletion": "1049187918"
+  },
+  {
+    "PlushieNumber": 116,
+    "CoinsPerCompletion": "1175090468"
+  },
+  {
+    "PlushieNumber": 117,
+    "CoinsPerCompletion": "1316101324"
+  },
+  {
+    "PlushieNumber": 118,
+    "CoinsPerCompletion": "1474033483"
+  },
+  {
+    "PlushieNumber": 119,
+    "CoinsPerCompletion": "1650917501"
+  },
+  {
+    "PlushieNumber": 120,
+    "CoinsPerCompletion": "1849027601"
+  },
+  {
+    "PlushieNumber": 121,
+    "CoinsPerCompletion": "2070910913"
+  },
+  {
+    "PlushieNumber": 122,
+    "CoinsPerCompletion": "2319420223"
+  },
+  {
+    "PlushieNumber": 123,
+    "CoinsPerCompletion": "2597750650"
+  },
+  {
+    "PlushieNumber": 124,
+    "CoinsPerCompletion": "2909480728"
+  },
+  {
+    "PlushieNumber": 125,
+    "CoinsPerCompletion": "3258618415"
+  },
+  {
+    "PlushieNumber": 126,
+    "CoinsPerCompletion": "3649652625"
+  },
+  {
+    "PlushieNumber": 127,
+    "CoinsPerCompletion": "4087610940"
+  },
+  {
+    "PlushieNumber": 128,
+    "CoinsPerCompletion": "4578124253"
+  },
+  {
+    "PlushieNumber": 129,
+    "CoinsPerCompletion": "5127499163"
+  },
+  {
+    "PlushieNumber": 130,
+    "CoinsPerCompletion": "5742799063"
+  },
+  {
+    "PlushieNumber": 131,
+    "CoinsPerCompletion": "6431934951"
+  },
+  {
+    "PlushieNumber": 132,
+    "CoinsPerCompletion": "7203767145"
+  },
+  {
+    "PlushieNumber": 133,
+    "CoinsPerCompletion": "8068219202"
+  },
+  {
+    "PlushieNumber": 134,
+    "CoinsPerCompletion": "9036405506"
+  },
+  {
+    "PlushieNumber": 135,
+    "CoinsPerCompletion": "10120774167"
+  },
+  {
+    "PlushieNumber": 136,
+    "CoinsPerCompletion": "11335267067"
+  },
+  {
+    "PlushieNumber": 137,
+    "CoinsPerCompletion": "12695499115"
+  },
+  {
+    "PlushieNumber": 138,
+    "CoinsPerCompletion": "14218959009"
+  },
+  {
+    "PlushieNumber": 139,
+    "CoinsPerCompletion": "15925234090"
+  },
+  {
+    "PlushieNumber": 140,
+    "CoinsPerCompletion": "17836262181"
+  },
+  {
+    "PlushieNumber": 141,
+    "CoinsPerCompletion": "19976613643"
+  },
+  {
+    "PlushieNumber": 142,
+    "CoinsPerCompletion": "22373807280"
+  },
+  {
+    "PlushieNumber": 143,
+    "CoinsPerCompletion": "25058664154"
+  },
+  {
+    "PlushieNumber": 144,
+    "CoinsPerCompletion": "28065703852"
+  },
+  {
+    "PlushieNumber": 145,
+    "CoinsPerCompletion": "31433588314"
+  },
+  {
+    "PlushieNumber": 146,
+    "CoinsPerCompletion": "35205618912"
+  },
+  {
+    "PlushieNumber": 147,
+    "CoinsPerCompletion": "39430293181"
+  },
+  {
+    "PlushieNumber": 148,
+    "CoinsPerCompletion": "44161928363"
+  },
+  {
+    "PlushieNumber": 149,
+    "CoinsPerCompletion": "49461359767"
+  },
+  {
+    "PlushieNumber": 150,
+    "CoinsPerCompletion": "55396722939"
+  },
+  {
+    "PlushieNumber": 151,
+    "CoinsPerCompletion": "62044329692"
+  },
+  {
+    "PlushieNumber": 152,
+    "CoinsPerCompletion": "69489649255"
+  },
+  {
+    "PlushieNumber": 153,
+    "CoinsPerCompletion": "77828407166"
+  },
+  {
+    "PlushieNumber": 154,
+    "CoinsPerCompletion": "87167816026"
+  },
+  {
+    "PlushieNumber": 155,
+    "CoinsPerCompletion": "97627953949"
+  },
+  {
+    "PlushieNumber": 156,
+    "CoinsPerCompletion": "109343308423"
+  },
+  {
+    "PlushieNumber": 157,
+    "CoinsPerCompletion": "122464505434"
+  },
+  {
+    "PlushieNumber": 158,
+    "CoinsPerCompletion": "137160246086"
+  },
+  {
+    "PlushieNumber": 159,
+    "CoinsPerCompletion": "153619475616"
+  },
+  {
+    "PlushieNumber": 160,
+    "CoinsPerCompletion": "172053812690"
+  },
+  {
+    "PlushieNumber": 161,
+    "CoinsPerCompletion": "192700270213"
+  },
+  {
+    "PlushieNumber": 162,
+    "CoinsPerCompletion": "215824302639"
+  },
+  {
+    "PlushieNumber": 163,
+    "CoinsPerCompletion": "241723218956"
+  },
+  {
+    "PlushieNumber": 164,
+    "CoinsPerCompletion": "270730005231"
+  },
+  {
+    "PlushieNumber": 165,
+    "CoinsPerCompletion": "303217605859"
+  },
+  {
+    "PlushieNumber": 166,
+    "CoinsPerCompletion": "339603718562"
+  },
+  {
+    "PlushieNumber": 167,
+    "CoinsPerCompletion": "380356164789"
+  },
+  {
+    "PlushieNumber": 168,
+    "CoinsPerCompletion": "425998904564"
+  },
+  {
+    "PlushieNumber": 169,
+    "CoinsPerCompletion": "477118773112"
+  },
+  {
+    "PlushieNumber": 170,
+    "CoinsPerCompletion": "534373025885"
+  },
+  {
+    "PlushieNumber": 171,
+    "CoinsPerCompletion": "598497788991"
+  },
+  {
+    "PlushieNumber": 172,
+    "CoinsPerCompletion": "670317523670"
+  },
+  {
+    "PlushieNumber": 173,
+    "CoinsPerCompletion": "750755626510"
+  },
+  {
+    "PlushieNumber": 174,
+    "CoinsPerCompletion": "840846301691"
+  },
+  {
+    "PlushieNumber": 175,
+    "CoinsPerCompletion": "941747857894"
+  },
+  {
+    "PlushieNumber": 176,
+    "CoinsPerCompletion": "1054757600841"
+  },
+  {
+    "PlushieNumber": 177,
+    "CoinsPerCompletion": "1181328512942"
+  },
+  {
+    "PlushieNumber": 178,
+    "CoinsPerCompletion": "1323087934495"
+  },
+  {
+    "PlushieNumber": 179,
+    "CoinsPerCompletion": "1481858486634"
+  },
+  {
+    "PlushieNumber": 180,
+    "CoinsPerCompletion": "1659681505030"
+  },
+  {
+    "PlushieNumber": 181,
+    "CoinsPerCompletion": "1858843285634"
+  },
+  {
+    "PlushieNumber": 182,
+    "CoinsPerCompletion": "2081904479910"
+  },
+  {
+    "PlushieNumber": 183,
+    "CoinsPerCompletion": "2331733017499"
+  },
+  {
+    "PlushieNumber": 184,
+    "CoinsPerCompletion": "2611540979599"
+  },
+  {
+    "PlushieNumber": 185,
+    "CoinsPerCompletion": "2924925897151"
+  },
+  {
+    "PlushieNumber": 186,
+    "CoinsPerCompletion": "3275917004809"
+  },
+  {
+    "PlushieNumber": 187,
+    "CoinsPerCompletion": "3669027045386"
+  },
+  {
+    "PlushieNumber": 188,
+    "CoinsPerCompletion": "4109310290832"
+  },
+  {
+    "PlushieNumber": 189,
+    "CoinsPerCompletion": "4602427525732"
+  },
+  {
+    "PlushieNumber": 190,
+    "CoinsPerCompletion": "5154718828820"
+  },
+  {
+    "PlushieNumber": 191,
+    "CoinsPerCompletion": "5773285088278"
+  },
+  {
+    "PlushieNumber": 192,
+    "CoinsPerCompletion": "6466079298871"
+  },
+  {
+    "PlushieNumber": 193,
+    "CoinsPerCompletion": "7242008814736"
+  },
+  {
+    "PlushieNumber": 194,
+    "CoinsPerCompletion": "8111049872504"
+  },
+  {
+    "PlushieNumber": 195,
+    "CoinsPerCompletion": "9084375857204"
+  },
+  {
+    "PlushieNumber": 196,
+    "CoinsPerCompletion": "10174500960069"
+  },
+  {
+    "PlushieNumber": 197,
+    "CoinsPerCompletion": "11395441075277"
+  },
+  {
+    "PlushieNumber": 198,
+    "CoinsPerCompletion": "12762894004310"
+  },
+  {
+    "PlushieNumber": 199,
+    "CoinsPerCompletion": "14294441284827"
+  },
+  {
+    "PlushieNumber": 200,
+    "CoinsPerCompletion": "16009774239006"
+  },
+  {
+    "PlushieNumber": 201,
+    "CoinsPerCompletion": "17930947147687"
+  },
+  {
+    "PlushieNumber": 202,
+    "CoinsPerCompletion": "20082660805409"
+  },
+  {
+    "PlushieNumber": 203,
+    "CoinsPerCompletion": "22492580102058"
+  },
+  {
+    "PlushieNumber": 204,
+    "CoinsPerCompletion": "25191689714305"
+  },
+  {
+    "PlushieNumber": 205,
+    "CoinsPerCompletion": "28214692480022"
+  },
+  {
+    "PlushieNumber": 206,
+    "CoinsPerCompletion": "31600455577625"
+  },
+  {
+    "PlushieNumber": 207,
+    "CoinsPerCompletion": "35392510246940"
+  },
+  {
+    "PlushieNumber": 208,
+    "CoinsPerCompletion": "39639611476573"
+  },
+  {
+    "PlushieNumber": 209,
+    "CoinsPerCompletion": "44396364853762"
+  },
+  {
+    "PlushieNumber": 210,
+    "CoinsPerCompletion": "49723928636213"
+  },
+  {
+    "PlushieNumber": 211,
+    "CoinsPerCompletion": "55690800072559"
+  },
+  {
+    "PlushieNumber": 212,
+    "CoinsPerCompletion": "62373696081266"
+  },
+  {
+    "PlushieNumber": 213,
+    "CoinsPerCompletion": "69858539611018"
+  },
+  {
+    "PlushieNumber": 214,
+    "CoinsPerCompletion": "78241564364340"
+  },
+  {
+    "PlushieNumber": 215,
+    "CoinsPerCompletion": "87630552088061"
+  },
+  {
+    "PlushieNumber": 216,
+    "CoinsPerCompletion": "98146218338628"
+  },
+  {
+    "PlushieNumber": 217,
+    "CoinsPerCompletion": "109923764539264"
+  },
+  {
+    "PlushieNumber": 218,
+    "CoinsPerCompletion": "123114616283976"
+  },
+  {
+    "PlushieNumber": 219,
+    "CoinsPerCompletion": "137888370238054"
+  },
+  {
+    "PlushieNumber": 220,
+    "CoinsPerCompletion": "154434974666621"
+  },
+  {
+    "PlushieNumber": 221,
+    "CoinsPerCompletion": "172967171626616"
+  },
+  {
+    "PlushieNumber": 222,
+    "CoinsPerCompletion": "193723232221810"
+  },
+  {
+    "PlushieNumber": 223,
+    "CoinsPerCompletion": "216970020088428"
+  },
+  {
+    "PlushieNumber": 224,
+    "CoinsPerCompletion": "243006422499040"
+  },
+  {
+    "PlushieNumber": 225,
+    "CoinsPerCompletion": "272167193198925"
+  },
+  {
+    "PlushieNumber": 226,
+    "CoinsPerCompletion": "304827256382797"
+  },
+  {
+    "PlushieNumber": 227,
+    "CoinsPerCompletion": "341406527148733"
+  },
+  {
+    "PlushieNumber": 228,
+    "CoinsPerCompletion": "382375310406582"
+  },
+  {
+    "PlushieNumber": 229,
+    "CoinsPerCompletion": "428260347655372"
+  },
+  {
+    "PlushieNumber": 230,
+    "CoinsPerCompletion": "479651589374017"
+  },
+  {
+    "PlushieNumber": 231,
+    "CoinsPerCompletion": "537209780098900"
+  },
+  {
+    "PlushieNumber": 232,
+    "CoinsPerCompletion": "601674953710769"
+  },
+  {
+    "PlushieNumber": 233,
+    "CoinsPerCompletion": "673875948156062"
+  },
+  {
+    "PlushieNumber": 234,
+    "CoinsPerCompletion": "754741061934790"
+  },
+  {
+    "PlushieNumber": 235,
+    "CoinsPerCompletion": "845309989366965"
+  },
+  {
+    "PlushieNumber": 236,
+    "CoinsPerCompletion": "946747188091001"
+  },
+  {
+    "PlushieNumber": 237,
+    "CoinsPerCompletion": "1060356850661920"
+  },
+  {
+    "PlushieNumber": 238,
+    "CoinsPerCompletion": "1187599672741350"
+  },
+  {
+    "PlushieNumber": 239,
+    "CoinsPerCompletion": "1330111633470310"
+  },
+  {
+    "PlushieNumber": 240,
+    "CoinsPerCompletion": "1489725029486750"
+  },
+  {
+    "PlushieNumber": 241,
+    "CoinsPerCompletion": "1668492033025160"
+  },
+  {
+    "PlushieNumber": 242,
+    "CoinsPerCompletion": "1868711076988180"
+  },
+  {
+    "PlushieNumber": 243,
+    "CoinsPerCompletion": "2092956406226760"
+  },
+  {
+    "PlushieNumber": 244,
+    "CoinsPerCompletion": "2344111174973970"
+  },
+  {
+    "PlushieNumber": 245,
+    "CoinsPerCompletion": "2625404515970850"
+  },
+  {
+    "PlushieNumber": 246,
+    "CoinsPerCompletion": "2940453057887350"
+  },
+  {
+    "PlushieNumber": 247,
+    "CoinsPerCompletion": "3293307424833830"
+  },
+  {
+    "PlushieNumber": 248,
+    "CoinsPerCompletion": "3688504315813890"
+  },
+  {
+    "PlushieNumber": 249,
+    "CoinsPerCompletion": "4131124833711560"
+  },
+  {
+    "PlushieNumber": 250,
+    "CoinsPerCompletion": "4626859813756950"
+  },
+  {
+    "PlushieNumber": 251,
+    "CoinsPerCompletion": "5182082991407780"
+  },
+  {
+    "PlushieNumber": 252,
+    "CoinsPerCompletion": "5803932950376710"
+  },
+  {
+    "PlushieNumber": 253,
+    "CoinsPerCompletion": "6500404904421920"
+  },
+  {
+    "PlushieNumber": 254,
+    "CoinsPerCompletion": "7280453492952550"
+  },
+  {
+    "PlushieNumber": 255,
+    "CoinsPerCompletion": "8154107912106860"
+  },
+  {
+    "PlushieNumber": 256,
+    "CoinsPerCompletion": "9132600861559680"
+  },
+  {
+    "PlushieNumber": 257,
+    "CoinsPerCompletion": "10228512964946800"
+  },
+  {
+    "PlushieNumber": 258,
+    "CoinsPerCompletion": "11455934520740400"
+  },
+  {
+    "PlushieNumber": 259,
+    "CoinsPerCompletion": "12830646663229300"
+  },
+  {
+    "PlushieNumber": 260,
+    "CoinsPerCompletion": "14370324262816800"
+  },
+  {
+    "PlushieNumber": 261,
+    "CoinsPerCompletion": "16094763174354800"
+  },
+  {
+    "PlushieNumber": 262,
+    "CoinsPerCompletion": "18026134755277400"
+  },
+  {
+    "PlushieNumber": 263,
+    "CoinsPerCompletion": "20189270925910700"
+  },
+  {
+    "PlushieNumber": 264,
+    "CoinsPerCompletion": "22611983437020000"
+  },
+  {
+    "PlushieNumber": 265,
+    "CoinsPerCompletion": "25325421449462400"
+  },
+  {
+    "PlushieNumber": 266,
+    "CoinsPerCompletion": "28364472023397900"
+  },
+  {
+    "PlushieNumber": 267,
+    "CoinsPerCompletion": "31768208666205700"
+  },
+  {
+    "PlushieNumber": 268,
+    "CoinsPerCompletion": "35580393706150400"
+  },
+  {
+    "PlushieNumber": 269,
+    "CoinsPerCompletion": "39850040950888500"
+  },
+  {
+    "PlushieNumber": 270,
+    "CoinsPerCompletion": "44632045864995100"
+  },
+  {
+    "PlushieNumber": 271,
+    "CoinsPerCompletion": "49987891368794500"
+  },
+  {
+    "PlushieNumber": 272,
+    "CoinsPerCompletion": "55986438333049800"
+  },
+  {
+    "PlushieNumber": 273,
+    "CoinsPerCompletion": "62704810933015800"
+  },
+  {
+    "PlushieNumber": 274,
+    "CoinsPerCompletion": "70229388244977700"
+  },
+  {
+    "PlushieNumber": 275,
+    "CoinsPerCompletion": "78656914834375000"
+  },
+  {
+    "PlushieNumber": 276,
+    "CoinsPerCompletion": "88095744614500000"
+  },
+  {
+    "PlushieNumber": 277,
+    "CoinsPerCompletion": "98667233968240000"
+  },
+  {
+    "PlushieNumber": 278,
+    "CoinsPerCompletion": "110507302044429000"
+  },
+  {
+    "PlushieNumber": 279,
+    "CoinsPerCompletion": "123768178289760000"
+  },
+  {
+    "PlushieNumber": 280,
+    "CoinsPerCompletion": "138620359684531000"
+  },
+  {
+    "PlushieNumber": 281,
+    "CoinsPerCompletion": "155254802846675000"
+  },
+  {
+    "PlushieNumber": 282,
+    "CoinsPerCompletion": "173885379188276000"
+  },
+  {
+    "PlushieNumber": 283,
+    "CoinsPerCompletion": "194751624690869000"
+  },
+  {
+    "PlushieNumber": 284,
+    "CoinsPerCompletion": "218121819653773000"
+  },
+  {
+    "PlushieNumber": 285,
+    "CoinsPerCompletion": "244296438012226000"
+  },
+  {
+    "PlushieNumber": 286,
+    "CoinsPerCompletion": "273612010573693000"
+  },
+  {
+    "PlushieNumber": 287,
+    "CoinsPerCompletion": "306445451842536000"
+  },
+  {
+    "PlushieNumber": 288,
+    "CoinsPerCompletion": "343218906063640000"
+  },
+  {
+    "PlushieNumber": 289,
+    "CoinsPerCompletion": "384405174791277000"
+  },
+  {
+    "PlushieNumber": 290,
+    "CoinsPerCompletion": "430533795766230000"
+  },
+  {
+    "PlushieNumber": 291,
+    "CoinsPerCompletion": "482197851258178000"
+  },
+  {
+    "PlushieNumber": 292,
+    "CoinsPerCompletion": "540061593409159000"
+  },
+  {
+    "PlushieNumber": 293,
+    "CoinsPerCompletion": "604868984618258000"
+  },
+  {
+    "PlushieNumber": 294,
+    "CoinsPerCompletion": "677453262772449000"
+  },
+  {
+    "PlushieNumber": 295,
+    "CoinsPerCompletion": "758747654305143000"
+  },
+  {
+    "PlushieNumber": 296,
+    "CoinsPerCompletion": "849797372821760000"
+  },
+  {
+    "PlushieNumber": 297,
+    "CoinsPerCompletion": "951773057560371000"
+  },
+  {
+    "PlushieNumber": 298,
+    "CoinsPerCompletion": "1065985824467620000"
+  },
+  {
+    "PlushieNumber": 299,
+    "CoinsPerCompletion": "1193904123403730000"
+  },
+  {
+    "PlushieNumber": 300,
+    "CoinsPerCompletion": "1337172618212180000"
+  },
+  {
+    "PlushieNumber": 301,
+    "CoinsPerCompletion": "1497633332397640000"
+  },
+  {
+    "PlushieNumber": 302,
+    "CoinsPerCompletion": "1677349332285360000"
+  },
+  {
+    "PlushieNumber": 303,
+    "CoinsPerCompletion": "1878631252159600000"
+  },
+  {
+    "PlushieNumber": 304,
+    "CoinsPerCompletion": "2104067002418750000"
+  },
+  {
+    "PlushieNumber": 305,
+    "CoinsPerCompletion": "2356555042709000000"
+  },
+  {
+    "PlushieNumber": 306,
+    "CoinsPerCompletion": "2639341647834080000"
+  },
+  {
+    "PlushieNumber": 307,
+    "CoinsPerCompletion": "2956062645574170000"
+  },
+  {
+    "PlushieNumber": 308,
+    "CoinsPerCompletion": "3310790163043070000"
+  },
+  {
+    "PlushieNumber": 309,
+    "CoinsPerCompletion": "3708084982608240000"
+  },
+  {
+    "PlushieNumber": 310,
+    "CoinsPerCompletion": "4153055180521230000"
+  },
+  {
+    "PlushieNumber": 311,
+    "CoinsPerCompletion": "4651421802183780000"
+  },
+  {
+    "PlushieNumber": 312,
+    "CoinsPerCompletion": "5209592418445830000"
+  },
+  {
+    "PlushieNumber": 313,
+    "CoinsPerCompletion": "5834743508659330000"
+  },
+  {
+    "PlushieNumber": 314,
+    "CoinsPerCompletion": "6534912729698450000"
+  },
+  {
+    "PlushieNumber": 315,
+    "CoinsPerCompletion": "7319102257262270000"
+  },
+  {
+    "PlushieNumber": 316,
+    "CoinsPerCompletion": "8197394528133740000"
+  },
+  {
+    "PlushieNumber": 317,
+    "CoinsPerCompletion": "9181081871509790000"
+  },
+  {
+    "PlushieNumber": 318,
+    "CoinsPerCompletion": "10282811696091000000"
+  },
+  {
+    "PlushieNumber": 319,
+    "CoinsPerCompletion": "11516749099621900000"
+  },
+  {
+    "PlushieNumber": 320,
+    "CoinsPerCompletion": "12898758991576500000"
+  },
+  {
+    "PlushieNumber": 321,
+    "CoinsPerCompletion": "14446610070565700000"
+  },
+  {
+    "PlushieNumber": 322,
+    "CoinsPerCompletion": "16180203279033600000"
+  },
+  {
+    "PlushieNumber": 323,
+    "CoinsPerCompletion": "18121827672517600000"
+  },
+  {
+    "PlushieNumber": 324,
+    "CoinsPerCompletion": "20296446993219700000"
+  },
+  {
+    "PlushieNumber": 325,
+    "CoinsPerCompletion": "22732020632406100000"
+  },
+  {
+    "PlushieNumber": 326,
+    "CoinsPerCompletion": "25459863108294800000"
+  },
+  {
+    "PlushieNumber": 327,
+    "CoinsPerCompletion": "28515046681290200000"
+  },
+  {
+    "PlushieNumber": 328,
+    "CoinsPerCompletion": "31936852283045000000"
+  },
+  {
+    "PlushieNumber": 329,
+    "CoinsPerCompletion": "35769274557010400000"
+  },
+  {
+    "PlushieNumber": 330,
+    "CoinsPerCompletion": "40061587503851700000"
+  },
+  {
+    "PlushieNumber": 331,
+    "CoinsPerCompletion": "44868978004313900000"
+  },
+  {
+    "PlushieNumber": 332,
+    "CoinsPerCompletion": "50253255364831600000"
+  },
+  {
+    "PlushieNumber": 333,
+    "CoinsPerCompletion": "56283646008611400000"
+  },
+  {
+    "PlushieNumber": 334,
+    "CoinsPerCompletion": "63037683529644800000"
+  },
+  {
+    "PlushieNumber": 335,
+    "CoinsPerCompletion": "70602205553202200000"
+  },
+  {
+    "PlushieNumber": 336,
+    "CoinsPerCompletion": "79074470219586500000"
+  },
+  {
+    "PlushieNumber": 337,
+    "CoinsPerCompletion": "88563406645936900000"
+  },
+  {
+    "PlushieNumber": 338,
+    "CoinsPerCompletion": "99191015443449300000"
+  },
+  {
+    "PlushieNumber": 339,
+    "CoinsPerCompletion": "111093937296663000000"
+  },
+  {
+    "PlushieNumber": 340,
+    "CoinsPerCompletion": "124425209772263000000"
+  },
+  {
+    "PlushieNumber": 341,
+    "CoinsPerCompletion": "139356234944935000000"
+  },
+  {
+    "PlushieNumber": 342,
+    "CoinsPerCompletion": "156078983138327000000"
+  },
+  {
+    "PlushieNumber": 343,
+    "CoinsPerCompletion": "174808461114926000000"
+  },
+  {
+    "PlushieNumber": 344,
+    "CoinsPerCompletion": "195785476448717000000"
+  },
+  {
+    "PlushieNumber": 345,
+    "CoinsPerCompletion": "219279733622563000000"
+  },
+  {
+    "PlushieNumber": 346,
+    "CoinsPerCompletion": "245593301657271000000"
+  },
+  {
+    "PlushieNumber": 347,
+    "CoinsPerCompletion": "275064497856144000000"
+  },
+  {
+    "PlushieNumber": 348,
+    "CoinsPerCompletion": "308072237598881000000"
+  },
+  {
+    "PlushieNumber": 349,
+    "CoinsPerCompletion": "345040906110747000000"
+  },
+  {
+    "PlushieNumber": 350,
+    "CoinsPerCompletion": "386445814844037000000"
+  },
+  {
+    "PlushieNumber": 351,
+    "CoinsPerCompletion": "432819312625322000000"
+  },
+  {
+    "PlushieNumber": 352,
+    "CoinsPerCompletion": "484757630140361000000"
+  },
+  {
+    "PlushieNumber": 353,
+    "CoinsPerCompletion": "542928545757204000000"
+  },
+  {
+    "PlushieNumber": 354,
+    "CoinsPerCompletion": "608079971248069000000"
+  },
+  {
+    "PlushieNumber": 355,
+    "CoinsPerCompletion": "681049567797837000000"
+  },
+  {
+    "PlushieNumber": 356,
+    "CoinsPerCompletion": "762775515933578000000"
+  },
+  {
+    "PlushieNumber": 357,
+    "CoinsPerCompletion": "854308577845607000000"
+  },
+  {
+    "PlushieNumber": 358,
+    "CoinsPerCompletion": "956825607187080000000"
+  },
+  {
+    "PlushieNumber": 359,
+    "CoinsPerCompletion": "1071644680049530000000"
+  },
+  {
+    "PlushieNumber": 360,
+    "CoinsPerCompletion": "1200242041655470000000"
+  },
+  {
+    "PlushieNumber": 361,
+    "CoinsPerCompletion": "1344271086654130000000"
+  },
+  {
+    "PlushieNumber": 362,
+    "CoinsPerCompletion": "1505583617052630000000"
+  },
+  {
+    "PlushieNumber": 363,
+    "CoinsPerCompletion": "1686253651098950000000"
+  },
+  {
+    "PlushieNumber": 364,
+    "CoinsPerCompletion": "1888604089230820000000"
+  },
+  {
+    "PlushieNumber": 365,
+    "CoinsPerCompletion": "2115236579938520000000"
+  },
+  {
+    "PlushieNumber": 366,
+    "CoinsPerCompletion": "2369064969531140000000"
+  },
+  {
+    "PlushieNumber": 367,
+    "CoinsPerCompletion": "2653352765874880000000"
+  },
+  {
+    "PlushieNumber": 368,
+    "CoinsPerCompletion": "2971755097779870000000"
+  },
+  {
+    "PlushieNumber": 369,
+    "CoinsPerCompletion": "3328365709513450000000"
+  },
+  {
+    "PlushieNumber": 370,
+    "CoinsPerCompletion": "3727769594655060000000"
+  },
+  {
+    "PlushieNumber": 371,
+    "CoinsPerCompletion": "4175101946013670000000"
+  },
+  {
+    "PlushieNumber": 372,
+    "CoinsPerCompletion": "4676114179535310000000"
+  },
+  {
+    "PlushieNumber": 373,
+    "CoinsPerCompletion": "5237247881079550000000"
+  },
+  {
+    "PlushieNumber": 374,
+    "CoinsPerCompletion": "5865717626809100000000"
+  },
+  {
+    "PlushieNumber": 375,
+    "CoinsPerCompletion": "6569603742026190000000"
+  },
+  {
+    "PlushieNumber": 376,
+    "CoinsPerCompletion": "7357956191069330000000"
+  },
+  {
+    "PlushieNumber": 377,
+    "CoinsPerCompletion": "8240910933997650000000"
+  },
+  {
+    "PlushieNumber": 378,
+    "CoinsPerCompletion": "9229820246077370000000"
+  },
+  {
+    "PlushieNumber": 379,
+    "CoinsPerCompletion": "10337398675606700000000"
+  },
+  {
+    "PlushieNumber": 380,
+    "CoinsPerCompletion": "11577886516679500000000"
+  },
+  {
+    "PlushieNumber": 381,
+    "CoinsPerCompletion": "12967232898681000000000"
+  },
+  {
+    "PlushieNumber": 382,
+    "CoinsPerCompletion": "14523300846522700000000"
+  },
+  {
+    "PlushieNumber": 383,
+    "CoinsPerCompletion": "16266096948105400000000"
+  },
+  {
+    "PlushieNumber": 384,
+    "CoinsPerCompletion": "18218028581878100000000"
+  },
+  {
+    "PlushieNumber": 385,
+    "CoinsPerCompletion": "20404192011703500000000"
+  },
+  {
+    "PlushieNumber": 386,
+    "CoinsPerCompletion": "22852695053107900000000"
+  },
+  {
+    "PlushieNumber": 387,
+    "CoinsPerCompletion": "25595018459480900000000"
+  },
+  {
+    "PlushieNumber": 388,
+    "CoinsPerCompletion": "28666420674618600000000"
+  },
+  {
+    "PlushieNumber": 389,
+    "CoinsPerCompletion": "32106391155572800000000"
+  },
+  {
+    "PlushieNumber": 390,
+    "CoinsPerCompletion": "35959158094241500000000"
+  },
+  {
+    "PlushieNumber": 391,
+    "CoinsPerCompletion": "40274257065550500000000"
+  },
+  {
+    "PlushieNumber": 392,
+    "CoinsPerCompletion": "45107167913416600000000"
+  },
+  {
+    "PlushieNumber": 393,
+    "CoinsPerCompletion": "50520028063026600000000"
+  },
+  {
+    "PlushieNumber": 394,
+    "CoinsPerCompletion": "56582431430589800000000"
+  },
+  {
+    "PlushieNumber": 395,
+    "CoinsPerCompletion": "63372323202260600000000"
+  },
+  {
+    "PlushieNumber": 396,
+    "CoinsPerCompletion": "70977001986531900000000"
+  },
+  {
+    "PlushieNumber": 397,
+    "CoinsPerCompletion": "79494242224915700000000"
+  },
+  {
+    "PlushieNumber": 398,
+    "CoinsPerCompletion": "89033551291905600000000"
+  },
+  {
+    "PlushieNumber": 399,
+    "CoinsPerCompletion": "99717577446934300000000"
+  },
+  {
+    "PlushieNumber": 400,
+    "CoinsPerCompletion": "111683686740566000000000"
+  },
+  {
+    "PlushieNumber": 401,
+    "CoinsPerCompletion": "125085729149434000000000"
+  },
+  {
+    "PlushieNumber": 402,
+    "CoinsPerCompletion": "140096016647366000000000"
+  },
+  {
+    "PlushieNumber": 403,
+    "CoinsPerCompletion": "156907538645050000000000"
+  },
+  {
+    "PlushieNumber": 404,
+    "CoinsPerCompletion": "175736443282456000000000"
+  },
+  {
+    "PlushieNumber": 405,
+    "CoinsPerCompletion": "196824816476351000000000"
+  },
+  {
+    "PlushieNumber": 406,
+    "CoinsPerCompletion": "220443794453513000000000"
+  },
+  {
+    "PlushieNumber": 407,
+    "CoinsPerCompletion": "246897049787935000000000"
+  },
+  {
+    "PlushieNumber": 408,
+    "CoinsPerCompletion": "276524695762487000000000"
+  },
+  {
+    "PlushieNumber": 409,
+    "CoinsPerCompletion": "309707659253985000000000"
+  },
+  {
+    "PlushieNumber": 410,
+    "CoinsPerCompletion": "346872578364463000000000"
+  },
+  {
+    "PlushieNumber": 411,
+    "CoinsPerCompletion": "388497287768199000000000"
+  },
+  {
+    "PlushieNumber": 412,
+    "CoinsPerCompletion": "435116962300383000000000"
+  },
+  {
+    "PlushieNumber": 413,
+    "CoinsPerCompletion": "487330997776429000000000"
+  },
+  {
+    "PlushieNumber": 414,
+    "CoinsPerCompletion": "545810717509601000000000"
+  },
+  {
+    "PlushieNumber": 415,
+    "CoinsPerCompletion": "611308003610753000000000"
+  },
+  {
+    "PlushieNumber": 416,
+    "CoinsPerCompletion": "684664964044044000000000"
+  },
+  {
+    "PlushieNumber": 417,
+    "CoinsPerCompletion": "766824759729329000000000"
+  },
+  {
+    "PlushieNumber": 418,
+    "CoinsPerCompletion": "858843730896849000000000"
+  },
+  {
+    "PlushieNumber": 419,
+    "CoinsPerCompletion": "961904978604471000000000"
+  },
+  {
+    "PlushieNumber": 420,
+    "CoinsPerCompletion": "1077333576037010000000000"
+  },
+  {
+    "PlushieNumber": 421,
+    "CoinsPerCompletion": "1206613605161450000000000"
+  },
+  {
+    "PlushieNumber": 422,
+    "CoinsPerCompletion": "1351407237780820000000000"
+  },
+  {
+    "PlushieNumber": 423,
+    "CoinsPerCompletion": "1513576106314520000000000"
+  },
+  {
+    "PlushieNumber": 424,
+    "CoinsPerCompletion": "1695205239072260000000000"
+  },
+  {
+    "PlushieNumber": 425,
+    "CoinsPerCompletion": "1898629867760930000000000"
+  },
+  {
+    "PlushieNumber": 426,
+    "CoinsPerCompletion": "2126465451892240000000000"
+  },
+  {
+    "PlushieNumber": 427,
+    "CoinsPerCompletion": "2381641306119310000000000"
+  },
+  {
+    "PlushieNumber": 428,
+    "CoinsPerCompletion": "2667438262853630000000000"
+  },
+  {
+    "PlushieNumber": 429,
+    "CoinsPerCompletion": "2987530854396070000000000"
+  },
+  {
+    "PlushieNumber": 430,
+    "CoinsPerCompletion": "3346034556923600000000000"
+  },
+  {
+    "PlushieNumber": 431,
+    "CoinsPerCompletion": "3747558703754430000000000"
+  },
+  {
+    "PlushieNumber": 432,
+    "CoinsPerCompletion": "4197265748204960000000000"
+  },
+  {
+    "PlushieNumber": 433,
+    "CoinsPerCompletion": "4700937637989560000000000"
+  },
+  {
+    "PlushieNumber": 434,
+    "CoinsPerCompletion": "5265050154548310000000000"
+  },
+  {
+    "PlushieNumber": 435,
+    "CoinsPerCompletion": "5896856173094110000000000"
+  },
+  {
+    "PlushieNumber": 436,
+    "CoinsPerCompletion": "6604478913865400000000000"
+  },
+  {
+    "PlushieNumber": 437,
+    "CoinsPerCompletion": "7397016383529250000000000"
+  },
+  {
+    "PlushieNumber": 438,
+    "CoinsPerCompletion": "8284658349552760000000000"
+  },
+  {
+    "PlushieNumber": 439,
+    "CoinsPerCompletion": "9278817351499090000000000"
+  },
+  {
+    "PlushieNumber": 440,
+    "CoinsPerCompletion": "10392275433679000000000000"
+  },
+  {
+    "PlushieNumber": 441,
+    "CoinsPerCompletion": "11639348485720500000000000"
+  },
+  {
+    "PlushieNumber": 442,
+    "CoinsPerCompletion": "13036070304007000000000000"
+  },
+  {
+    "PlushieNumber": 443,
+    "CoinsPerCompletion": "14600398740487800000000000"
+  },
+  {
+    "PlushieNumber": 444,
+    "CoinsPerCompletion": "16352446589346300000000000"
+  },
+  {
+    "PlushieNumber": 445,
+    "CoinsPerCompletion": "18314740180067900000000000"
+  },
+  {
+    "PlushieNumber": 446,
+    "CoinsPerCompletion": "20512509001676100000000000"
+  },
+  {
+    "PlushieNumber": 447,
+    "CoinsPerCompletion": "22974010081877200000000000"
+  },
+  {
+    "PlushieNumber": 448,
+    "CoinsPerCompletion": "25730891291702500000000000"
+  },
+  {
+    "PlushieNumber": 449,
+    "CoinsPerCompletion": "28818598246706800000000000"
+  },
+  {
+    "PlushieNumber": 450,
+    "CoinsPerCompletion": "32276830036311600000000000"
+  },
+  {
+    "PlushieNumber": 451,
+    "CoinsPerCompletion": "36150049640669000000000000"
+  },
+  {
+    "PlushieNumber": 452,
+    "CoinsPerCompletion": "40488055597549300000000000"
+  },
+  {
+    "PlushieNumber": 453,
+    "CoinsPerCompletion": "45346622269255200000000000"
+  },
+  {
+    "PlushieNumber": 454,
+    "CoinsPerCompletion": "50788216941565800000000000"
+  },
+  {
+    "PlushieNumber": 455,
+    "CoinsPerCompletion": "56882802974553700000000000"
+  },
+  {
+    "PlushieNumber": 456,
+    "CoinsPerCompletion": "63708739331500200000000000"
+  },
+  {
+    "PlushieNumber": 457,
+    "CoinsPerCompletion": "71353788051280200000000000"
+  },
+  {
+    "PlushieNumber": 458,
+    "CoinsPerCompletion": "79916242617433800000000000"
+  },
+  {
+    "PlushieNumber": 459,
+    "CoinsPerCompletion": "89506191731525900000000000"
+  },
+  {
+    "PlushieNumber": 460,
+    "CoinsPerCompletion": "100246934739309000000000000"
+  },
+  {
+    "PlushieNumber": 461,
+    "CoinsPerCompletion": "112276566908026000000000000"
+  },
+  {
+    "PlushieNumber": 462,
+    "CoinsPerCompletion": "125749754936989000000000000"
+  },
+  {
+    "PlushieNumber": 463,
+    "CoinsPerCompletion": "140839725529428000000000000"
+  },
+  {
+    "PlushieNumber": 464,
+    "CoinsPerCompletion": "157740492592959000000000000"
+  },
+  {
+    "PlushieNumber": 465,
+    "CoinsPerCompletion": "176669351704114000000000000"
+  },
+  {
+    "PlushieNumber": 466,
+    "CoinsPerCompletion": "197869673908608000000000000"
+  },
+  {
+    "PlushieNumber": 467,
+    "CoinsPerCompletion": "221614034777641000000000000"
+  },
+  {
+    "PlushieNumber": 468,
+    "CoinsPerCompletion": "248207718950958000000000000"
+  },
+  {
+    "PlushieNumber": 469,
+    "CoinsPerCompletion": "277992645225073000000000000"
+  },
+  {
+    "PlushieNumber": 470,
+    "CoinsPerCompletion": "311351762652082000000000000"
+  },
+  {
+    "PlushieNumber": 471,
+    "CoinsPerCompletion": "348713974170332000000000000"
+  },
+  {
+    "PlushieNumber": 472,
+    "CoinsPerCompletion": "390559651070772000000000000"
+  },
+  {
+    "PlushieNumber": 473,
+    "CoinsPerCompletion": "437426809199265000000000000"
+  },
+  {
+    "PlushieNumber": 474,
+    "CoinsPerCompletion": "489918026303177000000000000"
+  },
+  {
+    "PlushieNumber": 475,
+    "CoinsPerCompletion": "548708189459558000000000000"
+  },
+  {
+    "PlushieNumber": 476,
+    "CoinsPerCompletion": "614553172194705000000000000"
+  },
+  {
+    "PlushieNumber": 477,
+    "CoinsPerCompletion": "688299552858070000000000000"
+  },
+  {
+    "PlushieNumber": 478,
+    "CoinsPerCompletion": "770895499201039000000000000"
+  },
+  {
+    "PlushieNumber": 479,
+    "CoinsPerCompletion": "863402959105164000000000000"
+  },
+  {
+    "PlushieNumber": 480,
+    "CoinsPerCompletion": "967011314197784000000000000"
+  },
+  {
+    "PlushieNumber": 481,
+    "CoinsPerCompletion": "1083052671901520000000000000"
+  },
+  {
+    "PlushieNumber": 482,
+    "CoinsPerCompletion": "1213018992529700000000000000"
+  },
+  {
+    "PlushieNumber": 483,
+    "CoinsPerCompletion": "1358581271633260000000000000"
+  },
+  {
+    "PlushieNumber": 484,
+    "CoinsPerCompletion": "1521611024229250000000000000"
+  },
+  {
+    "PlushieNumber": 485,
+    "CoinsPerCompletion": "1704204347136760000000000000"
+  },
+  {
+    "PlushieNumber": 486,
+    "CoinsPerCompletion": "1908708868793170000000000000"
+  },
+  {
+    "PlushieNumber": 487,
+    "CoinsPerCompletion": "2137753933048350000000000000"
+  },
+  {
+    "PlushieNumber": 488,
+    "CoinsPerCompletion": "2394284405014150000000000000"
+  },
+  {
+    "PlushieNumber": 489,
+    "CoinsPerCompletion": "2681598533615850000000000000"
+  },
+  {
+    "PlushieNumber": 490,
+    "CoinsPerCompletion": "3003390357649750000000000000"
+  },
+  {
+    "PlushieNumber": 491,
+    "CoinsPerCompletion": "3363797200567720000000000000"
+  },
+  {
+    "PlushieNumber": 492,
+    "CoinsPerCompletion": "3767452864635850000000000000"
+  },
+  {
+    "PlushieNumber": 493,
+    "CoinsPerCompletion": "4219547208392150000000000000"
+  },
+  {
+    "PlushieNumber": 494,
+    "CoinsPerCompletion": "4725892873399210000000000000"
+  },
+  {
+    "PlushieNumber": 495,
+    "CoinsPerCompletion": "5293000018207120000000000000"
+  },
+  {
+    "PlushieNumber": 496,
+    "CoinsPerCompletion": "5928160020391980000000000000"
+  },
+  {
+    "PlushieNumber": 497,
+    "CoinsPerCompletion": "6639539222839020000000000000"
+  },
+  {
+    "PlushieNumber": 498,
+    "CoinsPerCompletion": "7436283929579700000000000000"
+  },
+  {
+    "PlushieNumber": 499,
+    "CoinsPerCompletion": "8328638001129270000000000000"
+  },
+  {
+    "PlushieNumber": 500,
+    "CoinsPerCompletion": "9328074561264780000000000000"
+  },
+  {
+    "PlushieNumber": 501,
+    "CoinsPerCompletion": "10447443508616600000000000000"
+  },
+  {
+    "PlushieNumber": 502,
+    "CoinsPerCompletion": "11701136729650600000000000000"
+  },
+  {
+    "PlushieNumber": 503,
+    "CoinsPerCompletion": "13105273137208700000000000000"
+  },
+  {
+    "PlushieNumber": 504,
+    "CoinsPerCompletion": "14677905913673700000000000000"
+  },
+  {
+    "PlushieNumber": 505,
+    "CoinsPerCompletion": "16439254623314500000000000000"
+  },
+  {
+    "PlushieNumber": 506,
+    "CoinsPerCompletion": "18411965178112200000000000000"
+  },
+  {
+    "PlushieNumber": 507,
+    "CoinsPerCompletion": "20621400999485700000000000000"
+  },
+  {
+    "PlushieNumber": 508,
+    "CoinsPerCompletion": "23095969119424000000000000000"
+  },
+  {
+    "PlushieNumber": 509,
+    "CoinsPerCompletion": "25867485413754900000000000000"
+  },
+  {
+    "PlushieNumber": 510,
+    "CoinsPerCompletion": "28971583663405500000000000000"
+  },
+  {
+    "PlushieNumber": 511,
+    "CoinsPerCompletion": "32448173703014200000000000000"
+  },
+  {
+    "PlushieNumber": 512,
+    "CoinsPerCompletion": "36341954547375900000000000000"
+  },
+  {
+    "PlushieNumber": 513,
+    "CoinsPerCompletion": "40702989093061000000000000000"
+  },
+  {
+    "PlushieNumber": 514,
+    "CoinsPerCompletion": "45587347784228300000000000000"
+  },
+  {
+    "PlushieNumber": 515,
+    "CoinsPerCompletion": "51057829518335700000000000000"
+  },
+  {
+    "PlushieNumber": 516,
+    "CoinsPerCompletion": "57184769060536000000000000000"
+  },
+  {
+    "PlushieNumber": 517,
+    "CoinsPerCompletion": "64046941347800300000000000000"
+  },
+  {
+    "PlushieNumber": 518,
+    "CoinsPerCompletion": "71732574309536400000000000000"
+  },
+  {
+    "PlushieNumber": 519,
+    "CoinsPerCompletion": "80340483226680800000000000000"
+  },
+  {
+    "PlushieNumber": 520,
+    "CoinsPerCompletion": "89981341213882500000000000000"
+  },
+  {
+    "PlushieNumber": 521,
+    "CoinsPerCompletion": "100779102159548000000000000000"
+  },
+  {
+    "PlushieNumber": 522,
+    "CoinsPerCompletion": "112872594418694000000000000000"
+  },
+  {
+    "PlushieNumber": 523,
+    "CoinsPerCompletion": "126417305748937000000000000000"
+  },
+  {
+    "PlushieNumber": 524,
+    "CoinsPerCompletion": "141587382438809000000000000000"
+  },
+  {
+    "PlushieNumber": 525,
+    "CoinsPerCompletion": "158577868331466000000000000000"
+  },
+  {
+    "PlushieNumber": 526,
+    "CoinsPerCompletion": "177607212531242000000000000000"
+  },
+  {
+    "PlushieNumber": 527,
+    "CoinsPerCompletion": "198920078034991000000000000000"
+  },
+  {
+    "PlushieNumber": 528,
+    "CoinsPerCompletion": "222790487399190000000000000000"
+  },
+  {
+    "PlushieNumber": 529,
+    "CoinsPerCompletion": "249525345887093000000000000000"
+  },
+  {
+    "PlushieNumber": 530,
+    "CoinsPerCompletion": "279468387393544000000000000000"
+  },
+  {
+    "PlushieNumber": 531,
+    "CoinsPerCompletion": "313004593880769000000000000000"
+  },
+  {
+    "PlushieNumber": 532,
+    "CoinsPerCompletion": "350565145146461000000000000000"
+  },
+  {
+    "PlushieNumber": 533,
+    "CoinsPerCompletion": "392632962564036000000000000000"
+  },
+  {
+    "PlushieNumber": 534,
+    "CoinsPerCompletion": "439748918071720000000000000000"
+  },
+  {
+    "PlushieNumber": 535,
+    "CoinsPerCompletion": "492518788240327000000000000000"
+  },
+  {
+    "PlushieNumber": 536,
+    "CoinsPerCompletion": "551621042829166000000000000000"
+  },
+  {
+    "PlushieNumber": 537,
+    "CoinsPerCompletion": "617815567968666000000000000000"
+  },
+  {
+    "PlushieNumber": 538,
+    "CoinsPerCompletion": "691953436124906000000000000000"
+  },
+  {
+    "PlushieNumber": 539,
+    "CoinsPerCompletion": "774987848459895000000000000000"
+  },
+  {
+    "PlushieNumber": 540,
+    "CoinsPerCompletion": "867986390275083000000000000000"
+  },
+  {
+    "PlushieNumber": 541,
+    "CoinsPerCompletion": "972144757108093000000000000000"
+  },
+  {
+    "PlushieNumber": 542,
+    "CoinsPerCompletion": "1088802127961060000000000000000"
+  },
+  {
+    "PlushieNumber": 543,
+    "CoinsPerCompletion": "1219458383316390000000000000000"
+  },
+  {
+    "PlushieNumber": 544,
+    "CoinsPerCompletion": "1365793389314360000000000000000"
+  },
+  {
+    "PlushieNumber": 545,
+    "CoinsPerCompletion": "1529688596032080000000000000000"
+  },
+  {
+    "PlushieNumber": 546,
+    "CoinsPerCompletion": "1713251227555930000000000000000"
+  },
+  {
+    "PlushieNumber": 547,
+    "CoinsPerCompletion": "1918841374862640000000000000000"
+  },
+  {
+    "PlushieNumber": 548,
+    "CoinsPerCompletion": "2149102339846160000000000000000"
+  },
+  {
+    "PlushieNumber": 549,
+    "CoinsPerCompletion": "2406994620627700000000000000000"
+  },
+  {
+    "PlushieNumber": 550,
+    "CoinsPerCompletion": "2695833975103020000000000000000"
+  },
+  {
+    "PlushieNumber": 551,
+    "CoinsPerCompletion": "3019334052115380000000000000000"
+  },
+  {
+    "PlushieNumber": 552,
+    "CoinsPerCompletion": "3381654138369230000000000000000"
+  },
+  {
+    "PlushieNumber": 553,
+    "CoinsPerCompletion": "3787452634973540000000000000000"
+  },
+  {
+    "PlushieNumber": 554,
+    "CoinsPerCompletion": "4241946951170370000000000000000"
+  },
+  {
+    "PlushieNumber": 555,
+    "CoinsPerCompletion": "4750980585310820000000000000000"
+  },
+  {
+    "PlushieNumber": 556,
+    "CoinsPerCompletion": "5321098255548120000000000000000"
+  },
+  {
+    "PlushieNumber": 557,
+    "CoinsPerCompletion": "5959630046213890000000000000000"
+  },
+  {
+    "PlushieNumber": 558,
+    "CoinsPerCompletion": "6674785651759560000000000000000"
+  },
+  {
+    "PlushieNumber": 559,
+    "CoinsPerCompletion": "7475759929970710000000000000000"
+  },
+  {
+    "PlushieNumber": 560,
+    "CoinsPerCompletion": "8372851121567200000000000000000"
+  },
+  {
+    "PlushieNumber": 561,
+    "CoinsPerCompletion": "9377593256155270000000000000000"
+  },
+  {
+    "PlushieNumber": 562,
+    "CoinsPerCompletion": "10502904446893900000000000000000"
+  },
+  {
+    "PlushieNumber": 563,
+    "CoinsPerCompletion": "11763252980521200000000000000000"
+  },
+  {
+    "PlushieNumber": 564,
+    "CoinsPerCompletion": "13174843338183700000000000000000"
+  },
+  {
+    "PlushieNumber": 565,
+    "CoinsPerCompletion": "14755824538765700000000000000000"
+  },
+  {
+    "PlushieNumber": 566,
+    "CoinsPerCompletion": "16526523483417600000000000000000"
+  },
+  {
+    "PlushieNumber": 567,
+    "CoinsPerCompletion": "18509706301427700000000000000000"
+  },
+  {
+    "PlushieNumber": 568,
+    "CoinsPerCompletion": "20730871057599000000000000000000"
+  },
+  {
+    "PlushieNumber": 569,
+    "CoinsPerCompletion": "23218575584510900000000000000000"
+  },
+  {
+    "PlushieNumber": 570,
+    "CoinsPerCompletion": "26004804654652200000000000000000"
+  },
+  {
+    "PlushieNumber": 571,
+    "CoinsPerCompletion": "29125381213210500000000000000000"
+  },
+  {
+    "PlushieNumber": 572,
+    "CoinsPerCompletion": "32620426958795800000000000000000"
+  },
+  {
+    "PlushieNumber": 573,
+    "CoinsPerCompletion": "36534878193851300000000000000000"
+  },
+  {
+    "PlushieNumber": 574,
+    "CoinsPerCompletion": "40919063577113500000000000000000"
+  },
+  {
+    "PlushieNumber": 575,
+    "CoinsPerCompletion": "45829351206367100000000000000000"
+  },
+  {
+    "PlushieNumber": 576,
+    "CoinsPerCompletion": "51328873351131200000000000000000"
+  },
+  {
+    "PlushieNumber": 577,
+    "CoinsPerCompletion": "57488338153267000000000000000000"
+  },
+  {
+    "PlushieNumber": 578,
+    "CoinsPerCompletion": "64386938731659000000000000000000"
+  },
+  {
+    "PlushieNumber": 579,
+    "CoinsPerCompletion": "72113371379458100000000000000000"
+  },
+  {
+    "PlushieNumber": 580,
+    "CoinsPerCompletion": "80766975944993100000000000000000"
+  },
+  {
+    "PlushieNumber": 581,
+    "CoinsPerCompletion": "90459013058392300000000000000000"
+  },
+  {
+    "PlushieNumber": 582,
+    "CoinsPerCompletion": "101314094625399000000000000000000"
+  },
+  {
+    "PlushieNumber": 583,
+    "CoinsPerCompletion": "113471785980447000000000000000000"
+  },
+  {
+    "PlushieNumber": 584,
+    "CoinsPerCompletion": "127088400298101000000000000000000"
+  },
+  {
+    "PlushieNumber": 585,
+    "CoinsPerCompletion": "142339008333873000000000000000000"
+  },
+  {
+    "PlushieNumber": 586,
+    "CoinsPerCompletion": "159419689333938000000000000000000"
+  },
+  {
+    "PlushieNumber": 587,
+    "CoinsPerCompletion": "178550052054011000000000000000000"
+  },
+  {
+    "PlushieNumber": 588,
+    "CoinsPerCompletion": "199976058300492000000000000000000"
+  },
+  {
+    "PlushieNumber": 589,
+    "CoinsPerCompletion": "223973185296551000000000000000000"
+  },
+  {
+    "PlushieNumber": 590,
+    "CoinsPerCompletion": "250849967532137000000000000000000"
+  },
+  {
+    "PlushieNumber": 591,
+    "CoinsPerCompletion": "280951963635993000000000000000000"
+  },
+  {
+    "PlushieNumber": 592,
+    "CoinsPerCompletion": "314666199272312000000000000000000"
+  },
+  {
+    "PlushieNumber": 593,
+    "CoinsPerCompletion": "352426143184990000000000000000000"
+  },
+  {
+    "PlushieNumber": 594,
+    "CoinsPerCompletion": "394717280367189000000000000000000"
+  },
+  {
+    "PlushieNumber": 595,
+    "CoinsPerCompletion": "442083354011252000000000000000000"
+  },
+  {
+    "PlushieNumber": 596,
+    "CoinsPerCompletion": "495133356492602000000000000000000"
+  },
+  {
+    "PlushieNumber": 597,
+    "CoinsPerCompletion": "554549359271714000000000000000000"
+  },
+  {
+    "PlushieNumber": 598,
+    "CoinsPerCompletion": "621095282384320000000000000000000"
+  },
+  {
+    "PlushieNumber": 599,
+    "CoinsPerCompletion": "695626716270439000000000000000000"
+  },
+  {
+    "PlushieNumber": 600,
+    "CoinsPerCompletion": "779101922222892000000000000000000"
+  }
+]

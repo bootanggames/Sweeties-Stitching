@@ -84,6 +84,11 @@ namespace TS.PageSlider
         {
             _page.ChangeActiveState(active);
         }
+
+        public PageView GetPageViewContent()
+        {
+            return _page;
+        }
     }
 
 }

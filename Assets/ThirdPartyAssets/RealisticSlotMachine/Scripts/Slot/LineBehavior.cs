@@ -241,7 +241,7 @@ namespace Mkey
 
             }
 
-            return new WinData(winnSymbols, payLine.freeSpins, payLine.pay, payLine.payMult, payLine.freeSpinsMult, payLine.LineEvent);
+            return new WinData(winnSymbols, payLine.freeSpins, payLine.pay, payLine.payMult, payLine.freeSpinsMult, payLine.tier, payLine.LineEvent);
         }
 
         /// <summary>
@@ -368,6 +368,7 @@ namespace Mkey
     public class WinData
     {
         List<SlotSymbol> symbols;
+        public TierType tier {  get; private set; }
         private int freeSpins = 0;
         private int pay = 0;
         private int payMult = 1;
@@ -404,10 +405,10 @@ namespace Mkey
             get { return symbols; }
         }
 
-        public WinData(List<SlotSymbol> symbols, int freeSpins, int pay, int payMult, int freeSpinsMult, UnityEvent lineEvent)
+        public WinData(List<SlotSymbol> symbols, int freeSpins, int pay, int payMult, int freeSpinsMult, TierType _tier, UnityEvent lineEvent)
         {
             this.symbols = symbols;
-
+            this.tier = _tier;
             this.freeSpins = freeSpins;
             this.pay = pay;
             this.payMult = payMult;  //pay multiplier

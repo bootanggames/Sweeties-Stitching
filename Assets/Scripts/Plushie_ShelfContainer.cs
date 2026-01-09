@@ -11,14 +11,13 @@ public class Plushie_ShelfContainer : MonoBehaviour
     {
         inventory = ServiceLocator.GetService<IPlushieInventory>();
         UpdatePlushieCount();
-        //CheckIfAllPlushiesStitched();
 
     }
-    private void Start()
-    {
-        inventory = ServiceLocator.GetService<IPlushieInventory>();
-        UpdatePlushieCount();
-    }
+    //private void Start()
+    //{
+    //    inventory = ServiceLocator.GetService<IPlushieInventory>();
+    //    UpdatePlushieCount();
+    //}
     void UpdatePlushieCount()
     {
         int c = 0;
@@ -41,17 +40,18 @@ public class Plushie_ShelfContainer : MonoBehaviour
         if (inventory != null)
             inventory.NoPlushieIncrement(c);
     }
-    public void EnablePlushies(int id)
+    public void EnablePlushies(int shelfIndex, int id)
     {
-        foreach (PlushieContainer pc in plushieShelf)
+        for(int j = 0; j <= shelfIndex; j++)
         {
             for (int i = 0; i < id; i++)
             {
-                pc.plushie[i].SetActive(true);
+                plushieShelf[j].plushie[i].SetActive(true);
             }
         }
+        
     }
-    void CheckIfAllPlushiesStitched()
+    public void CheckIfAllPlushiesStitched()
     {
         int c = 0;
         int total = 0;
@@ -68,7 +68,6 @@ public class Plushie_ShelfContainer : MonoBehaviour
                 
             }
         }
-        Debug.LogError(" c " + c + " total " + total);
         if (c.Equals(total))
         {
             foreach (PlushieContainer pc in plushieShelf)
@@ -79,5 +78,6 @@ public class Plushie_ShelfContainer : MonoBehaviour
                 }
             }
         }
+
     }
 }

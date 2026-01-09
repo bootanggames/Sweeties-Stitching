@@ -5,7 +5,7 @@ using static Unity.VisualScripting.Member;
 
 public class PlushiesInventory : MonoBehaviour,IPlushieInventory
 {
-    [SerializeField] PageContainer[] plushies;
+    [field:SerializeField] public PageContainer[] plushies {  get; private set; }
     [SerializeField] TextMeshProUGUI coinUi;
     [field:SerializeField] public TextMeshProUGUI totalPlushies {  get; private set; }
     [SerializeField] PageScroller pageScroller;

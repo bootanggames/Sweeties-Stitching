@@ -1,8 +1,9 @@
-﻿using UnityEngine;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System;
 using System.Linq;
+using Unity.VisualScripting;
+using UnityEngine;
 using UnityEngine.Events;
 
 namespace Mkey
@@ -212,6 +213,7 @@ namespace Mkey
                 }
                 slotIcons[i] = s;
             }
+            payTable.AddRange(rewardList.GetPayoutTableValues());
         }
         private void OnValidate()
         {
@@ -298,17 +300,17 @@ namespace Mkey
             winController.WinShowCancel();
 
             winController.ResetLineWinning();
-            //controls.JPWinCancel();
+            controls.JPWinCancel();
 
             StopCoroutine(RunSlotsAsync());
 
-            if (!controls.AnyLineSelected)
-            {
-                Debug.LogError(" Please select a any line. ");
-                //MGUI.ShowMessage(null, "Please select a any line.", 1.5f, null);
-                //controls.ResetAutoSpinsMode();
-                return;
-            }
+            //if (!controls.AnyLineSelected)
+            //{
+            //    Debug.LogError(" Please select a any line. ");
+            //    //MGUI.ShowMessage(null, "Please select a any line.", 1.5f, null);
+            //    controls.ResetAutoSpinsMode();
+            //    return;
+            //}
             //------depends on money---------
             //if (!controls.ApllyFreeSpin() && !controls.ApplyBet())
             //{
@@ -357,8 +359,8 @@ namespace Mkey
             bool hasScatterWin = false;
             bool bigWin = false;
 
-            // 3a ----- increase jackpots ----
-            IncreaseJackPots();
+            //// 3a ----- increase jackpots ----
+            //IncreaseJackPots();
 
             if (winController.HasAnyWinn(ref hasLineWin, ref hasScatterWin, ref  jackPotType))
             {
@@ -394,21 +396,22 @@ namespace Mkey
                 int winCoins = winController.GetWinCoins();
                 int payMultiplier = winController.GetPayMultiplier();
                 winCoins *= payMultiplier;
+                MSound.SoundPlayWinCoins(0, null);
                 //if (useLineBetMultiplier) winCoins *= controls.LineBet;
                 //controls.SetWinInfo(jackPotWinCoins + winCoins);
                 //MPlayer.SetWinCoinsCount(winCoins); ---------------Win coins Scenario---------------
                 //MPlayer.AddCoins(winCoins);
-                if (winCoins > 0)
-                {
-                    //bigWin = (winCoins >= MPlayer.MinWin && MPlayer.UseBigWinCongratulation); -----commented----
-                    if (!bigWin) MSound.SoundPlayWinCoins(0, null);
-                    else
-                    {
-                        Debug.LogError("big win " + winCoins.ToString());
-                        //while (!MGUI.HasNoPopUp) yield return wfs0_1;  // wait for prev popup closing
-                        //MGUI.ShowMessage(BigWinPrefab, winCoins.ToString(), "", 3f, null);
-                    }
-                }
+                //if (winCoins > 0)
+                //{
+                //    bigWin = (winCoins >= MPlayer.MinWin && MPlayer.UseBigWinCongratulation); -----commented----
+                //    if (!bigWin) MSound.SoundPlayWinCoins(0, null);
+                //    else
+                //    {
+                //        Debug.LogError("big win " + winCoins.ToString());
+                //        while (!MGUI.HasNoPopUp) yield return wfs0_1;  // wait for prev popup closing
+                //        MGUI.ShowMessage(BigWinPrefab, winCoins.ToString(), "", 3f, null);
+                //    }
+                //}
 
                 //3c1 ----------- calc free spins ----------------
                 int winSpins = winController.GetWinSpins();
@@ -429,7 +432,7 @@ namespace Mkey
 
                 // 3d2 ------------ start line events ----------
                 winController.StartLineEvents();
-                while (SlotEvents.Instance && SlotEvents.Instance.MiniGameStarted) yield return wfs0_1;  // wait for the mini game to close
+                //while (SlotEvents.Instance && SlotEvents.Instance.MiniGameStarted) yield return wfs0_1;  // wait for the mini game to close
                 //while (!MGUI.HasNoPopUp) yield return wfs0_1;  // wait for the closin all popups
 
                 //3e ---- ENABLE player interaction -----------
@@ -445,9 +448,20 @@ namespace Mkey
                 winController.WinSymbolShow(winLineFlashing == WinLineFlashing.Sequenced,
                        (windata) => //linewin
                        {
-                           winController.jackpotMachine.ShowRewardScreen(windata.Symbols[0].type);
-                           //event can be interrupted by player
-                           if (windata!=null)  Debug.Log("lineWin : " +  windata.ToString());
+                           switch (windata.tier)
+                           {
+                               case TierType.small:
+                                   winController.jackpotMachine.ShowSmallReward(winCoins);
+                                   break;
+                               case TierType.medium:
+                                   winController.jackpotMachine.ShowMediumReward(winCoins);
+                                   break;
+                               case TierType.huge:
+                                   winController.jackpotMachine.ShowHugeRewardScreen(windata.Symbols[0].type);
+                                   break;
+                           }
+                           ////event can be interrupted by player
+                           //if (windata!=null)  Debug.Log("lineWin : " +  windata.ToString());
                        },
                        () => //scatter win
                        {
@@ -1137,7 +1151,7 @@ namespace Mkey
         public int freeSpinsMult = 1; // payout multiplier
 
         bool useWildInFirstPosition = false;
-
+        public TierType tier;
         public PayLine()
         {
             line = new int[maxLength];

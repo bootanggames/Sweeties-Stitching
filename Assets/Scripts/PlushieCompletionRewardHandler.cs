@@ -4,10 +4,10 @@ using UnityEngine;
 public class PlushieCompletionRewardHandler : MonoBehaviour
 {
     public TextAsset rewardFile;
-    [SerializeField] List<PlushieCompletionRewardParameters> plushieCompletionReward;
+    [field: SerializeField] public PlushieCompletionRewardsList plushieRewardList { get; private set; }
 
     private void Start()
     {
-        SaveDataUsingJson.instance.LoadData<PlushieCompletionRewardParameters>("PlushieCompletionReward", "RewardSystem");
+        plushieRewardList = SaveDataUsingJson.instance.LoadData<PlushieCompletionRewardsList>("PlushieRewardTable.json", "RewardSystem");
     }
 }

@@ -173466,8 +173466,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlushieCompletionRewardHandler
   rewardFile: {fileID: 4900000, guid: 45cbe23dc3dc035499ff4c584961b7fc, type: 3}
-  <plushieRewardList>k__BackingField:
-    PlushieCompletionReward: []
+  plushieCompletionReward: []
 --- !u!1 &664278022
 GameObject:
   m_ObjectHideFlags: 0
@@ -228579,7 +228578,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b44dfdebdcdf454b89508451022839f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  <plushieCompletionRewardHandler>k__BackingField: {fileID: 660634035}
+  plushieCompletionRewardHandler: {fileID: 660634035}
 --- !u!1 &814784182
 GameObject:
   m_ObjectHideFlags: 0

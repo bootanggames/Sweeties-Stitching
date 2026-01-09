@@ -5,5 +5,5 @@ using UnityEngine;
 public class PlushieCompletionRewardParameters
 {
     public int plushieNumber;
-    public int CoinsPerCompletion;
+    public string CoinsPerCompletion;
 }

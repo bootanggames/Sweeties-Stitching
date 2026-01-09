@@ -4,6 +4,7 @@ using UnityEngine;
 public class LevelDataScriptable : ScriptableObject
 {
     public string levelName;
+    public System.Numerics.BigInteger plushieCompletionRewardValue = 0;
     public int levelReward = 0;
     public int totalStitches;
     public int totalParts;

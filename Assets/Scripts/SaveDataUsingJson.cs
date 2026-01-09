@@ -28,10 +28,12 @@ public class SaveDataUsingJson : Singleton<SaveDataUsingJson>
         string folderName = Path.Combine(path, _folderName);
 
         string fullPath = Path.Combine(folderName, fileName);
+
         if (!File.Exists(fullPath))
             return null;
 
         string json = File.ReadAllText(fullPath);
+
         return JsonUtility.FromJson<T>(json);
     }
 

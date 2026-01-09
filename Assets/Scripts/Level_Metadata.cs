@@ -36,6 +36,7 @@ public class Level_Metadata : MonoBehaviour
     IPointConnectionHandler pointsHandler;
     ICanvasUIManager canvasManager;
     INeedleMovement needleHandler;
+    IRewardSystem rewardSystem;
     private void Start()
     {
         Time.timeScale = 1;
@@ -46,10 +47,11 @@ public class Level_Metadata : MonoBehaviour
         pointsHandler = ServiceLocator.GetService<IPointConnectionHandler>();
         canvasManager = ServiceLocator.GetService<ICanvasUIManager>();
         needleHandler = ServiceLocator.GetService<INeedleMovement>();
-
+        rewardSystem = ServiceLocator.GetService<IRewardSystem>();
         AssignAndUpdateSpools();
         LevelInitialisation();
         sewnPlushie.GetComponent<SpriteRenderer>().sprite = levelScriptable.plushieSprite;
+        
     }
 
     void AssignAndUpdateSpools()
@@ -196,7 +198,8 @@ public class Level_Metadata : MonoBehaviour
     public void StartLevel() 
     {
         Time.timeScale = 1;
-
+        //string rewardAmount = rewardSystem.plushieCompletionRewardHandler.plushieRewardList.PlushieCompletionReward[LevelsHandler.instance.levelIndex].CoinsPerCompletion;
+        //levelScriptable.plushieCompletionRewardValue = System.Numerics.BigInteger.Parse(rewardAmount);
         current_ObjectInfor = stitchStartingPart;
         if (stitchStartingPart.stitchData.IsStitched)
         {

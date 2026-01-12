@@ -3,6 +3,7 @@ using UnityEngine;
 public class RewardSystemManager : MonoBehaviour, IRewardSystem
 {
     [field: SerializeField] public PlushieCompletionRewardHandler plushieCompletionRewardHandler { get; private set; }
+    [field: SerializeField] public LevelUpRewardHandler levelUpRewardHandler { get; private set; }
 
     private void OnEnable()
     {

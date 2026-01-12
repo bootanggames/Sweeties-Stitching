@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class JackpotMachine : MonoBehaviour
@@ -19,9 +21,14 @@ public class JackpotMachine : MonoBehaviour
     [SerializeField] Vector3 handleEndPosition;
     [SerializeField] AudioSource source;
     [SerializeField] Sprite coinIcon;
+    [SerializeField] List<GameObject> lightBulb;
+    [SerializeField] GameObject winText;
+    int bulbIndex = 0;
+    IRewardSystem rewardSystem;
     private void OnEnable()
     {
         jackpotHandler = ServiceLocator.GetService<IJackpotHandler>();
+        rewardSystem = ServiceLocator.GetService<IRewardSystem>();
     }
     private void Start()
     {
@@ -50,6 +57,7 @@ public class JackpotMachine : MonoBehaviour
     {
         ShowRewardScreen();
         UpdateRewardItemScreen(type);
+
         //Invoke(nameof(CloseRewardedScreen), 1.0f);
     }
     public void ShowRewardScreen()
@@ -60,11 +68,12 @@ public class JackpotMachine : MonoBehaviour
         congratulationsScreen.gameObject.SetActive(true);
         JackPotRewardScreenSound();
     }
-    public void ShowSmallReward(int rewardAmount)
+    public void ShowSmallReward(double rewardAmount)
     {
         ShowRewardScreen();
         rewardedItem.imageComponent.sprite = coinIcon;
-        rewardedItem.rewardAmountText.text = rewardAmount.ToString();
+        rewardAmount = rewardSystem.levelUpRewardHandler.EVLevelJackpot_CoinsOnly();
+        rewardedItem.rewardAmountText.text = int.Parse(rewardAmount).ToString();
     }
     public void ShowMediumReward(int rewardAmount)
     {
@@ -113,5 +122,29 @@ public class JackpotMachine : MonoBehaviour
         jackpotHandle.SetActive(true);
         jackpotHandleCircle.transform.localPosition = handleStartPosition;
         CancelInvoke(nameof(ResetHandle));
+    }
+    public void WinEffect()
+    {
+        StartCoroutine(ShowBlinkinOfObjects());
+    }
+    IEnumerator ShowBlinkinOfObjects()
+    {
+        lightBulb[bulbIndex].gameObject.SetActive(false);
+        winText.SetActive(false);
+        yield return new WaitForSeconds(0.05f);
+        winText.SetActive(true);
+
+        yield return new WaitForSeconds(0.075f);
+
+        foreach (GameObject g in lightBulb)
+        {
+            g.SetActive(true);
+        }
+
+        bulbIndex++;
+        if (bulbIndex >= lightBulb.Count)
+            bulbIndex = 0;
+        StopCoroutine(ShowBlinkinOfObjects());
+        StartCoroutine(ShowBlinkinOfObjects());
     }
 }

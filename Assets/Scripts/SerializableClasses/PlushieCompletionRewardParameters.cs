@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 
 [Serializable]
-public class PlushieCompletionRewardParameters
+public struct PlushieCompletionRewardParameters
 {
     public int plushieNumber;
     public string CoinsPerCompletion;

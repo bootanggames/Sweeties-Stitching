@@ -13,7 +13,7 @@ public static partial class GameEvents
         public static readonly GameQuery<RectTransform, RectTransform, float, Ease,Tween> onMoveToRectTargetAnimation = new();
         public static readonly GameQuery<CanvasGroup, float, float, Ease,Tween> onUIHighLight = new();
         public static readonly GameQuery<Transform, float, Ease, Tween> onSpining = new();
-        public static readonly GameQuery<int,float, TextMeshProUGUI, Ease, Tween> onCountIncrement = new();
+        public static readonly GameQuery<int,float, Ease, Tween> onCountIncrement = new();
 
     }
 }

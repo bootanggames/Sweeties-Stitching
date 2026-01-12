@@ -95,7 +95,10 @@ public class GameCompleteHandler : MonoBehaviour, IGameService
             plushieOfCurrentLevel.sprite = LevelsHandler.instance.currentLevelMeta.levelScriptable.plushieSprite;
             RectTransform rt = plushieOfCurrentLevel.rectTransform;
             rt.sizeDelta = new Vector2(LevelsHandler.instance.currentLevelMeta.levelScriptable.plushieWidth, LevelsHandler.instance.currentLevelMeta.levelScriptable.plushieHeight);
-            levelProgress.text = (LevelsHandler.instance.plushieIndex + 1) + "/3 Till Level 5";
+            int nextLevelIndex = LevelsHandler.instance.levelIndex + 2;
+            if (nextLevelIndex > LevelsHandler.instance.levelStructure.Count)
+                nextLevelIndex = LevelsHandler.instance.levelStructure.Count;
+            levelProgress.text = (LevelsHandler.instance.plushieIndex + 1) + "/3 Till Level "+ nextLevelIndex;
         }
         if (plushieInventory != null)
             plushieInventory.GetPlushieCountUI();
@@ -171,7 +174,8 @@ public class GameCompleteHandler : MonoBehaviour, IGameService
         }
         PlaySoundCoinBagExploding();
         if (coinsHandler != null)
-            coinsHandler.CoinIncrementAnimation(LevelsHandler.instance.currentLevelMeta.levelScriptable.levelReward);
+            coinsHandler.CoinIncrementAnimation(LevelsHandler.instance.currentLevelMeta.levelReward);
+            //coinsHandler.CoinIncrementAnimation(LevelsHandler.instance.currentLevelMeta.levelScriptable.levelReward);
         gameplayBgObj.SetActive(false);
     }
    

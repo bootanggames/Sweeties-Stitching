@@ -7,6 +7,8 @@ using UnityEngine;
 
 public class Level_Metadata : MonoBehaviour
 {
+    public int id;
+    [HideInInspector]public int levelReward = 0;
     public bool completed = false;
     public LevelDataScriptable levelScriptable;
     public int noOfStitchesDone;
@@ -18,6 +20,7 @@ public class Level_Metadata : MonoBehaviour
     public GameObject immoveablePart;
     public GameObject bodyWihtoutHoles;
     public GameObject sewnPlushie;
+    public GameObject bodyPartsParentObject;
     LineRenderer lineForCleanConnection;
     [SerializeField] LineRenderer linePrefabForCleanConnection;
     [SerializeField] ObjectInfo stitchStartingPart;
@@ -28,7 +31,7 @@ public class Level_Metadata : MonoBehaviour
     [HideInInspector] public int cleanThreadIndex = 0;
     [HideInInspector] public List<GameObject> crissCrossObjList = new List<GameObject>();
     List<Connections> cleanThreads = new List<Connections>();
-    /*[HideInInspector]*/public GameObject currentSpool;
+    [HideInInspector] public GameObject currentSpool;
     ISpoolManager spoolManager;
     IThreadManager threadHandler;
     INeedleDetector needleDetecto;
@@ -51,7 +54,8 @@ public class Level_Metadata : MonoBehaviour
         AssignAndUpdateSpools();
         LevelInitialisation();
         sewnPlushie.GetComponent<SpriteRenderer>().sprite = levelScriptable.plushieSprite;
-        
+        string rewardVal = rewardSystem.plushieCompletionRewardHandler.plushieRewardList.PlushieCompletionReward[id].CoinsPerCompletion;
+        levelReward = int.Parse(rewardVal);
     }
 
     void AssignAndUpdateSpools()
@@ -316,7 +320,8 @@ public class Level_Metadata : MonoBehaviour
     void DisableLevel()
     {
         sewnPlushie.SetActive(true);
-        gameObject.SetActive(false);
+        bodyPartsParentObject.SetActive(false);
+        //gameObject.SetActive(false);
         CancelInvoke(nameof(DisableLevel));
     }
     public void PlaySewnSound()

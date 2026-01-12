@@ -121,11 +121,10 @@ namespace Mkey
                 {
                     if (slotId.Equals(item.slotRewardProbability[j].slotId))
                     {
-                        Debug.LogError(" " + item.slotRewardProbability[j].slotId + "--" + slotId);
+                        //Debug.LogError(" " + item.slotRewardProbability[j].slotId + "--" + slotId);
 
                         for (int i = 0; i < item.slotRewardProbability[j].rewardProbability; i++)
                         {
-                            Debug.LogError(" " + item.GetInstanceID()+" "+item.GetEntityId()+" "+item.GetHashCode());
                             symbOrder.Add(item.rewardID);
                         }
                     }

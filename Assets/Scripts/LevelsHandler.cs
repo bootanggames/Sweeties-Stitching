@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class LevelsHandler : Singleton<LevelsHandler>, ILevelHandler
+public class LevelsHandler : Singleton<LevelsHandler>
 {
     [field:SerializeField] public List<LevelStructure> levelStructure {  get; private set; }
     //[field:SerializeField] public List<GameObject> levels {  get; private set; }
@@ -20,12 +20,10 @@ public class LevelsHandler : Singleton<LevelsHandler>, ILevelHandler
     public override void SingletonAwake()
     {
         base.SingletonAwake();
-        RegisterService();
     }
     public override void SingletonOnDestroy()
     {
         base.SingletonOnDestroy();
-        UnRegisterService();
     }
     public override void SingletonStart()
     {
@@ -60,15 +58,7 @@ public class LevelsHandler : Singleton<LevelsHandler>, ILevelHandler
         totalCoins = PlayerPrefs.GetInt("Coins");
         CancelInvoke("GetCoins");
     }
-    public void RegisterService()
-    {
-        ServiceLocator.RegisterService<ILevelHandler>(this);
-    }
-
-    public void UnRegisterService()
-    {
-        ServiceLocator.UnRegisterService<ILevelHandler>(this);
-    }
+   
     public void SetPref(int val)
     {
         PlayerPrefs.SetInt("Level", val);
@@ -141,7 +131,8 @@ public class LevelsHandler : Singleton<LevelsHandler>, ILevelHandler
         if (once) return;
         if (connectionHandler != null) connectionHandler.DeleteAllThreadLinks();
 
-        int rewardedCoins = currentLevelMeta.levelScriptable.levelReward;
+        //int rewardedCoins = currentLevelMeta.levelScriptable.levelReward;
+        int rewardedCoins = currentLevelMeta.levelReward;
         if (spoolManager != null)
         {
             if (currentLevelMeta.currentActiveSpoolIndex >= spoolManager.spoolList.Count)

@@ -69,20 +69,20 @@ public class DoTweenAnimationHandler : MonoBehaviour
         return obj.DORotate(new Vector3(0, 0, 360), speed, RotateMode.FastBeyond360).SetLoops(-1).SetEase(Ease.Linear).Pause();
     }
     int actualAmount;
-    Tween CoinsIncrement(int rewardAmount, float speed,TextMeshProUGUI coinsText, Ease ease)
+    Tween CoinsIncrement(int rewardAmount, float speed, Ease ease)
     {
-        actualAmount = PlayerPrefs.GetInt("Coins");
-        int target = actualAmount + rewardAmount;
-        return DOTween.To(() => actualAmount, x => 
-        { 
-            target = x; 
-            coinsText.text = x.ToString();
-            //int TotalEarned = actualAmount + x;
-            PlayerPrefs.SetInt("Coins", x);
-            var coinHandler = ServiceLocator.GetService<ICoinsHandler>();
-            if (coinHandler != null)
-                coinHandler.UpdateCoins(x);
-        }, target, speed).SetEase(Ease.InOutBack);
+        var coinHandler = ServiceLocator.GetService<ICoinsHandler>();
+
+        return DOTween.To(() => 0, x => 
+        {
+            if(x > 0)
+            {
+                if (coinHandler != null)
+                    coinHandler.UpdateCoins(x);
+            }
+        
+        }, rewardAmount, speed).SetEase(Ease.InOutBack);
+
     }
- 
+
 }

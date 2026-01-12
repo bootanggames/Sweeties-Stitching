@@ -366,9 +366,9 @@ namespace Mkey
             {
                 //3b ---- show particles, line flasing  -----------
                 winController.WinEffectsShow(winLineFlashing == WinLineFlashing.All, winSymbolParticles);
-
+                winController.jackpotMachine.WinEffect();
                 //3b --------- check Jack pot -------------
-               
+
                 //while (!MGUI.HasNoPopUp) yield return wfs0_1; // delay to check popup
 
                 //jackPotWinCoins = controls.GetJackPotCoins(jackPotType);
@@ -391,7 +391,7 @@ namespace Mkey
                 //    }
                 //    controls.SetJackPotCount(0, jackPotType); // reset jack pot amount
                 //}
-                
+
                 //3c0 -----------------calc coins -------------------
                 int winCoins = winController.GetWinCoins();
                 int payMultiplier = winController.GetPayMultiplier();

@@ -94,20 +94,20 @@ public class CoinsHandler : MonoBehaviour,ICoinsHandler
         //coinList.AddRange(coinsObjList);
         //Debug.LogError(" " + coinList.Count);
     }
-    public void CreateCoinsObjects()
-    {
-        for (int i = 0; i < totalCoinsCloneCount; i++)
-        {
-            GameObject g = Instantiate(coinPrefab, coinsUiParent, false);
-            coinsObjList.Add(g);
-            g.transform.SetParent(coinsUiParent);
-            float x = Random.Range(-xPos, xPos);
-            float y = Random.Range(-yPos, yPos);
-            g.GetComponent<RectTransform>().anchoredPosition = new Vector2(x, y);
-        }
-        coinsRewarded = LevelsHandler.instance.currentLevelMeta.levelScriptable.levelReward;
-        coinsEarned.text = coinsRewarded.ToString();
-    }
+    //public void CreateCoinsObjects()
+    //{
+    //    for (int i = 0; i < totalCoinsCloneCount; i++)
+    //    {
+    //        GameObject g = Instantiate(coinPrefab, coinsUiParent, false);
+    //        coinsObjList.Add(g);
+    //        g.transform.SetParent(coinsUiParent);
+    //        float x = Random.Range(-xPos, xPos);
+    //        float y = Random.Range(-yPos, yPos);
+    //        g.GetComponent<RectTransform>().anchoredPosition = new Vector2(x, y);
+    //    }
+    //    coinsRewarded = LevelsHandler.instance.currentLevelMeta.levelScriptable.levelReward;
+    //    coinsEarned.text = coinsRewarded.ToString();
+    //}
     public IEnumerator MoveCoins(List<GameObject> coinList,Transform _target, GameObject coinsBarObj, float moveSpeed, Ease moveEase,float delay,bool randomSpeed)
     {
         Sequence seq = DOTween.Sequence();
@@ -207,23 +207,24 @@ public class CoinsHandler : MonoBehaviour,ICoinsHandler
     }
     public void CoinIncrementAnimation(int targetAmount)
     {
-        coinIncrementTween = GameEvents.DoTweenAnimationHandlerEvents.onCountIncrement.Raise(targetAmount, coinsIncrementSpeed, coinsTextBox, Ease.InOutBack);
-        if(coinIncrementTween != null)
+        int actualAmount = PlayerPrefs.GetInt("Coins");
+        int target = actualAmount + targetAmount;
+        PlayerPrefs.SetInt("Coins", target);
+        coinIncrementTween = GameEvents.DoTweenAnimationHandlerEvents.onCountIncrement.Raise(target, coinsIncrementSpeed, Ease.InOutBack);
+        if (coinIncrementTween != null)
         {
             coinIncrementTween.OnUpdate(() =>
             {
                 //Invoke(nameof(PlayCoinSound), 0.1f);
             });
         }
-       
+
         coinIncrementTween.OnComplete(() =>
         {
             coinIncrementTween.Kill();
             coinIncrementTween = null;
         });
-        //PlayCoinSound();
-        //PlayCoinSoundOnComplete();
-
+        coinsEarned.text = target.ToString();
         InvokeRepeating(nameof(PlayCoinSoundOnComplete), 0, 0.1f);
     }
 

@@ -3,11 +3,11 @@ using UnityEngine;
 
 public class PlushieCompletionRewardHandler : MonoBehaviour
 {
-    public TextAsset rewardFile;
+    //public TextAsset rewardFile;
     [field: SerializeField] public PlushieCompletionRewardsList plushieRewardList { get; private set; }
 
     private void Start()
     {
-        plushieRewardList = SaveDataUsingJson.instance.LoadData<PlushieCompletionRewardsList>("PlushieRewardTable.json", "RewardSystem");
+        //plushieRewardList = SaveDataUsingJson.instance.LoadData<PlushieCompletionRewardsList>("PlushieRewardTable.json", "RewardSystem");
     }
 }

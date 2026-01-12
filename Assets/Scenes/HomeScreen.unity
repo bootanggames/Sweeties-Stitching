@@ -145761,6 +145761,7 @@ Transform:
   - {fileID: 636814391}
   - {fileID: 1122542404}
   - {fileID: 1292200616}
+  - {fileID: 1268380154}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &692447720
@@ -305327,6 +305328,122 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
+--- !u!1 &1268380153
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1268380154}
+  - component: {fileID: 1268380157}
+  - component: {fileID: 1268380156}
+  - component: {fileID: 1268380155}
+  - component: {fileID: 1268380158}
+  m_Layer: 0
+  m_Name: RewardSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1268380154
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1268380153}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -205.78677, y: -302.14178, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 685047173}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1268380155
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1268380153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 819695b36b27fe448b4ee61dc32a8d54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  <rewardList>k__BackingField:
+    <levelUpReward>k__BackingField:
+    - levelNumber: 0
+      CoinsPerCompletion: 1090
+      DecorCoinsPerCompletion: 400
+    - levelNumber: 1
+      CoinsPerCompletion: 1658
+      DecorCoinsPerCompletion: 460
+    - levelNumber: 2
+      CoinsPerCompletion: 2725
+      DecorCoinsPerCompletion: 540
+--- !u!114 &1268380156
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1268380153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9f55bffe84a7fc439c806c430b5f056, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlushieCompletionRewardHandler
+  <plushieRewardList>k__BackingField:
+    PlushieCompletionReward:
+    - plushieNumber: 0
+      CoinsPerCompletion: 1000
+    - plushieNumber: 1
+      CoinsPerCompletion: 1180
+    - plushieNumber: 2
+      CoinsPerCompletion: 1392
+    - plushieNumber: 3
+      CoinsPerCompletion: 1643
+    - plushieNumber: 4
+      CoinsPerCompletion: 1939
+    - plushieNumber: 5
+      CoinsPerCompletion: 2288
+    - plushieNumber: 6
+      CoinsPerCompletion: 2700
+    - plushieNumber: 7
+      CoinsPerCompletion: 3186
+    - plushieNumber: 8
+      CoinsPerCompletion: 3759
+--- !u!114 &1268380157
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1268380153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b44dfdebdcdf454b89508451022839f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  <plushieCompletionRewardHandler>k__BackingField: {fileID: 1268380156}
+  <levelUpRewardHandler>k__BackingField: {fileID: 1268380155}
+--- !u!114 &1268380158
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1268380153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 774fe276fe1eb6044a89b273e86c2e49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
 --- !u!1 &1272094041
 GameObject:
   m_ObjectHideFlags: 0

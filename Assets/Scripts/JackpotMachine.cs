@@ -55,8 +55,28 @@ public class JackpotMachine : MonoBehaviour
     }
     public void ShowHugeRewardScreen(RewardType type)
     {
+        double rewardAmount = 0;
+        int amount = 0;
         ShowRewardScreen();
-        UpdateRewardItemScreen(type);
+        switch (type)
+        {
+            case RewardType.coins:
+                rewardedItem.imageComponent.sprite = coinIcon;
+
+                rewardAmount = rewardSystem.levelUpRewardHandler.EVLevelJackpot_CoinsOnly();
+                amount = Mathf.RoundToInt((float)rewardAmount);
+                rewardedItem.rewardAmountText.text = amount.ToString();
+                break;
+            case RewardType.decorItem:
+                UpdateRewardItemScreen(type);
+                rewardAmount = rewardSystem.levelUpRewardHandler.EVLevelJackpot_DecorOnly();
+                amount = Mathf.RoundToInt((float)rewardAmount);
+                rewardedItem.rewardAmountText.text = amount.ToString();
+                break;
+            case RewardType.mysteryBox:
+                UpdateRewardItemScreen(type);
+                break;
+        }
 
         //Invoke(nameof(CloseRewardedScreen), 1.0f);
     }
@@ -68,18 +88,23 @@ public class JackpotMachine : MonoBehaviour
         congratulationsScreen.gameObject.SetActive(true);
         JackPotRewardScreenSound();
     }
-    public void ShowSmallReward(double rewardAmount)
+    public void ShowSmallReward()
     {
+        double rewardAmount = 0;
         ShowRewardScreen();
         rewardedItem.imageComponent.sprite = coinIcon;
-        rewardAmount = rewardSystem.levelUpRewardHandler.EVLevelJackpot_CoinsOnly();
-        rewardedItem.rewardAmountText.text = int.Parse(rewardAmount).ToString();
+        rewardAmount = rewardSystem.levelUpRewardHandler.CalculateLevelUpSmallCoinsReward();
+        int amount = Mathf.RoundToInt((float)rewardAmount);
+        rewardedItem.rewardAmountText.text = amount.ToString();
     }
-    public void ShowMediumReward(int rewardAmount)
+    public void ShowMediumReward()
     {
         ShowRewardScreen();
+        double rewardAmount = 0;
         rewardedItem.imageComponent.sprite = coinIcon;
-        rewardedItem.rewardAmountText.text = rewardAmount.ToString();
+        rewardAmount = rewardSystem.levelUpRewardHandler.CalculateLevelUpMediumCoinsReward();
+        int amount = Mathf.RoundToInt((float)rewardAmount);
+        rewardedItem.rewardAmountText.text = amount.ToString();
     }
     public void EnableRoomBg(bool val)
     {

@@ -451,10 +451,10 @@ namespace Mkey
                            switch (windata.tier)
                            {
                                case TierType.small:
-                                   winController.jackpotMachine.ShowSmallReward(winCoins);
+                                   winController.jackpotMachine.ShowSmallReward();
                                    break;
                                case TierType.medium:
-                                   winController.jackpotMachine.ShowMediumReward(winCoins);
+                                   winController.jackpotMachine.ShowMediumReward();
                                    break;
                                case TierType.huge:
                                    winController.jackpotMachine.ShowHugeRewardScreen(windata.Symbols[0].type);

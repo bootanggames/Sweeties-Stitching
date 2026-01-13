@@ -494107,6 +494107,7 @@ MonoBehaviour:
   totalBodyPartsToStitch: {fileID: 15333351}
   totalStitches: {fileID: 1867676052}
   coinText: {fileID: 684108346}
+  threadSpoolCount: {fileID: 542628966}
   levels: {fileID: 74644243099272614}
 --- !u!1 &1531324480
 GameObject:

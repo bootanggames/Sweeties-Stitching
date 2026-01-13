@@ -9,6 +9,7 @@ public class MainMenuHandler : Singleton<MainMenuHandler>
     public MainMenuActiveScreen activeScreen;
 
     public GameObject roomDecorScreen;
+    public GameObject homeScreenCanvas;
     public GameObject homeScreen;
     public GameObject plushieInventoryScreen;
     public GameObject mainMenuBg;
@@ -82,6 +83,7 @@ public class MainMenuHandler : Singleton<MainMenuHandler>
         switch(activeScreen)
         {
             case MainMenuActiveScreen.homeScreen:  
+                homeScreenCanvas.SetActive(true);
                 homeScreen.SetActive(true);
                 roomDecorScreen.SetActive(false);
                 plushieInventoryScreen.SetActive(false);

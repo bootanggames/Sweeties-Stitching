@@ -5,6 +5,7 @@ using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
+using static UnityEngine.Analytics.IAnalytic;
 
 namespace Mkey
 {
@@ -367,6 +368,20 @@ namespace Mkey
                 //3b ---- show particles, line flasing  -----------
                 winController.WinEffectsShow(winLineFlashing == WinLineFlashing.All, winSymbolParticles);
                 winController.jackpotMachine.WinEffect();
+                WinData w = winController.GetWinData();
+                ItemsMetaData item = null;
+
+                if (w.tier.Equals(TierType.huge))
+                {
+                    item = winController.jackpotMachine.GetItemOnWin(w.Symbols[0].type);
+                    yield return wfs1_0;
+                    foreach (SlotSymbol s in w.Symbols)
+                    {
+                        SlotIcon sc = s.Icon;
+                        sc.iconSprite = item.ItemIcon;
+                    }
+                }
+               
                 //3b --------- check Jack pot -------------
 
                 //while (!MGUI.HasNoPopUp) yield return wfs0_1; // delay to check popup
@@ -457,7 +472,8 @@ namespace Mkey
                                    winController.jackpotMachine.ShowMediumReward();
                                    break;
                                case TierType.huge:
-                                   winController.jackpotMachine.ShowHugeRewardScreen(windata.Symbols[0].type);
+                                   
+                                   winController.jackpotMachine.ShowHugeRewardScreen(item);
                                    break;
                            }
                            ////event can be interrupted by player

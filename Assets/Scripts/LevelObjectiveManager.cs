@@ -6,13 +6,15 @@ public class LevelObjectiveManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI totalBodyPartsToStitch;
     [SerializeField] TextMeshProUGUI totalStitches;
     [SerializeField] TextMeshProUGUI coinText;
+    [SerializeField] TextMeshProUGUI threadSpoolCount;
     [SerializeField] LevelsInfoOnSelection levels;
+   
     private void Start()
     {
-        UpdateTotalStitchesOfCurrentLevel();
+
+        UpdateObjectiveScreenOfCurrentLevel();
         LockUnLock();
-        int c = PlayerPrefs.GetInt("Coins");
-        coinText.text = c.ToString();
+  
         int levelUp = PlayerPrefs.GetInt("LevelUp");
         if (levelUp == 0)
             levels.NextLevelPage();
@@ -22,14 +24,18 @@ public class LevelObjectiveManager : MonoBehaviour
     {
         //levels.GoToNextLevelPage();
     }
-    public void UpdateTotalStitchesOfCurrentLevel()
+    public void UpdateObjectiveScreenOfCurrentLevel()
     {
+
         int levelIndex = PlayerPrefs.GetInt("Level");
         int plushieIndex = PlayerPrefs.GetInt("Level_" + levelIndex + "_Plushie");
         Level_Metadata levelData = LevelsHandler.instance.levelStructure[levelIndex].plushie[plushieIndex];
         totalStitches.text = levelData.levelScriptable.totalStitches.ToString();
         totalBodyPartsToStitch.text = levelData.levelScriptable.totalParts.ToString();
         UpdatePlushie(levelIndex, plushieIndex);
+        threadSpoolCount.text = levelData.levelScriptable.totalSpoolsNeeded.ToString()+"X";
+        int c = PlayerPrefs.GetInt("Coins");
+        coinText.text = c.ToString();
     }
 
     void UpdatePlushie(int levelIndex, int detailIndex)

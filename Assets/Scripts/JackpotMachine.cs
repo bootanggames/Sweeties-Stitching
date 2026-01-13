@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem.LowLevel;
 
 public class JackpotMachine : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class JackpotMachine : MonoBehaviour
     IJackpotHandler jackpotHandler;
     [field: SerializeField] public JackpotRewardSystem jackPotRewardsystem {  get; private set; }
     [field: SerializeField] public GameObject jackpotCamera { get; private set; }
+    [field: SerializeField] public GameObject purchaseScreen { get; private set; }
 
     [SerializeField] GameObject jackpotHandle;
     [SerializeField] GameObject jackpotHandleCircle;
@@ -25,6 +27,7 @@ public class JackpotMachine : MonoBehaviour
     [SerializeField] GameObject winText;
     int bulbIndex = 0;
     IRewardSystem rewardSystem;
+    RewardType winItemType;
     private void OnEnable()
     {
         jackpotHandler = ServiceLocator.GetService<IJackpotHandler>();
@@ -34,6 +37,8 @@ public class JackpotMachine : MonoBehaviour
     {
         HepticManager.instance.StopHaptics();
         jackpotHandler = ServiceLocator.GetService<IJackpotHandler>();
+        rewardSystem = ServiceLocator.GetService<IRewardSystem>();
+
         jackpotWord.SetActive(true);
         Invoke(nameof(JackPotScreenSound), 0.15f);
     }
@@ -53,31 +58,10 @@ public class JackpotMachine : MonoBehaviour
     {
         jackpotHandler.CloseJackpotScreen();
     }
-    public void ShowHugeRewardScreen(RewardType type)
+    public void ShowHugeRewardScreen(ItemsMetaData type)
     {
-        double rewardAmount = 0;
-        int amount = 0;
         ShowRewardScreen();
-        switch (type)
-        {
-            case RewardType.coins:
-                rewardedItem.imageComponent.sprite = coinIcon;
-
-                rewardAmount = rewardSystem.levelUpRewardHandler.EVLevelJackpot_CoinsOnly();
-                amount = Mathf.RoundToInt((float)rewardAmount);
-                rewardedItem.rewardAmountText.text = amount.ToString();
-                break;
-            case RewardType.decorItem:
-                UpdateRewardItemScreen(type);
-                rewardAmount = rewardSystem.levelUpRewardHandler.EVLevelJackpot_DecorOnly();
-                amount = Mathf.RoundToInt((float)rewardAmount);
-                rewardedItem.rewardAmountText.text = amount.ToString();
-                break;
-            case RewardType.mysteryBox:
-                UpdateRewardItemScreen(type);
-                break;
-        }
-
+        UpdateRewardItemScreen(type);
         //Invoke(nameof(CloseRewardedScreen), 1.0f);
     }
     public void ShowRewardScreen()
@@ -96,6 +80,10 @@ public class JackpotMachine : MonoBehaviour
         rewardAmount = rewardSystem.levelUpRewardHandler.CalculateLevelUpSmallCoinsReward();
         int amount = Mathf.RoundToInt((float)rewardAmount);
         rewardedItem.rewardAmountText.text = amount.ToString();
+        winItemType = RewardType.coins;
+        int coins = PlayerPrefs.GetInt("Coins");
+        int totalEarned = coins + amount;
+        PlayerPrefs.SetInt("Coins", totalEarned);
     }
     public void ShowMediumReward()
     {
@@ -105,6 +93,10 @@ public class JackpotMachine : MonoBehaviour
         rewardAmount = rewardSystem.levelUpRewardHandler.CalculateLevelUpMediumCoinsReward();
         int amount = Mathf.RoundToInt((float)rewardAmount);
         rewardedItem.rewardAmountText.text = amount.ToString();
+        winItemType = RewardType.coins;
+        int coins = PlayerPrefs.GetInt("Coins");
+        int totalEarned = coins + amount;
+        PlayerPrefs.SetInt("Coins", totalEarned);
     }
     public void EnableRoomBg(bool val)
     {
@@ -124,13 +116,35 @@ public class JackpotMachine : MonoBehaviour
         congratulationsScreen.SetActive(val);
         jackPotMachineObject.SetActive(!val);
     }
-
-    public void UpdateRewardItemScreen(RewardType type)
+    public ItemsMetaData GetItemOnWin(RewardType type)
     {
         JackpotReward rewardItem = jackPotRewardsystem.jackPotRewardsScriptable.GetRewardItem(type);
         ItemsMetaData item = rewardItem.GetItem();
+        return item;
+    }
+    public void UpdateRewardItemScreen(ItemsMetaData item)
+    {
         rewardedItem.imageComponent.sprite = item.ItemIcon;
-        rewardedItem.rewardAmountText.text = rewardItem.rewardAmount.ToString();
+        double rewardAmount = 0;
+        int amount = 0;
+        //rewardedItem.rewardAmountText.text = rewardItem.rewardAmount.ToString();
+        if (item.ItemType.Equals(ItemType.COINS))
+        {
+            rewardAmount = rewardSystem.levelUpRewardHandler.EVLevelJackpot_CoinsOnly();
+            amount = Mathf.RoundToInt((float)rewardAmount);
+            rewardedItem.rewardAmountText.text = amount.ToString();
+            winItemType = RewardType.coins;
+        }
+        else
+        {
+            rewardAmount = rewardSystem.levelUpRewardHandler.EVLevelJackpot_DecorOnly();
+            amount = Mathf.RoundToInt((float)rewardAmount);
+            rewardedItem.rewardAmountText.text = amount.ToString();
+            winItemType = RewardType.decorItem;
+        }
+        int coins = PlayerPrefs.GetInt("Coins");
+        int totalEarned = coins + amount;
+        PlayerPrefs.SetInt("Coins", totalEarned);
         if (!jackpotHandler.earnedItems.Contains(item))
                 jackpotHandler.earnedItems.Add(item);
     }
@@ -154,7 +168,11 @@ public class JackpotMachine : MonoBehaviour
     }
     IEnumerator ShowBlinkinOfObjects()
     {
-        lightBulb[bulbIndex].gameObject.SetActive(false);
+        lightBulb[bulbIndex].gameObject.SetActive(true);
+        //foreach (GameObject g in lightBulb)
+        //{
+        //    g.SetActive(true);
+        //}
         winText.SetActive(false);
         yield return new WaitForSeconds(0.05f);
         winText.SetActive(true);
@@ -163,7 +181,7 @@ public class JackpotMachine : MonoBehaviour
 
         foreach (GameObject g in lightBulb)
         {
-            g.SetActive(true);
+            g.SetActive(false);
         }
 
         bulbIndex++;
@@ -171,5 +189,22 @@ public class JackpotMachine : MonoBehaviour
             bulbIndex = 0;
         StopCoroutine(ShowBlinkinOfObjects());
         StartCoroutine(ShowBlinkinOfObjects());
+    }
+
+    public void AddToCollection()
+    {
+        AddToCollectionButton.SetActive(false);
+        EnableRoomBg(true);
+
+        if (!winItemType.Equals(RewardType.coins))
+        {
+            purchaseScreen.SetActive(true);
+            DecorItemsInventory inventory = purchaseScreen.GetComponent<DecorItemsInventory>();
+            inventory.ShowWithBeds();
+        }
+        else
+        {
+            jackpotHandler.roomDecorCanvas.SetActive(true);
+        }
     }
 }

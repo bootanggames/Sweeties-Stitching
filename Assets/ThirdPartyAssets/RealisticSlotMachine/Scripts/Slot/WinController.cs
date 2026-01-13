@@ -373,6 +373,11 @@ namespace Mkey
         /// <summary>
         /// Search win symbols (paylines, scatter)
         /// </summary>
+        WinData winData;
+        public WinData GetWinData()
+        {
+            return winData;
+        }
         internal void SearchWinSymbols()
         {
             foreach (var lb in linesController.Lines)
@@ -380,9 +385,9 @@ namespace Mkey
                 if (lb.IsSelected)
                 {
                     lb.FindWin(payTable);
+                    winData = lb.win;
                 }
             }
-
             // search scatters
             scatterWinSymbols = new List<SlotSymbol>();
             List<SlotSymbol> scatterSymbolsTemp = new List<SlotSymbol>();

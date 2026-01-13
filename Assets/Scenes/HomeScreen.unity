@@ -403694,6 +403694,7 @@ MonoBehaviour:
   coinText: {fileID: 2022919199}
   activeScreen: 0
   roomDecorScreen: {fileID: 1007000720}
+  homeScreenCanvas: {fileID: 1175345407}
   homeScreen: {fileID: 1955037517}
   plushieInventoryScreen: {fileID: 1282605964}
   mainMenuBg: {fileID: 2081259669}

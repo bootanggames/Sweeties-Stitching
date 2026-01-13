@@ -26,10 +26,14 @@ public class RoomdecorStore : MonoBehaviour, IRoomdecorStore
     private void OnEnable()
     {
         RegisterService();
-        int c = PlayerPrefs.GetInt("Coins");
-        coinText.text = c.ToString();
+     
         room = bedroom.GetComponent<UpdateRoom>();
        
+    }
+    void UpdateCoins()
+    {
+        int c = PlayerPrefs.GetInt("Coins");
+        coinText.text = c.ToString();
     }
     public void OpenScreen()
     {
@@ -150,6 +154,7 @@ public class RoomdecorStore : MonoBehaviour, IRoomdecorStore
     public void MyRoomButton()
     {
         PlaySound();
+        UpdateCoins();
         myDecorRoom.SetActive(true);
         EnableDisableMyRoomScreen(true);
         EnableDisableMItemsScreen(false);

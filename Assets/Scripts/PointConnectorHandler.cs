@@ -8,7 +8,6 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
     [field: SerializeField] public List<SewPoint> points { get; private set; }
     [field: SerializeField] public List<Connections> connections { get; private set; }
     [field: SerializeField] public List<SewPoint> wrongConnectPoint { get; private set; }
-
     [field: SerializeField] public float pullDuration { get; private set; }
     [field: SerializeField] public float minDistance { get; private set; }
     [field: SerializeField] public float maxPullDuration { get; private set; }
@@ -28,12 +27,21 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
     [SerializeField] float rotationSpeed;
     [SerializeField] float pullForce;
     [SerializeField] bool moveStaticallyAtTheEndOfStitch;
+    ICanvasUIManager canvasManager;
+    IThreadManager threadHandler;
+    INeedleDetector pointDetector;
     private void OnEnable()
     {
 
         points = new List<SewPoint>();
         connections = new List<Connections>();
         RegisterService();
+    }
+    private void Start()
+    {
+        canvasManager = ServiceLocator.GetService<ICanvasUIManager>();
+        threadHandler = ServiceLocator.GetService<IThreadManager>();
+        pointDetector = ServiceLocator.GetService<INeedleDetector>();
     }
     private void OnDisable()
     {
@@ -293,7 +301,6 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
             s_Info._spoolData.noOfStitchedDone++;
         }
 
-        var canvasManager = ServiceLocator.GetService<ICanvasUIManager>();
         if (canvasManager != null)
             canvasManager.UpdateStitchCount(LevelsHandler.instance.currentLevelMeta.levelScriptable.totalStitches, LevelsHandler.instance.currentLevelMeta.noOfStitchesDone);
         if (wrongConnectPoint != null && wrongConnectPoint.Count > 0) return;
@@ -344,7 +351,7 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
             moveableInfo.transform.DOMove(moveableInfo.movedPosition, 0.5f).SetEase(Ease.Linear).OnUpdate(() =>
             {
                 UpdateConnections();
-                var threadHandler = ServiceLocator.GetService<IThreadManager>();
+                //var threadHandler = ServiceLocator.GetService<IThreadManager>();
                 if (threadHandler != null)
                 {
                     if (threadHandler.prevLine)
@@ -537,7 +544,7 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
 
     void IncrementLinksPerPart( ObjectInfo o1, ObjectInfo o2)
     {
-        var threadHandler = ServiceLocator.GetService<IThreadManager>();
+    
 
         if (o1.stitchData.noOfConnections.Equals(o1.totalConnections) && o2.stitchData.noOfConnections.Equals(o2.totalConnections))
         {
@@ -545,7 +552,6 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
             o1.MarkStitched();
 
             points.Clear();
-            var pointDetector = ServiceLocator.GetService<INeedleDetector>();
             if (pointDetector != null)
                 pointDetector.pointsDetected.Clear();
 

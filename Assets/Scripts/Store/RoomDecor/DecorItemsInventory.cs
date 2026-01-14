@@ -14,6 +14,7 @@ public class DecorItemsInventory : ScreenWithSelectableButtons<DecoreItemStoreBu
     private ItemType _itemType = ItemType.BED;
 
     IRoomdecorStore roomdecorStore;
+    UIContext clickedItemContext;
     private void Start()
     {
         GameEvents.UIEvents.ShowDecorItemsInventory.Register(OnShowDecorItemsInventory);
@@ -85,8 +86,7 @@ public class DecorItemsInventory : ScreenWithSelectableButtons<DecoreItemStoreBu
         itemName = (ItemName)context.ID;
         useButtonObj.SetActive(true);
         DisableButtonOutline(context);
-        //GameEvents.RoomDecorEvents.DecorItemSelected.Raise(itemName, _itemType);
-        //_container.SetActive(false);
+        clickedItemContext = context;
     }
 
     public void UseButton()
@@ -102,5 +102,25 @@ public class DecorItemsInventory : ScreenWithSelectableButtons<DecoreItemStoreBu
                 g.SetActive(true);
             }
         }
+    }
+
+    public void BuyItem()
+    {
+        int coins = PlayerPrefs.GetInt("Coins");
+        int _iPrice = 0;
+        foreach (DecoreItemStoreButton b in _buttons)
+        {
+            UIWidget uIWidget = b.GetComponent<UIWidget>();
+            if (clickedItemContext.ID.Equals(uIWidget.GetContextID()))
+            {
+                _iPrice = uIWidget.GetItemPrice();
+                if (coins >= _iPrice)
+                {
+                    uIWidget._itemInfo.Unlock();
+                    break;
+                }
+            }
+        }
+       
     }
 }

@@ -4,24 +4,35 @@ using UnityEngine.UI;
 
 public class ItemInfo : MonoBehaviour
 {
+    public string itemName;
     [field: SerializeField] public ItemStatus status { get; private set; }
-    [SerializeField] GameObject lockImage;
+    public GameObject lockImage;
     [SerializeField] Button _button;
     [SerializeField] GameObject priceButton;
     [SerializeField] TextMeshProUGUI itemPrice;
     IJackpotHandler jackpotHandler;
-    public void SetUnlock(string i_Name)
+    public void SetUnlock()
     {
         jackpotHandler = ServiceLocator.GetService<IJackpotHandler>();
-        if (jackpotHandler.earnedItems.Find(x=>x.DisplayName == i_Name))
+        if(jackpotHandler != null)
         {
-            status = ItemStatus.unlocked;
-            lockImage.SetActive(false);
-            _button.interactable = true;
-
-            priceButton.SetActive(false);
+            if (jackpotHandler.earnedItems.Find(x => x.DisplayName == itemName))
+            {
+                Unlock();
+            }
         }
+      
     }
+
+    public void Unlock()
+    {
+        status = ItemStatus.unlocked;
+        lockImage.SetActive(false);
+        _button.interactable = true;
+
+        priceButton.SetActive(false);
+    }
+    
     public void CheckLockUnlockItems(int c)
     {
         itemPrice.text = c.ToString();
@@ -29,7 +40,7 @@ public class ItemInfo : MonoBehaviour
         if (status.Equals(ItemStatus.locked))
         {
             lockImage.SetActive(true);
-            _button.interactable = false;
+            //_button.interactable = false;
         }
         else
         {

@@ -15,7 +15,7 @@ public class UIWidget : MonoBehaviour
     [SerializeField] protected TextMeshProUGUI _labelComponent;
 
     protected UIContext _uiContext;
-    [SerializeField] ItemInfo _itemInfo;
+    [field:SerializeField] public ItemInfo _itemInfo {  get; private set; }
     public virtual void SetContext(UIContext uiContext)
     {
         _uiContext = uiContext;
@@ -23,12 +23,15 @@ public class UIWidget : MonoBehaviour
         SetImage(uiContext.ImageToSet);
         SetLabel(uiContext.LabelToSet);
         SetImageColor(uiContext.Color);
-        if (_itemInfo)
+        if (_itemInfo)//----
         {
-            _itemInfo.CheckLockUnlockItems(uiContext.Cost); //----
-            _itemInfo.SetUnlock(uiContext.LabelToSet); //----
-        }
-     
+            Debug.LogError("here");
+            _itemInfo.itemName = uiContext.LabelToSet;
+            _itemInfo.lockImage.GetComponent<Image>().sprite = uiContext.ImageToSet;
+            _itemInfo.CheckLockUnlockItems(uiContext.Cost); 
+            _itemInfo.SetUnlock();
+        }//----
+
         IWidgetComponent[] widgets = GetComponentsInChildren<IWidgetComponent>();
 
         foreach (IWidgetComponent component in widgets)

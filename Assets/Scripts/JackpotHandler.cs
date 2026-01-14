@@ -9,7 +9,7 @@ public class JackpotHandler : MonoBehaviour, IJackpotHandler
     [field: SerializeField] public GameObject mainMenuCanvas {  get; private set; }
     [field: SerializeField] public GameObject roomDecorCanvas {  get; private set; }
     [field: SerializeField] public GameObject plushieInventoryCanvas {  get; private set; }
-    public List<ItemsMetaData> earnedItems { get; private set; }
+    [field: SerializeField] public List<ItemsMetaData> earnedItems { get; private set; }
     [field: SerializeField] public GameObject roomBg { get; private set; }
 
     GameObject jackpotScreen = null;

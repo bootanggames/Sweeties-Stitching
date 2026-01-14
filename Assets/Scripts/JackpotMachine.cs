@@ -130,7 +130,7 @@ public class JackpotMachine : MonoBehaviour
         //rewardedItem.rewardAmountText.text = rewardItem.rewardAmount.ToString();
         if (item.ItemType.Equals(ItemType.COINS))
         {
-            rewardAmount = rewardSystem.levelUpRewardHandler.EVLevelJackpot_CoinsOnly();
+            rewardAmount = rewardSystem.levelUpRewardHandler.CalculateDailyHugeCoinsReward();
             amount = Mathf.RoundToInt((float)rewardAmount);
             rewardedItem.rewardAmountText.text = amount.ToString();
             winItemType = RewardType.coins;

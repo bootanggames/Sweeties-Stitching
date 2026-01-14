@@ -292,7 +292,7 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
         (c.point1 == p1 && c.point2 == p2) ||
         (c.point1 == p2 && c.point2 == p1)))
             return;
-        Connections connection = new Connections(p1, p2, linePrefab, zVal, multiple, stitchCount);
+        Connections connection = new Connections(p1, p2, linePrefab, zVal, stitchCount);
         connections.Add(connection);
         LevelsHandler.instance.currentLevelMeta.noOfStitchesDone++;
         if (LevelsHandler.instance.currentLevelMeta.currentSpool)
@@ -509,7 +509,7 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
                 //if(connection.multipleLine)
                 //    connection.UpdateLine(zVal, true);
                 //else
-                    connection.UpdateLine(zVal, false);
+                    connection.UpdateLine(zVal);
 
                 float currentDist = Vector3.Distance(connection.point1.position, connection.point2.position);
                 if (!connection.isLocked && currentDist < minDistance)
@@ -520,7 +520,7 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
             }
             foreach(var connection in LevelsHandler.instance.currentLevelMeta.cleanConnection)
             {
-                connection.UpdateLine(zVal, false);
+                connection.UpdateLine(zVal);
             }
         });
         pullSeq.OnComplete(() =>
@@ -581,7 +581,7 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
         if (connections.Count == 0) return;
         for(int i = 0; i < connections.Count; i++)
         {
-            connections[i].UpdateLine(zVal, false);
+            connections[i].UpdateLine(zVal);
         }
     }
    

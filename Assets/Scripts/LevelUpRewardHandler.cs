@@ -6,6 +6,7 @@ public class LevelUpRewardHandler : MonoBehaviour
 {
    [field:SerializeField]public LevelUpRewardList rewardList {  get; private set; }
     const float scale_LevelCoinsEV = 0.71f;
+    const float scale_DailyCoinsEV = 0.32f;
     const int roundingUnit = 10;
 
     [Header("-------- Level Up Jackpot--------")]
@@ -15,7 +16,10 @@ public class LevelUpRewardHandler : MonoBehaviour
     const float smallCoinsMultiplier = 0.5f;
     const float mediumCoinsMultiplier = 1.0f;
     const float hugeCoinsMultiplier = 2.0f;
-
+    [Header("-------- Daily Reward Coins--------")]
+    const float dailySmallCoinsMultiplier = 0.2f;
+    const float dailyMediumCoinsMultiplier = 0.5f;
+    const float dailyHugeCoinsMultiplier = 1.0f;
     [Header("--------Jackpot Probabilities--------")]
     const float smallTier = 0.7f;
     const float mediumTier = 0.25f;
@@ -58,13 +62,14 @@ public class LevelUpRewardHandler : MonoBehaviour
     public double CalculateLevelUpSmallCoinsReward()
     {
         int levelIndex = PlayerPrefs.GetInt("Level");
-        if(levelIndex > 0)
+        double rewardAmount = 0;
+        if (levelIndex > 0)
         {
             int amount = int.Parse(rewardList.levelUpReward[levelIndex - 1].CoinsPerCompletion);
-            double rewardAmount = amount * smallCoinsMultiplier * scale_LevelCoinsEV;
+            rewardAmount = amount * smallCoinsMultiplier * scale_LevelCoinsEV;
             return RoundUpRewardValue(rewardAmount);
         }
-        return 0;
+        return rewardAmount;
     }
 
     public double CalculateLevelUpMediumCoinsReward()
@@ -87,6 +92,42 @@ public class LevelUpRewardHandler : MonoBehaviour
         {
             int amount = int.Parse(rewardList.levelUpReward[levelIndex - 1].CoinsPerCompletion);
             double rewardAmount = amount * hugeCoinsMultiplier * scale_LevelCoinsEV;
+            return RoundUpRewardValue(rewardAmount);
+        }
+        return 0;
+    }
+
+    public double CalculateDailySmallCoinsReward()
+    {
+        //=ROUND(LevelUpCoinsReward*SmallCoinsMultiplierForDailyReward*Scale_DailyCoinsEV, -INT(Log10(RoundingUnit)))
+        int levelIndex = PlayerPrefs.GetInt("Level");
+        if (levelIndex > 0)
+        {
+            int amount = int.Parse(rewardList.levelUpReward[levelIndex - 1].CoinsPerCompletion);
+            double rewardAmount = amount * dailySmallCoinsMultiplier * scale_DailyCoinsEV;
+            return RoundUpRewardValue(rewardAmount);
+        }
+        return 0;
+    }
+    public double CalculateDailyMediumCoinsReward()
+    {
+        int levelIndex = PlayerPrefs.GetInt("Level");
+        if (levelIndex > 0)
+        {
+            int amount = int.Parse(rewardList.levelUpReward[levelIndex - 1].CoinsPerCompletion);
+            double rewardAmount = amount * dailyMediumCoinsMultiplier * scale_DailyCoinsEV;
+            return RoundUpRewardValue(rewardAmount);
+        }
+        return 0;
+    }
+
+    public double CalculateDailyHugeCoinsReward()
+    {
+        int levelIndex = PlayerPrefs.GetInt("Level");
+        if (levelIndex > 0)
+        {
+            int amount = int.Parse(rewardList.levelUpReward[levelIndex - 1].CoinsPerCompletion);
+            double rewardAmount = amount * dailyHugeCoinsMultiplier * scale_DailyCoinsEV;
             return RoundUpRewardValue(rewardAmount);
         }
         return 0;

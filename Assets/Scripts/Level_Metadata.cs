@@ -257,7 +257,7 @@ public class Level_Metadata : MonoBehaviour
                     {
                         if ((i + 1) < pointsHandler.points.Count)
                         {
-                            Connections newConnection = new Connections(pointsHandler.points[i].transform, pointsHandler.points[i + 1].transform, pointsHandler.linePrefab, -0.01f, false, 0);
+                            Connections newConnection = new Connections(pointsHandler.points[i].transform, pointsHandler.points[i + 1].transform, pointsHandler.linePrefab, -0.01f, 0);
                             pointsHandler.connections.Add(newConnection);
                         }
                     }
@@ -524,7 +524,7 @@ public class Level_Metadata : MonoBehaviour
             this.lineForCleanConnection.SetPosition(0, pos1);
             this.lineForCleanConnection.SetPosition(1, pos2);
             this.lineForCleanConnection.material.color = levelScriptable.threadColor;
-            Connections connection = new Connections(sp1.cleanStitchPoint, sp2.cleanStitchPoint, linePrefabForCleanConnection, -0.01f, false, 2);
+            Connections connection = new Connections(sp1.cleanStitchPoint, sp2.cleanStitchPoint, linePrefabForCleanConnection, -0.01f, 2);
             cleanConnection.Add(connection);
             connection.line.gameObject.SetActive(false);
             connection.isLocked = true;
@@ -538,8 +538,16 @@ public class Level_Metadata : MonoBehaviour
         {
             foreach(Connections c in cleanConnection)
             {
-                c.UpdateLine(-0.01f, false);
+                c.UpdateLine(-0.01f);
             }
+        }
+    }
+    public void RemoveLastConnection(int lastIndex)
+    {
+        if (cleanConnection.Count > 0)
+        {
+            Connections c_Clean = cleanConnection[lastIndex];
+            cleanConnection.Remove(c_Clean);
         }
     }
     public void DeactivateAllThreads()
@@ -549,5 +557,29 @@ public class Level_Metadata : MonoBehaviour
             connections.line.gameObject.SetActive(false);
         }
     }
-  
+  public void UndoStitchedCountData()
+    {
+        if (noOfStitchesDone > 0)
+        {
+            noOfStitchesDone--;
+            if (currentSpool)
+            {
+                SpoolInfo s_Info = currentSpool.GetComponent<SpoolInfo>();
+                s_Info._spoolData.noOfStitchedDone--;
+                float total = (levelScriptable.totalStitches / levelScriptable.totalSpoolsNeeded);
+
+                s_Info.UpdateThreadProgress((int)total);
+                if (SaveDataUsingJson.instance)
+                {
+                    int levelIndex = LevelsHandler.instance.levelIndex;
+                    string _plushieName = levelScriptable.levelName;
+                    SaveDataUsingJson.instance.SaveData(s_Info._spoolData.spoolId + "_" + levelIndex + "_" + _plushieName, s_Info._spoolData, "SpoolData");
+                }
+            }
+            PlayerPrefs.SetInt("StitchedCount", noOfStitchesDone);
+            if (canvasManager != null)
+                canvasManager.UpdateStitchCount(levelScriptable.totalStitches, noOfStitchesDone);
+        }
+
+    }
 }

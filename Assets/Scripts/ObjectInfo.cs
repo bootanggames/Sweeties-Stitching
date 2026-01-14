@@ -31,10 +31,13 @@ public class ObjectInfo : MonoBehaviour
     [SerializeField] bool enableConnection;
     [SerializeField]List<GameObject> coinsObj = new List<GameObject>();
     ICoinsHandler coinHandler;
-
+    IPointConnectionHandler connectHandler;
+    IThreadManager threadManager;
     private void Start()
     {
         c_Stitch = GetComponent<CleanStitch>();
+        connectHandler = ServiceLocator.GetService<IPointConnectionHandler>();
+        threadManager = ServiceLocator.GetService<IThreadManager>();
     }
     private void OnEnable()
     {
@@ -319,7 +322,6 @@ public class ObjectInfo : MonoBehaviour
         }
         confettiObj.Clear();
 
-        IThreadManager threadManager = ServiceLocator.GetService<IThreadManager>();
         if (threadManager != null)
         {
             if (threadManager.detectedPoints != null && threadManager.detectedPoints.Count > 0)
@@ -358,7 +360,6 @@ public class ObjectInfo : MonoBehaviour
         PlayerPrefs.SetInt(partType.ToString() + "_IsStiched", 0);
         ChangePartsState(true);
         stitchData.noOfConnections = 0;
-        var connectHandler = ServiceLocator.GetService<IPointConnectionHandler>();
         if (connectHandler != null)
         {
             foreach (SewPoint s in connectPoints)
@@ -376,5 +377,62 @@ public class ObjectInfo : MonoBehaviour
             }
         }
             
+    }
+
+    public void UndoInfo(Transform moveableTransform, ObjectInfo o_Info2)
+    {
+    
+        if (moveable)
+        {
+            if (head)
+                moveableTransform = transform.parent;
+            else
+                moveableTransform = transform;
+            if (stitchData != null)
+            {
+                if (stitchData.movedPositions.Count > 0)
+                {
+                    moveableTransform.DOMove(stitchData.movedPositions[stitchData.movedPositions.Count - 1], 0.25f).SetEase(Ease.InOutSine).OnUpdate(() =>
+                    {
+                        if (threadManager.lastConnectedPoint != null)
+                        {
+                            if (threadManager.instantiatedLine != null)
+                            {
+                                for (int i = 1; i < threadManager.instantiatedLine.positionCount; i++)
+                                {
+                                    threadManager.instantiatedLine.SetPosition(i, threadManager.lastConnectedPoint.position);
+                                }
+
+                            }
+                            if (threadManager.detectedPoints.Count > 0)
+                            {
+                                if (threadManager.prevLine != null)
+                                {
+                                    Vector3 endPos = threadManager.detectedPoints[0].position;
+                                    endPos.z = threadManager.zVal;
+                                    threadManager.prevLine.SetPosition(1, endPos);
+                                }
+                            }
+                        }
+                        connectHandler.UpdateConnections();
+                    }).OnComplete(() =>
+                    {
+
+                        moveableTransform.DOPause();
+                    });
+                    if (stitchData != null)
+                    {
+                        if (stitchData.movedPositions.Count > 0)
+                            stitchData.movedPositions.Remove(stitchData.movedPositions[stitchData.movedPositions.Count - 1]);
+                    }
+                    if (o_Info2.stitchData != null)
+                    {
+                        if (o_Info2.stitchData.movedPositions.Count > 0)
+                            o_Info2.stitchData.movedPositions.Remove(o_Info2.stitchData.movedPositions[o_Info2.stitchData.movedPositions.Count - 1]);
+                    }
+                }
+            }
+        }
+       
     }
 }

@@ -74,6 +74,8 @@ public class DecorItemsInventory : ScreenWithSelectableButtons<DecoreItemStoreBu
             };
             SpawnButton(context);
         }
+        if (storeItems)
+            storeItems.shelfText.text = decorItemType.ToString();
     }
     public void DisableButtonOutline(UIContext context)
     {

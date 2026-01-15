@@ -22,6 +22,8 @@ public class PlushieShelfAnimation : MonoBehaviour
     [SerializeField] GameObject homeBtn;
     [SerializeField] GameObject backBtn;
     [SerializeField] GameObject storeBtn;
+    [SerializeField] GameObject rightArrowBtn;
+    [SerializeField] GameObject leftArrowBtn;
     public bool dontPlayAnimation = false;
     private void OnEnable()
     {
@@ -72,6 +74,8 @@ public class PlushieShelfAnimation : MonoBehaviour
             homeBtn.SetActive(true);
             backBtn.SetActive(true);
             storeBtn.SetActive(true);
+            rightArrowBtn.SetActive(true);
+            leftArrowBtn.SetActive(true);
             if (GameHandler.instance)
                 GameHandler.instance.SwitchGameState(GameStates.RoomDecorScreen);
 

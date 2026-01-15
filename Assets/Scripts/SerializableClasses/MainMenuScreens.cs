@@ -12,4 +12,5 @@ public struct MainMenuScreens
     public GameObject blurEffect;
     public GameObject disableControlsScreen;
     public GameObject storeScreen;
+    public GameObject storeItemBuyScreen;
 }

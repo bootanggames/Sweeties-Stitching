@@ -6,11 +6,12 @@ public class MainMenuHandler : Singleton<MainMenuHandler>
 {
     [SerializeField] string SceneName;
     [SerializeField] TextMeshProUGUI coinText;
+    public GameObject sewBtn;
     public MainMenuActiveScreen activeScreen;
     public MainMenuActiveScreen previousScreen;
     public MainMenuScreens screens;
     [field:SerializeField] public LevelsInfoOnSelection levels {  get; private set; }
-
+    IRoomdecorStore roomdecorStore;
     public override void SingletonAwake()
     {
         base.SingletonAwake();
@@ -23,7 +24,7 @@ public class MainMenuHandler : Singleton<MainMenuHandler>
     public override void Start()
     {
         Time.timeScale = 1;
-
+        roomdecorStore = ServiceLocator.GetService<IRoomdecorStore>();
         activeScreen = MainMenuActiveScreen.homeScreen;
         int c = PlayerPrefs.GetInt("Coins");
         coinText.text = c.ToString();
@@ -34,6 +35,8 @@ public class MainMenuHandler : Singleton<MainMenuHandler>
             if(completed == 1)
             {
                 screens.disableControlsScreen.SetActive(true);
+                sewBtn.SetActive(false);
+
                 StartCoroutine(levels.AnimateCurrentUnlockedPlushie());
                 PlayerPrefs.SetInt("PlushieCompleted", 0);
             }
@@ -54,7 +57,8 @@ public class MainMenuHandler : Singleton<MainMenuHandler>
     
    public void UpdateScreen(string screen)
     {
-        previousScreen = activeScreen;
+        if(!activeScreen.Equals(MainMenuActiveScreen.storeItemBuyScreen) && !screen.Equals("storebuyitem"))
+            previousScreen = activeScreen;
 
         switch (screen)
         {
@@ -72,6 +76,9 @@ public class MainMenuHandler : Singleton<MainMenuHandler>
                 break;
             case "store":
                 activeScreen = MainMenuActiveScreen.storeScreen;
+                break;
+            case "storebuyitem":
+                activeScreen = MainMenuActiveScreen.storeItemBuyScreen;
                 break;
         }
         ChangeActiveScreen();
@@ -97,7 +104,6 @@ public class MainMenuHandler : Singleton<MainMenuHandler>
                 screens.plushieInventoryScreen.SetActive(false);
                 screens.blurEffect.SetActive(false);
                 screens.storeScreen.SetActive(false);
-
                 break;
             case MainMenuActiveScreen.plushieInventoryScreen:
                 screens.homeScreen.SetActive(false);
@@ -120,7 +126,11 @@ public class MainMenuHandler : Singleton<MainMenuHandler>
                 screens.plushieInventoryScreen.SetActive(false);
                 screens.roomDecorScreen.SetActive(false);
                 screens.storeScreen.SetActive(true);
+                screens.storeItemBuyScreen.SetActive(false);
                 break;
+            //case MainMenuActiveScreen.storeItemBuyScreen:
+            //    screens.storeItemBuyScreen.SetActive(true);
+            //    break;
         }
     }
 

@@ -12,5 +12,6 @@ public enum GameStates
    JackpotScreen,
    PlushieInventorySceen,
    RoomDecorScreen,
-   StoreScreen
+   StoreScreen,
+   StoreItemBuyScreen
 }

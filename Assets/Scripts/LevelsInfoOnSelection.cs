@@ -113,9 +113,11 @@ public class LevelsInfoOnSelection : MonoBehaviour
         effect.GetComponent<UIParticle>().scale /= 2;
         ld.startPosition.SetParent(ld.transform);
         effect.GetComponent<ParticleSystem>().Play();
+        MainMenuHandler.instance.sewBtn.SetActive(true);
         yield return new WaitForSeconds(1.5f);
         currentPlushie.transform.SetParent(ld.transform);
         MainMenuHandler.instance.screens.disableControlsScreen.SetActive(false);
+
         Destroy(effect, 1);
         seq2.Kill();
         //if (roomdecorStore != null)

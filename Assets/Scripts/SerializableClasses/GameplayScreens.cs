@@ -14,6 +14,7 @@ public struct GameplayScreens
     [field: SerializeField] public GameObject plushiesInventoryScreenObj { get; private set; }
     [field: SerializeField] public GameObject roomDecorScreen { get; private set; }
     [field: SerializeField] public GameObject storeScreen { get; private set; }
+    [field: SerializeField] public GameObject storeItemBuyScreen { get; private set; }
     [field: SerializeField] public GameObject storeBg { get; private set; }
 
 }

@@ -51,13 +51,13 @@ public class PlushiesInventory : MonoBehaviour,IPlushieInventory
             if (MainMenuHandler.instance.previousScreen.Equals(MainMenuActiveScreen.roomDecorScreen))
             {
                 //MainMenuHandler.instance.mainMenuBg.SetActive(false);
-                MainMenuHandler.instance.UpdateScreen("plushieinventory");
+                MainMenuHandler.instance.UpdateScreen("roomdecor");
                 MainMenuHandler.instance.screens.roomDecorScreen.SetActive(true);
                 MainMenuHandler.instance.screens.plushieInventoryScreen.SetActive(false);
             }
             else
             {
-                MainMenuHandler.instance.UpdateScreen("plushieinventory");
+                MainMenuHandler.instance.UpdateScreen("home");
                 MainMenuHandler.instance.screens.homeScreen.SetActive(true);
                 MainMenuHandler.instance.screens.plushieInventoryScreen.SetActive(false);
 

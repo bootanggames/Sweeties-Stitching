@@ -6,5 +6,6 @@ public enum MainMenuActiveScreen
     plushieInventoryScreen,
     roomDecorScreen,
     roomInventoryScreen,
-    jackpotScreen
+    jackpotScreen,
+    storeScreen
 }

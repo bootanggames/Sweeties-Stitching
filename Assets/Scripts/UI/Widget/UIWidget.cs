@@ -23,14 +23,7 @@ public class UIWidget : MonoBehaviour
         SetImage(uiContext.ImageToSet);
         SetLabel(uiContext.LabelToSet);
         SetImageColor(uiContext.Color);
-        if (_itemInfo)//----
-        {
-            Debug.LogError("here");
-            _itemInfo.itemName = uiContext.LabelToSet;
-            _itemInfo.lockImage.GetComponent<Image>().sprite = uiContext.ImageToSet;
-            _itemInfo.CheckLockUnlockItems(uiContext.Cost); 
-            _itemInfo.SetUnlock();
-        }//----
+        if (_itemInfo) _itemInfo.SetItem(uiContext);//----
 
         IWidgetComponent[] widgets = GetComponentsInChildren<IWidgetComponent>();
 

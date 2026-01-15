@@ -168,4 +168,10 @@ public class RoomdecorStore : MonoBehaviour, IRoomdecorStore
             g.SetActive(true);
         }
     }
+
+    public void MyPlushieScreenOnGameplay()
+    {
+        if (GameHandler.instance)
+            GameHandler.instance.SwitchGameState(GameStates.PlushieInventorySceen);
+    }
 }

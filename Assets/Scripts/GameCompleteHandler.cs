@@ -106,10 +106,10 @@ public class GameCompleteHandler : MonoBehaviour, IGameService
         if(canvasHandler != null)
         {
             PlayCelebrationTrumpetSound();
-            canvasHandler.sewnScreen.SetActive(false);
+            canvasHandler.screens.sewnScreen.SetActive(false);
             canvasHandler.sewnTextImage.transform.localScale = Vector3.zero;
-            canvasHandler.confettiEffectCanvas.SetActive(false);
-            canvasHandler.mainCanvas.SetActive(false);
+            canvasHandler.screens.confettiEffectCanvas.SetActive(false);
+            canvasHandler.screens.mainCanvas.SetActive(false);
             canvasHandler.audioSourceForBG.volume = 0.5f;
             LevelsHandler.instance.currentLevelMeta.sewnPlushie.SetActive(false);
             canvasHandler.EnableDisableGameCompleteScreen(true);
@@ -122,7 +122,6 @@ public class GameCompleteHandler : MonoBehaviour, IGameService
             rt.DOScale(1, speed).SetEase(Ease.Linear).OnComplete(() =>
             {
                 canvasHandler.PlayBgMusic();
-                GameHandler.instance.SwitchGameState(GameStates.jackpotScreen);
                 //if (coinsHandler != null)
                 //{
                 //    coinsHandler.CreateCoinsObjects();
@@ -145,8 +144,8 @@ public class GameCompleteHandler : MonoBehaviour, IGameService
     }
     void PlaySparkleSound()
     {
-        canvasHandler.gameCompletePanel.gameObject.AddComponent<AudioSource>();
-        AudioSource source = canvasHandler.gameCompletePanel.gameObject.GetComponent<AudioSource>();
+        canvasHandler.screens.gameCompletePanel.gameObject.AddComponent<AudioSource>();
+        AudioSource source = canvasHandler.screens.gameCompletePanel.gameObject.GetComponent<AudioSource>();
         AudioClip _clip = SoundManager.instance.audioClips.plushieCompletedSparkle;
         SoundManager.instance.PlaySound(source, _clip, false, false, 1, false);
         CancelInvoke(nameof(PlaySparkleEffect));
@@ -259,8 +258,8 @@ public class GameCompleteHandler : MonoBehaviour, IGameService
         Time.timeScale = 1.0f;
         if (canvasHandler != null)
         {
-            canvasHandler.confettiEffectCanvas.SetActive(true);
-            canvasHandler.sewnScreen.SetActive(true);
+            canvasHandler.screens.confettiEffectCanvas.SetActive(true);
+            canvasHandler.screens.sewnScreen.SetActive(true);
         }
         CancelInvoke(nameof( EnableSewnWord));
     }

@@ -3,11 +3,14 @@ using System;
 [Serializable]
 public enum GameStates 
 {
-   None,
+   LevelObjectiveScreen,
    Gamestart,
    Gamepause,
    Gamecomplete,
    ThreadSpoolBuyScreen,
    Gamefail,
-   jackpotScreen
+   JackpotScreen,
+   PlushieInventorySceen,
+   RoomDecorScreen,
+   StoreScreen
 }

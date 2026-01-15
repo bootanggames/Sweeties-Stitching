@@ -144,12 +144,12 @@ public class ObjectInfo : MonoBehaviour
     }
    
 
-    public void IncementConnection()
+    public void IncrementConnection()
     {
         stitchData.noOfConnections++;
         SaveDataUsingJson.instance.SaveData(LevelsHandler.instance.currentLevelMeta.levelScriptable.levelName + "_" + partType, stitchData, "Stitching_BackUpFiles");
     }
-    public void DecementConnection()
+    public void DecrementConnection()
     {
         stitchData.noOfConnections--;
         SaveDataUsingJson.instance.SaveData(LevelsHandler.instance.currentLevelMeta.levelScriptable.levelName + "_" + partType, stitchData, "Stitching_BackUpFiles");

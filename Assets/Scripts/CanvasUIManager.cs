@@ -7,23 +7,16 @@ using UnityEngine.UI;
 public class CanvasUIManager : MonoBehaviour, ICanvasUIManager
 {
     [field: SerializeField] public GameObject completeStitchedPlushie {  get; private set; }
-    [field: SerializeField] public GameObject gameCompletePanel { get; private set; }
     [field: SerializeField] public TextMeshProUGUI stitchCountText {  get; private set; }
     [field: SerializeField] public TextMeshProUGUI stitchProgress {  get; private set; }
      public GameObject tapToStartButton { get; private set; }
      public TextMeshProUGUI offsetValue { get; private set; }
     [field: SerializeField] public GameObject startText { get; private set; }
     [field: SerializeField] public GameObject undoHighLight { get; private set; }
-    [field: SerializeField] public GameObject sewnScreen { get; private set; }
-    [field: SerializeField] public GameObject confettiEffectCanvas { get; private set; }
     [field: SerializeField] public GameObject sewnTextImage { get; private set; }
-    [field: SerializeField] public GameObject goToHomeScreen { get; private set; }
     [field: SerializeField] public AudioSource audioSourceForBG { get; private set; }
-    //[field: SerializeField] public Image spoolImg { get; private set; }
-    [field: SerializeField] public GameObject mainCanvas { get; private set; }
-    [field: SerializeField] public GameObject plushiesInventoryScreen { get; private set; }
     [field: SerializeField] public GameObject alertTextObj { get; private set; }
-    [field: SerializeField] public GameObject gameCompleteBGCanvas { get; private set; }
+    [field: SerializeField] public GameplayScreens screens { get; private set; }
 
     private void Start()
     {
@@ -97,9 +90,9 @@ public class CanvasUIManager : MonoBehaviour, ICanvasUIManager
 
     public void CheckGameCompleteOnHomeButton()
     {
-        if (!GameHandler.instance.gameStates.Equals(GameStates.Gamecomplete))
+        if (!GameHandler.instance.currentActiveScreen.Equals(GameStates.Gamecomplete))
         {
-            goToHomeScreen.SetActive(true);
+            screens.goToHomeScreen.SetActive(true);
             Time.timeScale = 0;
         }
             
@@ -110,11 +103,26 @@ public class CanvasUIManager : MonoBehaviour, ICanvasUIManager
     }
     public void EnableDisablePlushieInventoryScreen(bool active)
     {
-        plushiesInventoryScreen.SetActive(active);
+        screens.plushiesInventoryMainObject.SetActive(active);
+        GameHandler.instance.SwitchGameState(GameStates.PlushieInventorySceen);
     }
     public void EnableDisableGameCompleteScreen(bool active)
     {
-        gameCompleteBGCanvas.SetActive(active);
-        gameCompletePanel.SetActive(active);
+        screens.gameCompleteBGCanvas.SetActive(active);
+        screens.gameCompletePanel.SetActive(active);
+    }
+    public void Store()
+    {
+        if (GameHandler.instance)
+        {
+            screens.plushiesInventoryMainObject.SetActive(false);
+            screens.roomDecorScreen.SetActive(false);
+
+            GameHandler.instance.SwitchGameState(GameStates.StoreScreen);
+            screens.storeBg.SetActive(true);
+            screens.storeScreen.SetActive(true);
+            StoreItemsInventory s_Inventory = screens.storeScreen.GetComponentInParent<StoreItemsInventory>();
+            s_Inventory.UpdateCoins();
+        }
     }
 }

@@ -113,7 +113,7 @@ public class SewPoint : MonoBehaviour, ISewPoint
     public void Selected(bool val)
     {
         selected = val;
-        if(!GameHandler.instance.gameStates.Equals(GameStates.Gamecomplete))
+        if(!GameHandler.instance.currentActiveScreen.Equals(GameStates.Gamecomplete))
             SpoolArrangement();
     }
     void SpoolArrangement()

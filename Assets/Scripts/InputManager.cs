@@ -24,7 +24,7 @@ public class InputManager : MonoBehaviour
     private void Update()
     {
         if (GameHandler.instance == null) return;
-        if (!GameHandler.instance.gameStates.Equals(GameStates.Gamestart)) return;
+        if (!GameHandler.instance.currentActiveScreen.Equals(GameStates.Gamestart)) return;
         else
             if (IsPointerOverUIElement()) return;
 

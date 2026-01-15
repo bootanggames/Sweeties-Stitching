@@ -127,7 +127,7 @@ public class LevelsHandler : Singleton<LevelsHandler>
     bool once = false;
     public void NextPlushie()
     {
-        if (GameHandler.instance.gameStates.Equals(GameStates.jackpotScreen)) return;
+        if (GameHandler.instance.currentActiveScreen.Equals(GameStates.JackpotScreen)) return;
         if (once) return;
         if (connectionHandler != null) connectionHandler.DeleteAllThreadLinks();
 

@@ -11,6 +11,14 @@ public class ItemInfo : MonoBehaviour
     [SerializeField] GameObject priceButton;
     [SerializeField] TextMeshProUGUI itemPrice;
     IJackpotHandler jackpotHandler;
+
+    public void SetItem(UIContext uiContext)
+    {
+        itemName = uiContext.LabelToSet;
+        lockImage.GetComponent<Image>().sprite = uiContext.ImageToSet;
+        CheckLockUnlockItems(uiContext.Cost);
+        SetUnlock();
+    }
     public void SetUnlock()
     {
         jackpotHandler = ServiceLocator.GetService<IJackpotHandler>();
@@ -46,6 +54,7 @@ public class ItemInfo : MonoBehaviour
         {
             _button.interactable = true;
             lockImage.SetActive(false);
+            status = ItemStatus.unlocked;
         }
     }
 }

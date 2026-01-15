@@ -7,15 +7,8 @@ public class MainMenuHandler : Singleton<MainMenuHandler>
     [SerializeField] string SceneName;
     [SerializeField] TextMeshProUGUI coinText;
     public MainMenuActiveScreen activeScreen;
-
-    public GameObject roomDecorScreen;
-    public GameObject homeScreenCanvas;
-    public GameObject homeScreen;
-    public GameObject plushieInventoryScreen;
-    public GameObject mainMenuBg;
-    public GameObject blurEffect;
-    public GameObject disableControlsScreen;
-
+    public MainMenuActiveScreen previousScreen;
+    public MainMenuScreens screens;
     [field:SerializeField] public LevelsInfoOnSelection levels {  get; private set; }
 
     public override void SingletonAwake()
@@ -40,7 +33,7 @@ public class MainMenuHandler : Singleton<MainMenuHandler>
         {
             if(completed == 1)
             {
-                disableControlsScreen.SetActive(true);
+                screens.disableControlsScreen.SetActive(true);
                 StartCoroutine(levels.AnimateCurrentUnlockedPlushie());
                 PlayerPrefs.SetInt("PlushieCompleted", 0);
             }
@@ -61,6 +54,8 @@ public class MainMenuHandler : Singleton<MainMenuHandler>
     
    public void UpdateScreen(string screen)
     {
+        previousScreen = activeScreen;
+
         switch (screen)
         {
             case "home":
@@ -75,6 +70,9 @@ public class MainMenuHandler : Singleton<MainMenuHandler>
             case "plushieinventory":
                 activeScreen = MainMenuActiveScreen.plushieInventoryScreen;
                 break;
+            case "store":
+                activeScreen = MainMenuActiveScreen.storeScreen;
+                break;
         }
         ChangeActiveScreen();
     }
@@ -82,30 +80,46 @@ public class MainMenuHandler : Singleton<MainMenuHandler>
     {
         switch(activeScreen)
         {
-            case MainMenuActiveScreen.homeScreen:  
-                homeScreenCanvas.SetActive(true);
-                homeScreen.SetActive(true);
-                roomDecorScreen.SetActive(false);
-                plushieInventoryScreen.SetActive(false);
-                blurEffect.SetActive(true);
+            case MainMenuActiveScreen.homeScreen:
+                screens.homeScreenCanvas.SetActive(true);
+                screens.homeScreen.SetActive(true);
+                screens.roomDecorScreen.SetActive(false);
+                screens.plushieInventoryScreen.SetActive(false);
+                screens.blurEffect.SetActive(true);
+                screens.storeScreen.SetActive(false);
+
+                int c = PlayerPrefs.GetInt("Coins");
+                coinText.text = c.ToString();
                 break;
             case MainMenuActiveScreen.roomDecorScreen:
-                homeScreen.SetActive(false);
-                roomDecorScreen.SetActive(true);
-                plushieInventoryScreen.SetActive(false);
-                blurEffect.SetActive(false);
+                screens.homeScreen.SetActive(false);
+                screens.roomDecorScreen.SetActive(true);
+                screens.plushieInventoryScreen.SetActive(false);
+                screens.blurEffect.SetActive(false);
+                screens.storeScreen.SetActive(false);
+
                 break;
             case MainMenuActiveScreen.plushieInventoryScreen:
-                homeScreen.SetActive(false);
-                roomDecorScreen.SetActive(false);
-                plushieInventoryScreen.SetActive(true);
-                blurEffect.SetActive(true);
+                screens.homeScreen.SetActive(false);
+                screens.roomDecorScreen.SetActive(false);
+                screens.plushieInventoryScreen.SetActive(true);
+                screens.blurEffect.SetActive(true);
+                screens.storeScreen.SetActive(false);
+
                 break;
             case MainMenuActiveScreen.roomInventoryScreen:
-                homeScreen.SetActive(false);
-                //roomDecorScreen.SetActive(false);
-                plushieInventoryScreen.SetActive(false);
-                blurEffect.SetActive(false);
+                screens.homeScreen.SetActive(false);
+                screens.plushieInventoryScreen.SetActive(false);
+                screens.blurEffect.SetActive(false);
+                screens.storeScreen.SetActive(false);
+
+                break;
+            case MainMenuActiveScreen.storeScreen:
+                screens.homeScreen.SetActive(false);
+                screens.blurEffect.SetActive(true);
+                screens.plushieInventoryScreen.SetActive(false);
+                screens.roomDecorScreen.SetActive(false);
+                screens.storeScreen.SetActive(true);
                 break;
         }
     }

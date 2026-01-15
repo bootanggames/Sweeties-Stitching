@@ -1,6 +1,5 @@
 using DG.Tweening;
 using System.Collections;
-using UnityEditor;
 using UnityEngine;
 
 public class PlushieShelfAnimation : MonoBehaviour
@@ -22,6 +21,7 @@ public class PlushieShelfAnimation : MonoBehaviour
     [SerializeField] PlushiesInventory _plushieInventoryScreen;
     [SerializeField] GameObject homeBtn;
     [SerializeField] GameObject backBtn;
+    [SerializeField] GameObject storeBtn;
     public bool dontPlayAnimation = false;
     private void OnEnable()
     {
@@ -48,9 +48,7 @@ public class PlushieShelfAnimation : MonoBehaviour
         yield return new WaitForSeconds(0.7f);
         Sequence seq1 = DOTween.Sequence();
         rt.SetParent(room.GetComponent<RectTransform>());
-        //rt.anchorMin = targetPosition.anchorMin;
-        //rt.anchorMax = targetPosition.anchorMax;
-        //rt.pivot = targetPosition.pivot;
+  
         SetAnchorsForShelfObject(rt, targetPosition);
 
         rt.sizeDelta = rectSize;
@@ -64,13 +62,7 @@ public class PlushieShelfAnimation : MonoBehaviour
         seq1.Kill();
         this.gameObject.SetActive(false);
         rt.SetParent(shelfParent);
-        //rt.anchorMin = startPosition.anchorMin;
-        //rt.anchorMax = startPosition.anchorMax;
-        //rt.pivot = startPosition.pivot;
      
-
-        //if (GameHandler.instance)
-        //    GameHandler.instance.Home("HomeScreen");
         if (_roomdecorStore != null)
         {
             rt.gameObject.SetActive(true);
@@ -79,6 +71,10 @@ public class PlushieShelfAnimation : MonoBehaviour
             _plushieInventoryScreen.gameObject.SetActive(false);
             homeBtn.SetActive(true);
             backBtn.SetActive(true);
+            storeBtn.SetActive(true);
+            if (GameHandler.instance)
+                GameHandler.instance.SwitchGameState(GameStates.RoomDecorScreen);
+
         }
         //PlayerPrefs.SetInt("OpenRoomDecor", 1);
         StopCoroutine(ShelfAnimation());

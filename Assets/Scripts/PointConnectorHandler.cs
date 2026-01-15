@@ -336,8 +336,8 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
         if (immoveableInfo.stitchData != null)
             immoveableInfo.stitchData.movedPositions.Add(moveAbleTransform.position);
 
-        moveableInfo.IncementConnection();
-        immoveableInfo.IncementConnection();
+        moveableInfo.IncrementConnection();
+        immoveableInfo.IncrementConnection();
 
         sp1.IsConnected(true, 1, moveAbleTransform.position, moveableInfo.partType.ToString());
         sp2.IsConnected(true, 1, moveAbleTransform.position, immoveableInfo.partType.ToString());

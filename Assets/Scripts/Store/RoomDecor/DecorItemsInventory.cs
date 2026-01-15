@@ -14,11 +14,13 @@ public class DecorItemsInventory : ScreenWithSelectableButtons<DecoreItemStoreBu
     private ItemType _itemType = ItemType.BED;
 
     IRoomdecorStore roomdecorStore;
-    UIContext clickedItemContext;
+    public UIContext clickedItemContext {  get; private set; }
+    StoreItemsInventory storeItems;
     private void Start()
     {
         GameEvents.UIEvents.ShowDecorItemsInventory.Register(OnShowDecorItemsInventory);
         roomdecorStore = ServiceLocator.GetService<IRoomdecorStore>();
+        storeItems = this.GetComponent<StoreItemsInventory>();
     }
 
     void OnDestroy()
@@ -27,7 +29,10 @@ public class DecorItemsInventory : ScreenWithSelectableButtons<DecoreItemStoreBu
     }
 
    
-    
+    public List<DecoreItemStoreButton> ButtonsList()
+    {
+        return _buttons;
+    }
     public void ShowWithBeds()
     {
         OnShowDecorItemsInventory(ItemType.BED);
@@ -39,7 +44,7 @@ public class DecorItemsInventory : ScreenWithSelectableButtons<DecoreItemStoreBu
     private void OnShowDecorItemsInventory(ItemType decorItemType)
     {
         _itemType = decorItemType;
-        Debug.LogError($"OnShowDecorItemsInventory {decorItemType}");
+        //Debug.LogError($"OnShowDecorItemsInventory {decorItemType}");
         SpawnButtons();
         _container.SetActive(true);
     }
@@ -87,6 +92,8 @@ public class DecorItemsInventory : ScreenWithSelectableButtons<DecoreItemStoreBu
         useButtonObj.SetActive(true);
         DisableButtonOutline(context);
         clickedItemContext = context;
+        if(storeItems)
+            storeItems.ButtonsActivity(context);
     }
 
     public void UseButton()
@@ -104,23 +111,5 @@ public class DecorItemsInventory : ScreenWithSelectableButtons<DecoreItemStoreBu
         }
     }
 
-    public void BuyItem()
-    {
-        int coins = PlayerPrefs.GetInt("Coins");
-        int _iPrice = 0;
-        foreach (DecoreItemStoreButton b in _buttons)
-        {
-            UIWidget uIWidget = b.GetComponent<UIWidget>();
-            if (clickedItemContext.ID.Equals(uIWidget.GetContextID()))
-            {
-                _iPrice = uIWidget.GetItemPrice();
-                if (coins >= _iPrice)
-                {
-                    uIWidget._itemInfo.Unlock();
-                    break;
-                }
-            }
-        }
-       
-    }
+    
 }

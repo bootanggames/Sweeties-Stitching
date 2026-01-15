@@ -518,28 +518,7 @@ public class ThreadManager : MonoBehaviour, IThreadManager
                 c = connectHandler.connections[connectHandler.connections.Count - 1];
                 connectHandler.connections.Remove(c);
                 LevelsHandler.instance.currentLevelMeta.UndoStitchedCountData();
-                //if (LevelsHandler.instance.currentLevelMeta.noOfStitchesDone > 0)
-                //{
-                //    LevelsHandler.instance.currentLevelMeta.noOfStitchesDone--;
-                //    if (LevelsHandler.instance.currentLevelMeta.currentSpool)
-                //    {
-                //        SpoolInfo s_Info = LevelsHandler.instance.currentLevelMeta.currentSpool.GetComponent<SpoolInfo>();
-                //        s_Info._spoolData.noOfStitchedDone--;
-                //        float total = (LevelsHandler.instance.currentLevelMeta.levelScriptable.totalStitches / LevelsHandler.instance.currentLevelMeta.levelScriptable.totalSpoolsNeeded);
-
-                //        s_Info.UpdateThreadProgress((int)total);
-                //        if (SaveDataUsingJson.instance)
-                //        {
-                //            int levelIndex = LevelsHandler.instance.levelIndex;
-                //            string _plushieName = LevelsHandler.instance.currentLevelMeta.levelScriptable.levelName;
-                //            SaveDataUsingJson.instance.SaveData(s_Info._spoolData.spoolId + "_" + levelIndex + "_" + _plushieName, s_Info._spoolData, "SpoolData");
-                //        }
-                //    }
-                //    PlayerPrefs.SetInt("StitchedCount", LevelsHandler.instance.currentLevelMeta.noOfStitchesDone);
-                //    if (canvasManager != null)
-                //        canvasManager.UpdateStitchCount(LevelsHandler.instance.currentLevelMeta.levelScriptable.totalStitches, LevelsHandler.instance.currentLevelMeta.noOfStitchesDone);
-                //}
-
+               
                 Transform moveableTransform = null;
                 ObjectInfo o_Info1 = null;
                 ObjectInfo o_Info2 = null;
@@ -582,9 +561,9 @@ public class ThreadManager : MonoBehaviour, IThreadManager
                     if (connectHandler.wrongConnectPoint.Count == 0)
                     {
                         if (o_Info1.stitchData.noOfConnections > 0)
-                            o_Info1.DecementConnection();
+                            o_Info1.DecrementConnection();
                         if (o_Info2.stitchData.noOfConnections > 0)
-                            o_Info2.DecementConnection();
+                            o_Info2.DecrementConnection();
 
                         if (o_Info1.moveable)
                             o_Info1.UndoInfo(moveableTransform, o_Info2);

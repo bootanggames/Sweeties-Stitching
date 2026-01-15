@@ -1,7 +1,6 @@
 using TMPro;
 using TS.PageSlider;
 using UnityEngine;
-using static Unity.VisualScripting.Member;
 
 public class PlushiesInventory : MonoBehaviour,IPlushieInventory
 {
@@ -49,16 +48,18 @@ public class PlushiesInventory : MonoBehaviour,IPlushieInventory
     {
         if (MainMenuHandler.instance)
         {
-            if (MainMenuHandler.instance.activeScreen.Equals(MainMenuActiveScreen.roomDecorScreen))
+            if (MainMenuHandler.instance.previousScreen.Equals(MainMenuActiveScreen.roomDecorScreen))
             {
                 //MainMenuHandler.instance.mainMenuBg.SetActive(false);
-                MainMenuHandler.instance.roomDecorScreen.SetActive(true);
-                MainMenuHandler.instance.plushieInventoryScreen.SetActive(false);
+                MainMenuHandler.instance.UpdateScreen("plushieinventory");
+                MainMenuHandler.instance.screens.roomDecorScreen.SetActive(true);
+                MainMenuHandler.instance.screens.plushieInventoryScreen.SetActive(false);
             }
             else
             {
-                MainMenuHandler.instance.homeScreen.SetActive(true);
-                MainMenuHandler.instance.plushieInventoryScreen.SetActive(false);
+                MainMenuHandler.instance.UpdateScreen("plushieinventory");
+                MainMenuHandler.instance.screens.homeScreen.SetActive(true);
+                MainMenuHandler.instance.screens.plushieInventoryScreen.SetActive(false);
 
             }
         }
@@ -101,5 +102,21 @@ public class PlushiesInventory : MonoBehaviour,IPlushieInventory
     public void UnRegisterService()
     {
         ServiceLocator.UnRegisterService<IPlushieInventory>(this);
+    }
+    public void Store()
+    {
+        if (GameHandler.instance)
+        {
+            ICanvasUIManager uimanager = ServiceLocator.GetService<ICanvasUIManager>();
+            if(uimanager != null)
+            {
+
+                uimanager.screens.plushiesInventoryMainObject.SetActive(false);
+                uimanager.screens.roomDecorScreen.SetActive(false);
+
+                GameHandler.instance.SwitchGameState(GameStates.StoreScreen);
+                uimanager.screens.storeScreen.SetActive(true);
+            }
+        }
     }
 }

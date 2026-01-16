@@ -52,13 +52,11 @@ public class HomeScreenTutorial : MonoBehaviour
         tutorialScreen[mainScreenIndex].screens[screenIndex].screen.SetActive(false);
         PlayerPrefs.SetInt(tutorialScreen[mainScreenIndex].screens[screenIndex].screen.name + "_" + screenIndex, 1);
         tutorialScreen[mainScreenIndex].screens[screenIndex].subScreens[subScreenIndex].SetActive(true);
-        subScreenIndex++;
     }
     public void SubScreenNextButton()
     {
-        subScreenIndex++;
-        
-        
+        tutorialScreen[mainScreenIndex].screens[screenIndex].subScreens[subScreenIndex].SetActive(false);
+        SubScreenIncrement();
         if (subScreenIndex >= tutorialScreen[mainScreenIndex].screens[screenIndex].subScreens.Count)
         {
             foreach (GameObject g in tutorialScreen[mainScreenIndex].screens[screenIndex].subScreens)
@@ -67,12 +65,17 @@ public class HomeScreenTutorial : MonoBehaviour
             }
             subScreenIndex = 0;
             screenIndex++;
+            CheckScreenActivity();
+
+            if (tutorialScreen[mainScreenIndex].screens[screenIndex].subScreens.Count > 0)
+            {
+                SubScreenActivation();
+            }
             if (MainMenuHandler.instance)
             {
                 MainMenuHandler.instance.screens.homeScreen.SetActive(true);
                 MainMenuHandler.instance.screens.homeScreenCanvas.SetActive(true);
             }
-            CheckScreenActivity();
         }
         else
         {
@@ -80,33 +83,39 @@ public class HomeScreenTutorial : MonoBehaviour
         }
 
     }
+    public void SubScreenIncrement()
+    {
+        subScreenIndex++;
+    }
     public void CheckFinishedStatus()
     {
-        if(subScreenIndex > 0)
+        if(tutorialScreen[mainScreenIndex].screens[screenIndex].subScreens.Count > 0 && subScreenIndex >= 0)
         {
             SubScreenNextButton();
             return;
         }
-        //if (tutorialScreen[mainScreenIndex].screens[screenIndex].subScreens.Count > 0)
-        //{
-        //    nextBtn.SetActive(false);
-        //    if (!tutorialScreen[mainScreenIndex].screens[screenIndex].screen.activeSelf)
-        //          tutorialScreen[mainScreenIndex].screens[screenIndex].screen.SetActive(true);
-        //}
-        //else
+        if (tutorialScreen[mainScreenIndex].screens[screenIndex].subScreens.Count > 0)
+        {
+            SubScreenActivation();
+        }
+        else
         {
             PlayerPrefs.SetInt(tutorialScreen[mainScreenIndex].screens[screenIndex].screen.name + "_" + screenIndex, 1);
             tutorialScreen[mainScreenIndex].screens[screenIndex].screen.SetActive(false);
             screenIndex++;
             if (tutorialScreen[mainScreenIndex].screens[screenIndex].subScreens.Count > 0)
             {
-                nextBtn.SetActive(false);
-                if (!tutorialScreen[mainScreenIndex].screens[screenIndex].screen.activeSelf)
-                    tutorialScreen[mainScreenIndex].screens[screenIndex].screen.SetActive(true);
+                SubScreenActivation();
             }
             CheckScreenActivity();
         }
        
+    }
+    void SubScreenActivation()
+    {
+        nextBtn.SetActive(false);
+        if (!tutorialScreen[mainScreenIndex].screens[screenIndex].screen.activeSelf)
+            tutorialScreen[mainScreenIndex].screens[screenIndex].screen.SetActive(true);
     }
     void CheckScreenActivity()
     {

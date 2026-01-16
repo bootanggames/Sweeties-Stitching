@@ -16,13 +16,20 @@ public class HomeScreenTutorial : MonoBehaviour
     [SerializeField] int screenIndex = 0;
     [SerializeField] int subScreenIndex = 0;
     [SerializeField] bool gameplayScreen;
+    [SerializeField] bool jackpotTutorial;
     private void Start()
     {
+        if (gameplayScreen) return;
+        if (jackpotTutorial)
+        {
+            if (!PlayerPrefs.HasKey("JackpotTutorialFinished") || PlayerPrefs.GetInt("JackpotTutorialFinished") == 0)
+                StartTutorial();
+            return;
+        }
         if (!PlayerPrefs.HasKey("TutorialFinished") || PlayerPrefs.GetInt("TutorialFinished") == 0)
             startTutorial = true;
         else
             startTutorial = false;
-        if (gameplayScreen) return;
         if (startTutorial) StartTutorial();
     }
     public void StartTutorial()
@@ -168,7 +175,6 @@ public class HomeScreenTutorial : MonoBehaviour
         mainScreenIndex = 0;
         subScreenIndex = 0;
 
-        PlayerPrefs.SetInt("TutorialFinished", 1);
         foreach(TutorialScreenWithType sp in tutorialScreen)
         {
             sp.screenParent.SetActive(false);
@@ -187,6 +193,10 @@ public class HomeScreenTutorial : MonoBehaviour
 
         if (gameplayScreen)
             PlayerPrefs.SetInt("GameplayTutorialFinished", 1);
+        else if(jackpotTutorial)
+            PlayerPrefs.SetInt("JackpotTutorialFinished", 1);
+        else
+            PlayerPrefs.SetInt("TutorialFinished", 1);
         tutorialPanel.SetActive(false);
 
     }

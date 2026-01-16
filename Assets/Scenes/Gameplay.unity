@@ -448,7 +448,7 @@ MonoBehaviour:
     <plushiesInventoryScreenObj>k__BackingField: {fileID: 1957211131}
     <roomDecorScreen>k__BackingField: {fileID: 1604272362}
     <storeScreen>k__BackingField: {fileID: 1022922948}
-    <storeItemBuyScreen>k__BackingField: {fileID: 0}
+    <storeItemBuyScreen>k__BackingField: {fileID: 1022922949}
     <storeBg>k__BackingField: {fileID: 1357518304}
 --- !u!82 &10644494
 AudioSource:
@@ -281875,6 +281875,11 @@ MonoBehaviour:
 --- !u!1 &1022922948 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7916315005207886305, guid: 74862c9275f56f641bcd9654e664ce8d, type: 3}
+  m_PrefabInstance: {fileID: 1022922946}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1022922949 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8939720284021914626, guid: 74862c9275f56f641bcd9654e664ce8d, type: 3}
   m_PrefabInstance: {fileID: 1022922946}
   m_PrefabAsset: {fileID: 0}
 --- !u!224 &1022922955 stripped

@@ -66,6 +66,7 @@ public class StoreItemsInventory : MonoBehaviour
                     b_info.itemPriceText.text = context.Cost.ToString();
                     b_info.itemName.text = context.LabelToSet;
                     if (MainMenuHandler.instance) MainMenuHandler.instance.UpdateScreen("storebuyitem");
+                    else GameHandler.instance.SwitchGameState(GameStates.StoreItemBuyScreen);
                 }
                 else
                 {
@@ -147,8 +148,17 @@ public class StoreItemsInventory : MonoBehaviour
         }
         if (GameHandler.instance)
         {
+           
             if (uimanger == null)
                 uimanger = ServiceLocator.GetService<ICanvasUIManager>();
+            if (GameHandler.instance.currentActiveScreen.Equals(GameStates.StoreItemBuyScreen))
+            {
+                GameHandler.instance.SwitchGameState(GameStates.StoreScreen);
+
+                uimanger.screens.storeScreen.SetActive(true);
+                uimanger.screens.storeItemBuyScreen.SetActive(false);
+                return;
+            }
             uimanger.screens.storeBg.SetActive(false);
 
             switch (GameHandler.instance.previousScreen)

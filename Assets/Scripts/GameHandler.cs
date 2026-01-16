@@ -34,7 +34,8 @@ public class GameHandler : Singleton<GameHandler>
 
     public void SwitchGameState(GameStates state)
     {
-        previousScreen = currentActiveScreen;
+        if(!currentActiveScreen.Equals(GameStates.StoreItemBuyScreen) && !currentActiveScreen.Equals(GameStates.StoreScreen))
+            previousScreen = currentActiveScreen;
         switch (state)
         {
             case GameStates.LevelObjectiveScreen:
@@ -66,6 +67,9 @@ public class GameHandler : Singleton<GameHandler>
                 break;
             case GameStates.StoreScreen:
                 currentActiveScreen = GameStates.StoreScreen;
+                break;
+            case GameStates.StoreItemBuyScreen:
+                currentActiveScreen = GameStates.StoreItemBuyScreen;
                 break;
         }
     }

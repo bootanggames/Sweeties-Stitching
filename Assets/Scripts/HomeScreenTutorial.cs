@@ -7,9 +7,11 @@ public class HomeScreenTutorial : MonoBehaviour
     [SerializeField] GameObject tutorialPanel;
 
     [SerializeField] List<TutorialScreenWithType> tutorialScreen;
+    [SerializeField] GameObject finishedTutorialScreen;
     [SerializeField] GameObject skipBtn;
     [SerializeField] GameObject nextBtn;
     [SerializeField] GameObject homeBtn;
+    [SerializeField] GameObject sewBtnHomeMenu;
     [SerializeField] int mainScreenIndex = 0;
     [SerializeField] int screenIndex = 0;
     [SerializeField] int subScreenIndex = 0;
@@ -22,30 +24,35 @@ public class HomeScreenTutorial : MonoBehaviour
             startTutorial = false;
 
         if (startTutorial)
-        {
-            tutorialPanel.SetActive(true);
-            for (int i=0;i<tutorialScreen.Count;i++)
-            {
-                if (PlayerPrefs.GetInt(tutorialScreen[i].screenName) == 0)
-                {
-                    mainScreenIndex = i;
-                    break;
-                }
-            }
-           
-            tutorialScreen[mainScreenIndex].screenParent.SetActive(true);
-            for(int j=0;j< tutorialScreen[mainScreenIndex].screens.Count; j++)
-            {
-                if(PlayerPrefs.GetInt(tutorialScreen[mainScreenIndex].screens[screenIndex].screen.name + "_" + screenIndex) == 0)
-                {
-                    screenIndex = j;
-                    break;
-                }
-            }
-            tutorialScreen[mainScreenIndex].screens[screenIndex].screen.SetActive(true);
-        }
+            StartTutorial();
     }
+    public void StartTutorial()
+    {
+        sewBtnHomeMenu.SetActive(false);
+        nextBtn.SetActive(true);
+        tutorialPanel.SetActive(true);
+        skipBtn.SetActive(true);
+        finishedTutorialScreen.SetActive(false);
+        for (int i = 0; i < tutorialScreen.Count; i++)
+        {
+            if (PlayerPrefs.GetInt(tutorialScreen[i].screenName) == 0)
+            {
+                mainScreenIndex = i;
+                break;
+            }
+        }
 
+        tutorialScreen[mainScreenIndex].screenParent.SetActive(true);
+        for (int j = 0; j < tutorialScreen[mainScreenIndex].screens.Count; j++)
+        {
+            if (PlayerPrefs.GetInt(tutorialScreen[mainScreenIndex].screens[screenIndex].screen.name + "_" + screenIndex) == 0)
+            {
+                screenIndex = j;
+                break;
+            }
+        }
+        tutorialScreen[mainScreenIndex].screens[screenIndex].screen.SetActive(true);
+    }
     public void NextScreenButtonForSubScreenTutorial()
     {
         nextBtn.SetActive(true);
@@ -56,7 +63,7 @@ public class HomeScreenTutorial : MonoBehaviour
     public void SubScreenNextButton()
     {
         tutorialScreen[mainScreenIndex].screens[screenIndex].subScreens[subScreenIndex].SetActive(false);
-        SubScreenIncrement();
+        subScreenIndex++; 
         if (subScreenIndex >= tutorialScreen[mainScreenIndex].screens[screenIndex].subScreens.Count)
         {
             foreach (GameObject g in tutorialScreen[mainScreenIndex].screens[screenIndex].subScreens)
@@ -83,10 +90,7 @@ public class HomeScreenTutorial : MonoBehaviour
         }
 
     }
-    public void SubScreenIncrement()
-    {
-        subScreenIndex++;
-    }
+    
     public void CheckFinishedStatus()
     {
         if(tutorialScreen[mainScreenIndex].screens[screenIndex].subScreens.Count > 0 && subScreenIndex >= 0)
@@ -127,7 +131,13 @@ public class HomeScreenTutorial : MonoBehaviour
             mainScreenIndex++;
             if (mainScreenIndex >= tutorialScreen.Count)
             {
-                SkipButton();
+                mainScreenIndex = 0;
+                nextBtn.SetActive(false);
+                skipBtn.SetActive(false);
+                homeBtn.SetActive(true);
+
+                finishedTutorialScreen.SetActive(true);
+                HomeMenuActivation();
             }
             else
             {
@@ -146,6 +156,7 @@ public class HomeScreenTutorial : MonoBehaviour
         screenIndex = 0;
         mainScreenIndex = 0;
         subScreenIndex = 0;
+
         PlayerPrefs.SetInt("TutorialFinished", 1);
         foreach(TutorialScreenWithType sp in tutorialScreen)
         {
@@ -159,6 +170,14 @@ public class HomeScreenTutorial : MonoBehaviour
                 }
             }
         }
+        HomeMenuActivation();
+        if(sewBtnHomeMenu)
+            sewBtnHomeMenu.SetActive(true);
+
+        tutorialPanel.SetActive(false);
+    }
+    void HomeMenuActivation()
+    {
         if (MainMenuHandler.instance)
         {
             MainMenuHandler.instance.screens.homeScreen.SetActive(true);
@@ -166,7 +185,5 @@ public class HomeScreenTutorial : MonoBehaviour
             MainMenuHandler.instance.screens.roomDecorScreen.SetActive(false);
             MainMenuHandler.instance.screens.plushieInventoryScreen.SetActive(false);
         }
-        
-        tutorialPanel.SetActive(false);
     }
 }

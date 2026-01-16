@@ -11,6 +11,7 @@ public class LevelsHandler : Singleton<LevelsHandler>
     [field: SerializeField] public int plushieIndex { get; private set; }
     public LevelStructure currentLevelData { get; private set; }
     public Level_Metadata currentLevelMeta { get; private set; }
+    [field: SerializeField] public HomeScreenTutorial tutorialScreen { get; private set; }
     int totalCoins;
     ICoinsHandler coinHandler;
     IThreadManager IThreadHandler;

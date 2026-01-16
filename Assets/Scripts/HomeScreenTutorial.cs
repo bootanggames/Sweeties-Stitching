@@ -15,20 +15,20 @@ public class HomeScreenTutorial : MonoBehaviour
     [SerializeField] int mainScreenIndex = 0;
     [SerializeField] int screenIndex = 0;
     [SerializeField] int subScreenIndex = 0;
-
+    [SerializeField] bool gameplayScreen;
     private void Start()
     {
         if (!PlayerPrefs.HasKey("TutorialFinished") || PlayerPrefs.GetInt("TutorialFinished") == 0)
             startTutorial = true;
         else
             startTutorial = false;
-
-        if (startTutorial)
-            StartTutorial();
+        if (gameplayScreen) return;
+        if (startTutorial) StartTutorial();
     }
     public void StartTutorial()
     {
-        sewBtnHomeMenu.SetActive(false);
+        if(sewBtnHomeMenu)
+            sewBtnHomeMenu.SetActive(false);
         nextBtn.SetActive(true);
         tutorialPanel.SetActive(true);
         skipBtn.SetActive(true);
@@ -52,6 +52,8 @@ public class HomeScreenTutorial : MonoBehaviour
             }
         }
         tutorialScreen[mainScreenIndex].screens[screenIndex].screen.SetActive(true);
+        if(gameplayScreen)
+            nextBtn.SetActive(false);
     }
     public void NextScreenButtonForSubScreenTutorial()
     {
@@ -107,10 +109,12 @@ public class HomeScreenTutorial : MonoBehaviour
             PlayerPrefs.SetInt(tutorialScreen[mainScreenIndex].screens[screenIndex].screen.name + "_" + screenIndex, 1);
             tutorialScreen[mainScreenIndex].screens[screenIndex].screen.SetActive(false);
             screenIndex++;
-            if (tutorialScreen[mainScreenIndex].screens[screenIndex].subScreens.Count > 0)
+            if(screenIndex < tutorialScreen[mainScreenIndex].screens.Count)
             {
-                SubScreenActivation();
+                if (tutorialScreen[mainScreenIndex].screens[screenIndex].subScreens.Count > 0)
+                    SubScreenActivation();
             }
+
             CheckScreenActivity();
         }
        
@@ -147,6 +151,13 @@ public class HomeScreenTutorial : MonoBehaviour
         }
         else
         {
+            if (gameplayScreen)
+            {
+                if(screenIndex >= 2)
+                {
+                    LevelsHandler.instance.currentLevelMeta.SetAllPointsOfFirstStitchPartActive();
+                }
+            }
             tutorialScreen[mainScreenIndex].screens[screenIndex].screen.SetActive(true);
 
         }
@@ -174,7 +185,10 @@ public class HomeScreenTutorial : MonoBehaviour
         if(sewBtnHomeMenu)
             sewBtnHomeMenu.SetActive(true);
 
+        if (gameplayScreen)
+            PlayerPrefs.SetInt("GameplayTutorialFinished", 1);
         tutorialPanel.SetActive(false);
+
     }
     void HomeMenuActivation()
     {

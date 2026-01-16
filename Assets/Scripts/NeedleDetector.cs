@@ -10,9 +10,18 @@ public class NeedleDetector : MonoBehaviour, INeedleDetector
     [field: SerializeField] public float maxDetectionRadius { get; private set; }
     [field: SerializeField] public bool detect { get; set; }
     [field: SerializeField] public List<SewPoint> pointsDetected {  get; private set; }
+    IPointConnectionHandler pointsHandler;
+    IThreadManager threadHandler;
     private void OnEnable()
     {
         RegisterService();
+        pointsHandler = ServiceLocator.GetService<IPointConnectionHandler>();
+        threadHandler = ServiceLocator.GetService<IThreadManager>();
+    }
+    private void Start()
+    {
+        pointsHandler = ServiceLocator.GetService<IPointConnectionHandler>();
+        threadHandler = ServiceLocator.GetService<IThreadManager>();
     }
     private void OnDisable()
     {
@@ -50,7 +59,6 @@ public class NeedleDetector : MonoBehaviour, INeedleDetector
 
             if (!pointsDetected.Contains(sewPoint))
                 pointsDetected.Add(sewPoint);
-            var pointsHandler = ServiceLocator.GetService<IPointConnectionHandler>();
 
             if (pointsHandler != null)
             {
@@ -58,7 +66,6 @@ public class NeedleDetector : MonoBehaviour, INeedleDetector
                 {
                     if (pointsDetected.Count % 2 == 0)
                     {
-                        var threadHandler = ServiceLocator.GetService<IThreadManager>();
                         if (threadHandler != null)
                             threadHandler.ScaleDownAllPoints();
                     }

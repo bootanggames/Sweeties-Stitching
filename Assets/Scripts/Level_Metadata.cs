@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using UnityEngine;
+using UnityEngine.ParticleSystemJobs;
 
 public class Level_Metadata : MonoBehaviour
 {
@@ -202,8 +203,6 @@ public class Level_Metadata : MonoBehaviour
     public void StartLevel() 
     {
         Time.timeScale = 1;
-        //string rewardAmount = rewardSystem.plushieCompletionRewardHandler.plushieRewardList.PlushieCompletionReward[LevelsHandler.instance.levelIndex].CoinsPerCompletion;
-        //levelScriptable.plushieCompletionRewardValue = System.Numerics.BigInteger.Parse(rewardAmount);
         current_ObjectInfor = stitchStartingPart;
         if (stitchStartingPart.stitchData.IsStitched)
         {
@@ -211,6 +210,42 @@ public class Level_Metadata : MonoBehaviour
         }
         currentActivePart = current_ObjectInfor.partType;
         NextPartActivation(current_ObjectInfor);
+
+        Invoke(nameof(SetTutorial), 2.0f);
+    }
+    void SetTutorial()
+    {
+        if (!PlayerPrefs.HasKey("GameplayTutorialFinished") || PlayerPrefs.GetInt("GameplayTutorialFinished") == 0)
+        {
+            foreach(SewPoint s in stitchStartingPart.connectPoints)
+            {
+                s.GetComponent<Collider>().enabled = false;
+            }
+            stitchStartingPart.connectPoints[0].GetComponent<Collider>().enabled = true;
+            Part_Info p_info = immoveablePart.GetComponent<Part_Info>();
+            ObjectInfo connectPartInfo = p_info.joints[0].GetComponent<ObjectInfo>();
+            foreach (SewPoint s in connectPartInfo.connectPoints)
+            {
+                s.GetComponent<Collider>().enabled = false;
+            }
+            connectPartInfo.connectPoints[0].GetComponent<Collider>().enabled = true;
+            GameEvents.ThreadEvents.setThreadInput.Raise(true);
+            LevelsHandler.instance.tutorialScreen.StartTutorial();
+        }
+        CancelInvoke(nameof(SetTutorial));
+    }
+    public void SetAllPointsOfFirstStitchPartActive()
+    {
+        foreach (SewPoint s in stitchStartingPart.connectPoints)
+        {
+            s.GetComponent<Collider>().enabled = true;
+        }
+        Part_Info p_info = immoveablePart.GetComponent<Part_Info>();
+        ObjectInfo connectPartInfo = p_info.joints[0].GetComponent<ObjectInfo>();
+        foreach (SewPoint s in connectPartInfo.connectPoints)
+        {
+            s.GetComponent<Collider>().enabled = true;
+        }
     }
     void NextPartActivation(/*bool start,*/ObjectInfo currentActivePart)
     {

@@ -68,7 +68,8 @@ public class CanvasUIManager : MonoBehaviour, ICanvasUIManager
     }
     public void TapToStart()
     {
-        GameEvents.ThreadEvents.setThreadInput.Raise(true);
+        if(PlayerPrefs.GetInt("GameplayTutorialFinished") == 1)
+            GameEvents.ThreadEvents.setThreadInput.Raise(true);
         GameHandler.instance.SwitchGameState(GameStates.Gamestart);
         LevelsHandler.instance.currentLevelMeta.StartLevel();
     }

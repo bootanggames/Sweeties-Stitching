@@ -133,8 +133,6 @@ public class SewPoint : MonoBehaviour, ISewPoint
                 if (s_Info._spoolData.noOfStitchedDone >= s_Info._spoolData.totalThreadsInSpool)
                 {
                     currentLevel.currentActiveSpoolIndex++;
-                    //if (currentLevel.currentActiveSpoolIndex >= currentLevel.levelScriptable.totalSpoolsNeeded)
-                    //    currentLevel.currentActiveSpoolIndex = currentLevel.currentActiveSpoolIndex - 1;
                     if (currentLevel.currentActiveSpoolIndex < spoolManager.spoolList.Count)
                     {
                         currentLevel.currentSpool = spoolManager.GetSpool(currentLevel.currentActiveSpoolIndex);
@@ -167,12 +165,7 @@ public class SewPoint : MonoBehaviour, ISewPoint
 
             s_Info.UpdateThreadProgress(totalThread);
             LevelsHandler.instance.currentLevelMeta.SaveSpoolData();
-            //if (SaveDataUsingJson.instance)
-            //{
-            //    int levelIndex = LevelsHandler.instance.levelIndex;
-            //    string _plushieName = LevelsHandler.instance.currentLevelMeta.levelScriptable.levelName;
-            //    SaveDataUsingJson.instance.SaveData(s_Info._spoolData.spoolId + "_"+levelIndex + "_" + _plushieName, s_Info._spoolData, "SpoolData");
-            //}
+            
         }
     }
     public void UnRegisterService()
@@ -187,10 +180,12 @@ public class SewPoint : MonoBehaviour, ISewPoint
     }
     public void ChangeTextColor(Color c)
     {
-        if(textObj)
-            textObj.color = c;
+        if(textObj) textObj.color = c;
+
+        if (!PlayerPrefs.HasKey("GameplayTutorialFinished") || PlayerPrefs.GetInt("GameplayTutorialFinished") == 0)
+            LevelsHandler.instance.tutorialScreen.CheckFinishedStatus();
     }
-  
+
     public void IsConnected(bool val, int v, Vector3 lastMovemPosition,string bodyPart)
     {
         metaData.connected = val;

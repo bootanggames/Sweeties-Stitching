@@ -61,7 +61,9 @@ public class ScaleOutObject : MonoBehaviour
 
         tween.Kill();
         this.gameObject.transform.localScale = Vector3.zero;
+       
         this.gameObject.SetActive(false);
+
         CancelInvoke("StartGame");
     }
 

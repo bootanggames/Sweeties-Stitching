@@ -27,6 +27,7 @@ public class StoreItemsInventory : MonoBehaviour
         foreach (DecoreItemStoreButton b in itemsInventory.ButtonsList())
         {
             UIWidget uIWidget = b.GetComponent<UIWidget>();
+
             if (itemsInventory.clickedItemContext.ID.Equals(uIWidget.GetContextID()))
             {
                 _iPrice = uIWidget.GetItemPrice();

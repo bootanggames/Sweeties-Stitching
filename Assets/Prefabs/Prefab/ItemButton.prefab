@@ -188,7 +188,7 @@ MonoBehaviour:
   <status>k__BackingField: 0
   lockImage: {fileID: 5441651168820266429}
   _button: {fileID: 79076810903461609}
-  priceButton: {fileID: 4415749123166492004}
+  <priceButton>k__BackingField: {fileID: 4415749123166492004}
   itemPrice: {fileID: 2661203191548282807}
 --- !u!1 &2646894653930500726
 GameObject:

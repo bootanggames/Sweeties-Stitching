@@ -12,8 +12,11 @@ public class MainMenuHandler : Singleton<MainMenuHandler>
     public MainMenuScreens screens;
     [field:SerializeField] public LevelsInfoOnSelection levels {  get; private set; }
     IRoomdecorStore roomdecorStore;
+    [SerializeField] bool testing;
     public override void SingletonAwake()
     {
+        if(testing)
+            PlayerPrefs.SetInt("Coins", 10000);
         base.SingletonAwake();
         LockUnLock();
     }

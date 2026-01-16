@@ -8,10 +8,10 @@ public class ItemInfo : MonoBehaviour
     [field: SerializeField] public ItemStatus status { get; private set; }
     public GameObject lockImage;
     [SerializeField] Button _button;
-    [SerializeField] GameObject priceButton;
+    [field: SerializeField]public GameObject priceButton {  get; private set; }
     [SerializeField] TextMeshProUGUI itemPrice;
     IJackpotHandler jackpotHandler;
-
+    
     public void SetItem(UIContext uiContext)
     {
         itemName = uiContext.LabelToSet;
@@ -26,7 +26,9 @@ public class ItemInfo : MonoBehaviour
         {
             if (jackpotHandler.earnedItems.Find(x => x.DisplayName == itemName))
             {
-                Unlock();
+                status = ItemStatus.unlocked;
+                lockImage.SetActive(false);
+                priceButton.SetActive(false);
             }
         }
       
@@ -36,23 +38,25 @@ public class ItemInfo : MonoBehaviour
     {
         status = ItemStatus.unlocked;
         lockImage.SetActive(false);
-        _button.interactable = true;
-
         priceButton.SetActive(false);
+        PlayerPrefs.SetInt(itemName + "_" + ItemStatus.unlocked.ToString(), 1);
     }
-    
+
     public void CheckLockUnlockItems(int c)
     {
         itemPrice.text = c.ToString();
-
+        if (jackpotHandler == null)
+        {
+            if (PlayerPrefs.GetInt(itemName + "_" + ItemStatus.unlocked.ToString()) == 1)
+                status = ItemStatus.unlocked;
+        }
+            
         if (status.Equals(ItemStatus.locked))
         {
             lockImage.SetActive(true);
-            //_button.interactable = false;
         }
         else
         {
-            _button.interactable = true;
             lockImage.SetActive(false);
             status = ItemStatus.unlocked;
         }

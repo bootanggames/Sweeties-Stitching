@@ -825,6 +825,7 @@ GameObject:
   - component: {fileID: 1334003883774998478}
   - component: {fileID: 8867040190483742507}
   - component: {fileID: 5964430447064329333}
+  - component: {fileID: 5224040342079675012}
   m_Layer: 5
   m_Name: ItemButtonsLayoutGroup
   m_TagString: Untagged
@@ -846,11 +847,11 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 7793853837324475638}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.28352696}
+  m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.00012207031, y: 0.91812134}
-  m_SizeDelta: {x: 0, y: -1.8363037}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 495.1637}
+  m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &1334003883774998478
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -905,7 +906,7 @@ MonoBehaviour:
     m_Left: 38
     m_Right: 0
     m_Top: 15
-    m_Bottom: 0
+    m_Bottom: 70
   m_ChildAlignment: 0
   m_StartCorner: 0
   m_StartAxis: 0
@@ -913,6 +914,20 @@ MonoBehaviour:
   m_Spacing: {x: 100, y: 70}
   m_Constraint: 0
   m_ConstraintCount: 4
+--- !u!114 &5224040342079675012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1318197390154719962}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3245ec927659c4140ac4f8d17403cc18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.ContentSizeFitter
+  m_HorizontalFit: 0
+  m_VerticalFit: 2
 --- !u!1 &1423783115480849105
 GameObject:
   m_ObjectHideFlags: 0
@@ -3828,7 +3843,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1aa08ab6e0800fa44ae55d278d1423e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.ScrollRect
-  m_Content: {fileID: 7793853837324475638}
+  m_Content: {fileID: 8515474991765980348}
   m_Horizontal: 0
   m_Vertical: 1
   m_MovementType: 1

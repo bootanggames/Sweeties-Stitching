@@ -20,7 +20,7 @@ public class LevelObjectiveManager : MonoBehaviour
         if (levelUp == 0)
             levels.NextLevelPage();
 
-        Invoke(nameof(UpdateObjectiveScreenOfCurrentLevel), 0.5f);
+        Invoke(nameof(UpdateObjectiveScreenOfCurrentLevel), 0.25f);
 
     }
    

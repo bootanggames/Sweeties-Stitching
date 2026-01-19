@@ -207,4 +207,8 @@ public class JackpotMachine : MonoBehaviour
             jackpotHandler.roomDecorCanvas.SetActive(true);
         }
     }
+    public void CloseMainmenu()
+    {
+        if(MainMenuHandler.instance) MainMenuHandler.instance.screens.homeScreenCanvas.SetActive(false);
+    }
 }

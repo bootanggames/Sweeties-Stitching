@@ -210,8 +210,8 @@ public class Level_Metadata : MonoBehaviour
         }
         currentActivePart = current_ObjectInfor.partType;
         NextPartActivation(current_ObjectInfor);
-
-        Invoke(nameof(SetTutorial), 2.0f);
+        SetTutorial();
+        //Invoke(nameof(SetTutorial), 0.1f);
     }
     void SetTutorial()
     {
@@ -221,18 +221,29 @@ public class Level_Metadata : MonoBehaviour
             {
                 s.GetComponent<Collider>().enabled = false;
             }
-            stitchStartingPart.connectPoints[0].GetComponent<Collider>().enabled = true;
+            
             Part_Info p_info = immoveablePart.GetComponent<Part_Info>();
             ObjectInfo connectPartInfo = p_info.joints[0].GetComponent<ObjectInfo>();
             foreach (SewPoint s in connectPartInfo.connectPoints)
             {
                 s.GetComponent<Collider>().enabled = false;
             }
-            connectPartInfo.connectPoints[0].GetComponent<Collider>().enabled = true;
+            Invoke(nameof(TutorialWindow), 2.0f);
             GameEvents.ThreadEvents.setThreadInput.Raise(true);
-            LevelsHandler.instance.tutorialScreen.StartTutorial();
         }
-        CancelInvoke(nameof(SetTutorial));
+        //CancelInvoke(nameof(SetTutorial));
+    }
+    void TutorialWindow()
+    {
+        Part_Info p_info = immoveablePart.GetComponent<Part_Info>();
+        ObjectInfo connectPartInfo = p_info.joints[0].GetComponent<ObjectInfo>();
+        LevelsHandler.instance.tutorialScreen.StartTutorial();
+        connectPartInfo.connectPoints[0].GetComponent<Collider>().enabled = true;
+        CancelInvoke(nameof(TutorialWindow));
+    }
+    public void SecondPointForTutorial()
+    {
+        stitchStartingPart.connectPoints[0].GetComponent<Collider>().enabled = true;
     }
     public void SetAllPointsOfFirstStitchPartActive()
     {

@@ -51929,6 +51929,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3526614756314736840, guid: 4b3c5cb2312ecd943bc00793ffa003b9, type: 3}
+      propertyPath: _buttonPrefab
+      value: 
+      objectReference: {fileID: 7614046536620263005, guid: ff8ea95f5b1a0ab408ffb6113aeea303, type: 3}
     - target: {fileID: 4260386972520676699, guid: 4b3c5cb2312ecd943bc00793ffa003b9, type: 3}
       propertyPath: m_Name
       value: DecorInventory

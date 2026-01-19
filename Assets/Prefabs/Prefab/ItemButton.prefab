@@ -14,8 +14,8 @@ GameObject:
   - component: {fileID: 79076810903461609}
   - component: {fileID: 7614046536620263005}
   - component: {fileID: 2930245851173173433}
-  - component: {fileID: 3034838919948594011}
   - component: {fileID: 7266576972231116179}
+  - component: {fileID: 3034838919948594011}
   m_Layer: 5
   m_Name: ItemButton
   m_TagString: Untagged
@@ -159,19 +159,6 @@ MonoBehaviour:
   imgOutline: {fileID: 1593134541420755305}
   _labelComponent: {fileID: 4211469713542004268}
   <_itemInfo>k__BackingField: {fileID: 7266576972231116179}
---- !u!114 &3034838919948594011
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1174077235209573034}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.EventSystems.EventTrigger
-  m_Delegates: []
 --- !u!114 &7266576972231116179
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -190,6 +177,19 @@ MonoBehaviour:
   _button: {fileID: 79076810903461609}
   <priceButton>k__BackingField: {fileID: 4415749123166492004}
   itemPrice: {fileID: 2661203191548282807}
+--- !u!114 &3034838919948594011
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1174077235209573034}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.EventSystems.EventTrigger
+  m_Delegates: []
 --- !u!1 &2646894653930500726
 GameObject:
   m_ObjectHideFlags: 0

@@ -13,11 +13,11 @@ public class Plushie_ShelfContainer : MonoBehaviour
         UpdatePlushieCount();
 
     }
-    //private void Start()
-    //{
-    //    inventory = ServiceLocator.GetService<IPlushieInventory>();
-    //    UpdatePlushieCount();
-    //}
+    private void Start()
+    {
+        inventory = ServiceLocator.GetService<IPlushieInventory>();
+        UpdatePlushieCount();
+    }
     void UpdatePlushieCount()
     {
         int c = 0;

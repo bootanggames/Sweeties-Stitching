@@ -16,8 +16,8 @@ public class ItemInfo : MonoBehaviour
     {
         itemName = uiContext.LabelToSet;
         lockImage.GetComponent<Image>().sprite = uiContext.ImageToSet;
-        CheckLockUnlockItems(uiContext.Cost);
         SetUnlock();
+        CheckLockUnlockItems(uiContext.Cost);
     }
     public void SetUnlock()
     {
@@ -26,9 +26,7 @@ public class ItemInfo : MonoBehaviour
         {
             if (jackpotHandler.earnedItems.Find(x => x.DisplayName == itemName))
             {
-                status = ItemStatus.unlocked;
-                lockImage.SetActive(false);
-                priceButton.SetActive(false);
+                Unlock();
             }
         }
       
@@ -45,12 +43,9 @@ public class ItemInfo : MonoBehaviour
     public void CheckLockUnlockItems(int c)
     {
         itemPrice.text = c.ToString();
-        if (jackpotHandler == null)
-        {
-            if (PlayerPrefs.GetInt(itemName + "_" + ItemStatus.unlocked.ToString()) == 1)
-                status = ItemStatus.unlocked;
-        }
-            
+        if (PlayerPrefs.GetInt(itemName + "_" + ItemStatus.unlocked.ToString()) == 1)
+            status = ItemStatus.unlocked;
+
         if (status.Equals(ItemStatus.locked))
         {
             lockImage.SetActive(true);
@@ -59,6 +54,7 @@ public class ItemInfo : MonoBehaviour
         {
             lockImage.SetActive(false);
             status = ItemStatus.unlocked;
+            priceButton.SetActive(false);
         }
     }
 }

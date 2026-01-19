@@ -183,7 +183,11 @@ public class SewPoint : MonoBehaviour, ISewPoint
         if(textObj) textObj.color = c;
 
         if (!PlayerPrefs.HasKey("GameplayTutorialFinished") || PlayerPrefs.GetInt("GameplayTutorialFinished") == 0)
+        {
+            LevelsHandler.instance.currentLevelMeta.SecondPointForTutorial();
             LevelsHandler.instance.tutorialScreen.CheckFinishedStatus();
+        }
+
     }
 
     public void IsConnected(bool val, int v, Vector3 lastMovemPosition,string bodyPart)

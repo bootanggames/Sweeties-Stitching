@@ -192,7 +192,10 @@ public class HomeScreenTutorial : MonoBehaviour
             sewBtnHomeMenu.SetActive(true);
 
         if (gameplayScreen)
+        {
             PlayerPrefs.SetInt("GameplayTutorialFinished", 1);
+            LevelsHandler.instance.currentLevelMeta.SetAllPointsOfFirstStitchPartActive();
+        }
         else if(jackpotTutorial)
             PlayerPrefs.SetInt("JackpotTutorialFinished", 1);
         else
@@ -204,6 +207,7 @@ public class HomeScreenTutorial : MonoBehaviour
     {
         if (MainMenuHandler.instance)
         {
+            MainMenuHandler.instance.screens.blurEffect.SetActive(true);
             MainMenuHandler.instance.screens.homeScreen.SetActive(true);
             MainMenuHandler.instance.screens.homeScreenCanvas.SetActive(true);
             MainMenuHandler.instance.screens.roomDecorScreen.SetActive(false);

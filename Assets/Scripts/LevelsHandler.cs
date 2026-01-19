@@ -143,15 +143,15 @@ public class LevelsHandler : Singleton<LevelsHandler>
         LevelIncrementProcess();
         if (canvasHandler != null)
         {
-            canvasHandler.startText.transform.localScale = Vector3.zero;
-            canvasHandler.startText.SetActive(true);
-            canvasHandler.stitchProgress.text = "0% Done";
-            canvasHandler.stitchCountText.text = currentLevelMeta.noOfStitchesDone + " OF " + currentLevelMeta.levelScriptable.totalStitches;
+            canvasHandler.uiData.startText.transform.localScale = Vector3.zero;
+            canvasHandler.uiData.startText.SetActive(true);
+            canvasHandler.uiData.stitchProgress.text = "0% Done";
+            canvasHandler.uiData.stitchCountText.text = currentLevelMeta.noOfStitchesDone + " OF " + currentLevelMeta.levelScriptable.totalStitches;
         }
         if(IThreadHandler != null) IThreadHandler.SetUndoValue(true);
         if (coinHandler != null) coinHandler.StopCoinSoundOnComplete();
         //GameEvents.GameCompleteEvents.onFinishCoinBurstAnimation.Raise();
-        SoundManager.instance.StopSound(coinHandler.audioSource);
+        SoundManager.instance.StopSound(coinHandler.coinsData.audioSource);
         HepticManager.instance.StopHaptics();
         DOTween.KillAll();
        once = true;
@@ -203,7 +203,7 @@ public class LevelsHandler : Singleton<LevelsHandler>
     public void ChangeText(string _text, float _fontSize, PlushieActiveStitchPart partInfo, bool val)
     {
         GameObject textObj = null;
-        textObj = canvasHandler.alertTextObj;
+        textObj = canvasHandler.uiData.alertTextObj;
 
         if (textObj != null)
         {

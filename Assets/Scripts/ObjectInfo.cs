@@ -237,7 +237,7 @@ public class ObjectInfo : MonoBehaviour
             {
                 if (coinHandler != null)
                 {
-                    coinHandler.InstantiateCoins(coinHandler.coinSpritePrefab,5,coinsObj, connectPoints[confettiIndex].transform);
+                    coinHandler.InstantiateCoins(coinHandler.coinsData.coinSpritePrefab,5,coinsObj, connectPoints[confettiIndex].transform);
                     foreach(GameObject c in coinsObj)
                     {
                         c.transform.SetParent(this.transform);
@@ -246,11 +246,11 @@ public class ObjectInfo : MonoBehaviour
                     
                     }
                     //coinHandler.SaveCoins((confettiIndex + 1));
-                    Vector3 screenPos = RectTransformUtility.WorldToScreenPoint(null, coinHandler.coinsGameplayTarget.position);
+                    Vector3 screenPos = RectTransformUtility.WorldToScreenPoint(null, coinHandler.coinsData.coinsGameplayTarget.position);
                     Vector3 worldPos = Camera.main.ScreenToWorldPoint(screenPos);
                     Transform targetPos = new GameObject("Temp").transform;
                     targetPos.position = worldPos;
-                    StartCoroutine(coinHandler.MoveCoins(coinsObj, targetPos, coinHandler.coinBarForGameplayScreen, coinHandler.coinMoveSpeed, Ease.Linear,0, true));
+                    StartCoroutine(coinHandler.MoveCoins(coinsObj, targetPos, coinHandler.coinsData.coinBarForGameplayScreen, coinHandler.coinMoveSpeed, Ease.Linear,0, true));
                     //Debug.LogError(" " + (confettiIndex + 1));
                     AudioSource s = coinsObj[confettiIndex].GetComponent<AudioSource>();
                     coinHandler.PlayCoinSound(s);

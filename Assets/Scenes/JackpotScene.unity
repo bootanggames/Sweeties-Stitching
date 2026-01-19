@@ -597,14 +597,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5bf701a5a635fb45a3c58913952eb9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::JackpotHandler
-  <jackpotPrefab>k__BackingField: {fileID: 936433691}
-  <mainCamera>k__BackingField: {fileID: 926864136}
-  <mainMenu>k__BackingField: {fileID: 951345007}
-  <mainMenuCanvas>k__BackingField: {fileID: 326271965}
-  <roomDecorCanvas>k__BackingField: {fileID: 305286023}
-  <plushieInventoryCanvas>k__BackingField: {fileID: 481457919}
+  <jackpotData>k__BackingField:
+    <jackpotPrefab>k__BackingField: {fileID: 0}
+    <mainCamera>k__BackingField: {fileID: 0}
+    <roomDecorCanvas>k__BackingField: {fileID: 0}
+    <plushieInventoryCanvas>k__BackingField: {fileID: 0}
+    <roomBg>k__BackingField: {fileID: 0}
   <earnedItems>k__BackingField: []
-  <roomBg>k__BackingField: {fileID: 431381375}
 --- !u!4 &1286449715
 Transform:
   m_ObjectHideFlags: 0

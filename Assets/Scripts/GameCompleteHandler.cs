@@ -107,18 +107,18 @@ public class GameCompleteHandler : MonoBehaviour, IGameService
         {
             PlayCelebrationTrumpetSound();
             canvasHandler.screens.sewnScreen.SetActive(false);
-            canvasHandler.sewnTextImage.transform.localScale = Vector3.zero;
+            canvasHandler.uiData.sewnTextImage.transform.localScale = Vector3.zero;
             canvasHandler.screens.confettiEffectCanvas.SetActive(false);
             canvasHandler.screens.mainCanvas.SetActive(false);
-            canvasHandler.audioSourceForBG.volume = 0.5f;
+            canvasHandler.uiData.audioSourceForBG.volume = 0.5f;
             LevelsHandler.instance.currentLevelMeta.sewnPlushie.SetActive(false);
             canvasHandler.EnableDisableGameCompleteScreen(true);
  
             Invoke(nameof( PlaySparkleSound),0.15f);
             Invoke(nameof(TreasureBoxAppearance), 0.45f);
-            canvasHandler.completeStitchedPlushie.SetActive(true);
+            canvasHandler.uiData.completeStitchedPlushie.SetActive(true);
             PlayGiggleSound();
-            RectTransform rt =  canvasHandler.completeStitchedPlushie.GetComponent<RectTransform>();
+            RectTransform rt =  canvasHandler.uiData.completeStitchedPlushie.GetComponent<RectTransform>();
             rt.DOScale(1, speed).SetEase(Ease.Linear).OnComplete(() =>
             {
                 canvasHandler.PlayBgMusic();

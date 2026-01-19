@@ -5297,17 +5297,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa46e7ee959343b439857b932983232a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  <levelUpScreen>k__BackingField: {fileID: 495927974}
-  <levelUpFadeScreen>k__BackingField: {fileID: 1369489523}
-  <levelUpIntroScreen>k__BackingField: {fileID: 1778977414}
-  <levelScreenText>k__BackingField: {fileID: 1413799025}
-  <confettiCameraRenderObj>k__BackingField: {fileID: 641074545}
+  <levelUpData>k__BackingField:
+    <levelUpScreen>k__BackingField: {fileID: 495927974}
+    <levelUpFadeScreen>k__BackingField: {fileID: 1369489523}
+    <levelUpIntroScreen>k__BackingField: {fileID: 1778977414}
+    <levelScreenText>k__BackingField: {fileID: 1413799025}
+    <confettiCameraRenderObj>k__BackingField: {fileID: 641074545}
+    <homeScreen>k__BackingField: {fileID: 1955037521}
+    <renderTextureImageObj>k__BackingField: {fileID: 543355694}
+    <levelUpCamera>k__BackingField: {fileID: 309199665}
+    <unlockedPlushieWord>k__BackingField: {fileID: 962830676}
+    <levelNumber>k__BackingField: {fileID: 1780226887}
+    <homeCanvas>k__BackingField: {fileID: 1175345407}
   pageScroller: {fileID: 102321003}
   pageSlider: {fileID: 102321002}
   audioSource: {fileID: 13320825}
-  <homeScreen>k__BackingField: {fileID: 1955037521}
-  <renderTextureImageObj>k__BackingField: {fileID: 543355694}
-  <levelUpCamera>k__BackingField: {fileID: 309199665}
   <levelUpEffect>k__BackingField:
   - {fileID: 395062034}
   - {fileID: 159827364}
@@ -5325,9 +5329,6 @@ MonoBehaviour:
   - {fileID: 235440834}
   - {fileID: 1070761532}
   - {fileID: 2095614856}
-  <unlockedPlushieWord>k__BackingField: {fileID: 962830676}
-  <levelNumber>k__BackingField: {fileID: 1780226887}
-  <homeCanvas>k__BackingField: {fileID: 1175345407}
   shakeData: {fileID: 11400000, guid: fd1250282c8f2e841ac602704e5efc0c, type: 2}
 --- !u!82 &13320825
 AudioSource:
@@ -320555,14 +320556,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5bf701a5a635fb45a3c58913952eb9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  <jackpotPrefab>k__BackingField: {fileID: 2350804235551063515, guid: 8aeddea871aaaa342b459a4e95c45ee2, type: 3}
-  <mainCamera>k__BackingField: {fileID: 961739749}
-  <mainMenu>k__BackingField: {fileID: 1955037517}
-  <mainMenuCanvas>k__BackingField: {fileID: 1175345407}
-  <roomDecorCanvas>k__BackingField: {fileID: 1007000720}
-  <plushieInventoryCanvas>k__BackingField: {fileID: 1282605964}
+  <jackpotData>k__BackingField:
+    <jackpotPrefab>k__BackingField: {fileID: 2350804235551063515, guid: 8aeddea871aaaa342b459a4e95c45ee2, type: 3}
+    <mainCamera>k__BackingField: {fileID: 961739749}
+    <roomDecorCanvas>k__BackingField: {fileID: 1007000720}
+    <plushieInventoryCanvas>k__BackingField: {fileID: 1282605964}
   <earnedItems>k__BackingField: []
-  <roomBg>k__BackingField: {fileID: 2081259669}
 --- !u!1 &1292283917
 GameObject:
   m_ObjectHideFlags: 0

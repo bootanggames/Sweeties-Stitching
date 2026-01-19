@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using UnityEngine;
-using UnityEngine.ParticleSystemJobs;
 
 public class Level_Metadata : MonoBehaviour
 {
@@ -148,15 +147,15 @@ public class Level_Metadata : MonoBehaviour
     {
         if(cameraManager != null )
         {
-            cameraManager.RepositionCamera(cameraManager.neckCamera.transform, levelScriptable.neckCameraPos);
-            cameraManager.RepositionCamera(cameraManager.leftEyeCamera.transform, levelScriptable.leftEyeCameraPos);
-            cameraManager.RepositionCamera(cameraManager.leftEarCamera.transform, levelScriptable.leftEarCameraPos);
-            cameraManager.RepositionCamera(cameraManager.rightEarCamera.transform, levelScriptable.rightEarCameraPos);
-            cameraManager.RepositionCamera(cameraManager.rightEyeCamera.transform, levelScriptable.rightEyeCameraPos);
-            cameraManager.RepositionCamera(cameraManager.rightArmCamera.transform, levelScriptable.rightArmCameraPos);
-            cameraManager.RepositionCamera(cameraManager.rightLegCamera.transform, levelScriptable.rightLegCameraPos);
-            cameraManager.RepositionCamera(cameraManager.leftLegCamera.transform, levelScriptable.leftLegCameraPos);
-            cameraManager.RepositionCamera(cameraManager.leftArmCamera.transform, levelScriptable.leftArmCameraPos);
+            cameraManager.RepositionCamera(cameraManager.cameraData.neckCamera.transform, levelScriptable.neckCameraPos);
+            cameraManager.RepositionCamera(cameraManager.cameraData.leftEyeCamera.transform, levelScriptable.leftEyeCameraPos);
+            cameraManager.RepositionCamera(cameraManager.cameraData.leftEarCamera.transform, levelScriptable.leftEarCameraPos);
+            cameraManager.RepositionCamera(cameraManager.cameraData.rightEarCamera.transform, levelScriptable.rightEarCameraPos);
+            cameraManager.RepositionCamera(cameraManager.cameraData.rightEyeCamera.transform, levelScriptable.rightEyeCameraPos);
+            cameraManager.RepositionCamera(cameraManager.cameraData.rightArmCamera.transform, levelScriptable.rightArmCameraPos);
+            cameraManager.RepositionCamera(cameraManager.cameraData.rightLegCamera.transform, levelScriptable.rightLegCameraPos);
+            cameraManager.RepositionCamera(cameraManager.cameraData.leftLegCamera.transform, levelScriptable.leftLegCameraPos);
+            cameraManager.RepositionCamera(cameraManager.cameraData.leftArmCamera.transform, levelScriptable.leftArmCameraPos);
         }
     }
     void EnableDisableSewPoints(List<SewPoint> points, bool val)
@@ -279,7 +278,7 @@ public class Level_Metadata : MonoBehaviour
     IEnumerator CheckProgress(ObjectInfo o_info)
     {
         if (cameraManager != null)
-            GameEvents.CameraManagerEvents.onAddingCamera.Raise(cameraManager.gameHalfProgressCamera);
+            GameEvents.CameraManagerEvents.onAddingCamera.Raise(cameraManager.cameraData.gameHalfProgressCamera);
         yield return new WaitForSeconds(2);
         CameraFocus(o_info.partType);
         StopCoroutine(CheckProgress(o_info));
@@ -333,7 +332,7 @@ public class Level_Metadata : MonoBehaviour
             //PlaySewnSound();
 
             if (cameraManager != null)
-                GameEvents.CameraManagerEvents.onAddingCamera.Raise(cameraManager.gameCompleteCamera);
+                GameEvents.CameraManagerEvents.onAddingCamera.Raise(cameraManager.cameraData.gameCompleteCamera);
 
             if (bodyWihtoutHoles)
             {
@@ -399,7 +398,7 @@ public class Level_Metadata : MonoBehaviour
             {
                 case PlushieActiveStitchPart.neck:
                     this.currentActivePart = PlushieActiveStitchPart.neck;
-                    GameEvents.CameraManagerEvents.onAddingCamera.Raise(cameraManager.neckCamera);
+                    GameEvents.CameraManagerEvents.onAddingCamera.Raise(cameraManager.cameraData.neckCamera);
                     if (needleHandler != null)
                     {
                         needleHandler.NeedleSize(0.4f);
@@ -408,7 +407,7 @@ public class Level_Metadata : MonoBehaviour
                     break;
                 case PlushieActiveStitchPart.righteye:
                     this.currentActivePart = PlushieActiveStitchPart.righteye;
-                    GameEvents.CameraManagerEvents.onAddingCamera.Raise(cameraManager.rightEyeCamera);
+                    GameEvents.CameraManagerEvents.onAddingCamera.Raise(cameraManager.cameraData.rightEyeCamera);
                     if(needleHandler != null)
                     {
                         needleHandler.NeedleSize(0.32f);
@@ -418,7 +417,7 @@ public class Level_Metadata : MonoBehaviour
                     break;
                 case PlushieActiveStitchPart.lefteye:
                     this.currentActivePart = PlushieActiveStitchPart.lefteye;
-                    GameEvents.CameraManagerEvents.onAddingCamera.Raise(cameraManager.leftEyeCamera);
+                    GameEvents.CameraManagerEvents.onAddingCamera.Raise(cameraManager.cameraData.leftEyeCamera);
                     if (needleHandler != null)
                     {
                         needleHandler.NeedleSize(0.32f);
@@ -427,7 +426,7 @@ public class Level_Metadata : MonoBehaviour
                     break;
                 case PlushieActiveStitchPart.rightear:
                     this.currentActivePart = PlushieActiveStitchPart.rightear;
-                    GameEvents.CameraManagerEvents.onAddingCamera.Raise(cameraManager.rightEarCamera);
+                    GameEvents.CameraManagerEvents.onAddingCamera.Raise(cameraManager.cameraData.rightEarCamera);
                     if (needleHandler != null)
                     {
                         needleHandler.NeedleSize(0.4f);
@@ -436,7 +435,7 @@ public class Level_Metadata : MonoBehaviour
                     break;
                 case PlushieActiveStitchPart.leftear:
                     this.currentActivePart = PlushieActiveStitchPart.leftear;
-                    GameEvents.CameraManagerEvents.onAddingCamera.Raise(cameraManager.leftEarCamera);
+                    GameEvents.CameraManagerEvents.onAddingCamera.Raise(cameraManager.cameraData.leftEarCamera);
                     if (needleHandler != null)
                     {
                         needleHandler.NeedleSize(0.4f);
@@ -445,7 +444,7 @@ public class Level_Metadata : MonoBehaviour
                     break;
                 case PlushieActiveStitchPart.rightarm:
                     this.currentActivePart = PlushieActiveStitchPart.rightarm;
-                    GameEvents.CameraManagerEvents.onAddingCamera.Raise(cameraManager.rightArmCamera);
+                    GameEvents.CameraManagerEvents.onAddingCamera.Raise(cameraManager.cameraData.rightArmCamera);
                     if (needleHandler != null)
                     {
                         needleHandler.NeedleSize(0.4f);
@@ -454,7 +453,7 @@ public class Level_Metadata : MonoBehaviour
                     break;
                 case PlushieActiveStitchPart.leftarm:
                     this.currentActivePart = PlushieActiveStitchPart.leftarm;
-                    GameEvents.CameraManagerEvents.onAddingCamera.Raise(cameraManager.leftArmCamera);
+                    GameEvents.CameraManagerEvents.onAddingCamera.Raise(cameraManager.cameraData.leftArmCamera);
                     if (needleHandler != null)
                     {
                         needleHandler.NeedleSize(0.4f);
@@ -463,7 +462,7 @@ public class Level_Metadata : MonoBehaviour
                     break;
                 case PlushieActiveStitchPart.rightleg:
                     this.currentActivePart = PlushieActiveStitchPart.rightleg;
-                    GameEvents.CameraManagerEvents.onAddingCamera.Raise(cameraManager.rightLegCamera);
+                    GameEvents.CameraManagerEvents.onAddingCamera.Raise(cameraManager.cameraData.rightLegCamera);
                     if (needleHandler != null)
                     {
                         needleHandler.NeedleSize(0.4f);
@@ -472,7 +471,7 @@ public class Level_Metadata : MonoBehaviour
                     break;
                 case PlushieActiveStitchPart.leftleg:
                     this.currentActivePart = PlushieActiveStitchPart.leftleg;
-                    GameEvents.CameraManagerEvents.onAddingCamera.Raise(cameraManager.leftLegCamera);
+                    GameEvents.CameraManagerEvents.onAddingCamera.Raise(cameraManager.cameraData.leftLegCamera);
                     if (needleHandler != null)
                     {
                         needleHandler.NeedleSize(0.4f);

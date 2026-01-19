@@ -429,14 +429,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ab161826434dd14ebd54fdc5cf289c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <completeStitchedPlushie>k__BackingField: {fileID: 478753432}
-  <stitchCountText>k__BackingField: {fileID: 1926589866}
-  <stitchProgress>k__BackingField: {fileID: 164523661}
-  <startText>k__BackingField: {fileID: 770617109}
-  <undoHighLight>k__BackingField: {fileID: 1554329526}
-  <sewnTextImage>k__BackingField: {fileID: 858616737}
-  <audioSourceForBG>k__BackingField: {fileID: 10644494}
-  <alertTextObj>k__BackingField: {fileID: 1221664673}
+  <uiData>k__BackingField:
+    <completeStitchedPlushie>k__BackingField: {fileID: 478753432}
+    <stitchCountText>k__BackingField: {fileID: 1926589866}
+    <stitchProgress>k__BackingField: {fileID: 164523661}
+    <startText>k__BackingField: {fileID: 770617109}
+    <undoHighLight>k__BackingField: {fileID: 1554329526}
+    <sewnTextImage>k__BackingField: {fileID: 858616737}
+    <audioSourceForBG>k__BackingField: {fileID: 10644494}
+    <alertTextObj>k__BackingField: {fileID: 1221664673}
   <screens>k__BackingField:
     <gameCompleteBGCanvas>k__BackingField: {fileID: 389592027}
     <gameCompletePanel>k__BackingField: {fileID: 1213950396}
@@ -168627,17 +168628,18 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
   <hold>k__BackingField: 1
-  <neckCamera>k__BackingField: {fileID: 1487765691473428403}
-  <leftEyeCamera>k__BackingField: {fileID: 232653229642735166}
-  <leftEarCamera>k__BackingField: {fileID: 1589469848859118698}
-  <rightEarCamera>k__BackingField: {fileID: 8241290396325688581}
-  <rightEyeCamera>k__BackingField: {fileID: 8639172635635098518}
-  <rightArmCamera>k__BackingField: {fileID: 3093688097987833758}
-  <rightLegCamera>k__BackingField: {fileID: 1269162733811942097}
-  <leftLegCamera>k__BackingField: {fileID: 496551115216874410}
-  <leftArmCamera>k__BackingField: {fileID: 8484496210090131436}
-  <gameCompleteCamera>k__BackingField: {fileID: 879318622912067278}
-  <gameHalfProgressCamera>k__BackingField: {fileID: 1740643076740614913}
+  <cameraData>k__BackingField:
+    <neckCamera>k__BackingField: {fileID: 1487765691473428403}
+    <leftEyeCamera>k__BackingField: {fileID: 232653229642735166}
+    <leftEarCamera>k__BackingField: {fileID: 1589469848859118698}
+    <rightEarCamera>k__BackingField: {fileID: 8241290396325688581}
+    <rightEyeCamera>k__BackingField: {fileID: 8639172635635098518}
+    <rightArmCamera>k__BackingField: {fileID: 3093688097987833758}
+    <rightLegCamera>k__BackingField: {fileID: 1269162733811942097}
+    <leftLegCamera>k__BackingField: {fileID: 496551115216874410}
+    <leftArmCamera>k__BackingField: {fileID: 8484496210090131436}
+    <gameCompleteCamera>k__BackingField: {fileID: 879318622912067278}
+    <gameHalfProgressCamera>k__BackingField: {fileID: 1740643076740614913}
 --- !u!1 &644400124
 GameObject:
   m_ObjectHideFlags: 0
@@ -249327,24 +249329,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a834fa0f90a92947bb7d96bdafcec03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <coinBarForGameplayScreen>k__BackingField: {fileID: 1170460112}
-  <coinBar>k__BackingField: {fileID: 910299078}
-  <coinsTextBox>k__BackingField: {fileID: 1090248898}
-  <coinSpritePrefab>k__BackingField: {fileID: 741849573191647018, guid: 2b788709f229a2f4ba7a4e5b190808f1, type: 3}
-  <coinsTextBoxGameplayScreen>k__BackingField: {fileID: 12340141}
-  <coinsGameplayTarget>k__BackingField: {fileID: 356649500}
-  totalCoins: 0
-  coinPrefab: {fileID: 2892916225644379319, guid: ba76c683c1681064bb2872e62328f9f4, type: 3}
-  totalCoinsCloneCount: 30
+  <coinsData>k__BackingField:
+    <coinBarForGameplayScreen>k__BackingField: {fileID: 1170460112}
+    <coinBar>k__BackingField: {fileID: 910299078}
+    <coinsTextBox>k__BackingField: {fileID: 1090248898}
+    <coinSpritePrefab>k__BackingField: {fileID: 741849573191647018, guid: 2b788709f229a2f4ba7a4e5b190808f1, type: 3}
+    <coinsTextBoxGameplayScreen>k__BackingField: {fileID: 12340141}
+    <coinsGameplayTarget>k__BackingField: {fileID: 356649500}
+    <coinPrefab>k__BackingField: {fileID: 2892916225644379319, guid: ba76c683c1681064bb2872e62328f9f4, type: 3}
+    <coinsUiParent>k__BackingField: {fileID: 1814199142}
+    <targetPointToMove>k__BackingField: {fileID: 1759782658}
+    <coinsEarned>k__BackingField: {fileID: 194180369}
+    <audioSource>k__BackingField: {fileID: 870899207}
   <coinsObjList>k__BackingField: []
-  coinsUiParent: {fileID: 1814199142}
+  totalCoins: 0
+  totalCoinsCloneCount: 30
   xPos: 300
   yPos: 300
-  <targetPointToMove>k__BackingField: {fileID: 1759782658}
   <coinMoveSpeed>k__BackingField: 0.5
-  coinsEarned: {fileID: 194180369}
   targetScaleDown: {x: 0, y: 0, z: 0}
-  <audioSource>k__BackingField: {fileID: 870899207}
   coinsIncrementSpeed: 1.5
   testCoinIncrement: 0
   amountToTest: 50
@@ -495384,11 +495387,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01be44cafc0562547ac80078b2d68375, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalBodyPartsToStitch: {fileID: 15333351}
-  totalStitches: {fileID: 1867676052}
-  coinText: {fileID: 684108346}
-  coinEarnedText: {fileID: 664278024}
-  threadSpoolCount: {fileID: 542628966}
+  objectiveData:
+    <totalBodyPartsToStitch>k__BackingField: {fileID: 15333351}
+    <totalStitches>k__BackingField: {fileID: 1867676052}
+    <coinText>k__BackingField: {fileID: 684108346}
+    <coinEarnedText>k__BackingField: {fileID: 664278024}
+    <threadSpoolCount>k__BackingField: {fileID: 542628966}
   levels: {fileID: 74644243099272614}
 --- !u!1 &1531324480
 GameObject:

@@ -4,13 +4,9 @@ using UnityEngine;
 
 public class LevelObjectiveManager : MonoBehaviour
 {
-    [SerializeField] TextMeshProUGUI totalBodyPartsToStitch;
-    [SerializeField] TextMeshProUGUI totalStitches;
-    [SerializeField] TextMeshProUGUI coinText;
-    [SerializeField] TextMeshProUGUI coinEarnedText;
-    [SerializeField] TextMeshProUGUI threadSpoolCount;
+    [SerializeField] LevelObjectiveData objectiveData;
     [SerializeField] LevelsInfoOnSelection levels;
-   
+
     private void Start()
     {
 
@@ -29,13 +25,13 @@ public class LevelObjectiveManager : MonoBehaviour
         int levelIndex = PlayerPrefs.GetInt("Level");
         int plushieIndex = PlayerPrefs.GetInt("Level_" + levelIndex + "_Plushie");
         Level_Metadata levelData = LevelsHandler.instance.currentLevelMeta;
-        totalStitches.text = levelData.levelScriptable.totalStitches.ToString();
-        totalBodyPartsToStitch.text = levelData.levelScriptable.totalParts.ToString();
+        objectiveData.totalStitches.text = levelData.levelScriptable.totalStitches.ToString();
+        objectiveData.totalBodyPartsToStitch.text = levelData.levelScriptable.totalParts.ToString();
         UpdatePlushie(levelIndex, plushieIndex);
-        threadSpoolCount.text = levelData.levelScriptable.totalSpoolsNeeded.ToString()+"X";
+        objectiveData.threadSpoolCount.text = levelData.levelScriptable.totalSpoolsNeeded.ToString()+"X";
         int c = PlayerPrefs.GetInt("Coins");
-        coinText.text = c.ToString();
-        coinEarnedText.text = levelData.levelReward.ToString();
+        objectiveData.coinText.text = c.ToString();
+        objectiveData.coinEarnedText.text = levelData.levelReward.ToString();
         CancelInvoke(nameof(UpdateObjectiveScreenOfCurrentLevel));
     }
   

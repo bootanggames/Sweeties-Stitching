@@ -4,19 +4,8 @@ using UnityEngine;
 
 public interface ILevelUpScreen : IGameService
 {
-    GameObject homeCanvas {  get; }
-    GameObject levelUpScreen {  get; }
-    GameObject levelUpFadeScreen {  get; }
-    GameObject levelUpIntroScreen {  get; }
-    TextMeshProUGUI levelScreenText {  get; }
-    GameObject confettiCameraRenderObj {  get; }
-    HomeScreenSound homeScreen {  get; }
-    GameObject renderTextureImageObj { get; }
-    GameObject levelUpCamera { get; }
+    LevelUpData levelUpData{ get; }
     ParticleSystem[] levelUpEffect { get; }
-    GameObject unlockedPlushieWord { get; }
-    TextMeshProUGUI levelNumber { get; }
-
     void NextPage(int levelNmbr);
     void PrevPage();
     void PlayLevelUpSound();

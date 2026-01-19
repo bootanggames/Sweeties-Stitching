@@ -25,9 +25,11 @@ public class JackpotMachine : MonoBehaviour
     [SerializeField] Sprite coinIcon;
     [SerializeField] List<GameObject> lightBulb;
     [SerializeField] GameObject winText;
+    [SerializeField] GameObject spinBtn;
     int bulbIndex = 0;
     IRewardSystem rewardSystem;
     RewardType winItemType;
+    public bool spinStarted = false;
     private void OnEnable()
     {
         jackpotHandler = ServiceLocator.GetService<IJackpotHandler>();
@@ -68,7 +70,8 @@ public class JackpotMachine : MonoBehaviour
     {
         if (UIObject)
             UIObject.SetActive(false);
-        jackPotMachineObject.SetActive(false);
+        if(jackPotMachineObject)
+            jackPotMachineObject.SetActive(false);
         congratulationsScreen.gameObject.SetActive(true);
         JackPotRewardScreenSound();
     }
@@ -101,8 +104,8 @@ public class JackpotMachine : MonoBehaviour
     public void EnableRoomBg(bool val)
     {
         jackpotCamera.SetActive(!val);
-        jackpotHandler.mainCamera.SetActive(val);
-        jackpotHandler.roomBg.SetActive(val);
+        jackpotHandler.jackpotData.mainCamera.SetActive(val);
+        if(MainMenuHandler.instance) MainMenuHandler.instance.screens.mainMenuBg.SetActive(val);
     }
     public void CloseRewardedScreen()
     {
@@ -158,9 +161,16 @@ public class JackpotMachine : MonoBehaviour
 
     void ResetHandle()
     {
+        spinStarted = true;
         jackpotHandle.SetActive(true);
         jackpotHandleCircle.transform.localPosition = handleStartPosition;
         CancelInvoke(nameof(ResetHandle));
+    }
+    public void CheckIfSpinStarted()
+    {
+        if(spinStarted)
+            spinBtn.SetActive(false);
+        else spinBtn.SetActive(true);
     }
     public void WinEffect()
     {
@@ -169,10 +179,7 @@ public class JackpotMachine : MonoBehaviour
     IEnumerator ShowBlinkinOfObjects()
     {
         lightBulb[bulbIndex].gameObject.SetActive(true);
-        //foreach (GameObject g in lightBulb)
-        //{
-        //    g.SetActive(true);
-        //}
+    
         winText.SetActive(false);
         yield return new WaitForSeconds(0.05f);
         winText.SetActive(true);
@@ -204,7 +211,7 @@ public class JackpotMachine : MonoBehaviour
         }
         else
         {
-            jackpotHandler.roomDecorCanvas.SetActive(true);
+            jackpotHandler.jackpotData.roomDecorCanvas.SetActive(true);
         }
     }
     public void CloseMainmenu()

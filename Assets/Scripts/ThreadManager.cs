@@ -373,6 +373,79 @@ public class ThreadManager : MonoBehaviour, IThreadManager
         prevMouseDragPosition = Vector3.zero;
         GameEvents.NeedleEvents.onNeedleActiveStatusUpdate.Raise(false);
     }
+
+    void ReconnectPrevThreadLine()
+    {
+        Transform firstDetectedPoint = detectedPoints[0];
+        startPos.z = zVal;
+        Vector3 endPos = firstDetectedPoint.position;
+        endPos.z = zVal;
+        InstantiateMainThread(true, endPos);
+        prevLine = instantiatedLine;
+        prevLine.positionCount = threadMaxLength / 5;
+        for (int i = 0; i < prevLine.positionCount; i++)
+        {
+            prevLine.SetPosition(i, endPos);
+        }
+        UpdateStartPositionFromSpool();
+
+        prevLine.SetPosition(0, startPos);
+        instantiatedLine = null;
+        lastConnectedPoint = detectedPoints[detectedPoints.Count - 1];
+
+        InstantiateMainThread(true, lastConnectedPoint.position);
+    }
+    void CheckUndoPointsColor(SewPoint s1, SewPoint s2)
+    {
+        if (s2 != null)
+        {
+            if (s2.nextConnectedPointId.Equals(s1.attachmentId))
+            {
+                if (s2.startFlag)
+                {
+                    if (s2.transform.parent.parent.parent != s1.transform.parent.parent.parent)
+                    {
+                        if (s2.metaData.connected)
+                            s1.pointMesh.material = connectHandler.correctPointMaterial;
+                        else
+                            s1.pointMesh.material = connectHandler.wrongPointMaterial;
+                    }
+                    else
+                    {
+                        if (s2.metaData.connected)
+                            s1.pointMesh.material = connectHandler.correctPointMaterial;
+                        else
+                            s1.pointMesh.material = connectHandler.wrongPointMaterial;
+                    }
+
+                }
+                else
+                {
+                    if (s2.transform.parent.parent.parent != s1.transform.parent.parent.parent)
+                    {
+                        if (s2.metaData.connected)
+                            s1.pointMesh.material = connectHandler.correctPointMaterial;
+                        else
+                            s1.pointMesh.material = connectHandler.wrongPointMaterial;
+                    }
+                    else
+                    {
+                        if (s2.metaData.connected)
+                            s1.pointMesh.material = connectHandler.correctPointMaterial;
+                        else
+                            s1.pointMesh.material = connectHandler.wrongPointMaterial;
+                    }
+                }
+            }
+        }
+        else
+        {
+            if (s1 != null)
+            {
+                if (s1.startFlag) s1.pointMesh.material = connectHandler.correctPointMaterial;
+            }
+        }
+    }
     public void UndoThread()
     {
         if (!canUndo) return;
@@ -386,7 +459,6 @@ public class ThreadManager : MonoBehaviour, IThreadManager
                     if (pointDetector.pointsDetected.Count > 0)
                     {
                         SewPoint s = pointDetector.pointsDetected[pointDetector.pointsDetected.Count - 1];
-                        //s.pointMesh.material = connectHandler.originalMaterial;
                         ScaleInOut(s.transform, 0.2f, 0.25f, false, s.originalScale);
                         if (pointIndex > 0) pointIndex--;
                     }
@@ -425,54 +497,8 @@ public class ThreadManager : MonoBehaviour, IThreadManager
                     if ((detectedPoints.Count - 2) >= 0)
                         s2 = detectedPoints[(detectedPoints.Count - 2)].GetComponent<SewPoint>();
                     SewPoint s1 = detectedPoints[(detectedPoints.Count - 1)].GetComponent<SewPoint>();
-                    if (s2 != null)
-                    {
-                        if (s2.nextConnectedPointId.Equals(s1.attachmentId))
-                        {
-                            if (s2.startFlag)
-                            {
-                                if (s2.transform.parent.parent.parent != s1.transform.parent.parent.parent)
-                                {
-                                    if (s2.metaData.connected)
-                                        s1.pointMesh.material = connectHandler.correctPointMaterial;
-                                    else
-                                        s1.pointMesh.material = connectHandler.wrongPointMaterial;
-                                }
-                                else
-                                {
-                                    if (s2.metaData.connected)
-                                        s1.pointMesh.material = connectHandler.correctPointMaterial;
-                                    else
-                                        s1.pointMesh.material = connectHandler.wrongPointMaterial;
-                                }
 
-                            }
-                            else
-                            {
-                                if (s2.transform.parent.parent.parent != s1.transform.parent.parent.parent)
-                                {
-                                    if (s2.metaData.connected)
-                                        s1.pointMesh.material = connectHandler.correctPointMaterial;
-                                    else
-                                        s1.pointMesh.material = connectHandler.wrongPointMaterial;
-                                }
-                                else
-                                {
-                                    if (s2.metaData.connected)
-                                        s1.pointMesh.material = connectHandler.correctPointMaterial;
-                                    else
-                                        s1.pointMesh.material = connectHandler.wrongPointMaterial;
-                                }
-                            }
-                        }
-                    }
-                    else
-                    {
-                        if (s1 != null)
-                        {
-                            if (s1.startFlag) s1.pointMesh.material = connectHandler.correctPointMaterial;
-                        }
-                    }
+                    CheckUndoPointsColor(s1, s2);
                     SetLastConnectedPosition(detectedPoints[(detectedPoints.Count - 1)].transform);
                 }
                 else
@@ -480,24 +506,7 @@ public class ThreadManager : MonoBehaviour, IThreadManager
 
                 if (prevLine == null)
                 {
-                    Transform firstDetectedPoint = detectedPoints[0];
-                    startPos.z = zVal;
-                    Vector3 endPos = firstDetectedPoint.position;
-                    endPos.z = zVal;
-                    InstantiateMainThread(true, endPos);
-                    prevLine = instantiatedLine;
-                    prevLine.positionCount = threadMaxLength / 5;
-                    for (int i = 0; i < prevLine.positionCount; i++)
-                    {
-                        prevLine.SetPosition(i, endPos);
-                    }
-                    UpdateStartPositionFromSpool();
-
-                    prevLine.SetPosition(0, startPos);
-                    instantiatedLine = null;
-                    lastConnectedPoint = detectedPoints[detectedPoints.Count - 1];
-
-                    InstantiateMainThread(true, lastConnectedPoint.position);
+                    ReconnectPrevThreadLine();
                 }
             }
             else
@@ -605,7 +614,7 @@ public class ThreadManager : MonoBehaviour, IThreadManager
                 connectHandler.GetObjectInfoWrongAlertTextDisableOfPart(LevelsHandler.instance.currentLevelMeta.immoveablePart.GetComponent<Part_Info>().joints);
                 connectHandler.GetObjectInfoWrongAlertTextDisableOfPart(LevelsHandler.instance.currentLevelMeta.head.joints);
                 if (canvasManager != null)
-                    canvasManager.undoHighLight.SetActive(false);
+                    canvasManager.uiData.undoHighLight.SetActive(false);
             }
             if (detectedPoints.Count > 0)
                 LevelsHandler.instance.currentLevelMeta.ResetNeedlePosition(LevelsHandler.instance.currentLevelMeta.currentActivePart);

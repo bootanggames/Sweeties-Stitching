@@ -1118,6 +1118,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 3134675899952352361}
+        m_TargetAssemblyTypeName: JackpotMachine, Assembly-CSharp
+        m_MethodName: CheckIfSpinStarted
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &594068874575950617
 GameObject:
   m_ObjectHideFlags: 0
@@ -2479,7 +2491,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 7767682743253643929}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
@@ -9089,10 +9101,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 6621966688641527047}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 3134675899952352361}
+        m_TargetAssemblyTypeName: JackpotMachine, Assembly-CSharp
+        m_MethodName: CheckIfSpinStarted
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -11542,6 +11554,8 @@ MonoBehaviour:
   - {fileID: 6916531852104974593}
   - {fileID: 6121716536303761368}
   winText: {fileID: 528978772247467923}
+  spinBtn: {fileID: 7767682743253643929}
+  spinStarted: 0
 --- !u!114 &9070759783531290596
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13982,7 +13996,7 @@ MonoBehaviour:
   skipBtn: {fileID: 571374651007672803}
   nextBtn: {fileID: 1209695112475107298}
   homeBtn: {fileID: 5183461084621307012}
-  sewBtnHomeMenu: {fileID: 7767682743253643929}
+  sewBtnHomeMenu: {fileID: 0}
   mainScreenIndex: 0
   screenIndex: 0
   subScreenIndex: 0

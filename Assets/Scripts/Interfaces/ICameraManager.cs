@@ -8,18 +8,8 @@ public interface ICameraManager : IGameService
     float hold {  get; }
     int cameraIndex {  get; }
 
-    CinemachineVirtualCameraBase neckCamera { get; }
-    CinemachineVirtualCameraBase leftEyeCamera { get; }
-    CinemachineVirtualCameraBase leftEarCamera { get; }
-    CinemachineVirtualCameraBase rightEarCamera { get; }
-    CinemachineVirtualCameraBase rightEyeCamera { get; }
-    CinemachineVirtualCameraBase rightArmCamera { get; }
-    CinemachineVirtualCameraBase rightLegCamera { get; }
-    CinemachineVirtualCameraBase leftLegCamera { get; }
-    CinemachineVirtualCameraBase leftArmCamera { get; }
-    CinemachineVirtualCameraBase gameCompleteCamera { get; }
-    CinemachineVirtualCameraBase gameHalfProgressCamera { get; }
 
+    CameraReferences cameraData { get; }
     void RepositionCamera(Transform camera, Vector3 pos);
     
 }

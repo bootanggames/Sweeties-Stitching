@@ -256,7 +256,7 @@ public class PointConnectorHandler : MonoBehaviour, IPointConnectionHandler
         //ob_info.WrongSequenceAlertText("Uh oh! Stitching Pattern is OFF", 2);
         var canvasHandler = ServiceLocator.GetService<ICanvasUIManager>();
         if(canvasHandler != null)
-            canvasHandler.undoHighLight.SetActive(true);
+            canvasHandler.uiData.undoHighLight.SetActive(true);
         UpdateColorOfPoints();
     }
     public void GetObjectInfoWrongAlertTextDisableOfPart(List<GameObject> list)

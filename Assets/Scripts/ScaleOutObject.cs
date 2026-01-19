@@ -110,8 +110,8 @@ public class ScaleOutObject : MonoBehaviour
         if (levelUpScreen != null)
         {
             levelUpScreen.PlayCelebrationSound();
-            levelUpScreen.levelUpScreen.SetActive(false);
-            levelUpScreen.levelUpFadeScreen.SetActive(true);
+            levelUpScreen.levelUpData.levelUpScreen.SetActive(false);
+            levelUpScreen.levelUpData.levelUpFadeScreen.SetActive(true);
             levelUpScreen.DisableParticleEffects();
             NextLevelPanel();
             //Invoke(nameof(NextLevelPanel), 0.2f);
@@ -135,15 +135,15 @@ public class ScaleOutObject : MonoBehaviour
     }
     void EnableWordUnlockedPlushies()
     {
-        levelUpScreen.unlockedPlushieWord.SetActive(true);
+        levelUpScreen.levelUpData.unlockedPlushieWord.SetActive(true);
         CancelInvoke(nameof(EnableWordUnlockedPlushies));
     }
     void LevelIntroScreen()
     {
         if (levelUpScreen != null)
         {
-            levelUpScreen.levelUpFadeScreen.SetActive(false);
-            levelUpScreen.levelUpIntroScreen.SetActive(true);
+            levelUpScreen.levelUpData.levelUpFadeScreen.SetActive(false);
+            levelUpScreen.levelUpData.levelUpIntroScreen.SetActive(true);
             //levelUpScreen.homeCanvas.SetActive(false);
             levelUpScreen.PlayLevelUpSongSound();
             this.GetComponent<Image>().enabled = true;

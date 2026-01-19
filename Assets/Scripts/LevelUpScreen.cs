@@ -7,23 +7,11 @@ using UnityEngine.UI;
 
 public class LevelUpScreen : MonoBehaviour, ILevelUpScreen
 {
-    [field: SerializeField] public GameObject levelUpScreen {  get; private set; }
-    [field:SerializeField] public GameObject levelUpFadeScreen {  get; private set; }
-    [field:SerializeField] public GameObject levelUpIntroScreen {  get; private set; }
-    [field: SerializeField] public TextMeshProUGUI levelScreenText {  get; private set; }
-    [field: SerializeField] public GameObject confettiCameraRenderObj { get; private set; }
+    [field: SerializeField] public LevelUpData levelUpData {  get; private set; }
     [SerializeField] PageScroller pageScroller;
     [SerializeField] PageSlider pageSlider;
-    //[SerializeField] LevelUpPlushieInfo[] plushieInfo;
     [SerializeField] AudioSource audioSource;
-    [field: SerializeField]public HomeScreenSound homeScreen {  get; private set; }
-    [field: SerializeField] public GameObject renderTextureImageObj { get; private set; }
-    [field: SerializeField] public GameObject levelUpCamera { get; private set; }
     [field: SerializeField] public ParticleSystem[] levelUpEffect { get; private set; }
-    [field: SerializeField] public GameObject unlockedPlushieWord { get; private set; }
-    [field: SerializeField] public TextMeshProUGUI levelNumber { get; private set; }
-
-    [field: SerializeField] public GameObject homeCanvas { get; private set; }
 
     [SerializeField] ShakerInstance _shakerInstance;
     [SerializeField] ShakeData shakeData;
@@ -51,19 +39,19 @@ public class LevelUpScreen : MonoBehaviour, ILevelUpScreen
     void GetLevel()
     {
         int levelIndex = PlayerPrefs.GetInt("Level");
-        levelNumber.text = (levelIndex + 1).ToString();
+        levelUpData.levelNumber.text = (levelIndex + 1).ToString();
         int levelUp = PlayerPrefs.GetInt("LevelUp");
 
         if (levelUp == 1)
         {
-            levelScreenText.text = "Level" + levelIndex;
-            levelUpScreen.SetActive(true);
+            levelUpData.levelScreenText.text = "Level" + levelIndex;
+            levelUpData.levelUpScreen.SetActive(true);
             PlayLevelUpSound();
           
             CameraShake2D();
             PlayerPrefs.SetInt("LevelUp", 0);
-            renderTextureImageObj.SetActive(true);
-            confettiCameraRenderObj.SetActive(false);
+            levelUpData.renderTextureImageObj.SetActive(true);
+            levelUpData.confettiCameraRenderObj.SetActive(false);
             //levelUpCamera.SetActive(true);
             foreach(ParticleSystem ps in levelUpEffect)
             {

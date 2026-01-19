@@ -30,7 +30,7 @@ public class LevelUpIntroScreen : MonoBehaviour
         jackpotHandler = ServiceLocator.GetService<IJackpotHandler>();
         //renderTexture.SetActive(true);
         //levelUpScreen.levelUpCamera.SetActive(false);
-        levelUpScreen.homeScreen.SetVolumeForBgMusic(0.5f);
+        levelUpScreen.levelUpData.homeScreen.SetVolumeForBgMusic(0.5f);
         foreach (PlushieSpriteContainer container in pageSliderContainer)
         {
             if (container.levelId.Equals(levelIndex + 1))
@@ -51,12 +51,12 @@ public class LevelUpIntroScreen : MonoBehaviour
         if (levelUpScreen != null)
         {
             levelUpScreen.StopSound();
-            levelUpScreen.homeScreen.SetVolumeForBgMusic(1);
-            levelUpScreen.homeScreen.EnableSound();
-            levelUpScreen.renderTextureImageObj.SetActive(false);
-            levelUpScreen.levelUpScreen.SetActive(false);
-            levelUpScreen.confettiCameraRenderObj.SetActive(false);
-            levelUpScreen.homeCanvas.SetActive(true);
+            levelUpScreen.levelUpData.homeScreen.SetVolumeForBgMusic(1);
+            levelUpScreen.levelUpData.homeScreen.EnableSound();
+            levelUpScreen.levelUpData.renderTextureImageObj.SetActive(false);
+            levelUpScreen.levelUpData.levelUpScreen.SetActive(false);
+            levelUpScreen.levelUpData.confettiCameraRenderObj.SetActive(false);
+            levelUpScreen.levelUpData.homeCanvas.SetActive(true);
             this.GetComponent<Image>().enabled = true;
             explosionEffectParent.SetActive(false);
 
@@ -167,7 +167,7 @@ public class LevelUpIntroScreen : MonoBehaviour
             g.transform.localScale = Vector3.zero;
             g.SetActive(false);
         }
-        levelUpScreen.levelUpIntroScreen.SetActive(false);
+        levelUpScreen.levelUpData.levelUpIntroScreen.SetActive(false);
 
         CancelInvoke(nameof(DisablePlushies));
     }

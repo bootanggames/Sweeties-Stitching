@@ -6,16 +6,9 @@ using UnityEngine.UI;
 
 public class CanvasUIManager : MonoBehaviour, ICanvasUIManager
 {
-    [field: SerializeField] public GameObject completeStitchedPlushie {  get; private set; }
-    [field: SerializeField] public TextMeshProUGUI stitchCountText {  get; private set; }
-    [field: SerializeField] public TextMeshProUGUI stitchProgress {  get; private set; }
      public GameObject tapToStartButton { get; private set; }
      public TextMeshProUGUI offsetValue { get; private set; }
-    [field: SerializeField] public GameObject startText { get; private set; }
-    [field: SerializeField] public GameObject undoHighLight { get; private set; }
-    [field: SerializeField] public GameObject sewnTextImage { get; private set; }
-    [field: SerializeField] public AudioSource audioSourceForBG { get; private set; }
-    [field: SerializeField] public GameObject alertTextObj { get; private set; }
+    [field: SerializeField] public GameplayUIData uiData { get; private set; }
     [field: SerializeField] public GameplayScreens screens { get; private set; }
 
     private void Start()
@@ -26,11 +19,11 @@ public class CanvasUIManager : MonoBehaviour, ICanvasUIManager
     }
     public void PlayBgMusic()
     {
-        SoundManager.instance.PlaySound(audioSourceForBG, SoundManager.instance.audioClips.bgMusic, true, false, 0.8f, true);
+        SoundManager.instance.PlaySound(uiData.audioSourceForBG, SoundManager.instance.audioClips.bgMusic, true, false, 0.8f, true);
     }
     public void StopBgMusic()
     {
-        SoundManager.instance.StopSound(audioSourceForBG);
+        SoundManager.instance.StopSound(uiData.audioSourceForBG);
     }
     private void OnDisable()
     {
@@ -76,7 +69,7 @@ public class CanvasUIManager : MonoBehaviour, ICanvasUIManager
 
     public void UpdateStitchCount(int totalStitch, int completedStitch)
     {
-        stitchCountText.text = completedStitch + " OF " + totalStitch;
+        uiData.stitchCountText.text = completedStitch + " OF " + totalStitch;
     }
 
     public void UpdatePlushieStitchProgress(int totalParts, int completedParts)
@@ -86,7 +79,7 @@ public class CanvasUIManager : MonoBehaviour, ICanvasUIManager
             percent = 0;
         else
             percent = ((float)completedParts / totalParts) * 100;
-        stitchProgress.text = Mathf.FloorToInt(percent).ToString() + "% DONE";
+        uiData.stitchProgress.text = Mathf.FloorToInt(percent).ToString() + "% DONE";
     }
 
     public void CheckGameCompleteOnHomeButton()

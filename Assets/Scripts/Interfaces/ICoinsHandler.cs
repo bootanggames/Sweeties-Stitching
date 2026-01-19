@@ -6,16 +6,10 @@ using UnityEngine;
 
 public interface ICoinsHandler : IGameService
 {
-    GameObject coinBar {  get; }
-    GameObject coinBarForGameplayScreen {  get; }
-    Transform targetPointToMove {  get; }
     List<GameObject> coinsObjList {  get; }
-    TextMeshProUGUI coinsTextBox {  get; }
-    TextMeshProUGUI coinsTextBoxGameplayScreen {  get; }
-    GameObject coinSpritePrefab {  get; }
-    Transform coinsGameplayTarget {  get; }
+    CoinsEffectData coinsData { get; }
     float coinMoveSpeed {  get; }
-    AudioSource audioSource {  get; }
+    //AudioSource audioSource {  get; }
     void SaveCoins(int amount);
     int GetCoins();
     void UpdateCoins(int amount);

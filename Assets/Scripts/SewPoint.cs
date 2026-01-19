@@ -180,14 +180,11 @@ public class SewPoint : MonoBehaviour, ISewPoint
     }
     public void ChangeTextColor(Color c)
     {
-        if(textObj) textObj.color = c;
+        if (textObj) textObj.color = c;
+   
 
         if (!PlayerPrefs.HasKey("GameplayTutorialFinished") || PlayerPrefs.GetInt("GameplayTutorialFinished") == 0)
-        {
             LevelsHandler.instance.currentLevelMeta.SecondPointForTutorial();
-            LevelsHandler.instance.tutorialScreen.CheckFinishedStatus();
-        }
-
     }
 
     public void IsConnected(bool val, int v, Vector3 lastMovemPosition,string bodyPart)
@@ -198,7 +195,11 @@ public class SewPoint : MonoBehaviour, ISewPoint
         if (SaveDataUsingJson.instance)
             SaveDataUsingJson.instance.SaveData(LevelsHandler.instance.currentLevelMeta.levelScriptable.levelName + "_" + plushieIndex + "_" + bodyPart + "_" + attachmentId, metaData, "Stitching_BackUpFiles");
 
-      
+        var pointsHandler = ServiceLocator.GetService<IPointConnectionHandler>();
 
+        if (pointsHandler != null)
+            if (pointsHandler.wrongConnectPoint.Count > 0) return;
+        if (!PlayerPrefs.HasKey("GameplayTutorialFinished") || PlayerPrefs.GetInt("GameplayTutorialFinished") == 0)
+                LevelsHandler.instance.tutorialScreen.CheckFinishedStatus();
     }
 }

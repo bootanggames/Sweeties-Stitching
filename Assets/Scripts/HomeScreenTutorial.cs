@@ -99,7 +99,14 @@ public class HomeScreenTutorial : MonoBehaviour
         }
 
     }
-    
+    public void EnableScreen(int mainScreen, int index)
+    {
+        if(index >= 1)
+        {
+            tutorialScreen[mainScreen].screens[index - 1].screen.SetActive(false);
+            tutorialScreen[mainScreen].screens[index].screen.SetActive(true);
+        }
+    }
     public void CheckFinishedStatus()
     {
         if(tutorialScreen[mainScreenIndex].screens[screenIndex].subScreens.Count > 0 && subScreenIndex >= 0)
@@ -169,6 +176,7 @@ public class HomeScreenTutorial : MonoBehaviour
 
         }
     }
+    
     public void SkipButton()
     {
         screenIndex = 0;
@@ -207,6 +215,8 @@ public class HomeScreenTutorial : MonoBehaviour
     {
         if (MainMenuHandler.instance)
         {
+            MainMenuHandler.instance.activeScreen = MainMenuActiveScreen.homeScreen;
+            MainMenuHandler.instance.previousScreen = MainMenuActiveScreen.homeScreen;
             MainMenuHandler.instance.screens.blurEffect.SetActive(true);
             MainMenuHandler.instance.screens.homeScreen.SetActive(true);
             MainMenuHandler.instance.screens.homeScreenCanvas.SetActive(true);

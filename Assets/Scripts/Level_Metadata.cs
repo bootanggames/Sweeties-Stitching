@@ -242,7 +242,13 @@ public class Level_Metadata : MonoBehaviour
     }
     public void SecondPointForTutorial()
     {
-        stitchStartingPart.connectPoints[0].GetComponent<Collider>().enabled = true;
+        Collider c = stitchStartingPart.connectPoints[0].GetComponent<Collider>();
+        if (!c.enabled)
+        {
+            c.enabled = true;
+            LevelsHandler.instance.tutorialScreen.EnableScreen(0, 1);
+        }
+       
     }
     public void SetAllPointsOfFirstStitchPartActive()
     {
